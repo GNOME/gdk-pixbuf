@@ -30,7 +30,8 @@ msgstr "Myndskráin '%s' inniheldur ekkert"
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr ""
-"Gat ekki lesið myndina '%s': skýringin er ókunn en líklega er þetta gölluð skrá"
+"Gat ekki lesið myndina '%s': skýringin er ókunn en líklega er þetta gölluð "
+"skrá"
 
 #: gdk-pixbuf/gdk-pixbuf-animation.c:226
 #, c-format
@@ -52,8 +53,8 @@ msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
 "from a different GTK version?"
 msgstr ""
-"Myndlestrareiningin %s hefur ekki rétt viðmót. Ef til vill er hún ættuð "
-"úr annari útgáfu af GTK?"
+"Myndlestrareiningin %s hefur ekki rétt viðmót. Ef til vill er hún ættuð úr "
+"annari útgáfu af GTK?"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:564 gdk-pixbuf/gdk-pixbuf-io.c:612
 #, c-format
@@ -222,8 +223,8 @@ msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
 msgstr ""
-"GIF myndin er ekki með víðvært litakort og rammi innan hennar er ekki "
-"með litakort heldur."
+"GIF myndin er ekki með víðvært litakort og rammi innan hennar er ekki með "
+"litakort heldur."
 
 #: gdk-pixbuf/io-gif.c:1487
 msgid "GIF image was truncated or incomplete."
@@ -276,8 +277,8 @@ msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
 msgstr ""
-"Ekki nægjanlegt minni til að lesa inn myndina. Þú getur reynt að loka "
-"öðrum forritum til að losa minni"
+"Ekki nægjanlegt minni til að lesa inn myndina. Þú getur reynt að loka öðrum "
+"forritum til að losa minni"
 
 #: gdk-pixbuf/io-jpeg.c:383 gdk-pixbuf/io-jpeg.c:744
 #, c-format
@@ -325,7 +326,9 @@ msgstr "Umbreytt PNG mynd er ekki á RGB eða RGBA sniði."
 
 #: gdk-pixbuf/io-png.c:162
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
-msgstr "Umbreytta PNG myndin hefur ógildann fjölda rása. Rásafjöldi verður að vera 3 eða 4."
+msgstr ""
+"Umbreytta PNG myndin hefur ógildann fjölda rása. Rásafjöldi verður að vera 3 "
+"eða 4."
 
 #: gdk-pixbuf/io-png.c:183
 #, c-format
@@ -342,8 +345,8 @@ msgid ""
 "Insufficient memory to store a %ld by %ld image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
-"Ekki nægjanlegt minni til að geyma %ld sinnum %ld mynd. Þú getur reynt "
-"að loka öðrum forrinum til að losa minni."
+"Ekki nægjanlegt minni til að geyma %ld sinnum %ld mynd. Þú getur reynt að "
+"loka öðrum forrinum til að losa minni."
 
 #: gdk-pixbuf/io-png.c:656
 msgid "Fatal error reading PNG image file"
@@ -368,8 +371,7 @@ msgstr "Lyklar í PNG textablokkum verða að vera ASCII tákn."
 #, c-format
 msgid ""
 "Value for PNG text chunk %s can not be converted to ISO-8859-1 encoding."
-msgstr ""
-"Gildi í PNG textablokkinni %s er ekki hægt að umbreyta í ISO-8859-1."
+msgstr "Gildi í PNG textablokkinni %s er ekki hægt að umbreyta í ISO-8859-1."
 
 #: gdk-pixbuf/io-png.c:919
 msgid "The PNG image format"
@@ -752,8 +754,8 @@ msgid ""
 "Horizontal position of child in available space. 0.0 is left aligned, 1.0 is "
 "right aligned"
 msgstr ""
-"Lárétt staðsettning barns í tiltæku plássi. 0.0 er lengst til vinstri, 1.0 er "
-"lengst til hægri"
+"Lárétt staðsettning barns í tiltæku plássi. 0.0 er lengst til vinstri, 1.0 "
+"er lengst til hægri"
 
 #: gtk/gtkalignment.c:112
 msgid "Vertical alignment"
@@ -763,8 +765,7 @@ msgstr "Lóðrétt viðfang"
 msgid ""
 "Vertical position of child in available space. 0.0 is top aligned, 1.0 is "
 "bottom aligned"
-msgstr ""
-"Lóðrétt staðsettning barns í tiltæku plássi. 0.0 er efst, 1.0 er neðst"
+msgstr "Lóðrétt staðsettning barns í tiltæku plássi. 0.0 er efst, 1.0 er neðst"
 
 #: gtk/gtkalignment.c:121
 msgid "Horizontal scale"
@@ -775,8 +776,8 @@ msgid ""
 "If available horizontal space is bigger than needed for the child, how much "
 "of it to use for the child. 0.0 means none, 1.0 means all"
 msgstr ""
-"Ef lárétt pláss fyrir barnið er meira en þörf er á, hversu mikið af því á "
-"að nota. 0.0 er ekkert og 1.0 er allt."
+"Ef lárétt pláss fyrir barnið er meira en þörf er á, hversu mikið af því á að "
+"nota. 0.0 er ekkert og 1.0 er allt."
 
 #: gtk/gtkalignment.c:130
 msgid "Vertical scale"
@@ -1955,8 +1956,7 @@ msgstr "_Endurnefna skrá"
 #, c-format
 msgid ""
 "The folder name \"%s\" contains symbols that are not allowed in filenames"
-msgstr ""
-"Möppuheitið \"%s\" inniheldur tákn sem ekki má nota í skráarheitum."
+msgstr "Möppuheitið \"%s\" inniheldur tákn sem ekki má nota í skráarheitum."
 
 #: gtk/gtkfilesel.c:1431
 #, c-format
@@ -2071,8 +2071,8 @@ msgid ""
 "The filename \"%s\" couldn't be converted to UTF-8 (try setting the "
 "environment variable G_BROKEN_FILENAMES): %s"
 msgstr ""
-"Ekki var hægt að breyta skráarheitinu \"%s\" í UTF-8 (þú getur reynt "
-"að setja umhverfisbreytuna G_BROKEN_FILENAMES): %s"
+"Ekki var hægt að breyta skráarheitinu \"%s\" í UTF-8 (þú getur reynt að "
+"setja umhverfisbreytuna G_BROKEN_FILENAMES): %s"
 
 #: gtk/gtkfilesel.c:3114
 msgid "Invalid Utf-8"
