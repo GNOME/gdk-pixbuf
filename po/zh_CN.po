@@ -1,50 +1,46 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) 1999 Free Software Foundation, Inc.
-# Joseba Bidaurrazaga van Dierdonck <gcpbivaj@lg.ehu.es>, 1999-2000
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+ VERSION\n"
+"Project-Id-Version: gtk+ 1.1.7 \n"
 "POT-Creation-Date: 2000-08-10 21:20-0400\n"
-"PO-Revision-Date: 1999-07-05 19:17+0200\n"
-"Last-Translator: Joseba Bidaurrazaga van Dierdonck <gcpbivaj@lg.ehu.es>\n"
-"Language-Team: euskare <linux-eu@chanae.alphanet.ch>\n"
+"PO-Revision-Date: 1999-01-31 19:33+0800\n"
+"Last-Translator: Dillion Chen <dillon.chen@turbolinux.com.cn>\n"
+"Language-Team: TLDN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: gtk/gtkcolorsel.c:1420
 msgid "Hue:"
-msgstr "Kolorea:"
+msgstr "色相:"
 
 #: gtk/gtkcolorsel.c:1421
 msgid "Saturation:"
-msgstr "Saturazioa:"
+msgstr "彩度:"
 
 #: gtk/gtkcolorsel.c:1422
 msgid "Value:"
-msgstr "Balioa:"
+msgstr "明度:"
 
 #: gtk/gtkcolorsel.c:1423
 msgid "Red:"
-msgstr "Gorria:"
+msgstr "红:"
 
 #: gtk/gtkcolorsel.c:1424
 msgid "Green:"
-msgstr "Berdea:"
+msgstr "绿:"
 
 #: gtk/gtkcolorsel.c:1425
 msgid "Blue:"
-msgstr "Urdina"
+msgstr "蓝:"
 
 #: gtk/gtkcolorsel.c:1428
 msgid "Opacity:"
-msgstr "Opazitatea"
+msgstr "不透明度:"
 
 #: gtk/gtkcolorsel.c:1443
 #, fuzzy
 msgid "Hex Value:"
-msgstr "Balioa:"
+msgstr "明度:"
 
 #: gtk/gtkcolorsel.c:1464
 msgid "Custom Palette"
@@ -58,45 +54,45 @@ msgstr ""
 #: gtk/gtkcolorseldialog.c:105 gtk/gtkfilesel.c:567 gtk/gtkfontsel.c:952
 #: gtk/gtkgamma.c:415
 msgid "OK"
-msgstr "Ados"
+msgstr "确定"
 
 #. The Cancel button
 #: gtk/gtkcolorseldialog.c:111 gtk/gtkfilesel.c:574 gtk/gtkfilesel.c:963
 #: gtk/gtkfilesel.c:1067 gtk/gtkfilesel.c:1182 gtk/gtkfontsel.c:965
 #: gtk/gtkgamma.c:423
 msgid "Cancel"
-msgstr "Ezeztatu"
+msgstr "取消"
 
 #: gtk/gtkcolorseldialog.c:116
 msgid "Help"
-msgstr "Laguntza"
+msgstr "求助"
 
 #. The directories clist
 #: gtk/gtkfilesel.c:514
 msgid "Directories"
-msgstr "Direktorioak"
+msgstr "目录"
 
 #. The files clist
 #: gtk/gtkfilesel.c:534
 msgid "Files"
-msgstr "Fitxategiak"
+msgstr "文件"
 
 #: gtk/gtkfilesel.c:605 gtk/gtkfilesel.c:1621
 #, c-format
 msgid "Directory unreadable: %s"
-msgstr "Direktorio irakurtezina: %s"
+msgstr "无法读取目录: %s"
 
 #: gtk/gtkfilesel.c:637
 msgid "Create Dir"
-msgstr "Sortu Dir"
+msgstr "新增目录"
 
 #: gtk/gtkfilesel.c:648 gtk/gtkfilesel.c:1036
 msgid "Delete File"
-msgstr "Ezabatu fitxategia"
+msgstr "删除文件"
 
 #: gtk/gtkfilesel.c:659 gtk/gtkfilesel.c:1140
 msgid "Rename File"
-msgstr "Berizendatu fitxategia"
+msgstr "重新命名"
 
 #.
 #. gtk_signal_connect (GTK_OBJECT (dialog), "destroy",
@@ -105,65 +101,65 @@ msgstr "Berizendatu fitxategia"
 #.
 #: gtk/gtkfilesel.c:828
 msgid "Error"
-msgstr "Errorea"
+msgstr "错误"
 
 #. close button
 #: gtk/gtkfilesel.c:851 gtk/gtkinputdialog.c:338
 msgid "Close"
-msgstr "Itxi"
+msgstr "关闭"
 
 #: gtk/gtkfilesel.c:927
 msgid "Create Directory"
-msgstr "Sortu Direktorioa"
+msgstr "新增目录"
 
 #: gtk/gtkfilesel.c:941
 msgid "Directory name:"
-msgstr "Direktorioaren izena"
+msgstr "目录域名:"
 
 #. buttons
 #: gtk/gtkfilesel.c:954
 msgid "Create"
-msgstr "Sortu"
+msgstr "新增"
 
 #. buttons
 #: gtk/gtkfilesel.c:1058
 msgid "Delete"
-msgstr "Ezabatu"
+msgstr "删除"
 
 #. buttons
 #: gtk/gtkfilesel.c:1173
 msgid "Rename"
-msgstr "Berizendatu"
+msgstr "更新"
 
 #: gtk/gtkfilesel.c:1600
 msgid "Selection: "
-msgstr "Aukera: "
+msgstr "字体选项: "
 
 #: gtk/gtkfontsel.c:189
 msgid "Family:"
-msgstr "Familia:"
+msgstr "字体:"
 
 #: gtk/gtkfontsel.c:194
 #, fuzzy
 msgid "Style:"
-msgstr "Gehitu estiloa"
+msgstr "增加形式:"
 
 #: gtk/gtkfontsel.c:199
 msgid "Size:"
-msgstr "Tamaina"
+msgstr "大小:"
 
 #. create the text entry widget
 #: gtk/gtkfontsel.c:309
 msgid "Preview:"
-msgstr "Aurrikusi"
+msgstr "预览:"
 
 #: gtk/gtkfontsel.c:959
 msgid "Apply"
-msgstr "Ezarri"
+msgstr "套用"
 
 #: gtk/gtkfontsel.c:981
 msgid "Font Selection"
-msgstr "Font aukera"
+msgstr "字体选择"
 
 #: gtk/gtkgamma.c:395
 msgid "Gamma"
@@ -171,52 +167,52 @@ msgstr "Gamma"
 
 #: gtk/gtkgamma.c:402
 msgid "Gamma value"
-msgstr "Gamma balioa"
+msgstr "Gamma 值"
 
 #. shell and main vbox
 #: gtk/gtkinputdialog.c:185
 msgid "Input"
-msgstr "Sarrera"
+msgstr "输入"
 
 #: gtk/gtkinputdialog.c:193
 msgid "No input devices"
-msgstr "Ez dago sarrerarako tresnarik"
+msgstr "缺少输入装置"
 
 #: gtk/gtkinputdialog.c:222
 msgid "Device:"
-msgstr "Tresna:"
+msgstr "装置:"
 
 #: gtk/gtkinputdialog.c:238
 msgid "Disabled"
-msgstr "Ezindua"
+msgstr "已失效"
 
 #: gtk/gtkinputdialog.c:246
 msgid "Screen"
-msgstr "Pantaila"
+msgstr "屏幕"
 
 #: gtk/gtkinputdialog.c:254
 msgid "Window"
-msgstr "Lehioa"
+msgstr "窗口"
 
 #: gtk/gtkinputdialog.c:262
 msgid "Mode: "
-msgstr "Modua: "
+msgstr "模式:"
 
 #. The axis listbox
 #: gtk/gtkinputdialog.c:292
 msgid "Axes"
-msgstr "Ardatzak"
+msgstr "轴"
 
 #. Keys listbox
 #: gtk/gtkinputdialog.c:308
 msgid "Keys"
-msgstr "Giltzak"
+msgstr "键钮"
 
 #. We create the save button in any case, so that clients can
 #. connect to it, without paying attention to whether it exits
 #: gtk/gtkinputdialog.c:329
 msgid "Save"
-msgstr "Gorde"
+msgstr "储存"
 
 #: gtk/gtkinputdialog.c:471
 msgid "X"
@@ -228,15 +224,15 @@ msgstr "Y"
 
 #: gtk/gtkinputdialog.c:473
 msgid "Pressure"
-msgstr "Presioa"
+msgstr "压力"
 
 #: gtk/gtkinputdialog.c:474
 msgid "X Tilt"
-msgstr "X makur"
+msgstr "X 倾斜"
 
 #: gtk/gtkinputdialog.c:475
 msgid "Y Tilt"
-msgstr "Y makur"
+msgstr "Y 倾斜"
 
 #: gtk/gtkinputdialog.c:476
 msgid "Wheel"
@@ -244,215 +240,188 @@ msgstr ""
 
 #: gtk/gtkinputdialog.c:516
 msgid "none"
-msgstr "batez"
+msgstr "无"
 
 #: gtk/gtkinputdialog.c:550 gtk/gtkinputdialog.c:586
 msgid "(disabled)"
-msgstr "(ezindua)"
+msgstr "(已失效)"
 
 #: gtk/gtkinputdialog.c:579
 msgid "(unknown)"
-msgstr "(ezezaguna)"
+msgstr "(未知)"
 
 #. and clear button
 #: gtk/gtkinputdialog.c:664
 msgid "clear"
-msgstr "garbitu"
+msgstr "清除"
 
 #: gtk/gtknotebook.c:2059 gtk/gtknotebook.c:4131
 #, c-format
 msgid "Page %u"
-msgstr "Orria %u"
+msgstr "第 %u 页"
 
 #: gtk/gtkrc.c:1872
 #, c-format
 msgid "Unable to locate image file in pixmap_path: \"%s\" line %d"
-msgstr "Imaginaren fitxategia ezin aurkitu pixmap_path-en: \"%s\",%d lerroa"
+msgstr "无法由 pixmap_path 找到图档: \"%s\" 第 %d 行"
 
 #: gtk/gtkrc.c:1875
 #, c-format
 msgid "Unable to locate image file in pixmap_path: \"%s\""
-msgstr "Imaginaren fitxategia ezin aurkitu pixmap_path-en: \"%s\""
+msgstr "无法由 pixmap_path 找到图档: \"%s\""
 
 #: gtk/gtkthemes.c:117
 #, c-format
 msgid "Unable to locate loadable module in module_path: \"%s\","
-msgstr "Modulua ezin aurkitu modulu_path-en: \"%s\","
+msgstr "无法由 module_path 找到可载入模组: \"%s\","
 
 #: gtk/gtktipsquery.c:180
 msgid "--- No Tip ---"
-msgstr "--- Erpinik ez ---"
+msgstr "--- 已无提示 ---"
 
 #~ msgid "Foundry:"
-#~ msgstr "Ola:"
+#~ msgstr "提供:"
 
 #~ msgid "Weight:"
-#~ msgstr "Pisua:"
+#~ msgstr "大小:"
 
 #~ msgid "Slant:"
-#~ msgstr "Alborapena:"
+#~ msgstr "斜体:"
 
 #~ msgid "Set Width:"
-#~ msgstr "Zabalera: "
+#~ msgstr "宽度:"
 
 #~ msgid "Pixel Size:"
-#~ msgstr "Pixel tamaina:"
+#~ msgstr "像素大小:"
 
 #~ msgid "Point Size:"
-#~ msgstr "Puntu tamaina:"
+#~ msgstr "点阵大小:"
 
 #~ msgid "Resolution X:"
-#~ msgstr "X erresoluzioa:"
+#~ msgstr "X 解析度:"
 
 #~ msgid "Resolution Y:"
-#~ msgstr "Y erresoluzioa:"
+#~ msgstr "Y 解析度:"
 
 #~ msgid "Spacing:"
-#~ msgstr "Tartea:"
+#~ msgstr "间距:"
 
 #~ msgid "Average Width:"
-#~ msgstr "Batazbesteko zabalera:"
+#~ msgstr "平均宽度:"
 
 #~ msgid "Charset:"
-#~ msgstr "Charset:"
+#~ msgstr "字集:"
 
 #~ msgid "Font Property"
-#~ msgstr "Font-aren ezaugarriak"
+#~ msgstr "字体属性"
 
 #~ msgid "Requested Value"
-#~ msgstr "Eskatutako balioa"
+#~ msgstr "需求值"
 
 #~ msgid "Actual Value"
-#~ msgstr "Oraingo balioa"
+#~ msgstr "实际值"
 
 #~ msgid "Font"
-#~ msgstr "Font"
+#~ msgstr "字体"
 
 #~ msgid "Font:"
-#~ msgstr "Font"
+#~ msgstr "字体:"
 
 #~ msgid "Font Style:"
-#~ msgstr "Font-aren estiloa"
+#~ msgstr "字体样式:"
 
 #~ msgid "Reset Filter"
-#~ msgstr "Berrosatu iragazkia"
+#~ msgstr "重设过滤器"
 
 #~ msgid "Metric:"
-#~ msgstr "Metrotan"
+#~ msgstr "度量:"
 
 #~ msgid "Points"
-#~ msgstr "Puntutan"
+#~ msgstr "点阵"
 
 #~ msgid "Pixels"
-#~ msgstr "Pixeletan"
+#~ msgstr "像素"
 
 #~ msgid "Font Information"
-#~ msgstr "Font-aren informazioa"
+#~ msgstr "字体信息"
 
 #~ msgid "Requested Font Name:"
-#~ msgstr "Eskatutako Font-aren izena"
+#~ msgstr "要求的字体域名:"
 
 #~ msgid "Actual Font Name:"
-#~ msgstr "Oraingo Font-aren izena"
+#~ msgstr "实际字体域名:"
 
 #~ msgid "%i fonts available with a total of %i styles."
-#~ msgstr "%i font aukeran guztira %i estiloez"
+#~ msgstr "有 %i 种字体供选用(共 %i 种样式)"
 
 #~ msgid "Filter"
-#~ msgstr "Iragazkia"
+#~ msgstr "过滤器"
 
 #~ msgid "Font Types:"
-#~ msgstr "Font motak"
+#~ msgstr "字体种类:"
 
 #~ msgid "Bitmap"
-#~ msgstr "Bitmap"
+#~ msgstr "点阵"
 
 #~ msgid "Scalable"
-#~ msgstr "Eskalatzeko gai"
+#~ msgstr "可缩放"
 
 #~ msgid "Scaled Bitmap"
-#~ msgstr "Eskalaratutako bitmap"
+#~ msgstr "可缩放点阵"
 
 #~ msgid "*"
 #~ msgstr "*"
 
 #~ msgid "(nil)"
-#~ msgstr "(nil)"
+#~ msgstr "(无)"
 
 #~ msgid "regular"
-#~ msgstr "arrunta"
+#~ msgstr "正常"
 
 #~ msgid "italic"
-#~ msgstr "italikoa"
+#~ msgstr "斜体"
 
 #~ msgid "oblique"
-#~ msgstr "laprana"
+#~ msgstr "倾斜"
 
 #~ msgid "reverse italic"
-#~ msgstr "atzerazko italikoa"
+#~ msgstr "反斜体"
 
 #~ msgid "reverse oblique"
-#~ msgstr "atzerazko laprana"
+#~ msgstr "反倾斜"
 
 #~ msgid "other"
-#~ msgstr "bestelakoa"
+#~ msgstr "其它"
 
 #~ msgid "[M]"
-#~ msgstr "[M]"
+#~ msgstr "[M}"
 
 #~ msgid "[C]"
-#~ msgstr "[C]"
+#~ msgstr "[C}"
 
 #~ msgid "The selected font is not available."
-#~ msgstr "Aukeratutako Font-a ez dago"
+#~ msgstr "选定的字体不存在。"
 
 #~ msgid "The selected font is not a valid font."
-#~ msgstr "Aukeratutako Font-a ez da Font baliagarria."
+#~ msgstr "选定的是无效的字体。"
 
 #~ msgid "This is a 2-byte font and may not be displayed correctly."
-#~ msgstr "Hau 2 byteko Font-a da eta agian ezin da modu egokian agertu."
+#~ msgstr "字体为双比特字体，可能无法正常显示。"
 
 #~ msgid "roman"
-#~ msgstr "erromatarra"
+#~ msgstr "罗马体"
 
 #~ msgid "proportional"
-#~ msgstr "proportziozkoa"
+#~ msgstr "成比例的"
 
 #~ msgid "monospaced"
-#~ msgstr "tartebakarrekoa"
+#~ msgstr "定宽度的"
 
 #~ msgid "char cell"
-#~ msgstr "zelula ikuzia"
+#~ msgstr "字体格子"
 
 #~ msgid "Font: (Filter Applied)"
-#~ msgstr "Font-a: (Iragazkiaz)"
-
-#~ msgid "heavy"
-#~ msgstr "astuna"
-
-#~ msgid "extrabold"
-#~ msgstr "extrailuna"
-
-#~ msgid "bold"
-#~ msgstr "iluna"
-
-#~ msgid "demibold"
-#~ msgstr "erdi iluna"
-
-#~ msgid "medium"
-#~ msgstr "ertaina"
-
-#~ msgid "normal"
-#~ msgstr "arrunta"
-
-#~ msgid "light"
-#~ msgstr "argia"
-
-#~ msgid "extralight"
-#~ msgstr "extra argia"
-
-#~ msgid "thin"
-#~ msgstr "mehea"
+#~ msgstr "字体: (采用过滤器)"
 
 #~ msgid "MAX_FONTS exceeded. Some fonts may be missing."
-#~ msgstr "MAX_FONTS gehiegizkoa. Zenbait Font galduta daitezke."
+#~ msgstr "已超出 MAX_FONTS ,可能遗失某些字体。"

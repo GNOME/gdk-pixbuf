@@ -1,167 +1,163 @@
-# Irish language translations for gtk+
-# Copyright (C) 1999 Free Software Foundation, Inc.
-# Seán Ó Ceallaigh <soc@users.sourceforge.net>, 1999.
+# gtk+ package traditional Chinese translation file.
+# Copyright (C) 2000 Chinese Linux Extensions Project
+# Translators: 辛立仁 <hsin@med.cgu.edu.tw>, 2000.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+ 1.3.0\n"
+"Project-Id-Version: gtk+ 2\n"
 "POT-Creation-Date: 2000-08-10 21:20-0400\n"
-"PO-Revision-Date: 2000-09-08 21:18+0000\n"
-"Last-Translator: Seán Ó Ceallaigh <soc@users.sourceforge.net>\n"
-"Language-Team: Gaeilge <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2000-10-24 11:29+0800\n"
+"Last-Translator: Chih-Wei Huang <cwhuang@linux.org.tw>\n"
+"Language-Team: Chinese <zh@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8-bit\n"
 
 #: gtk/gtkcolorsel.c:1420
 msgid "Hue:"
-msgstr "Imir:"
+msgstr "色相:"
 
 #: gtk/gtkcolorsel.c:1421
 msgid "Saturation:"
-msgstr "Sáithiú:"
+msgstr "彩度:"
 
 #: gtk/gtkcolorsel.c:1422
 msgid "Value:"
-msgstr "Luach:"
+msgstr "明度:"
 
 #: gtk/gtkcolorsel.c:1423
 msgid "Red:"
-msgstr "Dearg:"
+msgstr "紅:"
 
 #: gtk/gtkcolorsel.c:1424
 msgid "Green:"
-msgstr "Glas:"
+msgstr "綠:"
 
 #: gtk/gtkcolorsel.c:1425
 msgid "Blue:"
-msgstr "Gorm:"
+msgstr "藍:"
 
 #: gtk/gtkcolorsel.c:1428
 msgid "Opacity:"
-msgstr "Teimhneacht:"
+msgstr "不透明度:"
 
 #: gtk/gtkcolorsel.c:1443
 msgid "Hex Value:"
-msgstr "Luach Heacs:"
+msgstr "十六進位值:"
 
 #: gtk/gtkcolorsel.c:1464
 msgid "Custom Palette"
-msgstr "Pailéid Féindheánamh"
+msgstr "自訂色板"
 
 #: gtk/gtkcolorsel.c:1469
 msgid "Set Color"
-msgstr "Tóg Dath"
+msgstr "設定色彩"
 
-#. The OK button
-#: gtk/gtkcolorseldialog.c:105 gtk/gtkfilesel.c:567 gtk/gtkfontsel.c:952
+#: gtk/gtkcolorseldialog.c:105
+#: gtk/gtkfilesel.c:567
+#: gtk/gtkfontsel.c:952
 #: gtk/gtkgamma.c:415
 msgid "OK"
-msgstr "Ceart go leor"
+msgstr "確定"
 
-#. The Cancel button
-#: gtk/gtkcolorseldialog.c:111 gtk/gtkfilesel.c:574 gtk/gtkfilesel.c:963
-#: gtk/gtkfilesel.c:1067 gtk/gtkfilesel.c:1182 gtk/gtkfontsel.c:965
+#: gtk/gtkcolorseldialog.c:111
+#: gtk/gtkfilesel.c:574
+#: gtk/gtkfilesel.c:963
+#: gtk/gtkfilesel.c:1067
+#: gtk/gtkfilesel.c:1182
+#: gtk/gtkfontsel.c:965
 #: gtk/gtkgamma.c:423
 msgid "Cancel"
-msgstr "Cealaigh"
+msgstr "取消"
 
 #: gtk/gtkcolorseldialog.c:116
 msgid "Help"
-msgstr "Cuidigh"
+msgstr "求助"
 
-#. The directories clist
 #: gtk/gtkfilesel.c:514
 msgid "Directories"
-msgstr "Eolairí"
+msgstr "目錄"
 
-#. The files clist
 #: gtk/gtkfilesel.c:534
 msgid "Files"
-msgstr "Comhaid"
+msgstr "檔案"
 
-#: gtk/gtkfilesel.c:605 gtk/gtkfilesel.c:1621
+#: gtk/gtkfilesel.c:605
+#: gtk/gtkfilesel.c:1621
 #, c-format
 msgid "Directory unreadable: %s"
-msgstr "Eolaire doléite: %s"
+msgstr "無法讀取目錄: %s"
 
 #: gtk/gtkfilesel.c:637
 msgid "Create Dir"
-msgstr "Déan Eolaire"
+msgstr "新增目錄"
 
-#: gtk/gtkfilesel.c:648 gtk/gtkfilesel.c:1036
+#: gtk/gtkfilesel.c:648
+#: gtk/gtkfilesel.c:1036
 msgid "Delete File"
-msgstr "Scrios Comhad"
+msgstr "刪除檔案"
 
-#: gtk/gtkfilesel.c:659 gtk/gtkfilesel.c:1140
+#: gtk/gtkfilesel.c:659
+#: gtk/gtkfilesel.c:1140
 msgid "Rename File"
-msgstr "Athainmnigh Comhad"
+msgstr "重新命名"
 
-#.
-#. gtk_signal_connect (GTK_OBJECT (dialog), "destroy",
-#. (GtkSignalFunc) gtk_file_selection_fileop_destroy,
-#. (gpointer) fs);
-#.
 #: gtk/gtkfilesel.c:828
 msgid "Error"
-msgstr "Earráid"
+msgstr "錯誤"
 
-#. close button
-#: gtk/gtkfilesel.c:851 gtk/gtkinputdialog.c:338
+#: gtk/gtkfilesel.c:851
+#: gtk/gtkinputdialog.c:338
 msgid "Close"
-msgstr "Druid"
+msgstr "關閉"
 
 #: gtk/gtkfilesel.c:927
 msgid "Create Directory"
-msgstr "Déan Eolaire"
+msgstr "新增目錄"
 
 #: gtk/gtkfilesel.c:941
 msgid "Directory name:"
-msgstr "Ainm eolaire:"
+msgstr "目錄名稱:"
 
-#. buttons
 #: gtk/gtkfilesel.c:954
 msgid "Create"
-msgstr "Déan"
+msgstr "新增"
 
-#. buttons
 #: gtk/gtkfilesel.c:1058
 msgid "Delete"
-msgstr "Scrios"
+msgstr "刪除"
 
-#. buttons
 #: gtk/gtkfilesel.c:1173
 msgid "Rename"
-msgstr "Athainmnigh"
+msgstr "更新"
 
 #: gtk/gtkfilesel.c:1600
 msgid "Selection: "
-msgstr "Rogha: "
+msgstr "路徑選項: "
 
 #: gtk/gtkfontsel.c:189
 msgid "Family:"
-msgstr "Teaghlach:"
+msgstr "字體:"
 
 #: gtk/gtkfontsel.c:194
 msgid "Style:"
-msgstr "Stíl:"
+msgstr "格式:"
 
 #: gtk/gtkfontsel.c:199
 msgid "Size:"
-msgstr "Méid:"
+msgstr "大小:"
 
-#. create the text entry widget
 #: gtk/gtkfontsel.c:309
 msgid "Preview:"
-msgstr "Réamhthaispeántas:"
+msgstr "預覽:"
 
 #: gtk/gtkfontsel.c:959
 msgid "Apply"
-msgstr "Cuir i bhfeidhm"
+msgstr "套用"
 
 #: gtk/gtkfontsel.c:981
 msgid "Font Selection"
-msgstr "Rogha Clófhoirne"
+msgstr "字型選擇"
 
 #: gtk/gtkgamma.c:395
 msgid "Gamma"
@@ -169,116 +165,111 @@ msgstr "Gamma"
 
 #: gtk/gtkgamma.c:402
 msgid "Gamma value"
-msgstr "Luach Gamma"
+msgstr "Gamma 值"
 
-#. shell and main vbox
 #: gtk/gtkinputdialog.c:185
 msgid "Input"
-msgstr "Ionchur"
+msgstr "輸入"
 
 #: gtk/gtkinputdialog.c:193
 msgid "No input devices"
-msgstr "Níl aon ghaireas ionchuir ann"
+msgstr "缺少輸入裝置"
 
 #: gtk/gtkinputdialog.c:222
 msgid "Device:"
-msgstr "Gaireas:"
+msgstr "裝置:"
 
 #: gtk/gtkinputdialog.c:238
 msgid "Disabled"
-msgstr "Míchumasach"
+msgstr "已失效"
 
 #: gtk/gtkinputdialog.c:246
 msgid "Screen"
-msgstr "Scáileán"
+msgstr "螢幕"
 
 #: gtk/gtkinputdialog.c:254
 msgid "Window"
-msgstr "Fuinneog"
+msgstr "視窗"
 
 #: gtk/gtkinputdialog.c:262
 msgid "Mode: "
-msgstr "Modh: "
+msgstr "模式:"
 
-#. The axis listbox
 #: gtk/gtkinputdialog.c:292
 msgid "Axes"
-msgstr "Ais"
+msgstr "軸"
 
-#. Keys listbox
 #: gtk/gtkinputdialog.c:308
 msgid "Keys"
-msgstr "Eochracha"
+msgstr "按鍵"
 
-#. We create the save button in any case, so that clients can
-#. connect to it, without paying attention to whether it exits
 #: gtk/gtkinputdialog.c:329
 msgid "Save"
-msgstr "Sábháil"
+msgstr "儲存"
 
 #: gtk/gtkinputdialog.c:471
 msgid "X"
-msgstr "X"
+msgstr ""
 
 #: gtk/gtkinputdialog.c:472
 msgid "Y"
-msgstr "Y"
+msgstr ""
 
 #: gtk/gtkinputdialog.c:473
 msgid "Pressure"
-msgstr "Brú"
+msgstr "力度"
 
 #: gtk/gtkinputdialog.c:474
 msgid "X Tilt"
-msgstr "Claonadh X"
+msgstr "X 傾斜"
 
 #: gtk/gtkinputdialog.c:475
 msgid "Y Tilt"
-msgstr "Claonadh Y"
+msgstr "Y 傾斜"
 
 #: gtk/gtkinputdialog.c:476
 msgid "Wheel"
-msgstr ""
+msgstr "滾輪"
 
 #: gtk/gtkinputdialog.c:516
 msgid "none"
-msgstr "ceann ar bith"
+msgstr "無"
 
-#: gtk/gtkinputdialog.c:550 gtk/gtkinputdialog.c:586
+#: gtk/gtkinputdialog.c:550
+#: gtk/gtkinputdialog.c:586
 msgid "(disabled)"
-msgstr "(míchumasach)"
+msgstr "(已失效)"
 
 #: gtk/gtkinputdialog.c:579
 msgid "(unknown)"
-msgstr "(gan fhios)"
+msgstr "(未知)"
 
-#. and clear button
 #: gtk/gtkinputdialog.c:664
 msgid "clear"
-msgstr "bánaigh"
+msgstr "清除"
 
-#: gtk/gtknotebook.c:2059 gtk/gtknotebook.c:4131
+#: gtk/gtknotebook.c:2059
+#: gtk/gtknotebook.c:4131
 #, c-format
 msgid "Page %u"
-msgstr "Leathanach %u"
+msgstr "第 %u 頁"
 
 #: gtk/gtkrc.c:1872
 #, c-format
 msgid "Unable to locate image file in pixmap_path: \"%s\" line %d"
-msgstr "" 
-"Ní rabhthas ábalta íomhá comhaid a aimsiú in pixmap_path: \"%s\" líne %d"
+msgstr "無法由 pixmap_path 找到圖檔: \"%s\" 第 %d 行"
 
 #: gtk/gtkrc.c:1875
 #, c-format
 msgid "Unable to locate image file in pixmap_path: \"%s\""
-msgstr "Ní rabhthas ábalta íomhá comhaid a aimsiú in pixmap_path: \"%s\""
+msgstr "無法由 pixmap_path 找到圖檔: \"%s\""
 
 #: gtk/gtkthemes.c:117
 #, c-format
 msgid "Unable to locate loadable module in module_path: \"%s\","
-msgstr "Ní rabhthas ábalta modúl inlódáil a aimsiú in module_path: \"%s\","
+msgstr "無法由 module_path 找到可載入模組: \"%s\","
 
 #: gtk/gtktipsquery.c:180
 msgid "--- No Tip ---"
-msgstr "--- Níl aon nod ann ---"
+msgstr "--- 已無提示 ---"
 
