@@ -496,6 +496,7 @@ static gboolean
 gdk_pixbuf__png_image_stop_load (gpointer context, GError **error)
 {
         LoadContext* lc = context;
+        gboolean retval = TRUE;
 
         g_return_val_if_fail(lc != NULL, TRUE);
 
@@ -505,11 +506,19 @@ gdk_pixbuf__png_image_stop_load (gpointer context, GError **error)
         
         if (lc->pixbuf)
                 g_object_unref (lc->pixbuf);
+        else {
+                if (error && *error == NULL) {
+                        g_set_error_literal (error, GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                             _("Premature end-of-file encountered"));
+                }
+                retval = FALSE;
+	}
         
         png_destroy_read_struct(&lc->png_read_ptr, &lc->png_info_ptr, NULL);
         g_free(lc);
 
-        return TRUE;
+        return retval;
 }
 
 static gboolean
