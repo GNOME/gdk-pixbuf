@@ -35,13 +35,14 @@
  * @Title: Animations
  * @See_also: #GdkPixbufLoader.
  * 
- * The &gdk-pixbuf; library provides a simple mechanism to load and represent
- * animations. An animation is conceptually a series of frames to be displayed
- * over time. Each frame is the same size. The animation may not be represented
- * as a series of frames internally; for example, it may be stored as a 
- * sprite and instructions for moving the sprite around a background. To display 
- * an animation you don't need to understand its representation, however; you just
- * ask &gdk-pixbuf; what should be displayed at a given point in time. 
+ * The &gdk-pixbuf; library provides a simple mechanism to load and
+ * represent animations. An animation is conceptually a series of
+ * frames to be displayed over time. The animation may not be
+ * represented as a series of frames internally; for example, it may
+ * be stored as a sprite and instructions for moving the sprite around
+ * a background. To display an animation you don't need to understand
+ * its representation, however; you just ask &gdk-pixbuf; what should
+ * be displayed at a given point in time.
  * 
  */
 
@@ -481,7 +482,7 @@ gdk_pixbuf_animation_iter_get_delay_time (GdkPixbufAnimationIter *iter)
  * gdk_pixbuf_animation_iter_get_pixbuf:
  * @iter: an animation iterator
  * 
- * Gets the current pixbuf which should be displayed; the pixbuf will
+ * Gets the current pixbuf which should be displayed; the pixbuf might not
  * be the same size as the animation itself
  * (gdk_pixbuf_animation_get_width(), gdk_pixbuf_animation_get_height()). 
  * This pixbuf should be displayed for 
