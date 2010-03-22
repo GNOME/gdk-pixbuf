@@ -139,6 +139,7 @@ struct _GifContext
 	FILE *file;
 
 	/* progressive read, only. */
+	GdkPixbufModuleSizeFunc size_func;
 	GdkPixbufModulePreparedFunc prepare_func;
 	GdkPixbufModuleUpdatedFunc update_func;
 	gpointer user_data;
@@ -1225,6 +1226,23 @@ gif_init (GifContext *context)
         context->animation->width = context->width;
         context->animation->height = context->height;
 
+        if (context->size_func) {
+                gint width, height;
+
+                width = context->width;
+                height = context->height;
+
+                (*context->size_func) (&width, &height, context->user_data);
+
+                if (width == 0 || height == 0) {
+                        g_set_error_literal (context->error,
+                                             GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                             _("Resulting GIF image has zero size"));
+                        return -2;
+                }
+        }
+
 	if (context->has_global_cmap) {
 		gif_set_get_colormap (context);
 	} else {
@@ -1434,6 +1452,7 @@ new_context (void)
 	context->frame = NULL;
 	context->file = NULL;
 	context->state = GIF_START;
+	context->size_func = NULL;
 	context->prepare_func = NULL;
 	context->update_func = NULL;
 	context->user_data = NULL;
@@ -1523,6 +1542,7 @@ gdk_pixbuf__gif_image_begin_load (GdkPixbufModuleSizeFunc size_func,
         }
         
         context->error = error;
+	context->size_func = size_func;
 	context->prepare_func = prepare_func;
 	context->update_func = update_func;
 	context->user_data = user_data;
