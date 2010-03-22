@@ -321,21 +321,23 @@ gdk_pixbuf_loader_prepare (GdkPixbuf          *pixbuf,
 			   gpointer            loader)
 {
         GdkPixbufLoaderPrivate *priv = GDK_PIXBUF_LOADER (loader)->priv;
+        gint width, height;
         g_return_if_fail (pixbuf != NULL);
+
+        width = anim ? gdk_pixbuf_animation_get_width (anim) :
+                gdk_pixbuf_get_width (pixbuf);
+        height = anim ? gdk_pixbuf_animation_get_height (anim) :
+                gdk_pixbuf_get_height (pixbuf);
 
         if (!priv->size_fixed) 
                 {
                         /* Defend against lazy loaders which don't call size_func */
-                        gint width = gdk_pixbuf_get_width (pixbuf);
-                        gint height = gdk_pixbuf_get_height (pixbuf);
-                        
                         gdk_pixbuf_loader_size_func (&width, &height, loader);
                 }
 
         priv->needs_scale = FALSE;
         if (priv->width > 0 && priv->height > 0 &&
-            (priv->width != gdk_pixbuf_get_width (pixbuf) ||
-             priv->height != gdk_pixbuf_get_height (pixbuf)))
+            (priv->width != width || priv->height != height))
                 priv->needs_scale = TRUE;
 
         if (anim)
@@ -345,8 +347,8 @@ gdk_pixbuf_loader_prepare (GdkPixbuf          *pixbuf,
   
 	if (priv->needs_scale) {
 		priv->animation  = GDK_PIXBUF_ANIMATION (_gdk_pixbuf_scaled_anim_new (anim,
-                                         (double) priv->width / gdk_pixbuf_get_width (pixbuf),
-                                         (double) priv->height / gdk_pixbuf_get_height (pixbuf),
+                                         (double) priv->width / width,
+                                         (double) priv->height / height,
 					  1.0));
 			g_object_unref (anim);
 	}
