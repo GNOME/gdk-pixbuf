@@ -236,6 +236,11 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
 		return NULL;
 	}
 
+	/* Flag multi-page documents, because this loader only handles the
+	   first page. The client app may wish to warn the user. */
+        if (TIFFReadDirectory (tiff))
+                gdk_pixbuf_set_option (pixbuf, "multipage", "yes");
+
 #if G_BYTE_ORDER == G_BIG_ENDIAN
 	/* Turns out that the packing used by TIFFRGBAImage depends on 
          * the host byte order... 
