@@ -609,7 +609,7 @@ save_rle_decoder (GString     *gstring,
  * Generates C source code suitable for compiling images directly 
  * into programs. 
  *
- * GTK+ ships with a program called <command>gdk-pixbuf-csource</command> 
+ * gdk-pixbuf ships with a program called <command>gdk-pixbuf-csource</command> 
  * which offers a command line interface to this function.
  *
  * Returns: a newly-allocated string containing the C source form
@@ -851,7 +851,7 @@ gdk_pixdata_to_csource (GdkPixdata        *pixdata,
  * ship a program with images, but don't want to depend on any
  * external files.
  *
- * GTK+ ships with a program called <command>gdk-pixbuf-csource</command> 
+ * gdk-pixbuf ships with a program called <command>gdk-pixbuf-csource</command> 
  * which allows for conversion of #GdkPixbufs into such a inline representation.
  * In almost all cases, you should pass the <option>--raw</option> flag to
  * <command>gdk-pixbuf-csource</command>. A sample invocation would be:

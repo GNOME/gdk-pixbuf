@@ -31,7 +31,6 @@
 #define GDK_PIXBUF_C_COMPILATION
 #include "gdk-pixbuf.h"
 #include "gdk-pixbuf-private.h"
-#include "gdk-pixbuf-io.h"
 #include "gdk-pixbuf-simple-anim.h"
 #include "gdk-pixbuf-alias.h"
 

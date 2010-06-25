@@ -36,7 +36,6 @@
 #include <gio/gio.h>
 
 #include "gdk-pixbuf-private.h"
-#include "gdk-pixbuf-io.h"
 #include "gdk-pixbuf-loader.h"
 #include "gdk-pixbuf-alias.h"
 
@@ -268,14 +267,14 @@ get_sysconfdir (void)
   return sysconfdir;
 }
 
-#undef GTK_SYSCONFDIR
-#define GTK_SYSCONFDIR get_sysconfdir()
+#undef GDK_PIXBUF_SYSCONFDIR
+#define GDK_PIXBUF_SYSCONFDIR get_sysconfdir()
 
 static void
 correct_prefix (gchar **path)
 {
-  if (strncmp (*path, GTK_PREFIX "/", strlen (GTK_PREFIX "/")) == 0 ||
-      strncmp (*path, GTK_PREFIX "\\", strlen (GTK_PREFIX "\\")) == 0)
+  if (strncmp (*path, GDK_PIXBUF_PREFIX "/", strlen (GDK_PIXBUF_PREFIX "/")) == 0 ||
+      strncmp (*path, GDK_PIXBUF_PREFIX "\\", strlen (GDK_PIXBUF_PREFIX "\\")) == 0)
     {
           gchar *tem = NULL;
       if (strlen(*path) > 5 && strncmp (*path - 5, ".libs", 5) == 0)
@@ -285,14 +284,14 @@ correct_prefix (gchar **path)
         }
 
       /* This is an entry put there by gdk-pixbuf-query-loaders on the
-       * packager's system. On Windows a prebuilt GTK+ package can be
+       * packager's system. On Windows a prebuilt gdk-pixbuf package can be
        * installed in a random location. The gdk-pixbuf.loaders file
        * distributed in such a package contains paths from the package
        * builder's machine. Replace the build-time prefix with the
        * installation prefix on this machine.
        */
       tem = *path;
-      *path = g_strconcat (get_toplevel (), tem + strlen (GTK_PREFIX), NULL);
+      *path = g_strconcat (get_toplevel (), tem + strlen (GDK_PIXBUF_PREFIX), NULL);
       g_free (tem);
     }
 }
@@ -305,7 +304,7 @@ gdk_pixbuf_get_module_file (void)
   gchar *result = g_strdup (g_getenv ("GDK_PIXBUF_MODULE_FILE"));
 
   if (!result)
-          result = g_build_filename (GTK_LIBDIR, "gtk-3.0", GTK_BINARY_VERSION, "loaders.cache", NULL);
+          result = g_build_filename (GDK_PIXBUF_LIBDIR, "gdk-pixbuf-2.0", GDK_PIXBUF_BINARY_VERSION, "loaders.cache", NULL);
 
   return result;
 }
@@ -727,7 +726,7 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
                         g_set_error (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_FAILED,
-                                     _("Image-loading module %s does not export the proper interface; perhaps it's from a different GTK version?"),
+                                     _("Image-loading module %s does not export the proper interface; perhaps it's from a different gdk-pixbuf version?"),
                                      path);
                         return FALSE;
                 }

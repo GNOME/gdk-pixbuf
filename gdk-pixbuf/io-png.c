@@ -28,7 +28,6 @@
 #include <stdlib.h>
 #include <png.h>
 #include "gdk-pixbuf-private.h"
-#include "gdk-pixbuf-io.h"
 
 
 

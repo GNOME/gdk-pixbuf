@@ -25,7 +25,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "gdk-pixbuf-private.h"
-#include "gdk-pixbuf-io.h"
 
 #undef PCX_DEBUG
 

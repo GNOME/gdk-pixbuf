@@ -6,9 +6,9 @@ test -z "$srcdir" && srcdir=.
 
 ORIGDIR=`pwd`
 cd $srcdir
-PROJECT=Gtk+
-TEST_TYPE=-d
-FILE=gdk
+PROJECT=gdk-pixbuf
+TEST_TYPE=-f
+FILE=gdk-pixbuf/gdk-pixbuf.h
 
 DIE=0
 

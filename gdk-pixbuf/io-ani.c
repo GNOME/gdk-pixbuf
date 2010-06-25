@@ -27,7 +27,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "gdk-pixbuf-private.h"
-#include "gdk-pixbuf-io.h"
+#include "gdk-pixbuf-loader.h"
 #include "io-ani-animation.h"
 
 static int

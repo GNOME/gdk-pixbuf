@@ -35,7 +35,6 @@
 #include <jpeglib.h>
 #include <jerror.h>
 #include "gdk-pixbuf-private.h"
-#include "gdk-pixbuf-io.h"
 
 #ifndef HAVE_SIGSETJMP
 #define sigjmp_buf jmp_buf

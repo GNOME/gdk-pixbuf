@@ -23,6 +23,7 @@
 #include "config.h"
 #include <math.h>
 #include <string.h>
+#include "gdk-pixbuf-transform.h"
 #include "gdk-pixbuf-private.h"
 #include "pixops/pixops.h"
 #include "gdk-pixbuf-alias.h"

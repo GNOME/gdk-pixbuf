@@ -21,12 +21,19 @@
 #define __GDKPIXBUFINTL_H__
 
 #include "config.h"
-#include <glib/gi18n-lib.h>
+#include <glib.h>
 
 #ifdef ENABLE_NLS
-#define P_(String) dgettext(GETTEXT_PACKAGE "-properties",String)
+#define _(String) gdk_pixbuf_gettext(String)
+#define P_(String) gdk_pixbuf_gettext(String)
+#define N_(String) (String)
 #else
+#define _(String) (String)
 #define P_(String) (String)
+#define N_(String) (String)
 #endif
+
+const gchar *
+gdk_pixbuf_gettext (const gchar *msgid) G_GNUC_FORMAT(1);
 
 #endif

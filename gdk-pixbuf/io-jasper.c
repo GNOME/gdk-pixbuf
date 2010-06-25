@@ -24,7 +24,6 @@
 #include <errno.h>
 
 #include "gdk-pixbuf-private.h"
-#include "gdk-pixbuf-io.h"
 
 #include <jasper/jasper.h>
 

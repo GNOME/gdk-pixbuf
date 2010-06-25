@@ -85,6 +85,12 @@ gdk_pixbuf_apply_embedded_orientation
 #endif
 #endif
 
+#if IN_HEADER(__GDKPIXBUFINTL_H__)
+#if IN_FILE(__GDK_PIXBUF_UTIL_C__)
+gdk_pixbuf_gettext
+#endif
+#endif
+
 #if IN_HEADER(GDK_PIXBUF_TRANSFORM_H)
 #if IN_FILE(__GDK_PIXBUF_SCALE_C__)
 gdk_pixbuf_rotate_simple

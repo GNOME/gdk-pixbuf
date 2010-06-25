@@ -27,7 +27,7 @@
 #include <errno.h>
 
 #include "gdk-pixbuf-private.h"
-#include "gdk-pixbuf-io.h"
+#include "gdk-pixbuf-loader.h"
 
 G_MODULE_EXPORT void fill_vtable (GdkPixbufModule * module);
 G_MODULE_EXPORT void fill_info (GdkPixbufFormat * info);

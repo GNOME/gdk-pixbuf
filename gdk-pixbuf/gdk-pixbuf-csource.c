@@ -18,9 +18,6 @@
  */
 #include "config.h"
 
-#define __GTK_H_INSIDE__
-#include "../gtk/gtkversion.h"	/* versioning */
-#undef __GTK_H_INSIDE__
 #include "gdk-pixbuf.h"
 #include "gdk-pixdata.h"
 #include <glib/gprintf.h>
@@ -32,7 +29,7 @@
 #undef	G_LOG_DOMAIN
 #define	G_LOG_DOMAIN	"Gdk-Pixbuf-CSource"
 #define PRG_NAME        "gdk-pixbuf-csource-3.0"
-#define PKG_NAME        "GTK+"
+#define PKG_NAME        "gdk-pixbuf"
 #define PKG_HTTP_HOME   "http://www.gtk.org"
 
 
@@ -274,7 +271,7 @@ print_blurb (FILE    *bout,
   if (!print_help)
     {
       g_fprintf (bout, "%s version ", PRG_NAME);
-      g_fprintf (bout, "%d.%d.%d", GTK_MAJOR_VERSION, GTK_MINOR_VERSION, GTK_MICRO_VERSION);
+      g_fprintf (bout, "%s", GDK_PIXBUF_VERSION);
       g_fprintf (bout, "\n");
       g_fprintf (bout, "%s comes with ABSOLUTELY NO WARRANTY.\n", PRG_NAME);
       g_fprintf (bout, "You may redistribute copies of %s under the terms of\n", PRG_NAME);

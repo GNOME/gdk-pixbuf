@@ -36,7 +36,6 @@
 
 #include "gdk-pixbuf/gdk-pixbuf.h"
 #include "gdk-pixbuf/gdk-pixbuf-private.h"
-#include "gdk-pixbuf/gdk-pixbuf-io.h"
 
 #ifdef USE_LA_MODULES
 #define SOEXT ".la"
@@ -219,7 +218,7 @@ gdk_pixbuf_get_module_file (void)
         gchar *result = g_strdup (g_getenv ("GDK_PIXBUF_MODULE_FILE"));
 
         if (!result)
-                result = g_build_filename (GTK_LIBDIR, "gtk-3.0", GTK_BINARY_VERSION, "loaders.cache", NULL);
+                result = g_build_filename (GDK_PIXBUF_LIBDIR, "gdk-pixbuf-2.0", GDK_PIXBUF_BINARY_VERSION, "loaders.cache", NULL);
 
         return result;
 }
@@ -237,9 +236,9 @@ int main (int argc, char **argv)
         gchar *runtime_prefix;
         gchar *slash;
 
-        if (g_ascii_strncasecmp (PIXBUF_LIBDIR, GTK_PREFIX, strlen (GTK_PREFIX)) == 0 &&
-            G_IS_DIR_SEPARATOR (PIXBUF_LIBDIR[strlen (GTK_PREFIX)])) {
-                /* GTK_PREFIX is a prefix of PIXBUF_LIBDIR, as it
+        if (g_ascii_strncasecmp (PIXBUF_LIBDIR, GDK_PIXBUF_PREFIX, strlen (GDK_PIXBUF_PREFIX)) == 0 &&
+            G_IS_DIR_SEPARATOR (PIXBUF_LIBDIR[strlen (GDK_PIXBUF_PREFIX)])) {
+                /* GDK_PIXBUF_PREFIX is a prefix of PIXBUF_LIBDIR, as it
                  * normally is. Replace that prefix in PIXBUF_LIBDIR
                  * with the installation directory on this machine.
                  * We assume this invokation of
@@ -271,7 +270,7 @@ int main (int argc, char **argv)
 
                         libdir = g_strconcat (runtime_prefix,
                                               "/",
-                                              PIXBUF_LIBDIR + strlen (GTK_PREFIX) + 1,
+                                              PIXBUF_LIBDIR + strlen (GDK_PIXBUF_PREFIX) + 1,
                                               NULL);
                 }
         }

@@ -33,7 +33,6 @@
 #include <setjmp.h>
 #include "gdk-pixbuf.h"
 #include "gdk-pixbuf-private.h"
-#include "gdk-pixbuf-io.h"
 
 /***
  * Definitions

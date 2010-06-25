@@ -30,7 +30,6 @@
 #include "gdk-pixbuf-private.h"
 #include "gdk-pixbuf-animation.h"
 #include "gdk-pixbuf-scaled-anim.h"
-#include "gdk-pixbuf-io.h"
 #include "gdk-pixbuf-loader.h"
 #include "gdk-pixbuf-marshal.h"
 #include "gdk-pixbuf-alias.h"

@@ -24,12 +24,16 @@
  */
 
 #include "config.h"
+
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
+
 #define GDK_PIXBUF_C_COMPILATION
-#include "gdk-pixbuf.h"
 #include "gdk-pixbuf-private.h"
+#include "gdk-pixbuf-features.h"
+#include "gdk-pixbuf-enum-types.h"
+
 /* Include the marshallers */
 #include <glib-object.h>
 #include "gdk-pixbuf-marshal.c"

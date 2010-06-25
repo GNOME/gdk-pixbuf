@@ -27,9 +27,13 @@
 #ifndef GDK_PIXBUF_PRIVATE_H
 #define GDK_PIXBUF_PRIVATE_H
 
-#include "gdk-pixbuf.h"
-#include "gdk-pixbuf-i18n.h"
 #include <stdio.h>
+
+#include <glib-object.h>
+
+#include "gdk-pixbuf-core.h"
+#include "gdk-pixbuf-io.h"
+#include "gdk-pixbuf-i18n.h"
 
 
 
