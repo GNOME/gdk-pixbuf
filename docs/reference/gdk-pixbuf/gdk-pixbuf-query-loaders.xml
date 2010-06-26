@@ -5,18 +5,18 @@
 <refentry id="gdk-pixbuf-query-loaders">
 
 <refmeta>
-<refentrytitle>gdk-pixbuf-query-loaders-2.0</refentrytitle>
+<refentrytitle>gdk-pixbuf-query-loaders</refentrytitle>
 <manvolnum>1</manvolnum>
 </refmeta>
 
 <refnamediv>
-<refname>gdk-pixbuf-query-loaders-2.0</refname>
+<refname>gdk-pixbuf-query-loaders</refname>
 <refpurpose>GdkPixbuf loader registration utility</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
 <cmdsynopsis>
-<command>gdk-pixbuf-query-loaders-2.0</command>
+<command>gdk-pixbuf-query-loaders</command>
 <arg choice="opt">--update-cache</arg>
 <arg choice="opt" rep="repeat">module</arg>
 </cmdsynopsis>
@@ -24,7 +24,7 @@
 
 <refsect1><title>Description</title>
 <para>
-<command>gdk-pixbuf-query-loaders-2.0</command> collects information about
+<command>gdk-pixbuf-query-loaders</command> collects information about
 loadable modules for <application>gdk-pixbuf</application> and writes it to
 the default cache file location, or to <filename>stdout</filename>.
 </para>
@@ -37,7 +37,7 @@ If called with arguments, it looks for the specified modules. The arguments
 may be absolute or relative paths.
 </para>
 <para>
-Normally, the output of <command>gdk-pixbuf-queryloaders-2.0</command> is written
+Normally, the output of <command>gdk-pixbuf-queryloaders</command> is written
 to <filename><replaceable>libdir</replaceable>gdk-pixbuf-2.0/2.10.0/loaders.cache</filename>, where <application>gdk-pixbuf</application> looks for it by default. If it is written to some other
 location, the environment variable <link linkend="GDK_PIXBUF_MODULE_FILE"><envar>GDK_PIXBUF_MODULE_FILE</envar></link>
 can be set to point <application>gdk-pixbuf</application> at the file.

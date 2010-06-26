@@ -7,17 +7,19 @@ AUTOMAKE_OPTIONS = 1.6
 DOC_MODULE=gdk-pixbuf
 
 # The top-level SGML file.
-DOC_MAIN_SGML_FILE=gdk-pixbuf.sgml
+DOC_MAIN_SGML_FILE=gdk-pixbuf.xml
 
 # Extra options to supply to gtkdoc-scan
-SCAN_OPTIONS=--deprecated-guards="GDK_PIXBUF_ENABLE_BROKEN|GDK_PIXBUF_DISABLE_DEPRECATED"
+SCAN_OPTIONS= \
+	--source-dir=../../../contrib/gdk-pixbuf-xlib \
+	--deprecated-guards="GDK_PIXBUF_ENABLE_BROKEN|GDK_PIXBUF_DISABLE_DEPRECATED"
 
 # The directory containing the source code. Relative to $(srcdir)
 DOC_SOURCE_DIR=../../../gdk-pixbuf
 
 # Used for dependencies
-HFILE_GLOB=$(top_srcdir)/gdk-pixbuf/*.h
-CFILE_GLOB=$(top_srcdir)/gdk-pixbuf/*.c
+HFILE_GLOB=$(top_srcdir)/gdk-pixbuf/*.h $(top_srcdir)/contrib/gdk-pixbuf-xlib/*.h
+CFILE_GLOB=$(top_srcdir)/gdk-pixbuf/*.c $(top_srcdir)/contrib/gdk-pixbuf-xlib/*.c
 
 # Header files to ignore when scanning
 IGNORE_HFILES=				\
@@ -26,6 +28,7 @@ IGNORE_HFILES=				\
 	gdk-pixbuf-marshal.h		\
 	gdk-pixbuf-i18n.h 		\
 	gdk-pixbuf-private.h		\
+	gdk-pixbuf-xlib-private.h	\
 	io-gif-animation.h		\
 	io-ani-animation.h		\
 	xpm-color-table.h		\
@@ -43,16 +46,21 @@ GTKDOC_LIBS = \
 
 
 # Extra options to supply to gtkdoc-mkdb
-MKDB_OPTIONS=--main-sgml-file=$(DOC_MAIN_SGML_FILE) --sgml-mode --output-format=xml --name-space=gdk_pixbuf
+MKDB_OPTIONS= \
+	--main-sgml-file=$(DOC_MAIN_SGML_FILE) 	\
+	--sgml-mode 				\
+	--source-dir=../../../contrib/gdk-pixbuf-xlib \
+	--output-format=xml 			\
+	--name-space=gdk_pixbuf
 
 # Extra SGML files that are included by DOC_MAIN_SGML_FILE
 content_files =				\
 	version.xml			\
-	gdk-pixbuf-from-drawables.sgml	\
-	gdk-pixbuf-rendering.sgml	\
-	gdk-pixbuf.sgml			\
-	gdk-pixbuf-csource-2.0.xml	\
-	gdk-pixbuf-query-loaders-2.0.xml
+	gdk-pixbuf-from-drawables.xml	\
+	gdk-pixbuf-rendering.xml	\
+	gdk-pixbuf.xml			\
+	gdk-pixbuf-csource.xml		\
+	gdk-pixbuf-query-loaders.xml
 
 # Images to copy into HTML directory
 HTML_IMAGES = composite.png
@@ -75,8 +83,8 @@ EXTRA_DIST += version.xml.in \
 ########################################################################
 
 man_MANS = 				\
-	gdk-pixbuf-csource-2.0.1	\
-	gdk-pixbuf-query-loaders-2.0.1
+	gdk-pixbuf-csource.1		\
+	gdk-pixbuf-query-loaders.1
 
 if ENABLE_MAN
 

@@ -523,14 +523,14 @@ LDADDS = libgdk_pixbuf-$(GDK_PIXBUF_API_VERSION).la $(GDK_PIXBUF_DEP_LIBS)
 noinst_PROGRAMS = test-gdk-pixbuf
 test_gdk_pixbuf_LDADD = $(LDADDS)
 
-bin_PROGRAMS = gdk-pixbuf-csource-2.0 gdk-pixbuf-query-loaders-2.0
-gdk_pixbuf_csource_2_0_SOURCES = gdk-pixbuf-csource.c
-gdk_pixbuf_csource_2_0_LDADD = $(LDADDS)
+bin_PROGRAMS = gdk-pixbuf-csource gdk-pixbuf-query-loaders
+gdk_pixbuf_csource_SOURCES = gdk-pixbuf-csource.c
+gdk_pixbuf_csource_LDADD = $(LDADDS)
 
-gdk_pixbuf_query_loaders_2_0_DEPENDENCIES = $(DEPS)
-gdk_pixbuf_query_loaders_2_0_LDADD = $(LDADDS)
+gdk_pixbuf_query_loaders_DEPENDENCIES = $(DEPS)
+gdk_pixbuf_query_loaders_LDADD = $(LDADDS)
 
-gdk_pixbuf_query_loaders_2_0_SOURCES = queryloaders.c
+gdk_pixbuf_query_loaders_SOURCES = queryloaders.c
 
 
 #
@@ -710,13 +710,13 @@ endif
 install-data-hook: install-ms-lib install-def-file
 	@if $(RUN_QUERY_LOADER_TEST) ; then \
 	  $(mkinstalldirs) $(DESTDIR)$(libdir)/gdk-pixbuf-2.0/$(GDK_PIXBUF_BINARY_VERSION) ; \
-	  $(top_builddir)/gdk-pixbuf/gdk-pixbuf-query-loaders-2.0 > $(DESTDIR)$(libdir)/gdk-pixbuf-2.0/$(GDK_PIXBUF_BINARY_VERSION)/loaders.cache ; \
+	  $(top_builddir)/gdk-pixbuf/gdk-pixbuf-query-loaders > $(DESTDIR)$(libdir)/gdk-pixbuf-2.0/$(GDK_PIXBUF_BINARY_VERSION)/loaders.cache ; \
 	else \
 	  echo "***" ; \
 	  echo "*** Warning: loaders.cache not built" ; \
 	  echo "***" ; \
 	  echo "*** Generate this file manually on host" ; \
-	  echo "*** system using gdk-pixbuf-query-loaders-2.0" ; \
+	  echo "*** system using gdk-pixbuf-query-loaders" ; \
 	  echo "***" ; \
 	fi
 
@@ -729,11 +729,11 @@ all-local: loaders.cache
 endif
 
 if BUILD_DYNAMIC_MODULES
-loaders.cache: $(loader_LTLIBRARIES) gdk-pixbuf-query-loaders-2.0$(EXEEXT)
+loaders.cache: $(loader_LTLIBRARIES) gdk-pixbuf-query-loaders$(EXEEXT)
 	LOADERS=`echo libpixbufloader-*.la` ; \
 	if test "x$$LOADERS" != 'xlibpixbufloader-*.la' ; then \
           echo "Writing a loaders.cache file to use when running examples before installing gdk-pixbuf."; \
-	  $(top_builddir)/gdk-pixbuf/gdk-pixbuf-query-loaders-2.0 $$LOADERS > ./loaders.cache ;\
+	  $(top_builddir)/gdk-pixbuf/gdk-pixbuf-query-loaders $$LOADERS > ./loaders.cache ;\
 	else \
           echo "No dynamic modules found; will use only static modules for uninstalled example programs."; \
 	  touch loaders.cache; \

@@ -217,6 +217,8 @@ gdk_pixbuf_loader_get_type
 <FILE>module_interface</FILE>
 gdk_pixbuf_set_option
 gdk_pixbuf_get_formats
+gdk_pixbuf_format_copy
+gdk_pixbuf_format_free
 gdk_pixbuf_format_get_name
 gdk_pixbuf_format_get_description
 gdk_pixbuf_format_get_mime_types
@@ -247,6 +249,9 @@ GDK_PIXBUF_ANIMATION_ITER_CLASS
 GDK_IS_PIXBUF_ANIMATION_CLASS
 GDK_PIXBUF_ANIMATION_ITER_GET_CLASS
 GDK_PIXBUF_ANIMATION_CLASS
+
+<SUBSECTION Private>
+gdk_pixbuf_format_get_type
 </SECTION>
 
 <SECTION>
