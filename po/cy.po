@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf\n"
-"POT-Creation-Date: 2010-06-24 18:17-0400\n"
+"POT-Creation-Date: 2010-06-25 23:54-0400\n"
 "PO-Revision-Date: 2009-12-24 23:10+0100\n"
 "Last-Translator: Iestyn Pryce <dylunio@gmail.com>\n"
 "Language-Team: Cymraeg <gnome-cy@pengwyn.linux.org.uk>\n"
@@ -19,26 +19,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n==2) ? 1 : 0;\n"
 "X-Generator: Virtaal 0.5.0\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:133 gdk-pixbuf/gdk-pixbuf-io.c:983
-#: gdk-pixbuf/gdk-pixbuf-io.c:1243
+#: gdk-pixbuf/gdk-pixbuf-animation.c:131 gdk-pixbuf/gdk-pixbuf-io.c:981
+#: gdk-pixbuf/gdk-pixbuf-io.c:1241
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Methu agor y ffeil '%s': %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:146 gdk-pixbuf/gdk-pixbuf-io.c:995
+#: gdk-pixbuf/gdk-pixbuf-animation.c:144 gdk-pixbuf/gdk-pixbuf-io.c:993
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Ffeil ddelwedd '%s' heb gynnwys data"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:188 gdk-pixbuf/gdk-pixbuf-io.c:1031
-#: gdk-pixbuf/gdk-pixbuf-io.c:1295
+#: gdk-pixbuf/gdk-pixbuf-animation.c:186 gdk-pixbuf/gdk-pixbuf-io.c:1029
+#: gdk-pixbuf/gdk-pixbuf-io.c:1293
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr ""
 "Methu llwytho delwedd '%s': rheswm anhysbys, ffeil llygredig mwy na thebyg"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:221
+#: gdk-pixbuf/gdk-pixbuf-animation.c:219
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -47,12 +47,12 @@ msgstr ""
 "Methu llwytho animeiddiad '%s': rheswm anhysbys, ffeil llygredig mwy na "
 "thebyg"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:716
+#: gdk-pixbuf/gdk-pixbuf-io.c:714
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Methu llwytho modiwl llwytho delweddau: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:731
+#: gdk-pixbuf/gdk-pixbuf-io.c:729
 #, fuzzy, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -61,54 +61,54 @@ msgstr ""
 "Nid yw'r modiwl llwytho delweddau %s yn darparu'r rhyngwyneb cywir; efallai "
 "ei fod o fersiwn arall o GTK"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:740 gdk-pixbuf/gdk-pixbuf-io.c:791
+#: gdk-pixbuf/gdk-pixbuf-io.c:738 gdk-pixbuf/gdk-pixbuf-io.c:789
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Ni chynhelir y math delwedd '%s'"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:864
+#: gdk-pixbuf/gdk-pixbuf-io.c:862
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Methu canfod fformat delwedd y ffeil '%s'"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:872
+#: gdk-pixbuf/gdk-pixbuf-io.c:870
 msgid "Unrecognized image file format"
 msgstr "Fformat delwedd anhysbys"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1040
+#: gdk-pixbuf/gdk-pixbuf-io.c:1038
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Methu llwytho delwedd '%s': %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1674 gdk-pixbuf/io-gdip-utils.c:961
+#: gdk-pixbuf/gdk-pixbuf-io.c:1672 gdk-pixbuf/io-gdip-utils.c:961
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Gwall wrth ysgrifennu at ffeil delwedd: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1719 gdk-pixbuf/gdk-pixbuf-io.c:1849
+#: gdk-pixbuf/gdk-pixbuf-io.c:1717 gdk-pixbuf/gdk-pixbuf-io.c:1847
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Nid yw'r gosodiad yma o gdk-pixbuf yn cynnal cadw'r fformat delwedd: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1753
+#: gdk-pixbuf/gdk-pixbuf-io.c:1751
 msgid "Insufficient memory to save image to callback"
 msgstr "Dim digon o gof er mwyn cadw delwedd at adalwad"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1766
+#: gdk-pixbuf/gdk-pixbuf-io.c:1764
 msgid "Failed to open temporary file"
 msgstr "Methwyd agor ffeil dros dro"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1792
+#: gdk-pixbuf/gdk-pixbuf-io.c:1790
 msgid "Failed to read from temporary file"
 msgstr "Methwyd darllen o ffeil dros dro"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2045
+#: gdk-pixbuf/gdk-pixbuf-io.c:2043
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Methu agor '%s' er mwyn ysgrifennu: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2071
+#: gdk-pixbuf/gdk-pixbuf-io.c:2069
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -116,15 +116,15 @@ msgid ""
 msgstr ""
 "Methu cau '%s' wrth ysgrifennu delwedd, efallai ni arbedwyd yr holl ddata: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2291 gdk-pixbuf/gdk-pixbuf-io.c:2342
+#: gdk-pixbuf/gdk-pixbuf-io.c:2289 gdk-pixbuf/gdk-pixbuf-io.c:2340
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Dim digon o gof er mwyn cadw delwedd at fyffer"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2388
+#: gdk-pixbuf/gdk-pixbuf-io.c:2386
 msgid "Error writing to image stream"
 msgstr "Gwall wrth ysgrifennu at llif delwedd"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:334
+#: gdk-pixbuf/gdk-pixbuf-loader.c:333
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -133,7 +133,7 @@ msgstr ""
 "Gwall mewnol: fe fethodd y modiwl llwytho delweddau '%s' gwblhau'r weithred, "
 "ond ni ddarparodd reswm am y methiant"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:376
+#: gdk-pixbuf/gdk-pixbuf-loader.c:375
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Ni chynhelir llwytho delweddau o'r math '%s' yn gynyddol"
@@ -158,119 +158,119 @@ msgid_plural "failed to allocate image buffer of %u bytes"
 msgstr[0] "methu creu byffer delwedd %u beit"
 msgstr[1] "methu creu byffer delwedd %u feit"
 
-#: gdk-pixbuf/io-ani.c:245
+#: gdk-pixbuf/io-ani.c:244
 msgid "Unexpected icon chunk in animation"
 msgstr "Darn eicon annisgwyl mewn animeiddiad"
 
-#: gdk-pixbuf/io-ani.c:338
+#: gdk-pixbuf/io-ani.c:337
 msgid "Unsupported animation type"
 msgstr "Math animeiddiad ni chynhelir"
 
-#: gdk-pixbuf/io-ani.c:349 gdk-pixbuf/io-ani.c:407 gdk-pixbuf/io-ani.c:433
-#: gdk-pixbuf/io-ani.c:456 gdk-pixbuf/io-ani.c:483 gdk-pixbuf/io-ani.c:570
+#: gdk-pixbuf/io-ani.c:348 gdk-pixbuf/io-ani.c:406 gdk-pixbuf/io-ani.c:432
+#: gdk-pixbuf/io-ani.c:455 gdk-pixbuf/io-ani.c:482 gdk-pixbuf/io-ani.c:569
 msgid "Invalid header in animation"
 msgstr "Pennawd annilys mewn animeiddiad"
 
-#: gdk-pixbuf/io-ani.c:359 gdk-pixbuf/io-ani.c:381 gdk-pixbuf/io-ani.c:465
-#: gdk-pixbuf/io-ani.c:492 gdk-pixbuf/io-ani.c:543 gdk-pixbuf/io-ani.c:615
+#: gdk-pixbuf/io-ani.c:358 gdk-pixbuf/io-ani.c:380 gdk-pixbuf/io-ani.c:464
+#: gdk-pixbuf/io-ani.c:491 gdk-pixbuf/io-ani.c:542 gdk-pixbuf/io-ani.c:614
 msgid "Not enough memory to load animation"
 msgstr "Dim digon o gof er mwyn llwytho animeiddiad"
 
-#: gdk-pixbuf/io-ani.c:399 gdk-pixbuf/io-ani.c:425 gdk-pixbuf/io-ani.c:444
+#: gdk-pixbuf/io-ani.c:398 gdk-pixbuf/io-ani.c:424 gdk-pixbuf/io-ani.c:443
 msgid "Malformed chunk in animation"
 msgstr "Darn annilys mewn animeiddiad"
 
-#: gdk-pixbuf/io-ani.c:712
+#: gdk-pixbuf/io-ani.c:711
 msgid "The ANI image format"
 msgstr "Y fformat delwedd ANI"
 
-#: gdk-pixbuf/io-bmp.c:230 gdk-pixbuf/io-bmp.c:267 gdk-pixbuf/io-bmp.c:338
-#: gdk-pixbuf/io-bmp.c:370 gdk-pixbuf/io-bmp.c:393 gdk-pixbuf/io-bmp.c:496
+#: gdk-pixbuf/io-bmp.c:229 gdk-pixbuf/io-bmp.c:266 gdk-pixbuf/io-bmp.c:337
+#: gdk-pixbuf/io-bmp.c:369 gdk-pixbuf/io-bmp.c:392 gdk-pixbuf/io-bmp.c:495
 msgid "BMP image has bogus header data"
 msgstr "Mae gan y ddelwedd BMP ddata pennawd sothach"
 
-#: gdk-pixbuf/io-bmp.c:241 gdk-pixbuf/io-bmp.c:433
+#: gdk-pixbuf/io-bmp.c:240 gdk-pixbuf/io-bmp.c:432
 msgid "Not enough memory to load bitmap image"
 msgstr "Dim digon o gof er mwyn llwytho'r ddelwedd didfap"
 
-#: gdk-pixbuf/io-bmp.c:319
+#: gdk-pixbuf/io-bmp.c:318
 msgid "BMP image has unsupported header size"
 msgstr "Mae gan y ddelwedd BMP pennawd o faint ni chynhelir"
 
-#: gdk-pixbuf/io-bmp.c:357
+#: gdk-pixbuf/io-bmp.c:356
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Ni ellir cywasgu delweddau BMP top-i'r-gwaelod"
 
-#: gdk-pixbuf/io-bmp.c:717 gdk-pixbuf/io-pnm.c:709
+#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:708
 msgid "Premature end-of-file encountered"
 msgstr "Canfuwyd diwedd ffeil yn rhy fuan"
 
-#: gdk-pixbuf/io-bmp.c:1329
+#: gdk-pixbuf/io-bmp.c:1328
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Methu dyrannu digon o gof er mwyn cadw'r ffeil BMP"
 
-#: gdk-pixbuf/io-bmp.c:1370
+#: gdk-pixbuf/io-bmp.c:1369
 msgid "Couldn't write to BMP file"
 msgstr "Methu ysgrifennu i'r ffeil BMP"
 
-#: gdk-pixbuf/io-bmp.c:1423 gdk-pixbuf/io-gdip-bmp.c:82
+#: gdk-pixbuf/io-bmp.c:1422 gdk-pixbuf/io-gdip-bmp.c:82
 msgid "The BMP image format"
 msgstr "Y fformat delwedd BMP"
 
-#: gdk-pixbuf/io-gif.c:222
+#: gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "Methiant wrth ddarllen GIF: %s"
 
-#: gdk-pixbuf/io-gif.c:496 gdk-pixbuf/io-gif.c:1481 gdk-pixbuf/io-gif.c:1642
+#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1480 gdk-pixbuf/io-gif.c:1641
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr ""
 "Roedd peth data ar goll o'r ffeil GIF (efallai cafodd ei dalfyrru rhywsut?)"
 
-#: gdk-pixbuf/io-gif.c:505
+#: gdk-pixbuf/io-gif.c:504
 #, c-format
 msgid "Internal error in the GIF loader (%s)"
 msgstr "Gwall mewnol yn y llwythwr GIF (%s)"
 
-#: gdk-pixbuf/io-gif.c:579
+#: gdk-pixbuf/io-gif.c:578
 msgid "Stack overflow"
 msgstr "Gorlifodd y stac"
 
-#: gdk-pixbuf/io-gif.c:639
+#: gdk-pixbuf/io-gif.c:638
 msgid "GIF image loader cannot understand this image."
 msgstr "Nid yw'r llwythwr delwedd GIF yn deall y ddelwedd hon."
 
-#: gdk-pixbuf/io-gif.c:668
+#: gdk-pixbuf/io-gif.c:667
 msgid "Bad code encountered"
 msgstr "Canfuwyd cod gwael"
 
-#: gdk-pixbuf/io-gif.c:678
+#: gdk-pixbuf/io-gif.c:677
 msgid "Circular table entry in GIF file"
 msgstr "Cofnod cylchol mewn tabl ffeil GIF"
 
-#: gdk-pixbuf/io-gif.c:866 gdk-pixbuf/io-gif.c:1468 gdk-pixbuf/io-gif.c:1515
-#: gdk-pixbuf/io-gif.c:1630
+#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1467 gdk-pixbuf/io-gif.c:1514
+#: gdk-pixbuf/io-gif.c:1629
 msgid "Not enough memory to load GIF file"
 msgstr "Dim digon o gof er mwyn llwytho ffeil GIF"
 
-#: gdk-pixbuf/io-gif.c:960
+#: gdk-pixbuf/io-gif.c:959
 msgid "Not enough memory to composite a frame in GIF file"
 msgstr "Dim digon o gof er mwyn gwneud ffrâm yn gyfansawdd yn y ffeil GIF"
 
-#: gdk-pixbuf/io-gif.c:1132
+#: gdk-pixbuf/io-gif.c:1131
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "Mae'r ddelwedd GIF yn llygredig (cywasgiad LZW anghywir)"
 
-#: gdk-pixbuf/io-gif.c:1182
+#: gdk-pixbuf/io-gif.c:1181
 msgid "File does not appear to be a GIF file"
 msgstr "Mae'n ymddangos mai nad ffeil GIF yw'r ffeil hwn"
 
-#: gdk-pixbuf/io-gif.c:1194
+#: gdk-pixbuf/io-gif.c:1193
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "Ni chynhelir fersiwn %s y fformat delwedd GIF"
 
-#: gdk-pixbuf/io-gif.c:1303
+#: gdk-pixbuf/io-gif.c:1302
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -278,117 +278,117 @@ msgstr ""
 "Doedd dim map lliwiau gan y ddelwedd GIF, ac roedd yn cynnwys ffrâm heb fap "
 "lliwiau lleol"
 
-#: gdk-pixbuf/io-gif.c:1537
+#: gdk-pixbuf/io-gif.c:1536
 msgid "GIF image was truncated or incomplete."
 msgstr "Roedd y ddelwedd GIF yn anghyflawn neu wedi gorffen yn rhy fuan"
 
-#: gdk-pixbuf/io-gif.c:1693 gdk-pixbuf/io-gdip-gif.c:80
+#: gdk-pixbuf/io-gif.c:1692 gdk-pixbuf/io-gdip-gif.c:80
 msgid "The GIF image format"
 msgstr "Y fformat delwedd GIF"
 
-#: gdk-pixbuf/io-ico.c:211 gdk-pixbuf/io-ico.c:225 gdk-pixbuf/io-ico.c:277
-#: gdk-pixbuf/io-ico.c:290 gdk-pixbuf/io-ico.c:359
+#: gdk-pixbuf/io-ico.c:210 gdk-pixbuf/io-ico.c:224 gdk-pixbuf/io-ico.c:276
+#: gdk-pixbuf/io-ico.c:289 gdk-pixbuf/io-ico.c:358
 msgid "Invalid header in icon"
 msgstr "Pennawd annilys mewn eicon"
 
-#: gdk-pixbuf/io-ico.c:240 gdk-pixbuf/io-ico.c:300 gdk-pixbuf/io-ico.c:369
-#: gdk-pixbuf/io-ico.c:432 gdk-pixbuf/io-ico.c:462
+#: gdk-pixbuf/io-ico.c:239 gdk-pixbuf/io-ico.c:299 gdk-pixbuf/io-ico.c:368
+#: gdk-pixbuf/io-ico.c:431 gdk-pixbuf/io-ico.c:461
 msgid "Not enough memory to load icon"
 msgstr "Dim digon o gof er mwyn llwytho'r eicon"
 
-#: gdk-pixbuf/io-ico.c:322
+#: gdk-pixbuf/io-ico.c:321
 msgid "Icon has zero width"
 msgstr "Mae gan yr eicon lled sero"
 
-#: gdk-pixbuf/io-ico.c:332
+#: gdk-pixbuf/io-ico.c:331
 msgid "Icon has zero height"
 msgstr "Mae gan yr eicon hyd sero"
 
-#: gdk-pixbuf/io-ico.c:384
+#: gdk-pixbuf/io-ico.c:383
 msgid "Compressed icons are not supported"
 msgstr "Ni chynhelir eiconau wedi eu cywasgu"
 
-#: gdk-pixbuf/io-ico.c:417
+#: gdk-pixbuf/io-ico.c:416
 msgid "Unsupported icon type"
 msgstr "Math eicon ni chynhelir"
 
-#: gdk-pixbuf/io-ico.c:511
+#: gdk-pixbuf/io-ico.c:510
 msgid "Not enough memory to load ICO file"
 msgstr "Dim digon o gof er mwyn llwytho'r ffeil ICO"
 
-#: gdk-pixbuf/io-ico.c:976
+#: gdk-pixbuf/io-ico.c:975
 msgid "Image too large to be saved as ICO"
 msgstr "Mae'r ddelwedd yn rhy fawr i gael ei chadw fel ICO"
 
-#: gdk-pixbuf/io-ico.c:987
+#: gdk-pixbuf/io-ico.c:986
 msgid "Cursor hotspot outside image"
 msgstr "Man poeth cyrchydd y tu allan i'r ddelwedd"
 
-#: gdk-pixbuf/io-ico.c:1010
+#: gdk-pixbuf/io-ico.c:1009
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Dyfnder ni chynhelir ar gyfer ffeil ICO: %d"
 
-#: gdk-pixbuf/io-ico.c:1245 gdk-pixbuf/io-gdip-ico.c:59
+#: gdk-pixbuf/io-ico.c:1244 gdk-pixbuf/io-gdip-ico.c:59
 msgid "The ICO image format"
 msgstr "Y fformat delwedd ICO"
 
-#: gdk-pixbuf/io-icns.c:348
+#: gdk-pixbuf/io-icns.c:347
 #, c-format
 msgid "Error reading ICNS image: %s"
 msgstr "Gwall wrth ddarllen delwedd ICNS: %s"
 
-#: gdk-pixbuf/io-icns.c:365
+#: gdk-pixbuf/io-icns.c:364
 #, fuzzy
 msgid "Could not decode ICNS file"
 msgstr "Methu dewis ffeil"
 
-#: gdk-pixbuf/io-icns.c:398
+#: gdk-pixbuf/io-icns.c:397
 msgid "The ICNS image format"
 msgstr "Y fformat delwedd ICNS"
 
-#: gdk-pixbuf/io-jasper.c:75
+#: gdk-pixbuf/io-jasper.c:74
 msgid "Couldn't allocate memory for stream"
 msgstr "Methwyd dyrannu cof ar gyfer llif"
 
-#: gdk-pixbuf/io-jasper.c:105
+#: gdk-pixbuf/io-jasper.c:104
 #, fuzzy
 msgid "Couldn't decode image"
 msgstr "Methu trawsnewid enw y ffeil"
 
-#: gdk-pixbuf/io-jasper.c:123
+#: gdk-pixbuf/io-jasper.c:122
 msgid "Transformed JPEG2000 has zero width or height"
 msgstr "Mae gan y ddelwedd JPEG2000 drawsffurfedig hyd neu led o sero."
 
-#: gdk-pixbuf/io-jasper.c:137
+#: gdk-pixbuf/io-jasper.c:136
 msgid "Image type currently not supported"
 msgstr "Ni chynhelir y math delwedd ar hyn o bryd"
 
-#: gdk-pixbuf/io-jasper.c:149 gdk-pixbuf/io-jasper.c:157
+#: gdk-pixbuf/io-jasper.c:148 gdk-pixbuf/io-jasper.c:156
 #, fuzzy
 msgid "Couldn't allocate memory for color profile"
 msgstr "Methu canfod digon o gof er mwyn llwytho'r ffeil JPEG"
 
-#: gdk-pixbuf/io-jasper.c:183
+#: gdk-pixbuf/io-jasper.c:182
 #, fuzzy
 msgid "Insufficient memory to open JPEG 2000 file"
 msgstr "Dim digon o gof er mwyn agor ffeil delwedd JPEG 2000"
 
-#: gdk-pixbuf/io-jasper.c:262
+#: gdk-pixbuf/io-jasper.c:261
 #, fuzzy
 msgid "Couldn't allocate memory to buffer image data"
 msgstr "Methwyd dyrannu cof ar gyfer data llinell"
 
-#: gdk-pixbuf/io-jasper.c:306
+#: gdk-pixbuf/io-jasper.c:305
 msgid "The JPEG 2000 image format"
 msgstr "Y fformat delwedd JPEG 2000"
 
-#: gdk-pixbuf/io-jpeg.c:117
+#: gdk-pixbuf/io-jpeg.c:116
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Gwall wrth ddehongli ffeil delwedd JPEG (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:528
+#: gdk-pixbuf/io-jpeg.c:527
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -396,21 +396,21 @@ msgstr ""
 "Dim digon o gof er mwyn llwytho'r ddelwedd, ceisiwch gau rhai rhaglenni er "
 "mwyn rhyddhau cof"
 
-#: gdk-pixbuf/io-jpeg.c:569 gdk-pixbuf/io-jpeg.c:775
+#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:774
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Gofod lliw JPEG ni chynhelir (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:674 gdk-pixbuf/io-jpeg.c:944 gdk-pixbuf/io-jpeg.c:1177
-#: gdk-pixbuf/io-jpeg.c:1186
+#: gdk-pixbuf/io-jpeg.c:673 gdk-pixbuf/io-jpeg.c:943 gdk-pixbuf/io-jpeg.c:1176
+#: gdk-pixbuf/io-jpeg.c:1185
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Methu canfod digon o gof er mwyn llwytho'r ffeil JPEG"
 
-#: gdk-pixbuf/io-jpeg.c:919
+#: gdk-pixbuf/io-jpeg.c:918
 msgid "Transformed JPEG has zero width or height."
 msgstr "Mae gan y ddelwedd JPEG drawsffurfedig hyd neu led o sero."
 
-#: gdk-pixbuf/io-jpeg.c:1133 gdk-pixbuf/io-gdip-jpeg.c:53
+#: gdk-pixbuf/io-jpeg.c:1132 gdk-pixbuf/io-gdip-jpeg.c:53
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -419,7 +419,7 @@ msgstr ""
 "Mae'n rhaid i'r ansawdd JPEG fod yn rhif rhwng 0 a 100; methu adnabod y "
 "gwerth '%s'."
 
-#: gdk-pixbuf/io-jpeg.c:1148 gdk-pixbuf/io-gdip-jpeg.c:68
+#: gdk-pixbuf/io-jpeg.c:1147 gdk-pixbuf/io-gdip-jpeg.c:68
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
@@ -427,87 +427,87 @@ msgstr ""
 "Mae'n rhaid i ansawdd delweddau JPEG fod yn werth rhwng 0 a 100; ni "
 "chaniateir y gwerth '%d'."
 
-#: gdk-pixbuf/io-jpeg.c:1310 gdk-pixbuf/io-gdip-jpeg.c:136
+#: gdk-pixbuf/io-jpeg.c:1309 gdk-pixbuf/io-gdip-jpeg.c:136
 msgid "The JPEG image format"
 msgstr "Y fformat delwedd JPEG"
 
-#: gdk-pixbuf/io-pcx.c:187
+#: gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
 msgstr "Methwyd dyrannu cof ar gyfer pennawd"
 
-#: gdk-pixbuf/io-pcx.c:202 gdk-pixbuf/io-pcx.c:560
+#: gdk-pixbuf/io-pcx.c:201 gdk-pixbuf/io-pcx.c:559
 msgid "Couldn't allocate memory for context buffer"
 msgstr "Methwyd dyrannu cof ar gyfer strwythur cyd-destun"
 
-#: gdk-pixbuf/io-pcx.c:601
+#: gdk-pixbuf/io-pcx.c:600
 msgid "Image has invalid width and/or height"
 msgstr "Mae gan y ddelwedd hyd a/neu led annilys"
 
-#: gdk-pixbuf/io-pcx.c:613 gdk-pixbuf/io-pcx.c:674
+#: gdk-pixbuf/io-pcx.c:612 gdk-pixbuf/io-pcx.c:673
 msgid "Image has unsupported bpp"
 msgstr "Mae gan y ddelwedd ddyfnder picsel ni chynhelir"
 
-#: gdk-pixbuf/io-pcx.c:618 gdk-pixbuf/io-pcx.c:626
+#: gdk-pixbuf/io-pcx.c:617 gdk-pixbuf/io-pcx.c:625
 #, c-format
 msgid "Image has unsupported number of %d-bit planes"
 msgstr "Mae gan y ddelwedd nifer o blaenau %d did ni chynhelir"
 
-#: gdk-pixbuf/io-pcx.c:642
+#: gdk-pixbuf/io-pcx.c:641
 msgid "Couldn't create new pixbuf"
 msgstr "Methwyd creu pixbuf newydd"
 
-#: gdk-pixbuf/io-pcx.c:650
+#: gdk-pixbuf/io-pcx.c:649
 msgid "Couldn't allocate memory for line data"
 msgstr "Methwyd dyrannu cof ar gyfer data llinell"
 
-#: gdk-pixbuf/io-pcx.c:657
+#: gdk-pixbuf/io-pcx.c:656
 msgid "Couldn't allocate memory for paletted data"
 msgstr "Methwyd dyrannu cof ar gyfer data paletig"
 
-#: gdk-pixbuf/io-pcx.c:704
+#: gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
 msgstr "Ni chafwyd pob llinell delwedd PCX"
 
-#: gdk-pixbuf/io-pcx.c:711
+#: gdk-pixbuf/io-pcx.c:710
 msgid "No palette found at end of PCX data"
 msgstr "Ni chanfuwyd palet ar ddiwedd data PCX"
 
-#: gdk-pixbuf/io-pcx.c:756
+#: gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
 msgstr "Y fformat delwedd PCX"
 
-#: gdk-pixbuf/io-png.c:55
+#: gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Mae nifer y didau i bob sianel y ddelwedd PNG yn annilys."
 
-#: gdk-pixbuf/io-png.c:136 gdk-pixbuf/io-png.c:642
+#: gdk-pixbuf/io-png.c:135 gdk-pixbuf/io-png.c:641
 msgid "Transformed PNG has zero width or height."
 msgstr "Mae gan y ddelwedd PNG drawsffurfedig hyd neu led sero."
 
-#: gdk-pixbuf/io-png.c:144
+#: gdk-pixbuf/io-png.c:143
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Nid oes 8 did i bob sianel y ddelwedd PNG."
 
-#: gdk-pixbuf/io-png.c:153
+#: gdk-pixbuf/io-png.c:152
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Nid yw'r ddelwedd PNG yn y ffurf RGB neu RGBA."
 
-#: gdk-pixbuf/io-png.c:162
+#: gdk-pixbuf/io-png.c:161
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "Mae gan y ddelwedd PNG drawsffurfedig nifer o sianeli na chynhelir, rhaid "
 "bod 3 neu 4 sianel."
 
-#: gdk-pixbuf/io-png.c:183
+#: gdk-pixbuf/io-png.c:182
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Gwall marwol yn y ffeil delwedd PNG: %s"
 
-#: gdk-pixbuf/io-png.c:316
+#: gdk-pixbuf/io-png.c:315
 msgid "Insufficient memory to load PNG file"
 msgstr "Dim digon o gof er mwyn llwytho'r ffeil delwedd PNG"
 
-#: gdk-pixbuf/io-png.c:657
+#: gdk-pixbuf/io-png.c:656
 #, c-format
 msgid ""
 "Insufficient memory to store a %ld by %ld image; try exiting some "
@@ -516,32 +516,32 @@ msgstr ""
 "Dim digon o gof er mwyn llwytho delwedd o faint %ld gan %ld; ceisiwch "
 "derfynu rhai rhaglenni er mwyn rhyddhau cof"
 
-#: gdk-pixbuf/io-png.c:720
+#: gdk-pixbuf/io-png.c:719
 msgid "Fatal error reading PNG image file"
 msgstr "Gwall marwol wrth ddarllen ffeil delwedd PNG"
 
-#: gdk-pixbuf/io-png.c:769
+#: gdk-pixbuf/io-png.c:768
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Gwall marwol wrth ddarllen ffeil delwedd PNG: %s"
 
-#: gdk-pixbuf/io-png.c:863
+#: gdk-pixbuf/io-png.c:862
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "Mae'n rhaid bod gan allweddau testun delweddau PNG o leiaf un ac o fwyaf 79 "
 "o nodau."
 
-#: gdk-pixbuf/io-png.c:872
+#: gdk-pixbuf/io-png.c:871
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Dim ond nodau ASCII fedr fod mewn allweddau talp testun delweddau PNG."
 
-#: gdk-pixbuf/io-png.c:886 gdk-pixbuf/io-tiff.c:738
+#: gdk-pixbuf/io-png.c:885 gdk-pixbuf/io-tiff.c:737
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr ""
 
-#: gdk-pixbuf/io-png.c:899 gdk-pixbuf/io-gdip-png.c:56
+#: gdk-pixbuf/io-png.c:898
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -550,7 +550,7 @@ msgstr ""
 "Mae'n rhaid i lefel cywasgu'r PNG fod yn rhif rhwng 0 a 9; methu adnabod y "
 "gwerth '%s'."
 
-#: gdk-pixbuf/io-png.c:912 gdk-pixbuf/io-gdip-png.c:68
+#: gdk-pixbuf/io-png.c:911
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -559,337 +559,337 @@ msgstr ""
 "Mae'n rhaid i lefel cywasgu'r PNG fod yn rhif rhwng 0 a 9; ni chaniateir y "
 "gwerth '%d'."
 
-#: gdk-pixbuf/io-png.c:951
+#: gdk-pixbuf/io-png.c:950
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Ni allwyd trawsffurfio gwerth testun delwedd PNG %s i amgodiad ISO-8859-1."
 
-#: gdk-pixbuf/io-png.c:1112 gdk-pixbuf/io-gdip-png.c:133
+#: gdk-pixbuf/io-png.c:1111
 msgid "The PNG image format"
 msgstr "Y fformat delwedd PNG"
 
-#: gdk-pixbuf/io-pnm.c:250
+#: gdk-pixbuf/io-pnm.c:249
 msgid "PNM loader expected to find an integer, but didn't"
 msgstr "Roedd y llwythwr PNM yn disgwyl cyfanrif, ond chafwyd ddim"
 
-#: gdk-pixbuf/io-pnm.c:282
+#: gdk-pixbuf/io-pnm.c:281
 msgid "PNM file has an incorrect initial byte"
 msgstr "Mae gan y ffeil delwedd PNM feit dechreuol annilys"
 
-#: gdk-pixbuf/io-pnm.c:312
+#: gdk-pixbuf/io-pnm.c:311
 msgid "PNM file is not in a recognized PNM subformat"
 msgstr "Nid yw'r ffeil delwedd PNM mewn is-ffurf PNM a adnabyddir"
 
-#: gdk-pixbuf/io-pnm.c:337
+#: gdk-pixbuf/io-pnm.c:336
 msgid "PNM file has an image width of 0"
 msgstr "Mae gan y ffeil delwedd PNM lled sero"
 
-#: gdk-pixbuf/io-pnm.c:358
+#: gdk-pixbuf/io-pnm.c:357
 msgid "PNM file has an image height of 0"
 msgstr "Mae gan y ffeil delwedd PNM hyd sero"
 
-#: gdk-pixbuf/io-pnm.c:381
+#: gdk-pixbuf/io-pnm.c:380
 msgid "Maximum color value in PNM file is 0"
 msgstr "Mae'r gwerth lliw uchaf yn y ffeil delwedd PNM yn sero"
 
-#: gdk-pixbuf/io-pnm.c:389
+#: gdk-pixbuf/io-pnm.c:388
 msgid "Maximum color value in PNM file is too large"
 msgstr "Mae'r gwerth lliw uchaf yn y ffeil delwedd PNM yn rhy fawr"
 
-#: gdk-pixbuf/io-pnm.c:429 gdk-pixbuf/io-pnm.c:459 gdk-pixbuf/io-pnm.c:504
+#: gdk-pixbuf/io-pnm.c:428 gdk-pixbuf/io-pnm.c:458 gdk-pixbuf/io-pnm.c:503
 msgid "Raw PNM image type is invalid"
 msgstr "Mae math y ddelwedd PNG crau yn annilys"
 
-#: gdk-pixbuf/io-pnm.c:654
+#: gdk-pixbuf/io-pnm.c:653
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "Nid yw'r llwythwr delweddau PNM yn cynnal y fformat PNM yma"
 
-#: gdk-pixbuf/io-pnm.c:741 gdk-pixbuf/io-pnm.c:968
+#: gdk-pixbuf/io-pnm.c:740 gdk-pixbuf/io-pnm.c:967
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr "Mae fformatau PNM crai yn mynnu un nod gofod yn union cyn data samplau"
 
-#: gdk-pixbuf/io-pnm.c:768
+#: gdk-pixbuf/io-pnm.c:767
 msgid "Cannot allocate memory for loading PNM image"
 msgstr "Methu dyrannu cof er mwyn llwytho delwedd PNM"
 
-#: gdk-pixbuf/io-pnm.c:818
+#: gdk-pixbuf/io-pnm.c:817
 msgid "Insufficient memory to load PNM context struct"
 msgstr "Dim digon o gof er mwyn llwytho strwythur cyd-destun delwedd PNM"
 
-#: gdk-pixbuf/io-pnm.c:869
+#: gdk-pixbuf/io-pnm.c:868
 msgid "Unexpected end of PNM image data"
 msgstr "Diwedd annisgwyl i ddata delwedd PNM"
 
-#: gdk-pixbuf/io-pnm.c:997
+#: gdk-pixbuf/io-pnm.c:996
 msgid "Insufficient memory to load PNM file"
 msgstr "Dim digon o gof er mwyn llwytho delwedd PNM"
 
-#: gdk-pixbuf/io-pnm.c:1081
+#: gdk-pixbuf/io-pnm.c:1080
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "Y teulu fformatau delwedd PNM/PBM/PGM/PPM"
 
-#: gdk-pixbuf/io-qtif.c:128
+#: gdk-pixbuf/io-qtif.c:127
 msgid "Input file descriptor is NULL."
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:143
+#: gdk-pixbuf/io-qtif.c:142
 #, fuzzy
 msgid "Failed to read QTIF header"
 msgstr "Methu ysgrifennu pennyn\n"
 
-#: gdk-pixbuf/io-qtif.c:152 gdk-pixbuf/io-qtif.c:182 gdk-pixbuf/io-qtif.c:446
+#: gdk-pixbuf/io-qtif.c:151 gdk-pixbuf/io-qtif.c:181 gdk-pixbuf/io-qtif.c:445
 #, c-format
 msgid "QTIF atom size too large (%d bytes)"
 msgstr ""
 
 # Ar gyfer n == 2 mae'r ail msgstr (gweler y pennawd)
-#: gdk-pixbuf/io-qtif.c:172
+#: gdk-pixbuf/io-qtif.c:171
 #, fuzzy, c-format
 msgid "Failed to allocate %d bytes for file read buffer"
 msgstr "methu creu byffer delwedd %u beit"
 
-#: gdk-pixbuf/io-qtif.c:196
+#: gdk-pixbuf/io-qtif.c:195
 #, fuzzy, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "Methiant wrth ddarllen GIF: %s"
 
-#: gdk-pixbuf/io-qtif.c:233
+#: gdk-pixbuf/io-qtif.c:232
 #, c-format
 msgid "Failed to skip the next %d bytes with seek()."
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:257
+#: gdk-pixbuf/io-qtif.c:256
 #, fuzzy
 msgid "Failed to allocate QTIF context structure."
 msgstr "Methu dyrannu cof ar gyfer strwythur cyd-destun delwedd TGA"
 
-#: gdk-pixbuf/io-qtif.c:317
+#: gdk-pixbuf/io-qtif.c:316
 #, fuzzy
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "Methu ysgrifennu mynegai ffolder\n"
 
-#: gdk-pixbuf/io-qtif.c:421
+#: gdk-pixbuf/io-qtif.c:420
 #, fuzzy
 msgid "Failed to find an image data atom."
 msgstr "Methu agor delwedd TIFF"
 
-#: gdk-pixbuf/io-qtif.c:602
+#: gdk-pixbuf/io-qtif.c:601
 #, fuzzy
 msgid "The QTIF image format"
 msgstr "Y fformat delwedd TIFF"
 
-#: gdk-pixbuf/io-ras.c:126
+#: gdk-pixbuf/io-ras.c:125
 msgid "RAS image has bogus header data"
 msgstr "Mae gan y ddelwedd RAS ddata pennawd annilys"
 
-#: gdk-pixbuf/io-ras.c:148
+#: gdk-pixbuf/io-ras.c:147
 msgid "RAS image has unknown type"
 msgstr "Mae gan y ddelwedd RAS fath anhysbys"
 
-#: gdk-pixbuf/io-ras.c:156
+#: gdk-pixbuf/io-ras.c:155
 msgid "unsupported RAS image variation"
 msgstr "amrywiad delwedd RAS ni chynhelir"
 
-#: gdk-pixbuf/io-ras.c:171 gdk-pixbuf/io-ras.c:200
+#: gdk-pixbuf/io-ras.c:170 gdk-pixbuf/io-ras.c:199
 msgid "Not enough memory to load RAS image"
 msgstr "Dim digon o gof er mwyn llwytho delwedd RAS"
 
-#: gdk-pixbuf/io-ras.c:545
+#: gdk-pixbuf/io-ras.c:544
 msgid "The Sun raster image format"
 msgstr "Fformat delwedd raster Sun"
 
-#: gdk-pixbuf/io-tga.c:154
+#: gdk-pixbuf/io-tga.c:153
 msgid "Cannot allocate memory for IOBuffer struct"
 msgstr "Methu dyrannu cof ar gyfer strwythur IOBuffer"
 
-#: gdk-pixbuf/io-tga.c:173
+#: gdk-pixbuf/io-tga.c:172
 msgid "Cannot allocate memory for IOBuffer data"
 msgstr "Methu dyrannu cof ar gyfer data IOBuffer"
 
-#: gdk-pixbuf/io-tga.c:184
+#: gdk-pixbuf/io-tga.c:183
 msgid "Cannot realloc IOBuffer data"
 msgstr "Methu ail-ddyrannu cof ar gyfer data IOBuffer"
 
-#: gdk-pixbuf/io-tga.c:214
+#: gdk-pixbuf/io-tga.c:213
 msgid "Cannot allocate temporary IOBuffer data"
 msgstr "Methu dyrannu data IOBuffer dros dro"
 
-#: gdk-pixbuf/io-tga.c:347
+#: gdk-pixbuf/io-tga.c:346
 msgid "Cannot allocate new pixbuf"
 msgstr "Methu dyrannu pixbuf newydd"
 
-#: gdk-pixbuf/io-tga.c:686
+#: gdk-pixbuf/io-tga.c:685
 #, fuzzy
 msgid "Image is corrupted or truncated"
 msgstr "Roedd y ddelwedd GIF yn anghyflawn neu wedi gorffen yn rhy fuan"
 
-#: gdk-pixbuf/io-tga.c:693
+#: gdk-pixbuf/io-tga.c:692
 msgid "Cannot allocate colormap structure"
 msgstr "Methu dyrannu strwythur map lliwiau"
 
-#: gdk-pixbuf/io-tga.c:700
+#: gdk-pixbuf/io-tga.c:699
 msgid "Cannot allocate colormap entries"
 msgstr "Methu dyrannu cofnodion map lliwiau"
 
-#: gdk-pixbuf/io-tga.c:722
+#: gdk-pixbuf/io-tga.c:721
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "Did-ddyfnder annisgwyl ar gyfer cofnodion map lliwiau"
 
-#: gdk-pixbuf/io-tga.c:740
+#: gdk-pixbuf/io-tga.c:739
 msgid "Cannot allocate TGA header memory"
 msgstr "Methu dyrannu cof pennawd TGA"
 
-#: gdk-pixbuf/io-tga.c:773
+#: gdk-pixbuf/io-tga.c:772
 msgid "TGA image has invalid dimensions"
 msgstr "Mae gan y ddelwedd TGA ddimensiynau annilys"
 
-#: gdk-pixbuf/io-tga.c:779 gdk-pixbuf/io-tga.c:788 gdk-pixbuf/io-tga.c:798
-#: gdk-pixbuf/io-tga.c:808 gdk-pixbuf/io-tga.c:815
+#: gdk-pixbuf/io-tga.c:778 gdk-pixbuf/io-tga.c:787 gdk-pixbuf/io-tga.c:797
+#: gdk-pixbuf/io-tga.c:807 gdk-pixbuf/io-tga.c:814
 msgid "TGA image type not supported"
 msgstr "Ni chynhelir math y ddelwedd TGA"
 
-#: gdk-pixbuf/io-tga.c:862
+#: gdk-pixbuf/io-tga.c:861
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Methu dyrannu cof ar gyfer strwythur cyd-destun delwedd TGA"
 
-#: gdk-pixbuf/io-tga.c:927
+#: gdk-pixbuf/io-tga.c:926
 msgid "Excess data in file"
 msgstr "Gormodedd o ddata mewn ffeil"
 
-#: gdk-pixbuf/io-tga.c:1008
+#: gdk-pixbuf/io-tga.c:1007
 msgid "The Targa image format"
 msgstr "Y fformat delwedd Targa"
 
-#: gdk-pixbuf/io-tiff.c:165
+#: gdk-pixbuf/io-tiff.c:164
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Methu canfod lled y ddelwedd (ffeil TIFF ddrwg)"
 
-#: gdk-pixbuf/io-tiff.c:172
+#: gdk-pixbuf/io-tiff.c:171
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Methu canfod hyd y ddelwedd (ffeil TIFF ddrwg)"
 
-#: gdk-pixbuf/io-tiff.c:180
+#: gdk-pixbuf/io-tiff.c:179
 msgid "Width or height of TIFF image is zero"
 msgstr "Mae hyd neu led y ddelwedd TIFF yn sero"
 
-#: gdk-pixbuf/io-tiff.c:189 gdk-pixbuf/io-tiff.c:198
+#: gdk-pixbuf/io-tiff.c:188 gdk-pixbuf/io-tiff.c:197
 msgid "Dimensions of TIFF image too large"
 msgstr "Mae dimensiynau'r ddelwedd TIFF yn rhy fawr"
 
-#: gdk-pixbuf/io-tiff.c:222 gdk-pixbuf/io-tiff.c:234 gdk-pixbuf/io-tiff.c:561
+#: gdk-pixbuf/io-tiff.c:221 gdk-pixbuf/io-tiff.c:233 gdk-pixbuf/io-tiff.c:560
 msgid "Insufficient memory to open TIFF file"
 msgstr "Dim digon o gof er mwyn agor ffeil delwedd TIFF"
 
-#: gdk-pixbuf/io-tiff.c:295
+#: gdk-pixbuf/io-tiff.c:294
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Methu llwytho data RGB o ffeil TIFF"
 
-#: gdk-pixbuf/io-tiff.c:351
+#: gdk-pixbuf/io-tiff.c:350
 msgid "Failed to open TIFF image"
 msgstr "Methu agor delwedd TIFF"
 
-#: gdk-pixbuf/io-tiff.c:363 gdk-pixbuf/io-tiff.c:778
+#: gdk-pixbuf/io-tiff.c:362 gdk-pixbuf/io-tiff.c:777
 msgid "TIFFClose operation failed"
 msgstr "Methodd y weithred TIFFClose"
 
-#: gdk-pixbuf/io-tiff.c:493 gdk-pixbuf/io-tiff.c:506
+#: gdk-pixbuf/io-tiff.c:492 gdk-pixbuf/io-tiff.c:505
 msgid "Failed to load TIFF image"
 msgstr "Methu llwytho delwedd TIFF"
 
-#: gdk-pixbuf/io-tiff.c:692
+#: gdk-pixbuf/io-tiff.c:691
 msgid "Failed to save TIFF image"
 msgstr "Methu cadw'r ddelwedd TIFF"
 
-#: gdk-pixbuf/io-tiff.c:727
+#: gdk-pixbuf/io-tiff.c:726
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr ""
 
-#: gdk-pixbuf/io-tiff.c:767
+#: gdk-pixbuf/io-tiff.c:766
 msgid "Failed to write TIFF data"
 msgstr "Methu ysgrifennu'r data TIFF"
 
-#: gdk-pixbuf/io-tiff.c:814
+#: gdk-pixbuf/io-tiff.c:813
 msgid "Couldn't write to TIFF file"
 msgstr "Methu ysgrifennu i'r ffeil TIFF"
 
-#: gdk-pixbuf/io-tiff.c:869
+#: gdk-pixbuf/io-tiff.c:868
 msgid "The TIFF image format"
 msgstr "Y fformat delwedd TIFF"
 
-#: gdk-pixbuf/io-wbmp.c:246
+#: gdk-pixbuf/io-wbmp.c:245
 msgid "Image has zero width"
 msgstr "Mae gan y ddelwedd lled sero"
 
-#: gdk-pixbuf/io-wbmp.c:264
+#: gdk-pixbuf/io-wbmp.c:263
 msgid "Image has zero height"
 msgstr "Mae gan y ddelwedd hyd sero"
 
-#: gdk-pixbuf/io-wbmp.c:275
+#: gdk-pixbuf/io-wbmp.c:274
 msgid "Not enough memory to load image"
 msgstr "Dim digon o gof er mwyn llwytho delwedd"
 
-#: gdk-pixbuf/io-wbmp.c:334
+#: gdk-pixbuf/io-wbmp.c:333
 msgid "Couldn't save the rest"
 msgstr "Methu cadw'r gweddill"
 
-#: gdk-pixbuf/io-wbmp.c:375
+#: gdk-pixbuf/io-wbmp.c:374
 msgid "The WBMP image format"
 msgstr "Y fformat delwedd WBMP"
 
-#: gdk-pixbuf/io-xbm.c:295
+#: gdk-pixbuf/io-xbm.c:294
 msgid "Invalid XBM file"
 msgstr "Ffeil ddelwedd XBM annilys"
 
-#: gdk-pixbuf/io-xbm.c:305
+#: gdk-pixbuf/io-xbm.c:304
 msgid "Insufficient memory to load XBM image file"
 msgstr "Dim digon o gof er mwyn llwytho ddeil delwedd XBM"
 
-#: gdk-pixbuf/io-xbm.c:453
+#: gdk-pixbuf/io-xbm.c:452
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr "Methu ysgrifennu at ffeil dros dro wrth lwytho delwedd XBM"
 
-#: gdk-pixbuf/io-xbm.c:492
+#: gdk-pixbuf/io-xbm.c:491
 msgid "The XBM image format"
 msgstr "Y fformat delwedd XBM"
 
-#: gdk-pixbuf/io-xpm.c:468
+#: gdk-pixbuf/io-xpm.c:467
 msgid "No XPM header found"
 msgstr "Ni chanfuwyd pennawd delwedd XPM"
 
-#: gdk-pixbuf/io-xpm.c:477
+#: gdk-pixbuf/io-xpm.c:476
 msgid "Invalid XPM header"
 msgstr "Ffeil delwedd XPM annilys"
 
-#: gdk-pixbuf/io-xpm.c:485
+#: gdk-pixbuf/io-xpm.c:484
 msgid "XPM file has image width <= 0"
 msgstr "Mae gan y ffeil delwedd XPM lled <= 0"
 
-#: gdk-pixbuf/io-xpm.c:493
+#: gdk-pixbuf/io-xpm.c:492
 msgid "XPM file has image height <= 0"
 msgstr "Mae gan y ffeil delwedd XPM hyd <= 0"
 
-#: gdk-pixbuf/io-xpm.c:501
+#: gdk-pixbuf/io-xpm.c:500
 msgid "XPM has invalid number of chars per pixel"
 msgstr "Mae gan y ddelwedd XPM nifer annilys o feitiau i bob picsel"
 
-#: gdk-pixbuf/io-xpm.c:510
+#: gdk-pixbuf/io-xpm.c:509
 msgid "XPM file has invalid number of colors"
 msgstr "Mae gan y ffeil delwedd XPM nifer annilys o liwiau"
 
-#: gdk-pixbuf/io-xpm.c:522 gdk-pixbuf/io-xpm.c:531 gdk-pixbuf/io-xpm.c:583
+#: gdk-pixbuf/io-xpm.c:521 gdk-pixbuf/io-xpm.c:530 gdk-pixbuf/io-xpm.c:582
 msgid "Cannot allocate memory for loading XPM image"
 msgstr "Methu dyrannu cof er mwyn llwytho delwedd XPM"
 
-#: gdk-pixbuf/io-xpm.c:545
+#: gdk-pixbuf/io-xpm.c:544
 msgid "Cannot read XPM colormap"
 msgstr "Methu darllen map lliwiau delwedd XPM"
 
-#: gdk-pixbuf/io-xpm.c:777
+#: gdk-pixbuf/io-xpm.c:776
 msgid "Failed to write to temporary file when loading XPM image"
 msgstr "Methu ysgrifennu at ffeil dros dro wrth lwytho delwedd XPM"
 
-#: gdk-pixbuf/io-xpm.c:816
+#: gdk-pixbuf/io-xpm.c:815
 msgid "The XPM image format"
 msgstr "Y fformat delwedd XPM"
 

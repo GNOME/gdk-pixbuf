@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf\n"
-"POT-Creation-Date: 2010-06-24 18:17-0400\n"
+"POT-Creation-Date: 2010-06-25 23:54-0400\n"
 "PO-Revision-Date: 2005-02-08 13:20+0200\n"
 "Last-Translator: Canonical Ltd <translations@canonical.com>\n"
 "Language-Team: Xhosa <xh-translate@ubuntu.com>\n"
@@ -19,19 +19,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:133 gdk-pixbuf/gdk-pixbuf-io.c:983
-#: gdk-pixbuf/gdk-pixbuf-io.c:1243
+#: gdk-pixbuf/gdk-pixbuf-animation.c:131 gdk-pixbuf/gdk-pixbuf-io.c:981
+#: gdk-pixbuf/gdk-pixbuf-io.c:1241
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Akuphumelelanga ukuvula ifayili '%s': %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:146 gdk-pixbuf/gdk-pixbuf-io.c:995
+#: gdk-pixbuf/gdk-pixbuf-animation.c:144 gdk-pixbuf/gdk-pixbuf-io.c:993
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Ifayili yemifanekiso '%s' ayiqulathanga data"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:188 gdk-pixbuf/gdk-pixbuf-io.c:1031
-#: gdk-pixbuf/gdk-pixbuf-io.c:1295
+#: gdk-pixbuf/gdk-pixbuf-animation.c:186 gdk-pixbuf/gdk-pixbuf-io.c:1029
+#: gdk-pixbuf/gdk-pixbuf-io.c:1293
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -39,7 +39,7 @@ msgstr ""
 "Ukufaka umfanekiso akuphumelelanga '%s': isizathu asaziwa, mhlawumbi "
 "yifayili yomfanekiso eyonakeleyo"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:221
+#: gdk-pixbuf/gdk-pixbuf-animation.c:219
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -48,12 +48,12 @@ msgstr ""
 "Akuphumelelanga ukufaka oopopayi '%s': isizathu asaziwa, mhlawumbi yifayile "
 "yoopopayi eyonakeleyo"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:716
+#: gdk-pixbuf/gdk-pixbuf-io.c:714
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Ayinako ukufaka imodyuli yokufaka umfanekiso: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:731
+#: gdk-pixbuf/gdk-pixbuf-io.c:729
 #, fuzzy, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -62,54 +62,54 @@ msgstr ""
 "Imodyuli yokufaka umfanekiso %s ayihambisi umdibanisi wemida onguwo; "
 "mhlawumbi isuka kuhlobo lwe-GTK olwahlukileyo?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:740 gdk-pixbuf/gdk-pixbuf-io.c:791
+#: gdk-pixbuf/gdk-pixbuf-io.c:738 gdk-pixbuf/gdk-pixbuf-io.c:789
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Uhlobo lomfanekiso '%s' aluxhaswanga"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:864
+#: gdk-pixbuf/gdk-pixbuf-io.c:862
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Ayikwazanga ukubona umfanekiso kubume befayili yale fayili '%s'"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:872
+#: gdk-pixbuf/gdk-pixbuf-io.c:870
 msgid "Unrecognized image file format"
 msgstr "Ubume befayili yemifanekiso engaziwayo"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1040
+#: gdk-pixbuf/gdk-pixbuf-io.c:1038
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Ayiphumelelanga ukufaka umfanekiso '%s': %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1674 gdk-pixbuf/io-gdip-utils.c:961
+#: gdk-pixbuf/gdk-pixbuf-io.c:1672 gdk-pixbuf/io-gdip-utils.c:961
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Impazamo ekubhaleni umfanekiso: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1719 gdk-pixbuf/gdk-pixbuf-io.c:1849
+#: gdk-pixbuf/gdk-pixbuf-io.c:1717 gdk-pixbuf/gdk-pixbuf-io.c:1847
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "Isakhiwo se-gdk-pixbuf asikuxhasi ukugcinwa kobume bemifanekiso: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1753
+#: gdk-pixbuf/gdk-pixbuf-io.c:1751
 msgid "Insufficient memory to save image to callback"
 msgstr ""
 "Uvimba wolwazi akonelanga ukugcina umfanekiso ukuba ungaphinde ubuyiswe"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1766
+#: gdk-pixbuf/gdk-pixbuf-io.c:1764
 msgid "Failed to open temporary file"
 msgstr "Ayiphumelelanga ukuvula iifayili zexeshana"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1792
+#: gdk-pixbuf/gdk-pixbuf-io.c:1790
 msgid "Failed to read from temporary file"
 msgstr "Ayiphumelelanga ukufunda kwifayili yexeshana"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2045
+#: gdk-pixbuf/gdk-pixbuf-io.c:2043
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Ayiphumelelanga ukuvula '%s' ukuba kubhalwe: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2071
+#: gdk-pixbuf/gdk-pixbuf-io.c:2069
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -118,17 +118,17 @@ msgstr ""
 "Ayiphumelelanga ukuvala '%s' ngelixa ibhala umfanekiso, kusenokwenzeka ukuba "
 "ayigcinwanga yonke i-data: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2291 gdk-pixbuf/gdk-pixbuf-io.c:2342
+#: gdk-pixbuf/gdk-pixbuf-io.c:2289 gdk-pixbuf/gdk-pixbuf-io.c:2340
 msgid "Insufficient memory to save image into a buffer"
 msgstr ""
 "Uvimba wolwazi akanelanga ukuba agcine umfanekiso kwisigcini sethutyana"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2388
+#: gdk-pixbuf/gdk-pixbuf-io.c:2386
 #, fuzzy
 msgid "Error writing to image stream"
 msgstr "Impazamo ekubhaleni umfanekiso: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:334
+#: gdk-pixbuf/gdk-pixbuf-loader.c:333
 #, fuzzy, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -137,7 +137,7 @@ msgstr ""
 "IMpazamo ngaphakathi: Imodyuli yokufaka umfanekiso '%s' ayiphumelelanga "
 "ukuqala ukufaka lo mfanekiso, kodwa ayinikanga sizathu sokungaphumeleli"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:376
+#: gdk-pixbuf/gdk-pixbuf-loader.c:375
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Ukongezwa kokufaka olu hlobo lomfanekiso '%s' akuxhaswanga"
@@ -161,128 +161,128 @@ msgid_plural "failed to allocate image buffer of %u bytes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gdk-pixbuf/io-ani.c:245
+#: gdk-pixbuf/io-ani.c:244
 msgid "Unexpected icon chunk in animation"
 msgstr "Isiqa esingalindelekanga somfanekiso womqondiso koopopayi"
 
-#: gdk-pixbuf/io-ani.c:338
+#: gdk-pixbuf/io-ani.c:337
 msgid "Unsupported animation type"
 msgstr "Uhlobo olungaxhaswanga loopopayi"
 
-#: gdk-pixbuf/io-ani.c:349 gdk-pixbuf/io-ani.c:407 gdk-pixbuf/io-ani.c:433
-#: gdk-pixbuf/io-ani.c:456 gdk-pixbuf/io-ani.c:483 gdk-pixbuf/io-ani.c:570
+#: gdk-pixbuf/io-ani.c:348 gdk-pixbuf/io-ani.c:406 gdk-pixbuf/io-ani.c:432
+#: gdk-pixbuf/io-ani.c:455 gdk-pixbuf/io-ani.c:482 gdk-pixbuf/io-ani.c:569
 msgid "Invalid header in animation"
 msgstr "I-header engavunywanga ekwenzeni oopopayi"
 
-#: gdk-pixbuf/io-ani.c:359 gdk-pixbuf/io-ani.c:381 gdk-pixbuf/io-ani.c:465
-#: gdk-pixbuf/io-ani.c:492 gdk-pixbuf/io-ani.c:543 gdk-pixbuf/io-ani.c:615
+#: gdk-pixbuf/io-ani.c:358 gdk-pixbuf/io-ani.c:380 gdk-pixbuf/io-ani.c:464
+#: gdk-pixbuf/io-ani.c:491 gdk-pixbuf/io-ani.c:542 gdk-pixbuf/io-ani.c:614
 msgid "Not enough memory to load animation"
 msgstr "Uvimba wolwazi akonelanga ukuba kungafakwa oopopayi"
 
-#: gdk-pixbuf/io-ani.c:399 gdk-pixbuf/io-ani.c:425 gdk-pixbuf/io-ani.c:444
+#: gdk-pixbuf/io-ani.c:398 gdk-pixbuf/io-ani.c:424 gdk-pixbuf/io-ani.c:443
 msgid "Malformed chunk in animation"
 msgstr "Isiqa esinesiphene koopopayi"
 
-#: gdk-pixbuf/io-ani.c:712
+#: gdk-pixbuf/io-ani.c:711
 msgid "The ANI image format"
 msgstr "Ubume bemifanekiso eyi-ANI"
 
-#: gdk-pixbuf/io-bmp.c:230 gdk-pixbuf/io-bmp.c:267 gdk-pixbuf/io-bmp.c:338
-#: gdk-pixbuf/io-bmp.c:370 gdk-pixbuf/io-bmp.c:393 gdk-pixbuf/io-bmp.c:496
+#: gdk-pixbuf/io-bmp.c:229 gdk-pixbuf/io-bmp.c:266 gdk-pixbuf/io-bmp.c:337
+#: gdk-pixbuf/io-bmp.c:369 gdk-pixbuf/io-bmp.c:392 gdk-pixbuf/io-bmp.c:495
 msgid "BMP image has bogus header data"
 msgstr "Umfanekiso we-BMP une-bogus header data"
 
-#: gdk-pixbuf/io-bmp.c:241 gdk-pixbuf/io-bmp.c:433
+#: gdk-pixbuf/io-bmp.c:240 gdk-pixbuf/io-bmp.c:432
 msgid "Not enough memory to load bitmap image"
 msgstr ""
 "Akukho vimba wolwazi owaneleyo ukuba kungafakwa umfanekiso wengqokelela "
 "yamasuntsu"
 
-#: gdk-pixbuf/io-bmp.c:319
+#: gdk-pixbuf/io-bmp.c:318
 msgid "BMP image has unsupported header size"
 msgstr ""
 "Umfanekiso we-BMP uwubuxhasanga ubungakanani bobukhulu bokubhalwe emantla "
 "ephepha"
 
-#: gdk-pixbuf/io-bmp.c:357
+#: gdk-pixbuf/io-bmp.c:356
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Imifanekiso ye-Topdown BMP ayikwazi ukushwankathelwa"
 
-#: gdk-pixbuf/io-bmp.c:717 gdk-pixbuf/io-pnm.c:709
+#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:708
 msgid "Premature end-of-file encountered"
 msgstr "Kufumaniseke ukupheliswa kwefayili phambi kwexesha"
 
-#: gdk-pixbuf/io-bmp.c:1329
+#: gdk-pixbuf/io-bmp.c:1328
 #, fuzzy
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr ""
 "Ayikwazanga ukwandisa uvimba wolwazi ukuze akwazi ukufaka ifayili ye-JPEG"
 
-#: gdk-pixbuf/io-bmp.c:1370
+#: gdk-pixbuf/io-bmp.c:1369
 #, fuzzy
 msgid "Couldn't write to BMP file"
 msgstr "Ayikwazanga ukutshintsha igama lefayili"
 
-#: gdk-pixbuf/io-bmp.c:1423 gdk-pixbuf/io-gdip-bmp.c:82
+#: gdk-pixbuf/io-bmp.c:1422 gdk-pixbuf/io-gdip-bmp.c:82
 msgid "The BMP image format"
 msgstr "Ubume bomfanekiso i-BMP"
 
-#: gdk-pixbuf/io-gif.c:222
+#: gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "Ayiphumelelanga ukufunda i-GIF: %s"
 
-#: gdk-pixbuf/io-gif.c:496 gdk-pixbuf/io-gif.c:1481 gdk-pixbuf/io-gif.c:1642
+#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1480 gdk-pixbuf/io-gif.c:1641
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr ""
 "Ifayili ye-GIF ibingenayo enye i-data (mhlawumbi iyekwe phakathi ngendlela "
 "ethile?)"
 
-#: gdk-pixbuf/io-gif.c:505
+#: gdk-pixbuf/io-gif.c:504
 #, c-format
 msgid "Internal error in the GIF loader (%s)"
 msgstr "Impazamo yangaphakathi kwisifaki se-GIF (%s)"
 
-#: gdk-pixbuf/io-gif.c:579
+#: gdk-pixbuf/io-gif.c:578
 msgid "Stack overflow"
 msgstr "Ukuchitheka kwemfumba"
 
-#: gdk-pixbuf/io-gif.c:639
+#: gdk-pixbuf/io-gif.c:638
 msgid "GIF image loader cannot understand this image."
 msgstr "Isifaki mifanekiso se-GIF asiwuqondi lo mfanekiso."
 
-#: gdk-pixbuf/io-gif.c:668
+#: gdk-pixbuf/io-gif.c:667
 msgid "Bad code encountered"
 msgstr "Kufumaneke ikhowudi engalunganga"
 
-#: gdk-pixbuf/io-gif.c:678
+#: gdk-pixbuf/io-gif.c:677
 msgid "Circular table entry in GIF file"
 msgstr "Kungene itheyibhile esisangqa kwifayile i-GIF"
 
-#: gdk-pixbuf/io-gif.c:866 gdk-pixbuf/io-gif.c:1468 gdk-pixbuf/io-gif.c:1515
-#: gdk-pixbuf/io-gif.c:1630
+#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1467 gdk-pixbuf/io-gif.c:1514
+#: gdk-pixbuf/io-gif.c:1629
 msgid "Not enough memory to load GIF file"
 msgstr "Uvimba wolwazi akalingananga ukuba kungafakwa ifayili ye-GIF"
 
-#: gdk-pixbuf/io-gif.c:960
+#: gdk-pixbuf/io-gif.c:959
 #, fuzzy
 msgid "Not enough memory to composite a frame in GIF file"
 msgstr "Uvimba wolwazi akalingananga ukuba kungafakwa ifayili ye-GIF"
 
-#: gdk-pixbuf/io-gif.c:1132
+#: gdk-pixbuf/io-gif.c:1131
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "Umfanekiso we-GIF wonakele (isishwankathelo se-LZW asichanekanga)"
 
-#: gdk-pixbuf/io-gif.c:1182
+#: gdk-pixbuf/io-gif.c:1181
 msgid "File does not appear to be a GIF file"
 msgstr "Le fayili ayikhangeleki njengefayili ye-GIF"
 
-#: gdk-pixbuf/io-gif.c:1194
+#: gdk-pixbuf/io-gif.c:1193
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "Uhlobo %s lobume befayili ye-GIF aluxhaswanga"
 
-#: gdk-pixbuf/io-gif.c:1303
+#: gdk-pixbuf/io-gif.c:1302
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -290,124 +290,124 @@ msgstr ""
 "Umfanekiso we-GIFawunayo yonke imaphu yemibala, yaye isakhelo esingaphakathi "
 "kwawo asinayo imibala efikeleleka ngqo kwimaphu yemibala."
 
-#: gdk-pixbuf/io-gif.c:1537
+#: gdk-pixbuf/io-gif.c:1536
 msgid "GIF image was truncated or incomplete."
 msgstr "Umfanekiso we-GIF uyekwe esithubeni okanye awugqitywanga."
 
-#: gdk-pixbuf/io-gif.c:1693 gdk-pixbuf/io-gdip-gif.c:80
+#: gdk-pixbuf/io-gif.c:1692 gdk-pixbuf/io-gdip-gif.c:80
 msgid "The GIF image format"
 msgstr "Ubume bomfanekiso we-GIF"
 
-#: gdk-pixbuf/io-ico.c:211 gdk-pixbuf/io-ico.c:225 gdk-pixbuf/io-ico.c:277
-#: gdk-pixbuf/io-ico.c:290 gdk-pixbuf/io-ico.c:359
+#: gdk-pixbuf/io-ico.c:210 gdk-pixbuf/io-ico.c:224 gdk-pixbuf/io-ico.c:276
+#: gdk-pixbuf/io-ico.c:289 gdk-pixbuf/io-ico.c:358
 msgid "Invalid header in icon"
 msgstr "I-header engavunywanga kumfanekiso ongumqondiso"
 
-#: gdk-pixbuf/io-ico.c:240 gdk-pixbuf/io-ico.c:300 gdk-pixbuf/io-ico.c:369
-#: gdk-pixbuf/io-ico.c:432 gdk-pixbuf/io-ico.c:462
+#: gdk-pixbuf/io-ico.c:239 gdk-pixbuf/io-ico.c:299 gdk-pixbuf/io-ico.c:368
+#: gdk-pixbuf/io-ico.c:431 gdk-pixbuf/io-ico.c:461
 msgid "Not enough memory to load icon"
 msgstr ""
 "Akukho vimba wolwazi owaneleyo ukuba kungafakwa umfanekiso ongumqondiso"
 
-#: gdk-pixbuf/io-ico.c:322
+#: gdk-pixbuf/io-ico.c:321
 msgid "Icon has zero width"
 msgstr "Umfanekiso ongumqondiso awunabubanzi"
 
-#: gdk-pixbuf/io-ico.c:332
+#: gdk-pixbuf/io-ico.c:331
 msgid "Icon has zero height"
 msgstr "Umfanekiso ongumqondiso awunabude"
 
-#: gdk-pixbuf/io-ico.c:384
+#: gdk-pixbuf/io-ico.c:383
 msgid "Compressed icons are not supported"
 msgstr "Isishwankathelo somfanekiso ongumqondiso asixhaswanga"
 
-#: gdk-pixbuf/io-ico.c:417
+#: gdk-pixbuf/io-ico.c:416
 msgid "Unsupported icon type"
 msgstr "Uhlobo lomfanekiso ongumqondiso ongaxhaswanga"
 
-#: gdk-pixbuf/io-ico.c:511
+#: gdk-pixbuf/io-ico.c:510
 msgid "Not enough memory to load ICO file"
 msgstr "Uvimba wolwazi akanelanga ukuba kungafakwa ifayili ye-ICO"
 
-#: gdk-pixbuf/io-ico.c:976
+#: gdk-pixbuf/io-ico.c:975
 msgid "Image too large to be saved as ICO"
 msgstr "Umfanekiso mkhulu kakhulu ukuba ungagcinwa njenge-ICO"
 
-#: gdk-pixbuf/io-ico.c:987
+#: gdk-pixbuf/io-ico.c:986
 msgid "Cursor hotspot outside image"
 msgstr "I-hotspot yekhesa ingaphandle komfanekiso"
 
-#: gdk-pixbuf/io-ico.c:1010
+#: gdk-pixbuf/io-ico.c:1009
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Ubunzulu abuxhaswanga kwifayili ye-ICO: %d"
 
-#: gdk-pixbuf/io-ico.c:1245 gdk-pixbuf/io-gdip-ico.c:59
+#: gdk-pixbuf/io-ico.c:1244 gdk-pixbuf/io-gdip-ico.c:59
 msgid "The ICO image format"
 msgstr "Ubume bomfanekiso we-ICO"
 
-#: gdk-pixbuf/io-icns.c:348
+#: gdk-pixbuf/io-icns.c:347
 #, fuzzy, c-format
 msgid "Error reading ICNS image: %s"
 msgstr "Impazamo ebulalayo ekufundeni ifayile yemifanekiso i-PNG : %s"
 
-#: gdk-pixbuf/io-icns.c:365
+#: gdk-pixbuf/io-icns.c:364
 #, fuzzy
 msgid "Could not decode ICNS file"
 msgstr "Ayikwazanga ukukhetha into"
 
-#: gdk-pixbuf/io-icns.c:398
+#: gdk-pixbuf/io-icns.c:397
 #, fuzzy
 msgid "The ICNS image format"
 msgstr "Ubume bomfanekiso we-ICO"
 
-#: gdk-pixbuf/io-jasper.c:75
+#: gdk-pixbuf/io-jasper.c:74
 #, fuzzy
 msgid "Couldn't allocate memory for stream"
 msgstr "Ayikwazanga ukunikezela uvimba wolwazi kwi-header"
 
-#: gdk-pixbuf/io-jasper.c:105
+#: gdk-pixbuf/io-jasper.c:104
 #, fuzzy
 msgid "Couldn't decode image"
 msgstr "Ayikwazanga ukutshintsha igama lefayili"
 
-#: gdk-pixbuf/io-jasper.c:123
+#: gdk-pixbuf/io-jasper.c:122
 #, fuzzy
 msgid "Transformed JPEG2000 has zero width or height"
 msgstr "I-PNG eguqulweyo ayinabubanzi okanye ubude."
 
-#: gdk-pixbuf/io-jasper.c:137
+#: gdk-pixbuf/io-jasper.c:136
 #, fuzzy
 msgid "Image type currently not supported"
 msgstr "Uhlobo lomfanekiso '%s' aluxhaswanga"
 
-#: gdk-pixbuf/io-jasper.c:149 gdk-pixbuf/io-jasper.c:157
+#: gdk-pixbuf/io-jasper.c:148 gdk-pixbuf/io-jasper.c:156
 #, fuzzy
 msgid "Couldn't allocate memory for color profile"
 msgstr ""
 "Ayikwazanga ukwandisa uvimba wolwazi ukuze akwazi ukufaka ifayili ye-JPEG"
 
-#: gdk-pixbuf/io-jasper.c:183
+#: gdk-pixbuf/io-jasper.c:182
 #, fuzzy
 msgid "Insufficient memory to open JPEG 2000 file"
 msgstr "Uvimba wolwazi akanelanga ukuba angavula ifayili ye-TIFF"
 
-#: gdk-pixbuf/io-jasper.c:262
+#: gdk-pixbuf/io-jasper.c:261
 #, fuzzy
 msgid "Couldn't allocate memory to buffer image data"
 msgstr "Ayikwazanga ukwandisa uvimba wolwazi lwe-data yomgca"
 
-#: gdk-pixbuf/io-jasper.c:306
+#: gdk-pixbuf/io-jasper.c:305
 #, fuzzy
 msgid "The JPEG 2000 image format"
 msgstr "Ubume bomfanekiso we-JPEG"
 
-#: gdk-pixbuf/io-jpeg.c:117
+#: gdk-pixbuf/io-jpeg.c:116
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Impazamo ekutolikeni ifayili yomfanekiso i-JPEG (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:528
+#: gdk-pixbuf/io-jpeg.c:527
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -415,23 +415,23 @@ msgstr ""
 "Uvimba wolwazi akanelanga ukuba angafaka umfanekiso, zama ukuphuma kwezinye "
 "iinkqubo ukwandisa uvimba wolwazi"
 
-#: gdk-pixbuf/io-jpeg.c:569 gdk-pixbuf/io-jpeg.c:775
+#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:774
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Indawo yombala ye-JPEG ayixhaswanga (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:674 gdk-pixbuf/io-jpeg.c:944 gdk-pixbuf/io-jpeg.c:1177
-#: gdk-pixbuf/io-jpeg.c:1186
+#: gdk-pixbuf/io-jpeg.c:673 gdk-pixbuf/io-jpeg.c:943 gdk-pixbuf/io-jpeg.c:1176
+#: gdk-pixbuf/io-jpeg.c:1185
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr ""
 "Ayikwazanga ukwandisa uvimba wolwazi ukuze akwazi ukufaka ifayili ye-JPEG"
 
-#: gdk-pixbuf/io-jpeg.c:919
+#: gdk-pixbuf/io-jpeg.c:918
 #, fuzzy
 msgid "Transformed JPEG has zero width or height."
 msgstr "I-PNG eguqulweyo ayinabubanzi okanye ubude."
 
-#: gdk-pixbuf/io-jpeg.c:1133 gdk-pixbuf/io-gdip-jpeg.c:53
+#: gdk-pixbuf/io-jpeg.c:1132 gdk-pixbuf/io-gdip-jpeg.c:53
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -440,7 +440,7 @@ msgstr ""
 "Ubunjani be-JPEG kufuneka buxabise phakathi kwe-0 ne-100; ixabiso '%s' "
 "alihlahlelwanga."
 
-#: gdk-pixbuf/io-jpeg.c:1148 gdk-pixbuf/io-gdip-jpeg.c:68
+#: gdk-pixbuf/io-jpeg.c:1147 gdk-pixbuf/io-gdip-jpeg.c:68
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
@@ -448,87 +448,87 @@ msgstr ""
 "Ubunjani be-JPEG kufuneka buxabise phakathi kwe-0 ne100; ixabiso '%d' "
 "livumelekile."
 
-#: gdk-pixbuf/io-jpeg.c:1310 gdk-pixbuf/io-gdip-jpeg.c:136
+#: gdk-pixbuf/io-jpeg.c:1309 gdk-pixbuf/io-gdip-jpeg.c:136
 msgid "The JPEG image format"
 msgstr "Ubume bomfanekiso we-JPEG"
 
-#: gdk-pixbuf/io-pcx.c:187
+#: gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
 msgstr "Ayikwazanga ukunikezela uvimba wolwazi kwi-header"
 
-#: gdk-pixbuf/io-pcx.c:202 gdk-pixbuf/io-pcx.c:560
+#: gdk-pixbuf/io-pcx.c:201 gdk-pixbuf/io-pcx.c:559
 msgid "Couldn't allocate memory for context buffer"
 msgstr "Ayikwazanga ukunikezela ngovimba wolwazi kumgcini wethutyana"
 
-#: gdk-pixbuf/io-pcx.c:601
+#: gdk-pixbuf/io-pcx.c:600
 msgid "Image has invalid width and/or height"
 msgstr "Umfanekiso unobubanzi/ubude obungavumelekanga"
 
-#: gdk-pixbuf/io-pcx.c:613 gdk-pixbuf/io-pcx.c:674
+#: gdk-pixbuf/io-pcx.c:612 gdk-pixbuf/io-pcx.c:673
 msgid "Image has unsupported bpp"
 msgstr "Umfanekiso une-bpp engaxhaswanga"
 
-#: gdk-pixbuf/io-pcx.c:618 gdk-pixbuf/io-pcx.c:626
+#: gdk-pixbuf/io-pcx.c:617 gdk-pixbuf/io-pcx.c:625
 #, c-format
 msgid "Image has unsupported number of %d-bit planes"
 msgstr "Umfanekiso unenani elingaxhaswanga lee-%d-bit planes"
 
-#: gdk-pixbuf/io-pcx.c:642
+#: gdk-pixbuf/io-pcx.c:641
 msgid "Couldn't create new pixbuf"
 msgstr "Ayikwazanga ukwakha i-pixbuf entsha"
 
-#: gdk-pixbuf/io-pcx.c:650
+#: gdk-pixbuf/io-pcx.c:649
 msgid "Couldn't allocate memory for line data"
 msgstr "Ayikwazanga ukwandisa uvimba wolwazi lwe-data yomgca"
 
-#: gdk-pixbuf/io-pcx.c:657
+#: gdk-pixbuf/io-pcx.c:656
 msgid "Couldn't allocate memory for paletted data"
 msgstr "Ayikwazanga ukwandisa uvimba wolwazi lwengqokelela yezixhobo ze-data"
 
-#: gdk-pixbuf/io-pcx.c:704
+#: gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
 msgstr "Ayifumananga yonke imigca yomfanekiso we-PCX"
 
-#: gdk-pixbuf/io-pcx.c:711
+#: gdk-pixbuf/io-pcx.c:710
 msgid "No palette found at end of PCX data"
 msgstr "Akukho ngqokelela yezixhobo ethe yafunyanwa ekugqibeleni kwe-PCX data"
 
-#: gdk-pixbuf/io-pcx.c:756
+#: gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
 msgstr "Ubume bomfanekiso bomfanekiso we-PCX"
 
-#: gdk-pixbuf/io-png.c:55
+#: gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Amasuntsu ejelo ngalinye lomfanekiso we-PNG alivumelekanga."
 
-#: gdk-pixbuf/io-png.c:136 gdk-pixbuf/io-png.c:642
+#: gdk-pixbuf/io-png.c:135 gdk-pixbuf/io-png.c:641
 msgid "Transformed PNG has zero width or height."
 msgstr "I-PNG eguqulweyo ayinabubanzi okanye ubude."
 
-#: gdk-pixbuf/io-png.c:144
+#: gdk-pixbuf/io-png.c:143
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Amasuntsu ejelo ngalinye eliguquliweyo i-PNG alisosi-8."
 
-#: gdk-pixbuf/io-png.c:153
+#: gdk-pixbuf/io-png.c:152
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Eguquliweyo i-PNG hayi i-RGB okanye i-RGBA."
 
-#: gdk-pixbuf/io-png.c:162
+#: gdk-pixbuf/io-png.c:161
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "Eguquliweyo i-PNG inenani lamajelo elingaxhaswanga, nekufuneka ibe sisi-3 "
 "okanye isi-4."
 
-#: gdk-pixbuf/io-png.c:183
+#: gdk-pixbuf/io-png.c:182
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Impazamo ekukufa kumfanekiso wefayili i-PNG: %s"
 
-#: gdk-pixbuf/io-png.c:316
+#: gdk-pixbuf/io-png.c:315
 msgid "Insufficient memory to load PNG file"
 msgstr "Akonelanga uvimba wolwazi ukuba angafaka ifayili i-PNG"
 
-#: gdk-pixbuf/io-png.c:657
+#: gdk-pixbuf/io-png.c:656
 #, c-format
 msgid ""
 "Insufficient memory to store a %ld by %ld image; try exiting some "
@@ -537,32 +537,32 @@ msgstr ""
 "Akonelanga uvimba wolwazi ukuba angagcina i-%ld by %ld image; zama ukuphuma "
 "kwezinye iinkqubo ukunciphisa ukusetyenziswa kovimba wolwazi"
 
-#: gdk-pixbuf/io-png.c:720
+#: gdk-pixbuf/io-png.c:719
 msgid "Fatal error reading PNG image file"
 msgstr "Impazamo ebulalayo ekufundeni ifayili yemifanekiso i-PNG"
 
-#: gdk-pixbuf/io-png.c:769
+#: gdk-pixbuf/io-png.c:768
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Impazamo ebulalayo ekufundeni ifayile yemifanekiso i-PNG : %s"
 
-#: gdk-pixbuf/io-png.c:863
+#: gdk-pixbuf/io-png.c:862
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "Amaqhosha esiqa sombhalo we-PNG kufuneka abe nophawu olu-1 ubuncinane ukuya "
 "kuma-79."
 
-#: gdk-pixbuf/io-png.c:872
+#: gdk-pixbuf/io-png.c:871
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Amaqhosha esiqa sombhalo we-PNG kufuneka abe ne-ASCII yeempawu."
 
-#: gdk-pixbuf/io-png.c:886 gdk-pixbuf/io-tiff.c:738
+#: gdk-pixbuf/io-png.c:885 gdk-pixbuf/io-tiff.c:737
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr ""
 
-#: gdk-pixbuf/io-png.c:899 gdk-pixbuf/io-gdip-png.c:56
+#: gdk-pixbuf/io-png.c:898
 #, fuzzy, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -571,7 +571,7 @@ msgstr ""
 "Ubunjani be-JPEG kufuneka buxabise phakathi kwe-0 ne-100; ixabiso '%s' "
 "alihlahlelwanga."
 
-#: gdk-pixbuf/io-png.c:912 gdk-pixbuf/io-gdip-png.c:68
+#: gdk-pixbuf/io-png.c:911
 #, fuzzy, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -580,347 +580,347 @@ msgstr ""
 "Ubunjani be-JPEG kufuneka buxabise phakathi kwe-0 ne100; ixabiso '%d' "
 "livumelekile."
 
-#: gdk-pixbuf/io-png.c:951
+#: gdk-pixbuf/io-png.c:950
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Ixabiso lesiqa sombhalo we-PNG %s asinako ukuguqulwa sisiwe kwi-ISO-8859-1 "
 "encoding."
 
-#: gdk-pixbuf/io-png.c:1112 gdk-pixbuf/io-gdip-png.c:133
+#: gdk-pixbuf/io-png.c:1111
 msgid "The PNG image format"
 msgstr "Ubume bomfanekiso we-PNG"
 
-#: gdk-pixbuf/io-pnm.c:250
+#: gdk-pixbuf/io-pnm.c:249
 msgid "PNM loader expected to find an integer, but didn't"
 msgstr ""
 "Isifaki-nkqubo se-PNM kulindeleke ukuba sifumane inani, kodwa asikwazanga"
 
-#: gdk-pixbuf/io-pnm.c:282
+#: gdk-pixbuf/io-pnm.c:281
 msgid "PNM file has an incorrect initial byte"
 msgstr "Ifayili ye-PNM ine-byte yokuqala engachanekanga"
 
-#: gdk-pixbuf/io-pnm.c:312
+#: gdk-pixbuf/io-pnm.c:311
 msgid "PNM file is not in a recognized PNM subformat"
 msgstr "Ifayili i-PNM ayikho kubume bangaphakathi be-PNM obunokunakanwa"
 
-#: gdk-pixbuf/io-pnm.c:337
+#: gdk-pixbuf/io-pnm.c:336
 msgid "PNM file has an image width of 0"
 msgstr "Ifayili i-PNM inomfanekiso obubanzi buli-0"
 
-#: gdk-pixbuf/io-pnm.c:358
+#: gdk-pixbuf/io-pnm.c:357
 msgid "PNM file has an image height of 0"
 msgstr "Ifayili ye-PNM inobude bomfanekiso obungu-0"
 
-#: gdk-pixbuf/io-pnm.c:381
+#: gdk-pixbuf/io-pnm.c:380
 msgid "Maximum color value in PNM file is 0"
 msgstr "Ubukhulu bexabiso lombala okwifayili ye-PNM ngu-0"
 
-#: gdk-pixbuf/io-pnm.c:389
+#: gdk-pixbuf/io-pnm.c:388
 msgid "Maximum color value in PNM file is too large"
 msgstr ""
 "Ubukhulu bexabiso lombala okwifayili ye-PNM bukhulu kakhuluis too large"
 
-#: gdk-pixbuf/io-pnm.c:429 gdk-pixbuf/io-pnm.c:459 gdk-pixbuf/io-pnm.c:504
+#: gdk-pixbuf/io-pnm.c:428 gdk-pixbuf/io-pnm.c:458 gdk-pixbuf/io-pnm.c:503
 msgid "Raw PNM image type is invalid"
 msgstr "Umfanekiso ongekenziwa nto wohlobo lwe-PNM awuvumelekanga"
 
-#: gdk-pixbuf/io-pnm.c:654
+#: gdk-pixbuf/io-pnm.c:653
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "Isifaki-mfanekiso se-PNM asiyixhasi le-PNM subformat"
 
-#: gdk-pixbuf/io-pnm.c:741 gdk-pixbuf/io-pnm.c:968
+#: gdk-pixbuf/io-pnm.c:740 gdk-pixbuf/io-pnm.c:967
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr ""
 "Iformat engenziwanga nto ye=PNM ifuna indawo enye phambi kwe-data eyisampuli"
 
-#: gdk-pixbuf/io-pnm.c:768
+#: gdk-pixbuf/io-pnm.c:767
 msgid "Cannot allocate memory for loading PNM image"
 msgstr "Ayikwazi ukwandisa uvimba wolwazi ukuze ifake umfanekiso we-PNM"
 
-#: gdk-pixbuf/io-pnm.c:818
+#: gdk-pixbuf/io-pnm.c:817
 msgid "Insufficient memory to load PNM context struct"
 msgstr "Uvimba wolwazi akonelanga ukuba angafaka i-PNM context struct"
 
-#: gdk-pixbuf/io-pnm.c:869
+#: gdk-pixbuf/io-pnm.c:868
 msgid "Unexpected end of PNM image data"
 msgstr "Ukufika ekugqibeleni okungalindelekanga kwe-PNM image data"
 
-#: gdk-pixbuf/io-pnm.c:997
+#: gdk-pixbuf/io-pnm.c:996
 msgid "Insufficient memory to load PNM file"
 msgstr "Uvimba wolwazi akonelanga ukuba angafaka ifayili ye-PNM"
 
-#: gdk-pixbuf/io-pnm.c:1081
+#: gdk-pixbuf/io-pnm.c:1080
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "Ii-PNM/PBM/PGM/PPM lusapho lokulungelelanisa umfanekiso wobume"
 
-#: gdk-pixbuf/io-qtif.c:128
+#: gdk-pixbuf/io-qtif.c:127
 msgid "Input file descriptor is NULL."
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:143
+#: gdk-pixbuf/io-qtif.c:142
 #, fuzzy
 msgid "Failed to read QTIF header"
 msgstr "Ayiphumelelanga ukuvula umfanekiso we-TIFF"
 
-#: gdk-pixbuf/io-qtif.c:152 gdk-pixbuf/io-qtif.c:182 gdk-pixbuf/io-qtif.c:446
+#: gdk-pixbuf/io-qtif.c:151 gdk-pixbuf/io-qtif.c:181 gdk-pixbuf/io-qtif.c:445
 #, c-format
 msgid "QTIF atom size too large (%d bytes)"
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:172
+#: gdk-pixbuf/io-qtif.c:171
 #, c-format
 msgid "Failed to allocate %d bytes for file read buffer"
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:196
+#: gdk-pixbuf/io-qtif.c:195
 #, fuzzy, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "Ayiphumelelanga ukufunda i-GIF: %s"
 
-#: gdk-pixbuf/io-qtif.c:233
+#: gdk-pixbuf/io-qtif.c:232
 #, c-format
 msgid "Failed to skip the next %d bytes with seek()."
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:257
+#: gdk-pixbuf/io-qtif.c:256
 #, fuzzy
 msgid "Failed to allocate QTIF context structure."
 msgstr "Ayikwazi ukunikezela uvimba wolwazi kwi-TGA context struct"
 
-#: gdk-pixbuf/io-qtif.c:317
+#: gdk-pixbuf/io-qtif.c:316
 #, fuzzy
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "Ayiphumelelanga ukufunda kwifayili yexeshana"
 
-#: gdk-pixbuf/io-qtif.c:421
+#: gdk-pixbuf/io-qtif.c:420
 #, fuzzy
 msgid "Failed to find an image data atom."
 msgstr "Ayiphumelelanga ukuvula umfanekiso we-TIFF"
 
-#: gdk-pixbuf/io-qtif.c:602
+#: gdk-pixbuf/io-qtif.c:601
 #, fuzzy
 msgid "The QTIF image format"
 msgstr "I-format yomfanekiso i-TIFF"
 
-#: gdk-pixbuf/io-ras.c:126
+#: gdk-pixbuf/io-ras.c:125
 msgid "RAS image has bogus header data"
 msgstr "Umfanekiso we-RAS one-bogus header data"
 
-#: gdk-pixbuf/io-ras.c:148
+#: gdk-pixbuf/io-ras.c:147
 msgid "RAS image has unknown type"
 msgstr "Umfanekiso we-RAS ngowohlobo olungaziwayo"
 
-#: gdk-pixbuf/io-ras.c:156
+#: gdk-pixbuf/io-ras.c:155
 msgid "unsupported RAS image variation"
 msgstr "uhlobo lomfanekiso oluyi-RAS variation"
 
-#: gdk-pixbuf/io-ras.c:171 gdk-pixbuf/io-ras.c:200
+#: gdk-pixbuf/io-ras.c:170 gdk-pixbuf/io-ras.c:199
 msgid "Not enough memory to load RAS image"
 msgstr "Uvimba wolwazi akonelanga ukuba angafaka umfanekiso we-RAS"
 
-#: gdk-pixbuf/io-ras.c:545
+#: gdk-pixbuf/io-ras.c:544
 msgid "The Sun raster image format"
 msgstr "Ulungelelwaniso lwe-format yomfanekiso eyi-The Sun raster"
 
-#: gdk-pixbuf/io-tga.c:154
+#: gdk-pixbuf/io-tga.c:153
 msgid "Cannot allocate memory for IOBuffer struct"
 msgstr "Ayinako ukunikezela ngovimba wolwazi lwe-IOBuffer struct"
 
-#: gdk-pixbuf/io-tga.c:173
+#: gdk-pixbuf/io-tga.c:172
 msgid "Cannot allocate memory for IOBuffer data"
 msgstr "Ayinako ukunikezela ngovimba wolwazi kwi- IOBuffer data"
 
-#: gdk-pixbuf/io-tga.c:184
+#: gdk-pixbuf/io-tga.c:183
 msgid "Cannot realloc IOBuffer data"
 msgstr "Ayinako ukunikezelwa kwakhona nge-IOBuffer data"
 
-#: gdk-pixbuf/io-tga.c:214
+#: gdk-pixbuf/io-tga.c:213
 msgid "Cannot allocate temporary IOBuffer data"
 msgstr "Ayikwazi ukunikezela nge-IOBuffer data yexeshana"
 
-#: gdk-pixbuf/io-tga.c:347
+#: gdk-pixbuf/io-tga.c:346
 msgid "Cannot allocate new pixbuf"
 msgstr "Ayikwazi ukunikezela nge-pixbuf entsha"
 
-#: gdk-pixbuf/io-tga.c:686
+#: gdk-pixbuf/io-tga.c:685
 #, fuzzy
 msgid "Image is corrupted or truncated"
 msgstr "Umfanekiso we-GIF uyekwe esithubeni okanye awugqitywanga."
 
-#: gdk-pixbuf/io-tga.c:693
+#: gdk-pixbuf/io-tga.c:692
 msgid "Cannot allocate colormap structure"
 msgstr "Ayikwazi ukunikezela ngesakhiwo semephu yemibala"
 
-#: gdk-pixbuf/io-tga.c:700
+#: gdk-pixbuf/io-tga.c:699
 msgid "Cannot allocate colormap entries"
 msgstr "Ayikwazi ukunikezela ngezingeniso zemephu yemibala"
 
-#: gdk-pixbuf/io-tga.c:722
+#: gdk-pixbuf/io-tga.c:721
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "I-bitdepth engalindelekanga kwiingeniso zemephu yemibala"
 
-#: gdk-pixbuf/io-tga.c:740
+#: gdk-pixbuf/io-tga.c:739
 msgid "Cannot allocate TGA header memory"
 msgstr "Ayikwazi ukunikezela ngovimba wolwazi we-TGA header"
 
-#: gdk-pixbuf/io-tga.c:773
+#: gdk-pixbuf/io-tga.c:772
 msgid "TGA image has invalid dimensions"
 msgstr "Umfanekiso we-TGA unamacala angavunyelwanga"
 
-#: gdk-pixbuf/io-tga.c:779 gdk-pixbuf/io-tga.c:788 gdk-pixbuf/io-tga.c:798
-#: gdk-pixbuf/io-tga.c:808 gdk-pixbuf/io-tga.c:815
+#: gdk-pixbuf/io-tga.c:778 gdk-pixbuf/io-tga.c:787 gdk-pixbuf/io-tga.c:797
+#: gdk-pixbuf/io-tga.c:807 gdk-pixbuf/io-tga.c:814
 msgid "TGA image type not supported"
 msgstr "Umfanekiso wohlobo lwe-TGA awuxhaswanga"
 
-#: gdk-pixbuf/io-tga.c:862
+#: gdk-pixbuf/io-tga.c:861
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Ayikwazi ukunikezela uvimba wolwazi kwi-TGA context struct"
 
-#: gdk-pixbuf/io-tga.c:927
+#: gdk-pixbuf/io-tga.c:926
 msgid "Excess data in file"
 msgstr "Kukho i-data eninzi kakhulu kule fayili"
 
-#: gdk-pixbuf/io-tga.c:1008
+#: gdk-pixbuf/io-tga.c:1007
 msgid "The Targa image format"
 msgstr "I-format yomfanekiso i-Targa"
 
-#: gdk-pixbuf/io-tiff.c:165
+#: gdk-pixbuf/io-tiff.c:164
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Ayikwazi ukufumana ububanzi bomfanekiso (ifayili engalunganga ye-TIFF)"
 
 # ifayili
-#: gdk-pixbuf/io-tiff.c:172
+#: gdk-pixbuf/io-tiff.c:171
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Ayikwazi ukufumana ubude bomfanekiso (ifayili engalunganga ye-TIFF)"
 
-#: gdk-pixbuf/io-tiff.c:180
+#: gdk-pixbuf/io-tiff.c:179
 msgid "Width or height of TIFF image is zero"
 msgstr "Ububanzi okanye ubude befayili yomfanekiso ye-TIFF liqanda"
 
-#: gdk-pixbuf/io-tiff.c:189 gdk-pixbuf/io-tiff.c:198
+#: gdk-pixbuf/io-tiff.c:188 gdk-pixbuf/io-tiff.c:197
 msgid "Dimensions of TIFF image too large"
 msgstr "Makhulu gqitha amacala omfanekiso we-TIFF"
 
-#: gdk-pixbuf/io-tiff.c:222 gdk-pixbuf/io-tiff.c:234 gdk-pixbuf/io-tiff.c:561
+#: gdk-pixbuf/io-tiff.c:221 gdk-pixbuf/io-tiff.c:233 gdk-pixbuf/io-tiff.c:560
 msgid "Insufficient memory to open TIFF file"
 msgstr "Uvimba wolwazi akanelanga ukuba angavula ifayili ye-TIFF"
 
-#: gdk-pixbuf/io-tiff.c:295
+#: gdk-pixbuf/io-tiff.c:294
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Ayiphumelelanga ukufaka i-RGB data esuka kwifayili ye-TIFF"
 
-#: gdk-pixbuf/io-tiff.c:351
+#: gdk-pixbuf/io-tiff.c:350
 msgid "Failed to open TIFF image"
 msgstr "Ayiphumelelanga ukuvula umfanekiso we-TIFF"
 
-#: gdk-pixbuf/io-tiff.c:363 gdk-pixbuf/io-tiff.c:778
+#: gdk-pixbuf/io-tiff.c:362 gdk-pixbuf/io-tiff.c:777
 msgid "TIFFClose operation failed"
 msgstr "I-TIFFClose operation ayiphumelelanga"
 
-#: gdk-pixbuf/io-tiff.c:493 gdk-pixbuf/io-tiff.c:506
+#: gdk-pixbuf/io-tiff.c:492 gdk-pixbuf/io-tiff.c:505
 msgid "Failed to load TIFF image"
 msgstr "Ayiphumelelanga ukufaka umfanekiso we-TIFF"
 
-#: gdk-pixbuf/io-tiff.c:692
+#: gdk-pixbuf/io-tiff.c:691
 #, fuzzy
 msgid "Failed to save TIFF image"
 msgstr "Ayiphumelelanga ukuvula umfanekiso we-TIFF"
 
-#: gdk-pixbuf/io-tiff.c:727
+#: gdk-pixbuf/io-tiff.c:726
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr ""
 
-#: gdk-pixbuf/io-tiff.c:767
+#: gdk-pixbuf/io-tiff.c:766
 #, fuzzy
 msgid "Failed to write TIFF data"
 msgstr "Ayiphumelelanga ukuvula umfanekiso we-TIFF"
 
-#: gdk-pixbuf/io-tiff.c:814
+#: gdk-pixbuf/io-tiff.c:813
 #, fuzzy
 msgid "Couldn't write to TIFF file"
 msgstr "Ayikwazanga ukutshintsha igama lefayili"
 
-#: gdk-pixbuf/io-tiff.c:869
+#: gdk-pixbuf/io-tiff.c:868
 msgid "The TIFF image format"
 msgstr "I-format yomfanekiso i-TIFF"
 
-#: gdk-pixbuf/io-wbmp.c:246
+#: gdk-pixbuf/io-wbmp.c:245
 msgid "Image has zero width"
 msgstr "Umfanekiso awunabubanzi"
 
-#: gdk-pixbuf/io-wbmp.c:264
+#: gdk-pixbuf/io-wbmp.c:263
 msgid "Image has zero height"
 msgstr "Umfanekiso awunabude"
 
-#: gdk-pixbuf/io-wbmp.c:275
+#: gdk-pixbuf/io-wbmp.c:274
 msgid "Not enough memory to load image"
 msgstr "Uvimba wolwazi akonelanga ukuba angafaka umfanekiso"
 
-#: gdk-pixbuf/io-wbmp.c:334
+#: gdk-pixbuf/io-wbmp.c:333
 msgid "Couldn't save the rest"
 msgstr "Ayikwazanga ukugcina okuseleyo"
 
-#: gdk-pixbuf/io-wbmp.c:375
+#: gdk-pixbuf/io-wbmp.c:374
 msgid "The WBMP image format"
 msgstr "I-format yemifanekiso eyi-WBMP"
 
-#: gdk-pixbuf/io-xbm.c:295
+#: gdk-pixbuf/io-xbm.c:294
 msgid "Invalid XBM file"
 msgstr "Ifayili ye-XBM engavunywangwa"
 
-#: gdk-pixbuf/io-xbm.c:305
+#: gdk-pixbuf/io-xbm.c:304
 msgid "Insufficient memory to load XBM image file"
 msgstr "Uvimba wolwazi akanelanga ukuba angafaka ifayili yemifanekiso ye- XBM"
 
-#: gdk-pixbuf/io-xbm.c:453
+#: gdk-pixbuf/io-xbm.c:452
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr ""
 "Ayiphumelelanga ukubhala kwifayili yexeshana ngelixa ifaka umfanekiso we- XBM"
 
-#: gdk-pixbuf/io-xbm.c:492
+#: gdk-pixbuf/io-xbm.c:491
 msgid "The XBM image format"
 msgstr "I-format yomfanekiso we-XBM"
 
-#: gdk-pixbuf/io-xpm.c:468
+#: gdk-pixbuf/io-xpm.c:467
 msgid "No XPM header found"
 msgstr "I-XPM header ayifunyanwa"
 
-#: gdk-pixbuf/io-xpm.c:477
+#: gdk-pixbuf/io-xpm.c:476
 #, fuzzy
 msgid "Invalid XPM header"
 msgstr "Ifayili ye-XBM engavunywangwa"
 
-#: gdk-pixbuf/io-xpm.c:485
+#: gdk-pixbuf/io-xpm.c:484
 msgid "XPM file has image width <= 0"
 msgstr "Ifayili ye-XPM inobubanzi bomfanekiso obu-<= 0"
 
-#: gdk-pixbuf/io-xpm.c:493
+#: gdk-pixbuf/io-xpm.c:492
 msgid "XPM file has image height <= 0"
 msgstr "Ifayili ye-XPM inobubanzi bomfanekiso obu-<= 0"
 
-#: gdk-pixbuf/io-xpm.c:501
+#: gdk-pixbuf/io-xpm.c:500
 msgid "XPM has invalid number of chars per pixel"
 msgstr "I-XPM inenani elingavunywanga kwi-chars nge-pixel nganye"
 
-#: gdk-pixbuf/io-xpm.c:510
+#: gdk-pixbuf/io-xpm.c:509
 msgid "XPM file has invalid number of colors"
 msgstr "Ifayili ye-XPM file inenani lemibala engavunywanga"
 
-#: gdk-pixbuf/io-xpm.c:522 gdk-pixbuf/io-xpm.c:531 gdk-pixbuf/io-xpm.c:583
+#: gdk-pixbuf/io-xpm.c:521 gdk-pixbuf/io-xpm.c:530 gdk-pixbuf/io-xpm.c:582
 msgid "Cannot allocate memory for loading XPM image"
 msgstr "Ayikwazi ukunikela ngovimba wolwaz wokufaka umfanekiso we- XPM"
 
-#: gdk-pixbuf/io-xpm.c:545
+#: gdk-pixbuf/io-xpm.c:544
 msgid "Cannot read XPM colormap"
 msgstr "ayikwazi ukufunda imephu yemibala ye-XPM"
 
-#: gdk-pixbuf/io-xpm.c:777
+#: gdk-pixbuf/io-xpm.c:776
 msgid "Failed to write to temporary file when loading XPM image"
 msgstr ""
 "ayiphumelelanga ukubhala kwifayili yexeshana ngelixa ifaka umfanekiso we-XPM"
 
-#: gdk-pixbuf/io-xpm.c:816
+#: gdk-pixbuf/io-xpm.c:815
 msgid "The XPM image format"
 msgstr "I-format yomfanekiso we-XPM"
 

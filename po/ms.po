@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Gtk+ 1.3.x\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf\n"
-"POT-Creation-Date: 2010-06-24 18:17-0400\n"
+"POT-Creation-Date: 2010-06-25 23:54-0400\n"
 "PO-Revision-Date: 2004-04-04 01:11+0730\n"
 "Last-Translator: Hasbullah Bin Pit <sebol@my-penguin.org>\n"
 "Language-Team: Projek Gabai <gabai-penyumbang@list.sourceforge.net>\n"
@@ -15,26 +15,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:133 gdk-pixbuf/gdk-pixbuf-io.c:983
-#: gdk-pixbuf/gdk-pixbuf-io.c:1243
+#: gdk-pixbuf/gdk-pixbuf-animation.c:131 gdk-pixbuf/gdk-pixbuf-io.c:981
+#: gdk-pixbuf/gdk-pixbuf-io.c:1241
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Gagal membuka fail '%s': %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:146 gdk-pixbuf/gdk-pixbuf-io.c:995
+#: gdk-pixbuf/gdk-pixbuf-animation.c:144 gdk-pixbuf/gdk-pixbuf-io.c:993
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Fail imej '%s' tida mengandungi data"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:188 gdk-pixbuf/gdk-pixbuf-io.c:1031
-#: gdk-pixbuf/gdk-pixbuf-io.c:1295
+#: gdk-pixbuf/gdk-pixbuf-animation.c:186 gdk-pixbuf/gdk-pixbuf-io.c:1029
+#: gdk-pixbuf/gdk-pixbuf-io.c:1293
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr ""
 "Gagal memuatkan imej  '%s': sebab tidak diketahui, mungkin fail imej rosak"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:221
+#: gdk-pixbuf/gdk-pixbuf-animation.c:219
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -42,12 +42,12 @@ msgid ""
 msgstr ""
 "Gagal memuatkan animasi '%s':sebab tidak diketahui, mungkin fail imej rosak"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:716
+#: gdk-pixbuf/gdk-pixbuf-io.c:714
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Gagal memuatkan modul  image-loading: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:731
+#: gdk-pixbuf/gdk-pixbuf-io.c:729
 #, fuzzy, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -56,53 +56,53 @@ msgstr ""
 "Modul Image-loading %s tidak boleh mengeksport antaramuka dengan betul; "
 "mungkin ianya daripada GTK versi lain"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:740 gdk-pixbuf/gdk-pixbuf-io.c:791
+#: gdk-pixbuf/gdk-pixbuf-io.c:738 gdk-pixbuf/gdk-pixbuf-io.c:789
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Jenis imej '%s'tidak disokong"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:864
+#: gdk-pixbuf/gdk-pixbuf-io.c:862
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Tak dapat mengenali format fail imej pada fail '%s'"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:872
+#: gdk-pixbuf/gdk-pixbuf-io.c:870
 msgid "Unrecognized image file format"
 msgstr "Jenis format fail imej tidak dikenali"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1040
+#: gdk-pixbuf/gdk-pixbuf-io.c:1038
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Gagal memuatkan imej '%s': %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1674 gdk-pixbuf/io-gdip-utils.c:961
+#: gdk-pixbuf/gdk-pixbuf-io.c:1672 gdk-pixbuf/io-gdip-utils.c:961
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Ralat ketika menulis ke fail imej: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1719 gdk-pixbuf/gdk-pixbuf-io.c:1849
+#: gdk-pixbuf/gdk-pixbuf-io.c:1717 gdk-pixbuf/gdk-pixbuf-io.c:1847
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "Binaan  gdk-pixbuf ini tak menyokong penyimpanan format imej: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1753
+#: gdk-pixbuf/gdk-pixbuf-io.c:1751
 msgid "Insufficient memory to save image to callback"
 msgstr "Tak cukup memori untuk menyimpan imej ke callback"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1766
+#: gdk-pixbuf/gdk-pixbuf-io.c:1764
 msgid "Failed to open temporary file"
 msgstr "Gagal membuka fail sementara"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1792
+#: gdk-pixbuf/gdk-pixbuf-io.c:1790
 msgid "Failed to read from temporary file"
 msgstr "Gagal membaca drpd fail sementara"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2045
+#: gdk-pixbuf/gdk-pixbuf-io.c:2043
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Gagal membuka fail '%s' untuk ditulis: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2071
+#: gdk-pixbuf/gdk-pixbuf-io.c:2069
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -111,16 +111,16 @@ msgstr ""
 "Gagal untuk menutup '%s' bila menulis imej, semua dara mungkin tidak akan "
 "disimpan:i %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2291 gdk-pixbuf/gdk-pixbuf-io.c:2342
+#: gdk-pixbuf/gdk-pixbuf-io.c:2289 gdk-pixbuf/gdk-pixbuf-io.c:2340
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Tak cukup memori untuk menyimpan imej ke penimbal"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2388
+#: gdk-pixbuf/gdk-pixbuf-io.c:2386
 #, fuzzy
 msgid "Error writing to image stream"
 msgstr "Ralat ketika menulis ke fail imej: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:334
+#: gdk-pixbuf/gdk-pixbuf-loader.c:333
 #, fuzzy, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -129,7 +129,7 @@ msgstr ""
 "Ralat dalaman: modul pemuatan imej  '%s' gagal untuk mulakan pemuatan imej, "
 "tetapi tidak memberi sebab kegagalannya"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:376
+#: gdk-pixbuf/gdk-pixbuf-loader.c:375
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Pemuatan imej jenis '%s' secara menaik tidak disokong"
@@ -153,245 +153,245 @@ msgid_plural "failed to allocate image buffer of %u bytes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: gdk-pixbuf/io-ani.c:245
+#: gdk-pixbuf/io-ani.c:244
 msgid "Unexpected icon chunk in animation"
 msgstr "Bahagian ikon luardugaan pada animasi"
 
-#: gdk-pixbuf/io-ani.c:338
+#: gdk-pixbuf/io-ani.c:337
 msgid "Unsupported animation type"
 msgstr "Jenis animasi tidak disokong"
 
-#: gdk-pixbuf/io-ani.c:349 gdk-pixbuf/io-ani.c:407 gdk-pixbuf/io-ani.c:433
-#: gdk-pixbuf/io-ani.c:456 gdk-pixbuf/io-ani.c:483 gdk-pixbuf/io-ani.c:570
+#: gdk-pixbuf/io-ani.c:348 gdk-pixbuf/io-ani.c:406 gdk-pixbuf/io-ani.c:432
+#: gdk-pixbuf/io-ani.c:455 gdk-pixbuf/io-ani.c:482 gdk-pixbuf/io-ani.c:569
 msgid "Invalid header in animation"
 msgstr "Pengepala tidak sah pada animasi"
 
-#: gdk-pixbuf/io-ani.c:359 gdk-pixbuf/io-ani.c:381 gdk-pixbuf/io-ani.c:465
-#: gdk-pixbuf/io-ani.c:492 gdk-pixbuf/io-ani.c:543 gdk-pixbuf/io-ani.c:615
+#: gdk-pixbuf/io-ani.c:358 gdk-pixbuf/io-ani.c:380 gdk-pixbuf/io-ani.c:464
+#: gdk-pixbuf/io-ani.c:491 gdk-pixbuf/io-ani.c:542 gdk-pixbuf/io-ani.c:614
 msgid "Not enough memory to load animation"
 msgstr "Tak cukup memori untuk memuatkan animasi"
 
-#: gdk-pixbuf/io-ani.c:399 gdk-pixbuf/io-ani.c:425 gdk-pixbuf/io-ani.c:444
+#: gdk-pixbuf/io-ani.c:398 gdk-pixbuf/io-ani.c:424 gdk-pixbuf/io-ani.c:443
 msgid "Malformed chunk in animation"
 msgstr ""
 
-#: gdk-pixbuf/io-ani.c:712
+#: gdk-pixbuf/io-ani.c:711
 msgid "The ANI image format"
 msgstr "Format imej ANI"
 
-#: gdk-pixbuf/io-bmp.c:230 gdk-pixbuf/io-bmp.c:267 gdk-pixbuf/io-bmp.c:338
-#: gdk-pixbuf/io-bmp.c:370 gdk-pixbuf/io-bmp.c:393 gdk-pixbuf/io-bmp.c:496
+#: gdk-pixbuf/io-bmp.c:229 gdk-pixbuf/io-bmp.c:266 gdk-pixbuf/io-bmp.c:337
+#: gdk-pixbuf/io-bmp.c:369 gdk-pixbuf/io-bmp.c:392 gdk-pixbuf/io-bmp.c:495
 msgid "BMP image has bogus header data"
 msgstr "Imej BMP mempunyai data pengepala bogus"
 
-#: gdk-pixbuf/io-bmp.c:241 gdk-pixbuf/io-bmp.c:433
+#: gdk-pixbuf/io-bmp.c:240 gdk-pixbuf/io-bmp.c:432
 msgid "Not enough memory to load bitmap image"
 msgstr "Tak cukup memori untuk memuatkan imej bitmap"
 
-#: gdk-pixbuf/io-bmp.c:319
+#: gdk-pixbuf/io-bmp.c:318
 msgid "BMP image has unsupported header size"
 msgstr "Imej BMP mempunyai saiz pengepala yang tidak disokong"
 
-#: gdk-pixbuf/io-bmp.c:357
+#: gdk-pixbuf/io-bmp.c:356
 msgid "Topdown BMP images cannot be compressed"
 msgstr ""
 
-#: gdk-pixbuf/io-bmp.c:717 gdk-pixbuf/io-pnm.c:709
+#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:708
 msgid "Premature end-of-file encountered"
 msgstr "end-of-file tak matang berlaku"
 
-#: gdk-pixbuf/io-bmp.c:1329
+#: gdk-pixbuf/io-bmp.c:1328
 #, fuzzy
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Tak dapat memperuntukkan memori bagi memuatkan fail JPEG"
 
-#: gdk-pixbuf/io-bmp.c:1370
+#: gdk-pixbuf/io-bmp.c:1369
 #, fuzzy
 msgid "Couldn't write to BMP file"
 msgstr "Tak dapat menukar namafail"
 
-#: gdk-pixbuf/io-bmp.c:1423 gdk-pixbuf/io-gdip-bmp.c:82
+#: gdk-pixbuf/io-bmp.c:1422 gdk-pixbuf/io-gdip-bmp.c:82
 msgid "The BMP image format"
 msgstr "Format imej BMP"
 
-#: gdk-pixbuf/io-gif.c:222
+#: gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "Gagal membaca GIF: %s"
 
-#: gdk-pixbuf/io-gif.c:496 gdk-pixbuf/io-gif.c:1481 gdk-pixbuf/io-gif.c:1642
+#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1480 gdk-pixbuf/io-gif.c:1641
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "Fail GIF kehilangan sebahagian data (mungkin ianya dikerat?)"
 
-#: gdk-pixbuf/io-gif.c:505
+#: gdk-pixbuf/io-gif.c:504
 #, c-format
 msgid "Internal error in the GIF loader (%s)"
 msgstr "Ralat dalaman pada pemuat GIF (%s)"
 
-#: gdk-pixbuf/io-gif.c:579
+#: gdk-pixbuf/io-gif.c:578
 msgid "Stack overflow"
 msgstr "tindanan melimpah"
 
-#: gdk-pixbuf/io-gif.c:639
+#: gdk-pixbuf/io-gif.c:638
 #, fuzzy
 msgid "GIF image loader cannot understand this image."
 msgstr "Pemuat imej GIF tidak memahami imej ini."
 
-#: gdk-pixbuf/io-gif.c:668
+#: gdk-pixbuf/io-gif.c:667
 msgid "Bad code encountered"
 msgstr "Kod teruk berlaku"
 
-#: gdk-pixbuf/io-gif.c:678
+#: gdk-pixbuf/io-gif.c:677
 msgid "Circular table entry in GIF file"
 msgstr "Kemasukan jadual berpusing pada fail GIF"
 
-#: gdk-pixbuf/io-gif.c:866 gdk-pixbuf/io-gif.c:1468 gdk-pixbuf/io-gif.c:1515
-#: gdk-pixbuf/io-gif.c:1630
+#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1467 gdk-pixbuf/io-gif.c:1514
+#: gdk-pixbuf/io-gif.c:1629
 msgid "Not enough memory to load GIF file"
 msgstr "Tak cukup memori untuk memuatkan fail GIF"
 
-#: gdk-pixbuf/io-gif.c:960
+#: gdk-pixbuf/io-gif.c:959
 #, fuzzy
 msgid "Not enough memory to composite a frame in GIF file"
 msgstr "Tak cukup memori untuk memuatkan fail GIF"
 
-#: gdk-pixbuf/io-gif.c:1132
+#: gdk-pixbuf/io-gif.c:1131
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "Imej GIF rosak (mampatan LZW tidak betul)"
 
-#: gdk-pixbuf/io-gif.c:1182
+#: gdk-pixbuf/io-gif.c:1181
 msgid "File does not appear to be a GIF file"
 msgstr "Fail nampaknya bukan fail GIF"
 
-#: gdk-pixbuf/io-gif.c:1194
+#: gdk-pixbuf/io-gif.c:1193
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "Versi %s format fail GIF tidak disokong"
 
-#: gdk-pixbuf/io-gif.c:1303
+#: gdk-pixbuf/io-gif.c:1302
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
 msgstr ""
 "Imej GIF tiada colormap global, dan kerangka didalamnya tiada colormap lokal."
 
-#: gdk-pixbuf/io-gif.c:1537
+#: gdk-pixbuf/io-gif.c:1536
 msgid "GIF image was truncated or incomplete."
 msgstr "Imej GID terkerat atau tidak selepas"
 
-#: gdk-pixbuf/io-gif.c:1693 gdk-pixbuf/io-gdip-gif.c:80
+#: gdk-pixbuf/io-gif.c:1692 gdk-pixbuf/io-gdip-gif.c:80
 msgid "The GIF image format"
 msgstr "Format imej GIF"
 
-#: gdk-pixbuf/io-ico.c:211 gdk-pixbuf/io-ico.c:225 gdk-pixbuf/io-ico.c:277
-#: gdk-pixbuf/io-ico.c:290 gdk-pixbuf/io-ico.c:359
+#: gdk-pixbuf/io-ico.c:210 gdk-pixbuf/io-ico.c:224 gdk-pixbuf/io-ico.c:276
+#: gdk-pixbuf/io-ico.c:289 gdk-pixbuf/io-ico.c:358
 msgid "Invalid header in icon"
 msgstr "Pengepala tidak sah dalam ikon"
 
-#: gdk-pixbuf/io-ico.c:240 gdk-pixbuf/io-ico.c:300 gdk-pixbuf/io-ico.c:369
-#: gdk-pixbuf/io-ico.c:432 gdk-pixbuf/io-ico.c:462
+#: gdk-pixbuf/io-ico.c:239 gdk-pixbuf/io-ico.c:299 gdk-pixbuf/io-ico.c:368
+#: gdk-pixbuf/io-ico.c:431 gdk-pixbuf/io-ico.c:461
 msgid "Not enough memory to load icon"
 msgstr "Tak cukup memori untuk memuatkan ikon"
 
-#: gdk-pixbuf/io-ico.c:322
+#: gdk-pixbuf/io-ico.c:321
 msgid "Icon has zero width"
 msgstr "Ikon mempunyai kelebaran sifar"
 
-#: gdk-pixbuf/io-ico.c:332
+#: gdk-pixbuf/io-ico.c:331
 msgid "Icon has zero height"
 msgstr "Ikon mempunyai ketinggian sifar"
 
-#: gdk-pixbuf/io-ico.c:384
+#: gdk-pixbuf/io-ico.c:383
 msgid "Compressed icons are not supported"
 msgstr "Ikon termampat adalah tidak disokong"
 
-#: gdk-pixbuf/io-ico.c:417
+#: gdk-pixbuf/io-ico.c:416
 msgid "Unsupported icon type"
 msgstr "Jenis ikon tidak disokong"
 
-#: gdk-pixbuf/io-ico.c:511
+#: gdk-pixbuf/io-ico.c:510
 msgid "Not enough memory to load ICO file"
 msgstr "Tak cukup memori untuk memuatkan fail ICO"
 
-#: gdk-pixbuf/io-ico.c:976
+#: gdk-pixbuf/io-ico.c:975
 msgid "Image too large to be saved as ICO"
 msgstr "Imej terlalu besar untuk disimpan sebagai ICO"
 
-#: gdk-pixbuf/io-ico.c:987
+#: gdk-pixbuf/io-ico.c:986
 msgid "Cursor hotspot outside image"
 msgstr "Hotspot kursor diluar imej"
 
-#: gdk-pixbuf/io-ico.c:1010
+#: gdk-pixbuf/io-ico.c:1009
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Kedalaman tak disokong bagi fail ICO: %d"
 
-#: gdk-pixbuf/io-ico.c:1245 gdk-pixbuf/io-gdip-ico.c:59
+#: gdk-pixbuf/io-ico.c:1244 gdk-pixbuf/io-gdip-ico.c:59
 msgid "The ICO image format"
 msgstr "Format imej ICO"
 
-#: gdk-pixbuf/io-icns.c:348
+#: gdk-pixbuf/io-icns.c:347
 #, fuzzy, c-format
 msgid "Error reading ICNS image: %s"
 msgstr "Ralat fatal membaca fail imej PNG: %s"
 
-#: gdk-pixbuf/io-icns.c:365
+#: gdk-pixbuf/io-icns.c:364
 #, fuzzy
 msgid "Could not decode ICNS file"
 msgstr ""
 "Tak dapat memilih %s:\n"
 "%s"
 
-#: gdk-pixbuf/io-icns.c:398
+#: gdk-pixbuf/io-icns.c:397
 #, fuzzy
 msgid "The ICNS image format"
 msgstr "Format imej ICO"
 
-#: gdk-pixbuf/io-jasper.c:75
+#: gdk-pixbuf/io-jasper.c:74
 #, fuzzy
 msgid "Couldn't allocate memory for stream"
 msgstr "Tak dapat memperuntukkan memori bagi pengepala"
 
-#: gdk-pixbuf/io-jasper.c:105
+#: gdk-pixbuf/io-jasper.c:104
 #, fuzzy
 msgid "Couldn't decode image"
 msgstr "Tak dapat menukar namafail"
 
-#: gdk-pixbuf/io-jasper.c:123
+#: gdk-pixbuf/io-jasper.c:122
 msgid "Transformed JPEG2000 has zero width or height"
 msgstr ""
 
-#: gdk-pixbuf/io-jasper.c:137
+#: gdk-pixbuf/io-jasper.c:136
 #, fuzzy
 msgid "Image type currently not supported"
 msgstr "Jenis imej '%s'tidak disokong"
 
-#: gdk-pixbuf/io-jasper.c:149 gdk-pixbuf/io-jasper.c:157
+#: gdk-pixbuf/io-jasper.c:148 gdk-pixbuf/io-jasper.c:156
 #, fuzzy
 msgid "Couldn't allocate memory for color profile"
 msgstr "Tak dapat memperuntukkan memori bagi memuatkan fail JPEG"
 
-#: gdk-pixbuf/io-jasper.c:183
+#: gdk-pixbuf/io-jasper.c:182
 #, fuzzy
 msgid "Insufficient memory to open JPEG 2000 file"
 msgstr "Tak cukup memori untuk membuka fail TIFF"
 
-#: gdk-pixbuf/io-jasper.c:262
+#: gdk-pixbuf/io-jasper.c:261
 #, fuzzy
 msgid "Couldn't allocate memory to buffer image data"
 msgstr "Tak dapat memperuntukkan memori data garisan"
 
-#: gdk-pixbuf/io-jasper.c:306
+#: gdk-pixbuf/io-jasper.c:305
 #, fuzzy
 msgid "The JPEG 2000 image format"
 msgstr "Format imej JPEG"
 
-#: gdk-pixbuf/io-jpeg.c:117
+#: gdk-pixbuf/io-jpeg.c:116
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Ralat mentafsirkan fail imej JPEG (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:528
+#: gdk-pixbuf/io-jpeg.c:527
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -399,21 +399,21 @@ msgstr ""
 "Tak cukup memori untuk memuatkan imej, cuba keluar aplikasi lain untuk "
 "membebaskan memori"
 
-#: gdk-pixbuf/io-jpeg.c:569 gdk-pixbuf/io-jpeg.c:775
+#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:774
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Ruang warna JPEG tidak disokong (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:674 gdk-pixbuf/io-jpeg.c:944 gdk-pixbuf/io-jpeg.c:1177
-#: gdk-pixbuf/io-jpeg.c:1186
+#: gdk-pixbuf/io-jpeg.c:673 gdk-pixbuf/io-jpeg.c:943 gdk-pixbuf/io-jpeg.c:1176
+#: gdk-pixbuf/io-jpeg.c:1185
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Tak dapat memperuntukkan memori bagi memuatkan fail JPEG"
 
-#: gdk-pixbuf/io-jpeg.c:919
+#: gdk-pixbuf/io-jpeg.c:918
 msgid "Transformed JPEG has zero width or height."
 msgstr ""
 
-#: gdk-pixbuf/io-jpeg.c:1133 gdk-pixbuf/io-gdip-jpeg.c:53
+#: gdk-pixbuf/io-jpeg.c:1132 gdk-pixbuf/io-gdip-jpeg.c:53
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -422,93 +422,93 @@ msgstr ""
 "Kualiti JPEG mestilah diantara nilai 0 dan 100; nilai '%s' tak boleh "
 "dihantar."
 
-#: gdk-pixbuf/io-jpeg.c:1148 gdk-pixbuf/io-gdip-jpeg.c:68
+#: gdk-pixbuf/io-jpeg.c:1147 gdk-pixbuf/io-gdip-jpeg.c:68
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr ""
 "Kualiti JPEG mestilah diantara nilai 0 dan 100; nilai '%d' tak diizinkan."
 
-#: gdk-pixbuf/io-jpeg.c:1310 gdk-pixbuf/io-gdip-jpeg.c:136
+#: gdk-pixbuf/io-jpeg.c:1309 gdk-pixbuf/io-gdip-jpeg.c:136
 msgid "The JPEG image format"
 msgstr "Format imej JPEG"
 
-#: gdk-pixbuf/io-pcx.c:187
+#: gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
 msgstr "Tak dapat memperuntukkan memori bagi pengepala"
 
-#: gdk-pixbuf/io-pcx.c:202 gdk-pixbuf/io-pcx.c:560
+#: gdk-pixbuf/io-pcx.c:201 gdk-pixbuf/io-pcx.c:559
 msgid "Couldn't allocate memory for context buffer"
 msgstr "Tak dapat memperuntukkan memori untuk penimbal konteks"
 
-#: gdk-pixbuf/io-pcx.c:601
+#: gdk-pixbuf/io-pcx.c:600
 msgid "Image has invalid width and/or height"
 msgstr "Imej mempunyai kelebaran dan/atau ketinggian tidak sah"
 
-#: gdk-pixbuf/io-pcx.c:613 gdk-pixbuf/io-pcx.c:674
+#: gdk-pixbuf/io-pcx.c:612 gdk-pixbuf/io-pcx.c:673
 msgid "Image has unsupported bpp"
 msgstr "Imej mempunyai bpp yang tidak disokong"
 
-#: gdk-pixbuf/io-pcx.c:618 gdk-pixbuf/io-pcx.c:626
+#: gdk-pixbuf/io-pcx.c:617 gdk-pixbuf/io-pcx.c:625
 #, c-format
 msgid "Image has unsupported number of %d-bit planes"
 msgstr "Imej mempunyai bilangan satah %d-bit yang tidak disokong"
 
-#: gdk-pixbuf/io-pcx.c:642
+#: gdk-pixbuf/io-pcx.c:641
 msgid "Couldn't create new pixbuf"
 msgstr "Tak dapat mencipta pixbuf baru"
 
-#: gdk-pixbuf/io-pcx.c:650
+#: gdk-pixbuf/io-pcx.c:649
 msgid "Couldn't allocate memory for line data"
 msgstr "Tak dapat memperuntukkan memori data garisan"
 
-#: gdk-pixbuf/io-pcx.c:657
+#: gdk-pixbuf/io-pcx.c:656
 msgid "Couldn't allocate memory for paletted data"
 msgstr "Tak dapat memperuntukkan memori bagi data dipalet"
 
-#: gdk-pixbuf/io-pcx.c:704
+#: gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
 msgstr "Tak dapat semua garisan bagi imej PCX"
 
-#: gdk-pixbuf/io-pcx.c:711
+#: gdk-pixbuf/io-pcx.c:710
 msgid "No palette found at end of PCX data"
 msgstr "Tiada palet dijumpai pada akhir data PCX"
 
-#: gdk-pixbuf/io-pcx.c:756
+#: gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
 msgstr "Format imej PCX"
 
-#: gdk-pixbuf/io-png.c:55
+#: gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Bit per saluran bagi Imej PNM adalah tidak sah."
 
-#: gdk-pixbuf/io-png.c:136 gdk-pixbuf/io-png.c:642
+#: gdk-pixbuf/io-png.c:135 gdk-pixbuf/io-png.c:641
 msgid "Transformed PNG has zero width or height."
 msgstr ""
 
 # ;fuzzy
-#: gdk-pixbuf/io-png.c:144
+#: gdk-pixbuf/io-png.c:143
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Bit per saluran bagi PNG adalah bukan 8."
 
-#: gdk-pixbuf/io-png.c:153
+#: gdk-pixbuf/io-png.c:152
 msgid "Transformed PNG not RGB or RGBA."
 msgstr ""
 
-#: gdk-pixbuf/io-png.c:162
+#: gdk-pixbuf/io-png.c:161
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 
-#: gdk-pixbuf/io-png.c:183
+#: gdk-pixbuf/io-png.c:182
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Ralat fatal pada fail imej PNG: %s"
 
-#: gdk-pixbuf/io-png.c:316
+#: gdk-pixbuf/io-png.c:315
 msgid "Insufficient memory to load PNG file"
 msgstr "Tak cukup memori untuk memuatkan fail PNG"
 
-#: gdk-pixbuf/io-png.c:657
+#: gdk-pixbuf/io-png.c:656
 #, c-format
 msgid ""
 "Insufficient memory to store a %ld by %ld image; try exiting some "
@@ -517,32 +517,32 @@ msgstr ""
 "Tak cukup memori untuk menyimpan imej  %ld x %ld ; Cuba keluar aplikasi lain "
 "untuk mengurangkan penggunaan memori"
 
-#: gdk-pixbuf/io-png.c:720
+#: gdk-pixbuf/io-png.c:719
 msgid "Fatal error reading PNG image file"
 msgstr "Ralat fatal membaca fail imej PNG"
 
-#: gdk-pixbuf/io-png.c:769
+#: gdk-pixbuf/io-png.c:768
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Ralat fatal membaca fail imej PNG: %s"
 
-#: gdk-pixbuf/io-png.c:863
+#: gdk-pixbuf/io-png.c:862
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "Kekunci untuk bahagian teks PNG mestilah sekurang-kurangnya 1 , paling "
 "banyak pun 79 aksara."
 
-#: gdk-pixbuf/io-png.c:872
+#: gdk-pixbuf/io-png.c:871
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Kekunci untuk bahagian teks PNG mestilah aksara ASCII."
 
-#: gdk-pixbuf/io-png.c:886 gdk-pixbuf/io-tiff.c:738
+#: gdk-pixbuf/io-png.c:885 gdk-pixbuf/io-tiff.c:737
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr ""
 
-#: gdk-pixbuf/io-png.c:899 gdk-pixbuf/io-gdip-png.c:56
+#: gdk-pixbuf/io-png.c:898
 #, fuzzy, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -551,7 +551,7 @@ msgstr ""
 "Kualiti JPEG mestilah diantara nilai 0 dan 100; nilai '%s' tak boleh "
 "dihantar."
 
-#: gdk-pixbuf/io-png.c:912 gdk-pixbuf/io-gdip-png.c:68
+#: gdk-pixbuf/io-png.c:911
 #, fuzzy, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -559,353 +559,353 @@ msgid ""
 msgstr ""
 "Kualiti JPEG mestilah diantara nilai 0 dan 100; nilai '%d' tak diizinkan."
 
-#: gdk-pixbuf/io-png.c:951
+#: gdk-pixbuf/io-png.c:950
 #, fuzzy, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Nilai bahagian teks PNG %s tak boleh ditukarkan ke pengenkodan ISO-8859-1."
 
-#: gdk-pixbuf/io-png.c:1112 gdk-pixbuf/io-gdip-png.c:133
+#: gdk-pixbuf/io-png.c:1111
 msgid "The PNG image format"
 msgstr "Format Imej PNG"
 
-#: gdk-pixbuf/io-pnm.c:250
+#: gdk-pixbuf/io-pnm.c:249
 msgid "PNM loader expected to find an integer, but didn't"
 msgstr "Pemuat PNM dijangkakan untuk mencari intiger, tetapi tidak."
 
-#: gdk-pixbuf/io-pnm.c:282
+#: gdk-pixbuf/io-pnm.c:281
 msgid "PNM file has an incorrect initial byte"
 msgstr "Fail PNM mempunyai byte permulaan yg salah"
 
-#: gdk-pixbuf/io-pnm.c:312
+#: gdk-pixbuf/io-pnm.c:311
 msgid "PNM file is not in a recognized PNM subformat"
 msgstr "Fail PNM tidak diiktiraf sebagai subformat PNM"
 
-#: gdk-pixbuf/io-pnm.c:337
+#: gdk-pixbuf/io-pnm.c:336
 msgid "PNM file has an image width of 0"
 msgstr "Fail PNM mempunyai kelebaran 0"
 
-#: gdk-pixbuf/io-pnm.c:358
+#: gdk-pixbuf/io-pnm.c:357
 msgid "PNM file has an image height of 0"
 msgstr "Fail PNM mempunyai ketinggian 0"
 
-#: gdk-pixbuf/io-pnm.c:381
+#: gdk-pixbuf/io-pnm.c:380
 msgid "Maximum color value in PNM file is 0"
 msgstr "Nilai warna maksima pada fail PNM ialah 0"
 
-#: gdk-pixbuf/io-pnm.c:389
+#: gdk-pixbuf/io-pnm.c:388
 msgid "Maximum color value in PNM file is too large"
 msgstr "Nilai warna maksima pada fail PNM terlalu besar"
 
-#: gdk-pixbuf/io-pnm.c:429 gdk-pixbuf/io-pnm.c:459 gdk-pixbuf/io-pnm.c:504
+#: gdk-pixbuf/io-pnm.c:428 gdk-pixbuf/io-pnm.c:458 gdk-pixbuf/io-pnm.c:503
 msgid "Raw PNM image type is invalid"
 msgstr "Imej PNM jenis rawak tidak sah"
 
-#: gdk-pixbuf/io-pnm.c:654
+#: gdk-pixbuf/io-pnm.c:653
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "Pemuat imej PNM tidak menyokong subformat PNM ini"
 
-#: gdk-pixbuf/io-pnm.c:741 gdk-pixbuf/io-pnm.c:968
+#: gdk-pixbuf/io-pnm.c:740 gdk-pixbuf/io-pnm.c:967
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr ""
 "Format PNM rawak memerlukan tepat-tepat satu ruangputih sebelum data sampel"
 
-#: gdk-pixbuf/io-pnm.c:768
+#: gdk-pixbuf/io-pnm.c:767
 #, fuzzy
 msgid "Cannot allocate memory for loading PNM image"
 msgstr "Tak dapat memperuntukkan memori untuk memuatkan imej PNM"
 
-#: gdk-pixbuf/io-pnm.c:818
+#: gdk-pixbuf/io-pnm.c:817
 msgid "Insufficient memory to load PNM context struct"
 msgstr "Tak cukup memori untuk memuatkan struktur konteks PNM"
 
-#: gdk-pixbuf/io-pnm.c:869
+#: gdk-pixbuf/io-pnm.c:868
 msgid "Unexpected end of PNM image data"
 msgstr "Penghujungan tanpa diduga data imej PNM"
 
-#: gdk-pixbuf/io-pnm.c:997
+#: gdk-pixbuf/io-pnm.c:996
 msgid "Insufficient memory to load PNM file"
 msgstr "Tak cukup memori untuk memuatkan fail PNM"
 
-#: gdk-pixbuf/io-pnm.c:1081
+#: gdk-pixbuf/io-pnm.c:1080
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "Keluarga format imej PNM/PBM/PGM/PPM"
 
-#: gdk-pixbuf/io-qtif.c:128
+#: gdk-pixbuf/io-qtif.c:127
 msgid "Input file descriptor is NULL."
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:143
+#: gdk-pixbuf/io-qtif.c:142
 #, fuzzy
 msgid "Failed to read QTIF header"
 msgstr "Gagal membuka imej TIFF"
 
-#: gdk-pixbuf/io-qtif.c:152 gdk-pixbuf/io-qtif.c:182 gdk-pixbuf/io-qtif.c:446
+#: gdk-pixbuf/io-qtif.c:151 gdk-pixbuf/io-qtif.c:181 gdk-pixbuf/io-qtif.c:445
 #, c-format
 msgid "QTIF atom size too large (%d bytes)"
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:172
+#: gdk-pixbuf/io-qtif.c:171
 #, c-format
 msgid "Failed to allocate %d bytes for file read buffer"
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:196
+#: gdk-pixbuf/io-qtif.c:195
 #, fuzzy, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "Gagal membaca GIF: %s"
 
-#: gdk-pixbuf/io-qtif.c:233
+#: gdk-pixbuf/io-qtif.c:232
 #, c-format
 msgid "Failed to skip the next %d bytes with seek()."
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:257
+#: gdk-pixbuf/io-qtif.c:256
 #, fuzzy
 msgid "Failed to allocate QTIF context structure."
 msgstr "Tak dapat memperuntukkan memori untuk struct konteks TGA"
 
-#: gdk-pixbuf/io-qtif.c:317
+#: gdk-pixbuf/io-qtif.c:316
 #, fuzzy
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "Gagal membaca drpd fail sementara"
 
-#: gdk-pixbuf/io-qtif.c:421
+#: gdk-pixbuf/io-qtif.c:420
 #, fuzzy
 msgid "Failed to find an image data atom."
 msgstr "Gagal membuka imej TIFF"
 
-#: gdk-pixbuf/io-qtif.c:602
+#: gdk-pixbuf/io-qtif.c:601
 #, fuzzy
 msgid "The QTIF image format"
 msgstr "Format imej TIFF"
 
-#: gdk-pixbuf/io-ras.c:126
+#: gdk-pixbuf/io-ras.c:125
 msgid "RAS image has bogus header data"
 msgstr "Imej RAS mempunyai data pengepala bogus"
 
-#: gdk-pixbuf/io-ras.c:148
+#: gdk-pixbuf/io-ras.c:147
 msgid "RAS image has unknown type"
 msgstr "Jenis  imej RAS tidak diketahui"
 
-#: gdk-pixbuf/io-ras.c:156
+#: gdk-pixbuf/io-ras.c:155
 msgid "unsupported RAS image variation"
 msgstr "Variasi imej RAS tidak disokong"
 
-#: gdk-pixbuf/io-ras.c:171 gdk-pixbuf/io-ras.c:200
+#: gdk-pixbuf/io-ras.c:170 gdk-pixbuf/io-ras.c:199
 msgid "Not enough memory to load RAS image"
 msgstr "Tak cukup memori untuk memuatkan imej RAS"
 
-#: gdk-pixbuf/io-ras.c:545
+#: gdk-pixbuf/io-ras.c:544
 msgid "The Sun raster image format"
 msgstr "Format imej raster Sun"
 
-#: gdk-pixbuf/io-tga.c:154
+#: gdk-pixbuf/io-tga.c:153
 #, fuzzy
 msgid "Cannot allocate memory for IOBuffer struct"
 msgstr "Tak dapat memperuntukkan memori untukstruct IOBuffer"
 
-#: gdk-pixbuf/io-tga.c:173
+#: gdk-pixbuf/io-tga.c:172
 #, fuzzy
 msgid "Cannot allocate memory for IOBuffer data"
 msgstr "Tak dapat memperuntukkan memori data IOBuffer"
 
-#: gdk-pixbuf/io-tga.c:184
+#: gdk-pixbuf/io-tga.c:183
 #, fuzzy
 msgid "Cannot realloc IOBuffer data"
 msgstr "Tak dapat memperuntukkan data IOBuffer"
 
-#: gdk-pixbuf/io-tga.c:214
+#: gdk-pixbuf/io-tga.c:213
 #, fuzzy
 msgid "Cannot allocate temporary IOBuffer data"
 msgstr "Tak dapat memperuntukkan memori menentara IOBuffer"
 
-#: gdk-pixbuf/io-tga.c:347
+#: gdk-pixbuf/io-tga.c:346
 #, fuzzy
 msgid "Cannot allocate new pixbuf"
 msgstr "Tak dapat memperuntukkan pixbuf baru"
 
-#: gdk-pixbuf/io-tga.c:686
+#: gdk-pixbuf/io-tga.c:685
 #, fuzzy
 msgid "Image is corrupted or truncated"
 msgstr "Imej GID terkerat atau tidak selepas"
 
-#: gdk-pixbuf/io-tga.c:693
+#: gdk-pixbuf/io-tga.c:692
 #, fuzzy
 msgid "Cannot allocate colormap structure"
 msgstr "Tak dapat memperuntukkan struktur colormap"
 
-#: gdk-pixbuf/io-tga.c:700
+#: gdk-pixbuf/io-tga.c:699
 #, fuzzy
 msgid "Cannot allocate colormap entries"
 msgstr "Tak dapat memperuntukkan kemasukan colormap"
 
-#: gdk-pixbuf/io-tga.c:722
+#: gdk-pixbuf/io-tga.c:721
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "Bitdepth tak diduga bagi kemasukan colormap"
 
-#: gdk-pixbuf/io-tga.c:740
+#: gdk-pixbuf/io-tga.c:739
 #, fuzzy
 msgid "Cannot allocate TGA header memory"
 msgstr "Takdapat memperuntukkan memori pengepala TGA"
 
-#: gdk-pixbuf/io-tga.c:773
+#: gdk-pixbuf/io-tga.c:772
 msgid "TGA image has invalid dimensions"
 msgstr "Imej TGA mempunyai dimensi tidak sah"
 
-#: gdk-pixbuf/io-tga.c:779 gdk-pixbuf/io-tga.c:788 gdk-pixbuf/io-tga.c:798
-#: gdk-pixbuf/io-tga.c:808 gdk-pixbuf/io-tga.c:815
+#: gdk-pixbuf/io-tga.c:778 gdk-pixbuf/io-tga.c:787 gdk-pixbuf/io-tga.c:797
+#: gdk-pixbuf/io-tga.c:807 gdk-pixbuf/io-tga.c:814
 msgid "TGA image type not supported"
 msgstr "Jenis imej TGA ini tidak disokong"
 
-#: gdk-pixbuf/io-tga.c:862
+#: gdk-pixbuf/io-tga.c:861
 #, fuzzy
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Tak dapat memperuntukkan memori untuk struct konteks TGA"
 
-#: gdk-pixbuf/io-tga.c:927
+#: gdk-pixbuf/io-tga.c:926
 msgid "Excess data in file"
 msgstr "Limpahan data pada fail"
 
-#: gdk-pixbuf/io-tga.c:1008
+#: gdk-pixbuf/io-tga.c:1007
 msgid "The Targa image format"
 msgstr "Format imej Targa"
 
-#: gdk-pixbuf/io-tiff.c:165
+#: gdk-pixbuf/io-tiff.c:164
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Tak dapat kelebaran imej (fail TIFF teruk)"
 
-#: gdk-pixbuf/io-tiff.c:172
+#: gdk-pixbuf/io-tiff.c:171
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Taidak mendpaatkan ketinggian imej (fail TIFF teruk)"
 
-#: gdk-pixbuf/io-tiff.c:180
+#: gdk-pixbuf/io-tiff.c:179
 msgid "Width or height of TIFF image is zero"
 msgstr "Lebar atau tinggi imej TIFF ialah sifar"
 
-#: gdk-pixbuf/io-tiff.c:189 gdk-pixbuf/io-tiff.c:198
+#: gdk-pixbuf/io-tiff.c:188 gdk-pixbuf/io-tiff.c:197
 msgid "Dimensions of TIFF image too large"
 msgstr "Dimensi bagi imej TIFF terlalu besar"
 
-#: gdk-pixbuf/io-tiff.c:222 gdk-pixbuf/io-tiff.c:234 gdk-pixbuf/io-tiff.c:561
+#: gdk-pixbuf/io-tiff.c:221 gdk-pixbuf/io-tiff.c:233 gdk-pixbuf/io-tiff.c:560
 msgid "Insufficient memory to open TIFF file"
 msgstr "Tak cukup memori untuk membuka fail TIFF"
 
-#: gdk-pixbuf/io-tiff.c:295
+#: gdk-pixbuf/io-tiff.c:294
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Gagal memuatkan data RGB daripada fail TIFF"
 
-#: gdk-pixbuf/io-tiff.c:351
+#: gdk-pixbuf/io-tiff.c:350
 msgid "Failed to open TIFF image"
 msgstr "Gagal membuka imej TIFF"
 
-#: gdk-pixbuf/io-tiff.c:363 gdk-pixbuf/io-tiff.c:778
+#: gdk-pixbuf/io-tiff.c:362 gdk-pixbuf/io-tiff.c:777
 msgid "TIFFClose operation failed"
 msgstr "Operasi TIFFClose gagal"
 
-#: gdk-pixbuf/io-tiff.c:493 gdk-pixbuf/io-tiff.c:506
+#: gdk-pixbuf/io-tiff.c:492 gdk-pixbuf/io-tiff.c:505
 msgid "Failed to load TIFF image"
 msgstr "Gagal memuatkan imej TIFF"
 
-#: gdk-pixbuf/io-tiff.c:692
+#: gdk-pixbuf/io-tiff.c:691
 #, fuzzy
 msgid "Failed to save TIFF image"
 msgstr "Gagal membuka imej TIFF"
 
-#: gdk-pixbuf/io-tiff.c:727
+#: gdk-pixbuf/io-tiff.c:726
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr ""
 
-#: gdk-pixbuf/io-tiff.c:767
+#: gdk-pixbuf/io-tiff.c:766
 #, fuzzy
 msgid "Failed to write TIFF data"
 msgstr "Gagal membuka imej TIFF"
 
-#: gdk-pixbuf/io-tiff.c:814
+#: gdk-pixbuf/io-tiff.c:813
 #, fuzzy
 msgid "Couldn't write to TIFF file"
 msgstr "Tak dapat menukar namafail"
 
-#: gdk-pixbuf/io-tiff.c:869
+#: gdk-pixbuf/io-tiff.c:868
 msgid "The TIFF image format"
 msgstr "Format imej TIFF"
 
-#: gdk-pixbuf/io-wbmp.c:246
+#: gdk-pixbuf/io-wbmp.c:245
 msgid "Image has zero width"
 msgstr "Imej mempunyai kelebaran sifar"
 
-#: gdk-pixbuf/io-wbmp.c:264
+#: gdk-pixbuf/io-wbmp.c:263
 msgid "Image has zero height"
 msgstr "Imej mempunyai ketinggian sifar"
 
-#: gdk-pixbuf/io-wbmp.c:275
+#: gdk-pixbuf/io-wbmp.c:274
 msgid "Not enough memory to load image"
 msgstr "Tak cukup memori untuk memuatkan imej"
 
-#: gdk-pixbuf/io-wbmp.c:334
+#: gdk-pixbuf/io-wbmp.c:333
 msgid "Couldn't save the rest"
 msgstr "Tak dapat menyimpang yang selebihnya"
 
-#: gdk-pixbuf/io-wbmp.c:375
+#: gdk-pixbuf/io-wbmp.c:374
 msgid "The WBMP image format"
 msgstr "Format imej WBMP"
 
-#: gdk-pixbuf/io-xbm.c:295
+#: gdk-pixbuf/io-xbm.c:294
 msgid "Invalid XBM file"
 msgstr "Fail XBM tidak sah"
 
-#: gdk-pixbuf/io-xbm.c:305
+#: gdk-pixbuf/io-xbm.c:304
 msgid "Insufficient memory to load XBM image file"
 msgstr "Tak cukup memori untuk memuatkan fail imej XBM"
 
-#: gdk-pixbuf/io-xbm.c:453
+#: gdk-pixbuf/io-xbm.c:452
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr "Gagal menulis ke fail sementara bila memuatkan imej XBM"
 
-#: gdk-pixbuf/io-xbm.c:492
+#: gdk-pixbuf/io-xbm.c:491
 msgid "The XBM image format"
 msgstr "Format imej XBM"
 
-#: gdk-pixbuf/io-xpm.c:468
+#: gdk-pixbuf/io-xpm.c:467
 msgid "No XPM header found"
 msgstr "Tiada pengepala XPM dijumpai"
 
-#: gdk-pixbuf/io-xpm.c:477
+#: gdk-pixbuf/io-xpm.c:476
 #, fuzzy
 msgid "Invalid XPM header"
 msgstr "Fail XBM tidak sah"
 
-#: gdk-pixbuf/io-xpm.c:485
+#: gdk-pixbuf/io-xpm.c:484
 msgid "XPM file has image width <= 0"
 msgstr "Fail XPM imej mempunyai kelebaran <=0"
 
-#: gdk-pixbuf/io-xpm.c:493
+#: gdk-pixbuf/io-xpm.c:492
 msgid "XPM file has image height <= 0"
 msgstr "Fail imej XPM mempunyai tinggi <=0"
 
-#: gdk-pixbuf/io-xpm.c:501
+#: gdk-pixbuf/io-xpm.c:500
 msgid "XPM has invalid number of chars per pixel"
 msgstr "XPM mempunyai bilangan aksara per piksel yang tidak sah"
 
-#: gdk-pixbuf/io-xpm.c:510
+#: gdk-pixbuf/io-xpm.c:509
 msgid "XPM file has invalid number of colors"
 msgstr "Fail XPM mempunyai bilangan warna yang tidak sah"
 
-#: gdk-pixbuf/io-xpm.c:522 gdk-pixbuf/io-xpm.c:531 gdk-pixbuf/io-xpm.c:583
+#: gdk-pixbuf/io-xpm.c:521 gdk-pixbuf/io-xpm.c:530 gdk-pixbuf/io-xpm.c:582
 #, fuzzy
 msgid "Cannot allocate memory for loading XPM image"
 msgstr "Tak dapat memperuntukkan"
 
-#: gdk-pixbuf/io-xpm.c:545
+#: gdk-pixbuf/io-xpm.c:544
 #, fuzzy
 msgid "Cannot read XPM colormap"
 msgstr "Tak dapat membaca colormap XPM"
 
-#: gdk-pixbuf/io-xpm.c:777
+#: gdk-pixbuf/io-xpm.c:776
 msgid "Failed to write to temporary file when loading XPM image"
 msgstr "Gagal menulis fail sementara bila memuatkan imej XPM"
 
-#: gdk-pixbuf/io-xpm.c:816
+#: gdk-pixbuf/io-xpm.c:815
 msgid "The XPM image format"
 msgstr "Format Imej XPM"
 
