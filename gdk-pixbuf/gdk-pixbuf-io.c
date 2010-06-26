@@ -2672,6 +2672,55 @@ gdk_pixbuf_get_formats (void)
         return result;
 }
 
+/**
+ * gdk_pixbuf_format_copy:
+ * @format: a #GdkPixbufFormat
+ *
+ * Creates a copy of @format
+ *
+ * Return value: the newly allocated copy of a #GdkPixbufFormat. Use
+ *   gdk_pixbuf_format_free() to free the resources when done
+ *
+ * Since: 2.22
+ */
+GdkPixbufFormat *
+gdk_pixbuf_format_copy (const GdkPixbufFormat *format)
+{
+        if (G_LIKELY (format != NULL))
+                return g_slice_dup (GdkPixbufFormat, format);
+
+        return NULL;
+}
+
+/**
+ * gdk_pixbuf_format_free:
+ * @format: a #GdkPixbufFormat
+ *
+ * Frees the resources allocated when copying a #GdkPixbufFormat
+ * using gdk_pixbuf_format_copy()
+ *
+ * Since: 2.22
+ */
+void
+gdk_pixbuf_format_free (GdkPixbufFormat *format)
+{
+        if (G_LIKELY (format != NULL))
+                g_slice_free (GdkPixbufFormat, format);
+}
+
+GType
+gdk_pixbuf_format_get_type (void)
+{
+        static volatile gsize format_id__volatile = 0;
+        if (g_once_init_enter (&format_id__volatile)) {
+                GType format_id =
+                        g_boxed_type_register_static (g_intern_static_string ("GdkPixbufFormat"),
+                                                      (GBoxedCopyFunc) gdk_pixbuf_format_copy,
+                                                      (GBoxedFreeFunc) gdk_pixbuf_format_free);
+                g_once_init_leave (&format_id__volatile, format_id);
+        }
+        return format_id__volatile;
+}
 
 #define __GDK_PIXBUF_IO_C__
 #include "gdk-pixbuf-aliasdef.c"

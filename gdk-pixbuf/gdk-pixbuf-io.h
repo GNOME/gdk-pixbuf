@@ -43,6 +43,8 @@ G_BEGIN_DECLS
 
 typedef struct _GdkPixbufFormat GdkPixbufFormat;
  
+GType gdk_pixbuf_format_get_type (void) G_GNUC_CONST;
+
 GSList    *gdk_pixbuf_get_formats            (void);
 gchar     *gdk_pixbuf_format_get_name        (GdkPixbufFormat *format);
 gchar     *gdk_pixbuf_format_get_description (GdkPixbufFormat *format);
@@ -58,6 +60,9 @@ gchar     *gdk_pixbuf_format_get_license     (GdkPixbufFormat *format);
 GdkPixbufFormat *gdk_pixbuf_get_file_info    (const gchar     *filename,
 					      gint            *width, 
 					      gint            *height);
+
+GdkPixbufFormat *gdk_pixbuf_format_copy (const GdkPixbufFormat *format);
+void             gdk_pixbuf_format_free (GdkPixbufFormat       *format);
 
 #ifdef GDK_PIXBUF_ENABLE_BACKEND
 
@@ -163,7 +168,6 @@ struct _GdkPixbufFormat {
   gboolean disabled;
   gchar *license;
 };
-
 
 #endif /* GDK_PIXBUF_ENABLE_BACKEND */
 

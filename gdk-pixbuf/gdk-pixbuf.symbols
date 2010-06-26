@@ -146,6 +146,9 @@ gdk_pixbuf_scaled_anim_iter_get_type G_GNUC_CONST
 #if IN_HEADER(GDK_PIXBUF_IO_H)
 #if IN_FILE(__GDK_PIXBUF_IO_C__)
 gdk_pixbuf_get_formats
+gdk_pixbuf_format_get_type G_GNUC_CONST;
+gdk_pixbuf_format_copy
+gdk_pixbuf_format_free
 gdk_pixbuf_format_get_description
 gdk_pixbuf_format_get_extensions
 gdk_pixbuf_format_get_license
