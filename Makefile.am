@@ -1,6 +1,6 @@
 include $(top_srcdir)/Makefile.decl
 
-SUBDIRS = gdk-pixbuf po docs
+SUBDIRS = gdk-pixbuf po docs tests
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gdk-pixbuf-2.0.pc

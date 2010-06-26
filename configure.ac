@@ -1007,6 +1007,7 @@ docs/reference/Makefile
 docs/reference/gdk-pixbuf/Makefile
 docs/reference/gdk-pixbuf/version.xml
 po/Makefile.in
+tests/Makefile
 ])
 
 AC_OUTPUT
