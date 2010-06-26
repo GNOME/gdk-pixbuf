@@ -109,7 +109,7 @@ $ACLOCAL -I m4 $ACLOCAL_FLAGS || exit $?
 
 libtoolize --force || exit $?
 gtkdocize || exit $?
-autopoint || exit $?
+autopoint --force || exit $?
 autoheader || exit $?
 
 $AUTOMAKE --add-missing || exit $?
