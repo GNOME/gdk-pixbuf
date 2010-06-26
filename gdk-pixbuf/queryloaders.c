@@ -294,7 +294,7 @@ int main (int argc, char **argv)
         g_string_append_printf (contents,
                                 "# GdkPixbuf Image Loader Modules file\n"
                                 "# Automatically generated file, do not edit\n"
-                                "# Created by %s from gtk+-%s\n"
+                                "# Created by %s from gdk-pixbuf-%s\n"
                                 "#\n",
                                 (prgname ? prgname : "gdk-pixbuf-query-loaders-2.0"),
                                 GDK_PIXBUF_VERSION);
