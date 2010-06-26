@@ -345,7 +345,7 @@ fi
 AC_SUBST(REBUILD)
 
 # i18n stuff
-AM_GNU_GETTEXT_VERSION(0.17)
+AM_GNU_GETTEXT_VERSION([0.17])
 AM_GNU_GETTEXT([external])
 
 GETTEXT_PACKAGE="$PACKAGE"
@@ -1006,6 +1006,7 @@ gdk-pixbuf/pixops/Makefile
 docs/Makefile
 docs/reference/Makefile
 docs/reference/gdk-pixbuf/Makefile
+docs/reference/gdk-pixbuf/version.xml
 po/Makefile.in
 ])
 

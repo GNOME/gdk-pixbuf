@@ -31,15 +31,15 @@ IGNORE_HFILES=				\
 	xpm-color-table.h		\
 	test-images.h
 
-INCLUDES = 			\
-	-I$(top_srcdir) 	\
-	-I$(top_builddir) 	\
-	$(GTK_DEBUG_FLAGS)	\
-	$(GTK_DEP_CFLAGS)
+INCLUDES = 				\
+	-I$(top_srcdir) 		\
+	-I$(top_builddir) 		\
+	$(GDK_PIXBUF_DEBUG_FLAGS)	\
+	$(GDK_PIXBUF_DEP_CFLAGS)
 
 GTKDOC_LIBS = \
 	$(top_builddir)/gdk-pixbuf/libgdk_pixbuf-$(GDK_PIXBUF_API_VERSION).la \
-	$(GTK_DEP_LIBS)
+	$(GDK_PIXBUF_DEP_LIBS)
 
 
 # Extra options to supply to gtkdoc-mkdb
@@ -51,8 +51,7 @@ content_files =				\
 	gdk-pixbuf-from-drawables.sgml	\
 	gdk-pixbuf-rendering.sgml	\
 	gdk-pixbuf.sgml			\
-	porting-from-imlib.sgml		\
-	gdk-pixbuf-csource-3.0.xml	\
+	gdk-pixbuf-csource-2.0.xml	\
 	gdk-pixbuf-query-loaders-2.0.xml
 
 # Images to copy into HTML directory
