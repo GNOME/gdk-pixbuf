@@ -12,6 +12,7 @@ DISTCLEANFILES = 		\
 
 DISTCHECK_CONFIGURE_FLAGS = 	\
 	--enable-gtk-doc	\
+	--enable-man		\
 	--enable-introspection
 
 -include $(top_srcdir)/git.mk
