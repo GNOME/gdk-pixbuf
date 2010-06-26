@@ -508,6 +508,7 @@ INCLUDES = \
 	-I$(top_srcdir) -I$(top_builddir) 				\
 	-I$(top_srcdir)/gdk-pixbuf 					\
 	-I$(top_builddir)/gdk-pixbuf 					\
+	-DGDK_PIXBUF_LOCALEDIR=\"$(localedir)\"				\
 	-DGDK_PIXBUF_LIBDIR=\"$(libdir)\"				\
 	-DGDK_PIXBUF_BINARY_VERSION=\"$(GDK_PIXBUF_BINARY_VERSION)\"	\
 	-DGDK_PIXBUF_PREFIX=\"$(prefix)\"				\

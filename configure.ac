@@ -352,7 +352,6 @@ GETTEXT_PACKAGE="$PACKAGE"
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
                    [The prefix for our gettext translation domains.])
-AM_GLIB_DEFINE_LOCALEDIR(GDK_PIXBUF_LOCALEDIR)
 
 dnl The DU4 header files don't provide library prototypes unless
 dnl -std1 is given to the native cc.
