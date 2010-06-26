@@ -3,6 +3,11 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 includedir=@includedir@
 
+gdk_pixbuf_binary_version=@GDK_PIXBUF_BINARY_VERSION@
+gdk_pixbuf_binarydir=@libdir@/gdk-pixbuf-@GDK_PIXBUF_API_VERSION@/@GDK_PIXBUF_BINARY_VERSION@
+gdk_pixbuf_moduledir=${gdk_pixbuf_binarydir}/loaders
+gdk_pixbuf_cache_file=${gdk_pixbuf_binarydir}/loaders.cache
+
 Name: GdkPixbuf
 Description: Image loading and scaling
 Version: @VERSION@
