@@ -88,6 +88,7 @@ AC_PROG_CC_C_O
 AC_PROG_CC_STDC
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
+PKG_PROG_PKG_CONFIG
 
 AC_CANONICAL_HOST
 
@@ -121,23 +122,6 @@ case $host in
     os_linux=yes
     ;;
 esac
-
-dnl
-dnl Check for a working C++ compiler, but do not bail out, if none is found.
-dnl We use this for an automated test for C++ header correctness.
-dnl
-AC_CHECK_TOOLS(CXX, [$CCC c++ g++ gcc CC cxx cc++ cl], gcc)
-AC_LANG_PUSH([C++])
-
-AC_TRY_COMPILE(,[class a { int b; } c;], ,CXX=)
-AM_CONDITIONAL(HAVE_CXX, test "$CXX" != "")
-
-gtk_save_cxxflags="$CXXFLAGS"
-CXXFLAGS="$CXXFLAGS -x objective-c++"
-AC_TRY_COMPILE([@interface Foo @end],,OBJC=yes,OBJC=no)
-AM_CONDITIONAL(HAVE_OBJC, test "$OBJC" = "yes")
-CXXFLAGS="$gtk_save_cxxflags"
-AC_LANG_POP([C++])
 
 if test "$os_win32" = "yes"; then
   if test x$enable_static = xyes -o x$enable_static = x; then
@@ -937,6 +921,20 @@ AC_SUBST(GDK_PIXBUF_EXTRA_CFLAGS)
 AC_SUBST(GDK_PIXBUF_DEP_LIBS)
 AC_SUBST(GDK_PIXBUF_DEP_CFLAGS)
 
+###############
+# Check for X11
+###############
+
+GDK_PIXBUF_XLIB_PACKAGES=
+GDK_PIXBUF_XLIB_EXTRA_CFLAGS=
+GDK_PIXBUF_XLIB_EXTRA_LIBS=
+
+if $PKG_CONFIG --exists x11; then
+  AM_CONDITIONAL(USE_X11, true)
+  PKG_CHECK_MODULES(GDK_PIXBUF_XLIB_DEP, x11 gobject-2.0)
+else
+  AM_CONDITIONAL(USE_X11, false)
+fi
 
 ################################################################
 # Strip -export-dynamic from the link lines of various libraries
@@ -1008,6 +1006,9 @@ docs/reference/gdk-pixbuf/Makefile
 docs/reference/gdk-pixbuf/version.xml
 po/Makefile.in
 tests/Makefile
+contrib/Makefile
+contrib/gdk-pixbuf-xlib/Makefile
+contrib/gdk-pixbuf-xlib/gdk-pixbuf-xlib-2.0.pc
 ])
 
 AC_OUTPUT
