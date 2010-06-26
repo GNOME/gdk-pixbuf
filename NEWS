@@ -1,3 +1,17 @@
+2.21.4
+======
+
+* Drop -2.0 suffix on gdk-pixbuf-csource and gdk-pixbuf-query-loaders
+
+* Include gdk-pixbuf-xlib again
+
+* Add pixbuf tests from the GTK+ tree
+
+* Add binary version and module dir as variables in the .pc file
+
+* Add a boxed type for GdkPixbufFormat
+
+
 2.21.3
 ======
 
