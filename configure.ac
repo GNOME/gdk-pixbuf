@@ -1,14 +1,17 @@
 # Process this file with autoconf to produce a configure script.
-# require autoconf 2.54
-AC_PREREQ([2.62])
+AC_PREREQ([2.63])
 
-# Making releases:
-#   GTK_MICRO_VERSION += 1;
-#   GTK_INTERFACE_AGE += 1;
-#   GTK_BINARY_AGE += 1;
-# if any functions have been added, set GTK_INTERFACE_AGE to 0.
-# if backwards compatibility has been broken,
-# set GTK_BINARY_AGE and GTK_INTERFACE_AGE to 0.
+# Making point releases:
+#   gdk_pixbuf_micro_version += 1;
+#   gdk_pixbuf_interface_age += 1;
+#   gdk_pixbuf_binary_age += 1;
+#
+# if any functions have been added, set gdk_pixbuf_interface_age to 0.
+#
+# if backwards compatibility has been broken:
+#   gdk_pixbuf_major_version += 1;
+#   gdk_pixbuf_interface_age = 0;
+#   gdk_pixbuf_binary_age = 0;
 
 m4_define([gdk_pixbuf_major_version], [2])
 m4_define([gdk_pixbuf_minor_version], [21])
@@ -147,14 +150,10 @@ AM_PROG_AS
 AC_PATH_PROG(NM, nm, nm)
 
 AC_MSG_CHECKING([for some Win32 platform])
-case "$host" in
-  *-*-mingw*|*-*-cygwin*)
-    platform_win32=yes
-    ;;
-  *)
-    platform_win32=no
-    ;;
-esac
+AS_CASE(["$host"],
+        [*-*-mingw*|*-*-cygwin*], [platform_win32=yes],
+        [platform_win32=no]
+)
 AC_MSG_RESULT([$platform_win32])
 AM_CONDITIONAL(PLATFORM_WIN32, test "$platform_win32" = "yes")
 
@@ -188,23 +187,21 @@ AC_ARG_ENABLE(visibility,
                               [do not use ELF visibility attributes])],,
               [enable_visibility=yes])
 
+AS_CASE([$enable_debug],
+        [yes],
+        [
+          test "$cflags_set" = set || CFLAGS="$CFLAGS -g"
+          GDK_PIXBUF_DEBUG_FLAGS="-DG_ENABLE_DEBUG -DG_ERRORCHECK_MUTEXES"
+        ],
 
-if test "x$enable_debug" = "xyes"; then
-  test "$cflags_set" = set || CFLAGS="$CFLAGS -g"
-  GDK_PIXBUF_DEBUG_FLAGS="-DG_ENABLE_DEBUG -DG_ERRORCHECK_MUTEXES"
-else
-  if test "x$enable_debug" = "xno"; then
-    GDK_PIXBUF_DEBUG_FLAGS="-DG_DISABLE_ASSERT -DG_DISABLE_CHECKS -DG_DISABLE_CAST_CHECKS"
-  else
-    GDK_PIXBUF_DEBUG_FLAGS="-DG_DISABLE_CAST_CHECKS"
-  fi
-fi
+        [no], [GDK_PIXBUF_DEBUG_FLAGS="-DG_DISABLE_ASSERT -DG_DISABLE_CHECKS -DG_DISABLE_CAST_CHECKS"],
 
+        [minimum], [GDK_PIXBUF_DEBUG_FLAGS="-DG_DISABLE_CAST_CHECKS"]
+)
 
-if test "x$enable_visibility" = "xno"; then
-  GDK_PIXBUF_DEBUG_FLAGS="$GDK_PIXBUF_DEBUG_FLAGS -DDISABLE_VISIBILITY"
-fi
-
+AS_IF([test "x$enable_visibility" = "xno"],
+      [GDK_PIXBUF_DEBUG_FLAGS="$GDK_PIXBUF_DEBUG_FLAGS -DDISABLE_VISIBILITY"]
+)
 
 # Build time sanity check...
 AM_SANITY_CHECK
@@ -273,8 +270,7 @@ fi
 ## calls. Oh, also the later pkg-config calls don't include
 ## the version requirements since those make the module lists
 ## annoying to construct
-PKG_CHECK_MODULES(BASE_DEPENDENCIES,
-  [glib-2.0 >= glib_required_version])
+PKG_CHECK_MODULES(BASE_DEPENDENCIES, [glib-2.0 >= glib_required_version])
 
 if test "$os_win32" != yes; then
     # libtool option to control which symbols are exported
@@ -629,7 +625,7 @@ dnl Test for libpng
 *** Checks for PNG loader failed. You can build without it by passing
 *** --without-libpng to configure but many programs using GTK+ will
 *** not work properly. The PNG loader is also needed if you are compiling
-*** from CVS.])
+*** from Git.])
   fi
 
 dnl Test for libjasper
