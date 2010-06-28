@@ -589,13 +589,19 @@ fi
 
 dnl Test for libpng
   if test x$with_libpng != xno && test -z "$LIBPNG"; then
-    AC_MSG_CHECKING(for libpng12)
-    if $PKG_CONFIG --exists libpng12 ; then
+    for l in libpng libpng14 libpng12 libpng13 libpng10 ; do
+      AC_MSG_CHECKING(for $l)
+      if $PKG_CONFIG --exists $l ; then
         AC_MSG_RESULT(yes)
         PNG='png'
-        PNG_DEP_CFLAGS_PACKAGES=libpng12
-        LIBPNG=`$PKG_CONFIG --libs libpng12`
-    else
+        PNG_DEP_CFLAGS_PACKAGES=$l
+        LIBPNG=`$PKG_CONFIG --libs $l`
+        break
+      else
+        AC_MSG_RESULT(no)
+      fi
+    done
+    if test x$PNG != xpng; then
       AC_MSG_RESULT(no)
       AC_CHECK_LIB(png, png_read_info,
         [AC_CHECK_HEADER(png.h,
