@@ -37,6 +37,10 @@
 #include <errno.h>
 #include "gdk-pixbuf-private.h"
 
+#ifdef INCLUDE_tiff
+#include "gdk-pixbuf-alias.h"
+#endif
+
 #ifdef G_OS_WIN32
 #include <fcntl.h>
 #include <io.h>

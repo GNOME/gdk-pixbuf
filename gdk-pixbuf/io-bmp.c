@@ -32,6 +32,10 @@
 #include <string.h>
 #include "gdk-pixbuf-private.h"
 
+#ifdef INCLUDE_bmp
+#include "gdk-pixbuf-alias.h"
+#endif
+
 #define DUMPBIH 0
 
 

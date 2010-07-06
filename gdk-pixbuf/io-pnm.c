@@ -29,6 +29,9 @@
 #include <setjmp.h>
 #include "gdk-pixbuf-private.h"
 
+#ifdef INCLUDE_pnm
+#include "gdk-pixbuf-alias.h"
+#endif
 
 #define PNM_BUF_SIZE 4096
 

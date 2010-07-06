@@ -30,6 +30,10 @@
 #include "gdk-pixbuf-loader.h"
 #include "io-ani-animation.h"
 
+#ifdef INCLUDE_ani
+#include "gdk-pixbuf-alias.h"
+#endif
+
 static int
 lsb_32 (guchar *src)
 {

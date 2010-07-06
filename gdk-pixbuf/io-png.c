@@ -29,6 +29,10 @@
 #include <png.h>
 #include "gdk-pixbuf-private.h"
 
+#ifdef INCLUDE_png
+#include "gdk-pixbuf-alias.h"
+#endif
+
 
 
 static gboolean

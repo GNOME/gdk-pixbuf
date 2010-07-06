@@ -34,6 +34,10 @@
 #include "gdk-pixbuf.h"
 #include "gdk-pixbuf-private.h"
 
+#ifdef INCLUDE_qtif
+#include "gdk-pixbuf-alias.h"
+#endif
+
 /***
  * Definitions
  */

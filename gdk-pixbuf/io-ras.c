@@ -39,6 +39,10 @@ Known bugs:
 #include <string.h>
 #include "gdk-pixbuf-private.h"
 
+#ifdef INCLUDE_ras
+#include "gdk-pixbuf-alias.h"
+#endif
+
 
 
 /* 
