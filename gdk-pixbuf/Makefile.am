@@ -682,8 +682,8 @@ GdkPixbuf_2_0_gir_INCLUDES = GModule-2.0 Gio-2.0
 GdkPixbuf_2_0_gir_LIBS = libgdk_pixbuf-2.0.la
 GdkPixbuf_2_0_gir_CFLAGS = $(INCLUDES)
 GdkPixbuf_2_0_gir_FILES = \
-    $(addprefix $(srcdir)/,$(libgdk_pixbufinclude_HEADERS)) \
-    $(addprefix $(srcdir)/,$(libgdk_pixbuf_2_0_la_SOURCES))
+    $(libgdk_pixbufinclude_HEADERS) \
+    $(libgdk_pixbuf_2_0_la_SOURCES)
 INTROSPECTION_GIRS += GdkPixbuf-2.0.gir
 
 girdir = $(datadir)/gir-1.0
