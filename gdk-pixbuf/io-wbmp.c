@@ -37,10 +37,6 @@ Known bugs:
 #include <string.h>
 #include "gdk-pixbuf-private.h"
 
-#ifdef INCLUDE_wbmp
-#include "gdk-pixbuf-alias.h"
-#endif
-
 
 
 /* Progressive loading */

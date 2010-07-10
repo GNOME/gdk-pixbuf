@@ -37,10 +37,6 @@
 
 #include "gdk-pixbuf-private.h"
 
-#ifdef INCLUDE_tga
-#include "gdk-pixbuf-alias.h"
-#endif
-
 #undef DEBUG_TGA
 
 #define TGA_INTERLEAVE_MASK     0xc0

@@ -32,7 +32,6 @@
 #include "gdk-pixbuf-scaled-anim.h"
 #include "gdk-pixbuf-loader.h"
 #include "gdk-pixbuf-marshal.h"
-#include "gdk-pixbuf-alias.h"
 
 enum {
         SIZE_PREPARED,
@@ -781,8 +780,3 @@ gdk_pixbuf_loader_get_format (GdkPixbufLoader *loader)
         else
                 return NULL;
 }
-
-
-#define __GDK_PIXBUF_LOADER_C__
-#include "gdk-pixbuf-aliasdef.c"
-

@@ -37,7 +37,6 @@
 /* Include the marshallers */
 #include <glib-object.h>
 #include "gdk-pixbuf-marshal.c"
-#include "gdk-pixbuf-alias.h"
 
 static void gdk_pixbuf_finalize     (GObject        *object);
 static void gdk_pixbuf_set_property (GObject        *object,
@@ -764,6 +763,3 @@ gdk_pixbuf_get_property (GObject         *object,
                   break;
           }
 }
-
-#define __GDK_PIXBUF_C__
-#include "gdk-pixbuf-aliasdef.c"

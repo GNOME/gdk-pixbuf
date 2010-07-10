@@ -40,10 +40,6 @@
 #include "gdk-pixbuf-private.h"
 #include <glib/gstdio.h>
 
-#ifdef INCLUDE_xbm
-#include "gdk-pixbuf-alias.h"
-#endif
-
 
 
 

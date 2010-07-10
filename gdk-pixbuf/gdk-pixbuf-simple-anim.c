@@ -32,7 +32,6 @@
 #include "gdk-pixbuf.h"
 #include "gdk-pixbuf-private.h"
 #include "gdk-pixbuf-simple-anim.h"
-#include "gdk-pixbuf-alias.h"
 
 struct _GdkPixbufSimpleAnimClass
 {
@@ -547,6 +546,3 @@ gdk_pixbuf_simple_anim_get_loop (GdkPixbufSimpleAnim *animation)
 
         return animation->loop;
 }
-
-#define __GDK_PIXBUF_SIMPLE_ANIM_C__
-#include "gdk-pixbuf-aliasdef.c"

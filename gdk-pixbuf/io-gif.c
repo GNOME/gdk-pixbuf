@@ -60,10 +60,6 @@
 #include "gdk-pixbuf-private.h"
 #include "io-gif-animation.h"
 
-#ifdef INCLUDE_gif
-#include "gdk-pixbuf-alias.h"
-#endif
-
 
 
 #undef DUMP_IMAGE_DETAILS 

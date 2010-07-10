@@ -991,6 +991,31 @@ AM_CONDITIONAL(ENABLE_MAN, test x$enable_man != xno)
 
 
 ##################################################
+# Check for -Bsymbolic-functions linker flag used
+# to avoid intra-library PLT jumps, if available.
+##################################################
+
+AC_ARG_ENABLE(Bsymbolic,
+              [AC_HELP_STRING([--disable-Bsymbolic],
+                              [avoid linking with -Bsymbolic])],,
+              [SAVED_LDFLAGS="${LDFLAGS}"
+               AC_MSG_CHECKING([for -Bsymbolic-functions linker flag])
+               LDFLAGS=-Wl,-Bsymbolic-functions
+               AC_TRY_LINK([], [int main (void) { return 0; }],
+                           AC_MSG_RESULT(yes)
+                           enable_Bsymbolic=yes,
+                           AC_MSG_RESULT(no)
+                           enable_Bsymbolic=no)
+               LDFLAGS="${SAVED_LDFLAGS}"])
+
+if test "x${enable_Bsymbolic}" == "xyes"; then
+  GDK_PIXBUF_LINK_FLAGS=-Wl,-Bsymbolic-functions
+fi
+
+AC_SUBST(GDK_PIXBUF_LINK_FLAGS)
+
+
+##################################################
 # Output commands
 ##################################################
 

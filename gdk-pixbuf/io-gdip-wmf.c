@@ -23,10 +23,6 @@
 
 #include "io-gdip-utils.h"
 
-#ifdef INCLUDE_gdiplus
-#include "gdk-pixbuf-alias.h"
-#endif
-
 #ifndef INCLUDE_gdiplus
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
 #else

@@ -26,7 +26,6 @@
 #include <errno.h>
 #include "gdk-pixbuf-private.h"
 #include "gdk-pixbuf-animation.h"
-#include "gdk-pixbuf-alias.h"
 
 #include <glib/gstdio.h>
 
@@ -727,6 +726,3 @@ gdk_pixbuf_non_anim_iter_advance (GdkPixbufAnimationIter *iter,
         /* Advancing never requires a refresh */
         return FALSE;
 }
-
-#define __GDK_PIXBUF_ANIMATION_C__
-#include "gdk-pixbuf-aliasdef.c"

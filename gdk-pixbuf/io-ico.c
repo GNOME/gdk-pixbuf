@@ -44,10 +44,6 @@ Known bugs:
 #include <errno.h>
 #include "gdk-pixbuf-private.h"
 
-#ifdef INCLUDE_ico
-#include "gdk-pixbuf-alias.h"
-#endif
-
 
 
 /* 

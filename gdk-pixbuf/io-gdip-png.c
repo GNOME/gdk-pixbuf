@@ -24,10 +24,6 @@
 #define INITGUID
 #include "io-gdip-utils.h"
 
-#ifdef INCLUDE_gdiplus
-#include "gdk-pixbuf-alias.h"
-#endif
-
 DEFINE_GUID(EncoderCompression, 0xe09d739d,0xccd4,0x44ee,0x8e,0xba,0x3f,0xbf,0x8b,0xe4,0xfc,0x58);
 
 static gboolean

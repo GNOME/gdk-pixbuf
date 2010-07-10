@@ -29,10 +29,6 @@
 #include "gdk-pixbuf-private.h"
 #include "gdk-pixbuf-loader.h"
 
-#ifdef INCLUDE_icns
-#include "gdk-pixbuf-alias.h"
-#endif
-
 G_MODULE_EXPORT void fill_vtable (GdkPixbufModule * module);
 G_MODULE_EXPORT void fill_info (GdkPixbufFormat * info);
 

@@ -23,10 +23,6 @@
 
 #include "io-gdip-utils.h"
 
-#ifdef INCLUDE_gdiplus
-#include "gdk-pixbuf-alias.h"
-#endif
-
 static gboolean
 gdk_pixbuf__gdip_image_save_BMP_to_callback (GdkPixbufSaveFunc   save_func,
                                              gpointer            user_data,

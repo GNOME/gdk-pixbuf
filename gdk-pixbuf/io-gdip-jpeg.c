@@ -24,10 +24,6 @@
 #define INITGUID
 #include "io-gdip-utils.h"
 
-#ifdef INCLUDE_gdiplus
-#include "gdk-pixbuf-alias.h"
-#endif
-
 DEFINE_GUID(EncoderQuality, 0x1d5be4b5,0xfa4a,0x452d,0x9c,0xdd,0x5d,0xb3,0x51,0x05,0xe7,0xeb);
 
 static gboolean

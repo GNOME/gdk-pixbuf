@@ -51,14 +51,8 @@ endif
 gdk_pixbuf.def: gdk-pixbuf.symbols
 	(echo -e EXPORTS; $(CPP) -P -DINCLUDE_VARIABLES -DG_OS_WIN32 -DALL_FILES - <$(srcdir)/gdk-pixbuf.symbols | sed -e '/^$$/d' -e 's/^/	/' -e 's/G_GNUC_[^ ]*//g') > $(srcdir)/gdk_pixbuf.def
 
-gdk-pixbuf-alias.h: gdk-pixbuf.symbols
-	 $(PERL) $(srcdir)/makegdkpixbufalias.pl < $(srcdir)/gdk-pixbuf.symbols > gdk-pixbuf-alias.h
-
-gdk-pixbuf-aliasdef.c: gdk-pixbuf.symbols
-	 $(PERL) $(srcdir)/makegdkpixbufalias.pl -def < $(srcdir)/gdk-pixbuf.symbols > gdk-pixbuf-aliasdef.c
-
 if OS_LINUX
-TESTS = abicheck.sh pltcheck.sh
+TESTS = abicheck.sh
 endif
 
 lib_LTLIBRARIES = libgdk_pixbuf-2.0.la
@@ -552,6 +546,7 @@ libgdk_pixbuf_2_0_la_SOURCES =   \
 	gdk-pixbuf-enum-types.c
 
 libgdk_pixbuf_2_0_la_LDFLAGS = \
+	$(GDK_PIXBUF_LINK_FLAGS)		\
 	$(gdk_pixbuf_win32_res_ldflag)		\
 	-version-info $(LT_VERSION_INFO)	\
 	$(LIBTOOL_EXPORT_OPTIONS)		\
@@ -579,14 +574,11 @@ libgdk_pixbufinclude_HEADERS =  	\
 	gdk-pixdata.h
 
 noinst_HEADERS = 		\
-	gdk-pixbuf-alias.h	\
 	gdk-pixbuf-private.h	\
 	gdk-pixbuf-scaled-anim.h \
 	xpm-color-table.h
 
 BUILT_SOURCES = 		\
-	gdk-pixbuf-alias.h	\
-	gdk-pixbuf-aliasdef.c	\
 	gdk-pixbuf-enum-types.h \
 	gdk-pixbuf-enum-types.c \
 	gdk-pixbuf-marshal.h 	\
@@ -595,7 +587,6 @@ BUILT_SOURCES = 		\
 
 CLEANFILES =
 MAINTAINERCLEANFILES = 		\
-	gdk-pixbuf-aliasdef.c	\
 	gdk-pixbuf-enum-types.h \
 	gdk-pixbuf-enum-types.c \
 	gdk-pixbuf-marshal.h 	\
@@ -646,7 +637,7 @@ MAINTAINERCLEANFILES += stamp-gdk-pixbuf-marshal.h
 # gdk-pixbuf-marshal.c
 #
 $(srcdir)/gdk-pixbuf-marshal.c: @REBUILD@ $(srcdir)/gdk-pixbuf-marshal.list
-	(echo -e "#include <gdk-pixbuf/gdk-pixbuf.h>\n#include \"gdk-pixbuf-alias.h\"" | $(GLIB_GENMARSHAL) --prefix=_gdk_pixbuf_marshal $(srcdir)/gdk-pixbuf-marshal.list --body ) >> xgen-gmc \
+	(echo -e "#include <gdk-pixbuf/gdk-pixbuf.h>\n" | $(GLIB_GENMARSHAL) --prefix=_gdk_pixbuf_marshal $(srcdir)/gdk-pixbuf-marshal.list --body ) >> xgen-gmc \
 	&& cp xgen-gmc gdk-pixbuf-marshal.c \
 	&& rm -f xgen-gmc xgen-gmc~
 
@@ -663,9 +654,7 @@ EXTRA_DIST +=					\
         gdk-pixbuf-csource.1			\
 	makefile.msc				\
 	gdk-pixbuf.symbols			\
-	makegdkpixbufalias.pl			\
 	abicheck.sh				\
-	pltcheck.sh				\
 	gdk_pixbuf.def				\
 	gdk_pixbuf.rc				\
 	gdk-pixbuf-marshal.c			\

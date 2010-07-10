@@ -35,10 +35,6 @@
 #include "gdk-pixbuf-private.h"
 #include <glib/gstdio.h>
 
-#ifdef INCLUDE_xpm
-#include "gdk-pixbuf-alias.h"
-#endif
-
 
 
 

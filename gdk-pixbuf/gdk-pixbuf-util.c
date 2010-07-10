@@ -27,7 +27,6 @@
 
 #include "gdk-pixbuf-transform.h"
 #include "gdk-pixbuf-private.h"
-#include "gdk-pixbuf-alias.h"
 
 
 
@@ -349,8 +348,3 @@ gdk_pixbuf_gettext (const gchar *msgid)
 
         return g_dgettext (GETTEXT_PACKAGE, msgid);
 }
-
-
-#define __GDK_PIXBUF_UTIL_C__
-#include "gdk-pixbuf-aliasdef.c"
-

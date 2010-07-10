@@ -25,10 +25,6 @@
 
 #include "gdk-pixbuf-private.h"
 
-#ifdef INCLUDE_jasper
-#include "gdk-pixbuf-alias.h"
-#endif
-
 #include <jasper/jasper.h>
 
 G_MODULE_EXPORT void fill_vtable (GdkPixbufModule * module);

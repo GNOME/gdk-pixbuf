@@ -37,7 +37,6 @@
 
 #include "gdk-pixbuf-private.h"
 #include "gdk-pixbuf-loader.h"
-#include "gdk-pixbuf-alias.h"
 
 #include <glib/gstdio.h>
 
@@ -2721,6 +2720,3 @@ gdk_pixbuf_format_get_type (void)
         }
         return format_id__volatile;
 }
-
-#define __GDK_PIXBUF_IO_C__
-#include "gdk-pixbuf-aliasdef.c"

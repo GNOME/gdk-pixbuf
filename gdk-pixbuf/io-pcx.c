@@ -26,10 +26,6 @@
 #include <string.h>
 #include "gdk-pixbuf-private.h"
 
-#ifdef INCLUDE_pcx
-#include "gdk-pixbuf-alias.h"
-#endif
-
 #undef PCX_DEBUG
 
 #define PCX_TASK_DONE 0

@@ -27,7 +27,6 @@
 #include "gdk-pixbuf.h"
 #include "gdk-pixbuf-io.h"
 #include "gdk-pixbuf-scaled-anim.h"
-#include "gdk-pixbuf-alias.h"
 
 
 struct _GdkPixbufScaledAnimClass
@@ -281,6 +280,3 @@ gdk_pixbuf_scaled_anim_iter_class_init (GdkPixbufScaledAnimIterClass *klass)
         anim_iter_class->on_currently_loading_frame = on_currently_loading_frame;
         anim_iter_class->advance = advance;
 }
-
-#define __GDK_PIXBUF_SCALED_ANIM_C__
-#include "gdk-pixbuf-aliasdef.c"
