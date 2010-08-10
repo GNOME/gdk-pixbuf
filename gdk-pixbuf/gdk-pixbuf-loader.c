@@ -683,6 +683,9 @@ gdk_pixbuf_loader_get_animation (GdkPixbufLoader *loader)
  * to be finished, passing %NULL for @error to ignore it is
  * reasonable.
  *
+ * Remember that this does not unref the loader, so if you plan not to
+ * use it anymore, please g_object_unref() it.
+ *
  * Returns: %TRUE if all image data written so far was successfully
             passed out via the update_area signal
  **/
