@@ -2708,16 +2708,6 @@ gdk_pixbuf_format_free (GdkPixbufFormat *format)
                 g_slice_free (GdkPixbufFormat, format);
 }
 
-GType
-gdk_pixbuf_format_get_type (void)
-{
-        static volatile gsize format_id__volatile = 0;
-        if (g_once_init_enter (&format_id__volatile)) {
-                GType format_id =
-                        g_boxed_type_register_static (g_intern_static_string ("GdkPixbufFormat"),
-                                                      (GBoxedCopyFunc) gdk_pixbuf_format_copy,
-                                                      (GBoxedFreeFunc) gdk_pixbuf_format_free);
-                g_once_init_leave (&format_id__volatile, format_id);
-        }
-        return format_id__volatile;
-}
+G_DEFINE_BOXED_TYPE (GdkPixbufFormat, gdk_pixbuf_format,
+		     gdk_pixbuf_format_copy,
+		     gdk_pixbuf_format_free)
