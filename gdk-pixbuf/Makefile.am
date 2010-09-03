@@ -205,36 +205,8 @@ if BUILD_GDIPLUS_LOADERS
 libgdiplus = libgdiplus.dll.a
 gdiplus_ldflag = -Wl,$(libgdiplus)
 
-libgdiplus.dll.a: Makefile
-	(echo EXPORTS; \
-	 for F in GdiplusStartup@12 \
-		  GdipCreateBitmapFromStream@8 \
-		  GdipBitmapGetPixel@16 \
-		  GdipGetImageWidth@8 \
-		  GdipGetImageHeight@8 \
-		  GdipDisposeImage@4 \
-		  GdipGetImageFlags@8 \
-		  GdipImageGetFrameCount@12 \
-		  GdipImageSelectActiveFrame@12 \
-		  GdipGetPropertyItemSize@12 \
-		  GdipGetPropertyItem@16 \
-		  GdipCreateBitmapFromScan0@24 \
-		  GdipSaveImageToStream@16 \
-		  GdipGetImageEncoders@12 \
-		  GdipGetImageEncodersSize@8 \
-		  GdipBitmapSetPixel@16 \
-		  GdipDrawImageI@16 \
-		  GdipGetImageGraphicsContext@8 \
-		  GdipFlush@8 \
-		  GdipGraphicsClear@8 \
-		  GdipBitmapSetResolution@12 \
-		  GdipGetImageHorizontalResolution@8 \
-		  GdipGetImageVerticalResolution@8 \
-		  GdipLoadImageFromStream@8 \
-		  GdipDeleteGraphics@4 ; do echo $$F; \
-	 done) >gdiplus.def
+libgdiplus.dll.a: gdiplus.def
 	$(DLLTOOL) --kill-at --dllname gdiplus.dll --input-def gdiplus.def --output-lib $@
-	rm gdiplus.def
 
 if INCLUDE_GDIPLUS
 
@@ -699,7 +671,8 @@ EXTRA_DIST +=					\
 	gdk-pixbuf-marshal.list			\
 	gdk-pixbuf-enum-types.c.template	\
 	gdk-pixbuf-enum-types.h.template	\
-	gen-color-table.pl
+	gen-color-table.pl			\
+	gdiplus.def
 
 if HAVE_INTROSPECTION
 
