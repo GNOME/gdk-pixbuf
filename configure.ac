@@ -182,10 +182,6 @@ AC_ARG_ENABLE(rebuilds,
               [AC_HELP_STRING([--disable-rebuilds],
                               [disable all source autogeneration rules])],,
               [enable_rebuilds=yes])
-AC_ARG_ENABLE(visibility,
-              [AC_HELP_STRING([--disable-visibility],
-                              [do not use ELF visibility attributes])],,
-              [enable_visibility=yes])
 
 AS_CASE([$enable_debug],
         [yes],
@@ -197,10 +193,6 @@ AS_CASE([$enable_debug],
         [no], [GDK_PIXBUF_DEBUG_FLAGS="-DG_DISABLE_ASSERT -DG_DISABLE_CHECKS -DG_DISABLE_CAST_CHECKS"],
 
         [minimum], [GDK_PIXBUF_DEBUG_FLAGS="-DG_DISABLE_CAST_CHECKS"]
-)
-
-AS_IF([test "x$enable_visibility" = "xno"],
-      [GDK_PIXBUF_DEBUG_FLAGS="$GDK_PIXBUF_DEBUG_FLAGS -DDISABLE_VISIBILITY"]
 )
 
 # Build time sanity check...
