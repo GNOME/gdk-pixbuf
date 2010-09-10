@@ -1,3 +1,20 @@
+2.21.7
+======
+
+* Fix linking when libpng loader is builtin (#624712)
+
+* Improve the pixbuf loader docs (#604284)
+
+* Fix compat issues wrt to single includes (#622940)
+
+* Win32: Link directly to GDI+
+
+* Require gobject-introspection 0.9.5
+
+* Translation updates:
+  British English
+  Italian
+
 2.21.6
 ======
 
