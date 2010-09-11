@@ -203,8 +203,7 @@ if BUILD_GDIPLUS_LOADERS
 # create a partial one that's enough for our use.
 
 libgdiplus = libgdiplus.dll.a
-gdiplus_ldflag = -L$(top_builddir)/gdk-pixbuf
-gdiplus_libadd = -lgdiplus
+gdiplus_ldflag = -Wl,$(libgdiplus)
 
 libgdiplus.dll.a: gdiplus.def
 	$(DLLTOOL) --kill-at --dllname gdiplus.dll --input-def gdiplus.def --output-lib $@
@@ -270,7 +269,7 @@ libpixbufloader_gdip_ico_la_SOURCES = 	\
 	io-gdip-animation.c		\
 	io-gdip-animation.h		\
 	io-gdip-ico.c
-libpixbufloader_gdip_ico_la_LIBADD = $(module_libs) $(libole32) $(gdiplus_libadd)
+libpixbufloader_gdip_ico_la_LIBADD = $(module_libs) $(libole32)
 
 libpixbufloader_gdip_wmf_la_LDFLAGS = -avoid-version -module -no-undefined $(gdiplus_ldflag)
 libpixbufloader_gdip_wmf_la_SOURCES = 	\
@@ -281,7 +280,7 @@ libpixbufloader_gdip_wmf_la_SOURCES = 	\
 	io-gdip-animation.c		\
 	io-gdip-animation.h		\
 	io-gdip-wmf.c
-libpixbufloader_gdip_wmf_la_LIBADD = $(module_libs) $(libole32) $(gdiplus_libadd)
+libpixbufloader_gdip_wmf_la_LIBADD = $(module_libs) $(libole32)
 
 libpixbufloader_gdip_emf_la_LDFLAGS = -avoid-version -module -no-undefined $(gdiplus_ldflag)
 libpixbufloader_gdip_emf_la_SOURCES = 	\
@@ -292,7 +291,7 @@ libpixbufloader_gdip_emf_la_SOURCES = 	\
 	io-gdip-animation.c		\
 	io-gdip-animation.h		\
 	io-gdip-emf.c
-libpixbufloader_gdip_emf_la_LIBADD = $(module_libs) $(libole32) $(gdiplus_libadd)
+libpixbufloader_gdip_emf_la_LIBADD = $(module_libs) $(libole32)
 
 libpixbufloader_gdip_bmp_la_LDFLAGS = -avoid-version -module -no-undefined $(gdiplus_ldflag)
 libpixbufloader_gdip_bmp_la_SOURCES = 	\
@@ -303,7 +302,7 @@ libpixbufloader_gdip_bmp_la_SOURCES = 	\
 	io-gdip-animation.c		\
 	io-gdip-animation.h		\
 	io-gdip-bmp.c
-libpixbufloader_gdip_bmp_la_LIBADD = $(module_libs) $(libole32) $(gdiplus_libadd)
+libpixbufloader_gdip_bmp_la_LIBADD = $(module_libs) $(libole32)
 
 libpixbufloader_gdip_gif_la_LDFLAGS = -avoid-version -module -no-undefined $(gdiplus_ldflag)
 libpixbufloader_gdip_gif_la_SOURCES = 	\
@@ -314,7 +313,7 @@ libpixbufloader_gdip_gif_la_SOURCES = 	\
 	io-gdip-animation.c		\
 	io-gdip-animation.h		\
 	io-gdip-gif.c
-libpixbufloader_gdip_gif_la_LIBADD = $(module_libs) $(libole32) $(gdiplus_libadd)
+libpixbufloader_gdip_gif_la_LIBADD = $(module_libs) $(libole32)
 
 libpixbufloader_gdip_jpeg_la_LDFLAGS = -avoid-version -module -no-undefined $(gdiplus_ldflag)
 libpixbufloader_gdip_jpeg_la_SOURCES = 	\
@@ -325,7 +324,7 @@ libpixbufloader_gdip_jpeg_la_SOURCES = 	\
 	io-gdip-animation.c		\
 	io-gdip-animation.h		\
 	io-gdip-jpeg.c
-libpixbufloader_gdip_jpeg_la_LIBADD = $(module_libs) $(libole32) $(gdiplus_libadd)
+libpixbufloader_gdip_jpeg_la_LIBADD = $(module_libs) $(libole32)
 
 libpixbufloader_gdip_tiff_la_LDFLAGS = -avoid-version -module -no-undefined $(gdiplus_ldflag)
 libpixbufloader_gdip_tiff_la_SOURCES = 	\
@@ -336,7 +335,7 @@ libpixbufloader_gdip_tiff_la_SOURCES = 	\
 	io-gdip-animation.c		\
 	io-gdip-animation.h		\
 	io-gdip-tiff.c
-libpixbufloader_gdip_tiff_la_LIBADD = $(module_libs) $(libole32) $(gdiplus_libadd)
+libpixbufloader_gdip_tiff_la_LIBADD = $(module_libs) $(libole32)
 
 endif
 
@@ -565,7 +564,7 @@ libgdk_pixbuf_2_0_la_LDFLAGS = \
 	$(gdiplus_ldflag)
 
 
-libgdk_pixbuf_2_0_la_LIBADD = pixops/libpixops.la $(builtin_objs) $(GDK_PIXBUF_DEP_LIBS) $(libole32) $(gdiplus_libadd)
+libgdk_pixbuf_2_0_la_LIBADD = pixops/libpixops.la $(builtin_objs) $(GDK_PIXBUF_DEP_LIBS) $(libole32)
 libgdk_pixbuf_2_0_la_DEPENDENCIES = pixops/libpixops.la $(builtin_objs) $(gdk_pixbuf_def) $(gdk_pixbuf_win32_res) $(libgdiplus)
 
 gdk_pixbuf_headers = 			\
