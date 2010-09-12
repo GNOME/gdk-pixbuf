@@ -1,4 +1,4 @@
-# German gdk-pixbuf translation
+# German GTK+ translation
 # Copyright (C) 1998-2004 Free Software Foundation, Inc.
 #
 # IM = Input method => Eingabemethode
@@ -15,30 +15,18 @@
 #
 msgid ""
 msgstr ""
-<<<<<<< HEAD
 "Project-Id-Version: GTK+ master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-12 16:03+0200\n"
-"PO-Revision-Date: 2010-09-12 16:03+0200\n"
-"Last-Translator: Christian Kirbach <Christian.Kirbach@googlemail.com>\n"
-=======
-"Project-Id-Version: gdk-pixbuf master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
-"%2b&component=gdk\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%"
+"2b&component=gdk\n"
 "POT-Creation-Date: 2010-09-11 09:16+0000\n"
-"PO-Revision-Date: 2010-09-12 15:38+0100\n"
-"Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
->>>>>>> [i18n] Updated German translation
+"PO-Revision-Date: 2010-02-16 21:03+0100\n"
+"Last-Translator: Christian Kirbach <Christian.Kirbach@googlemail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
-<<<<<<< HEAD
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-=======
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
->>>>>>> [i18n] Updated German translation
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 
@@ -65,8 +53,8 @@ msgstr ""
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:218
 #, c-format
 msgid ""
-"Failed to load animation '%s': reason not known, probably a corrupt animation "
-"file"
+"Failed to load animation '%s': reason not known, probably a corrupt "
+"animation file"
 msgstr ""
 "Animation »%s« konnte nicht geladen werden: Grund unbekannt, vermutlich eine "
 "defekte Animationsdatei"
@@ -77,17 +65,13 @@ msgid "Unable to load image-loading module: %s: %s"
 msgstr "Bildlader-Modul konnte nicht geladen werden: %s: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:728
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
 "from a different gdk-pixbuf version?"
 msgstr ""
 "Bildlader-Modul %s exportiert nicht die richtige Schnittstelle; vielleicht "
-<<<<<<< HEAD
-"stammt es von einer anderen gdk-pixbuf-Version?"
-=======
-"stammt es aus einer anderen Version von gdk-pixbuf?"
->>>>>>> [i18n] Updated German translation
+"stammt es aus einer anderen GTK-Version?"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:737 ../gdk-pixbuf/gdk-pixbuf-io.c:788
 #, c-format
@@ -140,12 +124,8 @@ msgstr "»%s« konnte nicht zum Schreiben geöffnet werden: %s"
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2068
 #, c-format
 msgid ""
-<<<<<<< HEAD
 "Failed to close '%s' while writing image, all data may not have been saved: %"
 "s"
-=======
-"Failed to close '%s' while writing image, all data may not have been saved: %s"
->>>>>>> [i18n] Updated German translation
 msgstr ""
 "»%s« konnte nach dem Schreiben des Bildes nicht geschlossen werden, evtl. "
 "wurden nicht alle Daten gespeichert: %s"
@@ -161,8 +141,8 @@ msgstr "Fehler beim Schreiben in Bilddatenstrom"
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:332
 #, c-format
 msgid ""
-"Internal error: Image loader module '%s' failed to complete an operation, but "
-"didn't give a reason for the failure"
+"Internal error: Image loader module '%s' failed to complete an operation, "
+"but didn't give a reason for the failure"
 msgstr ""
 "Interner Fehler: Bildlader-Modul »%s« schaffte es nicht, eine Operation "
 "abzuschließen, gab aber keinen Grund für den Fehler an"
@@ -312,7 +292,8 @@ msgstr "Version %s des GIF-Dateiformats wird nicht unterstützt"
 # gdk-pixbuf/io-gi178
 #: ../gdk-pixbuf/io-gif.c:1302
 msgid ""
-"GIF image has no global colormap, and a frame inside it has no local colormap."
+"GIF image has no global colormap, and a frame inside it has no local "
+"colormap."
 msgstr ""
 "Das GIF-Bild hat keine globale Farbtabelle, und ein Einzelbild darin hat "
 "keine lokale Farbtabelle."
@@ -429,8 +410,8 @@ msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
 msgstr ""
-"Nicht genug Speicher, um das Bild zu laden. Versuchen Sie, einige Anwendungen "
-"zu beenden, um Speicher frei zu machen"
+"Nicht genug Speicher, um das Bild zu laden. Versuchen Sie, einige "
+"Anwendungen zu beenden, um Speicher frei zu machen"
 
 #: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:774
 #, c-format
@@ -532,8 +513,8 @@ msgstr "Das transformierte PNG ist weder RGB noch RGBA."
 #: ../gdk-pixbuf/io-png.c:161
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
-"Die Anzahl der Kanäle des transformierten PNGs werden nicht unterstützt, muss "
-"3 oder 4 sein."
+"Die Anzahl der Kanäle des transformierten PNGs werden nicht unterstützt, "
+"muss 3 oder 4 sein."
 
 #: ../gdk-pixbuf/io-png.c:182
 #, c-format
@@ -550,8 +531,8 @@ msgid ""
 "Insufficient memory to store a %ld by %ld image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
-"Nicht genug Speicher, um ein %ldx%ld-Bild zu speichern; versuchen Sie, einige "
-"Anwendungen zu beenden, um den Speicherverbrauch zu reduzieren"
+"Nicht genug Speicher, um ein %ldx%ld-Bild zu speichern; versuchen Sie, "
+"einige Anwendungen zu beenden, um den Speicherverbrauch zu reduzieren"
 
 #: ../gdk-pixbuf/io-png.c:719
 msgid "Fatal error reading PNG image file"
@@ -563,12 +544,8 @@ msgid "Fatal error reading PNG image file: %s"
 msgstr "Schwerer Fehler beim Lesen einer PNG-Bilddatei: %s"
 
 #: ../gdk-pixbuf/io-png.c:862
-<<<<<<< HEAD
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
-=======
-msgid "Keys for PNG text chunks must have at least 1 and at most 79 characters."
->>>>>>> [i18n] Updated German translation
 msgstr ""
 "Schlüssel für PNG-Text-Chunks müssen mindestens eines und dürfen maximal 79 "
 "Zeichen lang sein."
@@ -748,7 +725,8 @@ msgstr "Speicher für Daten des E/A-Puffers konnte nicht bereitgestellt werden"
 
 #: ../gdk-pixbuf/io-tga.c:183
 msgid "Cannot realloc IOBuffer data"
-msgstr "Datenbereich des E/A-Puffers konnte nicht mit realloc() geändert werden"
+msgstr ""
+"Datenbereich des E/A-Puffers konnte nicht mit realloc() geändert werden"
 
 #: ../gdk-pixbuf/io-tga.c:213
 msgid "Cannot allocate temporary IOBuffer data"
