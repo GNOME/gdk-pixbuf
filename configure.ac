@@ -671,7 +671,7 @@ fi
 # arbitrary tEXt chunks which doesn't seem to be possible through GDI+
 
 all_loaders="ani,icns,pcx,ras,tga,png,pnm,wbmp,xbm,xpm,qtif"
-if test x$with_libjasper != xno; then
+if test x$with_libjasper = xyes; then
   all_loaders="$all_loaders,jasper"
 fi
 if test x$os_win32 = xyes && test x$enable_gdiplus != xno; then
