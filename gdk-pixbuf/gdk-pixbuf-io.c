@@ -821,7 +821,7 @@ _gdk_pixbuf_get_module (guchar *buffer, guint size,
                 mimes = info->mime_types;
                 for (j = 0; mimes[j] != NULL; j++) {
                         type = g_content_type_from_mime_type (mimes[j]);
-                        if (g_ascii_strcasecmp (type, mime_type) == 0) {
+                        if (g_content_type_equals (type, mime_type)) {
                                 g_free (type);
                                 selected = module;
                                 break;
