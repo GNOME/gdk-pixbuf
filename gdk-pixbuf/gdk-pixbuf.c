@@ -187,7 +187,7 @@ gdk_pixbuf_finalize (GObject *object)
 
 
 /**
- * gdk_pixbuf_ref:
+ * gdk_pixbuf_ref: (skip)
  * @pixbuf: A pixbuf.
  *
  * Adds a reference to a pixbuf.
@@ -203,7 +203,7 @@ gdk_pixbuf_ref (GdkPixbuf *pixbuf)
 }
 
 /**
- * gdk_pixbuf_unref:
+ * gdk_pixbuf_unref: (skip)
  * @pixbuf: A pixbuf.
  *
  * Removes a reference from a pixbuf.
@@ -285,7 +285,7 @@ gdk_pixbuf_new (GdkColorspace colorspace,
  * Creates a new #GdkPixbuf with a copy of the information in the specified
  * @pixbuf.
  * 
- * Return value: A newly-created pixbuf with a reference count of 1, or %NULL if
+ * Return value: (transfer full): A newly-created pixbuf with a reference count of 1, or %NULL if
  * not enough memory could be allocated.
  **/
 GdkPixbuf *
@@ -334,7 +334,7 @@ gdk_pixbuf_copy (const GdkPixbuf *pixbuf)
  * @src_pixbuf will not be finalized until the new pixbuf
  * is finalized.
  * 
- * Return value: a new pixbuf 
+ * Return value: (transfer full): a new pixbuf 
  **/
 GdkPixbuf*
 gdk_pixbuf_new_subpixbuf (GdkPixbuf *src_pixbuf,

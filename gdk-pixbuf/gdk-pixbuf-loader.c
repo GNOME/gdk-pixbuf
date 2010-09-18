@@ -625,7 +625,7 @@ gdk_pixbuf_loader_new_with_mime_type (const char *mime_type,
  * return the "static image" of the animation
  * (see gdk_pixbuf_animation_get_static_image()).
  * 
- * Return value: The #GdkPixbuf that the loader is creating, or %NULL if not
+ * Return value: (transfer none): The #GdkPixbuf that the loader is creating, or %NULL if not
  * enough data has been read to determine how to create the image buffer.
  **/
 GdkPixbuf *
@@ -653,7 +653,7 @@ gdk_pixbuf_loader_get_pixbuf (GdkPixbufLoader *loader)
  * bytes yet (hasn't emitted the "area-prepared" signal) this function will 
  * return %NULL.
  *
- * Return value: The #GdkPixbufAnimation that the loader is loading, or %NULL if
+ * Return value: (transfer none): The #GdkPixbufAnimation that the loader is loading, or %NULL if
  not enough data has been read to determine the information.
 **/
 GdkPixbufAnimation *

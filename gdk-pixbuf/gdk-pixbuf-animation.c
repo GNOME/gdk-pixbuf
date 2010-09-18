@@ -255,7 +255,7 @@ gdk_pixbuf_animation_new_from_file (const char *filename,
 #endif
 
 /**
- * gdk_pixbuf_animation_ref:
+ * gdk_pixbuf_animation_ref: (skip)
  * @animation: An animation.
  *
  * Adds a reference to an animation.
@@ -271,7 +271,7 @@ gdk_pixbuf_animation_ref (GdkPixbufAnimation *animation)
 }
 
 /**
- * gdk_pixbuf_animation_unref:
+ * gdk_pixbuf_animation_unref: (skip)
  * @animation: An animation.
  *
  * Removes a reference from an animation.
@@ -314,7 +314,7 @@ gdk_pixbuf_animation_is_static_image (GdkPixbufAnimation *animation)
  * sophisticated. If an animation hasn't loaded any frames yet, this
  * function will return %NULL.
  * 
- * Return value: unanimated image representing the animation
+ * Return value: (transfer none): unanimated image representing the animation
  **/
 GdkPixbuf*
 gdk_pixbuf_animation_get_static_image (GdkPixbufAnimation *animation)
@@ -410,7 +410,7 @@ gdk_pixbuf_animation_get_height (GdkPixbufAnimation *animation)
  *
  * A delay time of -1 is possible, indicating "infinite."
  * 
- * Return value: an iterator to move over the animation
+ * Return value: (transfer full): an iterator to move over the animation
  **/
 GdkPixbufAnimationIter*
 gdk_pixbuf_animation_get_iter (GdkPixbufAnimation *animation,
@@ -477,7 +477,7 @@ gdk_pixbuf_animation_iter_get_delay_time (GdkPixbufAnimationIter *iter)
  * (don't just add a reference), as it may get recycled as you advance
  * the iterator.
  *
- * Return value: the pixbuf to be displayed
+ * Return value: (transfer none): the pixbuf to be displayed
  **/
 GdkPixbuf*
 gdk_pixbuf_animation_iter_get_pixbuf (GdkPixbufAnimationIter *iter)

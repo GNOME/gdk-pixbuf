@@ -2110,7 +2110,7 @@ gdk_pixbuf_savev (GdkPixbuf  *pixbuf,
 /**
  * gdk_pixbuf_save_to_callback:
  * @pixbuf: a #GdkPixbuf.
- * @save_func: a function that is called to save each block of data that
+ * @save_func: (scope call): a function that is called to save each block of data that
  *   the save routine generates.
  * @user_data: user data to pass to the save function.
  * @type: name of file format.
@@ -2164,7 +2164,7 @@ gdk_pixbuf_save_to_callback    (GdkPixbuf  *pixbuf,
 /**
  * gdk_pixbuf_save_to_callbackv:
  * @pixbuf: a #GdkPixbuf.
- * @save_func: a function that is called to save each block of data that
+ * @save_func: (scope call): a function that is called to save each block of data that
  *   the save routine generates.
  * @user_data: user data to pass to the save function.
  * @type: name of file format.
@@ -2502,7 +2502,7 @@ gdk_pixbuf_format_get_description (GdkPixbufFormat *format)
  *
  * Returns the mime types supported by the format.
  * 
- * Return value: a %NULL-terminated array of mime types which must be freed with 
+ * Return value: (transfer full): a %NULL-terminated array of mime types which must be freed with 
  * g_strfreev() when it is no longer needed.
  *
  * Since: 2.2
@@ -2522,7 +2522,7 @@ gdk_pixbuf_format_get_mime_types (GdkPixbufFormat *format)
  * Returns the filename extensions typically used for files in the 
  * given format.
  * 
- * Return value: a %NULL-terminated array of filename extensions which must be
+ * Return value: (transfer full): a %NULL-terminated array of filename extensions which must be
  * freed with g_strfreev() when it is no longer needed.
  *
  * Since: 2.2
@@ -2649,10 +2649,11 @@ _gdk_pixbuf_get_format (GdkPixbufModule *module)
  * Obtains the available information about the image formats supported
  * by GdkPixbuf.
  *
- * Returns: A list of #GdkPixbufFormat<!-- -->s describing the supported 
- * image formats.  The list should be freed when it is no longer needed, 
- * but the structures themselves are owned by #GdkPixbuf and should not be 
- * freed.  
+ * Returns: (transfer container): (element-type GdkPixbufFormat): A list of
+ * #GdkPixbufFormat<!-- -->s describing the supported
+ * image formats.  The list should be freed when it is no longer needed,
+ * but the structures themselves are owned by #GdkPixbuf and should not be
+ * freed.
  *
  * Since: 2.2
  */

@@ -236,7 +236,7 @@ gdk_pixbuf_composite_color (const GdkPixbuf *src,
  * For more complicated scaling/compositing see gdk_pixbuf_scale()
  * and gdk_pixbuf_composite().
  * 
- * Return value: the new #GdkPixbuf, or %NULL if not enough memory could be
+ * Return value: (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
  * allocated for it.
  **/
 GdkPixbuf *
@@ -278,7 +278,7 @@ gdk_pixbuf_scale_simple (const GdkPixbuf *src,
  * @dest_height and compositing the result with a checkboard of colors
  * @color1 and @color2.
  * 
- * Return value: the new #GdkPixbuf, or %NULL if not enough memory could be
+ * Return value: (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
  * allocated for it.
  **/
 GdkPixbuf *
@@ -320,7 +320,7 @@ gdk_pixbuf_composite_color_simple (const GdkPixbuf *src,
  * Rotates a pixbuf by a multiple of 90 degrees, and returns the
  * result in a new pixbuf.
  *
- * Returns: the new #GdkPixbuf, or %NULL if not enough memory could be
+ * Returns: (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
  * allocated for it.
  *
  * Since: 2.6
@@ -413,7 +413,7 @@ gdk_pixbuf_rotate_simple (const GdkPixbuf   *src,
  * Flips a pixbuf horizontally or vertically and returns the
  * result in a new pixbuf.
  *
- * Returns: the new #GdkPixbuf, or %NULL if not enough memory could be
+ * Returns: (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
  * allocated for it.
  *
  * Since: 2.6

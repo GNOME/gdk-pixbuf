@@ -48,7 +48,7 @@
  * assigned zero opacity. That is, if you pass (255, 255, 255) for the
  * substitute color, all white pixels will become fully transparent.
  *
- * Return value: A newly-created pixbuf with a reference count of 1.
+ * Return value: (transfer full): A newly-created pixbuf with a reference count of 1.
  **/
 GdkPixbuf *
 gdk_pixbuf_add_alpha (const GdkPixbuf *pixbuf,
@@ -266,7 +266,7 @@ gdk_pixbuf_saturate_and_pixelate(const GdkPixbuf *src,
  * appropriate transform will be performed so that the pixbuf
  * is oriented correctly.
  *
- * Return value: A newly-created pixbuf, or a reference to the
+ * Return value: (transfer full): A newly-created pixbuf, or a reference to the
  * input pixbuf (with an increased reference count).
  *
  * Since: 2.12

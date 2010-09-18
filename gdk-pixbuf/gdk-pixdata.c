@@ -297,7 +297,7 @@ free_buffer (guchar *pixels, gpointer data)
 }
 
 /**
- * gdk_pixdata_from_pixbuf:
+ * gdk_pixdata_from_pixbuf: (skip)
  * @pixdata: a #GdkPixdata to fill.
  * @pixbuf: the data to fill @pixdata with.
  * @use_rle: whether to use run-length encoding for the pixel data.
