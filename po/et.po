@@ -674,6 +674,7 @@ msgstr "XPM-fail sisaldab vigast värvide arvu"
 msgid "Cannot allocate memory for loading XPM image"
 msgstr "XPM-faili laadimiseks pole võimalik mälu eraldada"
 
+# see on kahtlane, kas ühtegi XMP värvikaarti ei loeta?
 msgid "Cannot read XPM colormap"
 msgstr "XPM värvikaarti ei suudeta lugeda"
 
