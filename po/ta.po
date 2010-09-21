@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk+.master.ta\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf\n"
-"POT-Creation-Date: 2010-06-25 23:54-0400\n"
+"POT-Creation-Date: 2010-09-21 14:08-0400\n"
 "PO-Revision-Date: 2009-08-25 13:24+0530\n"
 "Last-Translator: I. Felix <ifelix@redhat.com>\n"
 "Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
@@ -31,19 +31,19 @@ msgstr ""
 "\n"
 "\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:131 gdk-pixbuf/gdk-pixbuf-io.c:981
-#: gdk-pixbuf/gdk-pixbuf-io.c:1241
+#: gdk-pixbuf/gdk-pixbuf-animation.c:130 gdk-pixbuf/gdk-pixbuf-io.c:980
+#: gdk-pixbuf/gdk-pixbuf-io.c:1240
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "'%s' கோப்பினை திறக்க முடியவில்லை: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:144 gdk-pixbuf/gdk-pixbuf-io.c:993
+#: gdk-pixbuf/gdk-pixbuf-animation.c:143 gdk-pixbuf/gdk-pixbuf-io.c:992
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "'%s' உருவக் கோப்பில் தரவு ஏதும் கிடையாது"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:186 gdk-pixbuf/gdk-pixbuf-io.c:1029
-#: gdk-pixbuf/gdk-pixbuf-io.c:1293
+#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1028
+#: gdk-pixbuf/gdk-pixbuf-io.c:1292
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -51,7 +51,7 @@ msgstr ""
 "'%s' உருவக் கோப்பை ஏற்ற முடியவில்லை: காரணம் தெரியாது, ஊழலாக்கபட்ட உருவக் கோப்பாக "
 "இருக்கலாம்"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:219
+#: gdk-pixbuf/gdk-pixbuf-animation.c:218
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -60,12 +60,12 @@ msgstr ""
 "'%s' அசைவூட்ட கோப்பை ஏற்ற முடியவில்லை: காரணம் தெரியாது, ஊழலாக்கபட்ட அசைவூட்டக் கோப்பாக "
 "இருக்கலாம்"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:714
+#: gdk-pixbuf/gdk-pixbuf-io.c:713
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "உருவம்-ஏற்றும் கூறுவை ஏற்ற முடியவில்லை: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:729
+#: gdk-pixbuf/gdk-pixbuf-io.c:728
 #, fuzzy, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -74,53 +74,53 @@ msgstr ""
 "உருவம்-ஏற்றும் கூறு %s சரியான இடைமுகத்தை ஏற்றுமதி செய்வதில்லை; இது வேரு ஒரு GTK "
 "பதிப்புக்காக இருக்கக் கூடும்?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:738 gdk-pixbuf/gdk-pixbuf-io.c:789
+#: gdk-pixbuf/gdk-pixbuf-io.c:737 gdk-pixbuf/gdk-pixbuf-io.c:788
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "'%s' உருவ வகைக்கு ஆதரவளிப்பு கிடையாது"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:862
+#: gdk-pixbuf/gdk-pixbuf-io.c:861
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "'%s' உருவக் கோப்பின் வகையை உணர முடியவில்லை"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:870
+#: gdk-pixbuf/gdk-pixbuf-io.c:869
 msgid "Unrecognized image file format"
 msgstr "உணரமுடியாத உருவக் கோப்பு வகை"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1038
+#: gdk-pixbuf/gdk-pixbuf-io.c:1037
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "'%s' உருவ கோப்பை ஏற்ற முடியவில்லை: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1672 gdk-pixbuf/io-gdip-utils.c:961
+#: gdk-pixbuf/gdk-pixbuf-io.c:1671 gdk-pixbuf/io-gdip-utils.c:883
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "உருவ கோப்புக்கு எழுதும்போது பிழை: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1717 gdk-pixbuf/gdk-pixbuf-io.c:1847
+#: gdk-pixbuf/gdk-pixbuf-io.c:1716 gdk-pixbuf/gdk-pixbuf-io.c:1846
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "இந்த gdk-pixbuf அமைப்பில், இந்த உருவ வகையில் சேமிப்பதற்கு ஆதரவில்லை: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1751
+#: gdk-pixbuf/gdk-pixbuf-io.c:1750
 msgid "Insufficient memory to save image to callback"
 msgstr "உருவத்தை callback-இல் சேமிப்பதற்கு நினைவகம் போதாது"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1764
+#: gdk-pixbuf/gdk-pixbuf-io.c:1763
 msgid "Failed to open temporary file"
 msgstr "தற்காலிக கோப்பு திறக்கமுடியவில்லை"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1790
+#: gdk-pixbuf/gdk-pixbuf-io.c:1789
 msgid "Failed to read from temporary file"
 msgstr "தற்காலிக கோப்பிலிருந்து வாசிக்கமுடியவில்லை"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2043
+#: gdk-pixbuf/gdk-pixbuf-io.c:2042
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "'%s' கோப்பை எழுதுவதற்கு திறக்க முடியவில்லை: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2069
+#: gdk-pixbuf/gdk-pixbuf-io.c:2068
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -129,15 +129,15 @@ msgstr ""
 "உருவத்தை எழுதும்போது '%s' மூட முடியவில்லை, அனைத்து தரவுகளும் சேமிக்கப்படாமல் "
 "இருக்கலாம்: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2289 gdk-pixbuf/gdk-pixbuf-io.c:2340
+#: gdk-pixbuf/gdk-pixbuf-io.c:2288 gdk-pixbuf/gdk-pixbuf-io.c:2339
 msgid "Insufficient memory to save image into a buffer"
 msgstr "உருவத்தை இடையக வைப்பில் (buffer) சேமிப்பதற்கு நினைவகம் போதாது"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2386
+#: gdk-pixbuf/gdk-pixbuf-io.c:2385
 msgid "Error writing to image stream"
 msgstr "உருவ கோப்புக்கு எழுதும்போது பிழை"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:333
+#: gdk-pixbuf/gdk-pixbuf-loader.c:332
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -146,24 +146,24 @@ msgstr ""
 "உள்ளார்ந்த பிழை: உரு ஏற்றி தொகுதி '%s' செயல்பாட்டினை முடிக்க முடியவில்லை, ஆனால் அதன் "
 "இயலாமைக்கான காரணத்தை தர முடியவில்லை"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:375
+#: gdk-pixbuf/gdk-pixbuf-loader.c:374
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "'%s' வகையான உருவங்களை படிமுறையாக ஏற்றுவதற்கு ஆதரவு கிடையாது"
 
-#: gdk-pixbuf/gdk-pixdata.c:147
+#: gdk-pixbuf/gdk-pixdata.c:146
 msgid "Image header corrupt"
 msgstr "உருவத்தின் தலைப்பகுதி கெடுதலானது"
 
-#: gdk-pixbuf/gdk-pixdata.c:152
+#: gdk-pixbuf/gdk-pixdata.c:151
 msgid "Image format unknown"
 msgstr "தெரியாத உருவ வடிவம் "
 
-#: gdk-pixbuf/gdk-pixdata.c:157 gdk-pixbuf/gdk-pixdata.c:488
+#: gdk-pixbuf/gdk-pixdata.c:156 gdk-pixbuf/gdk-pixdata.c:487
 msgid "Image pixel data corrupt"
 msgstr "உருவத்தின் பிக்செல் தரவு கெடுதலானது"
 
-#: gdk-pixbuf/gdk-pixdata.c:432
+#: gdk-pixbuf/gdk-pixdata.c:431
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -213,7 +213,7 @@ msgstr "BMP உருவத்தில் ஆதரவில்லா தலை
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Topdown BMP படங்களை குறுக்க முடியவில்லை"
 
-#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:708
+#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:707
 msgid "Premature end-of-file encountered"
 msgstr "Premature கோப்பு முடிவு கண்டுபிடிக்கப்பட்டுள்ளது"
 
@@ -562,64 +562,64 @@ msgstr "PNG உரை தொகுத்தல் %sன் மதிப்பு
 msgid "The PNG image format"
 msgstr "PNG உருவ வகை பிழையானது"
 
-#: gdk-pixbuf/io-pnm.c:249
+#: gdk-pixbuf/io-pnm.c:248
 msgid "PNM loader expected to find an integer, but didn't"
 msgstr "PNM ஏற்றி ஓர் முழுஎண் எதிர்பார்த்தது, அனால் கிடைக்கவில்லை"
 
-#: gdk-pixbuf/io-pnm.c:281
+#: gdk-pixbuf/io-pnm.c:280
 msgid "PNM file has an incorrect initial byte"
 msgstr "PNM கோப்பில் பிழையான தொடக்க பைட்டு"
 
-#: gdk-pixbuf/io-pnm.c:311
+#: gdk-pixbuf/io-pnm.c:310
 msgid "PNM file is not in a recognized PNM subformat"
 msgstr "PNM பகுதி-வடிவம் தெரிந்த ஓர் PNM கோப்பு அல்ல"
 
-#: gdk-pixbuf/io-pnm.c:336
+#: gdk-pixbuf/io-pnm.c:335
 msgid "PNM file has an image width of 0"
 msgstr "PNM கோப்பில் உல்ல உருவ அகலம் 0"
 
-#: gdk-pixbuf/io-pnm.c:357
+#: gdk-pixbuf/io-pnm.c:356
 msgid "PNM file has an image height of 0"
 msgstr "PNM கோப்பில் உல்ல உருவ உயரம் 0"
 
-#: gdk-pixbuf/io-pnm.c:380
+#: gdk-pixbuf/io-pnm.c:379
 msgid "Maximum color value in PNM file is 0"
 msgstr "PNM கோப்பில் மிக-அதிகமான வண்ண மதிப்பு 0"
 
-#: gdk-pixbuf/io-pnm.c:388
+#: gdk-pixbuf/io-pnm.c:387
 msgid "Maximum color value in PNM file is too large"
 msgstr "PNM கோப்பில் மிக-அதிகமான வண்ண மதிப்பு செல்லுபடியாகாது"
 
-#: gdk-pixbuf/io-pnm.c:428 gdk-pixbuf/io-pnm.c:458 gdk-pixbuf/io-pnm.c:503
+#: gdk-pixbuf/io-pnm.c:427 gdk-pixbuf/io-pnm.c:457 gdk-pixbuf/io-pnm.c:502
 msgid "Raw PNM image type is invalid"
 msgstr "மூல PNM உருவ வகை பிழையானது"
 
-#: gdk-pixbuf/io-pnm.c:653
+#: gdk-pixbuf/io-pnm.c:652
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "PNM உருவ ஏற்றிக்கு இந்த PNM பகுதி-வடிவத்தை ஏற்ற முடியாது"
 
-#: gdk-pixbuf/io-pnm.c:740 gdk-pixbuf/io-pnm.c:967
+#: gdk-pixbuf/io-pnm.c:739 gdk-pixbuf/io-pnm.c:966
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr ""
 "வெற்று PNM வடிவங்களின் மாதிரி தரவுக்கு முன் சரியாக ஒரு இடைவெளி தேவைப்படுகிறது"
 
-#: gdk-pixbuf/io-pnm.c:767
+#: gdk-pixbuf/io-pnm.c:766
 msgid "Cannot allocate memory for loading PNM image"
 msgstr "PNM படத்தை ஏற்றுவதற்கு நினைவகத்தை ஒதுக்கீட முடியவில்லை"
 
-#: gdk-pixbuf/io-pnm.c:817
+#: gdk-pixbuf/io-pnm.c:816
 msgid "Insufficient memory to load PNM context struct"
 msgstr "PNM சூழல்-கட்டமைப்பு ஏற்ற நினைவகம் போதாது"
 
-#: gdk-pixbuf/io-pnm.c:868
+#: gdk-pixbuf/io-pnm.c:867
 msgid "Unexpected end of PNM image data"
 msgstr "எதிர்பார்க்காத PNM உருவத் தரவு முடிவு"
 
-#: gdk-pixbuf/io-pnm.c:996
+#: gdk-pixbuf/io-pnm.c:995
 msgid "Insufficient memory to load PNM file"
 msgstr "PNM கோப்பு ஏற்ற நினைவகம் போதாது"
 
-#: gdk-pixbuf/io-pnm.c:1080
+#: gdk-pixbuf/io-pnm.c:1079
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "PNM/PBM/PGM/PPM பட வடிவ குடும்பம்"
 
@@ -830,59 +830,59 @@ msgstr "மீதியை சேமிக்க முடியவில்ல�
 msgid "The WBMP image format"
 msgstr "WBMP உருவ வகை"
 
-#: gdk-pixbuf/io-xbm.c:294
+#: gdk-pixbuf/io-xbm.c:296
 msgid "Invalid XBM file"
 msgstr "செல்லுபடியாகாத XBM கோப்பு"
 
-#: gdk-pixbuf/io-xbm.c:304
+#: gdk-pixbuf/io-xbm.c:306
 msgid "Insufficient memory to load XBM image file"
 msgstr "XBM உருவக்கோப்பை ஏற்றுவதற்கு நினைவகம் போதாது"
 
-#: gdk-pixbuf/io-xbm.c:452
+#: gdk-pixbuf/io-xbm.c:454
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr "XBM உருவத்தை ஏற்றும்போது, தற்காலிகமான கோப்பிற்கு எழுத முடியவில்லை"
 
-#: gdk-pixbuf/io-xbm.c:491
+#: gdk-pixbuf/io-xbm.c:493
 msgid "The XBM image format"
 msgstr "XBM உருவ வகை"
 
-#: gdk-pixbuf/io-xpm.c:467
+#: gdk-pixbuf/io-xpm.c:469
 msgid "No XPM header found"
 msgstr "XPM தலைப்பகுதியை கண்டுபிடிக்கமுடியவில்லை"
 
-#: gdk-pixbuf/io-xpm.c:476
+#: gdk-pixbuf/io-xpm.c:478
 msgid "Invalid XPM header"
 msgstr "தவறான XPM தலைப்பு"
 
-#: gdk-pixbuf/io-xpm.c:484
+#: gdk-pixbuf/io-xpm.c:486
 msgid "XPM file has image width <= 0"
 msgstr "XPM கோப்பில் உல்ல உருவ அகலம் <= 0"
 
-#: gdk-pixbuf/io-xpm.c:492
+#: gdk-pixbuf/io-xpm.c:494
 msgid "XPM file has image height <= 0"
 msgstr "XPM கோப்பில் உல்ல உருவ உயரம் <= 0"
 
-#: gdk-pixbuf/io-xpm.c:500
+#: gdk-pixbuf/io-xpm.c:502
 msgid "XPM has invalid number of chars per pixel"
 msgstr "XPM உருவத்தில் ஒரு பிக்செலில் தவறுதலான உரு எண்ணிக்கை"
 
-#: gdk-pixbuf/io-xpm.c:509
+#: gdk-pixbuf/io-xpm.c:511
 msgid "XPM file has invalid number of colors"
 msgstr "XPM கோப்பு தவறான நிறங்களின் எண்ணிக்கையை கொண்டுள்ளது"
 
-#: gdk-pixbuf/io-xpm.c:521 gdk-pixbuf/io-xpm.c:530 gdk-pixbuf/io-xpm.c:582
+#: gdk-pixbuf/io-xpm.c:523 gdk-pixbuf/io-xpm.c:532 gdk-pixbuf/io-xpm.c:584
 msgid "Cannot allocate memory for loading XPM image"
 msgstr "XPM படத்தை ஏற்றுவதற்கு நினைவகத்தை ஒதுக்கீட முடியவில்லை."
 
-#: gdk-pixbuf/io-xpm.c:544
+#: gdk-pixbuf/io-xpm.c:546
 msgid "Cannot read XPM colormap"
 msgstr "XPM நிற ஒப்பீடை படிக்க முடியவில்லை"
 
-#: gdk-pixbuf/io-xpm.c:776
+#: gdk-pixbuf/io-xpm.c:778
 msgid "Failed to write to temporary file when loading XPM image"
 msgstr "XPM உருவத்தை ஏற்றும்போது, தற்காலிகமான கோப்பிற்கு எழுத முடியவில்லை"
 
-#: gdk-pixbuf/io-xpm.c:815
+#: gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "XPM உருவடிவ வகை"
 
@@ -890,40 +890,40 @@ msgstr "XPM உருவடிவ வகை"
 msgid "The EMF image format"
 msgstr "EMF உருவ வகை"
 
-#: gdk-pixbuf/io-gdip-utils.c:232
+#: gdk-pixbuf/io-gdip-utils.c:154
 #, c-format
 msgid "Could not allocate memory: %s"
 msgstr "நினைவகம் ஒதுக்க முடியவில்லை: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:257 gdk-pixbuf/io-gdip-utils.c:371
-#: gdk-pixbuf/io-gdip-utils.c:411
+#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
+#: gdk-pixbuf/io-gdip-utils.c:333
 #, c-format
 msgid "Could not create stream: %s"
 msgstr "ஸ்ட்ரீமை உருவாக்க முடியவில்லை: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:271
+#: gdk-pixbuf/io-gdip-utils.c:193
 #, c-format
 msgid "Could not seek stream: %s"
 msgstr "ஸ்ட்ரீமை தேட முடியவில்லை: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:283
+#: gdk-pixbuf/io-gdip-utils.c:205
 #, c-format
 msgid "Could not read from stream: %s"
 msgstr "ஸ்ட்ரீமிலிருந்து வாசிக்க: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:694 gdk-pixbuf/io-gdip-utils.c:825
+#: gdk-pixbuf/io-gdip-utils.c:616 gdk-pixbuf/io-gdip-utils.c:747
 msgid "Couldn't load bitmap"
 msgstr "பிட்மேப்பை ஏற்ற முடியவில்லை"
 
-#: gdk-pixbuf/io-gdip-utils.c:847
+#: gdk-pixbuf/io-gdip-utils.c:769
 msgid "Couldn't load metafile"
 msgstr "மெட்டாகோப்பினை ஏற்ற முடியவில்லை"
 
-#: gdk-pixbuf/io-gdip-utils.c:1006
+#: gdk-pixbuf/io-gdip-utils.c:928
 msgid "Unsupported image format for GDI+"
 msgstr "GDI+க்கு உருவ வகையால் துணைப்புரிய முடியவில்லை"
 
-#: gdk-pixbuf/io-gdip-utils.c:1013
+#: gdk-pixbuf/io-gdip-utils.c:935
 msgid "Couldn't save"
 msgstr "சேமிக்க முடியவில்லை"
 

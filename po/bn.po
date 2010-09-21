@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: bn\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf\n"
-"POT-Creation-Date: 2010-06-25 23:54-0400\n"
+"POT-Creation-Date: 2010-09-21 14:08-0400\n"
 "PO-Revision-Date: 2010-03-28 19:04+0600\n"
 "Last-Translator: Israt Jahan <israt@ankur.org.bd>\n"
 "Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
@@ -25,25 +25,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:131 gdk-pixbuf/gdk-pixbuf-io.c:981
-#: gdk-pixbuf/gdk-pixbuf-io.c:1241
+#: gdk-pixbuf/gdk-pixbuf-animation.c:130 gdk-pixbuf/gdk-pixbuf-io.c:980
+#: gdk-pixbuf/gdk-pixbuf-io.c:1240
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "'%1$s' ফাইল খুলতে ব্যর্থ: %2$s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:144 gdk-pixbuf/gdk-pixbuf-io.c:993
+#: gdk-pixbuf/gdk-pixbuf-animation.c:143 gdk-pixbuf/gdk-pixbuf-io.c:992
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "'%s' নামক ছবির ফাইলে তথ্য অনুপস্থিত"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:186 gdk-pixbuf/gdk-pixbuf-io.c:1029
-#: gdk-pixbuf/gdk-pixbuf-io.c:1293
+#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1028
+#: gdk-pixbuf/gdk-pixbuf-io.c:1292
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr "'%s' ছবি লোড করতে ব্যর্থ: কারণ অজানা, সম্ভবত ছবির ফাইলটি ক্ষতিগ্রস্ত"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:219
+#: gdk-pixbuf/gdk-pixbuf-animation.c:218
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -51,12 +51,12 @@ msgid ""
 msgstr ""
 "'%s' অ্যানিমেশন লোড করতে ব্যর্থ: কারণ অজানা, সম্ভবত অ্যানিমেশন ফাইলটি ক্ষতিগ্রস্ত"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:714
+#: gdk-pixbuf/gdk-pixbuf-io.c:713
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "ছবি লোড করতে ব্যবহৃত মডিউল লোড করতে ব্যর্থ: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:729
+#: gdk-pixbuf/gdk-pixbuf-io.c:728
 #, fuzzy, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -65,68 +65,68 @@ msgstr ""
 "ছবি লোড করতে ব্যবহৃত %s নামক মডিউলটি সঠিক ইন্টারফেস এক্সপোর্ট করে না; সম্ভবত এটি "
 "ভিন্ন কোন GTK সংস্করণের অংশ?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:738 gdk-pixbuf/gdk-pixbuf-io.c:789
+#: gdk-pixbuf/gdk-pixbuf-io.c:737 gdk-pixbuf/gdk-pixbuf-io.c:788
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "'%s' প্রকৃতির ছবি সমর্থিত নয়"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:862
+#: gdk-pixbuf/gdk-pixbuf-io.c:861
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "'%s' ফাইলের জন্য ছবির ফাইল ফরম্যাট সনাক্ত করা যায়নি"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:870
+#: gdk-pixbuf/gdk-pixbuf-io.c:869
 msgid "Unrecognized image file format"
 msgstr "ছবির ফাইল ফরম্যাট অজানা"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1038
+#: gdk-pixbuf/gdk-pixbuf-io.c:1037
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "'%1$s' ছবি লোড করতে ব্যর্থ: %2$s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1672 gdk-pixbuf/io-gdip-utils.c:961
+#: gdk-pixbuf/gdk-pixbuf-io.c:1671 gdk-pixbuf/io-gdip-utils.c:883
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "ছবির ফাইলে লিখতে ত্রুটি: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1717 gdk-pixbuf/gdk-pixbuf-io.c:1847
+#: gdk-pixbuf/gdk-pixbuf-io.c:1716 gdk-pixbuf/gdk-pixbuf-io.c:1846
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "gdk-pixbuf'র বর্তমান বিল্ড এই ফরম্যাটের ছবি সংরক্ষণ সমর্থন করে না: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1751
+#: gdk-pixbuf/gdk-pixbuf-io.c:1750
 msgid "Insufficient memory to save image to callback"
 msgstr "callback-এ ছবি সংরক্ষণের জন্য পর্যাপ্ত মেমরি নেই"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1764
+#: gdk-pixbuf/gdk-pixbuf-io.c:1763
 msgid "Failed to open temporary file"
 msgstr "অস্থায়ী ফাইল খুলতে ব্যর্থ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1790
+#: gdk-pixbuf/gdk-pixbuf-io.c:1789
 msgid "Failed to read from temporary file"
 msgstr "অস্থায়ী ফাইল থেকে পড়তে ব্যর্থ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2043
+#: gdk-pixbuf/gdk-pixbuf-io.c:2042
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "লেখার জন্য '%1$s' খুলতে ব্যর্থ: %2$s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2069
+#: gdk-pixbuf/gdk-pixbuf-io.c:2068
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
 "%s"
 msgstr "ছবি লেখার সময় '%s' বন্ধ করতে ব্যর্থ, সম্ভবত সব তথ্য সংরক্ষিত হয়নি: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2289 gdk-pixbuf/gdk-pixbuf-io.c:2340
+#: gdk-pixbuf/gdk-pixbuf-io.c:2288 gdk-pixbuf/gdk-pixbuf-io.c:2339
 msgid "Insufficient memory to save image into a buffer"
 msgstr "বাফারে ছবি সংরক্ষণের জন্য পর্যাপ্ত মেমরি নেই"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2386
+#: gdk-pixbuf/gdk-pixbuf-io.c:2385
 msgid "Error writing to image stream"
 msgstr "ছবির স্ট্রিমে লিখতে ত্রুটি"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:333
+#: gdk-pixbuf/gdk-pixbuf-loader.c:332
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -135,24 +135,24 @@ msgstr ""
 "অভ্যন্তরীণ ত্রুটি: ছবি লোড করতে ব্যবহৃত মডিউল '%s' একটি অপারেশন সম্পন্ন করতে ব্যর্থ, "
 "কিন্তু ব্যর্থতার কারণ দর্শানো হয়নি"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:375
+#: gdk-pixbuf/gdk-pixbuf-loader.c:374
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "'%s' প্রকৃতির ছবির ক্রমবর্ধমান লোড করার বৈশিষ্ট্য সমর্থিত নয়"
 
-#: gdk-pixbuf/gdk-pixdata.c:147
+#: gdk-pixbuf/gdk-pixdata.c:146
 msgid "Image header corrupt"
 msgstr "ছবির শীর্ষচরণ বিকৃত"
 
-#: gdk-pixbuf/gdk-pixdata.c:152
+#: gdk-pixbuf/gdk-pixdata.c:151
 msgid "Image format unknown"
 msgstr "ছবির ফরম্যাট অজানা"
 
-#: gdk-pixbuf/gdk-pixdata.c:157 gdk-pixbuf/gdk-pixdata.c:488
+#: gdk-pixbuf/gdk-pixdata.c:156 gdk-pixbuf/gdk-pixdata.c:487
 msgid "Image pixel data corrupt"
 msgstr "ছবির পিক্সেল উপাত্ত বিকৃত"
 
-#: gdk-pixbuf/gdk-pixdata.c:432
+#: gdk-pixbuf/gdk-pixdata.c:431
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -202,7 +202,7 @@ msgstr "BMP ছবির শীর্ষচরণের আকার অসম�
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Topdown BMP ছবি সংকোচন করা সম্ভব নয়"
 
-#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:708
+#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:707
 msgid "Premature end-of-file encountered"
 msgstr "অপ্রত্যাশিতভাবে ফাইল সমাপ্তির সম্মুখীন হয়েছে"
 
@@ -559,64 +559,64 @@ msgstr "PNG টেক্সট অংশ %s'র মান ISO-8859-1 এনক�
 msgid "The PNG image format"
 msgstr "PNG ফরম্যাটের ছবি"
 
-#: gdk-pixbuf/io-pnm.c:249
+#: gdk-pixbuf/io-pnm.c:248
 msgid "PNM loader expected to find an integer, but didn't"
 msgstr "PNM লোডারের দ্বারা পূর্ণসংখ্যার মান পাওয়ার প্রত্যাশা ছিল, কিন্তু পাওয়া যায়নি"
 
-#: gdk-pixbuf/io-pnm.c:281
+#: gdk-pixbuf/io-pnm.c:280
 msgid "PNM file has an incorrect initial byte"
 msgstr "PNM ফাইলে একটি ভুল প্রারম্ভিক বাইট রয়েছে"
 
-#: gdk-pixbuf/io-pnm.c:311
+#: gdk-pixbuf/io-pnm.c:310
 msgid "PNM file is not in a recognized PNM subformat"
 msgstr "PNM ফাইলটি কোন সনাক্তকৃত PNM সাব-ফরম্যাটে নেই"
 
-#: gdk-pixbuf/io-pnm.c:336
+#: gdk-pixbuf/io-pnm.c:335
 msgid "PNM file has an image width of 0"
 msgstr "PNM ফাইলে ০ প্রস্থের ছবি রয়েছে"
 
-#: gdk-pixbuf/io-pnm.c:357
+#: gdk-pixbuf/io-pnm.c:356
 msgid "PNM file has an image height of 0"
 msgstr "PNM ফাইলে ০ দৈর্ঘ্যের ছবি রয়েছে"
 
-#: gdk-pixbuf/io-pnm.c:380
+#: gdk-pixbuf/io-pnm.c:379
 msgid "Maximum color value in PNM file is 0"
 msgstr "PNM ফাইলে রঙের সর্বোচ্চ মান ০"
 
-#: gdk-pixbuf/io-pnm.c:388
+#: gdk-pixbuf/io-pnm.c:387
 msgid "Maximum color value in PNM file is too large"
 msgstr "PNM ফাইলে রঙের সর্বোচ্চ মান অত্যাধিক বড়"
 
-#: gdk-pixbuf/io-pnm.c:428 gdk-pixbuf/io-pnm.c:458 gdk-pixbuf/io-pnm.c:503
+#: gdk-pixbuf/io-pnm.c:427 gdk-pixbuf/io-pnm.c:457 gdk-pixbuf/io-pnm.c:502
 msgid "Raw PNM image type is invalid"
 msgstr "অশোধিত PNM ছবির ধরন অকার্যকর"
 
-#: gdk-pixbuf/io-pnm.c:653
+#: gdk-pixbuf/io-pnm.c:652
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "PNM ছবি লোডার এই PNM সাব-ফরম্যাট সমর্থন করে না"
 
-#: gdk-pixbuf/io-pnm.c:740 gdk-pixbuf/io-pnm.c:967
+#: gdk-pixbuf/io-pnm.c:739 gdk-pixbuf/io-pnm.c:966
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr ""
 "অশোধিত PNM ফরম্যাটে নমুনা তথ্যের পূর্বে শুধুমাত্র একটি শূণ্যস্থান উপস্থিত থাকা আবশ্যক"
 
-#: gdk-pixbuf/io-pnm.c:767
+#: gdk-pixbuf/io-pnm.c:766
 msgid "Cannot allocate memory for loading PNM image"
 msgstr "PNM ছবি লোড করার জন্য মেমরি বরাদ্দ করা যাচ্ছে না"
 
-#: gdk-pixbuf/io-pnm.c:817
+#: gdk-pixbuf/io-pnm.c:816
 msgid "Insufficient memory to load PNM context struct"
 msgstr "PNM কনটেক্সট স্ট্রাক্ট লোড করার মত পর্যাপ্ত মেমরি নেই"
 
-#: gdk-pixbuf/io-pnm.c:868
+#: gdk-pixbuf/io-pnm.c:867
 msgid "Unexpected end of PNM image data"
 msgstr "PNM ছবির তথ্য অপ্রত্যাশিতভাবে সমাপ্ত"
 
-#: gdk-pixbuf/io-pnm.c:996
+#: gdk-pixbuf/io-pnm.c:995
 msgid "Insufficient memory to load PNM file"
 msgstr "PNM ফাইল লোড করার মত পর্যাপ্ত মেমরি নেই"
 
-#: gdk-pixbuf/io-pnm.c:1080
+#: gdk-pixbuf/io-pnm.c:1079
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "PNM/PBM/PGM/PPM ফরম্যাটের ছবির সংকলন"
 
@@ -821,59 +821,59 @@ msgstr "অবশিষ্ট অংশ সংরক্ষণ করা যা�
 msgid "The WBMP image format"
 msgstr "WBMP ফরম্যাটের ছবি"
 
-#: gdk-pixbuf/io-xbm.c:294
+#: gdk-pixbuf/io-xbm.c:296
 msgid "Invalid XBM file"
 msgstr "অকার্যকর XBM ফাইল"
 
-#: gdk-pixbuf/io-xbm.c:304
+#: gdk-pixbuf/io-xbm.c:306
 msgid "Insufficient memory to load XBM image file"
 msgstr "XBM ছবির ফাইল লোড করার মত পর্যাপ্ত মেমরি নেই"
 
-#: gdk-pixbuf/io-xbm.c:452
+#: gdk-pixbuf/io-xbm.c:454
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr "XBM ছবি লোড করার সময় অস্থায়ী ফাইলে লিখতে ব্যর্থ"
 
-#: gdk-pixbuf/io-xbm.c:491
+#: gdk-pixbuf/io-xbm.c:493
 msgid "The XBM image format"
 msgstr "XBM ফরম্যাটের ছবি"
 
-#: gdk-pixbuf/io-xpm.c:467
+#: gdk-pixbuf/io-xpm.c:469
 msgid "No XPM header found"
 msgstr "XPM শীর্ষচরণ পাওয়া যায়নি"
 
-#: gdk-pixbuf/io-xpm.c:476
+#: gdk-pixbuf/io-xpm.c:478
 msgid "Invalid XPM header"
 msgstr "অকার্যকর XPM শীর্ষচরণ"
 
-#: gdk-pixbuf/io-xpm.c:484
+#: gdk-pixbuf/io-xpm.c:486
 msgid "XPM file has image width <= 0"
 msgstr "XPM ফাইলের ছবির প্রস্থ <= ০"
 
-#: gdk-pixbuf/io-xpm.c:492
+#: gdk-pixbuf/io-xpm.c:494
 msgid "XPM file has image height <= 0"
 msgstr "XPM ফাইলের ছবির উচ্চতা <= ০"
 
-#: gdk-pixbuf/io-xpm.c:500
+#: gdk-pixbuf/io-xpm.c:502
 msgid "XPM has invalid number of chars per pixel"
 msgstr "XPM'তে পিক্সেল প্রতি অকার্যকর সংখ্যক char রয়েছে"
 
-#: gdk-pixbuf/io-xpm.c:509
+#: gdk-pixbuf/io-xpm.c:511
 msgid "XPM file has invalid number of colors"
 msgstr "XPM ফাইলে অকার্যকর সংখ্যক রং রয়েছে"
 
-#: gdk-pixbuf/io-xpm.c:521 gdk-pixbuf/io-xpm.c:530 gdk-pixbuf/io-xpm.c:582
+#: gdk-pixbuf/io-xpm.c:523 gdk-pixbuf/io-xpm.c:532 gdk-pixbuf/io-xpm.c:584
 msgid "Cannot allocate memory for loading XPM image"
 msgstr "XPM ছবি লোড করার জন্য মেমরি বরাদ্দ করা যাচ্ছে না"
 
-#: gdk-pixbuf/io-xpm.c:544
+#: gdk-pixbuf/io-xpm.c:546
 msgid "Cannot read XPM colormap"
 msgstr "XPM colormap পড়া যাচ্ছে না"
 
-#: gdk-pixbuf/io-xpm.c:776
+#: gdk-pixbuf/io-xpm.c:778
 msgid "Failed to write to temporary file when loading XPM image"
 msgstr "XPM ছবি লোড করার সময় অস্থায়ী ফাইলে লিখতে ব্যর্থ"
 
-#: gdk-pixbuf/io-xpm.c:815
+#: gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "XPM ফরম্যাটের ছবি"
 
@@ -881,40 +881,40 @@ msgstr "XPM ফরম্যাটের ছবি"
 msgid "The EMF image format"
 msgstr "EMF ফরম্যাটের ছবি"
 
-#: gdk-pixbuf/io-gdip-utils.c:232
+#: gdk-pixbuf/io-gdip-utils.c:154
 #, c-format
 msgid "Could not allocate memory: %s"
 msgstr "মেমরি বরাদ্দ করা যায়নি: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:257 gdk-pixbuf/io-gdip-utils.c:371
-#: gdk-pixbuf/io-gdip-utils.c:411
+#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
+#: gdk-pixbuf/io-gdip-utils.c:333
 #, c-format
 msgid "Could not create stream: %s"
 msgstr "স্ট্রীম তৈরি করা যায়নি: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:271
+#: gdk-pixbuf/io-gdip-utils.c:193
 #, c-format
 msgid "Could not seek stream: %s"
 msgstr "স্ট্রীম খোঁজ করা যায়নি: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:283
+#: gdk-pixbuf/io-gdip-utils.c:205
 #, c-format
 msgid "Could not read from stream: %s"
 msgstr "স্ট্রীম থেকে পড়া যায়নি: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:694 gdk-pixbuf/io-gdip-utils.c:825
+#: gdk-pixbuf/io-gdip-utils.c:616 gdk-pixbuf/io-gdip-utils.c:747
 msgid "Couldn't load bitmap"
 msgstr "বিট-ম্যাপ লোড করা যায়নি"
 
-#: gdk-pixbuf/io-gdip-utils.c:847
+#: gdk-pixbuf/io-gdip-utils.c:769
 msgid "Couldn't load metafile"
 msgstr "মেটা-ফাইল লোড করা যায়নি"
 
-#: gdk-pixbuf/io-gdip-utils.c:1006
+#: gdk-pixbuf/io-gdip-utils.c:928
 msgid "Unsupported image format for GDI+"
 msgstr "GDI+-র জন্য ছবির ফরম্যাট অসমর্থিত"
 
-#: gdk-pixbuf/io-gdip-utils.c:1013
+#: gdk-pixbuf/io-gdip-utils.c:935
 msgid "Couldn't save"
 msgstr "সংরক্ষণ করা যায়নি"
 

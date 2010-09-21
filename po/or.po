@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: or\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf\n"
-"POT-Creation-Date: 2010-06-25 23:54-0400\n"
+"POT-Creation-Date: 2010-09-21 14:08-0400\n"
 "PO-Revision-Date: 2010-02-17 21:22+0530\n"
 "Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
 "Language-Team: Oriya <oriya-it@googlegroups.com>\n"
@@ -38,19 +38,19 @@ msgstr ""
 "\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:131 gdk-pixbuf/gdk-pixbuf-io.c:981
-#: gdk-pixbuf/gdk-pixbuf-io.c:1241
+#: gdk-pixbuf/gdk-pixbuf-animation.c:130 gdk-pixbuf/gdk-pixbuf-io.c:980
+#: gdk-pixbuf/gdk-pixbuf-io.c:1240
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "'%s' ଫାଇଲକୁ ଖୋଲିବାରେ ଅସଫଳ: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:144 gdk-pixbuf/gdk-pixbuf-io.c:993
+#: gdk-pixbuf/gdk-pixbuf-animation.c:143 gdk-pixbuf/gdk-pixbuf-io.c:992
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "'%s' ଚିତ୍ର ଫାଇଲରେ କୌଣସି ତଥ୍ଯ ନାହିଁ"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:186 gdk-pixbuf/gdk-pixbuf-io.c:1029
-#: gdk-pixbuf/gdk-pixbuf-io.c:1293
+#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1028
+#: gdk-pixbuf/gdk-pixbuf-io.c:1292
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -58,7 +58,7 @@ msgstr ""
 "'%s' ଚିତ୍ର ଫାଇଲ ଧାରଣ କରିବାରେ ଅସଫଳ: କାରଣ ଜଣା ନାହିଁ, ସମ୍ଭବତଃ ଏହା ଗୋଟିଏ ତୃଟିଯୁକ୍ତ ଚିତ୍ର ଫାଇଲ "
 "ଅଟେ"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:219
+#: gdk-pixbuf/gdk-pixbuf-animation.c:218
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -67,12 +67,12 @@ msgstr ""
 "'%s' ଜୀବନାୟନ ଫାଇଲ ଧାରଣ କରିବାରେ ଅସଫଳ: କାରଣ ଜଣା ନାହିଁ, ସମ୍ଭବତଃ ଏହା ଗୋଟିଏ ତୃଟିଯୁକ୍ତ "
 "ଜୀବନାୟନ ଫାଇଲ ଅଟେ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:714
+#: gdk-pixbuf/gdk-pixbuf-io.c:713
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "ଚିତ୍ର-ଧାରଣ ଏକକାଂଶ ଧାରଣ କରିବାରେ ଅସଫଳ: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:729
+#: gdk-pixbuf/gdk-pixbuf-io.c:728
 #, fuzzy, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -81,53 +81,53 @@ msgstr ""
 "%s ଚିତ୍ର-ଧାରଣ ଏକକାଂଶ ଠିକ ଅନ୍ତରାପୃଷ୍ଠ ରପ୍ତାନି କରେ ନାହିଁ; ବୋଧହୁଏ ଏହା ଗୋଟିଏ ଅଲଗା ଜି.ଟି.କେ. "
 "ସଂସ୍କରଣରୁ ପ୍ରାପ୍ତ?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:738 gdk-pixbuf/gdk-pixbuf-io.c:789
+#: gdk-pixbuf/gdk-pixbuf-io.c:737 gdk-pixbuf/gdk-pixbuf-io.c:788
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "'%s' ଚିତ୍ର ପ୍ରକାର ଅସହାୟକ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:862
+#: gdk-pixbuf/gdk-pixbuf-io.c:861
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "'%s' ଚିତ୍ର ଫାଇଲ ଶୈଳୀ ଚିହ୍ନିପାରିଲା ନାହିଁ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:870
+#: gdk-pixbuf/gdk-pixbuf-io.c:869
 msgid "Unrecognized image file format"
 msgstr "ଅଚିହ୍ନିତ ଚିତ୍ର ଫାଇଲ ଶୈଳୀ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1038
+#: gdk-pixbuf/gdk-pixbuf-io.c:1037
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "'%s' ଚିତ୍ର ଧାରଣ କରିବାରେ ଅସଫଳ: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1672 gdk-pixbuf/io-gdip-utils.c:961
+#: gdk-pixbuf/gdk-pixbuf-io.c:1671 gdk-pixbuf/io-gdip-utils.c:883
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "ଚିତ୍ର ଫାଇଲକୁ ଲେଖିବାରେ ତୃଟି: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1717 gdk-pixbuf/gdk-pixbuf-io.c:1847
+#: gdk-pixbuf/gdk-pixbuf-io.c:1716 gdk-pixbuf/gdk-pixbuf-io.c:1846
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "ଜି.ଡି.କେ.-ପିକ୍ସବଫର ଏହି ସଂସ୍କରଣ ଚିତ୍ର ଶୈଳୀ ସଂରକ୍ଷଣକୁ ସମର୍ଥନ କରୁନାହିଁ:%s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1751
+#: gdk-pixbuf/gdk-pixbuf-io.c:1750
 msgid "Insufficient memory to save image to callback"
 msgstr "ଚିତ୍ରକୁ କଲବ୍ଯାକରେ ସଂରକ୍ଷିତ କରିବା ପାଇଁ ଯଥେଷ୍ଟ ସ୍ମୃତି ନାହିଁ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1764
+#: gdk-pixbuf/gdk-pixbuf-io.c:1763
 msgid "Failed to open temporary file"
 msgstr "ଅସ୍ଥାୟୀ ଫାଇଲ ଖୋଲିବାରେ ଅସଫଳ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1790
+#: gdk-pixbuf/gdk-pixbuf-io.c:1789
 msgid "Failed to read from temporary file"
 msgstr "ଅସ୍ଥାୟୀ ଫାଇଲରୁ ପଢ଼ିବାରେ ଅସଫଳ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2043
+#: gdk-pixbuf/gdk-pixbuf-io.c:2042
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "'%s'କୁ ଲେଖିବା ପ୍ରତି ଖୋଲିବାରେ ଅସଫଳ: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2069
+#: gdk-pixbuf/gdk-pixbuf-io.c:2068
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -135,15 +135,15 @@ msgid ""
 msgstr ""
 "ଚିତ୍ର ଲେଖିବା ସମୟରେ '%s'କୁ ବନ୍ଦ କରିବାରେ ଅସଫଳ, ସମ୍ପୂର୍ଣ ତଥ୍ଯ ସଂରକ୍ଷିତ ନ ହୋଇଥାଇପାରେ: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2289 gdk-pixbuf/gdk-pixbuf-io.c:2340
+#: gdk-pixbuf/gdk-pixbuf-io.c:2288 gdk-pixbuf/gdk-pixbuf-io.c:2339
 msgid "Insufficient memory to save image into a buffer"
 msgstr "ଚିତ୍ରକୁ ବଫରରେ ସଂରକ୍ଷିତ କରିବା ପାଇଁ ଯଥେଷ୍ଟ ସ୍ମୃତି ନାହିଁ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2386
+#: gdk-pixbuf/gdk-pixbuf-io.c:2385
 msgid "Error writing to image stream"
 msgstr "ଚିତ୍ର ଧାରାକୁ ଲେଖିବାରେ ତୃଟି"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:333
+#: gdk-pixbuf/gdk-pixbuf-loader.c:332
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -152,24 +152,24 @@ msgstr ""
 "ଆଭ୍ଯନ୍ତରୀଣ ତୃଟି: '%s' ଚିତ୍ର ଧାରକ ଏକକାଂଶ ଏହି ପ୍ରକ୍ରିୟାକୁ ସମ୍ପନ୍ନ କରିବାରେ ଅସଫଳ ହେଲା, କିନ୍ତୁ "
 "ଅସଫଳତା ପାଇଁ କୌଣସି କାରଣ ପ୍ରଦାନ କଲା ନାହିଁ"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:375
+#: gdk-pixbuf/gdk-pixbuf-loader.c:374
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "'%s' ଚିତ୍ର ପ୍ରକାରର କ୍ରମବର୍ଦ୍ଧୀ ଧାରଣ ଅସହାୟକ"
 
-#: gdk-pixbuf/gdk-pixdata.c:147
+#: gdk-pixbuf/gdk-pixdata.c:146
 msgid "Image header corrupt"
 msgstr "ଚିତ୍ର ଶୀର୍ଷକ ତୃଟିଯୁକ୍ତ"
 
-#: gdk-pixbuf/gdk-pixdata.c:152
+#: gdk-pixbuf/gdk-pixdata.c:151
 msgid "Image format unknown"
 msgstr "ଚିତ୍ର ଶୈଳୀ ଅଜଣା"
 
-#: gdk-pixbuf/gdk-pixdata.c:157 gdk-pixbuf/gdk-pixdata.c:488
+#: gdk-pixbuf/gdk-pixdata.c:156 gdk-pixbuf/gdk-pixdata.c:487
 msgid "Image pixel data corrupt"
 msgstr "ଚିତ୍ର ପିକ୍ସେଲ ତଥ୍ଯ ତୃଟିଯୁକ୍ତ"
 
-#: gdk-pixbuf/gdk-pixdata.c:432
+#: gdk-pixbuf/gdk-pixdata.c:431
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -219,7 +219,7 @@ msgstr "BMP ଚିତ୍ରର ଶୀର୍ଷକ ଆକାର ଅସହାୟ�
 msgid "Topdown BMP images cannot be compressed"
 msgstr "ଉପରୁ ତଳ BMP ଚିତ୍ରକୁ ସଂକୁଚିତ କରାଯାଇପାରିବ ନାହିଁ"
 
-#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:708
+#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:707
 msgid "Premature end-of-file encountered"
 msgstr "ଫାଇଲର ଅପ୍ରତ୍ଯାଶିତ ଶେଷ"
 
@@ -565,63 +565,63 @@ msgstr "%s PNG ପାଠ୍ଯ ଖଣ୍ଡର ମୂଲ୍ଯକୁ ଆଇ.ଏ�
 msgid "The PNG image format"
 msgstr "PNG ଚିତ୍ର ଶୈଳୀ"
 
-#: gdk-pixbuf/io-pnm.c:249
+#: gdk-pixbuf/io-pnm.c:248
 msgid "PNM loader expected to find an integer, but didn't"
 msgstr "PNM ଧାରକ ଗୋଟିଏ ପୂର୍ଣ୍ଣ ସଂଖ୍ଯାର ପ୍ରତ୍ଯାଶା କରିଥିଲା, କିନ୍ତୁ ଏହା ମିଳିଲା ନାହିଁ"
 
-#: gdk-pixbuf/io-pnm.c:281
+#: gdk-pixbuf/io-pnm.c:280
 msgid "PNM file has an incorrect initial byte"
 msgstr "PNM ଫାଇଲର ପ୍ରାରମ୍ଭିକ ବାଇଟ ଭୂଲ"
 
-#: gdk-pixbuf/io-pnm.c:311
+#: gdk-pixbuf/io-pnm.c:310
 msgid "PNM file is not in a recognized PNM subformat"
 msgstr "PNM ଫାଇଲ ଚିହ୍ନିତ PNM ଉପ-ଶୈଳୀରେ ନାହିଁ"
 
-#: gdk-pixbuf/io-pnm.c:336
+#: gdk-pixbuf/io-pnm.c:335
 msgid "PNM file has an image width of 0"
 msgstr "PNM ଫାଇଲର ଚିତ୍ର ଓସାର ଶୂନ୍ଯ"
 
-#: gdk-pixbuf/io-pnm.c:357
+#: gdk-pixbuf/io-pnm.c:356
 msgid "PNM file has an image height of 0"
 msgstr "PNM ଫାଇଲର ଚିତ୍ର ଉଚ୍ଚତା ଶୂନ୍ଯ"
 
-#: gdk-pixbuf/io-pnm.c:380
+#: gdk-pixbuf/io-pnm.c:379
 msgid "Maximum color value in PNM file is 0"
 msgstr "PNM ଫାଇଲରେ ସର୍ବାଧିକ ରଙ୍ଗ ମୂଲ୍ଯ ଶୂନ୍ଯ"
 
-#: gdk-pixbuf/io-pnm.c:388
+#: gdk-pixbuf/io-pnm.c:387
 msgid "Maximum color value in PNM file is too large"
 msgstr "PNM ଫାଇଲରେ ସର୍ବାଧିକ ରଙ୍ଗ ମୂଲ୍ଯ ଅତି ବଡ଼"
 
-#: gdk-pixbuf/io-pnm.c:428 gdk-pixbuf/io-pnm.c:458 gdk-pixbuf/io-pnm.c:503
+#: gdk-pixbuf/io-pnm.c:427 gdk-pixbuf/io-pnm.c:457 gdk-pixbuf/io-pnm.c:502
 msgid "Raw PNM image type is invalid"
 msgstr "ଅସଂସାଧିତ PNM ଚିତ୍ର ପ୍ରକାରଟି ଅବୈଧ"
 
-#: gdk-pixbuf/io-pnm.c:653
+#: gdk-pixbuf/io-pnm.c:652
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "PNM ଚିତ୍ର ଧାରକରେ ଏହି PNM ଉପ-ଶୈଳୀ ଅସହାୟକ"
 
-#: gdk-pixbuf/io-pnm.c:740 gdk-pixbuf/io-pnm.c:967
+#: gdk-pixbuf/io-pnm.c:739 gdk-pixbuf/io-pnm.c:966
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr "ଅସଂସାଧିତ PNM ଶୈଳୀଗୁଡ଼ିକରେ ନମୁନା ତଥ୍ଯ ପୂର୍ବରୁ ଠିକ ଗୋଟିଏ ଖାଲି ସ୍ଥାନ ଥିବା ଆବଶ୍ଯକ"
 
-#: gdk-pixbuf/io-pnm.c:767
+#: gdk-pixbuf/io-pnm.c:766
 msgid "Cannot allocate memory for loading PNM image"
 msgstr "PNM ଚିତ୍ର ଧାରଣ କରିବା ପାଇଁ ସ୍ମୃତି ଯୋଗାଇ ହେଲା ନାହିଁ"
 
-#: gdk-pixbuf/io-pnm.c:817
+#: gdk-pixbuf/io-pnm.c:816
 msgid "Insufficient memory to load PNM context struct"
 msgstr "PNM ପ୍ରସଙ୍ଗ ଷ୍ଟ୍ରକ୍ଟ ଧାରଣ କରିବା ପାଇଁ ଯଥେଷ୍ଟ ସ୍ମୃତି ନାହିଁ"
 
-#: gdk-pixbuf/io-pnm.c:868
+#: gdk-pixbuf/io-pnm.c:867
 msgid "Unexpected end of PNM image data"
 msgstr "PNM ଚିତ୍ର ତଥ୍ଯର ଅପ୍ରତ୍ଯାଶିତ ଶେଷ"
 
-#: gdk-pixbuf/io-pnm.c:996
+#: gdk-pixbuf/io-pnm.c:995
 msgid "Insufficient memory to load PNM file"
 msgstr "PNM ଫାଇଲ ଧାରଣ କରିବା ପାଇଁ ଯଥେଷ୍ଟ ସ୍ମୃତି ନାହିଁ"
 
-#: gdk-pixbuf/io-pnm.c:1080
+#: gdk-pixbuf/io-pnm.c:1079
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "PNM/PBM/PGM/PPM ଚିତ୍ର ଶୈଳୀ ଶ୍ରେଣୀ"
 
@@ -832,59 +832,59 @@ msgstr "ବାକି ସଞ୍ଚିତ କରିହେଲା ନାହିଁ"
 msgid "The WBMP image format"
 msgstr "WBMP ଚିତ୍ର ଶୈଳୀ"
 
-#: gdk-pixbuf/io-xbm.c:294
+#: gdk-pixbuf/io-xbm.c:296
 msgid "Invalid XBM file"
 msgstr "ଅବୈଧ XBM ଫାଇଲ"
 
-#: gdk-pixbuf/io-xbm.c:304
+#: gdk-pixbuf/io-xbm.c:306
 msgid "Insufficient memory to load XBM image file"
 msgstr "XBM ଚିତ୍ର ଫାଇଲ ଧାରଣ କରିବା ପାଇଁ ଯଥେଷ୍ଟ ସ୍ମୃତି ନାହିଁ"
 
-#: gdk-pixbuf/io-xbm.c:452
+#: gdk-pixbuf/io-xbm.c:454
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr "XBM ଚିତ୍ର ଧାରଣ କରିବା ସମୟରେ ଅସ୍ଥାୟୀ ଫାଇଲକୁ ଲେଖିବାରେ ଅସଫଳ"
 
-#: gdk-pixbuf/io-xbm.c:491
+#: gdk-pixbuf/io-xbm.c:493
 msgid "The XBM image format"
 msgstr "XBM ଚିତ୍ର ଶୈଳୀ"
 
-#: gdk-pixbuf/io-xpm.c:467
+#: gdk-pixbuf/io-xpm.c:469
 msgid "No XPM header found"
 msgstr "XPM ଶୀର୍ଷକ ମିଳିଲା ନାହିଁ"
 
-#: gdk-pixbuf/io-xpm.c:476
+#: gdk-pixbuf/io-xpm.c:478
 msgid "Invalid XPM header"
 msgstr "ଅବୈଧ XPM ଶୀର୍ଷକ"
 
-#: gdk-pixbuf/io-xpm.c:484
+#: gdk-pixbuf/io-xpm.c:486
 msgid "XPM file has image width <= 0"
 msgstr "XPM ଫାଇଲର ଚିତ୍ରର ଓସାର <= ୦"
 
-#: gdk-pixbuf/io-xpm.c:492
+#: gdk-pixbuf/io-xpm.c:494
 msgid "XPM file has image height <= 0"
 msgstr "XPM ଫାଇଲର ଚିତ୍ରର ଉଚ୍ଚତା <= ୦"
 
-#: gdk-pixbuf/io-xpm.c:500
+#: gdk-pixbuf/io-xpm.c:502
 msgid "XPM has invalid number of chars per pixel"
 msgstr "XPM ଫାଇଲର ଅକ୍ଷର ପ୍ରତି ପିକ୍ସେଲର ସଂଖ୍ଯା ଅବୈଧ"
 
-#: gdk-pixbuf/io-xpm.c:509
+#: gdk-pixbuf/io-xpm.c:511
 msgid "XPM file has invalid number of colors"
 msgstr "XPM ଫାଇଲର ରଙ୍ଗର ସଂଖ୍ଯା ଅବୈଧ"
 
-#: gdk-pixbuf/io-xpm.c:521 gdk-pixbuf/io-xpm.c:530 gdk-pixbuf/io-xpm.c:582
+#: gdk-pixbuf/io-xpm.c:523 gdk-pixbuf/io-xpm.c:532 gdk-pixbuf/io-xpm.c:584
 msgid "Cannot allocate memory for loading XPM image"
 msgstr "XPM ଚିତ୍ର ଧାରଣ କରିବା ପାଇଁ ସ୍ମୃତି ଯୋଗାଇ ହେଲା ନାହିଁ"
 
-#: gdk-pixbuf/io-xpm.c:544
+#: gdk-pixbuf/io-xpm.c:546
 msgid "Cannot read XPM colormap"
 msgstr "XPM ରଙ୍ଗନକ୍ସା ପଢ଼ିହେଲା ନାହିଁ"
 
-#: gdk-pixbuf/io-xpm.c:776
+#: gdk-pixbuf/io-xpm.c:778
 msgid "Failed to write to temporary file when loading XPM image"
 msgstr "XPM ଚିତ୍ର ଧାରଣ କରିବା ସମୟରେ ଅସ୍ଥାୟୀ ଫାଇଲକୁ ଲେଖିବାରେ ଅସଫଳ"
 
-#: gdk-pixbuf/io-xpm.c:815
+#: gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "XPM ଚିତ୍ର ଶୈଳୀ"
 
@@ -892,40 +892,40 @@ msgstr "XPM ଚିତ୍ର ଶୈଳୀ"
 msgid "The EMF image format"
 msgstr "EMF ଚିତ୍ର ଶୈଳୀ"
 
-#: gdk-pixbuf/io-gdip-utils.c:232
+#: gdk-pixbuf/io-gdip-utils.c:154
 #, c-format
 msgid "Could not allocate memory: %s"
 msgstr "ସ୍ମୃତି ସ୍ଥାନ ଯୋଗାଇ ହେଲା ନାହିଁ: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:257 gdk-pixbuf/io-gdip-utils.c:371
-#: gdk-pixbuf/io-gdip-utils.c:411
+#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
+#: gdk-pixbuf/io-gdip-utils.c:333
 #, c-format
 msgid "Could not create stream: %s"
 msgstr "ଧାରା ସୃଷ୍ଟି କରିପାରିଲା ନାହିଁ: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:271
+#: gdk-pixbuf/io-gdip-utils.c:193
 #, c-format
 msgid "Could not seek stream: %s"
 msgstr "ଧାରାକୁ ଅନୁସନ୍ଧାନ କରିହେଲା ନାହିଁ: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:283
+#: gdk-pixbuf/io-gdip-utils.c:205
 #, c-format
 msgid "Could not read from stream: %s"
 msgstr "ଧାରାରୁ ପଢ଼ି ପାରିଲା ନାହିଁ: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:694 gdk-pixbuf/io-gdip-utils.c:825
+#: gdk-pixbuf/io-gdip-utils.c:616 gdk-pixbuf/io-gdip-utils.c:747
 msgid "Couldn't load bitmap"
 msgstr "bitmapକୁ ଧାରଣ କରିହେଲା ନାହିଁ"
 
-#: gdk-pixbuf/io-gdip-utils.c:847
+#: gdk-pixbuf/io-gdip-utils.c:769
 msgid "Couldn't load metafile"
 msgstr "metafileକୁ ଧାରଣ କରିହେଲା ନାହିଁ"
 
-#: gdk-pixbuf/io-gdip-utils.c:1006
+#: gdk-pixbuf/io-gdip-utils.c:928
 msgid "Unsupported image format for GDI+"
 msgstr "GDI+ ପାଇଁ ଅସମର୍ଥିତ ଚିତ୍ରଶୈଳୀ"
 
-#: gdk-pixbuf/io-gdip-utils.c:1013
+#: gdk-pixbuf/io-gdip-utils.c:935
 msgid "Couldn't save"
 msgstr "ସଂରକ୍ଷଣ କରିପାରିଲା ନାହିଁ"
 
