@@ -111,11 +111,11 @@ rm -rf autom4te.cache
 touch README INSTALL
 
 autopoint --force || exit $?
+gtkdocize || exit $?
 
 $ACLOCAL -I m4 $ACLOCAL_FLAGS || exit $?
 
 libtoolize --force || exit $?
-gtkdocize || exit $?
 autoheader || exit $?
 
 $AUTOMAKE --add-missing || exit $?
