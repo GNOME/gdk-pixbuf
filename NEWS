@@ -1,3 +1,32 @@
+2.22.0
+======
+
+* Fix a problem with mime type detection
+
+* Win32: Fix linking on x64
+
+* Drop gobject-introspection requirement to 0.9.3
+
+* Translation updates
+  Basque
+  Czech
+  Danish
+  Dutch
+  Estonian
+  French
+  Galician
+  German
+  Hebrew
+  Hungarian
+  Indonesian
+  Japanese
+  Polish
+  Portuguese
+  Simplified Chinese
+  Slovenian
+  Spanish
+  Turkish
+
 2.21.7
 ======
 
