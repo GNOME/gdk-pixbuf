@@ -316,6 +316,18 @@ if test "x$enable_rebuilds" = "xyes" && \
 fi
 AC_SUBST(REBUILD)
 
+# sigsetjmp is a macro on some platforms, so AC_CHECK_FUNCS is not reliable
+AC_MSG_CHECKING(for sigsetjmp)
+AC_TRY_LINK([#include <setjmp.h>], [
+sigjmp_buf env;
+sigsetjmp(env, 0);
+], gtk_ok=yes, gtk_ok=no)
+AC_MSG_RESULT($gtk_ok)
+if test "$gtk_ok" = "yes"; then
+  AC_DEFINE(HAVE_SIGSETJMP, 1,
+            [Define to 1 if sigsetjmp is available])
+fi
+
 # i18n stuff
 AM_GNU_GETTEXT_VERSION([0.17])
 AM_GNU_GETTEXT([external])
