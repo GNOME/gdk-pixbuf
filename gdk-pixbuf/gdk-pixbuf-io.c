@@ -2649,7 +2649,7 @@ _gdk_pixbuf_get_format (GdkPixbufModule *module)
  * Obtains the available information about the image formats supported
  * by GdkPixbuf.
  *
- * Returns: (transfer container): (element-type GdkPixbufFormat): A list of
+ * Returns: (transfer container) (element-type GdkPixbufFormat): A list of
  * #GdkPixbufFormat<!-- -->s describing the supported
  * image formats.  The list should be freed when it is no longer needed,
  * but the structures themselves are owned by #GdkPixbuf and should not be
