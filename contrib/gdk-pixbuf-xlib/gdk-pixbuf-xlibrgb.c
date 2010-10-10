@@ -672,7 +672,8 @@ xlib_rgb_choose_visual_for_xprint (int aDepth)
 			&win_att);
   root_visual = win_att.visual;
   template.screen = image_info->screen_num;
-  visuals = XGetVisualInfo(image_info->display, VisualScreenMask,
+  template.depth = aDepth;
+  visuals = XGetVisualInfo(image_info->display, VisualScreenMask|VisualDepthMask,
 			   &template, &num_visuals);
  
   best_visual = visuals;
