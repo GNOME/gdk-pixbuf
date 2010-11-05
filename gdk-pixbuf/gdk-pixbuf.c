@@ -36,6 +36,7 @@
 
 /* Include the marshallers */
 #include <glib-object.h>
+#include <gio/gio.h>
 #include "gdk-pixbuf-marshal.c"
 
 static void gdk_pixbuf_finalize     (GObject        *object);
@@ -62,7 +63,11 @@ enum
   PROP_PIXELS
 };
 
-G_DEFINE_TYPE (GdkPixbuf, gdk_pixbuf, G_TYPE_OBJECT)
+static void gdk_pixbuf_icon_iface_init (GIconIface *iface);
+
+G_DEFINE_TYPE_WITH_CODE (GdkPixbuf, gdk_pixbuf, G_TYPE_OBJECT,
+                         G_IMPLEMENT_INTERFACE (G_TYPE_ICON,
+                                                gdk_pixbuf_icon_iface_init))
 
 static void 
 gdk_pixbuf_init (GdkPixbuf *pixbuf)
@@ -216,7 +221,12 @@ gdk_pixbuf_unref (GdkPixbuf *pixbuf)
         g_object_unref (pixbuf);
 }
 
-
+static void
+gdk_pixbuf_icon_iface_init (GIconIface *iface)
+{
+        iface->hash = g_direct_hash;
+        iface->equal = g_direct_equal;
+}
 
 /* Used as the destroy notification function for gdk_pixbuf_new() */
 static void
