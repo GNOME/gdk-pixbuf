@@ -1,3 +1,25 @@
+2.22.1
+======
+
+* Make GdkPixbuf implement the GIcon interface
+
+* Fix loader.cache detection on Windows
+
+* Translation updates
+  Brazilian Portuguese
+  Bulgarian
+  Catalan
+  Catalan (Valencian)
+  Chinese
+  Greek
+  Lithuanian
+  Norwegian bokmål
+  Punjabi
+  Romanian
+  Russian
+  Uighur
+
+
 2.22.0
 ======
 
