@@ -256,18 +256,18 @@ get_toplevel (void)
 }
 
 static char *
-get_sysconfdir (void)
+get_libdir (void)
 {
-  static char *sysconfdir = NULL;
+  static char *libdir = NULL;
 
-  if (sysconfdir == NULL)
-          sysconfdir = g_build_filename (get_toplevel (), "etc", NULL);
+  if (libdir == NULL)
+          libdir = g_build_filename (get_toplevel (), "lib", NULL);
 
-  return sysconfdir;
+  return libdir;
 }
 
-#undef GDK_PIXBUF_SYSCONFDIR
-#define GDK_PIXBUF_SYSCONFDIR get_sysconfdir()
+#undef GDK_PIXBUF_LIBDIR
+#define GDK_PIXBUF_LIBDIR get_libdir()
 
 static void
 correct_prefix (gchar **path)
