@@ -653,7 +653,7 @@ gdk_pixbuf__pcx_load_increment(gpointer data, const guchar *buf, guint size,
 			if(context->bpp == 8) {
 				context->p_data = g_try_malloc(sizeof(guchar) * context->width * context->height);
 				if(!context->p_data) {
-					g_set_error_literal(error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY, _("Couldn't allocate memory for paletted data"));
+					g_set_error_literal(error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY, _("Couldn't allocate memory for PCX image"));
 					return FALSE;
 				}
 			}
