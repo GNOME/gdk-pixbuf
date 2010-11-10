@@ -20,8 +20,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-21 21:41-0300\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%"
+"2b&component=gdk\n"
+"POT-Creation-Date: 2010-11-05 23:36+0000\n"
 "PO-Revision-Date: 2010-09-21 21:40-0300\n"
 "Last-Translator: Jonh Wendell <jwendell@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
@@ -478,8 +479,9 @@ msgid "Couldn't allocate memory for line data"
 msgstr "Não foi possível alocar memória para dados de linhas"
 
 #: ../gdk-pixbuf/io-pcx.c:656
-msgid "Couldn't allocate memory for paletted data"
-msgstr "Não foi possível alocar memória para dados em paletas"
+#| msgid "Couldn't allocate memory for header"
+msgid "Couldn't allocate memory for PCX image"
+msgstr "Não foi possível alocar memória para a imagem PCX"
 
 #: ../gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
@@ -954,3 +956,6 @@ msgstr "Não foi possível salvar"
 #: ../gdk-pixbuf/io-gdip-wmf.c:58
 msgid "The WMF image format"
 msgstr "Formato de imagem WMF"
+
+#~ msgid "Couldn't allocate memory for paletted data"
+#~ msgstr "Não foi possível alocar memória para dados em paletas"
