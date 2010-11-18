@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 2.31.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-25 11:50+0200\n"
-"PO-Revision-Date: 2010-09-25 11:51+0200\n"
+"POT-Creation-Date: 2010-11-18 14:02+0100\n"
+"PO-Revision-Date: 2010-11-18 14:03+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -56,7 +56,9 @@ msgstr "Kan ikke laste modul for innlesing av bilder: %s: %s"
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
 "from a different gdk-pixbuf version?"
-msgstr "Modul %s for bildelasting eksporterer ikke riktig grensesnitt; kanskje den er fra en annen versjon av gdk-pixbuf?"
+msgstr ""
+"Modul %s for bildelasting eksporterer ikke riktig grensesnitt; kanskje den "
+"er fra en annen versjon av gdk-pixbuf?"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:737 ../gdk-pixbuf/gdk-pixbuf-io.c:788
 #, c-format
@@ -458,8 +460,8 @@ msgid "Couldn't allocate memory for line data"
 msgstr "Kunne ikke allokere minne for linjedata"
 
 #: ../gdk-pixbuf/io-pcx.c:656
-msgid "Couldn't allocate memory for paletted data"
-msgstr "Kan ikke allokere minne for palett-data"
+msgid "Couldn't allocate memory for PCX image"
+msgstr "Kunne ikke allokere minne for PCX-bilde"
 
 #: ../gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
