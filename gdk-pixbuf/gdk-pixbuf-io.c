@@ -1445,6 +1445,81 @@ gdk_pixbuf_new_from_stream_at_scale (GInputStream  *stream,
         return pixbuf;
 }
 
+static void
+new_from_stream_thread (GSimpleAsyncResult *result,
+			GInputStream       *stream,
+			GCancellable       *cancellable)
+{
+	GdkPixbuf *pixbuf;
+	AtScaleData *data;
+	GError *error = NULL;
+
+	/* If data != NULL, we're scaling the pixbuf while loading it */
+	data = g_simple_async_result_get_op_res_gpointer (result);
+	if (data != NULL)
+		pixbuf = gdk_pixbuf_new_from_stream_at_scale (stream, data->width, data->height, data->preserve_aspect_ratio, cancellable, &error);
+	else
+		pixbuf = gdk_pixbuf_new_from_stream (stream, cancellable, &error);
+
+	g_free (data); /* GSimpleAsyncResult doesn't destroy result pointers when setting a new value over the top */
+	g_simple_async_result_set_op_res_gpointer (result, NULL, NULL);
+
+	/* Set the new pixbuf as the result, or error out */
+	if (pixbuf == NULL) {
+		g_simple_async_result_set_from_error (result, error);
+		g_error_free (error);
+	} else {
+		g_simple_async_result_set_op_res_gpointer (result, pixbuf, g_object_unref);
+	}
+}
+
+/**
+ * gdk_pixbuf_new_from_stream_at_scale_async:
+ * @stream: a #GInputStream from which to load the pixbuf
+ * @width: the width the image should have or -1 to not constrain the width
+ * @height: the height the image should have or -1 to not constrain the height
+ * @preserve_aspect_ratio: %TRUE to preserve the image's aspect ratio
+ * @cancellable: optional #GCancellable object, %NULL to ignore
+ * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
+ * @user_data: the data to pass to the callback function
+ *
+ * Creates a new pixbuf by asynchronously loading an image from an input stream.
+ *
+ * For more details see gdk_pixbuf_new_from_stream_at_scale(), which is the synchronous
+ * version of this function.
+ *
+ * When the operation is finished, @callback will be called in the main thread.
+ * You can then call gdk_pixbuf_new_from_stream_finish() to get the result of the operation.
+ *
+ * Since: 2.24
+ **/
+void
+gdk_pixbuf_new_from_stream_at_scale_async (GInputStream        *stream,
+					   gint                 width,
+					   gint                 height,
+					   gboolean             preserve_aspect_ratio,
+					   GCancellable        *cancellable,
+					   GAsyncReadyCallback  callback,
+					   gpointer             user_data)
+{
+	GSimpleAsyncResult *result;
+	AtScaleData *data;
+
+	g_return_if_fail (G_IS_INPUT_STREAM (stream));
+	g_return_if_fail (callback != NULL);
+	g_return_if_fail (!cancellable || G_IS_CANCELLABLE (cancellable));
+
+	data = g_new (AtScaleData, 1);
+	data->width = width;
+	data->height = height;
+	data->preserve_aspect_ratio = preserve_aspect_ratio;
+
+	result = g_simple_async_result_new (G_OBJECT (stream), callback, user_data, gdk_pixbuf_new_from_stream_at_scale_async);
+	g_simple_async_result_set_op_res_gpointer (result, data, (GDestroyNotify) g_free);
+	g_simple_async_result_run_in_thread (result, (GSimpleAsyncThreadFunc) new_from_stream_thread, G_PRIORITY_DEFAULT, cancellable);
+	g_object_unref (result);
+}
+
 /**
  * gdk_pixbuf_new_from_stream:
  * @stream:  a #GInputStream to load the pixbuf from
@@ -1481,6 +1556,75 @@ gdk_pixbuf_new_from_stream (GInputStream  *stream,
         g_object_unref (loader);
 
         return pixbuf;
+}
+
+/**
+ * gdk_pixbuf_new_from_stream_async:
+ * @stream: a #GInputStream from which to load the pixbuf
+ * @cancellable: optional #GCancellable object, %NULL to ignore
+ * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
+ * @user_data: the data to pass to the callback function
+ *
+ * Creates a new pixbuf by asynchronously loading an image from an input stream.
+ *
+ * For more details see gdk_pixbuf_new_from_stream(), which is the synchronous
+ * version of this function.
+ *
+ * When the operation is finished, @callback will be called in the main thread.
+ * You can then call gdk_pixbuf_new_from_stream_finish() to get the result of the operation.
+ *
+ * Since: 2.24
+ **/
+void
+gdk_pixbuf_new_from_stream_async (GInputStream        *stream,
+				  GCancellable        *cancellable,
+				  GAsyncReadyCallback  callback,
+				  gpointer             user_data)
+{
+	GSimpleAsyncResult *result;
+
+	g_return_if_fail (G_IS_INPUT_STREAM (stream));
+	g_return_if_fail (callback != NULL);
+	g_return_if_fail (!cancellable || G_IS_CANCELLABLE (cancellable));
+
+	result = g_simple_async_result_new (G_OBJECT (stream), callback, user_data, gdk_pixbuf_new_from_stream_async);
+	g_simple_async_result_run_in_thread (result, (GSimpleAsyncThreadFunc) new_from_stream_thread, G_PRIORITY_DEFAULT, cancellable);
+	g_object_unref (result);
+}
+
+/**
+ * gdk_pixbuf_new_from_stream_finish:
+ * @async_result: a #GAsyncResult
+ * @error: a #GError, or %NULL
+ *
+ * Finishes an asynchronous pixbuf creation operation started with
+ * gdk_pixbuf_new_from_stream_async().
+ *
+ * Return value: a #GdkPixbuf or %NULL on error. Free the returned
+ * object with g_object_unref().
+ *
+ * Since: 2.24
+ **/
+GdkPixbuf *
+gdk_pixbuf_new_from_stream_finish (GAsyncResult  *async_result,
+				   GError       **error)
+{
+	GdkPixbuf *pixbuf;
+	GSimpleAsyncResult *result = G_SIMPLE_ASYNC_RESULT (async_result);
+
+	g_return_val_if_fail (G_IS_ASYNC_RESULT (async_result), NULL);
+	g_return_val_if_fail (!error || (error && !*error), NULL);
+	g_warn_if_fail (g_simple_async_result_get_source_tag (result) == gdk_pixbuf_new_from_stream_async ||
+			g_simple_async_result_get_source_tag (result) == gdk_pixbuf_new_from_stream_at_scale_async);
+
+	if (g_simple_async_result_propagate_error (result, error))
+		return NULL;
+
+	pixbuf = g_simple_async_result_get_op_res_gpointer (result);
+	if (pixbuf != NULL)
+		return g_object_ref (pixbuf);
+
+	return NULL;
 }
 
 static void
@@ -2450,6 +2594,137 @@ gdk_pixbuf_save_to_stream (GdkPixbuf      *pixbuf,
         g_strfreev (values);
 
         return res;
+}
+
+typedef struct {
+	GOutputStream *stream;
+	gchar *type;
+	gchar **keys;
+	gchar **values;
+} SaveToStreamAsyncData;
+
+static void
+save_to_stream_async_data_free (SaveToStreamAsyncData *data)
+{
+	g_strfreev (data->keys);
+	g_strfreev (data->values);
+	g_free (data->type);
+	g_free (data);
+}
+
+static void
+save_to_stream_thread (GSimpleAsyncResult *result,
+		       GdkPixbuf          *pixbuf,
+		       GCancellable       *cancellable)
+{
+	SaveToStreamAsyncData *data;
+	SaveToStreamData sync_data;
+	gboolean retval;
+	GError *error = NULL;
+
+	data = g_simple_async_result_get_op_res_gpointer (result);
+	sync_data.stream = data->stream;
+	sync_data.cancellable = cancellable;
+
+	retval = gdk_pixbuf_save_to_callbackv (pixbuf, save_to_stream,
+					       &sync_data, data->type,
+					       data->keys, data->values,
+					       &error);
+
+	save_to_stream_async_data_free (data); /* GSimpleAsyncResult doesn't destroy result pointers when setting a new value over the top */
+
+	/* Set the new pixbuf as the result, or error out */
+	if (retval == FALSE) {
+		g_simple_async_result_set_from_error (result, error);
+		g_error_free (error);
+	} else {
+		g_simple_async_result_set_op_res_gboolean (result, TRUE);
+	}
+}
+
+/**
+ * gdk_pixbuf_save_to_stream_async:
+ * @pixbuf: a #GdkPixbuf
+ * @stream: a #GOutputStream to which to save the pixbuf
+ * @type: name of file format
+ * @cancellable: optional #GCancellable object, %NULL to ignore
+ * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
+ * @user_data: the data to pass to the callback function
+ * @Varargs: list of key-value save options
+ *
+ * Saves @pixbuf to an output stream asynchronously.
+ *
+ * For more details see gdk_pixbuf_save_to_stream(), which is the synchronous
+ * version of this function.
+ *
+ * When the operation is finished, @callback will be called in the main thread.
+ * You can then call gdk_pixbuf_save_to_stream_finish() to get the result of the operation.
+ *
+ * Since: 2.24
+ **/
+void
+gdk_pixbuf_save_to_stream_async (GdkPixbuf           *pixbuf,
+				 GOutputStream       *stream,
+				 const gchar         *type,
+				 GCancellable        *cancellable,
+				 GAsyncReadyCallback  callback,
+				 gpointer             user_data,
+				 ...)
+{
+	GSimpleAsyncResult *result;
+	gchar **keys = NULL;
+	gchar **values = NULL;
+	va_list args;
+	SaveToStreamAsyncData *data;
+
+	g_return_if_fail (GDK_IS_PIXBUF (pixbuf));
+	g_return_if_fail (G_IS_OUTPUT_STREAM (stream));
+	g_return_if_fail (type != NULL);
+	g_return_if_fail (callback != NULL);
+	g_return_if_fail (!cancellable || G_IS_CANCELLABLE (cancellable));
+
+	va_start (args, user_data);
+	collect_save_options (args, &keys, &values);
+	va_end (args);
+
+	data = g_new (SaveToStreamAsyncData, 1);
+	data->stream = g_object_ref (stream);
+	data->type = g_strdup (type);
+	data->keys = keys;
+	data->values = values;
+
+	result = g_simple_async_result_new (G_OBJECT (pixbuf), callback, user_data, gdk_pixbuf_save_to_stream_async);
+	g_simple_async_result_set_op_res_gpointer (result, data, (GDestroyNotify) save_to_stream_async_data_free);
+	g_simple_async_result_run_in_thread (result, (GSimpleAsyncThreadFunc) save_to_stream_thread, G_PRIORITY_DEFAULT, cancellable);
+	g_object_unref (result);
+}
+
+/**
+ * gdk_pixbuf_save_to_stream_finish:
+ * @async_result: a #GAsyncResult
+ * @error: a #GError, or %NULL
+ *
+ * Finishes an asynchronous pixbuf save operation started with
+ * gdk_pixbuf_save_to_stream_async().
+ *
+ * Return value: %TRUE if the pixbuf was saved successfully, %FALSE if an error was set.
+ *
+ * Since: 2.24
+ **/
+gboolean
+gdk_pixbuf_save_to_stream_finish (GAsyncResult  *async_result,
+				  GError       **error)
+{
+	GSimpleAsyncResult *result = G_SIMPLE_ASYNC_RESULT (async_result);
+
+	g_return_val_if_fail (G_IS_ASYNC_RESULT (async_result), FALSE);
+	g_return_val_if_fail (!error || (error && !*error), FALSE);
+	g_warn_if_fail (g_simple_async_result_get_source_tag (result) == gdk_pixbuf_save_to_stream_async);
+
+	if (g_simple_async_result_propagate_error (result, error))
+		return FALSE;
+
+	return g_simple_async_result_get_op_res_gboolean (result);
 }
 
 /**

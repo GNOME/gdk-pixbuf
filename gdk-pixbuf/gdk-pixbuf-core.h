@@ -223,6 +223,14 @@ GdkPixbuf *gdk_pixbuf_new_from_stream   (GInputStream   *stream,
 					 GCancellable   *cancellable,
                                          GError        **error);
 
+void gdk_pixbuf_new_from_stream_async (GInputStream        *stream,
+				       GCancellable        *cancellable,
+				       GAsyncReadyCallback  callback,
+				       gpointer             user_data);
+
+GdkPixbuf *gdk_pixbuf_new_from_stream_finish (GAsyncResult  *async_result,
+					      GError       **error);
+
 GdkPixbuf *gdk_pixbuf_new_from_stream_at_scale   (GInputStream   *stream,
                                                   gint            width,
                                                   gint            height,
@@ -230,12 +238,31 @@ GdkPixbuf *gdk_pixbuf_new_from_stream_at_scale   (GInputStream   *stream,
 						  GCancellable   *cancellable,
                                                   GError        **error);
 
+void gdk_pixbuf_new_from_stream_at_scale_async (GInputStream        *stream,
+						gint                 width,
+						gint                 height,
+						gboolean             preserve_aspect_ratio,
+						GCancellable        *cancellable,
+						GAsyncReadyCallback  callback,
+						gpointer             user_data);
+
 gboolean   gdk_pixbuf_save_to_stream    (GdkPixbuf      *pixbuf,
                                          GOutputStream  *stream,
                                          const char     *type,
 					 GCancellable   *cancellable,
                                          GError        **error,
                                          ...);
+
+void gdk_pixbuf_save_to_stream_async (GdkPixbuf           *pixbuf,
+				      GOutputStream       *stream,
+				      const gchar         *type,
+				      GCancellable        *cancellable,
+				      GAsyncReadyCallback  callback,
+				      gpointer             user_data,
+				      ...);
+
+gboolean gdk_pixbuf_save_to_stream_finish (GAsyncResult  *async_result,
+					   GError       **error);
 
 /* Adding an alpha channel */
 GdkPixbuf *gdk_pixbuf_add_alpha (const GdkPixbuf *pixbuf, gboolean substitute_color,
