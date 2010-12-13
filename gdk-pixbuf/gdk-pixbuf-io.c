@@ -1471,8 +1471,7 @@ new_from_stream_thread (GSimpleAsyncResult *result,
 
 	/* Set the new pixbuf as the result, or error out */
 	if (pixbuf == NULL) {
-		g_simple_async_result_set_from_error (result, error);
-		g_error_free (error);
+		g_simple_async_result_take_error (result, error);
 	} else {
 		g_simple_async_result_set_op_res_gpointer (result, g_object_ref (pixbuf), g_object_unref);
 	}
@@ -2635,8 +2634,7 @@ save_to_stream_thread (GSimpleAsyncResult *result,
 
 	/* Set the new pixbuf as the result, or error out */
 	if (retval == FALSE) {
-		g_simple_async_result_set_from_error (result, error);
-		g_error_free (error);
+		g_simple_async_result_take_error (result, error);
 	} else {
 		g_simple_async_result_set_op_res_gboolean (result, TRUE);
 	}
