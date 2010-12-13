@@ -1138,6 +1138,12 @@ typedef struct {
 } AtScaleData; 
 
 static void
+at_scale_data_async_data_free (AtScaleData *data)
+{
+	g_slice_free (AtScaleData, data);
+}
+
+static void
 at_scale_size_prepared_cb (GdkPixbufLoader *loader, 
                            int              width,
                            int              height,
@@ -1461,7 +1467,6 @@ new_from_stream_thread (GSimpleAsyncResult *result,
 	else
 		pixbuf = gdk_pixbuf_new_from_stream (stream, cancellable, &error);
 
-	g_free (data); /* GSimpleAsyncResult doesn't destroy result pointers when setting a new value over the top */
 	g_simple_async_result_set_op_res_gpointer (result, NULL, NULL);
 
 	/* Set the new pixbuf as the result, or error out */
@@ -1469,7 +1474,7 @@ new_from_stream_thread (GSimpleAsyncResult *result,
 		g_simple_async_result_set_from_error (result, error);
 		g_error_free (error);
 	} else {
-		g_simple_async_result_set_op_res_gpointer (result, pixbuf, g_object_unref);
+		g_simple_async_result_set_op_res_gpointer (result, g_object_ref (pixbuf), g_object_unref);
 	}
 }
 
@@ -1509,13 +1514,13 @@ gdk_pixbuf_new_from_stream_at_scale_async (GInputStream        *stream,
 	g_return_if_fail (callback != NULL);
 	g_return_if_fail (!cancellable || G_IS_CANCELLABLE (cancellable));
 
-	data = g_new (AtScaleData, 1);
+	data = g_slice_new (AtScaleData);
 	data->width = width;
 	data->height = height;
 	data->preserve_aspect_ratio = preserve_aspect_ratio;
 
 	result = g_simple_async_result_new (G_OBJECT (stream), callback, user_data, gdk_pixbuf_new_from_stream_at_scale_async);
-	g_simple_async_result_set_op_res_gpointer (result, data, (GDestroyNotify) g_free);
+	g_simple_async_result_set_op_res_gpointer (result, data, (GDestroyNotify) at_scale_data_async_data_free);
 	g_simple_async_result_run_in_thread (result, (GSimpleAsyncThreadFunc) new_from_stream_thread, G_PRIORITY_DEFAULT, cancellable);
 	g_object_unref (result);
 }
@@ -1609,7 +1614,6 @@ GdkPixbuf *
 gdk_pixbuf_new_from_stream_finish (GAsyncResult  *async_result,
 				   GError       **error)
 {
-	GdkPixbuf *pixbuf;
 	GSimpleAsyncResult *result = G_SIMPLE_ASYNC_RESULT (async_result);
 
 	g_return_val_if_fail (G_IS_ASYNC_RESULT (async_result), NULL);
@@ -1620,11 +1624,7 @@ gdk_pixbuf_new_from_stream_finish (GAsyncResult  *async_result,
 	if (g_simple_async_result_propagate_error (result, error))
 		return NULL;
 
-	pixbuf = g_simple_async_result_get_op_res_gpointer (result);
-	if (pixbuf != NULL)
-		return g_object_ref (pixbuf);
-
-	return NULL;
+	return g_simple_async_result_get_op_res_gpointer (result);
 }
 
 static void
@@ -2606,10 +2606,12 @@ typedef struct {
 static void
 save_to_stream_async_data_free (SaveToStreamAsyncData *data)
 {
+	if (data->stream)
+		g_object_unref (data->stream);
 	g_strfreev (data->keys);
 	g_strfreev (data->values);
 	g_free (data->type);
-	g_free (data);
+	g_slice_free (SaveToStreamAsyncData, data);
 }
 
 static void
@@ -2630,8 +2632,6 @@ save_to_stream_thread (GSimpleAsyncResult *result,
 					       &sync_data, data->type,
 					       data->keys, data->values,
 					       &error);
-
-	save_to_stream_async_data_free (data); /* GSimpleAsyncResult doesn't destroy result pointers when setting a new value over the top */
 
 	/* Set the new pixbuf as the result, or error out */
 	if (retval == FALSE) {
@@ -2687,7 +2687,7 @@ gdk_pixbuf_save_to_stream_async (GdkPixbuf           *pixbuf,
 	collect_save_options (args, &keys, &values);
 	va_end (args);
 
-	data = g_new (SaveToStreamAsyncData, 1);
+	data = g_slice_new (SaveToStreamAsyncData);
 	data->stream = g_object_ref (stream);
 	data->type = g_strdup (type);
 	data->keys = keys;
