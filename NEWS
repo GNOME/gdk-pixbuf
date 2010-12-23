@@ -1,3 +1,29 @@
+2.23.0
+======
+
+* New API: gdk_pixbuf_new_from_stream_async
+
+* Translation updates
+ Brazilian Portuguese
+ British English
+ Catalan
+ Czech
+ Estonian
+ Galician
+ German
+ Hebrew
+ Indonesian
+ Hungarian
+ Norwegian bokmål
+ Polish
+ Romanian
+ Slovenian
+ Spanish
+ Thai
+ Traditional Chinese
+ Uighur
+
+
 2.22.1
 ======
 
