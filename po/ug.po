@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%2b&component=gdk\n"
-"POT-Creation-Date: 2010-11-14 12:45+0000\n"
+"POT-Creation-Date: 2010-11-20 10:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Sahran <sahran@live.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -433,15 +433,15 @@ msgstr "سۈرەتتە قوللىمايدىغان %d بىتلىق رەڭ تەخ�
 
 #: ../gdk-pixbuf/io-pcx.c:641
 msgid "Couldn't create new pixbuf"
-msgstr "يېڭى پىكسېل يىغلەك قۇرالمايدۇ"
+msgstr "يېڭى پىكسېل يىغلەك قۇرالمىدى"
 
 #: ../gdk-pixbuf/io-pcx.c:649
 msgid "Couldn't allocate memory for line data"
-msgstr "سىزىقلىق سانلىق-مەلۇماتقا ئەسلەك تەقسىملىيەلمەيدۇ"
+msgstr "سىزىقلىق سانلىق-مەلۇماتقا ئەسلەك تەقسىملىيەلمىدى"
 
 #: ../gdk-pixbuf/io-pcx.c:656
 msgid "Couldn't allocate memory for PCX image"
-msgstr ""
+msgstr "PCX رەسىمىگە يىغلەككە ئەسلەك تەقسىملىيەلمىدى"
 
 #: ../gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
