@@ -519,16 +519,14 @@ AC_ARG_WITH(libtiff,
 AC_ARG_WITH(libjasper,
             [AC_HELP_STRING([--with-libjasper],
                             [enable JPEG2000 loader for gdk-pixbuf])])
+AC_ARG_WITH(gdiplus,
+            [AC_HELP_STRING([--without-gdiplus],
+                            [disable GDI+ loaders for gdk-pixbuf on Windows])])
 
-AC_ARG_ENABLE(gdiplus,
-            [AC_HELP_STRING([--enable-gdiplus],
-                            [enble GDI+ loaders for gdk-pixbuf (currently known to be broken)])],,
-            [enable_gdiplus=no])
-
-AM_CONDITIONAL(BUILD_GDIPLUS_LOADERS, [ test x$os_win32 = xyes && test x$enable_gdiplus != xno ])
+AM_CONDITIONAL(BUILD_GDIPLUS_LOADERS, [ test x$os_win32 = xyes && test x$with_gdiplus != xno ])
 
 dnl Test for libtiff
-if test x$os_win32 = xno || test x$enable_gdiplus = xno; then
+if test x$os_win32 = xno || test x$with_gdiplus = xno; then
   if test x$with_libtiff != xno && test -z "$LIBTIFF"; then
     AC_CHECK_LIB(tiff, TIFFReadRGBAImageOriented,
       [AC_CHECK_HEADER(tiffio.h,
@@ -554,7 +552,7 @@ if test x$os_win32 = xno || test x$enable_gdiplus = xno; then
 fi
 
 dnl Test for libjpeg
-if test x$os_win32 = xno || test x$enable_gdiplus = xno; then
+if test x$os_win32 = xno || test x$with_gdiplus = xno; then
   if test x$with_libjpeg != xno && test -z "$LIBJPEG"; then
     AC_CHECK_LIB(jpeg, jpeg_destroy_decompress,
       jpeg_ok=yes,
@@ -686,7 +684,7 @@ all_loaders="ani,icns,pcx,ras,tga,png,pnm,wbmp,xbm,xpm,qtif"
 if test x$with_libjasper = xyes; then
   all_loaders="$all_loaders,jasper"
 fi
-if test x$os_win32 = xyes && test x$enable_gdiplus != xno; then
+if test x$os_win32 = xyes && test x$with_gdiplus != xno; then
   # Skip PNG, see comment above
   gdip_formats="bmp emf gif ico jpeg tiff wmf"
   for f in $gdip_formats; do
@@ -899,7 +897,7 @@ fi
 AM_CONDITIONAL(USE_MMX, test x$use_mmx_asm = xyes)
 
 REBUILD_PNGS=
-if test -z "$LIBPNG" && test x"$os_win32" = xno -o x$enable_gdiplus = xno; then
+if test -z "$LIBPNG" && test x"$os_win32" = xno -o x$with_gdiplus = xno; then
   REBUILD_PNGS=#
 fi
 
