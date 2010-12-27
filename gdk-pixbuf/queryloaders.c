@@ -212,6 +212,35 @@ query_module (GString *contents, const char *dir, const char *file)
         g_free (path);
 }
 
+#ifdef G_OS_WIN32
+
+static char *
+get_toplevel (void)
+{
+  static char *toplevel = NULL;
+
+  if (toplevel == NULL)
+          toplevel = g_win32_get_package_installation_directory_of_module (NULL);
+
+  return toplevel;
+}
+
+static char *
+get_libdir (void)
+{
+  static char *libdir = NULL;
+
+  if (libdir == NULL)
+          libdir = g_build_filename (get_toplevel (), "lib", NULL);
+
+  return libdir;
+}
+
+#undef GDK_PIXBUF_LIBDIR
+#define GDK_PIXBUF_LIBDIR get_libdir()
+
+#endif
+
 static gchar *
 gdk_pixbuf_get_module_file (void)
 {
