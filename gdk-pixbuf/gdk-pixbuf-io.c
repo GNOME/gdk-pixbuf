@@ -244,8 +244,8 @@ DllMain (HINSTANCE hinstDLL,
   return TRUE;
 }
 
-static char *
-get_toplevel (void)
+char *
+_gdk_pixbuf_win32_get_toplevel (void)
 {
   static char *toplevel = NULL;
 
@@ -261,7 +261,7 @@ get_libdir (void)
   static char *libdir = NULL;
 
   if (libdir == NULL)
-          libdir = g_build_filename (get_toplevel (), "lib", NULL);
+          libdir = g_build_filename (_gdk_pixbuf_win32_get_toplevel (), "lib", NULL);
 
   return libdir;
 }
@@ -290,7 +290,7 @@ correct_prefix (gchar **path)
        * installation prefix on this machine.
        */
       tem = *path;
-      *path = g_strconcat (get_toplevel (), tem + strlen (GDK_PIXBUF_PREFIX), NULL);
+      *path = g_strconcat (_gdk_pixbuf_win32_get_toplevel (), tem + strlen (GDK_PIXBUF_PREFIX), NULL);
       g_free (tem);
     }
 }
