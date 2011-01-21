@@ -2,6 +2,8 @@ include $(top_srcdir)/Makefile.decl
 
 SUBDIRS = gdk-pixbuf po docs tests contrib
 
+EXTRA_DIST += config.h.win32
+
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gdk-pixbuf-2.0.pc
 

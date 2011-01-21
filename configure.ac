@@ -1039,6 +1039,7 @@ tests/Makefile
 contrib/Makefile
 contrib/gdk-pixbuf-xlib/Makefile
 contrib/gdk-pixbuf-xlib/gdk-pixbuf-xlib-2.0.pc
+config.h.win32
 ])
 
 AC_OUTPUT

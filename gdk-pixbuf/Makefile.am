@@ -673,6 +673,18 @@ EXTRA_DIST +=					\
 	gdk-pixbuf-enum-types.h.template	\
 	gen-color-table.pl			\
 	gdiplus.def
+	
+dist-hook: ../build/win32/vs9/gdk-pixbuf.vcproj
+
+../build/win32/vs9/gdk-pixbuf.vcproj: ../build/win32/vs9/gdk-pixbuf.vcprojin
+	for F in $(libgdk_pixbuf_2_0_la_SOURCES); do \
+		case $$F in \
+		*.c) echo '   <File RelativePath="..\..\..\gdk-pixbuf\'$$F'" />' \
+		     ;; \
+		esac; \
+	done >libgdkpixbuf.sourcefiles
+	$(CPP) -P - <$(top_srcdir)/build/win32/vs9/gdk-pixbuf.vcprojin >$@
+	rm libgdkpixbuf.sourcefiles
 
 if HAVE_INTROSPECTION
 
