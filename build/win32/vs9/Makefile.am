@@ -1,0 +1,11 @@
+include $(top_srcdir)/Makefile.decl
+
+EXTRA_DIST += \
+	README.txt \
+	gdk-pixbuf.sln \
+	gdk-pixbuf.vsprops \
+	gdk-pixbuf.vcproj \
+	gdk-pixbuf.vcprojin \
+	gdk-pixbuf-csource.vcproj \
+	gdk-pixbuf-query-loaders.vcproj \
+	install.vcproj
