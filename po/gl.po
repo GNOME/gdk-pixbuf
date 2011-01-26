@@ -15,14 +15,14 @@
 # Antón Méixome <meixome@certima.net>, 2010.
 # Francisco Diéguez <frandieguez@ubuntu.com>, 2010.
 # Fran Dieguez <frandieguez@ubuntu.com>, 2009, 2010.
-# Fran Diéguez <frandieguez@ubuntu.com>, 2009, 2010.
+# Fran Diéguez <frandieguez@ubuntu.com>, 2009, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+-master-po-gl-77922___.merged\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-13 02:21+0100\n"
-"PO-Revision-Date: 2010-11-13 02:21+0100\n"
+"POT-Creation-Date: 2011-01-27 00:26+0100\n"
+"PO-Revision-Date: 2011-01-26 20:04+0100\n"
 "Last-Translator: Fran Diéguez <frandieguez@ubuntu.com>\n"
 "Language-Team: Galician <gnome-gl-list@gnome.org>\n"
 "Language: gl\n"
@@ -33,23 +33,23 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:130 ../gdk-pixbuf/gdk-pixbuf-io.c:980
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1240
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1246
 #, c-format
 msgid "Failed to open file '%s': %s"
-msgstr "Produciuse un fallo ao abrir o ficheiro '%s': %s"
+msgstr "Produciuse un fallo ao abrir o ficheiro «%s»: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:143 ../gdk-pixbuf/gdk-pixbuf-io.c:992
 #, c-format
 msgid "Image file '%s' contains no data"
-msgstr "O ficheiro de imaxe '%s' non contén datos"
+msgstr "O ficheiro de imaxe «%s» non contén datos"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:185 ../gdk-pixbuf/gdk-pixbuf-io.c:1028
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1292
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1298
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr ""
-"Produciuse un fallo ao cargar a imaxe '%s': o motivo é descoñecido, é "
+"Produciuse un fallo ao cargar a imaxe «%s»: o motivo é descoñecido, é "
 "probábel que o ficheiro de imaxe estea corrupto"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:218
@@ -58,7 +58,7 @@ msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
 "animation file"
 msgstr ""
-"Produciuse un fallo ao cargar a animación '%s': o motivo é descoñecido, é "
+"Produciuse un fallo ao cargar a animación «%s»: o motivo é descoñecido, é "
 "probábel que o ficheiro da animación estea corrupto"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:713
@@ -78,13 +78,13 @@ msgstr ""
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:737 ../gdk-pixbuf/gdk-pixbuf-io.c:788
 #, c-format
 msgid "Image type '%s' is not supported"
-msgstr "O tipo de imaxe '%s' non é compatíbel"
+msgstr "O tipo de imaxe «%s» non é compatíbel"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:861
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr ""
-"Non foi posíbel recoñecer o formato do ficheiro de imaxe no ficheiro '%s'"
+"Non foi posíbel recoñecer o formato do ficheiro de imaxe no ficheiro «%s»"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:869
 msgid "Unrecognized image file format"
@@ -93,52 +93,52 @@ msgstr "Formato do ficheiro de imaxe non recoñecido"
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1037
 #, c-format
 msgid "Failed to load image '%s': %s"
-msgstr "Produciuse un fallo ao cargar a imaxe '%s': %s"
+msgstr "Produciuse un fallo ao cargar a imaxe «%s»: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1671 ../gdk-pixbuf/io-gdip-utils.c:883
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1814 ../gdk-pixbuf/io-gdip-utils.c:883
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Produciuse un erro ao escribir no ficheiro de imaxe: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1716 ../gdk-pixbuf/gdk-pixbuf-io.c:1846
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1859 ../gdk-pixbuf/gdk-pixbuf-io.c:1989
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Esta construción de gdk-pixbuf non permite a gravación de imaxes co formato: "
 "%s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1750
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1893
 msgid "Insufficient memory to save image to callback"
 msgstr ""
 "Non hai suficiente memoria para gardar a imaxe para a chamada de retorno"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1763
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1906
 msgid "Failed to open temporary file"
 msgstr "Produciuse un fallo ao abrir o ficheiro temporal"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1789
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1932
 msgid "Failed to read from temporary file"
 msgstr "Produciuse un fallo ao ler desde o ficheiro temporal"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2042
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2185
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
-msgstr "Produciuse un fallo ao abrir '%s' para escritura: %s"
+msgstr "Produciuse un fallo ao abrir «%s» para escritura: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2068
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2211
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
 "%s"
 msgstr ""
-"Produciuse un fallo ao pechar '%s' mentres se escribía a imaxe; é posíbel "
+"Produciuse un fallo ao pechar «%s» mentres se escribía a imaxe; é posíbel "
 "que non se gardaran todos os datos: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2288 ../gdk-pixbuf/gdk-pixbuf-io.c:2339
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2431 ../gdk-pixbuf/gdk-pixbuf-io.c:2482
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Non hai suficiente memoria para gardar a imaxe no búfer"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2385
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2528
 msgid "Error writing to image stream"
 msgstr "Produciuse un erro ao escribir no fluxo de imaxe"
 
@@ -149,12 +149,12 @@ msgid ""
 "but didn't give a reason for the failure"
 msgstr ""
 "Erro interno: Produciuse un fallo ao completar unha operación co módulo de "
-"carga de imaxes '%s', mais non deu ningún motivo do fallo"
+"carga de imaxes «%s», mais non deu ningún motivo do fallo"
 
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:374
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
-msgstr "A carga incremental das imaxes do tipo '%s' non é posíbel"
+msgstr "A carga incremental das imaxes do tipo «%s» non é posíbel"
 
 #: ../gdk-pixbuf/gdk-pixdata.c:146
 msgid "Image header corrupt"
@@ -187,7 +187,7 @@ msgstr "Tipo de animación non compatíbel"
 #: ../gdk-pixbuf/io-ani.c:432 ../gdk-pixbuf/io-ani.c:455
 #: ../gdk-pixbuf/io-ani.c:482 ../gdk-pixbuf/io-ani.c:569
 msgid "Invalid header in animation"
-msgstr "A cabeceira na animación non é correcta"
+msgstr "A cabeceira na animación non é válida"
 
 #: ../gdk-pixbuf/io-ani.c:358 ../gdk-pixbuf/io-ani.c:380
 #: ../gdk-pixbuf/io-ani.c:464 ../gdk-pixbuf/io-ani.c:491
@@ -434,7 +434,7 @@ msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
 "parsed."
 msgstr ""
-"A calidade dun JPEG debe ser un valor entre 0 e 100; o valor '%s' non pode "
+"A calidade dun JPEG debe ser un valor entre 0 e 100; o valor «%s» non pode "
 "ser analizado."
 
 #: ../gdk-pixbuf/io-jpeg.c:1147 ../gdk-pixbuf/io-gdip-jpeg.c:68
@@ -488,7 +488,7 @@ msgstr "Non se obtiveron todas as liñas da imaxe PCX"
 
 #: ../gdk-pixbuf/io-pcx.c:710
 msgid "No palette found at end of PCX data"
-msgstr "Non se localizou ningunha paleta ao final dos datos PCX"
+msgstr "Non se atopou ningunha paleta ao final dos datos PCX"
 
 #: ../gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
@@ -565,7 +565,7 @@ msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
 "be parsed."
 msgstr ""
-"O nivel de compresión PNG debe ser un valor entre 0 e 9; o valor '%s' non se "
+"O nivel de compresión PNG debe ser un valor entre 0 e 9; o valor «%s» non se "
 "pode analizar."
 
 #: ../gdk-pixbuf/io-png.c:911
@@ -590,7 +590,7 @@ msgstr "O formato de imaxe PNG"
 
 #: ../gdk-pixbuf/io-pnm.c:248
 msgid "PNM loader expected to find an integer, but didn't"
-msgstr "O cargador PNM esperaba localizar un enteiro, mais non o encontrou"
+msgstr "O cargador PNM esperaba atopar un enteiro, mais non o fixo"
 
 #: ../gdk-pixbuf/io-pnm.c:280
 msgid "PNM file has an incorrect initial byte"
@@ -875,7 +875,7 @@ msgstr "O formato de imaxe XBM"
 
 #: ../gdk-pixbuf/io-xpm.c:469
 msgid "No XPM header found"
-msgstr "Non se localizou a cabeceira XPM"
+msgstr "Non se atopou a cabeceira XPM"
 
 #: ../gdk-pixbuf/io-xpm.c:478
 msgid "Invalid XPM header"
