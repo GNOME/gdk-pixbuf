@@ -1030,6 +1030,9 @@ gdk-pixbuf/Makefile
 gdk-pixbuf/gdk_pixbuf.rc
 gdk-pixbuf/gdk-pixbuf-features.h
 gdk-pixbuf/pixops/Makefile
+build/Makefile
+build/win32/Makefile
+build/win32/vs9/Makefile
 docs/Makefile
 docs/reference/Makefile
 docs/reference/gdk-pixbuf/Makefile
