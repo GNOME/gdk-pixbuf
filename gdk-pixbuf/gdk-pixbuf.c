@@ -224,8 +224,8 @@ gdk_pixbuf_unref (GdkPixbuf *pixbuf)
 static void
 gdk_pixbuf_icon_iface_init (GIconIface *iface)
 {
-        iface->hash = g_direct_hash;
-        iface->equal = g_direct_equal;
+        iface->hash = (guint (*) (GIcon *)) g_direct_hash;
+        iface->equal = (gboolean (*) (GIcon *, GIcon *)) g_direct_equal;
 }
 
 /* Used as the destroy notification function for gdk_pixbuf_new() */
