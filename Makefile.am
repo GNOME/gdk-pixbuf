@@ -7,7 +7,7 @@ EXTRA_DIST += config.h.win32
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gdk-pixbuf-2.0.pc
 
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 DISTCLEANFILES = 		\
 	gdk-pixbuf-2.0.pc
