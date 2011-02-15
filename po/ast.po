@@ -644,7 +644,7 @@ msgstr "El descriptor d'entrada del ficheru ta baleru (NULL)."
 
 #: ../gdk-pixbuf/io-qtif.c:142
 msgid "Failed to read QTIF header"
-msgstr "Fallu al lleer testera QTIF\n"
+msgstr "Fallu al lleer testera QTIF"
 
 #: ../gdk-pixbuf/io-qtif.c:151 ../gdk-pixbuf/io-qtif.c:181
 #: ../gdk-pixbuf/io-qtif.c:445
