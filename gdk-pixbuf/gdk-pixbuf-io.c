@@ -2309,10 +2309,10 @@ gdk_pixbuf_save_to_callback    (GdkPixbuf  *pixbuf,
  * @pixbuf: a #GdkPixbuf.
  * @save_func: (scope call): a function that is called to save each block of data that
  *   the save routine generates.
- * @user_data: user data to pass to the save function.
+ * @user_data: (closure save_func): user data to pass to the save function.
  * @type: name of file format.
- * @option_keys: name of options to set, %NULL-terminated
- * @option_values: values for named options
+ * @option_keys: (array zero-terminated=1) (element-type utf8): name of options to set, %NULL-terminated
+ * @option_values: (array zero-terminated=1) (element-type utf8): values for named options
  * @error: (allow-none): return location for error, or %NULL
  *
  * Saves pixbuf to a callback in format @type, which is currently "jpeg",

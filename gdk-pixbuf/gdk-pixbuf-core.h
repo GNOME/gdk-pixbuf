@@ -182,6 +182,13 @@ gboolean gdk_pixbuf_savev          (GdkPixbuf  *pixbuf,
 
 /* Saving to a callback function */
 
+/**
+ * GdkPixbufSaveFunc:
+ * @buf:
+ * @count:
+ * @error: (out):
+ * @data: (closure):
+ **/
 typedef gboolean (*GdkPixbufSaveFunc)   (const gchar *buf,
 					 gsize count,
 					 GError **error,
