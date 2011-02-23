@@ -12,5 +12,4 @@ EXTRA_DIST += \
 	gdk-pixbuf-csource.vcxproj.filters \
 	gdk-pixbuf-query-loaders.vcxproj \
 	gdk-pixbuf-query-loaders.vcxproj.filters \
-	install.vcxproj \
-	install.vcxproj.filters
+	install.vcxproj 
