@@ -1033,6 +1033,7 @@ gdk-pixbuf/pixops/Makefile
 build/Makefile
 build/win32/Makefile
 build/win32/vs9/Makefile
+build/win32/vs10/Makefile
 docs/Makefile
 docs/reference/Makefile
 docs/reference/gdk-pixbuf/Makefile

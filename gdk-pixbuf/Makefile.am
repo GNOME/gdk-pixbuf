@@ -674,7 +674,7 @@ EXTRA_DIST +=					\
 	gen-color-table.pl			\
 	gdiplus.def
 	
-dist-hook: ../build/win32/vs9/gdk-pixbuf.vcproj
+dist-hook: ../build/win32/vs9/gdk-pixbuf.vcproj ../build/win32/vs10/gdk-pixbuf.vcxproj ../build/win32/vs10/gdk-pixbuf.vcxproj.filters
 
 ../build/win32/vs9/gdk-pixbuf.vcproj: ../build/win32/vs9/gdk-pixbuf.vcprojin
 	for F in $(libgdk_pixbuf_2_0_la_SOURCES); do \
@@ -685,6 +685,26 @@ dist-hook: ../build/win32/vs9/gdk-pixbuf.vcproj
 	done >libgdkpixbuf.sourcefiles
 	$(CPP) -P - <$(top_srcdir)/build/win32/vs9/gdk-pixbuf.vcprojin >$@
 	rm libgdkpixbuf.sourcefiles
+	
+../build/win32/vs10/gdk-pixbuf.vcxproj: ../build/win32/vs10/gdk-pixbuf.vcxprojin
+	for F in $(libgdk_pixbuf_2_0_la_SOURCES); do \
+		case $$F in \
+		*.c) echo '    <ClCompile Include="..\..\..\gdk-pixbuf\'$$F'" />' \
+		     ;; \
+		esac; \
+	done >libgdkpixbuf.vs10.sourcefiles
+	$(CPP) -P - <$(top_srcdir)/build/win32/vs10/gdk-pixbuf.vcxprojin >$@
+	rm libgdkpixbuf.vs10.sourcefiles
+	
+../build/win32/vs10/gdk-pixbuf.vcxproj.filters: ../build/win32/vs10/gdk-pixbuf.vcxproj.filtersin
+	for F in $(libgdk_pixbuf_2_0_la_SOURCES); do \
+		case $$F in \
+		*.c) echo '    <ClCompile Include="..\..\..\gdk-pixbuf\'$$F'"><Filter>Source Files</Filter></ClCompile>' \
+		     ;; \
+		esac; \
+	done >libgdkpixbuf.vs10.sourcefiles.filters
+	$(CPP) -P - <$(top_srcdir)/build/win32/vs10/gdk-pixbuf.vcxproj.filtersin >$@
+	rm libgdkpixbuf.vs10.sourcefiles.filters
 
 if HAVE_INTROSPECTION
 
