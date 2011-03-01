@@ -17,4 +17,18 @@ DISTCHECK_CONFIGURE_FLAGS = 	\
 	--enable-man		\
 	--enable-introspection
 
+MAINTAINERCLEANFILES = \
+	ABOUT-NLS \
+	aclocal.m4 \
+	config.guess \
+	config.h.in \
+	config.rpath \
+	config.sub \
+	depcomp \
+	gtk-doc.make \
+	install-sh \
+	ltmain.sh \
+	missing
+
+
 -include $(top_srcdir)/git.mk

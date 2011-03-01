@@ -13,3 +13,5 @@ EXTRA_DIST += \
 	gdk-pixbuf-query-loaders.vcxproj \
 	gdk-pixbuf-query-loaders.vcxproj.filters \
 	install.vcxproj 
+
+-include $(top_srcdir)/git.mk
