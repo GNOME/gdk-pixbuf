@@ -47,6 +47,18 @@
  * Shawn T. Amundson    <amundson@gtk.org>
 */
 
+/**
+ * SECTION:gdk-pixbuf-xlib-rgb
+ * @Short_description: Rendering RGB buffers to X drawables.
+ * @Title: XlibRGB
+ * @See_also:    GdkRGB
+ * 
+ * The XlibRGB set of functions is a port of the #GdkRGB library to
+ * use plain Xlib and X drawables.  You can use these functions to
+ * render RGB buffers into drawables very quickly with high-quality
+ * dithering.
+ */
+
 #if HAVE_CONFIG_H
 #  include <config.h>
 #  if STDC_HEADERS

@@ -36,15 +36,122 @@
 
 G_BEGIN_DECLS
 
-/* Alpha compositing mode */
+/**
+ * SECTION:gdk-pixbuf
+ * @Short_description: Information that describes an image.
+ * @Title: The GdkPixbuf Structure
+ * 
+ * 
+ * The #GdkPixbuf structure contains
+ * information that describes an image in memory.
+ * 
+ * 
+ * <section id="image-data">
+ * <title>Image Data</title>
+ * <para>
+ * Image data in a pixbuf is stored in memory in uncompressed,
+ * packed format.  Rows in the image are stored top to bottom, and
+ * in each row pixels are stored from left to right.  There may be
+ * padding at the end of a row.  The "rowstride" value of a pixbuf,
+ * as returned by gdk_pixbuf_get_rowstride(), indicates the number
+ * of bytes between rows.
+ * 
+ * 
+ * <example id="put-pixel">
+ * <title>put_pixel(<!-- -->) example</title>
+ * <para>
+ * 
+ * The following code illustrates a simple put_pixel(<!-- -->)
+ * function for RGB pixbufs with 8 bits per channel with an alpha
+ * channel.  It is not included in the gdk-pixbuf library for
+ * performance reasons; rather than making several function calls
+ * for each pixel, your own code can take shortcuts.
+ * 
+ * 
+ * <programlisting>
+ * static void
+ * put_pixel (GdkPixbuf *pixbuf, int x, int y, guchar red, guchar green, guchar blue, guchar alpha)
+ * {
+ *   int width, height, rowstride, n_channels;
+ *   guchar *pixels, *p;
+ * 
+ *   n_channels = gdk_pixbuf_get_n_channels (pixbuf);
+ * 
+ *   g_assert (gdk_pixbuf_get_colorspace (pixbuf) == GDK_COLORSPACE_RGB);
+ *   g_assert (gdk_pixbuf_get_bits_per_sample (pixbuf) == 8);
+ *   g_assert (gdk_pixbuf_get_has_alpha (pixbuf));
+ *   g_assert (n_channels == 4);
+ * 
+ *   width = gdk_pixbuf_get_width (pixbuf);
+ *   height = gdk_pixbuf_get_height (pixbuf);
+ * 
+ *   g_assert (x >= 0 && x < width);
+ *   g_assert (y >= 0 && y < height);
+ * 
+ *   rowstride = gdk_pixbuf_get_rowstride (pixbuf);
+ *   pixels = gdk_pixbuf_get_pixels (pixbuf);
+ * 
+ *   p = pixels + y * rowstride + x * n_channels;
+ *   p[0] = red;
+ *   p[1] = green;
+ *   p[2] = blue;
+ *   p[3] = alpha;
+ * }
+ * </programlisting>
+ * 
+ * This function will not work for pixbufs with images that are
+ * other than 8 bits per sample or channel, but it will work for
+ * most of the pixbufs that GTK+ uses.
+ * </para>
+ * </example>
+ * 
+ * <note>
+ * If you are doing memcpy() of raw pixbuf data, note that the
+ * last row in the pixbuf may not be as wide as the full
+ * rowstride, but rather just as wide as the pixel data needs to
+ * be.  That is, it is unsafe to do <literal>memcpy (dest,
+ * pixels, rowstride * height)</literal> to copy a whole pixbuf.
+ * Use gdk_pixbuf_copy() instead, or compute the width in bytes
+ * of the last row as <literal>width * ((n_channels *
+ * bits_per_sample + 7) / 8)</literal>.
+ * </note>
+ * </para>
+ * </section>
+ */
+
+
+/**
+ * GdkPixbufAlphaMode:
+ * @GDK_PIXBUF_ALPHA_BILEVEL: A bilevel clipping mask (black and white)
+ *  will be created and used to draw the image.  Pixels below 0.5 opacity
+ *  will be considered fully transparent, and all others will be
+ *  considered fully opaque.
+ * @GDK_PIXBUF_ALPHA_FULL: For now falls back to #GDK_PIXBUF_ALPHA_BILEVEL.
+ *  In the future it will do full alpha compositing.
+ * 
+ * These values can be passed to
+ * gdk_pixbuf_render_to_drawable_alpha() to control how the alpha
+ * channel of an image should be handled.  This function can create a
+ * bilevel clipping mask (black and white) and use it while painting
+ * the image.  In the future, when the X Window System gets an alpha
+ * channel extension, it will be possible to do full alpha
+ * compositing onto arbitrary drawables.  For now both cases fall
+ * back to a bilevel clipping mask.
+ */
 typedef enum
 {
         GDK_PIXBUF_ALPHA_BILEVEL,
         GDK_PIXBUF_ALPHA_FULL
 } GdkPixbufAlphaMode;
 
-/* Color spaces; right now only RGB is supported.
- * Note that these values are encoded in inline pixbufs
+/**
+ * GdkColorspace:
+ * @GDK_COLORSPACE_RGB: Indicates a red/green/blue additive color space.
+ * 
+ * This enumeration defines the color spaces that are supported by
+ * the &gdk-pixbuf; library.  Currently only RGB is supported.
+ */
+/* Note that these values are encoded in inline pixbufs
  * as ints, so don't reorder them
  */
 typedef enum {
@@ -52,6 +159,16 @@ typedef enum {
 } GdkColorspace;
 
 /* All of these are opaque structures */
+
+/**
+ * GdkPixbuf:
+ * 
+ * This is the main structure in the &gdk-pixbuf; library.  It is
+ * used to represent images.  It contains information about the
+ * image's pixel data, its color space, bits per sample, width and
+ * height, and the rowstride (the number of bytes between the start of
+ * one row and the start of the next). 
+ */
 typedef struct _GdkPixbuf GdkPixbuf;
 
 #define GDK_TYPE_PIXBUF              (gdk_pixbuf_get_type ())
@@ -59,11 +176,43 @@ typedef struct _GdkPixbuf GdkPixbuf;
 #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
 
 
-/* Handler that must free the pixel array */
+/**
+ * GdkPixbufDestroyNotify:
+ * @pixels: The pixel array of the pixbuf that is being finalized.
+ * @data: User closure data.
+ * 
+ * A function of this type is responsible for freeing the pixel array
+ * of a pixbuf.  The gdk_pixbuf_new_from_data() function lets you
+ * pass in a pre-allocated pixel array so that a pixbuf can be
+ * created from it; in this case you will need to pass in a function
+ * of #GdkPixbufDestroyNotify so that the pixel data can be freed
+ * when the pixbuf is finalized.
+ */
 typedef void (* GdkPixbufDestroyNotify) (guchar *pixels, gpointer data);
 
+/**
+ * GDK_PIXBUF_ERROR:
+ * 
+ * Error domain used for pixbuf operations. Indicates that the error code
+ * will be in the #GdkPixbufError enumeration. See #GError for
+ * information on error domains and error codes.
+ */
 #define GDK_PIXBUF_ERROR gdk_pixbuf_error_quark ()
 
+/**
+ * GdkPixbufError:
+ * @GDK_PIXBUF_ERROR_CORRUPT_IMAGE: An image file was broken somehow.
+ * @GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY: Not enough memory.
+ * @GDK_PIXBUF_ERROR_BAD_OPTION: A bad option was passed to a pixbuf save module.
+ * @GDK_PIXBUF_ERROR_UNKNOWN_TYPE: Unknown image type.
+ * @GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION: Don't know how to perform the
+ *  given operation on the type of image at hand.
+ * @GDK_PIXBUF_ERROR_FAILED: Generic failure code, something went wrong.
+ * 
+ * An error code in the #GDK_PIXBUF_ERROR domain. Many &gdk-pixbuf;
+ * operations can cause errors in this domain, or in the #G_FILE_ERROR
+ * domain.
+ */
 typedef enum {
         /* image data hosed */
         GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
@@ -182,13 +331,25 @@ gboolean gdk_pixbuf_savev          (GdkPixbuf  *pixbuf,
 
 /* Saving to a callback function */
 
+
 /**
  * GdkPixbufSaveFunc:
- * @buf:
- * @count:
- * @error: (out):
- * @data: (closure):
- **/
+ * @buf: bytes to be written.
+ * @count: number of bytes in @buf. 
+ * @error: (out): A location to return an error.
+ * @data: (closure): user data passed to gdk_pixbuf_save_to_callback(). 
+ * 
+ * Specifies the type of the function passed to
+ * gdk_pixbuf_save_to_callback().  It is called once for each block of
+ * bytes that is "written" by gdk_pixbuf_save_to_callback().  If
+ * successful it should return %TRUE.  If an error occurs it should set
+ * @error and return %FALSE, in which case gdk_pixbuf_save_to_callback()
+ * will fail with the same error.
+ * 
+ * Since: 2.4
+ * Returns: %TRUE if successful, %FALSE (with @error set) if failed.
+ */
+
 typedef gboolean (*GdkPixbufSaveFunc)   (const gchar *buf,
 					 gsize count,
 					 GError **error,

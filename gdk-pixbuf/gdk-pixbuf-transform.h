@@ -38,7 +38,38 @@ G_BEGIN_DECLS
 
 /* Scaling */
 
-/* Interpolation modes */
+/**
+ * GdkInterpType:
+ * @GDK_INTERP_NEAREST: Nearest neighbor sampling; this is the fastest
+ *  and lowest quality mode. Quality is normally unacceptable when scaling 
+ *  down, but may be OK when scaling up.
+ * @GDK_INTERP_TILES: This is an accurate simulation of the PostScript
+ *  image operator without any interpolation enabled.  Each pixel is
+ *  rendered as a tiny parallelogram of solid color, the edges of which
+ *  are implemented with antialiasing.  It resembles nearest neighbor for
+ *  enlargement, and bilinear for reduction.
+ * @GDK_INTERP_BILINEAR: Best quality/speed balance; use this mode by
+ *  default. Bilinear interpolation.  For enlargement, it is
+ *  equivalent to point-sampling the ideal bilinear-interpolated image.
+ *  For reduction, it is equivalent to laying down small tiles and
+ *  integrating over the coverage area.
+ * @GDK_INTERP_HYPER: This is the slowest and highest quality
+ *  reconstruction function. It is derived from the hyperbolic filters in
+ *  Wolberg's "Digital Image Warping", and is formally defined as the
+ *  hyperbolic-filter sampling the ideal hyperbolic-filter interpolated
+ *  image (the filter is designed to be idempotent for 1:1 pixel mapping).
+ * 
+ *  This enumeration describes the different interpolation modes that
+ *  can be used with the scaling functions. @GDK_INTERP_NEAREST is 
+ *  the fastest scaling method, but has horrible quality when 
+ *  scaling down. @GDK_INTERP_BILINEAR is the best choice if you 
+ *  aren't sure what to choose, it has a good speed/quality balance.
+ * 
+ *  <note>
+ * 	Cubic filtering is missing from the list; hyperbolic
+ * 	interpolation is just as fast and results in higher quality.
+ *  </note>
+ */
 typedef enum {
 	GDK_INTERP_NEAREST,
 	GDK_INTERP_TILES,
@@ -46,6 +77,16 @@ typedef enum {
 	GDK_INTERP_HYPER
 } GdkInterpType;
 
+/**
+ * GdkPixbufRotation:
+ * @GDK_PIXBUF_ROTATE_NONE: No rotation.
+ * @GDK_PIXBUF_ROTATE_COUNTERCLOCKWISE: Rotate by 90 degrees.
+ * @GDK_PIXBUF_ROTATE_UPSIDEDOWN: Rotate by 180 degrees.
+ * @GDK_PIXBUF_ROTATE_CLOCKWISE: Rotate by 270 degrees.
+ * 
+ * The possible rotations which can be passed to gdk_pixbuf_rotate_simple().
+ * To make them easier to use, their numerical values are the actual degrees.
+ */
 typedef enum {
 	GDK_PIXBUF_ROTATE_NONE             =   0,
 	GDK_PIXBUF_ROTATE_COUNTERCLOCKWISE =  90,

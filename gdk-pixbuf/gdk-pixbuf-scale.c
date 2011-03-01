@@ -27,6 +27,78 @@
 #include "gdk-pixbuf-private.h"
 #include "pixops/pixops.h"
 
+/**
+ * SECTION:scaling
+ * @Short_description: Scaling pixbufs and scaling and compositing pixbufs
+ * @Title: Scaling
+ * @See_also:    <link linkend="gdk-GdkRGB">GdkRGB</link>.
+ * 
+ * The &gdk-pixbuf; contains functions to scale pixbufs, to scale
+ * pixbufs and composite against an existing image, and to scale
+ * pixbufs and composite against a solid color or checkerboard.
+ * Compositing a checkerboard is a common way to show an image with
+ * an alpha channel in image-viewing and editing software.
+ * 
+ * 
+ * Since the full-featured functions (gdk_pixbuf_scale(),
+ * gdk_pixbuf_composite(), and gdk_pixbuf_composite_color()) are
+ * rather complex to use and have many arguments, two simple
+ * convenience functions are provided, gdk_pixbuf_scale_simple() and
+ * gdk_pixbuf_composite_color_simple() which create a new pixbuf of a
+ * given size, scale an original image to fit, and then return the
+ * new pixbuf.
+ * 
+ * 
+ * Scaling and compositing functions take advantage of MMX hardware
+ * acceleration on systems where MMX is supported.  If gdk-pixbuf is built
+ * with the Sun mediaLib library, these functions are instead accelerated
+ * using mediaLib, which provides hardware acceleration on Intel, AMD,
+ * and Sparc chipsets.  If desired, mediaLib support can be turned off by
+ * setting the GDK_DISABLE_MEDIALIB environment variable.  
+ * 
+ * 
+ * The following example demonstrates handling an expose event by
+ * rendering the appropriate area of a source image (which is scaled
+ * to fit the widget) onto the widget's window.  The source image is
+ * rendered against a checkerboard, which provides a visual
+ * representation of the alpha channel if the image has one. If the
+ * image doesn't have an alpha channel, calling
+ * gdk_pixbuf_composite_color() function has exactly the same effect
+ * as calling gdk_pixbuf_scale().
+ * 
+ * 
+ * <example>
+ * <title>Handling an expose event.</title>
+ * <para>
+ * <programlisting>
+ * gboolean
+ * expose_cb (GtkWidget *widget, GdkEventExpose *event, gpointer data)
+ * {
+ *   GdkPixbuf *dest;
+ * 
+ *   dest = gdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8, event->area.width, event->area.height);
+ * 
+ *   gdk_pixbuf_composite_color (pixbuf, dest,
+ *                               0, 0, event->area.width, event->area.height,
+ *                               -event->area.x, -event->area.y,
+ *                               (double) widget->allocation.width / gdk_pixbuf_get_width (pixbuf),
+ *                               (double) widget->allocation.height / gdk_pixbuf_get_height (pixbuf),
+ *                               GDK_INTERP_BILINEAR, 255,
+ *                               event->area.x, event->area.y, 16, 0xaaaaaa, 0x555555);
+ * 
+ *   gdk_draw_pixbuf (widget->window, widget->style->fg_gc[GTK_STATE_NORMAL], dest,
+ *                    0, 0, event->area.x, event->area.y,
+ *                    event->area.width, event->area.height,
+ *                    GDK_RGB_DITHER_NORMAL, event->area.x, event->area.y);
+ *   
+ *   gdk_pixbuf_unref (dest);
+ *   
+ *   return TRUE;
+ * }
+ * </programlisting>
+ * </para>
+ * </example>
+ */
 
 
 /**

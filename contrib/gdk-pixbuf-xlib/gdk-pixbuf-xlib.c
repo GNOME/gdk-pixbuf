@@ -22,6 +22,21 @@
 #include <X11/Xlib.h>
 #include "gdk-pixbuf-xlib-private.h"
 
+/**
+ * SECTION:gdk-pixbuf-xlib-init
+ * @Short_description: Initializing the &gdk-pixbuf; Xlib library.
+ * @Title: &gdk-pixbuf; Xlib initialization
+ * @See_also:    XlibRGB
+ * 
+ * In addition to the normal Gdk-specific functions, the &gdk-pixbuf;
+ * package provides a small library that lets Xlib-only applications
+ * use #GdkPixbuf structures and render them to X drawables.  The
+ * functions in this section are used to initialize the &gdk-pixbuf;
+ * Xlib library.  This library must be initialized near the beginning
+ * of the program or before calling any of the other &gdk-pixbuf;
+ * Xlib functions.
+ */
+
 Display *gdk_pixbuf_dpy = NULL;
 int gdk_pixbuf_screen = -1;
 

@@ -32,6 +32,11 @@
 
 G_BEGIN_DECLS
 
+/**
+ * GdkPixbufSimpleAnim:
+ * 
+ * An opaque struct representing a simple animation.
+ */
 typedef struct _GdkPixbufSimpleAnim GdkPixbufSimpleAnim;
 typedef struct _GdkPixbufSimpleAnimClass GdkPixbufSimpleAnimClass;
 

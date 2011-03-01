@@ -25,6 +25,19 @@
 #include "config.h"
 #include "gdk-pixbuf-xlib-private.h"
 
+/**
+ * SECTION:gdk-pixbuf-xlib-rendering
+ * @Short_description: Rendering a pixbuf to an X drawable.
+ * @Title: Xlib Rendering
+ * 
+ * The &gdk-pixbuf; Xlib library provides several convenience
+ * functions to render pixbufs to X drawables.  It uses XlibRGB to
+ * render the image data.
+ * 
+ * 
+ * These functions are analogous to those for the GDK version of
+ * &gdk-pixbuf;.
+ */
 
 
 /**

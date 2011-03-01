@@ -38,7 +38,20 @@ G_BEGIN_DECLS
 
 /* Animation support */
 
+/**
+ * GdkPixbufAnimation:
+ * 
+ * An opaque struct representing an animation.
+ */
 typedef struct _GdkPixbufAnimation GdkPixbufAnimation;
+
+
+/**
+ * GdkPixbufAnimationIter:
+ * 
+ * An opaque struct representing an iterator which points to a
+ * certain position in an animation.
+ */
 typedef struct _GdkPixbufAnimationIter GdkPixbufAnimationIter;
 
 #define GDK_TYPE_PIXBUF_ANIMATION              (gdk_pixbuf_animation_get_type ())
@@ -82,6 +95,18 @@ gboolean                gdk_pixbuf_animation_iter_advance                    (Gd
 
 
 
+/**
+ * GdkPixbufAnimationClass:
+ * @parent_class: the parent class
+ * @is_static_image: returns whether the given animation is just a static image.
+ * @get_static_image: returns a static image representing the given animation.
+ * @get_size: fills @width and @height with the frame size of the animation.
+ * @get_iter: returns an iterator for the given animation.
+ * 
+ * Modules supporting animations must derive a type from 
+ * #GdkPixbufAnimation, providing suitable implementations of the 
+ * virtual functions.
+ */
 typedef struct _GdkPixbufAnimationClass GdkPixbufAnimationClass;
 
 #define GDK_PIXBUF_ANIMATION_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), GDK_TYPE_PIXBUF_ANIMATION, GdkPixbufAnimationClass))
@@ -114,6 +139,21 @@ struct _GdkPixbufAnimationClass {
 
 
 
+/**
+ * GdkPixbufAnimationIterClass:
+ * @parent_class: the parent class
+ * @get_delay_time: returns the time in milliseconds that the current frame 
+ *  should be shown.
+ * @get_pixbuf: returns the current frame.
+ * @on_currently_loading_frame: returns whether the current frame of @iter is 
+ *  being loaded.
+ * @advance: advances the iterator to @current_time, possibly changing the 
+ *  current frame.
+ * 
+ * Modules supporting animations must derive a type from 
+ * #GdkPixbufAnimationIter, providing suitable implementations of the 
+ * virtual functions.
+ */
 typedef struct _GdkPixbufAnimationIterClass GdkPixbufAnimationIterClass;
 
 #define GDK_PIXBUF_ANIMATION_ITER_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), GDK_TYPE_PIXBUF_ANIMATION_ITER, GdkPixbufAnimationIterClass))

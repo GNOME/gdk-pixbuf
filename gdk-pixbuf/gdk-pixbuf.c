@@ -39,6 +39,77 @@
 #include <gio/gio.h>
 #include "gdk-pixbuf-marshal.c"
 
+/**
+ * SECTION:creating
+ * @Short_description: Creating a pixbuf from image data that is already in memory.
+ * @Title: Image Data in Memory
+ * @See_also: gdk_pixbuf_finalize().
+ * 
+ * The most basic way to create a pixbuf is to wrap an existing pixel
+ * buffer with a #GdkPixbuf structure.  You can use the
+ * gdk_pixbuf_new_from_data() function to do this You need to specify
+ * the destroy notification function that will be called when the
+ * data buffer needs to be freed; this will happen when a #GdkPixbuf
+ * is finalized by the reference counting functions If you have a
+ * chunk of static data compiled into your application, you can pass
+ * in %NULL as the destroy notification function so that the data
+ * will not be freed.
+ * 
+ * 
+ * The gdk_pixbuf_new() function can be used as a convenience to
+ * create a pixbuf with an empty buffer.  This is equivalent to
+ * allocating a data buffer using <function>malloc()</function> and 
+ * then wrapping it with gdk_pixbuf_new_from_data(). The gdk_pixbuf_new() 
+ * function will compute an optimal rowstride so that rendering can be 
+ * performed with an efficient algorithm.
+ * 
+ * 
+ * As a special case, you can use the gdk_pixbuf_new_from_xpm_data()
+ * function to create a pixbuf from inline XPM image data.
+ * 
+ * 
+ * You can also copy an existing pixbuf with the gdk_pixbuf_copy()
+ * function.  This is not the same as just doing a g_object_ref()
+ * on the old pixbuf; the copy function will actually duplicate the
+ * pixel data in memory and create a new #GdkPixbuf structure for it.
+ */
+
+/**
+ * SECTION:refcounting
+ * @Short_description: Functions for reference counting and memory management on pixbufs.
+ * @Title: Reference Counting and Memory Mangement
+ * @See_also: #GdkPixbuf, gdk_pixbuf_new_from_data().
+ * 
+ * #GdkPixbuf structures are reference counted.  This means that an
+ * application can share a single pixbuf among many parts of the
+ * code.  When a piece of the program needs to keep a pointer to a
+ * pixbuf, it should add a reference to it by calling g_object_ref().
+ * When it no longer needs the pixbuf, it should subtract a reference
+ * by calling g_object_unref().  The pixbuf will be destroyed when
+ * its reference count drops to zero.  Newly-created #GdkPixbuf
+ * structures start with a reference count of one.
+ * 
+ * 
+ * <note>
+ * As #GdkPixbuf is derived from #GObject now, gdk_pixbuf_ref() and
+ * gdk_pixbuf_unref() are deprecated in favour of g_object_ref()
+ * and g_object_unref () resp.
+ * </note>
+ * 
+ * <emphasis>Finalizing</emphasis> a pixbuf means to free its pixel
+ * data and to free the #GdkPixbuf structure itself.  Most of the
+ * library functions that create #GdkPixbuf structures create the
+ * pixel data by themselves and define the way it should be freed;
+ * you do not need to worry about those.  The only function that lets
+ * you specify how to free the pixel data is
+ * gdk_pixbuf_new_from_data().  Since you pass it a pre-allocated
+ * pixel buffer, you must also specify a way to free that data.  This
+ * is done with a function of type #GdkPixbufDestroyNotify.  When a
+ * pixbuf created with gdk_pixbuf_new_from_data() is finalized, your
+ * destroy notification function will be called, and it is its
+ * responsibility to free the pixel array.
+ */
+
 static void gdk_pixbuf_finalize     (GObject        *object);
 static void gdk_pixbuf_set_property (GObject        *object,
 				     guint           prop_id,

@@ -58,8 +58,14 @@ G_BEGIN_DECLS
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 
+/**
+ * XlibRgbCmap:
+ * @colors: FIXME.
+ * @lut: FIXME.
+ * 
+ *     FIXME: Describe this.
+ */
 typedef struct _XlibRgbCmap XlibRgbCmap;
-
 struct _XlibRgbCmap {
   unsigned int colors[256];
   unsigned char lut[256]; /* for 8-bit modes */
@@ -79,6 +85,23 @@ xlib_rgb_gc_set_foreground (GC gc, guint32 rgb);
 void
 xlib_rgb_gc_set_background (GC gc, guint32 rgb);
 
+/**
+ * XlibRgbDither:
+ * @XLIB_RGB_DITHER_NONE: Specifies no dithering.
+ * @XLIB_RGB_DITHER_NORMAL: Specifies dithering only on pseudocolor
+ *  displays.
+ * @XLIB_RGB_DITHER_MAX: Specifies dithering on high color displays.
+ * 
+ * These values are used to specify which dithering method should be
+ * used.  <symbol>XLIB_RGB_DITHER_NONE</symbol> will use no dithering
+ * and simply map the colors in an RGB buffer to the closest colors
+ * that the display can provide.
+ * <symbol>XLIB_RGB_DITHER_NORMAL</symbol> will provide dithering
+ * only on pseudocolor displays.
+ * <symbol>XLIB_RGB_DITHER_MAX</symbol> will provide dithering on
+ * pseudocolor and 16-bit truecolor or &ldquo;high color&rdquo;
+ * displays.
+ */
 typedef enum
 {
   XLIB_RGB_DITHER_NONE,

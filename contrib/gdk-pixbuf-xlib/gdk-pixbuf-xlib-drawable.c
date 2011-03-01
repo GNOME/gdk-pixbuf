@@ -33,6 +33,22 @@
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 
+/**
+ * SECTION:gdk-pixbuf-xlib-from-drawables
+ * @Short_description: Getting parts of an X drawable's image data into a pixbuf.
+ * @Title: X Drawables to Pixbufs
+ * 
+ * The functions in this section allow you to take the image data
+ * from an X drawable and dump it into a #GdkPixbuf.  This can be
+ * used for screenshots and other special effects.  Note that these
+ * operations can be expensive, since the image data has to be
+ * transferred from the X server to the client program and converted.
+ * 
+ * 
+ * These functions are analogous to those for the GDK version of
+ * &gdk-pixbuf;.
+ */
+
 #if (G_BYTE_ORDER == G_LITTLE_ENDIAN)
 #define LITTLE
 #endif

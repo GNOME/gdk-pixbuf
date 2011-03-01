@@ -49,6 +49,93 @@
 #define SNIFF_BUFFER_SIZE 4096
 #define LOAD_BUFFER_SIZE 65536
 
+/**
+ * SECTION:file-loading
+ * @Short_description: Loading a pixbuf from a file.
+ * @Title: File Loading
+ * @See_also: #GdkPixbufLoader.
+ * 
+ * The &gdk-pixbuf; library provides a simple mechanism for loading
+ * an image from a file in synchronous fashion.  This means that the
+ * library takes control of the application while the file is being
+ * loaded; from the user's point of view, the application will block
+ * until the image is done loading.
+ * 
+ * 
+ * This interface can be used by applications in which blocking is
+ * acceptable while an image is being loaded.  It can also be used to
+ * load small images in general.  Applications that need progressive
+ * loading can use the #GdkPixbufLoader functionality instead.
+ */
+
+/**
+ * SECTION:file-saving
+ * @Short_description: Saving a pixbuf to a file.
+ * @Title: File saving
+ * 
+ * These functions allow to save a #GdkPixbuf in a number of 
+ * file formats. The formatted data can be written to a file
+ * or to a memory buffer. &gdk-pixbuf; can also call a user-defined
+ * callback on the data, which allows to e.g. write the image 
+ * to a socket or store it in a database.
+ */
+
+/**
+ * SECTION:module_interface
+ * @Short_description: Extending &gdk-pixbuf;
+ * @Title: Module Interface
+ * 
+ * If &gdk-pixbuf; has been compiled with GModule support, it can be extended by
+ * modules which can load (and perhaps also save) new image and animation
+ * formats. Each loadable module must export a
+ * #GdkPixbufModuleFillInfoFunc function named <function>fill_info</function> and
+ * a #GdkPixbufModuleFillVtableFunc function named
+ * <function>fill_vtable</function>.
+ * 
+ * 
+ * In order to make format-checking work before actually loading the modules
+ * (which may require dlopening image libraries), modules export their 
+ * signatures (and other information) via the <function>fill_info</function>
+ * function. An external utility, <command>gdk-pixbuf-query-loaders</command>, 
+ * uses this to create a text file containing a list of all available loaders and 
+ * their signatures. This file is then read at runtime by &gdk-pixbuf; to obtain
+ * the list of available loaders and their signatures. 
+ * 
+ * 
+ * Modules may only implement a subset of the functionality available via
+ * #GdkPixbufModule. If a particular functionality is not implemented, the
+ * <function>fill_vtable</function> function will simply not set the corresponding
+ * function pointers of the #GdkPixbufModule structure. If a module supports
+ * incremental loading (i.e. provides #begin_load, #stop_load and
+ * #load_increment), it doesn't have to implement #load, since &gdk-pixbuf; can 
+ * supply a generic #load implementation wrapping the incremental loading. 
+ * 
+ * 
+ * Installing a module is a two-step process:
+ * <itemizedlist>
+ * <listitem><para>copy the module file(s) to the loader directory (normally
+ * <filename><replaceable>libdir</replaceable>/gtk-2.0/<replaceable>version</replaceable>/loaders</filename>,
+ * unless overridden by the environment variable
+ * <envar>GDK_PIXBUF_MODULEDIR</envar>) 
+ * </para></listitem>
+ * <listitem><para>call <command>gdk-pixbuf-query-loaders</command> to update the
+ * module file (normally
+ * <filename><replaceable>sysconfdir</replaceable>/gtk-2.0/gdk-pixbuf.loaders</filename>,
+ * unless overridden by the environment variable
+ * <envar>GDK_PIXBUF_MODULE_FILE</envar>)
+ * </para></listitem>
+ * </itemizedlist>
+ * 
+ * 
+ * The &gdk-pixbuf; interfaces needed for implementing modules are contained in 
+ * <filename>gdk-pixbuf-io.h</filename> (and
+ * <filename>gdk-pixbuf-animation.h</filename> if the module supports animations).
+ * They are not covered by the same stability guarantees as the regular 
+ * &gdk-pixbuf; API. To underline this fact, they are protected by 
+ * <literal>#ifdef GDK_PIXBUF_ENABLE_BACKEND</literal>.
+ */
+
+
 #ifndef GDK_PIXBUF_USE_GIO_MIME 
 static gint 
 format_check (GdkPixbufModule *module, guchar *buffer, int size)
