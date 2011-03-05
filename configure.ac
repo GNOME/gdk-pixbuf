@@ -1011,7 +1011,7 @@ AC_ARG_ENABLE(Bsymbolic,
                            enable_Bsymbolic=no)
                LDFLAGS="${SAVED_LDFLAGS}"])
 
-if test "x${enable_Bsymbolic}" == "xyes"; then
+if test "x${enable_Bsymbolic}" = "xyes"; then
   GDK_PIXBUF_LINK_FLAGS=-Wl,-Bsymbolic-functions
 fi
 
