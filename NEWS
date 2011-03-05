@@ -1,3 +1,40 @@
+2.23.1
+======
+
+* Win32:
+ - Use dynamically constructed GDK_PIXBUF_LIBDIR for locating modules
+ - Use dynamically constructed GDK_PIXBUF_LOCALEDIR to find translations
+ - Use GDI+ loader by default
+
+* Introspection:
+ - Add package information
+ - Don't include backend API
+
+* Build against libpng 1.5
+
+* Bugs fixed:
+ 634659 gdk-pixbuf 2.22 can't find localisation
+ 635364 Add C include and exported packages information to GIR
+ 639922 Proposed Visual C++ 2008 Project Files
+ 640407 Unportable test(1) construct in configure script.
+
+* Translation updates
+ Asturian
+ Basque
+ Bengali India
+ Bulgarian
+ French
+ Galician
+ Greek
+ Korean
+ Latvian
+ Portuguese
+ Russian
+ Simplified Chinese
+ Swedish
+ Uighur
+
+
 2.23.0
 ======
 
