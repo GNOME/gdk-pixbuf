@@ -489,7 +489,7 @@ gdk_pixbuf_loader_eat_header_write (GdkPixbufLoader *loader,
 /**
  * gdk_pixbuf_loader_write:
  * @loader: A pixbuf loader.
- * @buf: Pointer to image data.
+ * @buf: (array length=count): Pointer to image data.
  * @count: Length of the @buf buffer in bytes.
  * @error: return location for errors
  *
