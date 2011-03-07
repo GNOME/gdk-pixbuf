@@ -32,6 +32,8 @@ a) look for all of the dependencies (except GLib*, libjasper) under
    these are packaged by Tor Lillqvist, which are built with MinGW/GCC AFAIK.
    Please see b) below regarding the build of libjasper and GLib*
 
+   Note for LibPNG, version 1.5.x is needed.
+
 -OR-
 
 b) Build them yourself with VS9 (but you may most probably wish to get
@@ -42,7 +44,7 @@ b) Build them yourself with VS9 (but you may most probably wish to get
    GLib*:   Grab the latest sources from http://www.gtk.org under "Download"
             (stable only-please make a search for the latest unstable versions)
    IJG JPEG: http://www.ijg.org/
-   LibPNG: http://www.libpng.org/pub/png/libpng.html
+   LibPNG: http://www.libpng.org/pub/png/libpng.html (1.5.x is needed here)
    LibTIFF: http://www.remotesensing.org/libtiff/
    LibJasper: http://www.ece.uvic.ca/~mdadams/jasper/
    ZLib:   http://www.zlib.net
