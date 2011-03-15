@@ -970,7 +970,7 @@ GOBJECT_INTROSPECTION_CHECK([0.9.3])
 # Checks for gtk-doc and docbook-tools
 ##################################################
 
-GTK_DOC_CHECK([1.11])
+GTK_DOC_CHECK([1.11], [--flavour=no-tmpl])
 
 AC_CHECK_PROG(DB2HTML, db2html, true, false)
 AM_CONDITIONAL(HAVE_DOCBOOK, $DB2HTML)
