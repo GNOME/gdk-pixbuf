@@ -8,7 +8,7 @@
     <MODULAR_MACROS>INCLUDE_ani;INCLUDE_pcx;INCLUDE_tga;INCLUDE_xbm;INCLUDE_png;INCLUDE_qtif;INCLUDE_pnm;INCLUDE_icns;INCLUDE_ras;INCLUDE_wbmp;INCLUDE_xpm</MODULAR_MACROS>
     <GdkPixbufDummyPrefix>\"/dummy\"</GdkPixbufDummyPrefix>
     <GdkPixbufPrefixDefine>GDK_PIXBUF_PREFIX="\"$(GdkPixbufDummyPrefix)\""</GdkPixbufPrefixDefine>
-    <GdkPixbufLibdirDefine>PIXBUF_LIBDIR="\"$(GdkPixbufDummyPrefix)/lib/GdkPixbuf-$(GdkPixbufApiVersion)/$(GdkPixbufBinaryVersion)/loaders\""</GdkPixbufLibdirDefine>
+    <GdkPixbufLibdirDefine>PIXBUF_LIBDIR="\"$(GdkPixbufDummyPrefix)/lib/gdk-pixbuf-$(GdkPixbufApiVersion)/$(GdkPixbufBinaryVersion)/loaders\""</GdkPixbufLibdirDefine>
     <GPBLibdirDefine>GDK_PIXBUF_LIBDIR="\"$(GdkPixbufDummyPrefix)/lib\""</GPBLibdirDefine>
     <GdkPixbufBinVerDefine>GDK_PIXBUF_BINARY_VERSION="\"$(GdkPixbufBinaryVersion)\""</GdkPixbufBinVerDefine>
     <GdkPixbufLocaleDir>GDK_PIXBUF_LOCALEDIR="\"./locale/\""</GdkPixbufLocaleDir>
@@ -30,29 +30,29 @@ mkdir $(CopyDir)\lib
 copy $(Configuration)\$(Platform)\bin\*-$(GdkPixbufApiVersion).lib $(CopyDir)\lib
 
 
-mkdir $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+mkdir $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-animation.h $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-animation.h $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-core.h $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-core.h $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-enum-types.h $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-enum-types.h $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-features.h $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-features.h $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-io.h $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-io.h $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-loader.h $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-loader.h $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-marshal.h $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-marshal.h $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-simple-anim.h $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-simple-anim.h $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-transform.h $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-transform.h $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf.h $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf.h $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
-copy ..\..\..\gdk-pixbuf\gdk-pixdata.h $(CopyDir)\include\GdkPixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
+copy ..\..\..\gdk-pixbuf\gdk-pixdata.h $(CopyDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf
 
 
 copy $(Configuration)\$(Platform)\bin\*-$(GdkPixbufApiVersion).lib $(CopyDir)\\lib
