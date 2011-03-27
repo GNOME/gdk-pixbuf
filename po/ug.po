@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%2b&component=gdk\n"
-"POT-Creation-Date: 2010-11-20 10:21+0000\n"
+"POT-Creation-Date: 2010-12-23 17:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Sahran <sahran@live.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:130 ../gdk-pixbuf/gdk-pixbuf-io.c:980
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1240
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1246
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "ھۆججەت «%s» نى ئاچالمىدى: %s"
@@ -28,7 +28,7 @@ msgid "Image file '%s' contains no data"
 msgstr "'%s' سۈرەت ھۆججەتتە ھېچقانداق سانلىق-مەلۇمات يوق"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:185 ../gdk-pixbuf/gdk-pixbuf-io.c:1028
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1292
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1298
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -72,45 +72,45 @@ msgstr "پەرقلەندۈرگىلى بولمايدىغان سۈرەت ھۆجج�
 msgid "Failed to load image '%s': %s"
 msgstr "'%s' سۈرەت يۈكلىيەلمىدى: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1671 ../gdk-pixbuf/io-gdip-utils.c:883
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1814 ../gdk-pixbuf/io-gdip-utils.c:883
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "سۈرەت ھۆججەتكە يېزىشتا خاتالىق كۆرۈلدى: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1716 ../gdk-pixbuf/gdk-pixbuf-io.c:1846
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1859 ../gdk-pixbuf/gdk-pixbuf-io.c:1989
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "بۇ gdk-pixbuf ساقلايدىغان بۇ خىل ھۆججەت شەكلىنى قوللىمايدۇ ：%s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1750
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1893
 msgid "Insufficient memory to save image to callback"
 msgstr "بۇ سۈرەتنى ساقلاشقا يېتەرلىك ئەسلەك يوق"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1763
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1906
 msgid "Failed to open temporary file"
 msgstr "ۋاقىتلىق ھۆججەتنى ئاچالمىدى"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1789
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1932
 msgid "Failed to read from temporary file"
 msgstr "ۋاقىتلىق ھۆججەتتىن ئوقۇيالمىدى"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2042
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2185
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "'%s' نى ئېچىپ يازالمىدى: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2068
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2211
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: %"
 "s"
 msgstr "سۈرەتكە يازغاندا '%s' نى ياپالمىدى، ھەممە سانلىق-مەلۇمات ساقلانمىغان بولۇشى مۇمكىن: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2288 ../gdk-pixbuf/gdk-pixbuf-io.c:2339
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2431 ../gdk-pixbuf/gdk-pixbuf-io.c:2482
 msgid "Insufficient memory to save image into a buffer"
 msgstr "بۇ سۈرەتنى يىغلەككە ساقلاشقا ئەسلەك يېتىشمەيدۇ"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2385
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2528
 msgid "Error writing to image stream"
 msgstr "سۈرەت ئېقىمىنى ساقلاۋاتقاندا خاتالىق كۆرۈلدى"
 
