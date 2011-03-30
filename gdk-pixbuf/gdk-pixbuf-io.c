@@ -229,6 +229,38 @@ get_file_formats (void)
         return file_formats;
 }
 
+#ifdef G_OS_WIN32
+
+/* DllMain function needed to tuck away the gdk-pixbuf DLL handle */
+
+static HMODULE gdk_pixbuf_dll;
+
+BOOL WINAPI
+DllMain (HINSTANCE hinstDLL,
+         DWORD     fdwReason,
+         LPVOID    lpvReserved)
+{
+        switch (fdwReason) {
+        case DLL_PROCESS_ATTACH:
+                gdk_pixbuf_dll = (HMODULE) hinstDLL;
+                break;
+        }
+
+  return TRUE;
+}
+
+char *
+_gdk_pixbuf_win32_get_toplevel (void)
+{
+  static char *toplevel = NULL;
+
+  if (toplevel == NULL)
+          toplevel = g_win32_get_package_installation_directory_of_module (gdk_pixbuf_dll);
+
+  return toplevel;
+}
+#endif
+
 
 #ifdef USE_GMODULE 
 
@@ -312,35 +344,6 @@ skip_space (const char **pos)
 }
   
 #ifdef G_OS_WIN32
-
-/* DllMain function needed to tuck away the gdk-pixbuf DLL handle */
-
-static HMODULE gdk_pixbuf_dll;
-
-BOOL WINAPI
-DllMain (HINSTANCE hinstDLL,
-         DWORD     fdwReason,
-         LPVOID    lpvReserved)
-{
-        switch (fdwReason) {
-        case DLL_PROCESS_ATTACH:
-                gdk_pixbuf_dll = (HMODULE) hinstDLL;
-                break;
-        }
-
-  return TRUE;
-}
-
-char *
-_gdk_pixbuf_win32_get_toplevel (void)
-{
-  static char *toplevel = NULL;
-
-  if (toplevel == NULL)
-          toplevel = g_win32_get_package_installation_directory_of_module (gdk_pixbuf_dll);
-
-  return toplevel;
-}
 
 static char *
 get_libdir (void)
