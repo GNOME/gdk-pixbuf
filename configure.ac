@@ -39,7 +39,7 @@ AC_CONFIG_MACRO_DIR([m4])
 # Save this value here, since automake will set cflags later
 cflags_set=${CFLAGS+set}
 
-AM_INIT_AUTOMAKE([1.10 foreign no-define -Wno-portability dist-bzip2])
+AM_INIT_AUTOMAKE([1.10 foreign no-define -Wno-portability dist-bzip2 no-dist-gzip tar-ustar])
 AM_MAINTAINER_MODE([enable])
 
 # Support silent build rules, requires at least automake-1.11. Enable
