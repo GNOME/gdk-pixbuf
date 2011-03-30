@@ -1,3 +1,26 @@
+2.23.2
+======
+
+* Fix possible crashes when loading jpegs (#636138)
+
+* Introspection annotation fixes
+
+* Update build files on Win32
+
+* Translation updates:
+- Italian
+- Slovenian
+- Dutch
+- Oriya
+- Serbian
+- Ukrainian
+- Assamese
+- Telugu
+- Marathi
+- Japanese
+- Uighur
+
+
 2.23.1
 ======
 
