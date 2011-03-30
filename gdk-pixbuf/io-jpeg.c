@@ -662,6 +662,13 @@ gdk_pixbuf__jpeg_image_begin_load (GdkPixbufModuleSizeFunc size_func,
         context->jerr.pub.output_message = output_message_handler;
         context->jerr.error = error;
 
+        if (sigsetjmp (context->jerr.setjmp_buffer, 1)) {
+                jpeg_destroy_decompress (&context->cinfo);
+                g_free(context);
+                /* error should have been set by fatal_error_handler () */
+                return NULL;
+        }
+
 	/* create libjpeg structures */
 	jpeg_create_decompress (&context->cinfo);
 
