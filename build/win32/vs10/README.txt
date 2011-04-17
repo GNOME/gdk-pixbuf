@@ -14,11 +14,9 @@ party image manipulation libraries, the Debug_NoGDIP/Release_NoGDIP
 configurations).  Note that both variants require LibPNG and ZLib, and
 both variants have the image loaders built into the main GDK-Pixbuf library.
 
-The dependencies for this package are gettext-runtime (libintl), GLib*
-(inclusive of GLib, GModule, GThread, GObject and GIO),
+The dependencies for this package are gettext-runtime (libintl), GLib*,
 ZLib and LibPNG at the minimum.  Note that if you intend to build GDK-Pixbuf
-that does not use GDI+ (i.e. using the<ConfigurationName>_NoGDIP
-configurations), you will also need the IJG JPEG libraries, libTIFF and
+that does not use GDI+, you will also need the IJG JPEG libraries, libTIFF and
 libjasper (for JPEG-2000 operations).
 
 For the Dependencies, you may either:
@@ -29,7 +27,7 @@ a) look for all of the dependencies (except GLib*, libjasper) under
    http://ftp.gnome.org/pub/GNOME/binaries/win64/dependencies/ (64-bit)
 
    Please use the latest versions of these libraries that are available there,
-   these are packaged by Tor Lillqvist, which are built with MinGW/GCC AFAIK.
+   these are packaged by Tor Lillqvist, which are built with MinGW/GCC.
    Please see b) below regarding the build of libjasper and GLib*
 
    Note for LibPNG, version 1.5.x is needed.
@@ -86,7 +84,7 @@ your GLib sources in <root>\ and build it from there, following the
 instructions in <root>\glib<-version>\build\win32\vs10, so that the required
 headers, EXEs, DLLs and LIBs will end up in
 <root>\vs10\<PlatformName>\include\glib-2.0 (headers)
-<root>\vs10\<PlatformName>\lib (LIBs, also glib-2.0/include/glibocnfig.h)
+<root>\vs10\<PlatformName>\lib (LIBs, also glib-2.0/include/glibconfig.h)
 <root>\vs10\<PlatformName>\bin (EXEs/DLLs)
 respectively.
 
@@ -98,5 +96,5 @@ For instance, built DLLs go into <root>\vs10\<PlatformName>\bin, built LIBs into
 project files higher in the stack are supposed to look for them, not
 from a specific GDK-Pixbuf source tree.
 
---Chun-wei Fan <fanc999 --at-- yahoo _dot_ com _dot_ tw>
+--Chun-wei Fan <fanc999@yahoo.com.tw>
 --(adapted from the GLib VS9 README.txt file originally written by Tor Lillqvist)
