@@ -49,7 +49,11 @@ b) Build them yourself with VS9 (but you may most probably wish to get
 
    The above 6 packages all have supported mechanisms (Makefiles and/or Project
    Files) for building under VS9 (upgrade the Project Files from earlier VS
-   versions will do for these, when applicable)
+   versions will do for these, when applicable).  It is recommended that ZLib
+   is built using the win32/Makefile.msc makefile with VS9 with the ASM routines
+   to avoid linking problems (copy zdll.lib to zlib1.lib[Release] or to zlib1d.lib
+   [Debug] after completion of compilation)-see win32/Makefile.msc in ZLib for
+   more details.
 
 * This GLib refers to a build that is built by VS9
 
