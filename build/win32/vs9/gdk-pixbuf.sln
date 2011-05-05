@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
+# Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk-pixbuf", "gdk-pixbuf.vcproj", "{01ADE22D-F6EC-4D09-8FE1-B9A97DEC2BA3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk-pixbuf-csource", "gdk-pixbuf-csource.vcproj", "{3689C772-49A9-4E32-8161-686E1381ADB4}"
