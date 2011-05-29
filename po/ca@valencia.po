@@ -28,8 +28,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 2.8.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-26 11:12+0200\n"
-"PO-Revision-Date: 2010-09-28 00:10+0200\n"
+"POT-Creation-Date: 2011-05-29 14:01+0200\n"
+"PO-Revision-Date: 2010-12-22 00:02+0100\n"
 "Last-Translator: David Planella <david.planella@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
@@ -38,19 +38,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:130 ../gdk-pixbuf/gdk-pixbuf-io.c:980
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1240
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1070
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1336
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "No s'ha pogut obrir el fitxer «%s»: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:143 ../gdk-pixbuf/gdk-pixbuf-io.c:992
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1082
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "El fitxer gràfic «%s» no conté dades"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:185 ../gdk-pixbuf/gdk-pixbuf-io.c:1028
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1292
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1118
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1388
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -58,7 +58,7 @@ msgstr ""
 "No es pot carregar la imatge «%s»: se'n desconeix el motiu; probablement es "
 "tracta d'un fitxer d'imatge malmés"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:218
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:234
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -67,12 +67,12 @@ msgstr ""
 "No es pot carregar l'animació «%s»: se'n desconeix el motiu; probablement es "
 "tracta d'un fitxer d'animació malmés"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:713
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:803
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "No és possible carregar el mòdul per a la càrrega d'imatges: %s: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:728
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:818
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -81,53 +81,53 @@ msgstr ""
 "El mòdul %s per carregar imatges no exporta la interfície adequada: potser "
 "és d'una versió de gdk-pixbuf diferent?"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:737 ../gdk-pixbuf/gdk-pixbuf-io.c:788
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:827 ../gdk-pixbuf/gdk-pixbuf-io.c:878
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "El tipus d'imatge «%s» no està implementat"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:861
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:951
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "No s'ha pogut reconèixer el format gràfic del fitxer «%s»"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:869
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:959
 msgid "Unrecognized image file format"
 msgstr "No es coneix el format del fitxer gràfic"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1037
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1127
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "No s'ha pogut carregar la imatge «%s»: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1671 ../gdk-pixbuf/io-gdip-utils.c:883
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1904 ../gdk-pixbuf/io-gdip-utils.c:883
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "S'ha produït un error en escriure al fitxer d'imatge: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1716 ../gdk-pixbuf/gdk-pixbuf-io.c:1846
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1949 ../gdk-pixbuf/gdk-pixbuf-io.c:2079
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "Este muntatge de gdk-pixbuf no permet alçar el format d'imatge: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1750
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1983
 msgid "Insufficient memory to save image to callback"
 msgstr "No hi ha memòria suficient per alçar la imatge a la crida de retorn"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1763
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1996
 msgid "Failed to open temporary file"
 msgstr "No s'ha pogut obrir el fitxer temporal"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1789
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2022
 msgid "Failed to read from temporary file"
 msgstr "No s'ha pogut llegir el fitxer temporal"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2042
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2275
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "No s'ha pogut obrir «%s» per a l'escriptura: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2068
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2301
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -136,16 +136,16 @@ msgstr ""
 "No s'ha pogut alçar «%s» en escriure la imatge, és probable que no s'hagen "
 "alçat totes les dades: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2288 ../gdk-pixbuf/gdk-pixbuf-io.c:2339
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2521 ../gdk-pixbuf/gdk-pixbuf-io.c:2572
 msgid "Insufficient memory to save image into a buffer"
 msgstr ""
 "No hi ha memòria suficient per alçar la imatge en una memòria intermèdia"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2385
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2618
 msgid "Error writing to image stream"
 msgstr "S'ha produït un error en escriure al flux d'imatge"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:332
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:395
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -154,24 +154,24 @@ msgstr ""
 "Error intern: El carregador d'imatge «%s» no ha pogut acabar una operació, "
 "però no ha donat cap raó per a la fallada"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:374
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:437
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "No està implementada la càrrega incremental del tipus d'imatge «%s»"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:146
+#: ../gdk-pixbuf/gdk-pixdata.c:159
 msgid "Image header corrupt"
 msgstr "La capçalera de la imatge està malmesa"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:151
+#: ../gdk-pixbuf/gdk-pixdata.c:164
 msgid "Image format unknown"
 msgstr "El format de la imatge és desconegut"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:156 ../gdk-pixbuf/gdk-pixdata.c:487
+#: ../gdk-pixbuf/gdk-pixdata.c:169 ../gdk-pixbuf/gdk-pixdata.c:500
 msgid "Image pixel data corrupt"
 msgstr "Les dades de píxels de la imatge estan malmeses"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:431
+#: ../gdk-pixbuf/gdk-pixdata.c:444
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -421,21 +421,21 @@ msgstr ""
 "La memòria per carregar la imatge és insuficient, proveu d'eixir d'algunes "
 "aplicacions per alliberar memòria"
 
-#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:774
+#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:781
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Espai de color JPEG no implementat (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:673 ../gdk-pixbuf/io-jpeg.c:943
-#: ../gdk-pixbuf/io-jpeg.c:1176 ../gdk-pixbuf/io-jpeg.c:1185
+#: ../gdk-pixbuf/io-jpeg.c:680 ../gdk-pixbuf/io-jpeg.c:950
+#: ../gdk-pixbuf/io-jpeg.c:1183 ../gdk-pixbuf/io-jpeg.c:1192
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "No es pot obtindre memòria per carregar el fitxer JPEG"
 
-#: ../gdk-pixbuf/io-jpeg.c:918
+#: ../gdk-pixbuf/io-jpeg.c:925
 msgid "Transformed JPEG has zero width or height."
 msgstr "El JPEG transformat té amplada o alçada zero."
 
-#: ../gdk-pixbuf/io-jpeg.c:1132 ../gdk-pixbuf/io-gdip-jpeg.c:53
+#: ../gdk-pixbuf/io-jpeg.c:1139 ../gdk-pixbuf/io-gdip-jpeg.c:53
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -444,7 +444,7 @@ msgstr ""
 "La qualitat de JPEG ha de ser un valor entre 0 i 100; el valor «%s» no es "
 "pot analitzar."
 
-#: ../gdk-pixbuf/io-jpeg.c:1147 ../gdk-pixbuf/io-gdip-jpeg.c:68
+#: ../gdk-pixbuf/io-jpeg.c:1154 ../gdk-pixbuf/io-gdip-jpeg.c:68
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
@@ -452,7 +452,7 @@ msgstr ""
 "La qualitat JPEG ha de ser un valor entre 0 i 100; el valor «%d» no és "
 "permés."
 
-#: ../gdk-pixbuf/io-jpeg.c:1309 ../gdk-pixbuf/io-gdip-jpeg.c:136
+#: ../gdk-pixbuf/io-jpeg.c:1316 ../gdk-pixbuf/io-gdip-jpeg.c:136
 msgid "The JPEG image format"
 msgstr "El format d'imatge JPEG"
 
@@ -486,8 +486,8 @@ msgid "Couldn't allocate memory for line data"
 msgstr "No s'ha pogut assignar memòria per a les dades de la línia"
 
 #: ../gdk-pixbuf/io-pcx.c:656
-msgid "Couldn't allocate memory for paletted data"
-msgstr "No s'ha pogut assignar memòria per a les dades de la paleta"
+msgid "Couldn't allocate memory for PCX image"
+msgstr "No es pot obtindre memòria per a la imatge PCX"
 
 #: ../gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
@@ -963,3 +963,6 @@ msgstr "No s'ha pogut alçar"
 #: ../gdk-pixbuf/io-gdip-wmf.c:58
 msgid "The WMF image format"
 msgstr "El format d'imatge WMF"
+
+#~ msgid "Couldn't allocate memory for paletted data"
+#~ msgstr "No s'ha pogut assignar memòria per a les dades de la paleta"
