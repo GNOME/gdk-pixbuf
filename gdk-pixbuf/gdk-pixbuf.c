@@ -690,7 +690,7 @@ gdk_pixbuf_fill (GdkPixbuf *pixbuf,
  * Return value: the value associated with @key. This is a nul-terminated 
  * string that should not be freed or %NULL if @key was not found.
  **/
-G_CONST_RETURN gchar *
+const gchar *
 gdk_pixbuf_get_option (GdkPixbuf   *pixbuf,
                        const gchar *key)
 {
