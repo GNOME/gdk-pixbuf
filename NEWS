@@ -1,3 +1,17 @@
+2.23.4
+======
+
+* Drop use of G_CONST_RETURN
+
+* Win32 build fixes
+
+* Translation updates:
+ Catalan (Valencian)
+ Esperanto
+ Finnish
+ Turkish
+ Vietnamese
+
 2.23.3
 ======
 
