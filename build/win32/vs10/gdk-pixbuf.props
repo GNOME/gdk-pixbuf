@@ -67,10 +67,9 @@ copy $(Configuration)\$(Platform)\bin\*-$(GdkPixbufApiVersion).lib $(CopyDir)\\l
     <GdkPixbufDllSuffix>$(GdkPixbufSeparateVS10DllSuffix)</GdkPixbufDllSuffix>
   </PropertyGroup>
   <PropertyGroup>
-    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <_PropertySheetDisplayName>gdk-pixbufprops</_PropertySheetDisplayName>
     <OutDir>$(SolutionDir)$(Configuration)\$(PlatformName)\bin\</OutDir>
-    <IntDir>$(SolutionDir)$(Configuration)\$(PlatformName)\obj\</IntDir>
+    <IntDir>$(SolutionDir)$(Configuration)\$(PlatformName)\obj\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
