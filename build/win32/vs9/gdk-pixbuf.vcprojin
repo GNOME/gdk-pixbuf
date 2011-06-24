@@ -21,8 +21,6 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="Debug\$(PlatformName)\bin"
-			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
 			CharacterSet="2"
@@ -64,8 +62,6 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="Release\$(PlatformName)\bin"
-			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
 			CharacterSet="2"
@@ -106,8 +102,6 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|x64"
-			OutputDirectory="Debug\$(PlatformName)\bin"
-			IntermediateDirectory="$(ConfigurationName)"
 			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
 			ConfigurationType="2"
 			CharacterSet="2"
@@ -145,8 +139,6 @@
 		</Configuration>
 		<Configuration
 			Name="Release|x64"
-			OutputDirectory="Release\$(PlatformName)\bin"
-			IntermediateDirectory="$(ConfigurationName)"
 			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
 			ConfigurationType="2"
 			CharacterSet="2"
@@ -183,7 +175,6 @@
 		<Configuration
 			Name="Debug_NoGDIP|Win32"
 			OutputDirectory="Debug\$(PlatformName)\bin"
-			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
 			CharacterSet="2"
@@ -228,7 +219,6 @@
 		<Configuration
 			Name="Release_NoGDIP|Win32"
 			OutputDirectory="Release\$(PlatformName)\bin"
-			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
 			CharacterSet="2"
@@ -271,7 +261,6 @@
 		<Configuration
 			Name="Debug_NoGDIP|x64"
 			OutputDirectory="Debug\$(PlatformName)\bin"
-			IntermediateDirectory="$(ConfigurationName)"
 			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
 			ConfigurationType="2"
 			CharacterSet="2"
@@ -311,7 +300,6 @@
 		<Configuration
 			Name="Release_NoGDIP|x64"
 			OutputDirectory="Release\$(PlatformName)\bin"
-			IntermediateDirectory="$(ConfigurationName)"
 			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
 			ConfigurationType="2"
 			CharacterSet="2"
