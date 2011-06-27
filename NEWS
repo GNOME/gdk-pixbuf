@@ -1,3 +1,11 @@
+2.23.5
+======
+
+* Prevent the return of partically initialized pixbuf structures
+  from the gif loader in some error cases (CVE-2011-2485)
+
+* Win32 build updates
+
 2.23.4
 ======
 
