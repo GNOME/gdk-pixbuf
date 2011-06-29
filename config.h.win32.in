@@ -47,6 +47,9 @@
 /* Define to 1 is libjpeg supports progressive JPEG */
 #define HAVE_PROGRESSIVE_JPEG 1
 
+/* Define to 1 if sigsetjmp is available */
+/*#undef HAVE_SIGSETJMP*/
+
 /* Define to 1 if you have the <stdint.h> header file. */
 #ifndef _MSC_VER
 #define HAVE_STDINT_H 1
