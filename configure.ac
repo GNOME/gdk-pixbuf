@@ -591,7 +591,7 @@ fi
 
 dnl Test for libpng
   if test x$with_libpng != xno && test -z "$LIBPNG"; then
-    for l in libpng libpng14 libpng12 libpng13 libpng10 ; do
+    for l in libpng15 libpng14 libpng12 libpng13 libpng10 libpng ; do
       AC_MSG_CHECKING(for $l)
       if $PKG_CONFIG --exists $l ; then
         AC_MSG_RESULT(yes)
@@ -814,7 +814,9 @@ if $dynworks ; then
     STATIC_LIB_DEPS="$STATIC_LIB_DEPS $LIBJPEG"
   fi
   if echo "$included_loaders" | egrep '(^|,)png($|,)' > /dev/null; then
-    STATIC_LIB_DEPS="$STATIC_LIB_DEPS $LIBPNG"
+    if test -z $PNG_DEP_CFLAGS_PACKAGES; then
+      STATIC_LIB_DEPS="$STATIC_LIB_DEPS $LIBPNG"
+    fi
   fi
   if echo "$included_loaders" | egrep '(^|,)jasper($|,)' > /dev/null; then
     STATIC_LIB_DEPS="$STATIC_LIB_DEPS $LIBJASPER"
@@ -916,7 +918,7 @@ fi
 GDK_PIXBUF_PACKAGES="gmodule-no-export-2.0 gobject-2.0 gio-2.0"
 GDK_PIXBUF_EXTRA_LIBS="$STATIC_LIB_DEPS $MATH_LIB $MEDIA_LIB"
 GDK_PIXBUF_EXTRA_CFLAGS=
-GDK_PIXBUF_DEP_LIBS="`$PKG_CONFIG --libs $GDK_PIXBUF_PACKAGES` $GDK_PIXBUF_EXTRA_LIBS"
+GDK_PIXBUF_DEP_LIBS="`$PKG_CONFIG --libs $GDK_PIXBUF_PACKAGES $PNG_DEP_CFLAGS_PACKAGES` $GDK_PIXBUF_EXTRA_LIBS"
 GDK_PIXBUF_DEP_CFLAGS="`$PKG_CONFIG --cflags  gthread-2.0 $GDK_PIXBUF_PACKAGES $PNG_DEP_CFLAGS_PACKAGES` $GDK_PIXBUF_EXTRA_CFLAGS"
 
 AC_SUBST(PNG_DEP_CFLAGS_PACKAGES)
