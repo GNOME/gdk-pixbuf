@@ -1,3 +1,13 @@
+2.24.0
+======
+
+* Clean up dependencies in the .pc file
+
+* Win32 build fixes
+
+* Translation updates:
+ Lithuanian
+
 2.23.5
 ======
 
