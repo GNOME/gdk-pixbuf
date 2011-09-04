@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-28 23:11+0300\n"
-"PO-Revision-Date: 2011-08-28 22:53+0300\n"
+"POT-Creation-Date: 2011-09-04 18:48+0300\n"
+"PO-Revision-Date: 2011-09-04 18:48+0300\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
 "Language: be\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1336
 #, c-format
 msgid "Failed to open file '%s': %s"
-msgstr "Не ўдалося адчыніць файл \"%s\": %s"
+msgstr "Не ўдалося адкрыць файл \"%s\": %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1082
 #, c-format
@@ -95,7 +95,7 @@ msgstr "Не стае памяці для захавання выявы для �
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1996
 msgid "Failed to open temporary file"
-msgstr "Не ўдалося адчыніць часовы файл"
+msgstr "Не ўдалося адкрыць часовы файл"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2022
 msgid "Failed to read from temporary file"
@@ -104,7 +104,7 @@ msgstr "Не ўдалося прачытаць з часовага файла"
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2275
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
-msgstr "Не ўдалося адчыніць \"%s\" для запісу: %s"
+msgstr "Не ўдалося адкрыць \"%s\" для запісу: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2301
 #, c-format
@@ -112,7 +112,7 @@ msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
 "%s"
 msgstr ""
-"Не ўдалося зачыніць \"%s\" падчас запісу выявы. Магчыма, не ўсе даныя былі "
+"Не ўдалося закрыць \"%s\" падчас запісу выявы. Магчыма, не ўсе даныя былі "
 "захаваны: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2521 ../gdk-pixbuf/gdk-pixbuf-io.c:2572
@@ -373,7 +373,7 @@ msgstr "Не ўдалося выдзеліць памяць для профіл�
 
 #: ../gdk-pixbuf/io-jasper.c:182
 msgid "Insufficient memory to open JPEG 2000 file"
-msgstr "Не стае памяці, каб адчыніць файл JPEG 2000"
+msgstr "Не стае памяці, каб адкрыць файл JPEG 2000"
 
 #: ../gdk-pixbuf/io-jasper.c:261
 msgid "Couldn't allocate memory to buffer image data"
@@ -779,7 +779,7 @@ msgstr "Памер выявы TIFF надта вялікі"
 #: ../gdk-pixbuf/io-tiff.c:221 ../gdk-pixbuf/io-tiff.c:233
 #: ../gdk-pixbuf/io-tiff.c:560
 msgid "Insufficient memory to open TIFF file"
-msgstr "Не стае памяці, каб адчыніць файл TIFF"
+msgstr "Не стае памяці, каб адкрыць файл TIFF"
 
 #: ../gdk-pixbuf/io-tiff.c:294
 msgid "Failed to load RGB data from TIFF file"
@@ -787,7 +787,7 @@ msgstr "Не ўдалося загрузіць RGB-даныя з файла TIFF
 
 #: ../gdk-pixbuf/io-tiff.c:350
 msgid "Failed to open TIFF image"
-msgstr "Не ўдалося адчыніць выяву"
+msgstr "Не ўдалося адкрыць выяву"
 
 #: ../gdk-pixbuf/io-tiff.c:362 ../gdk-pixbuf/io-tiff.c:777
 msgid "TIFFClose operation failed"
