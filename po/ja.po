@@ -9,36 +9,36 @@
 # Satoru SATOh <ss@gnome.gr.jp>, 2006.
 # Nishibori Kiyotaka <ml.nishibori.kiyotaka@gmail.com>, 2009-2010.
 # Masato Hashimoto <cabezon.hashimoto@gmail.com>, 2010.
-# Jiro Matsuzawa <matsuzawa.jr@gmail.com>, 2011.
+# Jiro Matsuzawa <jmatsuzawa@src.gnome.org>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
-"%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2011-03-26 03:35+0000\n"
-"PO-Revision-Date: 2011-03-24 23:03+0900\n"
-"Last-Translator: Jiro Matsuzawa <matsuzawa.jr@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%"
+"2b&keywords=I18N+L10N&component=gdk\n"
+"POT-Creation-Date: 2011-09-04 15:49+0000\n"
+"PO-Revision-Date: 2011-09-11 00:28+0900\n"
+"Last-Translator: Jiro Matsuzawa <jmatsuzawa@src.gnome.org>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1067
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1333
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1070
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1336
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "ファイル '%s' のオープンに失敗しました: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1079
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1082
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "画像ファイル '%s' にはデータがありません"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1115
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1385
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1118
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1388
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -55,12 +55,12 @@ msgstr ""
 "アニメーション '%s' の読み込みに失敗しました: 理由は不明ですが、おそらくアニ"
 "メーションファイルが壊れていると思われます"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:800
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:803
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "画像ロード・モジュールを読み込めません: %s: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:815
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:818
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -69,67 +69,67 @@ msgstr ""
 "画像ロード・モジュール %s は適切なインターフェースをエクスポートしていませ"
 "ん。gdk-pixbuf の別のバージョンのモジュールかも?"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:824 ../gdk-pixbuf/gdk-pixbuf-io.c:875
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:827 ../gdk-pixbuf/gdk-pixbuf-io.c:878
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "画像の種類 '%s' はサポートされていません"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:948
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:951
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "ファイル '%s' の画像ファイルの形式を認識できませんでした"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:956
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:959
 msgid "Unrecognized image file format"
 msgstr "認識できない画像ファイルの形式"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1124
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1127
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "画像 '%s' の読み込みに失敗しました: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1901 ../gdk-pixbuf/io-gdip-utils.c:883
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1904 ../gdk-pixbuf/io-gdip-utils.c:883
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "画像ファイルの書き込みでエラー: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1946 ../gdk-pixbuf/gdk-pixbuf-io.c:2076
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1949 ../gdk-pixbuf/gdk-pixbuf-io.c:2079
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "お使いの gdk-pixbuf は画像ファイルの形式 %s の保存をサポートしていません"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1980
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1983
 msgid "Insufficient memory to save image to callback"
 msgstr "画像をコールバックへ保存するために必要なメモリが足りません"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1993
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1996
 msgid "Failed to open temporary file"
 msgstr "作業用ファイルのオープンに失敗しました"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2019
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2022
 msgid "Failed to read from temporary file"
 msgstr "作業用ファイルからの読み込みに失敗しました"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2272
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2275
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "書き込みモードで '%s' のオープンに失敗しました: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2298
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2301
 #, c-format
 msgid ""
-"Failed to close '%s' while writing image, all data may not have been saved: "
-"%s"
+"Failed to close '%s' while writing image, all data may not have been saved: %"
+"s"
 msgstr ""
 "画像を書き込む際に '%s' を閉じることができなかったため、すべてのデータが保存"
 "されていないかもしれません: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2518 ../gdk-pixbuf/gdk-pixbuf-io.c:2569
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2521 ../gdk-pixbuf/gdk-pixbuf-io.c:2572
 msgid "Insufficient memory to save image into a buffer"
-msgstr "画像をバッファへ保存するために必要なメモリが足りません"
+msgstr "画像をバッファーへ保存するために必要なメモリが足りません"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2615
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2618
 msgid "Error writing to image stream"
 msgstr "画像ストリームへ書き込む際にエラー"
 
@@ -149,7 +149,7 @@ msgstr "画像の種類 '%s' のインクリメンタル・ロードはサポー
 
 #: ../gdk-pixbuf/gdk-pixdata.c:159
 msgid "Image header corrupt"
-msgstr "画像ヘッダが壊れています"
+msgstr "画像ヘッダーが壊れています"
 
 #: ../gdk-pixbuf/gdk-pixdata.c:164
 msgid "Image format unknown"
@@ -163,7 +163,7 @@ msgstr "画像のピクセルデータが壊れています"
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
-msgstr[0] "%uバイトの画像バッファの確保に失敗しました"
+msgstr[0] "%uバイトの画像バッファーの確保に失敗しました"
 
 #: ../gdk-pixbuf/io-ani.c:244
 msgid "Unexpected icon chunk in animation"
@@ -177,7 +177,7 @@ msgstr "サポートされていないアニメーションの種類です"
 #: ../gdk-pixbuf/io-ani.c:432 ../gdk-pixbuf/io-ani.c:455
 #: ../gdk-pixbuf/io-ani.c:482 ../gdk-pixbuf/io-ani.c:569
 msgid "Invalid header in animation"
-msgstr "アニメーションのヘッダがおかしいです"
+msgstr "アニメーションのヘッダーがおかしいです"
 
 #: ../gdk-pixbuf/io-ani.c:358 ../gdk-pixbuf/io-ani.c:380
 #: ../gdk-pixbuf/io-ani.c:464 ../gdk-pixbuf/io-ani.c:491
@@ -198,7 +198,7 @@ msgstr "ANI 画像形式"
 #: ../gdk-pixbuf/io-bmp.c:337 ../gdk-pixbuf/io-bmp.c:369
 #: ../gdk-pixbuf/io-bmp.c:392 ../gdk-pixbuf/io-bmp.c:495
 msgid "BMP image has bogus header data"
-msgstr "BMP 画像のヘッダのデータがおかしいです"
+msgstr "BMP 画像のヘッダーのデータがおかしいです"
 
 #: ../gdk-pixbuf/io-bmp.c:240 ../gdk-pixbuf/io-bmp.c:432
 msgid "Not enough memory to load bitmap image"
@@ -206,7 +206,7 @@ msgstr "BMP 画像を読み込むために必要なメモリが足りません"
 
 #: ../gdk-pixbuf/io-bmp.c:318
 msgid "BMP image has unsupported header size"
-msgstr "サポートしていない BMP 画像のヘッダ・サイズです"
+msgstr "サポートしていない BMP 画像のヘッダー・サイズです"
 
 #: ../gdk-pixbuf/io-bmp.c:356
 msgid "Topdown BMP images cannot be compressed"
@@ -233,8 +233,8 @@ msgstr "BMP 画像形式"
 msgid "Failure reading GIF: %s"
 msgstr "GIF 画像の読み込みに失敗: %s"
 
-#: ../gdk-pixbuf/io-gif.c:495 ../gdk-pixbuf/io-gif.c:1480
-#: ../gdk-pixbuf/io-gif.c:1641
+#: ../gdk-pixbuf/io-gif.c:495 ../gdk-pixbuf/io-gif.c:1482
+#: ../gdk-pixbuf/io-gif.c:1648
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr ""
 "GIF ファイルに何か足りないデータがあります (理由は不明ですが切りつめられたか"
@@ -261,8 +261,8 @@ msgstr "おかしなコードに出会いました"
 msgid "Circular table entry in GIF file"
 msgstr "GIF ファイルのテーブル・エントリが循環しています"
 
-#: ../gdk-pixbuf/io-gif.c:865 ../gdk-pixbuf/io-gif.c:1467
-#: ../gdk-pixbuf/io-gif.c:1514 ../gdk-pixbuf/io-gif.c:1629
+#: ../gdk-pixbuf/io-gif.c:865 ../gdk-pixbuf/io-gif.c:1468
+#: ../gdk-pixbuf/io-gif.c:1521 ../gdk-pixbuf/io-gif.c:1636
 msgid "Not enough memory to load GIF file"
 msgstr "GIF 画像を読み込むために必要なメモリが足りません"
 
@@ -291,11 +291,11 @@ msgstr ""
 "GIF 画像にグローバルなカラーマップがありません。そしてフレームにローカルなカ"
 "ラーマップがありません"
 
-#: ../gdk-pixbuf/io-gif.c:1536
+#: ../gdk-pixbuf/io-gif.c:1543
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF 画像は切りつめられたか、不完全になっています。"
 
-#: ../gdk-pixbuf/io-gif.c:1692 ../gdk-pixbuf/io-gdip-gif.c:80
+#: ../gdk-pixbuf/io-gif.c:1699 ../gdk-pixbuf/io-gdip-gif.c:80
 msgid "The GIF image format"
 msgstr "GIF 画像形式"
 
@@ -303,7 +303,7 @@ msgstr "GIF 画像形式"
 #: ../gdk-pixbuf/io-ico.c:276 ../gdk-pixbuf/io-ico.c:289
 #: ../gdk-pixbuf/io-ico.c:358
 msgid "Invalid header in icon"
-msgstr "アイコンのヘッダがおかしいです"
+msgstr "アイコンのヘッダーがおかしいです"
 
 #: ../gdk-pixbuf/io-ico.c:239 ../gdk-pixbuf/io-ico.c:299
 #: ../gdk-pixbuf/io-ico.c:368 ../gdk-pixbuf/io-ico.c:431
@@ -406,21 +406,21 @@ msgstr ""
 "画像の読み込みに必要なメモリがありません。アプリケーションをいくつか終了して"
 "メモリを解放してください"
 
-#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:774
+#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:781
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "サポートしていない JPEG のカラー・スペースです (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:673 ../gdk-pixbuf/io-jpeg.c:943
-#: ../gdk-pixbuf/io-jpeg.c:1176 ../gdk-pixbuf/io-jpeg.c:1185
+#: ../gdk-pixbuf/io-jpeg.c:680 ../gdk-pixbuf/io-jpeg.c:950
+#: ../gdk-pixbuf/io-jpeg.c:1183 ../gdk-pixbuf/io-jpeg.c:1192
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "JPEG 画像を読み込むためのメモリを確保できませんでした"
 
-#: ../gdk-pixbuf/io-jpeg.c:918
+#: ../gdk-pixbuf/io-jpeg.c:925
 msgid "Transformed JPEG has zero width or height."
 msgstr "変換した JPEG の幅または高さが 0 です。"
 
-#: ../gdk-pixbuf/io-jpeg.c:1132 ../gdk-pixbuf/io-gdip-jpeg.c:53
+#: ../gdk-pixbuf/io-jpeg.c:1139 ../gdk-pixbuf/io-gdip-jpeg.c:53
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -429,24 +429,24 @@ msgstr ""
 "JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%s' を解析できません"
 "でした"
 
-#: ../gdk-pixbuf/io-jpeg.c:1147 ../gdk-pixbuf/io-gdip-jpeg.c:68
+#: ../gdk-pixbuf/io-jpeg.c:1154 ../gdk-pixbuf/io-gdip-jpeg.c:68
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr ""
 "JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%d' は確保されません"
 
-#: ../gdk-pixbuf/io-jpeg.c:1309 ../gdk-pixbuf/io-gdip-jpeg.c:136
+#: ../gdk-pixbuf/io-jpeg.c:1316 ../gdk-pixbuf/io-gdip-jpeg.c:136
 msgid "The JPEG image format"
 msgstr "JPEG 画像形式"
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
-msgstr "ヘッダのメモリを確保できませんでした"
+msgstr "ヘッダーのメモリを確保できませんでした"
 
 #: ../gdk-pixbuf/io-pcx.c:201 ../gdk-pixbuf/io-pcx.c:559
 msgid "Couldn't allocate memory for context buffer"
-msgstr "コンテキスト・バッファ用のメモリを確保できませんでした"
+msgstr "コンテキスト・バッファー用のメモリを確保できませんでした"
 
 #: ../gdk-pixbuf/io-pcx.c:600
 msgid "Image has invalid width and/or height"
@@ -637,11 +637,11 @@ msgstr "PNM/PBM/PGM/PPM 画像形式ファミリ"
 
 #: ../gdk-pixbuf/io-qtif.c:127
 msgid "Input file descriptor is NULL."
-msgstr "入力ファイルディスクリプタが NULL です。"
+msgstr "入力ファイルディスクリプターが NULL です。"
 
 #: ../gdk-pixbuf/io-qtif.c:142
 msgid "Failed to read QTIF header"
-msgstr "QTIF ヘッダの読み込みに失敗しました"
+msgstr "QTIF ヘッダーの読み込みに失敗しました"
 
 #: ../gdk-pixbuf/io-qtif.c:151 ../gdk-pixbuf/io-qtif.c:181
 #: ../gdk-pixbuf/io-qtif.c:445
@@ -652,7 +652,7 @@ msgstr "QTIF の atom の大きさが大きすぎます (%d バイト)"
 #: ../gdk-pixbuf/io-qtif.c:171
 #, c-format
 msgid "Failed to allocate %d bytes for file read buffer"
-msgstr "ファイル読み込みバッファ用に %d バイトの確保に失敗しました"
+msgstr "ファイル読み込みバッファー用に %d バイトの確保に失敗しました"
 
 #: ../gdk-pixbuf/io-qtif.c:195
 #, c-format
@@ -682,7 +682,7 @@ msgstr "QTIF 画像形式"
 
 #: ../gdk-pixbuf/io-ras.c:125
 msgid "RAS image has bogus header data"
-msgstr "RAS 画像のヘッダのデータがおかしいです"
+msgstr "RAS 画像のヘッダーのデータがおかしいです"
 
 #: ../gdk-pixbuf/io-ras.c:147
 msgid "RAS image has unknown type"
@@ -698,7 +698,7 @@ msgstr "RAS 画像を読み込むために必要なメモリが足りません"
 
 #: ../gdk-pixbuf/io-ras.c:544
 msgid "The Sun raster image format"
-msgstr "Sun ラスタ画像形式"
+msgstr "Sun ラスター画像形式"
 
 #: ../gdk-pixbuf/io-tga.c:153
 msgid "Cannot allocate memory for IOBuffer struct"
@@ -738,7 +738,7 @@ msgstr "カラーマップのエントリの bitdepth が予期しないもの�
 
 #: ../gdk-pixbuf/io-tga.c:739
 msgid "Cannot allocate TGA header memory"
-msgstr "TGA ヘッダのメモリを確保できません"
+msgstr "TGA ヘッダーのメモリを確保できません"
 
 #: ../gdk-pixbuf/io-tga.c:772
 msgid "TGA image has invalid dimensions"
@@ -857,11 +857,11 @@ msgstr "XBM 画像形式"
 
 #: ../gdk-pixbuf/io-xpm.c:469
 msgid "No XPM header found"
-msgstr "XPM ヘッダが見つかりませんでした"
+msgstr "XPM ヘッダーが見つかりませんでした"
 
 #: ../gdk-pixbuf/io-xpm.c:478
 msgid "Invalid XPM header"
-msgstr "おかしな XPM ヘッダです"
+msgstr "おかしな XPM ヘッダーです"
 
 #: ../gdk-pixbuf/io-xpm.c:486
 msgid "XPM file has image width <= 0"
