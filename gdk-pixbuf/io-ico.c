@@ -124,6 +124,14 @@ struct headerpair {
 				   Negative = 0 -> bottom up BMP */
 };
 
+/* Score the various parts of the icon */
+struct ico_direntry_data {
+	gint ImageScore;
+	gint DIBoffset;
+	gint x_hot;
+	gint y_hot;
+};
+
 struct ico_progressive_state {
 	GdkPixbufModuleSizeFunc size_func;
 	GdkPixbufModulePreparedFunc prepared_func;
@@ -153,10 +161,8 @@ struct ico_progressive_state {
         gint y_hot;
 
 	struct headerpair Header;	/* Decoded (BE->CPU) header */
-	
+	GList *entries;
 	gint			DIBoffset;
-	gint			ImageScore;
-
 
 	GdkPixbuf *pixbuf;	/* Our "target" */
 };
@@ -178,11 +184,22 @@ context_free (struct ico_progressive_state *context)
 	g_free (context->LineBuf);
 	context->LineBuf = NULL;
 	g_free (context->HeaderBuf);
-
+	g_list_free_full (context->entries, g_free);
 	if (context->pixbuf)
 		g_object_unref (context->pixbuf);
 
 	g_free (context);
+}
+
+static gint
+compare_direntry_scores (gconstpointer a,
+                         gconstpointer b)
+{
+	const struct ico_direntry_data *ia = a;
+	const struct ico_direntry_data *ib = b;
+
+	/* Backwards, so largest first */
+	return ib->ImageScore - ia->ImageScore;
 }
 
 static void DecodeHeader(guchar *Data, gint Bytes,
@@ -193,13 +210,14 @@ static void DecodeHeader(guchar *Data, gint Bytes,
    in an .ICO. As a simple heuristic, we select the image which occupies the 
    largest number of bytes.
  */   
- 
+	struct ico_direntry_data *entry;
 	gint IconCount = 0; /* The number of icon-versions in the file */
 	guchar *BIH; /* The DIB for the used icon */
  	guchar *Ptr;
  	gint I;
 	guint16 imgtype; /* 1 = icon, 2 = cursor */
- 
+	GList *l;
+
  	/* Step 1: The ICO header */
 
 	/* First word should be 0 according to specs */
@@ -244,68 +262,87 @@ static void DecodeHeader(guchar *Data, gint Bytes,
  	}
  	if (Bytes < State->HeaderSize)
  		return;
- 	
- 	/* We now have all the "short-specs" of the versions 
- 	   So we iterate through them and select the best one */
- 	   
- 	State->ImageScore = 0;
- 	State->DIBoffset  = 0;
- 	Ptr = Data + 6;
-	for (I=0;I<IconCount;I++) {
-		int ThisScore;
-		
-		ThisScore = (Ptr[11] << 24) + (Ptr[10] << 16) + (Ptr[9] << 8) + (Ptr[8]);
 
-		if (ThisScore>=State->ImageScore) {
-			State->ImageScore = ThisScore;
-			State->x_hot = (Ptr[5] << 8) + Ptr[4];
-			State->y_hot = (Ptr[7] << 8) + Ptr[6];
-			State->DIBoffset = (Ptr[15]<<24)+(Ptr[14]<<16)+
-					   (Ptr[13]<<8) + (Ptr[12]);
-								 
-		}
-		
-		
-		Ptr += 16;	
+	/* Now iterate through the ICONDIRENTRY structures, and sort them by
+	 * which one we think is "best" (essentially the largest) */
+	g_list_free_full (State->entries, g_free);
+	State->entries = 0;
+	Ptr = Data + 6;
+	for (I=0;I<IconCount;I++) {
+		entry = g_new0 (struct ico_direntry_data, 1);
+		entry->ImageScore = (Ptr[11] << 24) + (Ptr[10] << 16) + (Ptr[9] << 8) + (Ptr[8]);
+		entry->x_hot = (Ptr[5] << 8) + Ptr[4];
+		entry->y_hot = (Ptr[7] << 8) + Ptr[6];
+		entry->DIBoffset = (Ptr[15]<<24)+(Ptr[14]<<16)+
+		                   (Ptr[13]<<8) + (Ptr[12]);
+		State->entries = g_list_insert_sorted (State->entries, entry, compare_direntry_scores);
+		Ptr += 16;
 	} 
 
-	if (State->DIBoffset < 0) {
-		g_set_error_literal (error,
-                                     GDK_PIXBUF_ERROR,
-                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                     _("Invalid header in icon"));
-		return;
-	}
+	/* Now go through and find one we can parse */
+	entry = NULL;
+	for (l = State->entries; l != NULL; l = g_list_next (l)) {
+		entry = l->data;
 
-	/* We now have a winner, pointed to in State->DIBoffset,
-	   so we know how many bytes are in the "header" part. */
-	      
-	State->HeaderSize = State->DIBoffset + 40; /* 40 = sizeof(InfoHeader) */
-
-	if (State->HeaderSize < 0) {
-		g_set_error_literal (error,
-                                     GDK_PIXBUF_ERROR,
-                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                     _("Invalid header in icon"));
-		return;
-	}
-
- 	if (State->HeaderSize>State->BytesInHeaderBuf) {
- 		guchar *tmp=g_try_realloc(State->HeaderBuf,State->HeaderSize);
-		if (!tmp) {
+		if (entry->DIBoffset < 0) {
 			g_set_error_literal (error,
-                                             GDK_PIXBUF_ERROR,
-                                             GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                             _("Not enough memory to load icon"));
+			                     GDK_PIXBUF_ERROR,
+			                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+			                     _("Invalid header in icon"));
 			return;
 		}
-		State->HeaderBuf = tmp;
- 		State->BytesInHeaderBuf = State->HeaderSize;
- 	}
-	if (Bytes<State->HeaderSize) 
-		return;   
-	
-	BIH = Data+State->DIBoffset;
+
+		/* We know how many bytes are in the "header" part. */
+		State->HeaderSize = entry->DIBoffset + 40; /* 40 = sizeof(InfoHeader) */
+
+		if (State->HeaderSize < 0) {
+			g_set_error_literal (error,
+			                     GDK_PIXBUF_ERROR,
+			                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+			                     _("Invalid header in icon"));
+			return;
+		}
+
+		if (State->HeaderSize>State->BytesInHeaderBuf) {
+			guchar *tmp=g_try_realloc(State->HeaderBuf,State->HeaderSize);
+			if (!tmp) {
+				g_set_error_literal (error,
+				                     GDK_PIXBUF_ERROR,
+				                     GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
+				                     _("Not enough memory to load icon"));
+				return;
+			}
+			State->HeaderBuf = tmp;
+			State->BytesInHeaderBuf = State->HeaderSize;
+		}
+		if (Bytes<State->HeaderSize)
+			return;
+
+		BIH = Data+entry->DIBoffset;
+
+		/* A compressed icon, try the next one */
+		if ((BIH[16] != 0) || (BIH[17] != 0) || (BIH[18] != 0)
+		    || (BIH[19] != 0))
+			continue;
+
+		/* If we made it to here then we have selected a BIH structure
+		 * in a format that we can parse */
+		break;
+	}
+
+	/* No valid icon found, because all are compressed? */
+	if (l == NULL) {
+		g_set_error_literal (error,
+		                     GDK_PIXBUF_ERROR,
+		                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+		                     _("Compressed icons are not supported"));
+		return;
+	}
+
+	/* This is the one we're going with */
+	State->DIBoffset = entry->DIBoffset;
+	State->x_hot = entry->x_hot;
+	State->y_hot = entry->y_hot;
 
 #ifdef DUMPBIH
 	DumpBIH(BIH);
@@ -373,16 +410,6 @@ static void DecodeHeader(guchar *Data, gint Bytes,
  	}
  	if (Bytes < State->HeaderSize)
  		return;
-
-	if ((BIH[16] != 0) || (BIH[17] != 0) || (BIH[18] != 0)
-	    || (BIH[19] != 0)) {
-		/* FIXME: is this the correct message? */
-                g_set_error_literal (error,
-                                     GDK_PIXBUF_ERROR,
-                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                     _("Compressed icons are not supported"));
-		return;
-	}
 
 	/* Negative heights mean top-down pixel-order */
 	if (State->Header.height < 0) {
