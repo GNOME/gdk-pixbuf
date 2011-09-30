@@ -480,9 +480,9 @@ gdip_bitmap_get_property_as_string (GpBitmap *bitmap, guint propertyId, gchar **
 }
 
 static gboolean
-gdip_bitmap_get_frame_delay (GpBitmap *bitmap, guint *delay)
+gdip_bitmap_get_frame_delay (GpBitmap *bitmap, guint frame, guint *delay)
 {
-  guint item_size;
+  guint item_size, item_count;
   gboolean success = FALSE;
 
   if (bitmap == NULL || delay == NULL)
@@ -495,8 +495,9 @@ gdip_bitmap_get_frame_delay (GpBitmap *bitmap, guint *delay)
     
     item = (PropertyItem *)g_try_malloc (item_size);
     if (Ok == GdipGetPropertyItem ((GpImage *)bitmap, PropertyTagFrameDelay, item_size, item)) {
+      item_count = item_size / sizeof(long);
       /* PropertyTagFrameDelay. Time delay, in hundredths of a second, between two frames in an animated GIF image. */
-      *delay = *((long *)item->value);
+      *delay = ((long *)item->value)[(frame < item_count) ? frame : item_count - 1];
       success = TRUE;
     }
     
@@ -697,7 +698,7 @@ stop_load (GpBitmap *bitmap, GdipContext *context, GError **error)
     frame = g_new (GdkPixbufFrame, 1);
     frame->pixbuf = pixbuf;
 
-    gdip_bitmap_get_frame_delay (bitmap, &frame_delay);
+    gdip_bitmap_get_frame_delay (bitmap, i, &frame_delay);
   
     animation->n_frames++;
     animation->frames = g_list_append (animation->frames, frame);
@@ -707,16 +708,20 @@ stop_load (GpBitmap *bitmap, GdipContext *context, GError **error)
 
     /* GIF delay is in hundredths, we want thousandths */
     frame->delay_time = frame_delay * 10;
-    frame->elapsed = animation->total_time;
-    
-    /* Some GIFs apparently have delay time of 0,
-     * that crashes everything so set it to "fast".
-     * Also, timeouts less than 20 or so just lock up
-     * the app or make the animation choppy, so fix them.
+
+    /* GIFs with delay time 0 are mostly broken, but they
+     * just want a default, "not that fast" delay.
      */
-    if (frame->delay_time < 20)
+    if (frame->delay_time == 0)
+      frame->delay_time = 100;
+
+    /* No GIFs gets to play faster than 50 fps. They just
+     * lock up poor gtk.
+     */
+    else if (frame->delay_time < 20)
       frame->delay_time = 20; /* 20 = "fast" */
 
+    frame->elapsed = animation->total_time;
     animation->total_time += frame->delay_time;
 
     if (i == 0)
