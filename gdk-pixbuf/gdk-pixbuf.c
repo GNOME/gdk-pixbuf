@@ -382,8 +382,7 @@ gdk_pixbuf_copy (const GdkPixbuf *pixbuf)
 	 * rowstride?
 	 */
 
-	size = ((pixbuf->height - 1) * pixbuf->rowstride +
-		pixbuf->width * ((pixbuf->n_channels * pixbuf->bits_per_sample + 7) / 8));
+	size = gdk_pixbuf_get_byte_length (pixbuf);
 
 	buf = g_try_malloc (size * sizeof (guchar));
 	if (!buf)
@@ -541,6 +540,32 @@ gdk_pixbuf_get_pixels (const GdkPixbuf *pixbuf)
 }
 
 /**
+ * gdk_pixbuf_get_pixels_with_length:
+ * @pixbuf: A pixbuf.
+ * @length: (out): The length of the binary data.
+ *
+ * Queries a pointer to the pixel data of a pixbuf.
+ *
+ * Return value: (array length=length): A pointer to the pixbuf's
+ * pixel data.  Please see <xref linkend="image-data"/>
+ * for information about how the pixel data is stored in
+ * memory.
+ *
+ * Rename to: gdk_pixbuf_get_pixels
+ **/
+guchar *
+gdk_pixbuf_get_pixels_with_length (const GdkPixbuf *pixbuf,
+                                   guint           *length)
+{
+	g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
+
+        if (length)
+                *length = gdk_pixbuf_get_byte_length (pixbuf);
+
+	return pixbuf->pixels;
+}
+
+/**
  * gdk_pixbuf_get_width:
  * @pixbuf: A pixbuf.
  *
@@ -587,6 +612,23 @@ gdk_pixbuf_get_rowstride (const GdkPixbuf *pixbuf)
 	g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), -1);
 
 	return pixbuf->rowstride;
+}
+
+/**
+ * gdk_pixbuf_get_byte_length:
+ * @pixbuf: A pixbuf.
+ *
+ * Returns the length of the pixel data, in bytes.
+ *
+ * Return value: The length of the pixel data.
+ */
+inline gsize
+gdk_pixbuf_get_byte_length (const GdkPixbuf *pixbuf)
+{
+	g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), -1);
+
+        return ((pixbuf->height - 1) * pixbuf->rowstride +
+                pixbuf->width * ((pixbuf->n_channels * pixbuf->bits_per_sample + 7) / 8));
 }
 
 

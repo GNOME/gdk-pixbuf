@@ -252,6 +252,11 @@ guchar       *gdk_pixbuf_get_pixels          (const GdkPixbuf *pixbuf);
 int           gdk_pixbuf_get_width           (const GdkPixbuf *pixbuf);
 int           gdk_pixbuf_get_height          (const GdkPixbuf *pixbuf);
 int           gdk_pixbuf_get_rowstride       (const GdkPixbuf *pixbuf);
+gsize         gdk_pixbuf_get_byte_length     (const GdkPixbuf *pixbuf);
+
+guchar       *gdk_pixbuf_get_pixels_with_length (const GdkPixbuf *pixbuf,
+                                                 guint           *length);
+
 
 
 
