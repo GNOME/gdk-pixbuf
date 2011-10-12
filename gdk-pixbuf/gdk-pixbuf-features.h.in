@@ -5,6 +5,8 @@
 #ifndef GDK_PIXBUF_FEATURES_H
 #define GDK_PIXBUF_FEATURES_H 1
 
+#include <glib.h>
+
 /**
  * SECTION:initialization_versions
  * @Short_description: 

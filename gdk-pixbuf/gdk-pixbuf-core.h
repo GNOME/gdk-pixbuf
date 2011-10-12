@@ -236,7 +236,9 @@ GType gdk_pixbuf_get_type (void) G_GNUC_CONST;
 /* Reference counting */
 
 #ifndef GDK_PIXBUF_DISABLE_DEPRECATED
+G_DEPRECATED_FOR(g_object_ref)
 GdkPixbuf *gdk_pixbuf_ref      (GdkPixbuf *pixbuf);
+G_DEPRECATED_FOR(g_object_unref)
 void       gdk_pixbuf_unref    (GdkPixbuf *pixbuf);
 #endif
 

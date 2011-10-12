@@ -72,7 +72,9 @@ GdkPixbufAnimation *gdk_pixbuf_animation_new_from_file   (const char         *fi
                                                           GError            **error);
 
 #ifndef GDK_PIXBUF_DISABLE_DEPRECATED
+G_DEPRECATED_FOR(g_object_ref)
 GdkPixbufAnimation *gdk_pixbuf_animation_ref             (GdkPixbufAnimation *animation);
+G_DEPRECATED_FOR(g_object_unref)
 void                gdk_pixbuf_animation_unref           (GdkPixbufAnimation *animation);
 #endif
 
