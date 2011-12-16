@@ -206,7 +206,7 @@ libgdiplus = libgdiplus.dll.a
 gdiplus_ldflag = -Wl,$(libgdiplus)
 
 libgdiplus.dll.a: gdiplus.def
-	$(DLLTOOL) --kill-at --dllname gdiplus.dll --input-def gdiplus.def --output-lib $@
+	$(DLLTOOL) --kill-at --dllname gdiplus.dll --input-def $(srcdir)/gdiplus.def --output-lib $@
 
 if INCLUDE_GDIPLUS
 
