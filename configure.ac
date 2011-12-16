@@ -936,7 +936,11 @@ GDK_PIXBUF_XLIB_PACKAGES=
 GDK_PIXBUF_XLIB_EXTRA_CFLAGS=
 GDK_PIXBUF_XLIB_EXTRA_LIBS=
 
-if $PKG_CONFIG --exists x11; then
+AC_ARG_WITH(x11,
+            [AC_HELP_STRING([--with-x11],
+                            [build X11 support])])
+
+if test x$with_x11 = xyes; then
   AM_CONDITIONAL(USE_X11, true)
   PKG_CHECK_MODULES(GDK_PIXBUF_XLIB_DEP, x11 gobject-2.0)
 else
