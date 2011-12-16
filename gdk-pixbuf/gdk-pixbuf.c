@@ -552,7 +552,9 @@ gdk_pixbuf_get_pixels (const GdkPixbuf *pixbuf)
  * memory.
  *
  * Rename to: gdk_pixbuf_get_pixels
- **/
+ *
+ * Since: 2.26
+ */
 guchar *
 gdk_pixbuf_get_pixels_with_length (const GdkPixbuf *pixbuf,
                                    guint           *length)
