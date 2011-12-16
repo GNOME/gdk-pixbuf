@@ -827,8 +827,8 @@ gdk_pixbuf_loader_close (GdkPixbufLoader *loader,
  * Obtains the available information about the format of the 
  * currently loading image file.
  *
- * Returns: A #GdkPixbufFormat or %NULL. The return value is owned 
- * by GdkPixbuf and should not be freed.
+ * Returns: (transfer none): A #GdkPixbufFormat or %NULL. The return
+ * value is owned by GdkPixbuf and should not be freed.
  * 
  * Since: 2.2
  */

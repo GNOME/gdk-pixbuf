@@ -30,14 +30,14 @@
 
 /**
  * gdk_pixbuf_new_from_data:
- * @data: (array) (element-type char): Image data in 8-bit/sample packed format
+ * @data: (array): Image data in 8-bit/sample packed format
  * @colorspace: Colorspace for the image data
  * @has_alpha: Whether the data has an opacity channel
  * @bits_per_sample: Number of bits per sample
  * @width: Width of the image in pixels, must be > 0
  * @height: Height of the image in pixels, must be > 0
  * @rowstride: Distance in bytes between row starts
- * @destroy_fn: (scope async): Function used to free the data when the pixbuf's reference count
+ * @destroy_fn: (scope async) (allow-none): Function used to free the data when the pixbuf's reference count
  * drops to zero, or %NULL if the data should not be freed
  * @destroy_fn_data: (closure): Closure data to pass to the destroy notification function
  * 

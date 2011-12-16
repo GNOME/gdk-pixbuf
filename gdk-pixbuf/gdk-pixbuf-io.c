@@ -1740,14 +1740,15 @@ info_cb (GdkPixbufLoader *loader,
 /**
  * gdk_pixbuf_get_file_info:
  * @filename: The name of the file to identify.
- * @width: Return location for the width of the image, or %NULL
- * @height: Return location for the height of the image, or %NULL
+ * @width: (out): Return location for the width of the image, or %NULL
+ * @height: (out): Return location for the height of the image, or %NULL
  * 
  * Parses an image file far enough to determine its format and size.
  * 
- * Returns: A #GdkPixbufFormat describing the image format of the file 
- *    or %NULL if the image format wasn't recognized. The return value 
- *    is owned by GdkPixbuf and should not be freed.
+ * Returns: (transfer none): A #GdkPixbufFormat describing the image
+ *    format of the file or %NULL if the image format wasn't
+ *    recognized. The return value is owned by GdkPixbuf and should
+ *    not be freed.
  *
  * Since: 2.4
  **/
@@ -2399,7 +2400,7 @@ gdk_pixbuf_save_to_callback    (GdkPixbuf  *pixbuf,
  * @pixbuf: a #GdkPixbuf.
  * @save_func: (scope call): a function that is called to save each block of data that
  *   the save routine generates.
- * @user_data: (closure save_func): user data to pass to the save function.
+ * @user_data: (closure): user data to pass to the save function.
  * @type: name of file format.
  * @option_keys: (array zero-terminated=1) (element-type utf8): name of options to set, %NULL-terminated
  * @option_values: (array zero-terminated=1) (element-type utf8): values for named options
@@ -2445,7 +2446,8 @@ gdk_pixbuf_save_to_callbackv   (GdkPixbuf  *pixbuf,
 /**
  * gdk_pixbuf_save_to_buffer:
  * @pixbuf: a #GdkPixbuf.
- * @buffer: location to receive a pointer to the new buffer.
+ * @buffer: (array length=buffer_size): location to receive a pointer
+ *   to the new buffer.
  * @buffer_size: location to receive the size of the new buffer.
  * @type: name of file format.
  * @error: (allow-none): return location for error, or %NULL
@@ -2532,7 +2534,8 @@ save_to_buffer_callback (const gchar *data,
 /**
  * gdk_pixbuf_save_to_bufferv:
  * @pixbuf: a #GdkPixbuf.
- * @buffer: location to receive a pointer to the new buffer.
+ * @buffer: (array length=buffer_size) (out) (element-type guint8):
+ *   location to receive a pointer to the new buffer.
  * @buffer_size: location to receive the size of the new buffer.
  * @type: name of file format.
  * @option_keys: (array zero-terminated=1): name of options to set, %NULL-terminated

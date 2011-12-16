@@ -76,7 +76,7 @@ typedef enum
  * @rowstride: Distance in bytes between rows.
  * @width: Width of the image in pixels.
  * @height: Height of the image in pixels.
- * @pixel_data: @width x @height pixels, encoded according to @pixdata_type
+ * @pixel_data: (array) (element-type guint8): @width x @height pixels, encoded according to @pixdata_type
  *   and @rowstride.
  *
  * A #GdkPixdata contains pixbuf information in a form suitable for 

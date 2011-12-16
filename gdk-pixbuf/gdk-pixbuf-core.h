@@ -178,8 +178,9 @@ typedef struct _GdkPixbuf GdkPixbuf;
 
 /**
  * GdkPixbufDestroyNotify:
- * @pixels: The pixel array of the pixbuf that is being finalized.
- * @data: User closure data.
+ * @pixels: (array) (element-type guint8): The pixel array of the pixbuf
+ *   that is being finalized.
+ * @data: (closure): User closure data.
  * 
  * A function of this type is responsible for freeing the pixel array
  * of a pixbuf.  The gdk_pixbuf_new_from_data() function lets you
@@ -345,7 +346,7 @@ gboolean gdk_pixbuf_savev          (GdkPixbuf  *pixbuf,
 
 /**
  * GdkPixbufSaveFunc:
- * @buf: bytes to be written.
+ * @buf: (array length=count) (element-type guint8): bytes to be written.
  * @count: number of bytes in @buf. 
  * @error: (out): A location to return an error.
  * @data: (closure): user data passed to gdk_pixbuf_save_to_callback(). 

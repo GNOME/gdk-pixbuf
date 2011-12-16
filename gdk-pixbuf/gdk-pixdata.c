@@ -101,8 +101,9 @@ pixdata_get_length (const GdkPixdata *pixdata)
  * #GdkPixdata fields in network byte order, plus the @pixel_data
  * bytes the structure points to.
  *
- * Return value: A newly-allocated string containing the serialized
- * #GdkPixdata structure.
+ * Return value: (array length=stream_length_p) (transfer full): A
+ * newly-allocated string containing the serialized #GdkPixdata
+ * structure.
  **/
 guint8* /* free result */
 gdk_pixdata_serialize (const GdkPixdata *pixdata,
@@ -181,7 +182,8 @@ get_uint32 (const guint8 *stream, guint *result)
  * gdk_pixdata_deserialize:
  * @pixdata: a #GdkPixdata structure to be filled in.
  * @stream_length: length of the stream used for deserialization.
- * @stream: stream of bytes containing a serialized #GdkPixdata structure.
+ * @stream: (array length=stream_length): stream of bytes containing a
+ *   serialized #GdkPixdata structure.
  * @error: #GError location to indicate failures (maybe %NULL to ignore errors).
  *
  * Deserializes (reconstruct) a #GdkPixdata structure from a byte stream.
@@ -408,7 +410,7 @@ gdk_pixdata_from_pixbuf (GdkPixdata      *pixdata,
  * if the pixel data is run-length-encoded, the pixel data is copied into
  * newly-allocated memory; otherwise it is reused.
  *
- * Returns: a new #GdkPixbuf.
+ * Returns: (transfer full): a new #GdkPixbuf.
  **/
 GdkPixbuf*
 gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
@@ -853,7 +855,8 @@ gdk_pixdata_to_csource (GdkPixdata        *pixdata,
  * gdk_pixbuf_new_from_inline:
  * @data_length: Length in bytes of the @data argument or -1 to 
  *    disable length checks
- * @data: Byte data containing a serialized #GdkPixdata structure
+ * @data: (array length=data_length): Byte data containing a
+ *    serialized #GdkPixdata structure
  * @copy_pixels: Whether to copy the pixel data, or use direct pointers
  *               @data for the resulting pixbuf
  * @error: #GError return location, may be %NULL to ignore errors
