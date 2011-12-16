@@ -42,7 +42,7 @@ __pixops_have_mmx:
 	
 	push	%ebx
 
-# Check if bit 21 in flags word is writeable
+/* # Check if bit 21 in flags word is writeable */
 
 	pushfl	
 	popl	%eax
@@ -57,7 +57,7 @@ __pixops_have_mmx:
 
 	je .notfound
 
-# OK, we have CPUID
+/* # OK, we have CPUID */
 
 	movl	$1, %eax
 	cpuid
