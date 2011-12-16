@@ -64,8 +64,10 @@ typedef struct _GdkPixbufAnimationIter GdkPixbufAnimationIter;
 
 GType               gdk_pixbuf_animation_get_type        (void) G_GNUC_CONST;
 
+#ifndef __GTK_DOC_IGNORE__
 #ifdef G_OS_WIN32
 #define gdk_pixbuf_animation_new_from_file gdk_pixbuf_animation_new_from_file_utf8
+#endif
 #endif
 
 GdkPixbufAnimation *gdk_pixbuf_animation_new_from_file   (const char         *filename,
