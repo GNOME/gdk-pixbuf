@@ -923,11 +923,19 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
        }
 
        if (num_keys > 0) {
+               gchar **kiter = keys;
+               gchar **viter = values;
+
                text_ptr = g_new0 (png_text, num_keys);
                for (i = 0; i < num_keys; i++) {
+                       if (strncmp (*kiter, "tEXt::", 6) != 0) {
+                                kiter++;
+                                viter++;
+                       }
+
                        text_ptr[i].compression = PNG_TEXT_COMPRESSION_NONE;
-                       text_ptr[i].key  = keys[i] + 6;
-                       text_ptr[i].text = g_convert (values[i], -1, 
+                       text_ptr[i].key  = *kiter + 6;
+                       text_ptr[i].text = g_convert (*viter, -1, 
                                                      "ISO-8859-1", "UTF-8", 
                                                      NULL, &text_ptr[i].text_length, 
                                                      NULL);
@@ -935,7 +943,7 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
 #ifdef PNG_iTXt_SUPPORTED 
                        if (!text_ptr[i].text) {
                                text_ptr[i].compression = PNG_ITXT_COMPRESSION_NONE;
-                               text_ptr[i].text = g_strdup (values[i]);
+                               text_ptr[i].text = g_strdup (*viter);
                                text_ptr[i].text_length = 0;
                                text_ptr[i].itxt_length = strlen (text_ptr[i].text);
                                text_ptr[i].lang = NULL;
@@ -944,16 +952,19 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
 #endif
 
                        if (!text_ptr[i].text) {
+                               gint j;
                                g_set_error (error,
                                             GDK_PIXBUF_ERROR,
                                             GDK_PIXBUF_ERROR_BAD_OPTION,
-                                            _("Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."), keys[i] + 6);
-                               num_keys = i;
-                               for (i = 0; i < num_keys; i++)
-                                       g_free (text_ptr[i].text);
+                                            _("Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."), *kiter + 6);
+                               for (j = 0; j < i; j++)
+                                       g_free (text_ptr[j].text);
                                g_free (text_ptr);
                                return FALSE;
                        }
+
+                        kiter++;
+                        viter++;
                }
        }
 
