@@ -143,6 +143,14 @@
     <title>Index of new symbols in 2.14</title>
     <xi:include href="xml/api-index-2.14.xml"><xi:fallback /></xi:include>
   </index>
+  <index id="api-index-2-14" role="2.14">
+    <title>Index of new symbols in 2.14</title>
+    <xi:include href="xml/api-index-2.14.xml"><xi:fallback /></xi:include>
+  </index>
+  <index id="api-index-2-26" role="2.26">
+    <title>Index of new symbols in 2.26</title>
+    <xi:include href="xml/api-index-2.26.xml"><xi:fallback /></xi:include>
+  </index>
 
   <!-- License -->
 
