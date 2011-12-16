@@ -618,13 +618,15 @@ gdk_pixbuf_get_rowstride (const GdkPixbuf *pixbuf)
 
 /**
  * gdk_pixbuf_get_byte_length:
- * @pixbuf: A pixbuf.
+ * @pixbuf: A pixbuf
  *
  * Returns the length of the pixel data, in bytes.
  *
  * Return value: The length of the pixel data.
+ *
+ * Since: 2.26
  */
-inline gsize
+gsize
 gdk_pixbuf_get_byte_length (const GdkPixbuf *pixbuf)
 {
 	g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), -1);
