@@ -1,3 +1,24 @@
+2.25.0
+======
+
+* Fix some string problems in the qtif loader (#629396)
+* Fix various introspection annotations (#659888)
+* Fix introspectability of gdk_pixbuf_get_pixels (#662009)
+* Fix build problem on NetBSD (#640405)
+* Skip compressed icons in ICOs (#652498)
+* Add a --with-x11 configure options (#657569)
+* Fix mingw build (#657876)
+* Work around gtk-doc limitations (#663554)
+* Fix thread-safety issues with animations
+* Fix gif animation delays between frames (#655755)
+
+* Translation updates:
+ Belarusian
+ Esperanto
+ Tamil
+ Japanese
+ Punjabi
+
 2.24.0
 ======
 
