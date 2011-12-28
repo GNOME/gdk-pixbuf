@@ -165,6 +165,11 @@ static gboolean   gdk_pixbuf_gdip_anim_iter_advance                    (GdkPixbu
 G_DEFINE_TYPE (GdkPixbufGdipAnimIter, gdk_pixbuf_gdip_anim_iter, GDK_TYPE_PIXBUF_ANIMATION_ITER);
 
 static void
+gdk_pixbuf_gdip_anim_iter_init (GdkPixbufGdipAnimIter *iter)
+{
+}
+
+static void
 gdk_pixbuf_gdip_anim_iter_class_init (GdkPixbufGdipAnimIterClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
