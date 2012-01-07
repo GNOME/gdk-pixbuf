@@ -7,6 +7,8 @@ test -n "$srcdir" || srcdir=.
 olddir=`pwd`
 cd "$srcdir"
 
+touch -t 200001010000 po/gdk-pixbuf.pot
+
 GTKDOCIZE=`which gtkdocize`
 if test -z $GTKDOCIZE; then
         echo "*** No GTK-Doc found, please install it ***"
