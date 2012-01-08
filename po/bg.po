@@ -1,17 +1,17 @@
 # Bulgarian translation of gdk-pixbuf po-file.
 # Copyright (C) 2002, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
-# Copyright (C) 2009, 2010, 2011 Free Software Foundation, Inc.
+# Copyright (C) 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
 # Borislav Aleksandrov <B.Aleksandrov@CNsys.bg>, 2002.
 # Yanko Kaneti <yaneti@declera.com>, 2002.
 # Vladimir Petkov <kaladan@gmail.com>, 2004, 2005.
-# Alexander Shopov <ash@kambanaria.org>, 2005, 2006, 2007, 2008, 2009, 2010, 2011.
+# Alexander Shopov <ash@kambanaria.org>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-12 07:17+0200\n"
-"PO-Revision-Date: 2011-01-12 07:17+0200\n"
+"POT-Creation-Date: 2012-01-08 08:48+0200\n"
+"PO-Revision-Date: 2012-01-08 08:48+0200\n"
 "Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "Language: bg\n"
@@ -20,19 +20,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:130 ../gdk-pixbuf/gdk-pixbuf-io.c:980
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1246
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1070
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1336
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Неуспех при отваряне на файла „%s“: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:143 ../gdk-pixbuf/gdk-pixbuf-io.c:992
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1082
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Графичният файл „%s“ не съдържа данни"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:185 ../gdk-pixbuf/gdk-pixbuf-io.c:1028
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1298
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1118
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1388
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -40,7 +40,7 @@ msgstr ""
 "Неуспех при зареждане на изображението „%s“: неизвестна причина, вероятно "
 "повреден файл"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:218
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:234
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -49,12 +49,12 @@ msgstr ""
 "Неуспех при зареждане на анимацията „%s“: неизвестна причина, вероятно "
 "повреден анимационен файл"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:713
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:803
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Модулът за зареждане на изображения %s не може да бъде зареден: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:728
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:818
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -63,54 +63,54 @@ msgstr ""
 "Модулът за зареждане на изображения %s не поддържа правилния интерфейс: "
 "вероятно е от различна версия на gdk-pixbuf."
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:737 ../gdk-pixbuf/gdk-pixbuf-io.c:788
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:827 ../gdk-pixbuf/gdk-pixbuf-io.c:878
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Изображения от вид „%s“ не се поддържат"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:861
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:951
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Форматът на графичния файл „%s“ не може да бъде разпознат"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:869
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:959
 msgid "Unrecognized image file format"
 msgstr "Неразпознат графичен формат"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1037
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1127
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Неуспех при зареждане на изображението „%s“: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1814 ../gdk-pixbuf/io-gdip-utils.c:883
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1905 ../gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Грешка при запазването на изображението: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1859 ../gdk-pixbuf/gdk-pixbuf-io.c:1989
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1950 ../gdk-pixbuf/gdk-pixbuf-io.c:2080
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Този компилат на „gdk-pixbuf“ не поддържа запазване в графичния формат — %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1893
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1984
 msgid "Insufficient memory to save image to callback"
 msgstr "Недостатъчно памет, за да се запази изображението към функцията"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1906
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1997
 msgid "Failed to open temporary file"
 msgstr "Неуспех при отварянето на временния файл"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1932
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2023
 msgid "Failed to read from temporary file"
 msgstr "Неуспех при четенето на временния файл"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2185
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2276
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Неуспех при отваряне на „%s“ за запис: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2211
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2302
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -119,15 +119,15 @@ msgstr ""
 "Неуспех при затваряне на „%s“ по време на запис на изображение, възможно е "
 "да не са запазени всички данни: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2431 ../gdk-pixbuf/gdk-pixbuf-io.c:2482
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2523 ../gdk-pixbuf/gdk-pixbuf-io.c:2575
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Недостатъчно памет за запазването на изображението в буфер"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2528
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2621
 msgid "Error writing to image stream"
 msgstr "Грешка при запазването към поток с изображение"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:332
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:395
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -136,24 +136,24 @@ msgstr ""
 "Вътрешна грешка: модулът за зареждане на изображение „%s“ не успя да завърши "
 "някое действие, но не указа причина за това"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:374
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:437
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Не се поддържа постепенно зареждане на изображение от вида „%s“"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:146
+#: ../gdk-pixbuf/gdk-pixdata.c:160
 msgid "Image header corrupt"
 msgstr "Повредена е заглавната част на изображението"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:151
+#: ../gdk-pixbuf/gdk-pixdata.c:165
 msgid "Image format unknown"
 msgstr "Неизвестен формат на изображението"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:156 ../gdk-pixbuf/gdk-pixdata.c:487
+#: ../gdk-pixbuf/gdk-pixdata.c:170 ../gdk-pixbuf/gdk-pixdata.c:502
 msgid "Image pixel data corrupt"
 msgstr "Повредени данни за пикселите на изображението"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:431
+#: ../gdk-pixbuf/gdk-pixdata.c:446
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -232,8 +232,8 @@ msgstr "Форматът за изображения BMP"
 msgid "Failure reading GIF: %s"
 msgstr "Неуспех при четене на GIF: %s "
 
-#: ../gdk-pixbuf/io-gif.c:495 ../gdk-pixbuf/io-gif.c:1480
-#: ../gdk-pixbuf/io-gif.c:1641
+#: ../gdk-pixbuf/io-gif.c:495 ../gdk-pixbuf/io-gif.c:1482
+#: ../gdk-pixbuf/io-gif.c:1648
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr ""
 "Липсват част от данните на файла във формат GIF (може би файлът не е цял)."
@@ -261,8 +261,8 @@ msgstr "Срещнат е лош код"
 msgid "Circular table entry in GIF file"
 msgstr "Цикличен табличен запис във файла във формат GIF"
 
-#: ../gdk-pixbuf/io-gif.c:865 ../gdk-pixbuf/io-gif.c:1467
-#: ../gdk-pixbuf/io-gif.c:1514 ../gdk-pixbuf/io-gif.c:1629
+#: ../gdk-pixbuf/io-gif.c:865 ../gdk-pixbuf/io-gif.c:1468
+#: ../gdk-pixbuf/io-gif.c:1521 ../gdk-pixbuf/io-gif.c:1636
 msgid "Not enough memory to load GIF file"
 msgstr "Недостатъчно памет за зареждане на файла във формат GIF"
 
@@ -291,60 +291,60 @@ msgstr ""
 "Липсва глобална цветова палитра в изображението във формат GIF, както и "
 "локална цветова палитра за някой от кадрите в него."
 
-#: ../gdk-pixbuf/io-gif.c:1536
+#: ../gdk-pixbuf/io-gif.c:1543
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF изображението е орязано или непълно."
 
-#: ../gdk-pixbuf/io-gif.c:1692 ../gdk-pixbuf/io-gdip-gif.c:80
+#: ../gdk-pixbuf/io-gif.c:1699 ../gdk-pixbuf/io-gdip-gif.c:80
 msgid "The GIF image format"
 msgstr "Форматът за изображения GIF"
 
-#: ../gdk-pixbuf/io-ico.c:210 ../gdk-pixbuf/io-ico.c:224
-#: ../gdk-pixbuf/io-ico.c:276 ../gdk-pixbuf/io-ico.c:289
-#: ../gdk-pixbuf/io-ico.c:358
+#: ../gdk-pixbuf/io-ico.c:228 ../gdk-pixbuf/io-ico.c:242
+#: ../gdk-pixbuf/io-ico.c:291 ../gdk-pixbuf/io-ico.c:302
+#: ../gdk-pixbuf/io-ico.c:395
 msgid "Invalid header in icon"
 msgstr "Грешна заглавна част в иконата"
 
-#: ../gdk-pixbuf/io-ico.c:239 ../gdk-pixbuf/io-ico.c:299
-#: ../gdk-pixbuf/io-ico.c:368 ../gdk-pixbuf/io-ico.c:431
-#: ../gdk-pixbuf/io-ico.c:461
+#: ../gdk-pixbuf/io-ico.c:257 ../gdk-pixbuf/io-ico.c:312
+#: ../gdk-pixbuf/io-ico.c:405 ../gdk-pixbuf/io-ico.c:458
+#: ../gdk-pixbuf/io-ico.c:488
 msgid "Not enough memory to load icon"
 msgstr "Недостатъчно памет за зареждане на иконата"
 
-#: ../gdk-pixbuf/io-ico.c:321
-msgid "Icon has zero width"
-msgstr "Иконата има нулева широчина"
-
-#: ../gdk-pixbuf/io-ico.c:331
-msgid "Icon has zero height"
-msgstr "Иконата има нулева височина"
-
-#: ../gdk-pixbuf/io-ico.c:383
+#: ../gdk-pixbuf/io-ico.c:338
 msgid "Compressed icons are not supported"
 msgstr "Не се поддържат компресирани икони"
 
-#: ../gdk-pixbuf/io-ico.c:416
+#: ../gdk-pixbuf/io-ico.c:358
+msgid "Icon has zero width"
+msgstr "Иконата има нулева широчина"
+
+#: ../gdk-pixbuf/io-ico.c:368
+msgid "Icon has zero height"
+msgstr "Иконата има нулева височина"
+
+#: ../gdk-pixbuf/io-ico.c:443
 msgid "Unsupported icon type"
 msgstr "Неподдържан вид икона"
 
-#: ../gdk-pixbuf/io-ico.c:510
+#: ../gdk-pixbuf/io-ico.c:537
 msgid "Not enough memory to load ICO file"
 msgstr "Недостатъчно памет за зареждане на файл във формат ICO"
 
-#: ../gdk-pixbuf/io-ico.c:975
+#: ../gdk-pixbuf/io-ico.c:1002
 msgid "Image too large to be saved as ICO"
 msgstr "Изображението е твърде голямо, за да бъде запазено във формат ICO"
 
-#: ../gdk-pixbuf/io-ico.c:986
+#: ../gdk-pixbuf/io-ico.c:1013
 msgid "Cursor hotspot outside image"
 msgstr "Горещата точка на курсора е извън изображението"
 
-#: ../gdk-pixbuf/io-ico.c:1009
+#: ../gdk-pixbuf/io-ico.c:1036
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Неподдържана дълбочина на цвета за файла във формат ICO: %d"
 
-#: ../gdk-pixbuf/io-ico.c:1244 ../gdk-pixbuf/io-gdip-ico.c:59
+#: ../gdk-pixbuf/io-ico.c:1271 ../gdk-pixbuf/io-gdip-ico.c:59
 msgid "The ICO image format"
 msgstr "Форматът за изображения ICO"
 
@@ -408,23 +408,23 @@ msgstr ""
 "Недостатъчно памет за зареждане на изображението. Спрете някои програми, за "
 "да освободите памет."
 
-#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:774
+#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:781
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Неподдържано цветово пространство за JPEG (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:673 ../gdk-pixbuf/io-jpeg.c:943
-#: ../gdk-pixbuf/io-jpeg.c:1176 ../gdk-pixbuf/io-jpeg.c:1185
+#: ../gdk-pixbuf/io-jpeg.c:680 ../gdk-pixbuf/io-jpeg.c:950
+#: ../gdk-pixbuf/io-jpeg.c:1183 ../gdk-pixbuf/io-jpeg.c:1192
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Недостатъчно памет за зареждане на файл във формат JPEG"
 
-#: ../gdk-pixbuf/io-jpeg.c:918
+#: ../gdk-pixbuf/io-jpeg.c:925
 msgid "Transformed JPEG has zero width or height."
 msgstr ""
 "Трансформираното изображение във формат JPEG е с нулева широчина или "
 "височина."
 
-#: ../gdk-pixbuf/io-jpeg.c:1132 ../gdk-pixbuf/io-gdip-jpeg.c:53
+#: ../gdk-pixbuf/io-jpeg.c:1139 ../gdk-pixbuf/io-gdip-jpeg.c:53
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -433,7 +433,7 @@ msgstr ""
 "Качеството за JPEG трябва да бъде между 0 и 100. Стойността „%s“ не може да "
 "бъде анализирана."
 
-#: ../gdk-pixbuf/io-jpeg.c:1147 ../gdk-pixbuf/io-gdip-jpeg.c:68
+#: ../gdk-pixbuf/io-jpeg.c:1154 ../gdk-pixbuf/io-gdip-jpeg.c:68
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
@@ -441,7 +441,7 @@ msgstr ""
 "Качеството за JPEG трябва да бъде между 0 и 100. Стойността „%d“ не е "
 "позволена"
 
-#: ../gdk-pixbuf/io-jpeg.c:1309 ../gdk-pixbuf/io-gdip-jpeg.c:136
+#: ../gdk-pixbuf/io-jpeg.c:1316 ../gdk-pixbuf/io-gdip-jpeg.c:136
 msgid "The JPEG image format"
 msgstr "Форматът за изображения JPEG"
 
@@ -576,14 +576,14 @@ msgstr ""
 "Нивото на компресията на PNG трябва да бъде между 0 и 9. Стойността „%d“ не "
 "е позволена."
 
-#: ../gdk-pixbuf/io-png.c:950
+#: ../gdk-pixbuf/io-png.c:959
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Откъсът текст в PNG — „%s“, не може да бъде преобразуван до кодиране "
 "ISO-8859-1."
 
-#: ../gdk-pixbuf/io-png.c:1111
+#: ../gdk-pixbuf/io-png.c:1122
 msgid "The PNG image format"
 msgstr "Форматът за изображения PNG"
 
@@ -649,53 +649,60 @@ msgstr "Недостатъчно памет за зареждане на фай�
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "Фамилията формати за изображения PNM/PBG/PGM/PPM"
 
-#: ../gdk-pixbuf/io-qtif.c:127
+#: ../gdk-pixbuf/io-qtif.c:128
 msgid "Input file descriptor is NULL."
 msgstr "Указателят към входния файл е NULL."
 
-#: ../gdk-pixbuf/io-qtif.c:142
+#: ../gdk-pixbuf/io-qtif.c:143
 msgid "Failed to read QTIF header"
 msgstr ""
 "Неуспех при прочитане на заглавната част от изображение във формат QTIF"
 
-#: ../gdk-pixbuf/io-qtif.c:151 ../gdk-pixbuf/io-qtif.c:181
-#: ../gdk-pixbuf/io-qtif.c:445
+#: ../gdk-pixbuf/io-qtif.c:152 ../gdk-pixbuf/io-qtif.c:189
+#: ../gdk-pixbuf/io-qtif.c:460
 #, c-format
-msgid "QTIF atom size too large (%d bytes)"
-msgstr ""
+msgid "QTIF atom size too large (%d byte)"
+msgid_plural "QTIF atom size too large (%d bytes)"
+msgstr[0] ""
+"Размерът на атом от изображение във формат QTIF е прекалено голям (%d байт)"
+msgstr[1] ""
 "Размерът на атом от изображение във формат QTIF е прекалено голям (%d байта)"
 
-#: ../gdk-pixbuf/io-qtif.c:171
+#: ../gdk-pixbuf/io-qtif.c:175
 #, c-format
-msgid "Failed to allocate %d bytes for file read buffer"
-msgstr "Неуспех при заделяне на буфер от %d байта за прочитане на файл"
+msgid "Failed to allocate %d byte for file read buffer"
+msgid_plural "Failed to allocate %d bytes for file read buffer"
+msgstr[0] "Неуспех при заделяне на буфер от %d байт за прочитане на файл"
+msgstr[1] "Неуспех при заделяне на буфер от %d байта за прочитане на файл"
 
-#: ../gdk-pixbuf/io-qtif.c:195
+#: ../gdk-pixbuf/io-qtif.c:206
 #, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr ""
 "Файлова грешка при прочитането на атом от изображение във формат QTIF: %s "
 
-#: ../gdk-pixbuf/io-qtif.c:232
+#: ../gdk-pixbuf/io-qtif.c:243
 #, c-format
-msgid "Failed to skip the next %d bytes with seek()."
-msgstr "Следващите %d байта не бяха прескочени чрез seek()."
+msgid "Failed to skip the next %d byte with seek()."
+msgid_plural "Failed to skip the next %d bytes with seek()."
+msgstr[0] "Следващият %d байт не беше прескочен чрез seek()."
+msgstr[1] "Следващите %d байта не бяха прескочени чрез seek()."
 
-#: ../gdk-pixbuf/io-qtif.c:256
+#: ../gdk-pixbuf/io-qtif.c:270
 msgid "Failed to allocate QTIF context structure."
 msgstr ""
 "Неуспех при заделяне на структурата за контекста на изображение във формат "
 "QTIF."
 
-#: ../gdk-pixbuf/io-qtif.c:316
+#: ../gdk-pixbuf/io-qtif.c:330
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "Неуспех при създаването на обект GdkPixbufLoader."
 
-#: ../gdk-pixbuf/io-qtif.c:420
+#: ../gdk-pixbuf/io-qtif.c:434
 msgid "Failed to find an image data atom."
 msgstr "Неуспех при откриването на атом за данни в изображение."
 
-#: ../gdk-pixbuf/io-qtif.c:601
+#: ../gdk-pixbuf/io-qtif.c:619
 msgid "The QTIF image format"
 msgstr "Форматът за изображения QTIF"
 
@@ -944,19 +951,19 @@ msgstr "Не може да се търси в потока: %s"
 msgid "Could not read from stream: %s"
 msgstr "Не може да се чете от потока: %s"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:616 ../gdk-pixbuf/io-gdip-utils.c:747
+#: ../gdk-pixbuf/io-gdip-utils.c:617 ../gdk-pixbuf/io-gdip-utils.c:752
 msgid "Couldn't load bitmap"
 msgstr "Изображението във формат „bitmap“ не може да бъде заредено"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:769
+#: ../gdk-pixbuf/io-gdip-utils.c:774
 msgid "Couldn't load metafile"
 msgstr "Мета-файлът не може да бъде зареден"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:928
+#: ../gdk-pixbuf/io-gdip-utils.c:933
 msgid "Unsupported image format for GDI+"
 msgstr "Форматът на изображението не се поддържа от GDI+"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:935
+#: ../gdk-pixbuf/io-gdip-utils.c:940
 msgid "Couldn't save"
 msgstr "Грешка при запазване"
 
