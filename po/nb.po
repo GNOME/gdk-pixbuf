@@ -1,16 +1,16 @@
 # Norwegian bokmål translation of gdk-pixbuf.
 # Copyright (C) 1998-2004, 2005 Free Software Foundation, Inc.
-# Kjartan Maraas <kmaraas@gnome.org>, 1998-2011.
+# Kjartan Maraas <kmaraas@gnome.org>, 1998-2012.
 # Terance Edward Sola <terance@lyse.net>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 2.31.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-18 12:21+0100\n"
-"PO-Revision-Date: 2011-12-18 12:22+0100\n"
+"POT-Creation-Date: 2012-01-24 15:13+0100\n"
+"PO-Revision-Date: 2012-01-24 15:16+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
-"Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
+"Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -140,7 +140,7 @@ msgstr "Stegvis lasting av bildetype «%s» er ikke støttet"
 
 #: ../gdk-pixbuf/gdk-pixdata.c:160
 msgid "Image header corrupt"
-msgstr "Korrupt header i bilde"
+msgstr "Korrupt hode i bilde"
 
 #: ../gdk-pixbuf/gdk-pixdata.c:165
 msgid "Image format unknown"
@@ -169,7 +169,7 @@ msgstr "Animasjonstype ikke støttet"
 #: ../gdk-pixbuf/io-ani.c:432 ../gdk-pixbuf/io-ani.c:455
 #: ../gdk-pixbuf/io-ani.c:482 ../gdk-pixbuf/io-ani.c:569
 msgid "Invalid header in animation"
-msgstr "Ugyldig header i animasjon"
+msgstr "Ugyldig hode i animasjon"
 
 #: ../gdk-pixbuf/io-ani.c:358 ../gdk-pixbuf/io-ani.c:380
 #: ../gdk-pixbuf/io-ani.c:464 ../gdk-pixbuf/io-ani.c:491
@@ -190,7 +190,7 @@ msgstr "ANI bildeformat"
 #: ../gdk-pixbuf/io-bmp.c:337 ../gdk-pixbuf/io-bmp.c:369
 #: ../gdk-pixbuf/io-bmp.c:392 ../gdk-pixbuf/io-bmp.c:495
 msgid "BMP image has bogus header data"
-msgstr "BMP-bilde har ugyldige data i header"
+msgstr "BMP-bilde har ugyldige data i hode"
 
 #: ../gdk-pixbuf/io-bmp.c:240 ../gdk-pixbuf/io-bmp.c:432
 msgid "Not enough memory to load bitmap image"
@@ -198,7 +198,7 @@ msgstr "Ikke nok minne til å laste bitkart-bilde"
 
 #: ../gdk-pixbuf/io-bmp.c:318
 msgid "BMP image has unsupported header size"
-msgstr "BMP-bilde har ustøttet headerstørrelse"
+msgstr "BMP-bilde har ikke-støttet størrelse på hode"
 
 #: ../gdk-pixbuf/io-bmp.c:356
 msgid "Topdown BMP images cannot be compressed"
@@ -293,7 +293,7 @@ msgstr "GIF bildeformat"
 #: ../gdk-pixbuf/io-ico.c:291 ../gdk-pixbuf/io-ico.c:302
 #: ../gdk-pixbuf/io-ico.c:395
 msgid "Invalid header in icon"
-msgstr "Ugyldig header i ikon"
+msgstr "Ugyldig hode i ikon"
 
 #: ../gdk-pixbuf/io-ico.c:257 ../gdk-pixbuf/io-ico.c:312
 #: ../gdk-pixbuf/io-ico.c:405 ../gdk-pixbuf/io-ico.c:458
@@ -626,60 +626,60 @@ msgstr "Ikke nok minne til å laste PNM-fil"
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "PNM/PBM/PGM/PPM-bildeformatfamilien"
 
-#: ../gdk-pixbuf/io-qtif.c:127
+#: ../gdk-pixbuf/io-qtif.c:128
 msgid "Input file descriptor is NULL."
 msgstr "Fildeskriptor for inndata er NULL."
 
-#: ../gdk-pixbuf/io-qtif.c:142
+#: ../gdk-pixbuf/io-qtif.c:143
 msgid "Failed to read QTIF header"
 msgstr "Klarte ikke å lese QTIF-hode"
 
-#: ../gdk-pixbuf/io-qtif.c:151 ../gdk-pixbuf/io-qtif.c:188
-#: ../gdk-pixbuf/io-qtif.c:459
+#: ../gdk-pixbuf/io-qtif.c:152 ../gdk-pixbuf/io-qtif.c:189
+#: ../gdk-pixbuf/io-qtif.c:460
 #, c-format
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
 msgstr[0] "Størrelse på QTIF-atom for stor (%d byte)"
 msgstr[1] "Størrelse på QTIF-atom for stor (%d bytes)"
 
-#: ../gdk-pixbuf/io-qtif.c:174
+#: ../gdk-pixbuf/io-qtif.c:175
 #, c-format
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
 msgstr[0] "Klarte ikke å allokere %d byte for lesebuffer for filen"
 msgstr[1] "Klarte ikke å allokere %d bytes for lesebuffer for filen"
 
-#: ../gdk-pixbuf/io-qtif.c:205
+#: ../gdk-pixbuf/io-qtif.c:206
 #, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "Feil med fil under lesing av QTIF-atom: %s"
 
-#: ../gdk-pixbuf/io-qtif.c:242
+#: ../gdk-pixbuf/io-qtif.c:243
 #, c-format
 msgid "Failed to skip the next %d byte with seek()."
 msgid_plural "Failed to skip the next %d bytes with seek()."
 msgstr[0] "Klarte ikke å hoppe over neste %d byte med seek()."
 msgstr[1] "Klarte ikke å hoppe over neste %d bytes med seek()."
 
-#: ../gdk-pixbuf/io-qtif.c:269
+#: ../gdk-pixbuf/io-qtif.c:270
 msgid "Failed to allocate QTIF context structure."
 msgstr "Klarte ikke å allokere QTIF-kontekststruktur."
 
-#: ../gdk-pixbuf/io-qtif.c:329
+#: ../gdk-pixbuf/io-qtif.c:330
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "Klarte ikke å lage GdkPixbufLoader-objekt."
 
-#: ../gdk-pixbuf/io-qtif.c:433
+#: ../gdk-pixbuf/io-qtif.c:434
 msgid "Failed to find an image data atom."
 msgstr "Klarte ikke å finne atom for bildedata."
 
-#: ../gdk-pixbuf/io-qtif.c:618
+#: ../gdk-pixbuf/io-qtif.c:619
 msgid "The QTIF image format"
 msgstr "QTIF bildeformatet"
 
 #: ../gdk-pixbuf/io-ras.c:125
 msgid "RAS image has bogus header data"
-msgstr "RAS-bilde har ugyldige data i header"
+msgstr "RAS-bilde har ugyldige data i hode"
 
 #: ../gdk-pixbuf/io-ras.c:147
 msgid "RAS image has unknown type"
@@ -854,7 +854,7 @@ msgstr "XBM bildeformat"
 
 #: ../gdk-pixbuf/io-xpm.c:469
 msgid "No XPM header found"
-msgstr "Ingen XPM-header funnet"
+msgstr "Fant ikke XPM-hode"
 
 #: ../gdk-pixbuf/io-xpm.c:478
 msgid "Invalid XPM header"
