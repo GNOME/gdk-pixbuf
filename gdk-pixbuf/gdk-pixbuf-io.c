@@ -1928,7 +1928,7 @@ gdk_pixbuf_get_file_info (const gchar  *filename,
 
 /**
  * gdk_pixbuf_new_from_xpm_data:
- * @data: Pointer to inline XPM data.
+ * @data: (array zero-terminated=1): Pointer to inline XPM data.
  *
  * Creates a new pixbuf by parsing XPM data in memory.  This data is commonly
  * the result of including an XPM file into a program's C source.
