@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+ 2.22.1\n"
+"Project-Id-Version: gtk+ 2.25.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-04 19:49+0800\n"
-"PO-Revision-Date: 2010-12-04 19:49+0800\n"
+"POT-Creation-Date: 2012-01-29 22:54+0800\n"
+"PO-Revision-Date: 2012-01-29 22:54+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "Language: zh_TW\n"
@@ -18,129 +18,129 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:130 ../gdk-pixbuf/gdk-pixbuf-io.c:980
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1240
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1070
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1336
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "開啟檔案「%s」失敗：%s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:143 ../gdk-pixbuf/gdk-pixbuf-io.c:992
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1082
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "圖片檔‘%s’沒有內容"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:185 ../gdk-pixbuf/gdk-pixbuf-io.c:1028
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1292
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1118
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1388
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr "無法載入圖片檔「%s」：原因不明，可能檔案已經損毀"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:218
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:234
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
 "animation file"
 msgstr "無法載入動畫檔‘%s’：原因不明，可能動畫檔已經損毀"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:713
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:803
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "無法載入用來載入圖片的模組：%s：%s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:728
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:818
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
 "from a different gdk-pixbuf version?"
 msgstr "圖片載入模組 %s 沒有匯出正確的介面；它是否屬於另一個 gtk-pixbuf 版本？"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:737 ../gdk-pixbuf/gdk-pixbuf-io.c:788
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:827 ../gdk-pixbuf/gdk-pixbuf-io.c:878
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "不支援圖片類型‘%s’"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:861
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:951
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "無法識別圖片檔‘%s’的圖片格式"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:869
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:959
 msgid "Unrecognized image file format"
 msgstr "無法識別的圖片檔格式"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1037
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1127
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "無法載入圖片‘%s’：%s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1671 ../gdk-pixbuf/io-gdip-utils.c:883
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1905 ../gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "寫入圖片檔時發生錯誤 (%s)"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1716 ../gdk-pixbuf/gdk-pixbuf-io.c:1846
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1950 ../gdk-pixbuf/gdk-pixbuf-io.c:2080
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "此 gdk-pixbuf 版本不支援儲存以下的圖片格式：%s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1750
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1984
 msgid "Insufficient memory to save image to callback"
 msgstr "記憶體不足以儲存圖片到 callback"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1763
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1997
 msgid "Failed to open temporary file"
 msgstr "無法開啟暫存檔"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1789
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2023
 msgid "Failed to read from temporary file"
 msgstr "無法讀入暫存檔"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2042
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2276
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "無法開啟‘%s’以供寫入資料：%s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2068
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2302
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
 "%s"
 msgstr "寫入圖片後無法關閉‘%s’，資料可能無法完整地儲存：%s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2288 ../gdk-pixbuf/gdk-pixbuf-io.c:2339
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2523 ../gdk-pixbuf/gdk-pixbuf-io.c:2575
 msgid "Insufficient memory to save image into a buffer"
 msgstr "記憶體不足以將圖片寫入緩衝區"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2385
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2621
 msgid "Error writing to image stream"
 msgstr "寫入圖片串流時發生錯誤"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:332
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:395
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
 "but didn't give a reason for the failure"
 msgstr "內部錯誤：圖片載入模組‘%s’無法完成動作，但沒有提供任何原因"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:374
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:437
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "不支援以漸進方式載入圖片類型‘%s’"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:146
+#: ../gdk-pixbuf/gdk-pixdata.c:160
 msgid "Image header corrupt"
 msgstr "圖片標頭損毀"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:151
+#: ../gdk-pixbuf/gdk-pixdata.c:165
 msgid "Image format unknown"
 msgstr "圖片格式不明"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:156 ../gdk-pixbuf/gdk-pixdata.c:487
+#: ../gdk-pixbuf/gdk-pixdata.c:170 ../gdk-pixbuf/gdk-pixdata.c:502
 msgid "Image pixel data corrupt"
 msgstr "圖片像素資料損毀"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:431
+#: ../gdk-pixbuf/gdk-pixdata.c:446
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -214,8 +214,8 @@ msgstr "BMP 圖片格式"
 msgid "Failure reading GIF: %s"
 msgstr "無法讀入 GIF：%s"
 
-#: ../gdk-pixbuf/io-gif.c:495 ../gdk-pixbuf/io-gif.c:1480
-#: ../gdk-pixbuf/io-gif.c:1641
+#: ../gdk-pixbuf/io-gif.c:495 ../gdk-pixbuf/io-gif.c:1482
+#: ../gdk-pixbuf/io-gif.c:1648
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF 檔缺少了一部份資料（可能是檔案被截斷了？）"
 
@@ -241,8 +241,8 @@ msgstr "出現不良的壓縮編碼"
 msgid "Circular table entry in GIF file"
 msgstr "GIF 檔案含有循環壓縮表格紀錄"
 
-#: ../gdk-pixbuf/io-gif.c:865 ../gdk-pixbuf/io-gif.c:1467
-#: ../gdk-pixbuf/io-gif.c:1514 ../gdk-pixbuf/io-gif.c:1629
+#: ../gdk-pixbuf/io-gif.c:865 ../gdk-pixbuf/io-gif.c:1468
+#: ../gdk-pixbuf/io-gif.c:1521 ../gdk-pixbuf/io-gif.c:1636
 msgid "Not enough memory to load GIF file"
 msgstr "記憶體不足以載入 GIF 檔"
 
@@ -269,61 +269,61 @@ msgid ""
 "colormap."
 msgstr "GIF 圖片沒有整體使用的色盤，而且圖片其中一個畫格沒有專用的色盤。"
 
-#: ../gdk-pixbuf/io-gif.c:1536
+#: ../gdk-pixbuf/io-gif.c:1543
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF 檔案被截斷或是不完整。"
 
-#: ../gdk-pixbuf/io-gif.c:1692 ../gdk-pixbuf/io-gdip-gif.c:80
+#: ../gdk-pixbuf/io-gif.c:1699 ../gdk-pixbuf/io-gdip-gif.c:80
 msgid "The GIF image format"
 msgstr "GIF 圖片格式"
 
-#: ../gdk-pixbuf/io-ico.c:210 ../gdk-pixbuf/io-ico.c:224
-#: ../gdk-pixbuf/io-ico.c:276 ../gdk-pixbuf/io-ico.c:289
-#: ../gdk-pixbuf/io-ico.c:358
+#: ../gdk-pixbuf/io-ico.c:228 ../gdk-pixbuf/io-ico.c:242
+#: ../gdk-pixbuf/io-ico.c:291 ../gdk-pixbuf/io-ico.c:302
+#: ../gdk-pixbuf/io-ico.c:395
 msgid "Invalid header in icon"
 msgstr "圖示的標頭資料無效"
 
-#: ../gdk-pixbuf/io-ico.c:239 ../gdk-pixbuf/io-ico.c:299
-#: ../gdk-pixbuf/io-ico.c:368 ../gdk-pixbuf/io-ico.c:431
-#: ../gdk-pixbuf/io-ico.c:461
+#: ../gdk-pixbuf/io-ico.c:257 ../gdk-pixbuf/io-ico.c:312
+#: ../gdk-pixbuf/io-ico.c:405 ../gdk-pixbuf/io-ico.c:458
+#: ../gdk-pixbuf/io-ico.c:488
 msgid "Not enough memory to load icon"
 msgstr "記憶體不足以載入圖示"
 
-#: ../gdk-pixbuf/io-ico.c:321
-msgid "Icon has zero width"
-msgstr "圖示的闊度為零"
-
-#: ../gdk-pixbuf/io-ico.c:331
-msgid "Icon has zero height"
-msgstr "圖示的高度為零"
-
-#: ../gdk-pixbuf/io-ico.c:383
+#: ../gdk-pixbuf/io-ico.c:338
 msgid "Compressed icons are not supported"
 msgstr "不支援有壓縮的圖示"
 
-#: ../gdk-pixbuf/io-ico.c:416
+#: ../gdk-pixbuf/io-ico.c:358
+msgid "Icon has zero width"
+msgstr "圖示的闊度為零"
+
+#: ../gdk-pixbuf/io-ico.c:368
+msgid "Icon has zero height"
+msgstr "圖示的高度為零"
+
+#: ../gdk-pixbuf/io-ico.c:443
 msgid "Unsupported icon type"
 msgstr "不支援的圖示類型"
 
-#: ../gdk-pixbuf/io-ico.c:510
+#: ../gdk-pixbuf/io-ico.c:537
 msgid "Not enough memory to load ICO file"
 msgstr "記憶體不足以載入 ICO 檔"
 
-#: ../gdk-pixbuf/io-ico.c:975
+#: ../gdk-pixbuf/io-ico.c:1002
 msgid "Image too large to be saved as ICO"
 msgstr "圖片太大無法存為 ICO 格式"
 
 # (Abel) FIXME 這個 hotspot....
-#: ../gdk-pixbuf/io-ico.c:986
+#: ../gdk-pixbuf/io-ico.c:1013
 msgid "Cursor hotspot outside image"
 msgstr "游標熱點在圖片之外"
 
-#: ../gdk-pixbuf/io-ico.c:1009
+#: ../gdk-pixbuf/io-ico.c:1036
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "ICO 檔含有未支援的色彩深度：%d"
 
-#: ../gdk-pixbuf/io-ico.c:1244 ../gdk-pixbuf/io-gdip-ico.c:59
+#: ../gdk-pixbuf/io-ico.c:1271 ../gdk-pixbuf/io-gdip-ico.c:59
 msgid "The ICO image format"
 msgstr "ICO 圖片格式"
 
@@ -383,34 +383,34 @@ msgid ""
 "memory"
 msgstr "記憶體不足以載入圖片，請嘗試退出其它應用程式來釋放記憶體"
 
-#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:774
+#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:781
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "未支援的 JPEG 色彩空間 (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:673 ../gdk-pixbuf/io-jpeg.c:943
-#: ../gdk-pixbuf/io-jpeg.c:1176 ../gdk-pixbuf/io-jpeg.c:1185
+#: ../gdk-pixbuf/io-jpeg.c:680 ../gdk-pixbuf/io-jpeg.c:950
+#: ../gdk-pixbuf/io-jpeg.c:1183 ../gdk-pixbuf/io-jpeg.c:1192
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "無法分配記憶體來載入 JPEG 檔案"
 
-#: ../gdk-pixbuf/io-jpeg.c:918
+#: ../gdk-pixbuf/io-jpeg.c:925
 msgid "Transformed JPEG has zero width or height."
 msgstr "變換後的 JPEG 闊度或高度為零。"
 
-#: ../gdk-pixbuf/io-jpeg.c:1132 ../gdk-pixbuf/io-gdip-jpeg.c:53
+#: ../gdk-pixbuf/io-jpeg.c:1139 ../gdk-pixbuf/io-gdip-jpeg.c:53
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
 "parsed."
 msgstr "JPEG 品質必須在 0 至 100 之間；無法分析數值「%s」。"
 
-#: ../gdk-pixbuf/io-jpeg.c:1147 ../gdk-pixbuf/io-gdip-jpeg.c:68
+#: ../gdk-pixbuf/io-jpeg.c:1154 ../gdk-pixbuf/io-gdip-jpeg.c:68
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr "JPEG 品質必須在 0 至 100 之間；不允許使用數值「%d」。"
 
-#: ../gdk-pixbuf/io-jpeg.c:1309 ../gdk-pixbuf/io-gdip-jpeg.c:136
+#: ../gdk-pixbuf/io-jpeg.c:1316 ../gdk-pixbuf/io-gdip-jpeg.c:136
 msgid "The JPEG image format"
 msgstr "JPEG 圖片格式"
 
@@ -535,12 +535,12 @@ msgid ""
 "allowed."
 msgstr "PNG 壓縮程度必須在 0 至 9 之間；不允許使用數值「%d」。"
 
-#: ../gdk-pixbuf/io-png.c:950
+#: ../gdk-pixbuf/io-png.c:959
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr "PNG text 區段的內容 %s 無法轉換為 ISO-8859-1 編碼。"
 
-#: ../gdk-pixbuf/io-png.c:1111
+#: ../gdk-pixbuf/io-png.c:1122
 msgid "The PNG image format"
 msgstr "PNG 圖片格式"
 
@@ -605,48 +605,51 @@ msgstr "記憶體不足以載入 PNM 檔"
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "PNM/PBM/PGM/PPM 圖片格式集合"
 
-#: ../gdk-pixbuf/io-qtif.c:127
+#: ../gdk-pixbuf/io-qtif.c:128
 msgid "Input file descriptor is NULL."
 msgstr "輸入的檔案描述子為 NULL。"
 
-#: ../gdk-pixbuf/io-qtif.c:142
+#: ../gdk-pixbuf/io-qtif.c:143
 msgid "Failed to read QTIF header"
 msgstr "讀取 QTIF 檔頭失敗"
 
-#: ../gdk-pixbuf/io-qtif.c:151 ../gdk-pixbuf/io-qtif.c:181
-#: ../gdk-pixbuf/io-qtif.c:445
+#: ../gdk-pixbuf/io-qtif.c:152 ../gdk-pixbuf/io-qtif.c:189
+#: ../gdk-pixbuf/io-qtif.c:460
 #, c-format
-msgid "QTIF atom size too large (%d bytes)"
-msgstr "QTIF atom 大小過大 (%d 位元組)"
+msgid "QTIF atom size too large (%d byte)"
+msgid_plural "QTIF atom size too large (%d bytes)"
+msgstr[0] "QTIF atom 容量過大 (%d 位元組)"
 
-#: ../gdk-pixbuf/io-qtif.c:171
+#: ../gdk-pixbuf/io-qtif.c:175
 #, c-format
-msgid "Failed to allocate %d bytes for file read buffer"
-msgstr "無法分配 %d 位元組的檔案讀取緩衝區"
+msgid "Failed to allocate %d byte for file read buffer"
+msgid_plural "Failed to allocate %d bytes for file read buffer"
+msgstr[0] "無法分配 %d 位元組的檔案讀取緩衝區"
 
-#: ../gdk-pixbuf/io-qtif.c:195
+#: ../gdk-pixbuf/io-qtif.c:206
 #, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "當讀取 QTIF atom 時發生錯誤：%s"
 
-#: ../gdk-pixbuf/io-qtif.c:232
+#: ../gdk-pixbuf/io-qtif.c:243
 #, c-format
-msgid "Failed to skip the next %d bytes with seek()."
-msgstr "無法以 seek() 略過下 %d 個位元組。"
+msgid "Failed to skip the next %d byte with seek()."
+msgid_plural "Failed to skip the next %d bytes with seek()."
+msgstr[0] "無法以 seek() 略過下 %d 個位元組。"
 
-#: ../gdk-pixbuf/io-qtif.c:256
+#: ../gdk-pixbuf/io-qtif.c:270
 msgid "Failed to allocate QTIF context structure."
 msgstr "分配 QTIF 脈絡結構失敗。"
 
-#: ../gdk-pixbuf/io-qtif.c:316
+#: ../gdk-pixbuf/io-qtif.c:330
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "無法建立 GdkPixbufLoader 物件。"
 
-#: ../gdk-pixbuf/io-qtif.c:420
+#: ../gdk-pixbuf/io-qtif.c:434
 msgid "Failed to find an image data atom."
 msgstr "找不到圖片資料 atom。"
 
-#: ../gdk-pixbuf/io-qtif.c:601
+#: ../gdk-pixbuf/io-qtif.c:619
 msgid "The QTIF image format"
 msgstr "QTIF 圖片格式"
 
@@ -892,25 +895,22 @@ msgstr "無法尋找串流： %s"
 msgid "Could not read from stream: %s"
 msgstr "無法讀取串流：%s"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:616 ../gdk-pixbuf/io-gdip-utils.c:747
+#: ../gdk-pixbuf/io-gdip-utils.c:617 ../gdk-pixbuf/io-gdip-utils.c:752
 msgid "Couldn't load bitmap"
 msgstr "無法載入點陣圖"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:769
+#: ../gdk-pixbuf/io-gdip-utils.c:774
 msgid "Couldn't load metafile"
 msgstr "無法載入中繼檔案"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:928
+#: ../gdk-pixbuf/io-gdip-utils.c:933
 msgid "Unsupported image format for GDI+"
 msgstr "不支援的 GDI+ 圖片格式"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:935
+#: ../gdk-pixbuf/io-gdip-utils.c:940
 msgid "Couldn't save"
 msgstr "無法儲存"
 
 #: ../gdk-pixbuf/io-gdip-wmf.c:58
 msgid "The WMF image format"
 msgstr "WMF 圖片格式"
-
-#~ msgid "Couldn't allocate memory for paletted data"
-#~ msgstr "無法分配色盤資料所需的記憶體"
