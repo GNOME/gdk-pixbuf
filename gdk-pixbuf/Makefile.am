@@ -526,9 +526,12 @@ LDADDS = libgdk_pixbuf-$(GDK_PIXBUF_API_VERSION).la $(GDK_PIXBUF_DEP_LIBS)
 noinst_PROGRAMS = test-gdk-pixbuf
 test_gdk_pixbuf_LDADD = $(LDADDS)
 
-bin_PROGRAMS = gdk-pixbuf-csource gdk-pixbuf-query-loaders
+bin_PROGRAMS = gdk-pixbuf-csource gdk-pixbuf-pixdata gdk-pixbuf-query-loaders
 gdk_pixbuf_csource_SOURCES = gdk-pixbuf-csource.c
 gdk_pixbuf_csource_LDADD = $(LDADDS)
+
+gdk_pixbuf_pixdata_SOURCES = gdk-pixbuf-pixdata.c
+gdk_pixbuf_pixdata_LDADD = $(LDADDS)
 
 gdk_pixbuf_query_loaders_DEPENDENCIES = $(DEPS)
 gdk_pixbuf_query_loaders_LDADD = $(LDADDS)
