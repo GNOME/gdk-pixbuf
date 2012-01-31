@@ -1653,6 +1653,87 @@ gdk_pixbuf_new_from_stream (GInputStream  *stream,
 }
 
 /**
+ * gdk_pixbuf_new_from_resource:
+ * @resource_path: the path of the resource file
+ * @error: Return location for an error
+ *
+ * Creates a new pixbuf by loading an image from an resource.
+ *
+ * The file format is detected automatically. If %NULL is returned, then
+ * @error will be set.
+ *
+ * Return value: A newly-created pixbuf, or %NULL if any of several error
+ * conditions occurred: the file could not be opened, the image format is
+ * not supported, there was not enough memory to allocate the image buffer,
+ * the stream contained invalid data, or the operation was cancelled.
+ *
+ * Since: 2.26
+ **/
+GdkPixbuf *
+gdk_pixbuf_new_from_resource (const char *resource_path,
+			      GError    **error)
+{
+	GInputStream *stream;
+	GdkPixbuf *pixbuf;
+
+	stream = g_resources_open_stream (resource_path, 0, error);
+	if (stream == NULL)
+		return NULL;
+
+	pixbuf = gdk_pixbuf_new_from_stream (stream, NULL, error);
+	g_object_unref (stream);
+	return pixbuf;
+}
+
+/**
+ * gdk_pixbuf_new_from_resource_at_scale:
+ * @resource_path: the path of the resource file
+ * @width: The width the image should have or -1 to not constrain the width
+ * @height: The height the image should have or -1 to not constrain the height
+ * @preserve_aspect_ratio: %TRUE to preserve the image's aspect ratio
+ * @error: Return location for an error
+ *
+ * Creates a new pixbuf by loading an image from an resource.
+ *
+ * The file format is detected automatically. If %NULL is returned, then
+ * @error will be set.
+ *
+ * The image will be scaled to fit in the requested size, optionally
+ * preserving the image's aspect ratio. When preserving the aspect ratio,
+ * a @width of -1 will cause the image to be scaled to the exact given
+ * height, and a @height of -1 will cause the image to be scaled to the
+ * exact given width. When not preserving aspect ratio, a @width or
+ * @height of -1 means to not scale the image at all in that dimension.
+ *
+ * The stream is not closed.
+ *
+ * Return value: A newly-created pixbuf, or %NULL if any of several error
+ * conditions occurred: the file could not be opened, the image format is
+ * not supported, there was not enough memory to allocate the image buffer,
+ * the stream contained invalid data, or the operation was cancelled.
+ *
+ * Since: 2.26
+ */
+GdkPixbuf *
+gdk_pixbuf_new_from_resource_at_scale (const char *resource_path,
+				       int         width,
+				       int         height,
+				       gboolean    preserve_aspect_ratio,
+				       GError    **error)
+{
+	GInputStream *stream;
+	GdkPixbuf *pixbuf;
+
+	stream = g_resources_open_stream (resource_path, 0, error);
+	if (stream == NULL)
+		return NULL;
+
+	pixbuf = gdk_pixbuf_new_from_stream_at_scale (stream, width, height, preserve_aspect_ratio, NULL, error);
+	g_object_unref (stream);
+	return pixbuf;
+}
+
+/**
  * gdk_pixbuf_new_from_stream_async:
  * @stream: a #GInputStream from which to load the pixbuf
  * @cancellable: optional #GCancellable object, %NULL to ignore
