@@ -12,134 +12,120 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.master.te\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
-"%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2011-12-16 23:47+0000\n"
-"PO-Revision-Date: 2012-01-22 15:23+0530\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%2b&keywords=I18N+L10N&component=gdk\n"
+"POT-Creation-Date: 2012-01-31 19:10+0000\n"
+"PO-Revision-Date: 2012-02-01 01:19+0530\n"
 "Last-Translator: Praveen Illa <mail2ipn@gmail.com>\n"
 "Language-Team: Telugu <indlinux-telugu@lists.sourceforge.net>\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"\n"
-"\n"
-"\n"
-"\n"
 "X-Generator: Lokalize 1.1\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1070
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1336
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1083
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1349
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "'%s': దస్త్రమును తెరచుటలో విఫలమైంది %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1082
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1095
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "'%s' ప్రతిబింబ దస్త్రంలో ఏ దత్తాంశమూ లేదు"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1118
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1388
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1131
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1401
 #, c-format
-msgid ""
-"Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr ""
-" ప్రతిబింబం   '%s'ను నింపుటలో విఫలమైంది. కారణం తెలియదు.  బహుశా    ఈ దస్త్రం చెడిపోయి వుండవచ్చు."
+msgid "Failed to load image '%s': reason not known, probably a corrupt image file"
+msgstr " ప్రతిబింబం   '%s'ను నింపుటలో విఫలమైంది. కారణం తెలియదు.  బహుశా    ఈ దస్త్రం చెడిపోయి వుండవచ్చు."
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:234
 #, c-format
-msgid ""
-"Failed to load animation '%s': reason not known, probably a corrupt "
-"animation file"
-msgstr ""
-"'%s': సచేతనాన్ని నింపుటలో విఫలమైంది. కారణం తెలియదు . బహుశా  సచేతన దస్త్రము చెడిపోయి  వుండవచ్చు."
+msgid "Failed to load animation '%s': reason not known, probably a corrupt animation file"
+msgstr "'%s': సచేతనాన్ని నింపుటలో విఫలమైంది. కారణం తెలియదు . బహుశా  సచేతన దస్త్రము చెడిపోయి  వుండవచ్చు."
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:803
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:809
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "%s ప్రతిబింబ  ప్రమాణాన్ని  నింపలేకపోతున్నాం.: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:818
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:824
 #, c-format
-msgid ""
-"Image-loading module %s does not export the proper interface; perhaps it's "
-"from a different gdk-pixbuf version?"
-msgstr ""
-"ప్రతిబింబం-లోడుచేయు మాడ్యూల్ %s సరైన యింటర్ఫేస్‌ను యెగుమతి చేయలేదు; ఒకవేళ అది వేరే gdk-pixbuf "
-"వర్షన్‌నుండి కావచ్చు?"
+msgid "Image-loading module %s does not export the proper interface; perhaps it's from a different gdk-pixbuf version?"
+msgstr "ప్రతిబింబం-లోడుచేయు మాడ్యూల్ %s సరైన యింటర్ఫేస్‌ను యెగుమతి చేయలేదు; ఒకవేళ అది వేరే gdk-pixbuf వర్షన్‌నుండి కావచ్చు?"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:827 ../gdk-pixbuf/gdk-pixbuf-io.c:878
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:833
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:884
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "'%s' ప్రతిబింబ రకానికి  సహకరించలేము."
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:951
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:964
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "'%sదస్త్రం ప్రతిబింబ రూప లావణ్యాన్ని గుర్తించ లేకపోయింది.'"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:959
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:972
 msgid "Unrecognized image file format"
 msgstr "గుర్తింపలేని ప్రతిబింబ దస్త్ర రూపలావణ్యం"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1127
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1140
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "'%s'ప్రతిబింబాన్ని నింపుటలో  విఫలమైంది: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1905 ../gdk-pixbuf/io-gdip-utils.c:888
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2028
+#: ../gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "ప్రతిబింబ దస్త్రానికి రాయుటలో దోషం: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1950 ../gdk-pixbuf/gdk-pixbuf-io.c:2080
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2073
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2203
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "%s నిర్మాణం ప్రతిబింబ రూప లావణాన్ని దాచడానికి సహకరించటంలేదు."
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1984
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2107
 msgid "Insufficient memory to save image to callback"
 msgstr "ప్రతిబింబాన్ని వెనక్కు రప్పించి దాచుటకు జ్ఞాపక శక్తి చాలదు."
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1997
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2120
 msgid "Failed to open temporary file"
 msgstr "తాత్కాలిక దస్త్రమును తెరచుటలో విఫలమైంది."
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2023
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2146
 msgid "Failed to read from temporary file"
 msgstr "తాత్కాలిక దస్త్రము నుండి చదువుట విఫలమంది."
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2276
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2399
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "'%s' వ్రాయుట కొరకు  తెరచుట  విఫలమైంది %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2302
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2425
 #, c-format
-msgid ""
-"Failed to close '%s' while writing image, all data may not have been saved: "
-"%s"
-msgstr ""
-" '%s' ప్రతిబింబాన్ని రాస్తున్నప్పుడు  %sను మూయుటలో విఫలమైంది. దత్తాంశమంతా దాచిపెట్టబడి వుండకపోవచ్చు."
+msgid "Failed to close '%s' while writing image, all data may not have been saved: %s"
+msgstr " '%s' ప్రతిబింబాన్ని రాస్తున్నప్పుడు  %sను మూయుటలో విఫలమైంది. దత్తాంశమంతా దాచిపెట్టబడి వుండకపోవచ్చు."
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2523 ../gdk-pixbuf/gdk-pixbuf-io.c:2575
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2646
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2698
 msgid "Insufficient memory to save image into a buffer"
 msgstr "ప్రతిబింబాన్ని వాటికయందు దాచుటకు శక్తి చాలదు"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2621
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2744
 msgid "Error writing to image stream"
 msgstr "ప్రతిబింబ స్ట్రీమ్‌కు వ్రాయుటలో దోషము"
 
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:395
 #, c-format
-msgid ""
-"Internal error: Image loader module '%s' failed to complete an operation, "
-"but didn't give a reason for the failure"
-msgstr ""
-"అంతర్గత దోషం : ప్రతిబింబాన్ని నింపేటప్పుడు ప్రతిబింబ ప్రమాణం '%s' విఫలం అయింది. వైఫల్యానికి కారణం "
-"చెప్పబడలేదు."
+msgid "Internal error: Image loader module '%s' failed to complete an operation, but didn't give a reason for the failure"
+msgstr "అంతర్గత దోషం : ప్రతిబింబాన్ని నింపేటప్పుడు ప్రతిబింబ ప్రమాణం '%s' విఫలం అయింది. వైఫల్యానికి కారణం చెప్పబడలేదు."
 
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:437
 #, c-format
@@ -154,7 +140,8 @@ msgstr "ప్రతిబింబ శీర్షిక చెడిపోయ�
 msgid "Image format unknown"
 msgstr "ప్రతిబింబ రూపలావణ్యాలు అపరిచితం"
 
-#: ../gdk-pixbuf/gdk-pixdata.c:170 ../gdk-pixbuf/gdk-pixdata.c:502
+#: ../gdk-pixbuf/gdk-pixdata.c:170
+#: ../gdk-pixbuf/gdk-pixdata.c:502
 msgid "Image pixel data corrupt"
 msgstr "ప్రతిబింబ పిక్సెల్ దత్తాంశం చెడిపోయింది."
 
@@ -173,19 +160,26 @@ msgstr "సచేతనంలో ఊహించని ప్రతిమా ఖ
 msgid "Unsupported animation type"
 msgstr "సహకారం లేని సచేతన రకం"
 
-#: ../gdk-pixbuf/io-ani.c:348 ../gdk-pixbuf/io-ani.c:406
-#: ../gdk-pixbuf/io-ani.c:432 ../gdk-pixbuf/io-ani.c:455
-#: ../gdk-pixbuf/io-ani.c:482 ../gdk-pixbuf/io-ani.c:569
+#: ../gdk-pixbuf/io-ani.c:348
+#: ../gdk-pixbuf/io-ani.c:406
+#: ../gdk-pixbuf/io-ani.c:432
+#: ../gdk-pixbuf/io-ani.c:455
+#: ../gdk-pixbuf/io-ani.c:482
+#: ../gdk-pixbuf/io-ani.c:569
 msgid "Invalid header in animation"
 msgstr "సచేతనంలో చెల్లుబాటుకాని శీర్షిక"
 
-#: ../gdk-pixbuf/io-ani.c:358 ../gdk-pixbuf/io-ani.c:380
-#: ../gdk-pixbuf/io-ani.c:464 ../gdk-pixbuf/io-ani.c:491
-#: ../gdk-pixbuf/io-ani.c:542 ../gdk-pixbuf/io-ani.c:614
+#: ../gdk-pixbuf/io-ani.c:358
+#: ../gdk-pixbuf/io-ani.c:380
+#: ../gdk-pixbuf/io-ani.c:464
+#: ../gdk-pixbuf/io-ani.c:491
+#: ../gdk-pixbuf/io-ani.c:542
+#: ../gdk-pixbuf/io-ani.c:614
 msgid "Not enough memory to load animation"
 msgstr "సచేతనాన్ని నింపుటకు సరిపడే జ్ఞాపక శక్తి లేదు"
 
-#: ../gdk-pixbuf/io-ani.c:398 ../gdk-pixbuf/io-ani.c:424
+#: ../gdk-pixbuf/io-ani.c:398
+#: ../gdk-pixbuf/io-ani.c:424
 #: ../gdk-pixbuf/io-ani.c:443
 msgid "Malformed chunk in animation"
 msgstr "సచేతనంలో వికృత ఖండం"
@@ -194,13 +188,17 @@ msgstr "సచేతనంలో వికృత ఖండం"
 msgid "The ANI image format"
 msgstr "ANI ప్రతిబింబ రూపలావణ్యం"
 
-#: ../gdk-pixbuf/io-bmp.c:229 ../gdk-pixbuf/io-bmp.c:266
-#: ../gdk-pixbuf/io-bmp.c:337 ../gdk-pixbuf/io-bmp.c:369
-#: ../gdk-pixbuf/io-bmp.c:392 ../gdk-pixbuf/io-bmp.c:495
+#: ../gdk-pixbuf/io-bmp.c:229
+#: ../gdk-pixbuf/io-bmp.c:266
+#: ../gdk-pixbuf/io-bmp.c:337
+#: ../gdk-pixbuf/io-bmp.c:369
+#: ../gdk-pixbuf/io-bmp.c:392
+#: ../gdk-pixbuf/io-bmp.c:495
 msgid "BMP image has bogus header data"
 msgstr "BMP ప్రతిబింబం నకిలీ శీర్షిక దత్తాంశాన్ని కలిగివుంది."
 
-#: ../gdk-pixbuf/io-bmp.c:240 ../gdk-pixbuf/io-bmp.c:432
+#: ../gdk-pixbuf/io-bmp.c:240
+#: ../gdk-pixbuf/io-bmp.c:432
 msgid "Not enough memory to load bitmap image"
 msgstr "బిట్_మ్యాప్ ప్రతిబింబాన్ని నింపుటకు సరిపడే జ్ఞాపక శక్తి లేదు."
 
@@ -212,7 +210,8 @@ msgstr "సహకారంలేని BMP ప్రతిబింబ శీర
 msgid "Topdown BMP images cannot be compressed"
 msgstr "టాప్‌డౌన్ BMP చిత్రాలు కుచింపబడవు"
 
-#: ../gdk-pixbuf/io-bmp.c:716 ../gdk-pixbuf/io-pnm.c:707
+#: ../gdk-pixbuf/io-bmp.c:716
+#: ../gdk-pixbuf/io-pnm.c:707
 msgid "Premature end-of-file encountered"
 msgstr "పరిపక్వం చెందని దత్తాంశ అంతం కనిపెట్టబడింది"
 
@@ -224,20 +223,95 @@ msgstr "BMP దస్త్రాన్ని దాచటానికి జ్
 msgid "Couldn't write to BMP file"
 msgstr "BMP దస్త్రమునకు వ్రయలేము"
 
-#: ../gdk-pixbuf/io-bmp.c:1422 ../gdk-pixbuf/io-gdip-bmp.c:82
+#: ../gdk-pixbuf/io-bmp.c:1422
+#: ../gdk-pixbuf/io-gdip-bmp.c:82
 msgid "The BMP image format"
 msgstr "BMP ప్రతిబింబ రూపలావణ్యం"
+
+#: ../gdk-pixbuf/io-gdip-emf.c:59
+msgid "The EMF image format"
+msgstr "EMF ప్రతిబింబ రూపలావణ్యం"
+
+#: ../gdk-pixbuf/io-gdip-gif.c:80
+#: ../gdk-pixbuf/io-gif.c:1699
+msgid "The GIF image format"
+msgstr "GIF ప్రతిబింబం ఉపలావణ్యం"
+
+#: ../gdk-pixbuf/io-gdip-ico.c:59
+#: ../gdk-pixbuf/io-ico.c:1271
+msgid "The ICO image format"
+msgstr "ICO ప్రతిబింబ రూపలావణ్యం"
+
+#: ../gdk-pixbuf/io-gdip-jpeg.c:53
+#: ../gdk-pixbuf/io-jpeg.c:1139
+#, c-format
+msgid "JPEG quality must be a value between 0 and 100; value '%s' could not be parsed."
+msgstr "JPEG నాణ్యత 0కు100 మధ్య విలువఅయివుండవలెను'%s' విలువను పదానుబంధీకరణ చేయలేము."
+
+#: ../gdk-pixbuf/io-gdip-jpeg.c:68
+#: ../gdk-pixbuf/io-jpeg.c:1154
+#, c-format
+msgid "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgstr "JPEG నాణ్యత 0కు100కు మధ్య విలువ అయివుండవలెను '%d విలువ ఆమోదింపబడదు"
+
+#: ../gdk-pixbuf/io-gdip-jpeg.c:136
+#: ../gdk-pixbuf/io-jpeg.c:1316
+msgid "The JPEG image format"
+msgstr "JPEG ప్రతిబింబరూప లావణ్యం"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:154
+#, c-format
+msgid "Could not allocate memory: %s"
+msgstr "జ్ఞాపకశక్తిని కేటాయించలేక పోయింది: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:179
+#: ../gdk-pixbuf/io-gdip-utils.c:293
+#: ../gdk-pixbuf/io-gdip-utils.c:333
+#, c-format
+msgid "Could not create stream: %s"
+msgstr "స్ట్రీమ్‌ను సృష్టించలేక పోయింది: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:193
+#, c-format
+msgid "Could not seek stream: %s"
+msgstr "స్ట్రీమ్‌ను కోరలేము: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:205
+#, c-format
+msgid "Could not read from stream: %s"
+msgstr "స్ట్రీమ్‌నుండి చదువలేక పోయింది: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:617
+#: ../gdk-pixbuf/io-gdip-utils.c:752
+msgid "Couldn't load bitmap"
+msgstr "బిట్‌మాప్‌ను లోడ్‌ చేయలేక పోయింది"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:774
+msgid "Couldn't load metafile"
+msgstr "మెటాఫైల్‌ను లోడ్ చేయలేక పోయింది"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:933
+msgid "Unsupported image format for GDI+"
+msgstr "GDI+ కొరకు మద్దతీయని ప్రతిబింబం రూపలావణ్యం"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:940
+msgid "Couldn't save"
+msgstr "భద్రపరచలేకపోయింది"
+
+#: ../gdk-pixbuf/io-gdip-wmf.c:58
+msgid "The WMF image format"
+msgstr "WMF ప్రతిబింబ రూపలావణ్యం"
 
 #: ../gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "GIF చదువుటలో విఫలమైంది.: %s"
 
-#: ../gdk-pixbuf/io-gif.c:495 ../gdk-pixbuf/io-gif.c:1482
+#: ../gdk-pixbuf/io-gif.c:495
+#: ../gdk-pixbuf/io-gif.c:1482
 #: ../gdk-pixbuf/io-gif.c:1648
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
-msgstr ""
-"GIF దస్త్రము కొంత దత్తాంశాన్ని కోల్పోయింది.  (బహుశా దాని చివరి భాగం  ఎలాగో కత్తిరించబడి వుంటుంది?)"
+msgstr "GIF దస్త్రము కొంత దత్తాంశాన్ని కోల్పోయింది.  (బహుశా దాని చివరి భాగం  ఎలాగో కత్తిరించబడి వుంటుంది?)"
 
 #: ../gdk-pixbuf/io-gif.c:504
 #, c-format
@@ -260,8 +334,10 @@ msgstr "తప్పడు సంకేతం కనిపెట్టబడి�
 msgid "Circular table entry in GIF file"
 msgstr "GIF దస్త్రంలో వృత్త పట్టీ "
 
-#: ../gdk-pixbuf/io-gif.c:865 ../gdk-pixbuf/io-gif.c:1468
-#: ../gdk-pixbuf/io-gif.c:1521 ../gdk-pixbuf/io-gif.c:1636
+#: ../gdk-pixbuf/io-gif.c:865
+#: ../gdk-pixbuf/io-gif.c:1468
+#: ../gdk-pixbuf/io-gif.c:1521
+#: ../gdk-pixbuf/io-gif.c:1636
 msgid "Not enough memory to load GIF file"
 msgstr "GIF దస్త్రంను నింపుటకు సరిపడా జ్ఞాపకశక్తి లేదు "
 
@@ -283,28 +359,38 @@ msgid "Version %s of the GIF file format is not supported"
 msgstr "GIF దస్త్ర రూప లావణ్యం%s వివరణానికి సహకరించుటలేదు"
 
 #: ../gdk-pixbuf/io-gif.c:1302
-msgid ""
-"GIF image has no global colormap, and a frame inside it has no local "
-"colormap."
-msgstr ""
-"GIF ప్రతిబింబానికి ప్రాపంచిక వర్ణసంధానం లేదుమరియు ఫలకములోపల దానికి స్థానిక వర్ణసంధానం కూడా లేదు."
+msgid "GIF image has no global colormap, and a frame inside it has no local colormap."
+msgstr "GIF ప్రతిబింబానికి ప్రాపంచిక వర్ణసంధానం లేదుమరియు ఫలకములోపల దానికి స్థానిక వర్ణసంధానం కూడా లేదు."
 
 #: ../gdk-pixbuf/io-gif.c:1543
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF ప్రతిబింబం కత్తిరింపబడింది లేదా అసంపూర్ణం"
 
-#: ../gdk-pixbuf/io-gif.c:1699 ../gdk-pixbuf/io-gdip-gif.c:80
-msgid "The GIF image format"
-msgstr "GIF ప్రతిబింబం ఉపలావణ్యం"
+#: ../gdk-pixbuf/io-icns.c:347
+#, c-format
+msgid "Error reading ICNS image: %s"
+msgstr "ICNS ప్రతిబింబం చదువుటలో దోషము: %s"
 
-#: ../gdk-pixbuf/io-ico.c:228 ../gdk-pixbuf/io-ico.c:242
-#: ../gdk-pixbuf/io-ico.c:291 ../gdk-pixbuf/io-ico.c:302
+#: ../gdk-pixbuf/io-icns.c:364
+msgid "Could not decode ICNS file"
+msgstr "ICNS దస్త్రాన్ని డీకో‍డ్ చేయలేకపోయింది"
+
+#: ../gdk-pixbuf/io-icns.c:397
+msgid "The ICNS image format"
+msgstr "ICNS ప్రతిబింబ రూపం"
+
+#: ../gdk-pixbuf/io-ico.c:228
+#: ../gdk-pixbuf/io-ico.c:242
+#: ../gdk-pixbuf/io-ico.c:291
+#: ../gdk-pixbuf/io-ico.c:302
 #: ../gdk-pixbuf/io-ico.c:395
 msgid "Invalid header in icon"
 msgstr "ప్రతిమలో చెల్లని శీర్షిక"
 
-#: ../gdk-pixbuf/io-ico.c:257 ../gdk-pixbuf/io-ico.c:312
-#: ../gdk-pixbuf/io-ico.c:405 ../gdk-pixbuf/io-ico.c:458
+#: ../gdk-pixbuf/io-ico.c:257
+#: ../gdk-pixbuf/io-ico.c:312
+#: ../gdk-pixbuf/io-ico.c:405
+#: ../gdk-pixbuf/io-ico.c:458
 #: ../gdk-pixbuf/io-ico.c:488
 msgid "Not enough memory to load icon"
 msgstr "ప్రతిమను నింపుటకు కావలసిన జ్ఞాపకశక్తి లేదు"
@@ -342,23 +428,6 @@ msgstr "ప్రతిబింబం వెలుపలిములుకు �
 msgid "Unsupported depth for ICO file: %d"
 msgstr "ICO దస్త్ర లోతునకు సహకారం లేదుక: %d"
 
-#: ../gdk-pixbuf/io-ico.c:1271 ../gdk-pixbuf/io-gdip-ico.c:59
-msgid "The ICO image format"
-msgstr "ICO ప్రతిబింబ రూపలావణ్యం"
-
-#: ../gdk-pixbuf/io-icns.c:347
-#, c-format
-msgid "Error reading ICNS image: %s"
-msgstr "ICNS ప్రతిబింబం చదువుటలో దోషము: %s"
-
-#: ../gdk-pixbuf/io-icns.c:364
-msgid "Could not decode ICNS file"
-msgstr "ICNS దస్త్రాన్ని డీకో‍డ్ చేయలేకపోయింది"
-
-#: ../gdk-pixbuf/io-icns.c:397
-msgid "The ICNS image format"
-msgstr "ICNS ప్రతిబింబ రూపం"
-
 #: ../gdk-pixbuf/io-jasper.c:74
 msgid "Couldn't allocate memory for stream"
 msgstr "స్ట్రీమ్‌కు జ్ఞాపకశక్తిని స్థాననిర్దేశకం చేయలేము."
@@ -375,7 +444,8 @@ msgstr "మార్పుకు లోనైన JPEG2000 పొడువు ల
 msgid "Image type currently not supported"
 msgstr "ప్రతిబింబం రకము ప్రస్తుతం మద్దతీయుటలేదు."
 
-#: ../gdk-pixbuf/io-jasper.c:148 ../gdk-pixbuf/io-jasper.c:156
+#: ../gdk-pixbuf/io-jasper.c:148
+#: ../gdk-pixbuf/io-jasper.c:156
 msgid "Couldn't allocate memory for color profile"
 msgstr "వర్ణ ప్రొఫైల్‌కు జ్ఞాపకశక్తిని కేటాయింటలేక పోయింది"
 
@@ -397,18 +467,19 @@ msgid "Error interpreting JPEG image file (%s)"
 msgstr " JPEG ప్రతిబింబ విశ్లేషణలో దోషం(%s)"
 
 #: ../gdk-pixbuf/io-jpeg.c:527
-msgid ""
-"Insufficient memory to load image, try exiting some applications to free "
-"memory"
+msgid "Insufficient memory to load image, try exiting some applications to free memory"
 msgstr "ప్రతిబింబమును నింపుటకు జ్ఞాపకశక్తి చాలదు. కొన్ని కార్యక్షేత్రములను తొలగించి మరలా ప్రయత్నించండి"
 
-#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:781
+#: ../gdk-pixbuf/io-jpeg.c:568
+#: ../gdk-pixbuf/io-jpeg.c:781
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr " సహకారం లేనిJPEG వర్ణప్రదేశము (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:680 ../gdk-pixbuf/io-jpeg.c:950
-#: ../gdk-pixbuf/io-jpeg.c:1183 ../gdk-pixbuf/io-jpeg.c:1192
+#: ../gdk-pixbuf/io-jpeg.c:680
+#: ../gdk-pixbuf/io-jpeg.c:950
+#: ../gdk-pixbuf/io-jpeg.c:1183
+#: ../gdk-pixbuf/io-jpeg.c:1192
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "JPEG దస్త్రంను నింపుటకుస్థాననిర్దేశకం చేయలేము."
 
@@ -416,28 +487,12 @@ msgstr "JPEG దస్త్రంను నింపుటకుస్థాన
 msgid "Transformed JPEG has zero width or height."
 msgstr "మార్పుకు లోనైన JPEG పొడువు లేదా వెడల్పులు శూన్యం."
 
-#: ../gdk-pixbuf/io-jpeg.c:1139 ../gdk-pixbuf/io-gdip-jpeg.c:53
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
-"parsed."
-msgstr "JPEG నాణ్యత 0కు100 మధ్య విలువఅయివుండవలెను'%s' విలువను పదానుబంధీకరణ చేయలేము."
-
-#: ../gdk-pixbuf/io-jpeg.c:1154 ../gdk-pixbuf/io-gdip-jpeg.c:68
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgstr "JPEG నాణ్యత 0కు100కు మధ్య విలువ అయివుండవలెను '%d విలువ ఆమోదింపబడదు"
-
-#: ../gdk-pixbuf/io-jpeg.c:1316 ../gdk-pixbuf/io-gdip-jpeg.c:136
-msgid "The JPEG image format"
-msgstr "JPEG ప్రతిబింబరూప లావణ్యం"
-
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
 msgstr "శీర్షికకు జ్ఞాపకశక్తిని స్థాననిర్దేశకం చేయలేము."
 
-#: ../gdk-pixbuf/io-pcx.c:201 ../gdk-pixbuf/io-pcx.c:559
+#: ../gdk-pixbuf/io-pcx.c:201
+#: ../gdk-pixbuf/io-pcx.c:559
 msgid "Couldn't allocate memory for context buffer"
 msgstr "ప్రకరణవాటికకు జ్ఞాపకశక్తిని స్థాననిర్దేశకం చేయలేము."
 
@@ -445,11 +500,13 @@ msgstr "ప్రకరణవాటికకు జ్ఞాపకశక్త�
 msgid "Image has invalid width and/or height"
 msgstr "ప్రతిబింబం చెల్లని ఎత్తు  లేదా / మరియు వెడల్పులను కలిగివుంది"
 
-#: ../gdk-pixbuf/io-pcx.c:612 ../gdk-pixbuf/io-pcx.c:673
+#: ../gdk-pixbuf/io-pcx.c:612
+#: ../gdk-pixbuf/io-pcx.c:673
 msgid "Image has unsupported bpp"
 msgstr "ప్రతిబింబం సహకారంలేని bpp కలిగివుంది."
 
-#: ../gdk-pixbuf/io-pcx.c:617 ../gdk-pixbuf/io-pcx.c:625
+#: ../gdk-pixbuf/io-pcx.c:617
+#: ../gdk-pixbuf/io-pcx.c:625
 #, c-format
 msgid "Image has unsupported number of %d-bit planes"
 msgstr "ప్రతిబింబం సహకారంలేని   %d బిట్తలాలసంఖ్యను కలిగివుంది."
@@ -478,11 +535,20 @@ msgstr "PCX దత్తాంశం చివరలో వర్ణపలకం
 msgid "The PCX image format"
 msgstr "PCX ప్రతిబింబ రూపలావణ్యం"
 
+#: ../gdk-pixbuf/io-pixdata.c:148
+msgid "Transformed pixbuf has zero width or height."
+msgstr "మార్పుకు లోనైన పిక్స్ బఫ్ సున్నా వెడల్పు లేదా ఎత్తును కలిగివుంది."
+
+#: ../gdk-pixbuf/io-pixdata.c:186
+msgid "The GdkPixdata format"
+msgstr "జిడికెపిక్స్ డేటా ఫార్మేటు"
+
 #: ../gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
 msgstr "PNG ప్రతిబింబ ప్రసారమార్గబిట్ చెల్లవు."
 
-#: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:641
+#: ../gdk-pixbuf/io-png.c:135
+#: ../gdk-pixbuf/io-png.c:641
 msgid "Transformed PNG has zero width or height."
 msgstr "మార్పుకు లోనైన PNG పొడువు వెడల్పులు ౯శూన్యం."
 
@@ -509,12 +575,8 @@ msgstr "PNG దస్త్రంను నింపుటకు జ్ఞాప
 
 #: ../gdk-pixbuf/io-png.c:656
 #, c-format
-msgid ""
-"Insufficient memory to store a %ld by %ld image; try exiting some "
-"applications to reduce memory usage"
-msgstr ""
-"%ld ను  %ldపతిబింబంతోదాచుటకు జ్ఞాపకశక్తి చాలదు జ్ఞాపకశక్తి వాడికను తగ్గించుటకు కొన్ని కార్యక్షేత్రాలను "
-"తొలగించును"
+msgid "Insufficient memory to store a %ld by %ld image; try exiting some applications to reduce memory usage"
+msgstr "%ld ను  %ldపతిబింబంతోదాచుటకు జ్ఞాపకశక్తి చాలదు జ్ఞాపకశక్తి వాడికను తగ్గించుటకు కొన్ని కార్యక్షేత్రాలను తొలగించును"
 
 #: ../gdk-pixbuf/io-png.c:719
 msgid "Fatal error reading PNG image file"
@@ -526,32 +588,27 @@ msgid "Fatal error reading PNG image file: %s"
 msgstr "PNG ప్రతిబింబ దస్త్రం %s ను చదువుటలో అనివార్య దోషం"
 
 #: ../gdk-pixbuf/io-png.c:862
-msgid ""
-"Keys for PNG text chunks must have at least 1 and at most 79 characters."
-msgstr ""
-"PNG పాఠ్య ఖండాలకొరకు మీటలు అతి తక్కువగా ఒకఅక్షరాన్ని అతి ఎక్కువగా 79అక్షరములను కలిగివుండవలెను"
+msgid "Keys for PNG text chunks must have at least 1 and at most 79 characters."
+msgstr "PNG పాఠ్య ఖండాలకొరకు మీటలు అతి తక్కువగా ఒకఅక్షరాన్ని అతి ఎక్కువగా 79అక్షరములను కలిగివుండవలెను"
 
 #: ../gdk-pixbuf/io-png.c:871
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "PNG పాఠ్య ఖండాల కొరకు మీటలు ASCII అక్షరములై౯ వుండవలెను."
 
-#: ../gdk-pixbuf/io-png.c:885 ../gdk-pixbuf/io-tiff.c:737
+#: ../gdk-pixbuf/io-png.c:885
+#: ../gdk-pixbuf/io-tiff.c:737
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "రంగు ప్రొఫైల్ అనునది చెల్లని పొడవు %d కలిగివుంది."
 
 #: ../gdk-pixbuf/io-png.c:898
 #, c-format
-msgid ""
-"PNG compression level must be a value between 0 and 9; value '%s' could not "
-"be parsed."
+msgid "PNG compression level must be a value between 0 and 9; value '%s' could not be parsed."
 msgstr "JPEG నాణ్యత 0కు9 మధ్య విలువఅయివుండవలెను, '%s' విలువను పదానుబంధీకరణ చేయలేము."
 
 #: ../gdk-pixbuf/io-png.c:911
 #, c-format
-msgid ""
-"PNG compression level must be a value between 0 and 9; value '%d' is not "
-"allowed."
+msgid "PNG compression level must be a value between 0 and 9; value '%d' is not allowed."
 msgstr "JPEG నాణ్యత 0కు9కు మధ్య విలువ అయివుండవలెను; '%d విలువ ఆమోదింపబడదు"
 
 #: ../gdk-pixbuf/io-png.c:959
@@ -591,7 +648,8 @@ msgstr "PNM దస్త్రంలో అత్యధిక వర్ణసం
 msgid "Maximum color value in PNM file is too large"
 msgstr "PNM దస్త్రంలో అత్యధిక వర్ణసంఖ్య చాలా ఎక్కువగా వుంది "
 
-#: ../gdk-pixbuf/io-pnm.c:427 ../gdk-pixbuf/io-pnm.c:457
+#: ../gdk-pixbuf/io-pnm.c:427
+#: ../gdk-pixbuf/io-pnm.c:457
 #: ../gdk-pixbuf/io-pnm.c:502
 msgid "Raw PNM image type is invalid"
 msgstr "అపక్వ PNM ప్రతిబింబ రకం చెల్లదు "
@@ -600,7 +658,8 @@ msgstr "అపక్వ PNM ప్రతిబింబ రకం చెల్�
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "PNM ప్రతిబింబ నింపుదారు ఈ రకం PNM ఉపరూప లావణ్యాన్ని సహకరించుటలేదు"
 
-#: ../gdk-pixbuf/io-pnm.c:739 ../gdk-pixbuf/io-pnm.c:966
+#: ../gdk-pixbuf/io-pnm.c:739
+#: ../gdk-pixbuf/io-pnm.c:966
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr "అపక్వ PNM రూపలావణ్యాలు ఉదాహరణదత్తాంశానికి ముందు  ఖచ్ఛితంగా ఒక ఖాళీ ప్రదేశం వుండవలెను "
 
@@ -624,51 +683,55 @@ msgstr "PNM దస్ర్తాన్ని నింపుటకు జ్ఞ
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "PNM/PBM/PGM/PPM ప్రతిబింబ రూప లావణ్య  కుటుంబం"
 
-#: ../gdk-pixbuf/io-qtif.c:127
+#: ../gdk-pixbuf/io-qtif.c:128
 msgid "Input file descriptor is NULL."
 msgstr "ఇన్పుట్ ఫైల్ డిస్క్రిప్టార్ NULL."
 
-#: ../gdk-pixbuf/io-qtif.c:142
+#: ../gdk-pixbuf/io-qtif.c:143
 msgid "Failed to read QTIF header"
 msgstr "QTIF యెగువసూచిని చదువుటకు విఫలమైంది"
 
-#: ../gdk-pixbuf/io-qtif.c:151 ../gdk-pixbuf/io-qtif.c:188
-#: ../gdk-pixbuf/io-qtif.c:459
+#: ../gdk-pixbuf/io-qtif.c:152
+#: ../gdk-pixbuf/io-qtif.c:189
+#: ../gdk-pixbuf/io-qtif.c:460
+#, c-format
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
 msgstr[0] "QTIF ఆటమ్ పరిమాణం మరీ పెద్దది (%d బైట్)"
 msgstr[1] "QTIF ఆటమ్ పరిమాణం మరీ పెద్దది (%d బైట్లు)"
 
-#: ../gdk-pixbuf/io-qtif.c:174
+#: ../gdk-pixbuf/io-qtif.c:175
+#, c-format
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
 msgstr[0] "ఫైల్ రీడ్ బఫర్ కొరకు %d బైట్ ను కేటాయించుటలో విఫలమైంవ"
 msgstr[1] "ఫైల్ రీడ్ బఫర్ కొరకు %d బైట్లను కేటాయించుటలో విఫలమైంది"
 
-#: ../gdk-pixbuf/io-qtif.c:205
+#: ../gdk-pixbuf/io-qtif.c:206
 #, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "QTIF ఆటమ్ చదువునప్పుడు దోషం: %s"
 
-#: ../gdk-pixbuf/io-qtif.c:242
+#: ../gdk-pixbuf/io-qtif.c:243
+#, c-format
 msgid "Failed to skip the next %d byte with seek()."
 msgid_plural "Failed to skip the next %d bytes with seek()."
 msgstr[0] "seek() తో తరువాతి %d బైట్ విస్మరించుటకు విఫలమైంది."
 msgstr[1] "seek() తో తరువాతి %d బైట్లు విస్మరించుటకు విఫలమైంది."
 
-#: ../gdk-pixbuf/io-qtif.c:269
+#: ../gdk-pixbuf/io-qtif.c:270
 msgid "Failed to allocate QTIF context structure."
 msgstr "QTIF సందర్భ వ్యవస్థను కేటాయించుటలో విఫలమైంది."
 
-#: ../gdk-pixbuf/io-qtif.c:329
+#: ../gdk-pixbuf/io-qtif.c:330
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "GdkPixbufLoader ఆబ్జక్టు సృష్టించుటలో విఫలమైంది."
 
-#: ../gdk-pixbuf/io-qtif.c:433
+#: ../gdk-pixbuf/io-qtif.c:434
 msgid "Failed to find an image data atom."
 msgstr "ప్రతిబింబ డాటా ఆటమ్ కనుగొనుటలో విఫలమైంది."
 
-#: ../gdk-pixbuf/io-qtif.c:618
+#: ../gdk-pixbuf/io-qtif.c:619
 msgid "The QTIF image format"
 msgstr "QTIF ప్రతిబింబ ఫార్మాట్"
 
@@ -684,7 +747,8 @@ msgstr "RAS ప్రతిబింబ రకం అపరిచితం"
 msgid "unsupported RAS image variation"
 msgstr "RAS ప్రతిబింబ మార్పిడికి సహకారంలేదు "
 
-#: ../gdk-pixbuf/io-ras.c:170 ../gdk-pixbuf/io-ras.c:199
+#: ../gdk-pixbuf/io-ras.c:170
+#: ../gdk-pixbuf/io-ras.c:199
 msgid "Not enough memory to load RAS image"
 msgstr "RAS  ప్రతిబింబాన్ని నింపుటకు సరిపడా జ్ఞాపకశక్తి లేదు"
 
@@ -736,8 +800,10 @@ msgstr "TGA శీర్షిక అగ్ర జ్ఞాపకశక్తి
 msgid "TGA image has invalid dimensions"
 msgstr "TGA ప్రతిబింబం కొలతలు చెల్లవు"
 
-#: ../gdk-pixbuf/io-tga.c:778 ../gdk-pixbuf/io-tga.c:787
-#: ../gdk-pixbuf/io-tga.c:797 ../gdk-pixbuf/io-tga.c:807
+#: ../gdk-pixbuf/io-tga.c:778
+#: ../gdk-pixbuf/io-tga.c:787
+#: ../gdk-pixbuf/io-tga.c:797
+#: ../gdk-pixbuf/io-tga.c:807
 #: ../gdk-pixbuf/io-tga.c:814
 msgid "TGA image type not supported"
 msgstr "TGA ప్రతిబింబ రకానికి సహకారం లేదు"
@@ -766,11 +832,13 @@ msgstr "ప్రతిబింబ పొడవును గుర్తిం�
 msgid "Width or height of TIFF image is zero"
 msgstr "TIFF ప్రతిబింబం ౦0అయిన పొడవును వెడల్పు ను కలిగి వుంది"
 
-#: ../gdk-pixbuf/io-tiff.c:188 ../gdk-pixbuf/io-tiff.c:197
+#: ../gdk-pixbuf/io-tiff.c:188
+#: ../gdk-pixbuf/io-tiff.c:197
 msgid "Dimensions of TIFF image too large"
 msgstr "TIFFకొలతలు పెద్దవిగా వున్నవి"
 
-#: ../gdk-pixbuf/io-tiff.c:221 ../gdk-pixbuf/io-tiff.c:233
+#: ../gdk-pixbuf/io-tiff.c:221
+#: ../gdk-pixbuf/io-tiff.c:233
 #: ../gdk-pixbuf/io-tiff.c:560
 msgid "Insufficient memory to open TIFF file"
 msgstr "TIFF దస్త్రం తెరుచుటకు జ్ఞాపకశక్తి చాలదు"
@@ -783,11 +851,13 @@ msgstr " TIFF దస్త్రం నుండి RGB దత్తాంశా
 msgid "Failed to open TIFF image"
 msgstr "TIFF ప్రతిబింబాన్ని తెరుచుటలో విఫలమైంది"
 
-#: ../gdk-pixbuf/io-tiff.c:362 ../gdk-pixbuf/io-tiff.c:777
+#: ../gdk-pixbuf/io-tiff.c:362
+#: ../gdk-pixbuf/io-tiff.c:777
 msgid "TIFFClose operation failed"
 msgstr "TIFFను మూసివేసే ప్రయత్నం విఫలమైంది"
 
-#: ../gdk-pixbuf/io-tiff.c:492 ../gdk-pixbuf/io-tiff.c:505
+#: ../gdk-pixbuf/io-tiff.c:492
+#: ../gdk-pixbuf/io-tiff.c:505
 msgid "Failed to load TIFF image"
 msgstr "TIFF ప్రతిబింబాన్ని నింపుకొనుటలో విఫలమైంది"
 
@@ -871,7 +941,8 @@ msgstr "XPM లో pixel కు అక్షరముల సంఖ్య చె�
 msgid "XPM file has invalid number of colors"
 msgstr "XPM దస్త్రం లో వర్ణముల సంఖ్య చెల్లదు"
 
-#: ../gdk-pixbuf/io-xpm.c:523 ../gdk-pixbuf/io-xpm.c:532
+#: ../gdk-pixbuf/io-xpm.c:523
+#: ../gdk-pixbuf/io-xpm.c:532
 #: ../gdk-pixbuf/io-xpm.c:584
 msgid "Cannot allocate memory for loading XPM image"
 msgstr "XPM ప్రతిబింబాన్ని నింపుటకు జ్ఞాపకశక్తి ని స్థాననిర్దేశకం చేయలేము"
@@ -887,51 +958,6 @@ msgstr "XPM ప్రతిబింబాన్ని నింపునపు�
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "XPM ప్రతిబింబ రూపలావణ్యం"
-
-#: ../gdk-pixbuf/io-gdip-emf.c:59
-msgid "The EMF image format"
-msgstr "EMF ప్రతిబింబ రూపలావణ్యం"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:154
-#, c-format
-msgid "Could not allocate memory: %s"
-msgstr "జ్ఞాపకశక్తిని కేటాయించలేక పోయింది: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:179 ../gdk-pixbuf/io-gdip-utils.c:293
-#: ../gdk-pixbuf/io-gdip-utils.c:333
-#, c-format
-msgid "Could not create stream: %s"
-msgstr "స్ట్రీమ్‌ను సృష్టించలేక పోయింది: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:193
-#, c-format
-msgid "Could not seek stream: %s"
-msgstr "స్ట్రీమ్‌ను కోరలేము: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:205
-#, c-format
-msgid "Could not read from stream: %s"
-msgstr "స్ట్రీమ్‌నుండి చదువలేక పోయింది: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:617 ../gdk-pixbuf/io-gdip-utils.c:752
-msgid "Couldn't load bitmap"
-msgstr "బిట్‌మాప్‌ను లోడ్‌ చేయలేక పోయింది"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:774
-msgid "Couldn't load metafile"
-msgstr "మెటాఫైల్‌ను లోడ్ చేయలేక పోయింది"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:933
-msgid "Unsupported image format for GDI+"
-msgstr "GDI+ కొరకు మద్దతీయని ప్రతిబింబం రూపలావణ్యం"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:940
-msgid "Couldn't save"
-msgstr "భద్రపరచలేకపోయింది"
-
-#: ../gdk-pixbuf/io-gdip-wmf.c:58
-msgid "The WMF image format"
-msgstr "WMF ప్రతిబింబ రూపలావణ్యం"
 
 #~ msgid "Couldn't allocate memory for paletted data"
 #~ msgstr "పాలెటెడ్ డాటాకు మెమోరీని సమకూర్చలేము"
