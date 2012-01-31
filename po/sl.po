@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2011-12-17 10:35+0000\n"
-"PO-Revision-Date: 2011-12-17 17:14+0100\n"
+"POT-Creation-Date: 2012-01-31 17:10+0000\n"
+"PO-Revision-Date: 2012-01-31 20:05+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -25,21 +25,21 @@ msgstr ""
 "X-Poedit-Language: Slovenian\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:146
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1070
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1336
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1083
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1349
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Datoteke '%s' ni mogoče odpreti: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:159
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1082
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1095
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Slikovna datoteka '%s' ne vsebuje podatkov"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:201
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1118
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1388
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1131
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1401
 #, c-format
 msgid "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr "Slike '%s' ni mogoče naložiti: vzrok ni znan, najverjetneje je datoteka pokvarjena"
@@ -49,76 +49,76 @@ msgstr "Slike '%s' ni mogoče naložiti: vzrok ni znan, najverjetneje je datotek
 msgid "Failed to load animation '%s': reason not known, probably a corrupt animation file"
 msgstr "Animacije '%s' ni mogoče naložiti: razlog ni znan, verjetno pokvarjena datoteka"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:803
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:809
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Modula za nalaganje slik ni mogoče naložiti: %s: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:818
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:824
 #, c-format
 msgid "Image-loading module %s does not export the proper interface; perhaps it's from a different gdk-pixbuf version?"
 msgstr "Modul za nalaganje slik %s ne izvaža ustreznega vmesnika. Morda je iz druge različice gdk-pixbuf."
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:827
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:878
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:833
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:884
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Vrsta slike '%s' ni podprta"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:951
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:964
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Vrste slike v datoteki '%s' ni mogoče prepoznati"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:959
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:972
 msgid "Unrecognized image file format"
 msgstr "Neprepoznana vrsta slikovne datoteke"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1127
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1140
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Slike '%s' ni mogoče naložiti: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1905
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2028
 #: ../gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Napaka med pisanjem v slikovno datoteko: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1950
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2080
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2073
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2203
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "Ta izgradnja programa gdk-pixbuf ne podpira shranjevanja vrste slik: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1984
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2107
 msgid "Insufficient memory to save image to callback"
 msgstr "Za shranitev slike v povratni klic ni dovolj pomnilnika"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1997
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2120
 msgid "Failed to open temporary file"
 msgstr "Odpiranje začasne datoteke je spodletelo"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2023
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2146
 msgid "Failed to read from temporary file"
 msgstr "Branje iz začasne datoteke je spodletelo"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2276
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2399
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Datoteke '%s' ni mogoče odpreti za pisanje: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2302
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2425
 #, c-format
 msgid "Failed to close '%s' while writing image, all data may not have been saved: %s"
 msgstr "Zapiranje datoteke '%s' med pisanjem slike je spodletelo; vseh podatkov ni bilo mogoče shraniti: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2523
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2575
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2646
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2698
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Za shranitev slike v medpomnilnik ni dovolj pomnilnika"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2621
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2744
 msgid "Error writing to image stream"
 msgstr "Napaka med pisanjem v pretok slike"
 
@@ -230,6 +230,80 @@ msgstr "V datoteko BMP ni mogoče pisati"
 msgid "The BMP image format"
 msgstr "Vrsta zapisa slike BMP"
 
+#: ../gdk-pixbuf/io-gdip-emf.c:59
+msgid "The EMF image format"
+msgstr "Vrsta zapisa slike EMF"
+
+#: ../gdk-pixbuf/io-gdip-gif.c:80
+#: ../gdk-pixbuf/io-gif.c:1699
+msgid "The GIF image format"
+msgstr "Vrsta zapisa slike GIF"
+
+#: ../gdk-pixbuf/io-gdip-ico.c:59
+#: ../gdk-pixbuf/io-ico.c:1271
+msgid "The ICO image format"
+msgstr "Vrsta zapisa slike ICO"
+
+#: ../gdk-pixbuf/io-gdip-jpeg.c:53
+#: ../gdk-pixbuf/io-jpeg.c:1139
+#, c-format
+msgid "JPEG quality must be a value between 0 and 100; value '%s' could not be parsed."
+msgstr "Kakovost slike JPEG mora biti vrednost med 0 in 100. Vrednosti '%s' ni mogoče razčleniti."
+
+#: ../gdk-pixbuf/io-gdip-jpeg.c:68
+#: ../gdk-pixbuf/io-jpeg.c:1154
+#, c-format
+msgid "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgstr "Kakovost slike JPEG mora biti vrednost med 0 in 100. Vrednost '%d' ni dovoljena."
+
+#: ../gdk-pixbuf/io-gdip-jpeg.c:136
+#: ../gdk-pixbuf/io-jpeg.c:1316
+msgid "The JPEG image format"
+msgstr "Vrsta zapisa slike JPEG"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:154
+#, c-format
+msgid "Could not allocate memory: %s"
+msgstr "Pomnilnika ni mogoče dodeliti: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:179
+#: ../gdk-pixbuf/io-gdip-utils.c:293
+#: ../gdk-pixbuf/io-gdip-utils.c:333
+#, c-format
+msgid "Could not create stream: %s"
+msgstr "Pretoka ni mogoče ustvariti: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:193
+#, c-format
+msgid "Could not seek stream: %s"
+msgstr "Po pretoku ni mogoče iskati: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:205
+#, c-format
+msgid "Could not read from stream: %s"
+msgstr "Iz pretoka ni mogoče brati: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:617
+#: ../gdk-pixbuf/io-gdip-utils.c:752
+msgid "Couldn't load bitmap"
+msgstr "Bitne slike ni mogoče naložiti"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:774
+msgid "Couldn't load metafile"
+msgstr "Metadatoteke ni mogoče naložiti"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:933
+msgid "Unsupported image format for GDI+"
+msgstr "Nepodprta vrsta zapisa slike za GDI+"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:940
+msgid "Couldn't save"
+msgstr "Ni mogoče shraniti"
+
+#: ../gdk-pixbuf/io-gdip-wmf.c:58
+msgid "The WMF image format"
+msgstr "Vrsta zapisa slike WMF"
+
 #: ../gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
@@ -294,10 +368,18 @@ msgstr "Slika GIF nima splošnega kataloga barv, okvir znotraj datoteke pa nima 
 msgid "GIF image was truncated or incomplete."
 msgstr "Slika GIF je prirezana ali nepopolna."
 
-#: ../gdk-pixbuf/io-gif.c:1699
-#: ../gdk-pixbuf/io-gdip-gif.c:80
-msgid "The GIF image format"
-msgstr "Vrsta zapisa slike GIF"
+#: ../gdk-pixbuf/io-icns.c:347
+#, c-format
+msgid "Error reading ICNS image: %s"
+msgstr "Napaka med branjem slike ICNS: %s"
+
+#: ../gdk-pixbuf/io-icns.c:364
+msgid "Could not decode ICNS file"
+msgstr "Slike ICNS ni mogoče odkodirati"
+
+#: ../gdk-pixbuf/io-icns.c:397
+msgid "The ICNS image format"
+msgstr "Vrsta zapisa slike ICNS"
 
 #: ../gdk-pixbuf/io-ico.c:228
 #: ../gdk-pixbuf/io-ico.c:242
@@ -347,24 +429,6 @@ msgstr "Vroča točka kazalca je zunaj slike"
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Nepodprta barvna globina datoteke ICO: %d"
-
-#: ../gdk-pixbuf/io-ico.c:1271
-#: ../gdk-pixbuf/io-gdip-ico.c:59
-msgid "The ICO image format"
-msgstr "Vrsta zapisa slike ICO"
-
-#: ../gdk-pixbuf/io-icns.c:347
-#, c-format
-msgid "Error reading ICNS image: %s"
-msgstr "Napaka med branjem slike ICNS: %s"
-
-#: ../gdk-pixbuf/io-icns.c:364
-msgid "Could not decode ICNS file"
-msgstr "Slike ICNS ni mogoče odkodirati"
-
-#: ../gdk-pixbuf/io-icns.c:397
-msgid "The ICNS image format"
-msgstr "Vrsta zapisa slike ICNS"
 
 #: ../gdk-pixbuf/io-jasper.c:74
 msgid "Couldn't allocate memory for stream"
@@ -425,23 +489,6 @@ msgstr "Pomnilnika za naložitev datoteke JPEG ni mogoče dodeliti"
 msgid "Transformed JPEG has zero width or height."
 msgstr "Preoblikovana slika JPEG ima ničelno višino ali širino."
 
-#: ../gdk-pixbuf/io-jpeg.c:1139
-#: ../gdk-pixbuf/io-gdip-jpeg.c:53
-#, c-format
-msgid "JPEG quality must be a value between 0 and 100; value '%s' could not be parsed."
-msgstr "Kakovost slike JPEG mora biti vrednost med 0 in 100. Vrednosti '%s' ni mogoče razčleniti."
-
-#: ../gdk-pixbuf/io-jpeg.c:1154
-#: ../gdk-pixbuf/io-gdip-jpeg.c:68
-#, c-format
-msgid "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgstr "Kakovost slike JPEG mora biti vrednost med 0 in 100. Vrednost '%d' ni dovoljena."
-
-#: ../gdk-pixbuf/io-jpeg.c:1316
-#: ../gdk-pixbuf/io-gdip-jpeg.c:136
-msgid "The JPEG image format"
-msgstr "Vrsta zapisa slike JPEG"
-
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
 msgstr "Pomnilnika za glavo ni mogoče dodeliti"
@@ -489,6 +536,14 @@ msgstr "Na koncu podatkov PCX ni nobene palete"
 #: ../gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
 msgstr "Vrsta zapisa slike PCX"
+
+#: ../gdk-pixbuf/io-pixdata.c:148
+msgid "Transformed pixbuf has zero width or height."
+msgstr "Preoblikovana sličica ima ničelno višino ali širino."
+
+#: ../gdk-pixbuf/io-pixdata.c:186
+msgid "The GdkPixdata format"
+msgstr "Zapis GdkPixdata"
 
 #: ../gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
@@ -630,17 +685,17 @@ msgstr "Za naložitev datoteke PNM ni dovolj pomnilnika"
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "Družina vrst zapisa slik PNM/PBM/PGM/PPM"
 
-#: ../gdk-pixbuf/io-qtif.c:127
+#: ../gdk-pixbuf/io-qtif.c:128
 msgid "Input file descriptor is NULL."
 msgstr "Opisnik vhodne datoteke je prazen."
 
-#: ../gdk-pixbuf/io-qtif.c:142
+#: ../gdk-pixbuf/io-qtif.c:143
 msgid "Failed to read QTIF header"
 msgstr "Napaka med branjem glave QTIF"
 
-#: ../gdk-pixbuf/io-qtif.c:151
-#: ../gdk-pixbuf/io-qtif.c:188
-#: ../gdk-pixbuf/io-qtif.c:459
+#: ../gdk-pixbuf/io-qtif.c:152
+#: ../gdk-pixbuf/io-qtif.c:189
+#: ../gdk-pixbuf/io-qtif.c:460
 #, c-format
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
@@ -649,7 +704,7 @@ msgstr[1] "Velikost atoma QTIF je prevelika (%d bajt)"
 msgstr[2] "Velikost atoma QTIF je prevelika (%d bajta)"
 msgstr[3] "Velikost atoma QTIF je prevelika (%d bajti)"
 
-#: ../gdk-pixbuf/io-qtif.c:174
+#: ../gdk-pixbuf/io-qtif.c:175
 #, c-format
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
@@ -658,12 +713,12 @@ msgstr[1] "Medpomnilniku branja datotek ni mogoče dodeliti %d bajta"
 msgstr[2] "Medpomnilniku branja datotek ni mogoče dodeliti %d bajtov"
 msgstr[3] "Medpomnilniku branja datotek ni mogoče dodeliti %d bajtov"
 
-#: ../gdk-pixbuf/io-qtif.c:205
+#: ../gdk-pixbuf/io-qtif.c:206
 #, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "Napaka datoteke med branjem atoma QTIF: %s"
 
-#: ../gdk-pixbuf/io-qtif.c:242
+#: ../gdk-pixbuf/io-qtif.c:243
 #, c-format
 msgid "Failed to skip the next %d byte with seek()."
 msgid_plural "Failed to skip the next %d bytes with seek()."
@@ -672,19 +727,19 @@ msgstr[1] "Naslednjega %d bajta z uporabo seek() ni mogoče preskočiti."
 msgstr[2] "Naslednjih %d bajtov z uporabo seek() ni mogoče preskočiti."
 msgstr[3] "Naslednjih %d bajtov z uporabo seek() ni mogoče preskočiti."
 
-#: ../gdk-pixbuf/io-qtif.c:269
+#: ../gdk-pixbuf/io-qtif.c:270
 msgid "Failed to allocate QTIF context structure."
 msgstr "Strukture vsebine QTIF ni mogoče dodeliti."
 
-#: ../gdk-pixbuf/io-qtif.c:329
+#: ../gdk-pixbuf/io-qtif.c:330
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "Predmeta GdkPixbufLoader ni mogoče ustvariti."
 
-#: ../gdk-pixbuf/io-qtif.c:433
+#: ../gdk-pixbuf/io-qtif.c:434
 msgid "Failed to find an image data atom."
 msgstr "Atoma podatkov slike ni mogoče najti."
 
-#: ../gdk-pixbuf/io-qtif.c:618
+#: ../gdk-pixbuf/io-qtif.c:619
 msgid "The QTIF image format"
 msgstr "Vrsta zapisa slike QTIF"
 
@@ -911,53 +966,6 @@ msgstr "Pisanje v začasno datoteko je med nalaganjem slike XPM spodletelo"
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "Vrsta zapisa slike XPM"
-
-#: ../gdk-pixbuf/io-gdip-emf.c:59
-msgid "The EMF image format"
-msgstr "Vrsta zapisa slike EMF"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:154
-#, c-format
-msgid "Could not allocate memory: %s"
-msgstr "Pomnilnika ni mogoče dodeliti: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:179
-#: ../gdk-pixbuf/io-gdip-utils.c:293
-#: ../gdk-pixbuf/io-gdip-utils.c:333
-#, c-format
-msgid "Could not create stream: %s"
-msgstr "Pretoka ni mogoče ustvariti: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:193
-#, c-format
-msgid "Could not seek stream: %s"
-msgstr "Po pretoku ni mogoče iskati: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:205
-#, c-format
-msgid "Could not read from stream: %s"
-msgstr "Iz pretoka ni mogoče brati: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:617
-#: ../gdk-pixbuf/io-gdip-utils.c:752
-msgid "Couldn't load bitmap"
-msgstr "Bitne slike ni mogoče naložiti"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:774
-msgid "Couldn't load metafile"
-msgstr "Metadatoteke ni mogoče naložiti"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:933
-msgid "Unsupported image format for GDI+"
-msgstr "Nepodprta vrsta zapisa slike za GDI+"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:940
-msgid "Couldn't save"
-msgstr "Ni mogoče shraniti"
-
-#: ../gdk-pixbuf/io-gdip-wmf.c:58
-msgid "The WMF image format"
-msgstr "Vrsta zapisa slike WMF"
 
 #~ msgid "Couldn't allocate memory for paletted data"
 #~ msgstr "Ni mogoče dodeliti pomnilnika za paletne podatke"
