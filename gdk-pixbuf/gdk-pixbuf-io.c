@@ -136,7 +136,6 @@
  */
 
 
-#ifndef GDK_PIXBUF_USE_GIO_MIME 
 static gint 
 format_check (GdkPixbufModule *module, guchar *buffer, int size)
 {
@@ -188,7 +187,6 @@ format_check (GdkPixbufModule *module, guchar *buffer, int size)
         }
         return 0;
 }
-#endif
 
 G_LOCK_DEFINE_STATIC (init_lock);
 G_LOCK_DEFINE_STATIC (threadunsafe_loader_lock);
@@ -436,6 +434,9 @@ gdk_pixbuf_io_init (void)
         else                                                            \
                 g_free (builtin_module)
 
+	/* Always include GdkPixdata format */
+        load_one_builtin_module (pixdata);
+
 #ifdef INCLUDE_ani
         load_one_builtin_module (ani);
 #endif
@@ -664,6 +665,7 @@ gdk_pixbuf_io_init (void)
   extern void _gdk_pixbuf__##type##_fill_info   (GdkPixbufFormat *info);   \
   extern void _gdk_pixbuf__##type##_fill_vtable (GdkPixbufModule *module)
 
+module (pixdata);
 module (png);
 module (jpeg);
 module (gif);
@@ -711,6 +713,9 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
                 fill_info = _gdk_pixbuf__##id##_fill_info;              \
                 fill_vtable = _gdk_pixbuf__##id##_fill_vtable;  \
         }
+
+        try_module (pixdata,pixdata);
+
 #ifdef INCLUDE_png      
         try_module (png,png);
 #endif
@@ -918,6 +923,13 @@ _gdk_pixbuf_get_module (guchar *buffer, guint size,
                         }
                         g_free (type);
                 }
+
+		/* Make sure the builtin GdkPixdata support works even without mime sniffing */
+		if (strcmp (info->name, "GdkPixdata") == 0 &&
+		    format_check (module, buffer, size) == 100) {
+			selected = module;
+			break;
+		}
         }
         g_free (mime_type);
 #else
