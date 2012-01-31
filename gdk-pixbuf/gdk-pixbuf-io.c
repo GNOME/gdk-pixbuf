@@ -37,6 +37,7 @@
 
 #include "gdk-pixbuf-private.h"
 #include "gdk-pixbuf-loader.h"
+#include "gdk-pixdata.h"
 
 #include <glib/gstdio.h>
 
@@ -1687,6 +1688,35 @@ gdk_pixbuf_new_from_resource (const char *resource_path,
 {
 	GInputStream *stream;
 	GdkPixbuf *pixbuf;
+	guint32 flags;
+	gsize data_size;
+	GBytes *bytes;
+
+	/* We specialize uncompressed GdkPixdata files, making these a reference to the
+	   compiled-in resource data */
+	if (g_resources_get_info  (resource_path, 0, &data_size, &flags, NULL) &&
+	    (flags & G_RESOURCE_FLAGS_COMPRESSED) == 0 &&
+	    data_size >= GDK_PIXDATA_HEADER_LENGTH &&
+	    (bytes = g_resources_lookup_data (resource_path, 0, NULL)) != NULL) {
+		GdkPixbuf*pixbuf = NULL;
+		const guint8 *stream = g_bytes_get_data (bytes, NULL);
+		GdkPixdata pixdata;
+		guint32 magic;
+
+		magic = (stream[0] << 24) + (stream[1] << 16) + (stream[2] << 8) + stream[3];
+		if (magic == GDK_PIXBUF_MAGIC_NUMBER &&
+		    gdk_pixdata_deserialize (&pixdata, data_size, stream, NULL)) {
+			pixbuf = gdk_pixbuf_from_pixdata (&pixdata, FALSE, NULL);
+		}
+
+		if (pixbuf) {
+			/* Free the GBytes with the pixbuf */
+			g_object_set_data_full (G_OBJECT (pixbuf), "gdk-pixbuf-resource-bytes", bytes, (GDestroyNotify) g_bytes_unref);
+			return pixbuf;
+		} else {
+			g_bytes_unref (bytes);
+		}
+	}
 
 	stream = g_resources_open_stream (resource_path, 0, error);
 	if (stream == NULL)
