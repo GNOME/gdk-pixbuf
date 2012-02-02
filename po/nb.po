@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 2.31.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-24 15:13+0100\n"
-"PO-Revision-Date: 2012-01-24 15:16+0100\n"
+"POT-Creation-Date: 2012-02-02 13:01+0100\n"
+"PO-Revision-Date: 2012-02-02 13:02+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1070
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1336
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1083
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1349
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Klarte ikke å åpne fil «%s»: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1082
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1095
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Bildefil «%s» inneholder ikke data"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1118
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1388
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1131
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1401
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -46,12 +46,12 @@ msgstr ""
 "Feil under lasting av animasjon «%s»: årsak ikke kjent, sannsynligvis "
 "korrupt animasjonsfil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:803
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:809
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Kan ikke laste modul for innlesing av bilder: %s: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:818
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:824
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -60,54 +60,54 @@ msgstr ""
 "Modul %s for bildelasting eksporterer ikke riktig grensesnitt; kanskje den "
 "er fra en annen versjon av gdk-pixbuf?"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:827 ../gdk-pixbuf/gdk-pixbuf-io.c:878
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:833 ../gdk-pixbuf/gdk-pixbuf-io.c:884
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Bildetype «%s» er ikke støttet"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:951
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:964
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Kunne ikke gjenkjenne bildeformatet for fil «%s»"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:959
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:972
 msgid "Unrecognized image file format"
 msgstr "Ikke-gjenkjent bildeformat"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1127
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1140
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Feil under lasting av bilde «%s»: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1905 ../gdk-pixbuf/io-gdip-utils.c:888
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2028 ../gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Feil under skriving til bildefil: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1950 ../gdk-pixbuf/gdk-pixbuf-io.c:2080
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2073 ../gdk-pixbuf/gdk-pixbuf-io.c:2203
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Dette versjonen av gdk-pixbuf støtter ikke lagring av bildeformatet: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1984
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2107
 msgid "Insufficient memory to save image to callback"
 msgstr "Ikke nok minne til å lagre bilde til callback"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1997
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2120
 msgid "Failed to open temporary file"
 msgstr "Kunne ikke åpne midlertidig fil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2023
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2146
 msgid "Failed to read from temporary file"
 msgstr "Kunne ikke lese fra midlertidig fil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2276
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2399
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Feil under åpning av «%s» for skriving: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2302
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2425
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -116,11 +116,11 @@ msgstr ""
 "Feil under lukking av «%s» under skriving av bilde. Det er ikke sikkert at "
 "alle data er lagret: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2523 ../gdk-pixbuf/gdk-pixbuf-io.c:2575
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2646 ../gdk-pixbuf/gdk-pixbuf-io.c:2698
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Ikke nok minne til å lagre bilde til buffer"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2621
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2744
 msgid "Error writing to image stream"
 msgstr "Feil under skriving til bildestrøm"
 
@@ -220,6 +220,79 @@ msgstr "Kunne ikke skrive til BMP-fil"
 msgid "The BMP image format"
 msgstr "BMP bildeformat"
 
+#: ../gdk-pixbuf/io-gdip-emf.c:59
+msgid "The EMF image format"
+msgstr "EMF bildeformat"
+
+#: ../gdk-pixbuf/io-gdip-gif.c:80 ../gdk-pixbuf/io-gif.c:1699
+msgid "The GIF image format"
+msgstr "GIF bildeformat"
+
+#: ../gdk-pixbuf/io-gdip-ico.c:59 ../gdk-pixbuf/io-ico.c:1271
+msgid "The ICO image format"
+msgstr "ICO bildeformat"
+
+#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1139
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"parsed."
+msgstr ""
+"JPEG-kvalitet må være en verdi mellom 0 og 100; verdien «%s» kunne ikke "
+"tolkes."
+
+#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1154
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgstr ""
+"JPEG-kvalitet må være en verdi mellom 0 og 100; verdien «%d» er ikke tillatt."
+
+#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1316
+msgid "The JPEG image format"
+msgstr "JPEG bildeformatet"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:154
+#, c-format
+msgid "Could not allocate memory: %s"
+msgstr "Kan ikke allokere minne: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:179 ../gdk-pixbuf/io-gdip-utils.c:293
+#: ../gdk-pixbuf/io-gdip-utils.c:333
+#, c-format
+msgid "Could not create stream: %s"
+msgstr "Kunne ikke opprette strøm: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:193
+#, c-format
+msgid "Could not seek stream: %s"
+msgstr "Kunne ikke søke i strøm: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:205
+#, c-format
+msgid "Could not read from stream: %s"
+msgstr "Kunne ikke lese fra strøm: %s"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:617 ../gdk-pixbuf/io-gdip-utils.c:752
+msgid "Couldn't load bitmap"
+msgstr "Kunne ikke laste bitkart"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:774
+msgid "Couldn't load metafile"
+msgstr "Kunne ikke laste metafil"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:933
+msgid "Unsupported image format for GDI+"
+msgstr "Bildeformat ikke støttet for GDI+"
+
+#: ../gdk-pixbuf/io-gdip-utils.c:940
+msgid "Couldn't save"
+msgstr "Kunne ikke lagre"
+
+#: ../gdk-pixbuf/io-gdip-wmf.c:58
+msgid "The WMF image format"
+msgstr "WMF bildeformat"
+
 #: ../gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
@@ -285,9 +358,18 @@ msgstr ""
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF-bildet er avkuttet eller ukomplett."
 
-#: ../gdk-pixbuf/io-gif.c:1699 ../gdk-pixbuf/io-gdip-gif.c:80
-msgid "The GIF image format"
-msgstr "GIF bildeformat"
+#: ../gdk-pixbuf/io-icns.c:347
+#, c-format
+msgid "Error reading ICNS image: %s"
+msgstr "Feil under lesing av ICNS-bilde: %s"
+
+#: ../gdk-pixbuf/io-icns.c:364
+msgid "Could not decode ICNS file"
+msgstr "Kunne ikke dekode ICNS-fil"
+
+#: ../gdk-pixbuf/io-icns.c:397
+msgid "The ICNS image format"
+msgstr "ICNS bildeformat"
 
 #: ../gdk-pixbuf/io-ico.c:228 ../gdk-pixbuf/io-ico.c:242
 #: ../gdk-pixbuf/io-ico.c:291 ../gdk-pixbuf/io-ico.c:302
@@ -333,23 +415,6 @@ msgstr "Markørposisjon utenfor bildet"
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Ikke støttet dybde for ICO-fil: %d"
-
-#: ../gdk-pixbuf/io-ico.c:1271 ../gdk-pixbuf/io-gdip-ico.c:59
-msgid "The ICO image format"
-msgstr "ICO bildeformat"
-
-#: ../gdk-pixbuf/io-icns.c:347
-#, c-format
-msgid "Error reading ICNS image: %s"
-msgstr "Feil under lesing av ICNS-bilde: %s"
-
-#: ../gdk-pixbuf/io-icns.c:364
-msgid "Could not decode ICNS file"
-msgstr "Kunne ikke dekode ICNS-fil"
-
-#: ../gdk-pixbuf/io-icns.c:397
-msgid "The ICNS image format"
-msgstr "ICNS bildeformat"
 
 #: ../gdk-pixbuf/io-jasper.c:74
 msgid "Couldn't allocate memory for stream"
@@ -410,26 +475,6 @@ msgstr "Kunne ikke allokere minne for lasting av JPEG-fil"
 msgid "Transformed JPEG has zero width or height."
 msgstr "Transformert JPEG har bredde eller høyde lik null."
 
-#: ../gdk-pixbuf/io-jpeg.c:1139 ../gdk-pixbuf/io-gdip-jpeg.c:53
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
-"parsed."
-msgstr ""
-"JPEG-kvalitet må være en verdi mellom 0 og 100; verdien «%s» kunne ikke "
-"tolkes."
-
-#: ../gdk-pixbuf/io-jpeg.c:1154 ../gdk-pixbuf/io-gdip-jpeg.c:68
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgstr ""
-"JPEG-kvalitet må være en verdi mellom 0 og 100; verdien «%d» er ikke tillatt."
-
-#: ../gdk-pixbuf/io-jpeg.c:1316 ../gdk-pixbuf/io-gdip-jpeg.c:136
-msgid "The JPEG image format"
-msgstr "JPEG bildeformatet"
-
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
 msgstr "Kan ikke allokere minne for hode"
@@ -474,6 +519,14 @@ msgstr "Ingen palett funnet ved slutten av PCX-data"
 #: ../gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
 msgstr "PCX bildeformat"
+
+#: ../gdk-pixbuf/io-pixdata.c:148
+msgid "Transformed pixbuf has zero width or height."
+msgstr "Transformert pixbuf har bredde eller høyde lik null."
+
+#: ../gdk-pixbuf/io-pixdata.c:186
+msgid "The GdkPixdata format"
+msgstr "GdkPixdata-format"
 
 #: ../gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
@@ -892,48 +945,3 @@ msgstr "Feil under skriving til midlertidig fil under lasting av XPM-bilde"
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "XPM bildeformat"
-
-#: ../gdk-pixbuf/io-gdip-emf.c:59
-msgid "The EMF image format"
-msgstr "EMF bildeformat"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:154
-#, c-format
-msgid "Could not allocate memory: %s"
-msgstr "Kan ikke allokere minne: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:179 ../gdk-pixbuf/io-gdip-utils.c:293
-#: ../gdk-pixbuf/io-gdip-utils.c:333
-#, c-format
-msgid "Could not create stream: %s"
-msgstr "Kunne ikke opprette strøm: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:193
-#, c-format
-msgid "Could not seek stream: %s"
-msgstr "Kunne ikke søke i strøm: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:205
-#, c-format
-msgid "Could not read from stream: %s"
-msgstr "Kunne ikke lese fra strøm: %s"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:617 ../gdk-pixbuf/io-gdip-utils.c:752
-msgid "Couldn't load bitmap"
-msgstr "Kunne ikke laste bitkart"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:774
-msgid "Couldn't load metafile"
-msgstr "Kunne ikke laste metafil"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:933
-msgid "Unsupported image format for GDI+"
-msgstr "Bildeformat ikke støttet for GDI+"
-
-#: ../gdk-pixbuf/io-gdip-utils.c:940
-msgid "Couldn't save"
-msgstr "Kunne ikke lagre"
-
-#: ../gdk-pixbuf/io-gdip-wmf.c:58
-msgid "The WMF image format"
-msgstr "WMF bildeformat"
