@@ -1,3 +1,31 @@
+2.25.1
+======
+
+* New functions to load pixbufs from resources:
+  gdk_pixbuf_new_from_resource
+  gdk_pixbuf_new_from_resource_at_scale
+
+* gdk-pixbuf-pixdata is a new program that generates
+  raw binary GdkPixdata files, and there is a new
+  loader for these.
+
+* Translation updates:
+ Belarusian
+ Bulgarian
+ Catalan
+ Czech
+ French
+ Galician
+ German
+ Hebrew
+ Norwegian bokmål
+ Slovenian
+ Spanish
+ Swedish
+ Telugu
+ Traditional Chinese
+
+
 2.25.0
 ======
 
