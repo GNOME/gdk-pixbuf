@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gtk20 1.3.0\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf\n"
-"POT-Creation-Date: 2010-09-21 14:08-0400\n"
+"POT-Creation-Date: 2012-02-04 18:44-0500\n"
 "PO-Revision-Date: 2006-09-23 16:18+0200\n"
 "Last-Translator: Pablo Saratxaga <pablo@walon.org>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -23,19 +23,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: KBabel 1.9.1\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:130 gdk-pixbuf/gdk-pixbuf-io.c:980
-#: gdk-pixbuf/gdk-pixbuf-io.c:1240
+#: gdk-pixbuf/gdk-pixbuf-animation.c:146 gdk-pixbuf/gdk-pixbuf-io.c:1083
+#: gdk-pixbuf/gdk-pixbuf-io.c:1349
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Dji n' a savou drovi li fitchî «%s»: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:143 gdk-pixbuf/gdk-pixbuf-io.c:992
+#: gdk-pixbuf/gdk-pixbuf-animation.c:159 gdk-pixbuf/gdk-pixbuf-io.c:1095
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Li fitchî imådje «%s» n' a nole dinêye dvins."
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1028
-#: gdk-pixbuf/gdk-pixbuf-io.c:1292
+#: gdk-pixbuf/gdk-pixbuf-animation.c:201 gdk-pixbuf/gdk-pixbuf-io.c:1131
+#: gdk-pixbuf/gdk-pixbuf-io.c:1401
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -43,7 +43,7 @@ msgstr ""
 "Dji n' a savou tcherdjî l' imådje «%s»: li råjhon n' est nén cnoxhowe, "
 "motoit bén on cron fitchî"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:218
+#: gdk-pixbuf/gdk-pixbuf-animation.c:234
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -52,12 +52,12 @@ msgstr ""
 "Dji n' a savou tcherdjî l' animåcion «%s»: li råjhon n' est nén cnoxhowe, "
 "motoit bén on cron fitchî"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:713
+#: gdk-pixbuf/gdk-pixbuf-io.c:809
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Dji n' sai tcherdjî li module po tcherdjî les imådjes: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:728
+#: gdk-pixbuf/gdk-pixbuf-io.c:824
 #, fuzzy, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -66,56 +66,56 @@ msgstr ""
 "Li module di tcherdjaedje d' imådjes %s n' ebague nén li boune eterface; "
 "motoit k' il est po ene diferinne modêye di GTK?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:737 gdk-pixbuf/gdk-pixbuf-io.c:788
+#: gdk-pixbuf/gdk-pixbuf-io.c:833 gdk-pixbuf/gdk-pixbuf-io.c:884
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Li sôre d' imådje %s n' est nén sopoirté"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:861
+#: gdk-pixbuf/gdk-pixbuf-io.c:964
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Dji n' a savou ricnoxhe li cogne di fitchî imådje pol fitchî «%s»"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:869
+#: gdk-pixbuf/gdk-pixbuf-io.c:972
 msgid "Unrecognized image file format"
 msgstr "Cogne di fitchî imådje nén cnoxhowe"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1037
+#: gdk-pixbuf/gdk-pixbuf-io.c:1140
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Dji n' a savou tcherdjî l' imådje «%s»: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1671 gdk-pixbuf/io-gdip-utils.c:883
+#: gdk-pixbuf/gdk-pixbuf-io.c:2028 gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Åk n' a nén stî come dji scrijheut e fitchî imådje: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1716 gdk-pixbuf/gdk-pixbuf-io.c:1846
+#: gdk-pixbuf/gdk-pixbuf-io.c:2073 gdk-pixbuf/gdk-pixbuf-io.c:2203
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Cisse modêye ci di gdk-pixbuf come elle a stî copilêye èn sopoite nén li "
 "schapaedje d' imådjes del sôre: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1750
+#: gdk-pixbuf/gdk-pixbuf-io.c:2107
 msgid "Insufficient memory to save image to callback"
 msgstr ""
 "Nén del memwere assez po schaper l' imådje viè on el fonccion di rhoucaedje"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1763
+#: gdk-pixbuf/gdk-pixbuf-io.c:2120
 msgid "Failed to open temporary file"
 msgstr "Dji n' a savou drovi l' fitchî timporaire"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1789
+#: gdk-pixbuf/gdk-pixbuf-io.c:2146
 msgid "Failed to read from temporary file"
 msgstr "Dji n' a savou lére do fitchî timporaire"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2042
+#: gdk-pixbuf/gdk-pixbuf-io.c:2399
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Dji n' a savou drovi l' fitchî «%s» po-z î scrire: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2068
+#: gdk-pixbuf/gdk-pixbuf-io.c:2425
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -124,16 +124,16 @@ msgstr ""
 "Dji n' a savou clôre li fitchî «%s» tot scrijhant l' imådje, i s' pout "
 "k' totes les dnêyes èn soeyexhe nén schapêyes: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2288 gdk-pixbuf/gdk-pixbuf-io.c:2339
+#: gdk-pixbuf/gdk-pixbuf-io.c:2646 gdk-pixbuf/gdk-pixbuf-io.c:2698
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Nén del memwere assez po schaper l' imådje dins on tampon"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2385
+#: gdk-pixbuf/gdk-pixbuf-io.c:2744
 #, fuzzy
 msgid "Error writing to image stream"
 msgstr "Åk n' a nén stî come dji scrijheut e fitchî imådje: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:332
+#: gdk-pixbuf/gdk-pixbuf-loader.c:395
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -142,24 +142,24 @@ msgstr ""
 "Divintrinne aroke: li module di tcherdjaedje d' imådjes «%s» n' a nén savou "
 "completer ene operåcion, mins i n' dina nén l' råjhon k' i fjha berwete"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:374
+#: gdk-pixbuf/gdk-pixbuf-loader.c:437
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Li tcherdjaedje incremintå n' est nén sopoirté pol sôre d' imådje «%s»"
 
-#: gdk-pixbuf/gdk-pixdata.c:146
+#: gdk-pixbuf/gdk-pixdata.c:160
 msgid "Image header corrupt"
 msgstr "Li tiestire di l' imådje est crombe"
 
-#: gdk-pixbuf/gdk-pixdata.c:151
+#: gdk-pixbuf/gdk-pixdata.c:165
 msgid "Image format unknown"
 msgstr "Cogne d' imådje nén cnoxhowe"
 
-#: gdk-pixbuf/gdk-pixdata.c:156 gdk-pixbuf/gdk-pixdata.c:487
+#: gdk-pixbuf/gdk-pixdata.c:170 gdk-pixbuf/gdk-pixdata.c:502
 msgid "Image pixel data corrupt"
 msgstr "Les dnêyes di picsels di l' imådje sont crombes"
 
-#: gdk-pixbuf/gdk-pixdata.c:431
+#: gdk-pixbuf/gdk-pixdata.c:446
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -225,12 +225,92 @@ msgstr "Dji n' a savou scrire dins l' fitchî BMP"
 msgid "The BMP image format"
 msgstr "Li sôre d' imådje BMP"
 
+#: gdk-pixbuf/io-gdip-emf.c:59
+#, fuzzy
+msgid "The EMF image format"
+msgstr "Li sôre d' imådje BMP"
+
+#: gdk-pixbuf/io-gdip-gif.c:80 gdk-pixbuf/io-gif.c:1699
+msgid "The GIF image format"
+msgstr "Li sôre d' imådje GIF"
+
+#: gdk-pixbuf/io-gdip-ico.c:59 gdk-pixbuf/io-ico.c:1271
+msgid "The ICO image format"
+msgstr "Li sôre d' imådje ICO"
+
+#: gdk-pixbuf/io-gdip-jpeg.c:53 gdk-pixbuf/io-jpeg.c:1139
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"parsed."
+msgstr ""
+"Li cwålité JPEG doet esse ene valixhance inte 0 eyet 100; li valixhance «%s» "
+"èn pout nén esse léjhowe."
+
+#: gdk-pixbuf/io-gdip-jpeg.c:68 gdk-pixbuf/io-jpeg.c:1154
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgstr ""
+"Li cwålité JPEG doet esse ene valixhance inte 0 eyet 100; li valixhance «%d» "
+"n' est nén permetowe."
+
+#: gdk-pixbuf/io-gdip-jpeg.c:136 gdk-pixbuf/io-jpeg.c:1316
+msgid "The JPEG image format"
+msgstr "Li sôre d' imådje JPEG"
+
+#: gdk-pixbuf/io-gdip-utils.c:154
+#, fuzzy, c-format
+msgid "Could not allocate memory: %s"
+msgstr "Dji n' a savou alouwer del memwere pol tiestire"
+
+#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
+#: gdk-pixbuf/io-gdip-utils.c:333
+#, fuzzy, c-format
+msgid "Could not create stream: %s"
+msgstr "Dji n' a nén savou ahiver l' ridant: %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:193
+#, fuzzy, c-format
+msgid "Could not seek stream: %s"
+msgstr "Dji n' a nén savou oister l' cayet"
+
+#: gdk-pixbuf/io-gdip-utils.c:205
+#, fuzzy, c-format
+msgid "Could not read from stream: %s"
+msgstr "Dji n' a nén savou rlomer %s viè %s: %s.\n"
+
+#: gdk-pixbuf/io-gdip-utils.c:617 gdk-pixbuf/io-gdip-utils.c:752
+#, fuzzy
+msgid "Couldn't load bitmap"
+msgstr "Dji n' a savou cvierser l' no do fitchî"
+
+#: gdk-pixbuf/io-gdip-utils.c:774
+#, fuzzy
+msgid "Couldn't load metafile"
+msgstr "Dji n' a savou cvierser l' no do fitchî"
+
+#: gdk-pixbuf/io-gdip-utils.c:933
+#, fuzzy
+msgid "Unsupported image format for GDI+"
+msgstr "Sôre d' animåcion nén sopoirtêye"
+
+#: gdk-pixbuf/io-gdip-utils.c:940
+#, fuzzy
+msgid "Couldn't save"
+msgstr "Dji n' a savou schaper l' restant"
+
+#: gdk-pixbuf/io-gdip-wmf.c:58
+#, fuzzy
+msgid "The WMF image format"
+msgstr "Li sôre d' imådje WBMP"
+
 #: gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "Li lijhaedje di l' imådje GIF a fwait berwete: %s"
 
-#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1480 gdk-pixbuf/io-gif.c:1641
+#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1482 gdk-pixbuf/io-gif.c:1648
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr ""
 "I manke des dnêyes å fitchî GIF (motoit k' il a stî côpé dvant l' fén?)"
@@ -256,8 +336,8 @@ msgstr "On måva côde a stî trové"
 msgid "Circular table entry in GIF file"
 msgstr "Betchfesseye intrêye ezès tåvleas do fitchî GIF"
 
-#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1467 gdk-pixbuf/io-gif.c:1514
-#: gdk-pixbuf/io-gif.c:1629
+#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1468 gdk-pixbuf/io-gif.c:1521
+#: gdk-pixbuf/io-gif.c:1636
 msgid "Not enough memory to load GIF file"
 msgstr "Nén del memwere assez po tcherdjî l' imådje GIF"
 
@@ -286,60 +366,9 @@ msgstr ""
 "L' imådje GIF n' a nou mapaedje di coleurs (colormap) globå, eyet on cåde å "
 "dvins d' l' imådje n' a pont d' mapaedje locå nerén."
 
-#: gdk-pixbuf/io-gif.c:1536
+#: gdk-pixbuf/io-gif.c:1543
 msgid "GIF image was truncated or incomplete."
 msgstr "L' imådje GIF a stî côpêye divant l' fén ou n' est nén complete."
-
-#: gdk-pixbuf/io-gif.c:1692 gdk-pixbuf/io-gdip-gif.c:80
-msgid "The GIF image format"
-msgstr "Li sôre d' imådje GIF"
-
-#: gdk-pixbuf/io-ico.c:210 gdk-pixbuf/io-ico.c:224 gdk-pixbuf/io-ico.c:276
-#: gdk-pixbuf/io-ico.c:289 gdk-pixbuf/io-ico.c:358
-msgid "Invalid header in icon"
-msgstr "Tiestire nén valide e l' imådjete"
-
-#: gdk-pixbuf/io-ico.c:239 gdk-pixbuf/io-ico.c:299 gdk-pixbuf/io-ico.c:368
-#: gdk-pixbuf/io-ico.c:431 gdk-pixbuf/io-ico.c:461
-msgid "Not enough memory to load icon"
-msgstr "Nén del memwere assez po tcherdjî l' imådjete"
-
-#: gdk-pixbuf/io-ico.c:321
-msgid "Icon has zero width"
-msgstr "L' imådjete a ene lårdjeur di zero"
-
-#: gdk-pixbuf/io-ico.c:331
-msgid "Icon has zero height"
-msgstr "L' imådjete a ene hôteur di zero"
-
-#: gdk-pixbuf/io-ico.c:383
-msgid "Compressed icons are not supported"
-msgstr "Les strindowès imådjetes èn sont nén sopoirtêyes"
-
-#: gdk-pixbuf/io-ico.c:416
-msgid "Unsupported icon type"
-msgstr "Sôre d'  imådjete nén sopoirtêye"
-
-#: gdk-pixbuf/io-ico.c:510
-msgid "Not enough memory to load ICO file"
-msgstr "Nén del memwere assez po tcherdjî l' fitchî ICO"
-
-#: gdk-pixbuf/io-ico.c:975
-msgid "Image too large to be saved as ICO"
-msgstr "Imådje trop grande po-z esse schapêye dizo l' cogne ICO"
-
-#: gdk-pixbuf/io-ico.c:986
-msgid "Cursor hotspot outside image"
-msgstr "Pont tchôd do cursoe å dfoû d' l' imådje"
-
-#: gdk-pixbuf/io-ico.c:1009
-#, c-format
-msgid "Unsupported depth for ICO file: %d"
-msgstr "Parfondeu d' coleurs nén sopoirtêye pol fitchî ICO: %d"
-
-#: gdk-pixbuf/io-ico.c:1244 gdk-pixbuf/io-gdip-ico.c:59
-msgid "The ICO image format"
-msgstr "Li sôre d' imådje ICO"
 
 #: gdk-pixbuf/io-icns.c:347
 #, fuzzy, c-format
@@ -355,6 +384,49 @@ msgstr "Dji n' sai tchoezi l' fitchî"
 #, fuzzy
 msgid "The ICNS image format"
 msgstr "Li sôre d' imådje ICO"
+
+#: gdk-pixbuf/io-ico.c:228 gdk-pixbuf/io-ico.c:242 gdk-pixbuf/io-ico.c:291
+#: gdk-pixbuf/io-ico.c:302 gdk-pixbuf/io-ico.c:395
+msgid "Invalid header in icon"
+msgstr "Tiestire nén valide e l' imådjete"
+
+#: gdk-pixbuf/io-ico.c:257 gdk-pixbuf/io-ico.c:312 gdk-pixbuf/io-ico.c:405
+#: gdk-pixbuf/io-ico.c:458 gdk-pixbuf/io-ico.c:488
+msgid "Not enough memory to load icon"
+msgstr "Nén del memwere assez po tcherdjî l' imådjete"
+
+#: gdk-pixbuf/io-ico.c:338
+msgid "Compressed icons are not supported"
+msgstr "Les strindowès imådjetes èn sont nén sopoirtêyes"
+
+#: gdk-pixbuf/io-ico.c:358
+msgid "Icon has zero width"
+msgstr "L' imådjete a ene lårdjeur di zero"
+
+#: gdk-pixbuf/io-ico.c:368
+msgid "Icon has zero height"
+msgstr "L' imådjete a ene hôteur di zero"
+
+#: gdk-pixbuf/io-ico.c:443
+msgid "Unsupported icon type"
+msgstr "Sôre d'  imådjete nén sopoirtêye"
+
+#: gdk-pixbuf/io-ico.c:537
+msgid "Not enough memory to load ICO file"
+msgstr "Nén del memwere assez po tcherdjî l' fitchî ICO"
+
+#: gdk-pixbuf/io-ico.c:1002
+msgid "Image too large to be saved as ICO"
+msgstr "Imådje trop grande po-z esse schapêye dizo l' cogne ICO"
+
+#: gdk-pixbuf/io-ico.c:1013
+msgid "Cursor hotspot outside image"
+msgstr "Pont tchôd do cursoe å dfoû d' l' imådje"
+
+#: gdk-pixbuf/io-ico.c:1036
+#, c-format
+msgid "Unsupported depth for ICO file: %d"
+msgstr "Parfondeu d' coleurs nén sopoirtêye pol fitchî ICO: %d"
 
 #: gdk-pixbuf/io-jasper.c:74
 #, fuzzy
@@ -408,40 +480,19 @@ msgstr ""
 "I n' a nén del memwere assez po tcherdjî l' imådje, sayîz d' clôre sacwants "
 "programes po liberer del memwere"
 
-#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:774
+#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:781
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Espåce di coleurs JPEG nén sopoirté (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:673 gdk-pixbuf/io-jpeg.c:943 gdk-pixbuf/io-jpeg.c:1176
-#: gdk-pixbuf/io-jpeg.c:1185
+#: gdk-pixbuf/io-jpeg.c:680 gdk-pixbuf/io-jpeg.c:950 gdk-pixbuf/io-jpeg.c:1183
+#: gdk-pixbuf/io-jpeg.c:1192
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Dji n' a savou alouwer del memwere assez po tcherdjî l' fitchî JPEG"
 
-#: gdk-pixbuf/io-jpeg.c:918
+#: gdk-pixbuf/io-jpeg.c:925
 msgid "Transformed JPEG has zero width or height."
 msgstr ""
-
-#: gdk-pixbuf/io-jpeg.c:1132 gdk-pixbuf/io-gdip-jpeg.c:53
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
-"parsed."
-msgstr ""
-"Li cwålité JPEG doet esse ene valixhance inte 0 eyet 100; li valixhance «%s» "
-"èn pout nén esse léjhowe."
-
-#: gdk-pixbuf/io-jpeg.c:1147 gdk-pixbuf/io-gdip-jpeg.c:68
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgstr ""
-"Li cwålité JPEG doet esse ene valixhance inte 0 eyet 100; li valixhance «%d» "
-"n' est nén permetowe."
-
-#: gdk-pixbuf/io-jpeg.c:1309 gdk-pixbuf/io-gdip-jpeg.c:136
-msgid "The JPEG image format"
-msgstr "Li sôre d' imådje JPEG"
 
 #: gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -473,8 +524,9 @@ msgid "Couldn't allocate memory for line data"
 msgstr "Dji n' a savou alouwer del memwere po les dnêyes des royes"
 
 #: gdk-pixbuf/io-pcx.c:656
-msgid "Couldn't allocate memory for paletted data"
-msgstr "Dji n' a nén savou alouwer del memwere po les dnêyes des paletes"
+#, fuzzy
+msgid "Couldn't allocate memory for PCX image"
+msgstr "Dji n' a savou alouwer del memwere pol tiestire"
 
 #: gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
@@ -487,6 +539,15 @@ msgstr "Nole palete di trovêye al fén des dnêyes PCX"
 #: gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
 msgstr "Li sôre d' imådje PCX"
+
+#: gdk-pixbuf/io-pixdata.c:148
+msgid "Transformed pixbuf has zero width or height."
+msgstr ""
+
+#: gdk-pixbuf/io-pixdata.c:186
+#, fuzzy
+msgid "The GdkPixdata format"
+msgstr "Li sôre d' imådje GIF"
 
 #: gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
@@ -567,12 +628,12 @@ msgstr ""
 "Li livea di strindaedje PNG doet esse ene valixhance inte 0 eyet 9; li "
 "valixhance «%d» n' est nén permetowe."
 
-#: gdk-pixbuf/io-png.c:950
+#: gdk-pixbuf/io-png.c:959
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 
-#: gdk-pixbuf/io-png.c:1111
+#: gdk-pixbuf/io-png.c:1122
 msgid "The PNG image format"
 msgstr "Li sôre d' imådje PNG"
 
@@ -638,51 +699,57 @@ msgstr "Nén del memwere assez po tcherdjî l' imådje PNM"
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "Famile del sôre d' imådjes PNM/PBM/PGM/PPM"
 
-#: gdk-pixbuf/io-qtif.c:127
+#: gdk-pixbuf/io-qtif.c:128
 msgid "Input file descriptor is NULL."
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:142
+#: gdk-pixbuf/io-qtif.c:143
 #, fuzzy
 msgid "Failed to read QTIF header"
 msgstr "Li scrijhaedje del tiestire a fwait berwete\n"
 
-#: gdk-pixbuf/io-qtif.c:151 gdk-pixbuf/io-qtif.c:181 gdk-pixbuf/io-qtif.c:445
+#: gdk-pixbuf/io-qtif.c:152 gdk-pixbuf/io-qtif.c:189 gdk-pixbuf/io-qtif.c:460
 #, c-format
-msgid "QTIF atom size too large (%d bytes)"
-msgstr ""
+msgid "QTIF atom size too large (%d byte)"
+msgid_plural "QTIF atom size too large (%d bytes)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: gdk-pixbuf/io-qtif.c:171
+#: gdk-pixbuf/io-qtif.c:175
 #, fuzzy, c-format
-msgid "Failed to allocate %d bytes for file read buffer"
-msgstr "dji n' a savou alouwer on tampon di %u octet po l' imådje"
+msgid "Failed to allocate %d byte for file read buffer"
+msgid_plural "Failed to allocate %d bytes for file read buffer"
+msgstr[0] "dji n' a savou alouwer on tampon di %u octet po l' imådje"
+msgstr[1] "dji n' a savou alouwer on tampon di %u octet po l' imådje"
 
-#: gdk-pixbuf/io-qtif.c:195
+#: gdk-pixbuf/io-qtif.c:206
 #, fuzzy, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "Li lijhaedje di l' imådje GIF a fwait berwete: %s"
 
-#: gdk-pixbuf/io-qtif.c:232
+#: gdk-pixbuf/io-qtif.c:243
 #, c-format
-msgid "Failed to skip the next %d bytes with seek()."
-msgstr ""
+msgid "Failed to skip the next %d byte with seek()."
+msgid_plural "Failed to skip the next %d bytes with seek()."
+msgstr[0] ""
+msgstr[1] ""
 
-#: gdk-pixbuf/io-qtif.c:256
+#: gdk-pixbuf/io-qtif.c:270
 #, fuzzy
 msgid "Failed to allocate QTIF context structure."
 msgstr "Dji n' a savou alouwer del memwere pol sitructeure di contecse TGA"
 
-#: gdk-pixbuf/io-qtif.c:316
+#: gdk-pixbuf/io-qtif.c:330
 #, fuzzy
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "Li scrijhaedje di l' indecse do ridant a fwait berwete\n"
 
-#: gdk-pixbuf/io-qtif.c:420
+#: gdk-pixbuf/io-qtif.c:434
 #, fuzzy
 msgid "Failed to find an image data atom."
 msgstr "Dji n' a savou drovi l' imådje TIFF"
 
-#: gdk-pixbuf/io-qtif.c:601
+#: gdk-pixbuf/io-qtif.c:619
 #, fuzzy
 msgid "The QTIF image format"
 msgstr "Li sôre d' imådje TIFF"
@@ -904,53 +971,5 @@ msgstr ""
 msgid "The XPM image format"
 msgstr "Li sôre d' imådje XPM"
 
-#: gdk-pixbuf/io-gdip-emf.c:59
-#, fuzzy
-msgid "The EMF image format"
-msgstr "Li sôre d' imådje BMP"
-
-#: gdk-pixbuf/io-gdip-utils.c:154
-#, fuzzy, c-format
-msgid "Could not allocate memory: %s"
-msgstr "Dji n' a savou alouwer del memwere pol tiestire"
-
-#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
-#: gdk-pixbuf/io-gdip-utils.c:333
-#, fuzzy, c-format
-msgid "Could not create stream: %s"
-msgstr "Dji n' a nén savou ahiver l' ridant: %s"
-
-#: gdk-pixbuf/io-gdip-utils.c:193
-#, fuzzy, c-format
-msgid "Could not seek stream: %s"
-msgstr "Dji n' a nén savou oister l' cayet"
-
-#: gdk-pixbuf/io-gdip-utils.c:205
-#, fuzzy, c-format
-msgid "Could not read from stream: %s"
-msgstr "Dji n' a nén savou rlomer %s viè %s: %s.\n"
-
-#: gdk-pixbuf/io-gdip-utils.c:616 gdk-pixbuf/io-gdip-utils.c:747
-#, fuzzy
-msgid "Couldn't load bitmap"
-msgstr "Dji n' a savou cvierser l' no do fitchî"
-
-#: gdk-pixbuf/io-gdip-utils.c:769
-#, fuzzy
-msgid "Couldn't load metafile"
-msgstr "Dji n' a savou cvierser l' no do fitchî"
-
-#: gdk-pixbuf/io-gdip-utils.c:928
-#, fuzzy
-msgid "Unsupported image format for GDI+"
-msgstr "Sôre d' animåcion nén sopoirtêye"
-
-#: gdk-pixbuf/io-gdip-utils.c:935
-#, fuzzy
-msgid "Couldn't save"
-msgstr "Dji n' a savou schaper l' restant"
-
-#: gdk-pixbuf/io-gdip-wmf.c:58
-#, fuzzy
-msgid "The WMF image format"
-msgstr "Li sôre d' imådje WBMP"
+#~ msgid "Couldn't allocate memory for paletted data"
+#~ msgstr "Dji n' a nén savou alouwer del memwere po les dnêyes des paletes"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gtk+.master.ml\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf\n"
-"POT-Creation-Date: 2010-09-21 14:08-0400\n"
+"POT-Creation-Date: 2012-02-04 18:44-0500\n"
 "PO-Revision-Date: 2009-09-01 08:52+0530\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
@@ -21,25 +21,25 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:130 gdk-pixbuf/gdk-pixbuf-io.c:980
-#: gdk-pixbuf/gdk-pixbuf-io.c:1240
+#: gdk-pixbuf/gdk-pixbuf-animation.c:146 gdk-pixbuf/gdk-pixbuf-io.c:1083
+#: gdk-pixbuf/gdk-pixbuf-io.c:1349
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "'%s' എന്ന ഫയല്‍ തുറക്കുന്നില്‍ പരാജയം: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:143 gdk-pixbuf/gdk-pixbuf-io.c:992
+#: gdk-pixbuf/gdk-pixbuf-animation.c:159 gdk-pixbuf/gdk-pixbuf-io.c:1095
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "'%s' എന്ന ഇമേജ് ഫയലില്‍ ഡേറ്റാ ലഭ്യമല്ല"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1028
-#: gdk-pixbuf/gdk-pixbuf-io.c:1292
+#: gdk-pixbuf/gdk-pixbuf-animation.c:201 gdk-pixbuf/gdk-pixbuf-io.c:1131
+#: gdk-pixbuf/gdk-pixbuf-io.c:1401
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr "'%s' എന്ന ഇമേജ് ലഭ്യമാക്കുന്നതില്‍ പരാജയം: ഒരു പക്ഷേ തകരാറുള്ള ഇമേജ് ഫയല്‍ആവാം കാരണം "
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:218
+#: gdk-pixbuf/gdk-pixbuf-animation.c:234
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -47,12 +47,12 @@ msgid ""
 msgstr ""
 "'%s' എന്ന ആനിമേഷന്‍ ലഭ്യമാക്കുന്നതില്‍ പരാജയം: ഒരു പക്ഷേ തകരാറുള്ള ആനിമേഷന്‍ ഫയല്‍ ആവാം കാരണം "
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:713
+#: gdk-pixbuf/gdk-pixbuf-io.c:809
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "ഇമേജ് ലഭ്യമാക്കുന്ന ഘടകം ലഭ്യമാക്കുവാന്‍ സാധ്യമായില്ല: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:728
+#: gdk-pixbuf/gdk-pixbuf-io.c:824
 #, fuzzy, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -61,53 +61,53 @@ msgstr ""
 "ഇമേജ് ലഭ്യമാക്കുന്ന ഘടകമായ %s ശരിയായ സംയോജക ഘടകം എക്സ്പോറ്‍ട്ട് ചെയ്യുന്നില്ല; മറ്റൊരു GTK "
 "ലക്കത്തില്‍ നിന്നുമാവാം?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:737 gdk-pixbuf/gdk-pixbuf-io.c:788
+#: gdk-pixbuf/gdk-pixbuf-io.c:833 gdk-pixbuf/gdk-pixbuf-io.c:884
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "'%s' തരത്തിലുള്ള ഇമേജിന് പിന്തുണ ലഭ്യമല്ല"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:861
+#: gdk-pixbuf/gdk-pixbuf-io.c:964
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "'%s' ഫയലിനുള്ള ഇമേജിന്റെ ഫയലിന്റെ രീതി തിരിച്ചറിയുവാന്‍ സാധ്യമായില്ല"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:869
+#: gdk-pixbuf/gdk-pixbuf-io.c:972
 msgid "Unrecognized image file format"
 msgstr "ഇമേജ് ഫയലിന്റെ അപരിചിതമായ രീതി"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1037
+#: gdk-pixbuf/gdk-pixbuf-io.c:1140
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "'%s' എന്ന ഇമേജ് ലഭ്യമാക്കുവാന്‍ സാധ്യമായില്ല: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1671 gdk-pixbuf/io-gdip-utils.c:883
+#: gdk-pixbuf/gdk-pixbuf-io.c:2028 gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "ഇമേജ് ഫയലിലേക്ക് സൂക്ഷിക്കുന്നതില്‍ പരാജയം: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1716 gdk-pixbuf/gdk-pixbuf-io.c:1846
+#: gdk-pixbuf/gdk-pixbuf-io.c:2073 gdk-pixbuf/gdk-pixbuf-io.c:2203
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "ഇമേജിന്റെ രീതി സൂക്ഷിക്കുന്നതിനുള്ള പിന്തുണ gdk-pixbuf -ന്റെ ഈ ബിള്‍ഡില്‍ ലഭ്യമല്ല: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1750
+#: gdk-pixbuf/gdk-pixbuf-io.c:2107
 msgid "Insufficient memory to save image to callback"
 msgstr "കോള്‍ബാക്കിലേക്ക് ഇമേജ് സൂക്ഷിക്കുന്നതിന് ആവശ്യമായ മെമ്മറി ലഭ്യമല്ല"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1763
+#: gdk-pixbuf/gdk-pixbuf-io.c:2120
 msgid "Failed to open temporary file"
 msgstr "താല്‍ക്കാലിക ഫയല്‍ തുറക്കുന്നതില്‍ പരാജയം"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1789
+#: gdk-pixbuf/gdk-pixbuf-io.c:2146
 msgid "Failed to read from temporary file"
 msgstr "താല്‍ക്കാലിക ഫയലില്‍ നിന്നും വായിക്കുന്നതില്‍ പരാജയം"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2042
+#: gdk-pixbuf/gdk-pixbuf-io.c:2399
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "'%s'-ലേക്ക് സൂക്കഷിക്കുവാന്‍ സാധ്യമല്ല: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2068
+#: gdk-pixbuf/gdk-pixbuf-io.c:2425
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -116,15 +116,15 @@ msgstr ""
 "ഇമേജ് സൂക്ഷിക്കുമ്പോള്‍ '%s' അടയ്ക്കുന്നതില്‍ പരാജയം, ഡേറ്റാ പൂറ്‍ണ്ണമായി സൂക്ഷിക്കുവാന്‍ സാധ്യമായി "
 "കാണില്ല: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2288 gdk-pixbuf/gdk-pixbuf-io.c:2339
+#: gdk-pixbuf/gdk-pixbuf-io.c:2646 gdk-pixbuf/gdk-pixbuf-io.c:2698
 msgid "Insufficient memory to save image into a buffer"
 msgstr "ബഫറിലേക്ക് ഇമേജ് സൂക്ഷിക്കുന്നതിനാവശ്യമായ മെമ്മറി ലഭ്യമല്ല"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2385
+#: gdk-pixbuf/gdk-pixbuf-io.c:2744
 msgid "Error writing to image stream"
 msgstr "ഇമേജ് സ്റ്റ്രീമിലേക്കു്‌ സൂക്ഷിക്കുന്നതില്‍ പരാജയം"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:332
+#: gdk-pixbuf/gdk-pixbuf-loader.c:395
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -133,24 +133,24 @@ msgstr ""
 "ആന്തരിക പിശക്: ഇമേജ് ലഭ്യമാക്കുന്ന ഘടകമായ '%s' ഒരു പ്രക്രിയ പൂര്‍ണ്ണമാക്കുന്നതില്‍ പരാജയപ്പെട്ടു, "
 "കാരണമെന്തെന്ന് വ്യക്തമല്ല"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:374
+#: gdk-pixbuf/gdk-pixbuf-loader.c:437
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "'%s' തരത്തിലുള്ള ഇമേജിന്റെ വര്‍ദ്ധിച്ചുള്ള ലഭ്യമാക്കല്‍ പിന്തുണയ്ക്കുന്നില്ല"
 
-#: gdk-pixbuf/gdk-pixdata.c:146
+#: gdk-pixbuf/gdk-pixdata.c:160
 msgid "Image header corrupt"
 msgstr "ഇമേജ് ഹെഡറിന് തകരാറു സംഭവിച്ചു"
 
-#: gdk-pixbuf/gdk-pixdata.c:151
+#: gdk-pixbuf/gdk-pixdata.c:165
 msgid "Image format unknown"
 msgstr "ഇമേജ് ഏത് രീതിയിലുള്ളതെന്ന് അവ്യക്തം"
 
-#: gdk-pixbuf/gdk-pixdata.c:156 gdk-pixbuf/gdk-pixdata.c:487
+#: gdk-pixbuf/gdk-pixdata.c:170 gdk-pixbuf/gdk-pixdata.c:502
 msgid "Image pixel data corrupt"
 msgstr "ഇമേജ് പിക്സല്‍ ഡേറ്റായില്‍ തകരാറ്"
 
-#: gdk-pixbuf/gdk-pixdata.c:431
+#: gdk-pixbuf/gdk-pixdata.c:446
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -216,12 +216,84 @@ msgstr "BMP ഫയലിലേക്ക് സൂക്ഷിക്കുവാ�
 msgid "The BMP image format"
 msgstr "BMP ഇമേജ് രീതി"
 
+#: gdk-pixbuf/io-gdip-emf.c:59
+msgid "The EMF image format"
+msgstr "EMF ഇമേജ് രീതി"
+
+#: gdk-pixbuf/io-gdip-gif.c:80 gdk-pixbuf/io-gif.c:1699
+msgid "The GIF image format"
+msgstr "GIF ഇമേജ് രീതി"
+
+#: gdk-pixbuf/io-gdip-ico.c:59 gdk-pixbuf/io-ico.c:1271
+msgid "The ICO image format"
+msgstr "ICO ഇമേജ് രീതി"
+
+#: gdk-pixbuf/io-gdip-jpeg.c:53 gdk-pixbuf/io-jpeg.c:1139
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"parsed."
+msgstr ""
+"JPEG തനിമ 0-ത്തിനും 100-നും മദ്ധ്യത്തിലുള്ള മൂല്ല്യമായിരിക്കണം; '%s' എന്ന മൂല്ല്യം പാഴ്സ് "
+"ചെയ്യുവാന്‍ സാധ്യമായില്ല."
+
+#: gdk-pixbuf/io-gdip-jpeg.c:68 gdk-pixbuf/io-jpeg.c:1154
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgstr "JPEG തനിമ 0-ത്തിനും 100-നും മദ്ധ്യത്തിലുള്ള മൂല്ല്യമായിരിക്കണം; %d അനുവദനീയമല്ല."
+
+#: gdk-pixbuf/io-gdip-jpeg.c:136 gdk-pixbuf/io-jpeg.c:1316
+msgid "The JPEG image format"
+msgstr "JPEG ഇമേജ് രീതി"
+
+#: gdk-pixbuf/io-gdip-utils.c:154
+#, c-format
+msgid "Could not allocate memory: %s"
+msgstr "മെമ്മറി അനുവദിക്കുവാന്‍ സാധ്യമായില്ല :%s"
+
+#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
+#: gdk-pixbuf/io-gdip-utils.c:333
+#, c-format
+msgid "Could not create stream: %s"
+msgstr "സ്റ്റ്രീം ഉണ്ടാക്കാന്‍ കഴിഞ്ഞില്ല : %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:193
+#, c-format
+msgid "Could not seek stream: %s"
+msgstr "സ്റ്റ്രീം കണ്ടുപിടിക്കാന്‍/തിരയാന്‍ കഴിഞ്ഞില്ല : %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:205
+#, c-format
+msgid "Could not read from stream: %s"
+msgstr "സ്റ്റ്രീം വായിക്കാന്‍ കഴിഞ്ഞില്ല : %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:617 gdk-pixbuf/io-gdip-utils.c:752
+msgid "Couldn't load bitmap"
+msgstr "ബിറ്റ്മാപ് തുരക്കാന്‍ കഴിഞ്ഞില്ല"
+
+#: gdk-pixbuf/io-gdip-utils.c:774
+msgid "Couldn't load metafile"
+msgstr "മെറ്റാഫയല്‍ തുരക്കാന്‍ കഴിഞ്ഞില്ല"
+
+#: gdk-pixbuf/io-gdip-utils.c:933
+msgid "Unsupported image format for GDI+"
+msgstr "പിന്തുണ ലഭ്യമല്ലാത്ത ചിത്ര രീതി,  GDI+ -ഇനുള്ളതു്‌"
+
+#: gdk-pixbuf/io-gdip-utils.c:940
+msgid "Couldn't save"
+msgstr "സൂക്ഷിക്കുവാന്‍ സാധ്യമായില്ല"
+
+#: gdk-pixbuf/io-gdip-wmf.c:58
+msgid "The WMF image format"
+msgstr "WMF ഇമേജ് രീതി"
+
 #: gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "GIF ലഭ്യമാക്കുന്നതില്‍ പിശക്: %s"
 
-#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1480 gdk-pixbuf/io-gif.c:1641
+#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1482 gdk-pixbuf/io-gif.c:1648
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF ഫയലില്‍ പൂറ്‍ണ്ണ ഡേറ്റാ ലഭ്യമല്ല "
 
@@ -246,8 +318,8 @@ msgstr "തെറ്റായ കോഡ് ലഭിച്ചു"
 msgid "Circular table entry in GIF file"
 msgstr "GIF ഫയലില്‍ സിറ്‍ക്കുലാറ്‍ ടേബിള്‍ എന്‍ട്രി"
 
-#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1467 gdk-pixbuf/io-gif.c:1514
-#: gdk-pixbuf/io-gif.c:1629
+#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1468 gdk-pixbuf/io-gif.c:1521
+#: gdk-pixbuf/io-gif.c:1636
 msgid "Not enough memory to load GIF file"
 msgstr "GIF ഫയല്‍ ലഭ്യമാക്കുന്നതിന് ആവശ്യമുള്ള മെമ്മറി ലഭ്യമല്ല"
 
@@ -275,60 +347,9 @@ msgid ""
 msgstr ""
 "GIF ഇമേജില്‍ ഗ്ളോബല്‍ കളറ്‍മാപ്പ് ലഭ്യമല്ല, അതിലുള്ള ഒരു ഫ്റെയിമില്‍ ലോക്കല്‍ കളറ്‍മാപ്പും ലഭ്യമല്ല."
 
-#: gdk-pixbuf/io-gif.c:1536
+#: gdk-pixbuf/io-gif.c:1543
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF ഇമേജ് പൂറ്‍ണ്ണമല്ല."
-
-#: gdk-pixbuf/io-gif.c:1692 gdk-pixbuf/io-gdip-gif.c:80
-msgid "The GIF image format"
-msgstr "GIF ഇമേജ് രീതി"
-
-#: gdk-pixbuf/io-ico.c:210 gdk-pixbuf/io-ico.c:224 gdk-pixbuf/io-ico.c:276
-#: gdk-pixbuf/io-ico.c:289 gdk-pixbuf/io-ico.c:358
-msgid "Invalid header in icon"
-msgstr "ചിഹ്നത്തില്‍ തെറ്റായ ഹേഡറ്‍"
-
-#: gdk-pixbuf/io-ico.c:239 gdk-pixbuf/io-ico.c:299 gdk-pixbuf/io-ico.c:368
-#: gdk-pixbuf/io-ico.c:431 gdk-pixbuf/io-ico.c:461
-msgid "Not enough memory to load icon"
-msgstr "ചിഹ്നം ലഭ്യമാക്കുന്നതിന് ആവശ്യമുള്ള മെമ്മറി ലഭ്യമല്ല"
-
-#: gdk-pixbuf/io-ico.c:321
-msgid "Icon has zero width"
-msgstr "ചിഹ്നത്തിന്റെ വീതി പൂജ്യം"
-
-#: gdk-pixbuf/io-ico.c:331
-msgid "Icon has zero height"
-msgstr "ചിഹ്നത്തിന്റെ ഉയരം പൂജ്യം"
-
-#: gdk-pixbuf/io-ico.c:383
-msgid "Compressed icons are not supported"
-msgstr "കംപ്രസ്സ് ചെയ്ത ചിഹ്നങ്ങള്‍ക്ക് പിന്തുണ ലഭ്യമല്ല"
-
-#: gdk-pixbuf/io-ico.c:416
-msgid "Unsupported icon type"
-msgstr "ചിഹ്നത്തിന്റെ രീതിയ്ക്കുള്ള പിന്തുണ ലഭ്യമല്ല"
-
-#: gdk-pixbuf/io-ico.c:510
-msgid "Not enough memory to load ICO file"
-msgstr "ICO ഫയല്‍ ലഭ്യമാക്കുന്നതിന് ആവശ്യമുള്ള മെമ്മറി ലഭ്യമല്ല"
-
-#: gdk-pixbuf/io-ico.c:975
-msgid "Image too large to be saved as ICO"
-msgstr "ICO ആയി സൂക്ഷിക്കുവാന്‍ സാധ്യമല്ല; ഇമേജ് വളരെ വലുതാണ്"
-
-#: gdk-pixbuf/io-ico.c:986
-msgid "Cursor hotspot outside image"
-msgstr "കര്‍സര്‍ ഹോട്ട്സ്പോട്ട് പുറമേയുള്ള ഇമേജ്"
-
-#: gdk-pixbuf/io-ico.c:1009
-#, c-format
-msgid "Unsupported depth for ICO file: %d"
-msgstr "ICO ഫയലിനു് പിന്തുണ ലഭ്യമല്ലാത്ത വ്യാപ്തി: %d"
-
-#: gdk-pixbuf/io-ico.c:1244 gdk-pixbuf/io-gdip-ico.c:59
-msgid "The ICO image format"
-msgstr "ICO ഇമേജ് രീതി"
 
 #: gdk-pixbuf/io-icns.c:347
 #, c-format
@@ -342,6 +363,49 @@ msgstr "ICNS ഫയല്‍ ഡീക്കോഡ് ചെയ്യുവാ�
 #: gdk-pixbuf/io-icns.c:397
 msgid "The ICNS image format"
 msgstr "ICNS ചിത്ര ഫോര്‍മാറ്റ്"
+
+#: gdk-pixbuf/io-ico.c:228 gdk-pixbuf/io-ico.c:242 gdk-pixbuf/io-ico.c:291
+#: gdk-pixbuf/io-ico.c:302 gdk-pixbuf/io-ico.c:395
+msgid "Invalid header in icon"
+msgstr "ചിഹ്നത്തില്‍ തെറ്റായ ഹേഡറ്‍"
+
+#: gdk-pixbuf/io-ico.c:257 gdk-pixbuf/io-ico.c:312 gdk-pixbuf/io-ico.c:405
+#: gdk-pixbuf/io-ico.c:458 gdk-pixbuf/io-ico.c:488
+msgid "Not enough memory to load icon"
+msgstr "ചിഹ്നം ലഭ്യമാക്കുന്നതിന് ആവശ്യമുള്ള മെമ്മറി ലഭ്യമല്ല"
+
+#: gdk-pixbuf/io-ico.c:338
+msgid "Compressed icons are not supported"
+msgstr "കംപ്രസ്സ് ചെയ്ത ചിഹ്നങ്ങള്‍ക്ക് പിന്തുണ ലഭ്യമല്ല"
+
+#: gdk-pixbuf/io-ico.c:358
+msgid "Icon has zero width"
+msgstr "ചിഹ്നത്തിന്റെ വീതി പൂജ്യം"
+
+#: gdk-pixbuf/io-ico.c:368
+msgid "Icon has zero height"
+msgstr "ചിഹ്നത്തിന്റെ ഉയരം പൂജ്യം"
+
+#: gdk-pixbuf/io-ico.c:443
+msgid "Unsupported icon type"
+msgstr "ചിഹ്നത്തിന്റെ രീതിയ്ക്കുള്ള പിന്തുണ ലഭ്യമല്ല"
+
+#: gdk-pixbuf/io-ico.c:537
+msgid "Not enough memory to load ICO file"
+msgstr "ICO ഫയല്‍ ലഭ്യമാക്കുന്നതിന് ആവശ്യമുള്ള മെമ്മറി ലഭ്യമല്ല"
+
+#: gdk-pixbuf/io-ico.c:1002
+msgid "Image too large to be saved as ICO"
+msgstr "ICO ആയി സൂക്ഷിക്കുവാന്‍ സാധ്യമല്ല; ഇമേജ് വളരെ വലുതാണ്"
+
+#: gdk-pixbuf/io-ico.c:1013
+msgid "Cursor hotspot outside image"
+msgstr "കര്‍സര്‍ ഹോട്ട്സ്പോട്ട് പുറമേയുള്ള ഇമേജ്"
+
+#: gdk-pixbuf/io-ico.c:1036
+#, c-format
+msgid "Unsupported depth for ICO file: %d"
+msgstr "ICO ഫയലിനു് പിന്തുണ ലഭ്യമല്ലാത്ത വ്യാപ്തി: %d"
 
 #: gdk-pixbuf/io-jasper.c:74
 msgid "Couldn't allocate memory for stream"
@@ -388,38 +452,19 @@ msgstr ""
 "ഇമേജ് തുറക്കുന്നതിനുള്ള മെമ്മറി ലഭ്യമല്ല, ഫ്രീ മെമ്മറിയ്ക്കായി ചില പ്രയോഗങ്ങളില്‍ നിന്നും പുറത്ത് "
 "കടക്കുക"
 
-#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:774
+#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:781
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "പിന്തുണ ഇല്ലാത്ത JPEG കളര്‍ സ്പെയിസ് (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:673 gdk-pixbuf/io-jpeg.c:943 gdk-pixbuf/io-jpeg.c:1176
-#: gdk-pixbuf/io-jpeg.c:1185
+#: gdk-pixbuf/io-jpeg.c:680 gdk-pixbuf/io-jpeg.c:950 gdk-pixbuf/io-jpeg.c:1183
+#: gdk-pixbuf/io-jpeg.c:1192
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "JPEG ഫയല്‍ ലഭ്യമാക്കുന്നതിനുള്ള മെമ്മറി അനുവദിക്കുവാന്‍ സാധ്യമായില്ല"
 
-#: gdk-pixbuf/io-jpeg.c:918
+#: gdk-pixbuf/io-jpeg.c:925
 msgid "Transformed JPEG has zero width or height."
 msgstr "മാറ്റം വരുത്തിയ JPEG-യുടെ വീതിയും ഉയരവും പൂജ്യം."
-
-#: gdk-pixbuf/io-jpeg.c:1132 gdk-pixbuf/io-gdip-jpeg.c:53
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
-"parsed."
-msgstr ""
-"JPEG തനിമ 0-ത്തിനും 100-നും മദ്ധ്യത്തിലുള്ള മൂല്ല്യമായിരിക്കണം; '%s' എന്ന മൂല്ല്യം പാഴ്സ് "
-"ചെയ്യുവാന്‍ സാധ്യമായില്ല."
-
-#: gdk-pixbuf/io-jpeg.c:1147 gdk-pixbuf/io-gdip-jpeg.c:68
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgstr "JPEG തനിമ 0-ത്തിനും 100-നും മദ്ധ്യത്തിലുള്ള മൂല്ല്യമായിരിക്കണം; %d അനുവദനീയമല്ല."
-
-#: gdk-pixbuf/io-jpeg.c:1309 gdk-pixbuf/io-gdip-jpeg.c:136
-msgid "The JPEG image format"
-msgstr "JPEG ഇമേജ് രീതി"
 
 #: gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -451,8 +496,9 @@ msgid "Couldn't allocate memory for line data"
 msgstr "ലൈന്‍ ഡേറ്റയ്ക്കുള്ള മെമ്മറി ലഭ്യമാക്കുവാന്‍ സാധ്യമായില്ല"
 
 #: gdk-pixbuf/io-pcx.c:656
-msgid "Couldn't allocate memory for paletted data"
-msgstr "പാലറ്റഡ് ഡേറ്റയ്ക്കുള്ള മെമ്മറി ലഭ്യമാക്കുവാന്‍ സാധ്യമായില്ല"
+#, fuzzy
+msgid "Couldn't allocate memory for PCX image"
+msgstr "ഹെഡറിനുള്ള മെമ്മറി അനുവദിക്കുവാന്‍ സാധ്യമായില്ല"
 
 #: gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
@@ -465,6 +511,16 @@ msgstr "PCX ഡേറ്റായുടെ അവസാനം പാലറ്റ
 #: gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
 msgstr "PCX ഇമേജ് രീതി"
+
+#: gdk-pixbuf/io-pixdata.c:148
+#, fuzzy
+msgid "Transformed pixbuf has zero width or height."
+msgstr "മാറ്റം വരുത്തിയ PNG-യുടെ വീതിയും ഉയരവും പൂജ്യമാണ്."
+
+#: gdk-pixbuf/io-pixdata.c:186
+#, fuzzy
+msgid "The GdkPixdata format"
+msgstr "GIF ഇമേജ് രീതി"
 
 #: gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
@@ -544,13 +600,13 @@ msgid ""
 "allowed."
 msgstr "PNG കംപ്രഷന്‍ ലവല്‍ 0-ത്തിനും 9-നും മദ്ധ്യത്തിലുള്ള മൂല്ല്യമായിരിക്കണം; '%d' അനുവദനീയമല്ല"
 
-#: gdk-pixbuf/io-png.c:950
+#: gdk-pixbuf/io-png.c:959
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "PNG ടെക്സ്റ്റ് ചങ്ക് %s-നുള്ള മൂല്ല്യം ISO-8859-1 എന്‍കോഡിങിലേക്കു് വേര്‍തിരിക്കുവാന്‍ സാധ്യല്ല."
 
-#: gdk-pixbuf/io-png.c:1111
+#: gdk-pixbuf/io-png.c:1122
 msgid "The PNG image format"
 msgstr "PNG ഇമേജ് രീതി"
 
@@ -614,51 +670,57 @@ msgstr "PNM ഫയല്‍ ലഭ്യമാക്കുന്നതിന് 
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "PNM/PBM/PGM/PPM ഇമേജ് രീതി"
 
-#: gdk-pixbuf/io-qtif.c:127
+#: gdk-pixbuf/io-qtif.c:128
 msgid "Input file descriptor is NULL."
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:142
+#: gdk-pixbuf/io-qtif.c:143
 #, fuzzy
 msgid "Failed to read QTIF header"
 msgstr "ഹെഡറ്‍ എഴുതുന്നതില്‍ പരാജയം\n"
 
-#: gdk-pixbuf/io-qtif.c:151 gdk-pixbuf/io-qtif.c:181 gdk-pixbuf/io-qtif.c:445
+#: gdk-pixbuf/io-qtif.c:152 gdk-pixbuf/io-qtif.c:189 gdk-pixbuf/io-qtif.c:460
 #, c-format
-msgid "QTIF atom size too large (%d bytes)"
-msgstr ""
+msgid "QTIF atom size too large (%d byte)"
+msgid_plural "QTIF atom size too large (%d bytes)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: gdk-pixbuf/io-qtif.c:171
-#, c-format
-msgid "Failed to allocate %d bytes for file read buffer"
-msgstr ""
+#: gdk-pixbuf/io-qtif.c:175
+#, fuzzy, c-format
+msgid "Failed to allocate %d byte for file read buffer"
+msgid_plural "Failed to allocate %d bytes for file read buffer"
+msgstr[0] "കോണ്‍ടെക്സ്റ്റിനുള്ള മെമ്മറി അനുവദിക്കുവാന്‍ സാധ്യമായില്ല"
+msgstr[1] "കോണ്‍ടെക്സ്റ്റിനുള്ള മെമ്മറി അനുവദിക്കുവാന്‍ സാധ്യമായില്ല"
 
-#: gdk-pixbuf/io-qtif.c:195
+#: gdk-pixbuf/io-qtif.c:206
 #, fuzzy, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "GIF ലഭ്യമാക്കുന്നതില്‍ പിശക്: %s"
 
-#: gdk-pixbuf/io-qtif.c:232
+#: gdk-pixbuf/io-qtif.c:243
 #, c-format
-msgid "Failed to skip the next %d bytes with seek()."
-msgstr ""
+msgid "Failed to skip the next %d byte with seek()."
+msgid_plural "Failed to skip the next %d bytes with seek()."
+msgstr[0] ""
+msgstr[1] ""
 
-#: gdk-pixbuf/io-qtif.c:256
+#: gdk-pixbuf/io-qtif.c:270
 #, fuzzy
 msgid "Failed to allocate QTIF context structure."
 msgstr "TGA context struct-നുള്ള മെമ്മറി അനുവദിക്കുവാന്‍ സാധ്യമായില്ല"
 
-#: gdk-pixbuf/io-qtif.c:316
+#: gdk-pixbuf/io-qtif.c:330
 #, fuzzy
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "index അറ എഴുതുന്നതില്‍ പരാ‍ജയം\n"
 
-#: gdk-pixbuf/io-qtif.c:420
+#: gdk-pixbuf/io-qtif.c:434
 #, fuzzy
 msgid "Failed to find an image data atom."
 msgstr "TIFF ഇമേജ് തുറക്കുവാന്‍ സാധ്യമല്ല"
 
-#: gdk-pixbuf/io-qtif.c:601
+#: gdk-pixbuf/io-qtif.c:619
 #, fuzzy
 msgid "The QTIF image format"
 msgstr "TIFF ഇമേഡ് രീതി"
@@ -877,47 +939,5 @@ msgstr "XPM ഇമേജ് ലഭ്യമാക്കുമ്പോള്‍ 
 msgid "The XPM image format"
 msgstr "XPM ഇമേജ് രീതി"
 
-#: gdk-pixbuf/io-gdip-emf.c:59
-msgid "The EMF image format"
-msgstr "EMF ഇമേജ് രീതി"
-
-#: gdk-pixbuf/io-gdip-utils.c:154
-#, c-format
-msgid "Could not allocate memory: %s"
-msgstr "മെമ്മറി അനുവദിക്കുവാന്‍ സാധ്യമായില്ല :%s"
-
-#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
-#: gdk-pixbuf/io-gdip-utils.c:333
-#, c-format
-msgid "Could not create stream: %s"
-msgstr "സ്റ്റ്രീം ഉണ്ടാക്കാന്‍ കഴിഞ്ഞില്ല : %s"
-
-#: gdk-pixbuf/io-gdip-utils.c:193
-#, c-format
-msgid "Could not seek stream: %s"
-msgstr "സ്റ്റ്രീം കണ്ടുപിടിക്കാന്‍/തിരയാന്‍ കഴിഞ്ഞില്ല : %s"
-
-#: gdk-pixbuf/io-gdip-utils.c:205
-#, c-format
-msgid "Could not read from stream: %s"
-msgstr "സ്റ്റ്രീം വായിക്കാന്‍ കഴിഞ്ഞില്ല : %s"
-
-#: gdk-pixbuf/io-gdip-utils.c:616 gdk-pixbuf/io-gdip-utils.c:747
-msgid "Couldn't load bitmap"
-msgstr "ബിറ്റ്മാപ് തുരക്കാന്‍ കഴിഞ്ഞില്ല"
-
-#: gdk-pixbuf/io-gdip-utils.c:769
-msgid "Couldn't load metafile"
-msgstr "മെറ്റാഫയല്‍ തുരക്കാന്‍ കഴിഞ്ഞില്ല"
-
-#: gdk-pixbuf/io-gdip-utils.c:928
-msgid "Unsupported image format for GDI+"
-msgstr "പിന്തുണ ലഭ്യമല്ലാത്ത ചിത്ര രീതി,  GDI+ -ഇനുള്ളതു്‌"
-
-#: gdk-pixbuf/io-gdip-utils.c:935
-msgid "Couldn't save"
-msgstr "സൂക്ഷിക്കുവാന്‍ സാധ്യമായില്ല"
-
-#: gdk-pixbuf/io-gdip-wmf.c:58
-msgid "The WMF image format"
-msgstr "WMF ഇമേജ് രീതി"
+#~ msgid "Couldn't allocate memory for paletted data"
+#~ msgstr "പാലറ്റഡ് ഡേറ്റയ്ക്കുള്ള മെമ്മറി ലഭ്യമാക്കുവാന്‍ സാധ്യമായില്ല"

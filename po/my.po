@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf\n"
-"POT-Creation-Date: 2010-09-21 14:08-0400\n"
+"POT-Creation-Date: 2012-02-04 18:44-0500\n"
 "PO-Revision-Date: 2010-01-19 16:30+0200\n"
 "Last-Translator: Russell Kyaw <rkyaw@yahoo.com>\n"
 "Language-Team: Burmese <my@li.org>\n"
@@ -17,25 +17,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:130 gdk-pixbuf/gdk-pixbuf-io.c:980
-#: gdk-pixbuf/gdk-pixbuf-io.c:1240
+#: gdk-pixbuf/gdk-pixbuf-animation.c:146 gdk-pixbuf/gdk-pixbuf-io.c:1083
+#: gdk-pixbuf/gdk-pixbuf-io.c:1349
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "ဖွင့်ဖို့ မအောင်မြင်တဲ့ ဖိုင် '%s': %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:143 gdk-pixbuf/gdk-pixbuf-io.c:992
+#: gdk-pixbuf/gdk-pixbuf-animation.c:159 gdk-pixbuf/gdk-pixbuf-io.c:1095
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "ရုပ်ပုံဖိုင် '%s' မှာ အချက်အလက်ကြမ်း မရှိဘူး"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1028
-#: gdk-pixbuf/gdk-pixbuf-io.c:1292
+#: gdk-pixbuf/gdk-pixbuf-animation.c:201 gdk-pixbuf/gdk-pixbuf-io.c:1131
+#: gdk-pixbuf/gdk-pixbuf-io.c:1401
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr "ရုပ်ပုံ %s': ဖွင့်လို့ မရတဲ့ အကြောင်းရင်းကို မသိရဘူး၊ ပျက်စီးတဲ့ ဖိုင်တခု ဖြစ်နိုင်တယ်"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:218
+#: gdk-pixbuf/gdk-pixbuf-animation.c:234
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -43,12 +43,12 @@ msgid ""
 msgstr ""
 "သက်၀င်လှုပ်ရှားတဲ့ '%s': ဖွင့်လို့ မရတဲ့ အကြောင်းရင်းကို မသိရဘူး၊ ပျက်စီးတဲ့ သက်၀င်လှုပ်ရှားမှု ဖိုင်တခု ဖြစ်နိုင်တယ်"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:713
+#: gdk-pixbuf/gdk-pixbuf-io.c:809
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "ရုပ်ပုံ-ဖွင့်တဲ့ အစိတ်အပိုင်းကို မဖွင့်နိုင်ဘူး - %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:728
+#: gdk-pixbuf/gdk-pixbuf-io.c:824
 #, fuzzy, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -57,53 +57,53 @@ msgstr ""
 "ရုပ်ပုံ-ဖွင့်ပေးတဲ့ အစိတ်အပိုင်း %s က သင့်တော်တဲ့ ကြားခံမြင်ကွင်းကို မတင်ပို့​ဘူး၊ ခြားနားတဲ့ GTK မူအဆင့်​ "
 "တခုကြောင့် ဖြစ်နိုင်တယ်။"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:737 gdk-pixbuf/gdk-pixbuf-io.c:788
+#: gdk-pixbuf/gdk-pixbuf-io.c:833 gdk-pixbuf/gdk-pixbuf-io.c:884
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "ရုပ်ပုံ အမျိုးအစား '%s' ကို လက်မခံဘူး"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:861
+#: gdk-pixbuf/gdk-pixbuf-io.c:964
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "'%s' ဖိုင်ရဲ့ ရုပ်ပုံဖိုင် အမျိုးအစားကို နားမလည်ဘူး"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:869
+#: gdk-pixbuf/gdk-pixbuf-io.c:972
 msgid "Unrecognized image file format"
 msgstr "နားမလည်ဘူးတဲ့ ရုပ်ပုံဖိုင် အမျိုးအစား"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1037
+#: gdk-pixbuf/gdk-pixbuf-io.c:1140
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "ဖွင့်ဖို့ မအောင်မြင်တဲ့ ရုပ်ပုံ '%s': %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1671 gdk-pixbuf/io-gdip-utils.c:883
+#: gdk-pixbuf/gdk-pixbuf-io.c:2028 gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "ရေးသားချက် ချို့ယွင်းတဲ့ ရုပ်ပုံဖိုင် - %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1716 gdk-pixbuf/gdk-pixbuf-io.c:1846
+#: gdk-pixbuf/gdk-pixbuf-io.c:2073 gdk-pixbuf/gdk-pixbuf-io.c:2203
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "gdk-pixbuf တည်ဆောက်မှုက လက်မခံတဲ့ ရုပ်ပုံ အမျိုးအစား သိမ်းဆည်းမှု - %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1750
+#: gdk-pixbuf/gdk-pixbuf-io.c:2107
 msgid "Insufficient memory to save image to callback"
 msgstr "တန်ပြန်ခေါ်ဆိုရန် ရုပ်ပုံကို သိမ်းဆည်းဖို့ မှတ်ဉာဏ် မလုံလောက်ဘူး"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1763
+#: gdk-pixbuf/gdk-pixbuf-io.c:2120
 msgid "Failed to open temporary file"
 msgstr "ယာယီဖိုင်ကို ဖွင့်ဖို့ မအောင်မြင်ဘူး"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1789
+#: gdk-pixbuf/gdk-pixbuf-io.c:2146
 msgid "Failed to read from temporary file"
 msgstr "ယာယီဖိုင်ထဲကို ဖတ်ဖို့ မအောင်မြင်ဘူး"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2042
+#: gdk-pixbuf/gdk-pixbuf-io.c:2399
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "'%s' ကို ဖွင့်ပြီး ရေးသားဖို့ မအောင်မြင်တဲ့ အရာ - %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2068
+#: gdk-pixbuf/gdk-pixbuf-io.c:2425
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -111,15 +111,15 @@ msgid ""
 msgstr ""
 "ရုပ်ပုံကို ရေးကူးစဉ် '%s' ကို ပိတ်ဖို့ မအောင်မြင်ဘူး၊ အချက်အလက်ကြမ်း အားလုံးကို မသိမ်းဆည်းတာ ဖြစ်နိုင်တယ် - %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2288 gdk-pixbuf/gdk-pixbuf-io.c:2339
+#: gdk-pixbuf/gdk-pixbuf-io.c:2646 gdk-pixbuf/gdk-pixbuf-io.c:2698
 msgid "Insufficient memory to save image into a buffer"
 msgstr "ရုပ်ပုံကို ကြားခံတခုအတွင်း သိမ်းဆည်းဖို့ မှတ်ဉာဏ် မလုံလောက်ဘူး"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2385
+#: gdk-pixbuf/gdk-pixbuf-io.c:2744
 msgid "Error writing to image stream"
 msgstr "ရုပ်ပုံ စီးကြောင်းမှာ ရေးသားချက် ချို့ယွင်းမှု"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:332
+#: gdk-pixbuf/gdk-pixbuf-loader.c:395
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -128,24 +128,24 @@ msgstr ""
 "အတွင်းပိုင်း ချို့ယွင်းမှု၊ ရုပ်ပုံဖွင့်ကိရိယာ အစိတ်အပိုင်း '%s' က လုပ်ငန်းတခု ပြီးစီးဖို့ မအောင်မြင်ဘူး၊ ဒါပေမဲ့ "
 "မှားယွင်းမှုအတွက် အကြောင်းပြချက် တခု မပေးဘူး။"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:374
+#: gdk-pixbuf/gdk-pixbuf-loader.c:437
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "ရုပ်ပုံ အမျိုးအစား '%s' ဖွင့်လာတဲ့ နှစ်တိုးကို လက်မခံဘူး"
 
-#: gdk-pixbuf/gdk-pixdata.c:146
+#: gdk-pixbuf/gdk-pixdata.c:160
 msgid "Image header corrupt"
 msgstr "ရုပ်ပုံ ခေါင်းစီး ပျက်နေတယ်။"
 
-#: gdk-pixbuf/gdk-pixdata.c:151
+#: gdk-pixbuf/gdk-pixdata.c:165
 msgid "Image format unknown"
 msgstr "အမည်မသိ ရုပ်ပုံ အမျိုးအစား"
 
-#: gdk-pixbuf/gdk-pixdata.c:156 gdk-pixbuf/gdk-pixdata.c:487
+#: gdk-pixbuf/gdk-pixdata.c:170 gdk-pixbuf/gdk-pixdata.c:502
 msgid "Image pixel data corrupt"
 msgstr "ရုပ်ပုံ ပစ်ဆယ် အချက်အလက်ကြမ်း ပျက်သွားတယ်"
 
-#: gdk-pixbuf/gdk-pixdata.c:431
+#: gdk-pixbuf/gdk-pixdata.c:446
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -211,12 +211,82 @@ msgstr "BMP ဖိုင်ထဲ မရေးနိုင်ဘူး"
 msgid "The BMP image format"
 msgstr "BMP ရုပ်ပုံ အမျိုးအစား"
 
+#: gdk-pixbuf/io-gdip-emf.c:59
+msgid "The EMF image format"
+msgstr "EMF ရုပ်ပုံ အမျိုးအစား"
+
+#: gdk-pixbuf/io-gdip-gif.c:80 gdk-pixbuf/io-gif.c:1699
+msgid "The GIF image format"
+msgstr "GIF ရုပ်ပုံ အမျိုးအစား"
+
+#: gdk-pixbuf/io-gdip-ico.c:59 gdk-pixbuf/io-ico.c:1271
+msgid "The ICO image format"
+msgstr "ICO ရုပ်ပုံ အမျိးအစား"
+
+#: gdk-pixbuf/io-gdip-jpeg.c:53 gdk-pixbuf/io-jpeg.c:1139
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"parsed."
+msgstr "JPEG ရဲ့ အရည်အသွေးဟာ တန်ဖိုး ၁ နဲ့ ၁၀၀ အကြားမှ တခု ဖြစ်ရမယ်၊ '%s' တန်ဖိုးကို မခွဲခြမ်းနိုင်ဘူး။"
+
+#: gdk-pixbuf/io-gdip-jpeg.c:68 gdk-pixbuf/io-jpeg.c:1154
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgstr "JPEG ရဲ့ အရည်အသွေးဟာ တန်ဖိုး ၁ နဲ့ ၁၀၀ အကြားမှ တခု ဖြစ်ရမယ်၊ '%d' တန်ဖိုးကို ခွင့်မပြုဘူး။"
+
+#: gdk-pixbuf/io-gdip-jpeg.c:136 gdk-pixbuf/io-jpeg.c:1316
+msgid "The JPEG image format"
+msgstr "JPEG ရုပ်ပုံ အမျိုးအစား"
+
+#: gdk-pixbuf/io-gdip-utils.c:154
+#, c-format
+msgid "Could not allocate memory: %s"
+msgstr "မှတ်ဉာဏ်ကို မခွဲဝေနိုင်ဘူး - %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
+#: gdk-pixbuf/io-gdip-utils.c:333
+#, c-format
+msgid "Could not create stream: %s"
+msgstr "စီးကြောင်းကို မဖန်တီးနိုင်ဘူး - %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:193
+#, c-format
+msgid "Could not seek stream: %s"
+msgstr "စီးကြောင်းကို မရှာဖွေနိုင်ဘူး - %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:205
+#, c-format
+msgid "Could not read from stream: %s"
+msgstr "စီးကြောင်းထဲမှာ မဖတ်နိုင်ဘူး - %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:617 gdk-pixbuf/io-gdip-utils.c:752
+msgid "Couldn't load bitmap"
+msgstr "ဘစ်မက်ကို မဖွင့်နိုင်ဘူး"
+
+#: gdk-pixbuf/io-gdip-utils.c:774
+msgid "Couldn't load metafile"
+msgstr "metaဖိုင်ကို မဖွင့်နိုင်ဘူး"
+
+#: gdk-pixbuf/io-gdip-utils.c:933
+msgid "Unsupported image format for GDI+"
+msgstr "GDI+ အတွက် ထောက်ပံ့မထားတဲ့ ရုပ်ပုံ အမျိုးအစား"
+
+#: gdk-pixbuf/io-gdip-utils.c:940
+msgid "Couldn't save"
+msgstr "မသိမ်းဆည်းနိုင်ဘူး"
+
+#: gdk-pixbuf/io-gdip-wmf.c:58
+msgid "The WMF image format"
+msgstr "WMF ရုပ်ပုံ အမျိုးအစား"
+
 #: gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "GIF ဖတ်ရှုခြင်း ချုံ့ယွင်းချက် - %s"
 
-#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1480 gdk-pixbuf/io-gif.c:1641
+#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1482 gdk-pixbuf/io-gif.c:1648
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF ဖိုင်မှာ အချို့ အချက်အလက်ကြမ်း ပျောက်နေခဲ့တယ် (၄င်းဟာ တနည်းနည်းနဲ့ တိဖြတ်တာ ဖြစ်နိုင်တယ်)"
 
@@ -241,8 +311,8 @@ msgstr "ကုဒ် အမှား ကြုံနေတယ်"
 msgid "Circular table entry in GIF file"
 msgstr "GIF ဖိုင်နဲ့ စက်ဝိုင်းပုံ ဇယား ရေးသွင်းချက်"
 
-#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1467 gdk-pixbuf/io-gif.c:1514
-#: gdk-pixbuf/io-gif.c:1629
+#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1468 gdk-pixbuf/io-gif.c:1521
+#: gdk-pixbuf/io-gif.c:1636
 msgid "Not enough memory to load GIF file"
 msgstr "GIF ဖိုင်ကို ဖွင့်ဖို့ မှတ်ဉာဏ် မလုံလောက်ဘူး"
 
@@ -271,60 +341,9 @@ msgstr ""
 "GIF ရုပ်ပုံမှာ အများဆိုင် အရောင်ဇယား တခု မရှိဘူး၊ နောက်ပြီး အဲဒီ အထဲက ဘောင်တခုမှာ အများဆိုင် အရောင် "
 "ဇယား မရှိဘူး။"
 
-#: gdk-pixbuf/io-gif.c:1536
+#: gdk-pixbuf/io-gif.c:1543
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF ရုပ်ပုံဟာ တိဖြတ်ထားတယ် (သို့) မပြည့်စုံဘူး။"
-
-#: gdk-pixbuf/io-gif.c:1692 gdk-pixbuf/io-gdip-gif.c:80
-msgid "The GIF image format"
-msgstr "GIF ရုပ်ပုံ အမျိုးအစား"
-
-#: gdk-pixbuf/io-ico.c:210 gdk-pixbuf/io-ico.c:224 gdk-pixbuf/io-ico.c:276
-#: gdk-pixbuf/io-ico.c:289 gdk-pixbuf/io-ico.c:358
-msgid "Invalid header in icon"
-msgstr "ပုံသင်္ကေတထဲမှ မမှန်တဲ့ ခေါင်းစီး"
-
-#: gdk-pixbuf/io-ico.c:239 gdk-pixbuf/io-ico.c:299 gdk-pixbuf/io-ico.c:368
-#: gdk-pixbuf/io-ico.c:431 gdk-pixbuf/io-ico.c:461
-msgid "Not enough memory to load icon"
-msgstr "ပုံသင်္ကေတ ဖွင့်ဖို့ လုံလောက်တဲ့ မှတ်ဉာဏ် မရှိဘူး"
-
-#: gdk-pixbuf/io-ico.c:321
-msgid "Icon has zero width"
-msgstr "ပုံသင်္ကေတမှာ သုည အကျယ် ရှိတယ်"
-
-#: gdk-pixbuf/io-ico.c:331
-msgid "Icon has zero height"
-msgstr "ုံသင်္ကေတမှာ သုည အမြင့် ရှိတယ်"
-
-#: gdk-pixbuf/io-ico.c:383
-msgid "Compressed icons are not supported"
-msgstr "ဖိသိပ်ထားတဲ့ ပုံသင်္ကေတများကို ထောက်ပံ့မထားဘူး"
-
-#: gdk-pixbuf/io-ico.c:416
-msgid "Unsupported icon type"
-msgstr "ထောက်ပံ့မထားတဲ့ ပုံသင်္ကေတ အမျိုးအစား"
-
-#: gdk-pixbuf/io-ico.c:510
-msgid "Not enough memory to load ICO file"
-msgstr "ICO ဖိုင်ကို ဖွင့်ဖို့ မှတ်ဉာဏ် မလုံလောက်ဘူး"
-
-#: gdk-pixbuf/io-ico.c:975
-msgid "Image too large to be saved as ICO"
-msgstr "ICO လို သိမ်းဆည်းထားဖို့ ရုပ်ပုံ အရမ်းကြီးတယ်"
-
-#: gdk-pixbuf/io-ico.c:986
-msgid "Cursor hotspot outside image"
-msgstr "ရုပ်ပုံပြင်ပမှ Cursor အချက်အချာနေရာ"
-
-#: gdk-pixbuf/io-ico.c:1009
-#, c-format
-msgid "Unsupported depth for ICO file: %d"
-msgstr "ICO ဖိုင်အတွက် မထောက်ပံ့တဲ့ ICO ဖိုင် - %d"
-
-#: gdk-pixbuf/io-ico.c:1244 gdk-pixbuf/io-gdip-ico.c:59
-msgid "The ICO image format"
-msgstr "ICO ရုပ်ပုံ အမျိးအစား"
 
 #: gdk-pixbuf/io-icns.c:347
 #, c-format
@@ -338,6 +357,49 @@ msgstr "ICNS ဖိုင်ကို စာဝှက်ဖေါ်လို့
 #: gdk-pixbuf/io-icns.c:397
 msgid "The ICNS image format"
 msgstr "ICNS ရုပ်ပုံ အမျိုးအစား"
+
+#: gdk-pixbuf/io-ico.c:228 gdk-pixbuf/io-ico.c:242 gdk-pixbuf/io-ico.c:291
+#: gdk-pixbuf/io-ico.c:302 gdk-pixbuf/io-ico.c:395
+msgid "Invalid header in icon"
+msgstr "ပုံသင်္ကေတထဲမှ မမှန်တဲ့ ခေါင်းစီး"
+
+#: gdk-pixbuf/io-ico.c:257 gdk-pixbuf/io-ico.c:312 gdk-pixbuf/io-ico.c:405
+#: gdk-pixbuf/io-ico.c:458 gdk-pixbuf/io-ico.c:488
+msgid "Not enough memory to load icon"
+msgstr "ပုံသင်္ကေတ ဖွင့်ဖို့ လုံလောက်တဲ့ မှတ်ဉာဏ် မရှိဘူး"
+
+#: gdk-pixbuf/io-ico.c:338
+msgid "Compressed icons are not supported"
+msgstr "ဖိသိပ်ထားတဲ့ ပုံသင်္ကေတများကို ထောက်ပံ့မထားဘူး"
+
+#: gdk-pixbuf/io-ico.c:358
+msgid "Icon has zero width"
+msgstr "ပုံသင်္ကေတမှာ သုည အကျယ် ရှိတယ်"
+
+#: gdk-pixbuf/io-ico.c:368
+msgid "Icon has zero height"
+msgstr "ုံသင်္ကေတမှာ သုည အမြင့် ရှိတယ်"
+
+#: gdk-pixbuf/io-ico.c:443
+msgid "Unsupported icon type"
+msgstr "ထောက်ပံ့မထားတဲ့ ပုံသင်္ကေတ အမျိုးအစား"
+
+#: gdk-pixbuf/io-ico.c:537
+msgid "Not enough memory to load ICO file"
+msgstr "ICO ဖိုင်ကို ဖွင့်ဖို့ မှတ်ဉာဏ် မလုံလောက်ဘူး"
+
+#: gdk-pixbuf/io-ico.c:1002
+msgid "Image too large to be saved as ICO"
+msgstr "ICO လို သိမ်းဆည်းထားဖို့ ရုပ်ပုံ အရမ်းကြီးတယ်"
+
+#: gdk-pixbuf/io-ico.c:1013
+msgid "Cursor hotspot outside image"
+msgstr "ရုပ်ပုံပြင်ပမှ Cursor အချက်အချာနေရာ"
+
+#: gdk-pixbuf/io-ico.c:1036
+#, c-format
+msgid "Unsupported depth for ICO file: %d"
+msgstr "ICO ဖိုင်အတွက် မထောက်ပံ့တဲ့ ICO ဖိုင် - %d"
 
 #: gdk-pixbuf/io-jasper.c:74
 msgid "Couldn't allocate memory for stream"
@@ -383,36 +445,19 @@ msgid ""
 msgstr ""
 "ရုပ်ပုံကို ဖွင့်ဖို့ မှတ်ဉာဏ် မလုံလောက်ဘူး၊ မှတ်ဉာဏ်ကို ရှင်းလင်းဖို့ ရှိနေတဲ့ အချို့ လုပ်ငန်းသုံး ကိရိယာများကို စမ်းကြည့်ပါ"
 
-#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:774
+#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:781
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "ထောက်ပံ့မထားတဲ့ JPEG အရောင် နေရာလပ် (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:673 gdk-pixbuf/io-jpeg.c:943 gdk-pixbuf/io-jpeg.c:1176
-#: gdk-pixbuf/io-jpeg.c:1185
+#: gdk-pixbuf/io-jpeg.c:680 gdk-pixbuf/io-jpeg.c:950 gdk-pixbuf/io-jpeg.c:1183
+#: gdk-pixbuf/io-jpeg.c:1192
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "JPEG ဖိုင်ကို ဖွင့်ဖို့ မှတ်ဉာဏ် မခွဲဝေနိုင်ဘူး"
 
-#: gdk-pixbuf/io-jpeg.c:918
+#: gdk-pixbuf/io-jpeg.c:925
 msgid "Transformed JPEG has zero width or height."
 msgstr "အသွင်ပြောင်းထားတဲ့ JPEG မှာ သုည အကျယ်နဲ့ အမြင့် ရှိတယ်။"
-
-#: gdk-pixbuf/io-jpeg.c:1132 gdk-pixbuf/io-gdip-jpeg.c:53
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
-"parsed."
-msgstr "JPEG ရဲ့ အရည်အသွေးဟာ တန်ဖိုး ၁ နဲ့ ၁၀၀ အကြားမှ တခု ဖြစ်ရမယ်၊ '%s' တန်ဖိုးကို မခွဲခြမ်းနိုင်ဘူး။"
-
-#: gdk-pixbuf/io-jpeg.c:1147 gdk-pixbuf/io-gdip-jpeg.c:68
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgstr "JPEG ရဲ့ အရည်အသွေးဟာ တန်ဖိုး ၁ နဲ့ ၁၀၀ အကြားမှ တခု ဖြစ်ရမယ်၊ '%d' တန်ဖိုးကို ခွင့်မပြုဘူး။"
-
-#: gdk-pixbuf/io-jpeg.c:1309 gdk-pixbuf/io-gdip-jpeg.c:136
-msgid "The JPEG image format"
-msgstr "JPEG ရုပ်ပုံ အမျိုးအစား"
 
 #: gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -444,8 +489,9 @@ msgid "Couldn't allocate memory for line data"
 msgstr "လိုင်း အချက်အလက်ကြမ်း အတွက် မှတ်ဉာဏ် မခွဲဝေနိုင်ဘူး"
 
 #: gdk-pixbuf/io-pcx.c:656
-msgid "Couldn't allocate memory for paletted data"
-msgstr "အရောင်စပ် ဆေးခွက် အချက်အလက်ကြမ်း အတွက် မှတ်ဉာဏ် မခွဲဝေနိုင်ဘူး"
+#, fuzzy
+msgid "Couldn't allocate memory for PCX image"
+msgstr "ခေါင်းစီးအတွက် မှတ်ဉာဏ် မခွဲဝေနိုင်ဘူး"
 
 #: gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
@@ -458,6 +504,16 @@ msgstr "PCX အချက်အလက်ကြမ်းရဲ့ အဆုံး�
 #: gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
 msgstr "PCX ရုပ်ပုံ အမျိုးအစား"
+
+#: gdk-pixbuf/io-pixdata.c:148
+#, fuzzy
+msgid "Transformed pixbuf has zero width or height."
+msgstr "အသွင်ပြောင်းထားတဲ့ PNG မှာ သုည အကျယ် (သို့) အမြင့် ရှိတယ်။"
+
+#: gdk-pixbuf/io-pixdata.c:186
+#, fuzzy
+msgid "The GdkPixdata format"
+msgstr "GIF ရုပ်ပုံ အမျိုးအစား"
 
 #: gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
@@ -535,13 +591,13 @@ msgid ""
 "allowed."
 msgstr "PNG ဖိသိပ်မှု အဆင့်ဟာ တန်ဖိုး ၀ နဲ့ ၉ တန်ဖိုးကြားမှ တခု ဖြစ်ရမယ်၊ '%d' တန်ဖိုးကို ခွင့်မပြုဘူး။"
 
-#: gdk-pixbuf/io-png.c:950
+#: gdk-pixbuf/io-png.c:959
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "PNG စာသား အတုံး %s တန်ဖိုးကို ISO-8859-1 စာဝှက်ရေးသားခြင်း အဖြစ် အသွင်ပြောင်းလို့ မရနိုင်ဘူး။"
 
-#: gdk-pixbuf/io-png.c:1111
+#: gdk-pixbuf/io-png.c:1122
 msgid "The PNG image format"
 msgstr "PNG ရုပ်ပုံ အမျိုးအစား"
 
@@ -605,51 +661,54 @@ msgstr "PNM ဖိုင်ကို ဖွင့်ဖို့ လုံလေ
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "PNM/PBM/PGM/PPM ရုပ်ပုံ အမျိုးအစား အုပ်စု"
 
-#: gdk-pixbuf/io-qtif.c:127
+#: gdk-pixbuf/io-qtif.c:128
 msgid "Input file descriptor is NULL."
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:142
+#: gdk-pixbuf/io-qtif.c:143
 #, fuzzy
 msgid "Failed to read QTIF header"
 msgstr "ခေါင်းစီးကို ရေးဖို့ မအောင်မြင်ဘူး\n"
 
-#: gdk-pixbuf/io-qtif.c:151 gdk-pixbuf/io-qtif.c:181 gdk-pixbuf/io-qtif.c:445
+#: gdk-pixbuf/io-qtif.c:152 gdk-pixbuf/io-qtif.c:189 gdk-pixbuf/io-qtif.c:460
 #, c-format
-msgid "QTIF atom size too large (%d bytes)"
-msgstr ""
+msgid "QTIF atom size too large (%d byte)"
+msgid_plural "QTIF atom size too large (%d bytes)"
+msgstr[0] ""
 
-#: gdk-pixbuf/io-qtif.c:171
-#, c-format
-msgid "Failed to allocate %d bytes for file read buffer"
-msgstr ""
+#: gdk-pixbuf/io-qtif.c:175
+#, fuzzy, c-format
+msgid "Failed to allocate %d byte for file read buffer"
+msgid_plural "Failed to allocate %d bytes for file read buffer"
+msgstr[0] "စကားစပ် ကြားခံ အတွက် မှတ်ဉာဏ် မခွဲဝေနိုင်ဘူး"
 
-#: gdk-pixbuf/io-qtif.c:195
+#: gdk-pixbuf/io-qtif.c:206
 #, fuzzy, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "GIF ဖတ်ရှုခြင်း ချုံ့ယွင်းချက် - %s"
 
-#: gdk-pixbuf/io-qtif.c:232
+#: gdk-pixbuf/io-qtif.c:243
 #, c-format
-msgid "Failed to skip the next %d bytes with seek()."
-msgstr ""
+msgid "Failed to skip the next %d byte with seek()."
+msgid_plural "Failed to skip the next %d bytes with seek()."
+msgstr[0] ""
 
-#: gdk-pixbuf/io-qtif.c:256
+#: gdk-pixbuf/io-qtif.c:270
 #, fuzzy
 msgid "Failed to allocate QTIF context structure."
 msgstr "TGA အကြောင်းအချက် တည်ဆောက်မှု အတွက် မှတ်ဉာဏ်ကို မခွဲဝေနိုင်ဘူး"
 
-#: gdk-pixbuf/io-qtif.c:316
+#: gdk-pixbuf/io-qtif.c:330
 #, fuzzy
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "ဖိုင်တွဲ အညွှန်းကို ရေးဖို့ မအောင်မြင်ဘူး\n"
 
-#: gdk-pixbuf/io-qtif.c:420
+#: gdk-pixbuf/io-qtif.c:434
 #, fuzzy
 msgid "Failed to find an image data atom."
 msgstr "TIFF ဖိုင်ကို ဖွင့်ဖို့ မအောင်မြင်ဘူး"
 
-#: gdk-pixbuf/io-qtif.c:601
+#: gdk-pixbuf/io-qtif.c:619
 #, fuzzy
 msgid "The QTIF image format"
 msgstr "TIFF ရုပ်ပုံ အမျိုးအစား"
@@ -868,47 +927,5 @@ msgstr "XPM ရုပ်ပုံကို ဖွင့်နေစဉ် ယာ
 msgid "The XPM image format"
 msgstr "XPM ရုပ်ပုံ အမျိုးအစား"
 
-#: gdk-pixbuf/io-gdip-emf.c:59
-msgid "The EMF image format"
-msgstr "EMF ရုပ်ပုံ အမျိုးအစား"
-
-#: gdk-pixbuf/io-gdip-utils.c:154
-#, c-format
-msgid "Could not allocate memory: %s"
-msgstr "မှတ်ဉာဏ်ကို မခွဲဝေနိုင်ဘူး - %s"
-
-#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
-#: gdk-pixbuf/io-gdip-utils.c:333
-#, c-format
-msgid "Could not create stream: %s"
-msgstr "စီးကြောင်းကို မဖန်တီးနိုင်ဘူး - %s"
-
-#: gdk-pixbuf/io-gdip-utils.c:193
-#, c-format
-msgid "Could not seek stream: %s"
-msgstr "စီးကြောင်းကို မရှာဖွေနိုင်ဘူး - %s"
-
-#: gdk-pixbuf/io-gdip-utils.c:205
-#, c-format
-msgid "Could not read from stream: %s"
-msgstr "စီးကြောင်းထဲမှာ မဖတ်နိုင်ဘူး - %s"
-
-#: gdk-pixbuf/io-gdip-utils.c:616 gdk-pixbuf/io-gdip-utils.c:747
-msgid "Couldn't load bitmap"
-msgstr "ဘစ်မက်ကို မဖွင့်နိုင်ဘူး"
-
-#: gdk-pixbuf/io-gdip-utils.c:769
-msgid "Couldn't load metafile"
-msgstr "metaဖိုင်ကို မဖွင့်နိုင်ဘူး"
-
-#: gdk-pixbuf/io-gdip-utils.c:928
-msgid "Unsupported image format for GDI+"
-msgstr "GDI+ အတွက် ထောက်ပံ့မထားတဲ့ ရုပ်ပုံ အမျိုးအစား"
-
-#: gdk-pixbuf/io-gdip-utils.c:935
-msgid "Couldn't save"
-msgstr "မသိမ်းဆည်းနိုင်ဘူး"
-
-#: gdk-pixbuf/io-gdip-wmf.c:58
-msgid "The WMF image format"
-msgstr "WMF ရုပ်ပုံ အမျိုးအစား"
+#~ msgid "Couldn't allocate memory for paletted data"
+#~ msgstr "အရောင်စပ် ဆေးခွက် အချက်အလက်ကြမ်း အတွက် မှတ်ဉာဏ် မခွဲဝေနိုင်ဘူး"

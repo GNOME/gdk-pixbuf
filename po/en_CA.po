@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf\n"
-"POT-Creation-Date: 2010-09-21 14:08-0400\n"
+"POT-Creation-Date: 2012-02-04 18:44-0500\n"
 "PO-Revision-Date: 2005-07-18 03:57-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -19,26 +19,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:130 gdk-pixbuf/gdk-pixbuf-io.c:980
-#: gdk-pixbuf/gdk-pixbuf-io.c:1240
+#: gdk-pixbuf/gdk-pixbuf-animation.c:146 gdk-pixbuf/gdk-pixbuf-io.c:1083
+#: gdk-pixbuf/gdk-pixbuf-io.c:1349
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Failed to open file '%s': %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:143 gdk-pixbuf/gdk-pixbuf-io.c:992
+#: gdk-pixbuf/gdk-pixbuf-animation.c:159 gdk-pixbuf/gdk-pixbuf-io.c:1095
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Image file '%s' contains no data"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1028
-#: gdk-pixbuf/gdk-pixbuf-io.c:1292
+#: gdk-pixbuf/gdk-pixbuf-animation.c:201 gdk-pixbuf/gdk-pixbuf-io.c:1131
+#: gdk-pixbuf/gdk-pixbuf-io.c:1401
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:218
+#: gdk-pixbuf/gdk-pixbuf-animation.c:234
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -47,12 +47,12 @@ msgstr ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
 "animation file"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:713
+#: gdk-pixbuf/gdk-pixbuf-io.c:809
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Unable to load image-loading module: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:728
+#: gdk-pixbuf/gdk-pixbuf-io.c:824
 #, fuzzy, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -61,53 +61,53 @@ msgstr ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
 "from a different GTK version?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:737 gdk-pixbuf/gdk-pixbuf-io.c:788
+#: gdk-pixbuf/gdk-pixbuf-io.c:833 gdk-pixbuf/gdk-pixbuf-io.c:884
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Image type '%s' is not supported"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:861
+#: gdk-pixbuf/gdk-pixbuf-io.c:964
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Couldn't recognize the image file format for file '%s'"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:869
+#: gdk-pixbuf/gdk-pixbuf-io.c:972
 msgid "Unrecognized image file format"
 msgstr "Unrecognized image file format"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1037
+#: gdk-pixbuf/gdk-pixbuf-io.c:1140
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Failed to load image '%s': %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1671 gdk-pixbuf/io-gdip-utils.c:883
+#: gdk-pixbuf/gdk-pixbuf-io.c:2028 gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Error writing to image file: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1716 gdk-pixbuf/gdk-pixbuf-io.c:1846
+#: gdk-pixbuf/gdk-pixbuf-io.c:2073 gdk-pixbuf/gdk-pixbuf-io.c:2203
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "This build of gdk-pixbuf does not support saving the image format: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1750
+#: gdk-pixbuf/gdk-pixbuf-io.c:2107
 msgid "Insufficient memory to save image to callback"
 msgstr "Insufficient memory to save image to callback"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1763
+#: gdk-pixbuf/gdk-pixbuf-io.c:2120
 msgid "Failed to open temporary file"
 msgstr "Failed to open temporary file"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1789
+#: gdk-pixbuf/gdk-pixbuf-io.c:2146
 msgid "Failed to read from temporary file"
 msgstr "Failed to read from temporary file"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2042
+#: gdk-pixbuf/gdk-pixbuf-io.c:2399
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Failed to open '%s' for writing: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2068
+#: gdk-pixbuf/gdk-pixbuf-io.c:2425
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -116,15 +116,15 @@ msgstr ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
 "%s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2288 gdk-pixbuf/gdk-pixbuf-io.c:2339
+#: gdk-pixbuf/gdk-pixbuf-io.c:2646 gdk-pixbuf/gdk-pixbuf-io.c:2698
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Insufficient memory to save image into a buffer"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2385
+#: gdk-pixbuf/gdk-pixbuf-io.c:2744
 msgid "Error writing to image stream"
 msgstr "Error writing to image stream"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:332
+#: gdk-pixbuf/gdk-pixbuf-loader.c:395
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -133,24 +133,24 @@ msgstr ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
 "but didn't give a reason for the failure"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:374
+#: gdk-pixbuf/gdk-pixbuf-loader.c:437
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Incremental loading of image type '%s' is not supported"
 
-#: gdk-pixbuf/gdk-pixdata.c:146
+#: gdk-pixbuf/gdk-pixdata.c:160
 msgid "Image header corrupt"
 msgstr "Image header corrupt"
 
-#: gdk-pixbuf/gdk-pixdata.c:151
+#: gdk-pixbuf/gdk-pixdata.c:165
 msgid "Image format unknown"
 msgstr "Image format unknown"
 
-#: gdk-pixbuf/gdk-pixdata.c:156 gdk-pixbuf/gdk-pixdata.c:487
+#: gdk-pixbuf/gdk-pixdata.c:170 gdk-pixbuf/gdk-pixdata.c:502
 msgid "Image pixel data corrupt"
 msgstr "Image pixel data corrupt"
 
-#: gdk-pixbuf/gdk-pixdata.c:431
+#: gdk-pixbuf/gdk-pixdata.c:446
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -216,12 +216,91 @@ msgstr "Could not write to BMP file"
 msgid "The BMP image format"
 msgstr "The BMP image format"
 
+#: gdk-pixbuf/io-gdip-emf.c:59
+#, fuzzy
+msgid "The EMF image format"
+msgstr "The BMP image format"
+
+#: gdk-pixbuf/io-gdip-gif.c:80 gdk-pixbuf/io-gif.c:1699
+msgid "The GIF image format"
+msgstr "The GIF image format"
+
+#: gdk-pixbuf/io-gdip-ico.c:59 gdk-pixbuf/io-ico.c:1271
+msgid "The ICO image format"
+msgstr "The ICO image format"
+
+#: gdk-pixbuf/io-gdip-jpeg.c:53 gdk-pixbuf/io-jpeg.c:1139
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"parsed."
+msgstr ""
+"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"parsed."
+
+#: gdk-pixbuf/io-gdip-jpeg.c:68 gdk-pixbuf/io-jpeg.c:1154
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgstr ""
+"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+
+#: gdk-pixbuf/io-gdip-jpeg.c:136 gdk-pixbuf/io-jpeg.c:1316
+msgid "The JPEG image format"
+msgstr "The JPEG image format"
+
+#: gdk-pixbuf/io-gdip-utils.c:154
+#, fuzzy, c-format
+msgid "Could not allocate memory: %s"
+msgstr "Couldn't allocate memory for stream"
+
+#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
+#: gdk-pixbuf/io-gdip-utils.c:333
+#, fuzzy, c-format
+msgid "Could not create stream: %s"
+msgstr "Could not rename %s to %s: %s\n"
+
+#: gdk-pixbuf/io-gdip-utils.c:193
+#, fuzzy, c-format
+msgid "Could not seek stream: %s"
+msgstr "Could not remove item"
+
+#: gdk-pixbuf/io-gdip-utils.c:205
+#, fuzzy, c-format
+msgid "Could not read from stream: %s"
+msgstr "Could not rename %s to %s: %s\n"
+
+#: gdk-pixbuf/io-gdip-utils.c:617 gdk-pixbuf/io-gdip-utils.c:752
+#, fuzzy
+msgid "Couldn't load bitmap"
+msgstr "Couldn't decode image"
+
+#: gdk-pixbuf/io-gdip-utils.c:774
+#, fuzzy
+msgid "Couldn't load metafile"
+msgstr "Couldn't decode image"
+
+#: gdk-pixbuf/io-gdip-utils.c:933
+#, fuzzy
+msgid "Unsupported image format for GDI+"
+msgstr "unsupported RAS image variation"
+
+#: gdk-pixbuf/io-gdip-utils.c:940
+#, fuzzy
+msgid "Couldn't save"
+msgstr "Couldn't save the rest"
+
+#: gdk-pixbuf/io-gdip-wmf.c:58
+#, fuzzy
+msgid "The WMF image format"
+msgstr "The WBMP image format"
+
 #: gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "Failure reading GIF: %s"
 
-#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1480 gdk-pixbuf/io-gif.c:1641
+#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1482 gdk-pixbuf/io-gif.c:1648
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF file was missing some data (perhaps it was truncated somehow?)"
 
@@ -246,8 +325,8 @@ msgstr "Bad code encountered"
 msgid "Circular table entry in GIF file"
 msgstr "Circular table entry in GIF file"
 
-#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1467 gdk-pixbuf/io-gif.c:1514
-#: gdk-pixbuf/io-gif.c:1629
+#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1468 gdk-pixbuf/io-gif.c:1521
+#: gdk-pixbuf/io-gif.c:1636
 msgid "Not enough memory to load GIF file"
 msgstr "Not enough memory to load GIF file"
 
@@ -276,60 +355,9 @@ msgstr ""
 "GIF image has no global colourmap, and a frame inside it has no local "
 "colourmap."
 
-#: gdk-pixbuf/io-gif.c:1536
+#: gdk-pixbuf/io-gif.c:1543
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF image was truncated or incomplete."
-
-#: gdk-pixbuf/io-gif.c:1692 gdk-pixbuf/io-gdip-gif.c:80
-msgid "The GIF image format"
-msgstr "The GIF image format"
-
-#: gdk-pixbuf/io-ico.c:210 gdk-pixbuf/io-ico.c:224 gdk-pixbuf/io-ico.c:276
-#: gdk-pixbuf/io-ico.c:289 gdk-pixbuf/io-ico.c:358
-msgid "Invalid header in icon"
-msgstr "Invalid header in icon"
-
-#: gdk-pixbuf/io-ico.c:239 gdk-pixbuf/io-ico.c:299 gdk-pixbuf/io-ico.c:368
-#: gdk-pixbuf/io-ico.c:431 gdk-pixbuf/io-ico.c:461
-msgid "Not enough memory to load icon"
-msgstr "Not enough memory to load icon"
-
-#: gdk-pixbuf/io-ico.c:321
-msgid "Icon has zero width"
-msgstr "Icon has zero width"
-
-#: gdk-pixbuf/io-ico.c:331
-msgid "Icon has zero height"
-msgstr "Icon has zero height"
-
-#: gdk-pixbuf/io-ico.c:383
-msgid "Compressed icons are not supported"
-msgstr "Compressed icons are not supported"
-
-#: gdk-pixbuf/io-ico.c:416
-msgid "Unsupported icon type"
-msgstr "Unsupported icon type"
-
-#: gdk-pixbuf/io-ico.c:510
-msgid "Not enough memory to load ICO file"
-msgstr "Not enough memory to load ICO file"
-
-#: gdk-pixbuf/io-ico.c:975
-msgid "Image too large to be saved as ICO"
-msgstr "Image too large to be saved as ICO"
-
-#: gdk-pixbuf/io-ico.c:986
-msgid "Cursor hotspot outside image"
-msgstr "Cursor hotspot outside image"
-
-#: gdk-pixbuf/io-ico.c:1009
-#, c-format
-msgid "Unsupported depth for ICO file: %d"
-msgstr "Unsupported depth for ICO file: %d"
-
-#: gdk-pixbuf/io-ico.c:1244 gdk-pixbuf/io-gdip-ico.c:59
-msgid "The ICO image format"
-msgstr "The ICO image format"
 
 #: gdk-pixbuf/io-icns.c:347
 #, c-format
@@ -343,6 +371,49 @@ msgstr "Could not decode ICNS file"
 #: gdk-pixbuf/io-icns.c:397
 msgid "The ICNS image format"
 msgstr "The ICNS image format"
+
+#: gdk-pixbuf/io-ico.c:228 gdk-pixbuf/io-ico.c:242 gdk-pixbuf/io-ico.c:291
+#: gdk-pixbuf/io-ico.c:302 gdk-pixbuf/io-ico.c:395
+msgid "Invalid header in icon"
+msgstr "Invalid header in icon"
+
+#: gdk-pixbuf/io-ico.c:257 gdk-pixbuf/io-ico.c:312 gdk-pixbuf/io-ico.c:405
+#: gdk-pixbuf/io-ico.c:458 gdk-pixbuf/io-ico.c:488
+msgid "Not enough memory to load icon"
+msgstr "Not enough memory to load icon"
+
+#: gdk-pixbuf/io-ico.c:338
+msgid "Compressed icons are not supported"
+msgstr "Compressed icons are not supported"
+
+#: gdk-pixbuf/io-ico.c:358
+msgid "Icon has zero width"
+msgstr "Icon has zero width"
+
+#: gdk-pixbuf/io-ico.c:368
+msgid "Icon has zero height"
+msgstr "Icon has zero height"
+
+#: gdk-pixbuf/io-ico.c:443
+msgid "Unsupported icon type"
+msgstr "Unsupported icon type"
+
+#: gdk-pixbuf/io-ico.c:537
+msgid "Not enough memory to load ICO file"
+msgstr "Not enough memory to load ICO file"
+
+#: gdk-pixbuf/io-ico.c:1002
+msgid "Image too large to be saved as ICO"
+msgstr "Image too large to be saved as ICO"
+
+#: gdk-pixbuf/io-ico.c:1013
+msgid "Cursor hotspot outside image"
+msgstr "Cursor hotspot outside image"
+
+#: gdk-pixbuf/io-ico.c:1036
+#, c-format
+msgid "Unsupported depth for ICO file: %d"
+msgstr "Unsupported depth for ICO file: %d"
 
 #: gdk-pixbuf/io-jasper.c:74
 msgid "Couldn't allocate memory for stream"
@@ -389,39 +460,19 @@ msgstr ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
 
-#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:774
+#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:781
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Unsupported JPEG colour space (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:673 gdk-pixbuf/io-jpeg.c:943 gdk-pixbuf/io-jpeg.c:1176
-#: gdk-pixbuf/io-jpeg.c:1185
+#: gdk-pixbuf/io-jpeg.c:680 gdk-pixbuf/io-jpeg.c:950 gdk-pixbuf/io-jpeg.c:1183
+#: gdk-pixbuf/io-jpeg.c:1192
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Couldn't allocate memory for loading JPEG file"
 
-#: gdk-pixbuf/io-jpeg.c:918
+#: gdk-pixbuf/io-jpeg.c:925
 msgid "Transformed JPEG has zero width or height."
 msgstr "Transformed JPEG has zero width or height."
-
-#: gdk-pixbuf/io-jpeg.c:1132 gdk-pixbuf/io-gdip-jpeg.c:53
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
-"parsed."
-msgstr ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
-"parsed."
-
-#: gdk-pixbuf/io-jpeg.c:1147 gdk-pixbuf/io-gdip-jpeg.c:68
-#, c-format
-msgid ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgstr ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-
-#: gdk-pixbuf/io-jpeg.c:1309 gdk-pixbuf/io-gdip-jpeg.c:136
-msgid "The JPEG image format"
-msgstr "The JPEG image format"
 
 #: gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -453,8 +504,9 @@ msgid "Couldn't allocate memory for line data"
 msgstr "Couldn't allocate memory for line data"
 
 #: gdk-pixbuf/io-pcx.c:656
-msgid "Couldn't allocate memory for paletted data"
-msgstr "Couldn't allocate memory for paletted data"
+#, fuzzy
+msgid "Couldn't allocate memory for PCX image"
+msgstr "Couldn't allocate memory for header"
 
 #: gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
@@ -467,6 +519,16 @@ msgstr "No palette found at end of PCX data"
 #: gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
 msgstr "The PCX image format"
+
+#: gdk-pixbuf/io-pixdata.c:148
+#, fuzzy
+msgid "Transformed pixbuf has zero width or height."
+msgstr "Transformed PNG has zero width or height."
+
+#: gdk-pixbuf/io-pixdata.c:186
+#, fuzzy
+msgid "The GdkPixdata format"
+msgstr "The GIF image format"
 
 #: gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
@@ -548,13 +610,13 @@ msgstr ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
 "allowed."
 
-#: gdk-pixbuf/io-png.c:950
+#: gdk-pixbuf/io-png.c:959
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 
-#: gdk-pixbuf/io-png.c:1111
+#: gdk-pixbuf/io-png.c:1122
 msgid "The PNG image format"
 msgstr "The PNG image format"
 
@@ -618,51 +680,57 @@ msgstr "Insufficient memory to load PNM file"
 msgid "The PNM/PBM/PGM/PPM image format family"
 msgstr "The PNM/PBM/PGM/PPM image format family"
 
-#: gdk-pixbuf/io-qtif.c:127
+#: gdk-pixbuf/io-qtif.c:128
 msgid "Input file descriptor is NULL."
 msgstr ""
 
-#: gdk-pixbuf/io-qtif.c:142
+#: gdk-pixbuf/io-qtif.c:143
 #, fuzzy
 msgid "Failed to read QTIF header"
 msgstr "Failed to write header\n"
 
-#: gdk-pixbuf/io-qtif.c:151 gdk-pixbuf/io-qtif.c:181 gdk-pixbuf/io-qtif.c:445
+#: gdk-pixbuf/io-qtif.c:152 gdk-pixbuf/io-qtif.c:189 gdk-pixbuf/io-qtif.c:460
 #, c-format
-msgid "QTIF atom size too large (%d bytes)"
-msgstr ""
+msgid "QTIF atom size too large (%d byte)"
+msgid_plural "QTIF atom size too large (%d bytes)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: gdk-pixbuf/io-qtif.c:171
+#: gdk-pixbuf/io-qtif.c:175
 #, fuzzy, c-format
-msgid "Failed to allocate %d bytes for file read buffer"
-msgstr "failed to allocate image buffer of %u byte"
+msgid "Failed to allocate %d byte for file read buffer"
+msgid_plural "Failed to allocate %d bytes for file read buffer"
+msgstr[0] "failed to allocate image buffer of %u byte"
+msgstr[1] "failed to allocate image buffer of %u byte"
 
-#: gdk-pixbuf/io-qtif.c:195
+#: gdk-pixbuf/io-qtif.c:206
 #, fuzzy, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "Failure reading GIF: %s"
 
-#: gdk-pixbuf/io-qtif.c:232
+#: gdk-pixbuf/io-qtif.c:243
 #, c-format
-msgid "Failed to skip the next %d bytes with seek()."
-msgstr ""
+msgid "Failed to skip the next %d byte with seek()."
+msgid_plural "Failed to skip the next %d bytes with seek()."
+msgstr[0] ""
+msgstr[1] ""
 
-#: gdk-pixbuf/io-qtif.c:256
+#: gdk-pixbuf/io-qtif.c:270
 #, fuzzy
 msgid "Failed to allocate QTIF context structure."
 msgstr "Cannot allocate memory for TGA context struct"
 
-#: gdk-pixbuf/io-qtif.c:316
+#: gdk-pixbuf/io-qtif.c:330
 #, fuzzy
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "Failed to write folder index\n"
 
-#: gdk-pixbuf/io-qtif.c:420
+#: gdk-pixbuf/io-qtif.c:434
 #, fuzzy
 msgid "Failed to find an image data atom."
 msgstr "Failed to open TIFF image"
 
-#: gdk-pixbuf/io-qtif.c:601
+#: gdk-pixbuf/io-qtif.c:619
 #, fuzzy
 msgid "The QTIF image format"
 msgstr "The TIFF image format"
@@ -881,53 +949,5 @@ msgstr "Failed to write to temporary file when loading XPM image"
 msgid "The XPM image format"
 msgstr "The XPM image format"
 
-#: gdk-pixbuf/io-gdip-emf.c:59
-#, fuzzy
-msgid "The EMF image format"
-msgstr "The BMP image format"
-
-#: gdk-pixbuf/io-gdip-utils.c:154
-#, fuzzy, c-format
-msgid "Could not allocate memory: %s"
-msgstr "Couldn't allocate memory for stream"
-
-#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
-#: gdk-pixbuf/io-gdip-utils.c:333
-#, fuzzy, c-format
-msgid "Could not create stream: %s"
-msgstr "Could not rename %s to %s: %s\n"
-
-#: gdk-pixbuf/io-gdip-utils.c:193
-#, fuzzy, c-format
-msgid "Could not seek stream: %s"
-msgstr "Could not remove item"
-
-#: gdk-pixbuf/io-gdip-utils.c:205
-#, fuzzy, c-format
-msgid "Could not read from stream: %s"
-msgstr "Could not rename %s to %s: %s\n"
-
-#: gdk-pixbuf/io-gdip-utils.c:616 gdk-pixbuf/io-gdip-utils.c:747
-#, fuzzy
-msgid "Couldn't load bitmap"
-msgstr "Couldn't decode image"
-
-#: gdk-pixbuf/io-gdip-utils.c:769
-#, fuzzy
-msgid "Couldn't load metafile"
-msgstr "Couldn't decode image"
-
-#: gdk-pixbuf/io-gdip-utils.c:928
-#, fuzzy
-msgid "Unsupported image format for GDI+"
-msgstr "unsupported RAS image variation"
-
-#: gdk-pixbuf/io-gdip-utils.c:935
-#, fuzzy
-msgid "Couldn't save"
-msgstr "Couldn't save the rest"
-
-#: gdk-pixbuf/io-gdip-wmf.c:58
-#, fuzzy
-msgid "The WMF image format"
-msgstr "The WBMP image format"
+#~ msgid "Couldn't allocate memory for paletted data"
+#~ msgstr "Couldn't allocate memory for paletted data"
