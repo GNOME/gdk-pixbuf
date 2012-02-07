@@ -349,6 +349,7 @@
 			<File RelativePath="..\..\..\gdk-pixbuf\io-gif-animation.c" />
 			<File RelativePath="..\..\..\gdk-pixbuf\io-icns.c" />
 			<File RelativePath="..\..\..\gdk-pixbuf\io-pcx.c" />
+			<File RelativePath="..\..\..\gdk-pixbuf\io-pixdata.c" />
 			<File RelativePath="..\..\..\gdk-pixbuf\io-png.c" />
 			<File RelativePath="..\..\..\gdk-pixbuf\io-pnm.c" />
 			<File RelativePath="..\..\..\gdk-pixbuf\io-qtif.c" />

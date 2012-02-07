@@ -355,6 +355,7 @@
     <ClCompile Include="..\..\..\gdk-pixbuf\io-gif-animation.c" />
     <ClCompile Include="..\..\..\gdk-pixbuf\io-icns.c" />
     <ClCompile Include="..\..\..\gdk-pixbuf\io-pcx.c" />
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-pixdata.c" />
     <ClCompile Include="..\..\..\gdk-pixbuf\io-png.c" />
     <ClCompile Include="..\..\..\gdk-pixbuf\io-pnm.c" />
     <ClCompile Include="..\..\..\gdk-pixbuf\io-qtif.c" />

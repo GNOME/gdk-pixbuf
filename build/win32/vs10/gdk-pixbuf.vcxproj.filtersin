@@ -27,6 +27,7 @@
     <ClCompile Include="..\..\..\gdk-pixbuf\io-gif-animation.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-icns.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-pcx.c"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-pixdata.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-png.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-pnm.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-qtif.c"><Filter>Source Files</Filter></ClCompile>
