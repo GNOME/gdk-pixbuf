@@ -456,7 +456,6 @@ static gboolean gdk_pixbuf__qtif_image_load_increment (gpointer data,
                 {
                     g_set_error(error, GDK_PIXBUF_ERROR,
                                        GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                       GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
                                        ngettext (  "QTIF atom size too large (%d byte)",
                                                    "QTIF atom size too large (%d bytes)",
                                                     hdr->length),
