@@ -108,7 +108,7 @@ copy $(ConfigurationName)\$(PlatformName)\bin\*-$(GdkPixbufApiVersion).lib $(Out
 	/>
 	<UserMacro
 		Name="GdkPixbufGenerateGdkPixbufDef"
-		Value="echo EXPORTS &gt;&quot;..\..\..\gdk-pixbuf\gdk-pixbuf.def&quot; &amp;&amp; cl /EP -DG_OS_WIN32 -DINCLUDE_VARIABLES -DALL_FILES -DG_GNUC_CONST= -DG_GNUC_NULL_TERMINATED= ..\..\..\gdk-pixbuf\gdk-pixbuf.symbols &gt;&gt;&quot;..\..\..\gdk-pixbuf\gdk-pixbuf.def&quot;"
+		Value="echo EXPORTS &gt; $(IntDir)\gdk-pixbuf.def &amp;&amp; cl /EP -DG_OS_WIN32 -DINCLUDE_VARIABLES -DALL_FILES -DG_GNUC_CONST= -DG_GNUC_NULL_TERMINATED= ..\..\..\gdk-pixbuf\gdk-pixbuf.symbols &gt;&gt;$(IntDir)gdk-pixbuf.def"
 	/>
 	<UserMacro
 		Name="GdkPixbufLibtoolCompatibleDllPrefix"
