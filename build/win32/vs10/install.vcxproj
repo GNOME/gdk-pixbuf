@@ -63,6 +63,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(GlibEtcInstallRoot)\</OutDir>
     <ExtensionsToDeleteOnClean Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(GlibEtcInstallRoot)\</OutDir>
@@ -95,6 +96,10 @@
   <ItemGroup>
     <ProjectReference Include="gdk-pixbuf-csource.vcxproj">
       <Project>{3689c772-49a9-4e32-8161-686e1381adb4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="gdk-pixbuf-pixdata.vcxproj">
+      <Project>{2ad2ff07-0514-41a8-8a32-920c744ea1a6}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="gdk-pixbuf-query-loaders.vcxproj">

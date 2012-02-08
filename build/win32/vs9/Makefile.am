@@ -8,6 +8,7 @@ EXTRA_DIST += \
 	gdk-pixbuf.vcprojin \
 	gdk-pixbuf-csource.vcproj \
 	gdk-pixbuf-query-loaders.vcproj \
+	gdk-pixbuf-pixdata.vcproj \
 	install.vcproj
 
 -include $(top_srcdir)/git.mk

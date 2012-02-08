@@ -21,8 +21,6 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="Debug\$(PlatformName)\bin"
-			IntermediateDirectory="Debug"
 			ConfigurationType="1"
 			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
 			CharacterSet="2"
@@ -33,7 +31,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..;..\..\..\gdk-pixbuf"
+				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="_DEBUG;$(GdkPixbufDefines)"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -56,10 +54,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="Release\$(PlatformName)\bin"
-			IntermediateDirectory="Release"
+			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
 			ConfigurationType="1"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops;.\gdk-pixbuf.vsprops"
 			CharacterSet="2"
 			>
 			<Tool
@@ -68,7 +64,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\..;..\..\..\gdk-pixbuf"
+				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="$(GdkPixbufDefines)"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -99,7 +95,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..;..\..\..\gdk-pixbuf"
+				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="_DEBUG;$(GdkPixbufDefines)"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -132,7 +128,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\..\..;..\..\..\gdk-pixbuf"
+				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="$(GdkPixbufDefines)"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
