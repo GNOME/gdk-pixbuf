@@ -134,8 +134,8 @@ msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
 "but didn't give a reason for the failure"
 msgstr ""
-"Unutrašnja greška: deo za učitavanje slika „%s“ nije uspeo da obavi "
-"operaciju, a nije naveo ni razlog neuspeha"
+"Unutrašnja greška: deo za učitavanje slika „%s“ nije uspeo da obavi operaciju, "
+"a nije naveo ni razlog neuspeha"
 
 #: gdk-pixbuf/gdk-pixbuf-loader.c:437
 #, c-format
@@ -357,8 +357,7 @@ msgstr "Izdanje %s GIF vrste zapisa nije podržano"
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
-msgstr ""
-"GIF slika nema opštu mapu boja, a kadar u njemu nema zasebnu mapu boja."
+msgstr "GIF slika nema opštu mapu boja, a kadar u njemu nema zasebnu mapu boja."
 
 #: gdk-pixbuf/io-gif.c:1543
 msgid "GIF image was truncated or incomplete."
@@ -466,8 +465,8 @@ msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
 msgstr ""
-"Nedovoljno memorije za učitavanje slike, zatvorite neke programe da "
-"oslobodite memoriju"
+"Nedovoljno memorije za učitavanje slike, zatvorite neke programe da oslobodite "
+"memoriju"
 
 # grafički dizajneri, kako se ovo prevodi?
 #: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:781
@@ -595,8 +594,7 @@ msgstr "Kobna greška pri čitanju PNG slike: %s"
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
-"Ključevi za tekstualne odeljke PNG-a moraju imati bar 1, a najviše 79 "
-"znakova."
+"Ključevi za tekstualne odeljke PNG-a moraju imati bar 1, a najviše 79 znakova."
 
 #: gdk-pixbuf/io-png.c:871
 msgid "Keys for PNG text chunks must be ASCII characters."
