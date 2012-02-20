@@ -81,7 +81,7 @@ msgstr "Typ obrázku „%s“ není podporován"
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:964
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
-msgstr "Nelze rozpoznat formát obrázku u souboru „%s“"
+msgstr "Nelze rozpoznat formát obrázku v souboru „%s“"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:972
 msgid "Unrecognized image file format"
@@ -159,7 +159,7 @@ msgstr "Neznámý formát obrázku"
 
 #: ../gdk-pixbuf/gdk-pixdata.c:170 ../gdk-pixbuf/gdk-pixdata.c:502
 msgid "Image pixel data corrupt"
-msgstr "Data pixelů obrázku jsou poškozena"
+msgstr "Pixelová data obrázku jsou poškozena"
 
 #: ../gdk-pixbuf/gdk-pixdata.c:446
 #, c-format
