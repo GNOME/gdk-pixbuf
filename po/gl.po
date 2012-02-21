@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+-master-po-gl-77922___.merged\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-06 12:16+0100\n"
+"POT-Creation-Date: 2012-02-21 11:54+0100\n"
 "PO-Revision-Date: 2012-02-06 12:17+0100\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
@@ -713,7 +713,7 @@ msgid "Failed to read QTIF header"
 msgstr "Produciuse un fallo ao ler a cabeceira QTIF"
 
 #: ../gdk-pixbuf/io-qtif.c:152 ../gdk-pixbuf/io-qtif.c:189
-#: ../gdk-pixbuf/io-qtif.c:460
+#: ../gdk-pixbuf/io-qtif.c:459
 #, c-format
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
@@ -753,7 +753,7 @@ msgstr "Produciuse un fallo ao crear o obxecto GdkPixbufLoader."
 msgid "Failed to find an image data atom."
 msgstr "Non de puido atopar un atom de datos de imaxe."
 
-#: ../gdk-pixbuf/io-qtif.c:619
+#: ../gdk-pixbuf/io-qtif.c:618
 msgid "The QTIF image format"
 msgstr "O formato de imaxe TIFF"
 
