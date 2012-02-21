@@ -1,5 +1,5 @@
 # Serbian translation of gtk
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2003—2012.
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2003, 2004, 2005, 2006, 2007.
 # This file is distributed under the same license as the gtk package.
 # Maintainer: Danilo Šegan <dsegan@gmx.net>
 # Reviewed on 2004-02-19 by: Danilo Šegan <dsegan@gmx.net>
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%"
 "2b&keywords=I18N+L10N&component=gdk\n"
 "POT-Creation-Date: 2012-01-31 15:56+0000\n"
-"PO-Revision-Date: 2012-02-12 17:27+0200\n"
+"PO-Revision-Date: 2012-02-21 10:16+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -41,7 +41,7 @@ msgstr "Slika „%s“ ne sadrži podatke"
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr ""
-"Ne mogu da učitam sliku „%s“: razlog nije poznat, verovatno neispravan zapis"
+"Ne mogu da učitam sliku „%s“: razlog nepoznat, verovatno neispravan zapis"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:234
 #, c-format
@@ -49,8 +49,7 @@ msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
 "animation file"
 msgstr ""
-"Ne mogu da učitam animaciju „%s“: razlog nije poznat, verovatno neispravan "
-"zapis"
+"Ne mogu da učitam animaciju „%s“: razlog nepoznat, verovatno neispravan zapis"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:809
 #, c-format
@@ -64,7 +63,7 @@ msgid ""
 "from a different gdk-pixbuf version?"
 msgstr ""
 "Deo za učitavanje slike „%s“ ne izvozi odgovarajuće sučelje; možda je iz "
-"različitog izdanja gdk-sličice?"
+"različitog „gdk-pixbuf“ izdanja?"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:833 ../gdk-pixbuf/gdk-pixbuf-io.c:884
 #, c-format
@@ -74,7 +73,7 @@ msgstr "Vrsta slike „%s“ nije podržana"
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:964
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
-msgstr "Ne mogu da prepoznam oblik zapisa slike u datoteci „%s“"
+msgstr "Ne mogu prepoznati način zapisa slike u datoteci „%s“"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:972
 msgid "Unrecognized image file format"
@@ -93,7 +92,8 @@ msgstr "Greška pri upisu u datoteku slike: %s"
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2073 ../gdk-pixbuf/gdk-pixbuf-io.c:2203
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
-msgstr "Ovo izdanje gdk-sličice ne podržava čuvanje ove vrste slike: %s"
+msgstr ""
+"Ovo izdanje „gdk-pixbuf“ programa ne podržava čuvanje ove vrste slike: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2107
 msgid "Insufficient memory to save image to callback"
@@ -123,7 +123,7 @@ msgstr ""
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2646 ../gdk-pixbuf/gdk-pixbuf-io.c:2698
 msgid "Insufficient memory to save image into a buffer"
-msgstr "Nedovoljno memorije za čuvanje slike u priručnu memoriju"
+msgstr "Nedovoljno memorije za čuvanje slike u bafer"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2744
 msgid "Error writing to image stream"
@@ -145,7 +145,7 @@ msgstr "Nije podržano postepeno učitavanje slike vrste „%s“"
 
 #: ../gdk-pixbuf/gdk-pixdata.c:160
 msgid "Image header corrupt"
-msgstr "Zaglavlje slike je oštećeno"
+msgstr "Zaglavlje slike oštećeno"
 
 #: ../gdk-pixbuf/gdk-pixdata.c:165
 msgid "Image format unknown"
@@ -159,14 +159,14 @@ msgstr "Oštećeni podaci o tačkama slike"
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
-msgstr[0] "nisam uspeo da obezbedim ostavu slike od %u bajta"
-msgstr[1] "nisam uspeo da obezbedim ostavu slike od %u bajta"
-msgstr[2] "nisam uspeo da obezbedim ostavu slike od %u bajtova"
-msgstr[3] "nisam uspeo da obezbedim ostavu slike od jednog bajta"
+msgstr[0] "neuspela potražnja bafera slike od %u bajta"
+msgstr[1] "neuspela potražnja bafera slike od %u bajta"
+msgstr[2] "neuspela potražnja bafera slike od %u bajtova"
+msgstr[3] "neuspela potražnja bafera slike od jednog bajta"
 
 #: ../gdk-pixbuf/io-ani.c:244
 msgid "Unexpected icon chunk in animation"
-msgstr "Neočekivani deo ikonice u animaciji"
+msgstr "Neočekivani deo ikone u animaciji"
 
 #: ../gdk-pixbuf/io-ani.c:337
 msgid "Unsupported animation type"
@@ -182,7 +182,7 @@ msgstr "Neispravno zaglavlje animacije"
 #: ../gdk-pixbuf/io-ani.c:464 ../gdk-pixbuf/io-ani.c:491
 #: ../gdk-pixbuf/io-ani.c:542 ../gdk-pixbuf/io-ani.c:614
 msgid "Not enough memory to load animation"
-msgstr "Nema dovoljno memorije za učitavanje animacije"
+msgstr "Nema dovoljno memorije da učita animaciju"
 
 #: ../gdk-pixbuf/io-ani.c:398 ../gdk-pixbuf/io-ani.c:424
 #: ../gdk-pixbuf/io-ani.c:443
@@ -192,7 +192,7 @@ msgstr "Neispravan deo animacije"
 # zabrljano
 #: ../gdk-pixbuf/io-ani.c:711
 msgid "The ANI image format"
-msgstr "Oblik ANI slike"
+msgstr "ANI zapis slike"
 
 #: ../gdk-pixbuf/io-bmp.c:229 ../gdk-pixbuf/io-bmp.c:266
 #: ../gdk-pixbuf/io-bmp.c:337 ../gdk-pixbuf/io-bmp.c:369
@@ -203,24 +203,24 @@ msgstr "BMP slika ima neispravno zaglavlje"
 # šta nam naročito bitmap kaže?
 #: ../gdk-pixbuf/io-bmp.c:240 ../gdk-pixbuf/io-bmp.c:432
 msgid "Not enough memory to load bitmap image"
-msgstr "Nema dovoljno memorije za učitavanje slike"
+msgstr "Nema dovoljno memorije da učita sliku"
 
 # ili nepodržanu veličinu zaglavlja???
 #: ../gdk-pixbuf/io-bmp.c:318
 msgid "BMP image has unsupported header size"
-msgstr "BMP slika sadrži nepodržanu veličinu zaglavlja"
+msgstr "BMP slika sadrži zaglavlje nepodržane veličine"
 
 #: ../gdk-pixbuf/io-bmp.c:356
 msgid "Topdown BMP images cannot be compressed"
-msgstr "Preokrenute BMP slike se ne mogu sažeti"
+msgstr "Odozgo-nadole BMP slike se ne mogu kompresovati"
 
 #: ../gdk-pixbuf/io-bmp.c:716 ../gdk-pixbuf/io-pnm.c:707
 msgid "Premature end-of-file encountered"
-msgstr "Naišao sam na prevremen kraj datoteke"
+msgstr "Naišao na prevremen kraj datoteke"
 
 #: ../gdk-pixbuf/io-bmp.c:1328
 msgid "Couldn't allocate memory for saving BMP file"
-msgstr "Ne mogu da obezbedim memoriju za čuvanje BMP datoteke"
+msgstr "Ne mogu obezbediti memoriju za čuvanje BMP datoteke"
 
 #: ../gdk-pixbuf/io-bmp.c:1369
 msgid "Couldn't write to BMP file"
@@ -250,16 +250,16 @@ msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
 "parsed."
 msgstr ""
-"Kvalitet JPEG-a mora biti vrednost između 0 i 100; vrednost „%s“ ne može "
-"biti obrađena."
+"Kvalitet JPEG-a mora biti vrednost između 0 i 100; ne mogu da razumem "
+"vrednost „%s“."
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1154
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr ""
-"Kvalitet JPEG-a mora biti vrednost između 0 i 100; nije dozvoljena vrednost „"
-"%d“."
+"Kvalitet JPEG-a mora biti vrednost između 0 i 100; nije dozvoljena vrednost „%"
+"d“."
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1316
 msgid "The JPEG image format"
@@ -279,7 +279,7 @@ msgstr "Ne mogu da napravim tok: %s"
 #: ../gdk-pixbuf/io-gdip-utils.c:193
 #, c-format
 msgid "Could not seek stream: %s"
-msgstr "Ne mogu da premotavam tok: %s"
+msgstr "Ne mogu da se krećem po toku: %s"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:205
 #, c-format
@@ -292,7 +292,7 @@ msgstr "Ne mogu da otvorim bitmapu"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:774
 msgid "Couldn't load metafile"
-msgstr "Ne mogu da otvorim meta-datoteku"
+msgstr "Ne mogu da otvorim metafile"
 
 # malo slobode ovak'ome umetniku se mora dati
 #: ../gdk-pixbuf/io-gdip-utils.c:933
@@ -305,7 +305,7 @@ msgstr "Ne mogu da sačuvam"
 
 #: ../gdk-pixbuf/io-gdip-wmf.c:58
 msgid "The WMF image format"
-msgstr "VMF zapis slike"
+msgstr "WMF zapis slika"
 
 #: ../gdk-pixbuf/io-gif.c:221
 #, c-format
@@ -328,11 +328,11 @@ msgstr "Prekoračenje steka"
 
 #: ../gdk-pixbuf/io-gif.c:638
 msgid "GIF image loader cannot understand this image."
-msgstr "Učitavač GIF slika ne prepoznaje ovu sliku."
+msgstr "Deo za učitavanje GIF slika ne prepoznaje ovu sliku."
 
 #: ../gdk-pixbuf/io-gif.c:667
 msgid "Bad code encountered"
-msgstr "Naiđoh na loš zapis"
+msgstr "Naišao je na loš zapis"
 
 #: ../gdk-pixbuf/io-gif.c:677
 msgid "Circular table entry in GIF file"
@@ -341,7 +341,7 @@ msgstr "Kružni unos u tabeli GIF datoteke"
 #: ../gdk-pixbuf/io-gif.c:865 ../gdk-pixbuf/io-gif.c:1468
 #: ../gdk-pixbuf/io-gif.c:1521 ../gdk-pixbuf/io-gif.c:1636
 msgid "Not enough memory to load GIF file"
-msgstr "Nema dovoljno memorije za učitavanje GIF datoteke"
+msgstr "Nema dovoljno memorije da učita GIF datoteku"
 
 #: ../gdk-pixbuf/io-gif.c:959
 msgid "Not enough memory to composite a frame in GIF file"
@@ -349,7 +349,7 @@ msgstr "Nema dovoljno memorije za slaganje kadra u GIF datoteci"
 
 #: ../gdk-pixbuf/io-gif.c:1131
 msgid "GIF image is corrupt (incorrect LZW compression)"
-msgstr "GIF slika je oštećena (neispravno LZV sažimanje)"
+msgstr "GIF slika je oštećena (neispravno LZW sažimanje)"
 
 #: ../gdk-pixbuf/io-gif.c:1181
 msgid "File does not appear to be a GIF file"
@@ -388,30 +388,30 @@ msgstr "ICNS format slike"
 #: ../gdk-pixbuf/io-ico.c:291 ../gdk-pixbuf/io-ico.c:302
 #: ../gdk-pixbuf/io-ico.c:395
 msgid "Invalid header in icon"
-msgstr "Neispravno zaglavlje ikonice"
+msgstr "Neispravno zaglavlje ikone"
 
 # negde sam video dobar prevod za ikonicu, ali ne sećam se koji je, a ni gde
 #: ../gdk-pixbuf/io-ico.c:257 ../gdk-pixbuf/io-ico.c:312
 #: ../gdk-pixbuf/io-ico.c:405 ../gdk-pixbuf/io-ico.c:458
 #: ../gdk-pixbuf/io-ico.c:488
 msgid "Not enough memory to load icon"
-msgstr "Nedovoljno memorije za učitavanje ikonice"
+msgstr "Nedovoljno memorije za učitavanje ikone"
 
 #: ../gdk-pixbuf/io-ico.c:338
 msgid "Compressed icons are not supported"
-msgstr "Sažete ikonice nisu podržane"
+msgstr "Ne podržavam kompresovane ikone"
 
 #: ../gdk-pixbuf/io-ico.c:358
 msgid "Icon has zero width"
-msgstr "Ikonica ima nultu širinu"
+msgstr "Ikona je širine nula"
 
 #: ../gdk-pixbuf/io-ico.c:368
 msgid "Icon has zero height"
-msgstr "Ikonica ima nultu visinu"
+msgstr "Ikona je visine nula"
 
 #: ../gdk-pixbuf/io-ico.c:443
 msgid "Unsupported icon type"
-msgstr "Nepodržana vrsta ikonica"
+msgstr "Nepodržana vrsta ikona"
 
 #: ../gdk-pixbuf/io-ico.c:537
 msgid "Not enough memory to load ICO file"
@@ -441,7 +441,7 @@ msgstr "Ne mogu da dekodiram sliku"
 # koliko njih će me tući zbog „preinačeni"?
 #: ../gdk-pixbuf/io-jasper.c:122
 msgid "Transformed JPEG2000 has zero width or height"
-msgstr "Preinačeni JPEG2000 ima nultu visinu ili širinu."
+msgstr "Preinačeni JPEG2000 ima visinu ili širinu nula."
 
 #: ../gdk-pixbuf/io-jasper.c:136
 msgid "Image type currently not supported"
@@ -486,12 +486,12 @@ msgstr "Nepodržan JPEG prostor boja (%s)"
 #: ../gdk-pixbuf/io-jpeg.c:680 ../gdk-pixbuf/io-jpeg.c:950
 #: ../gdk-pixbuf/io-jpeg.c:1183 ../gdk-pixbuf/io-jpeg.c:1192
 msgid "Couldn't allocate memory for loading JPEG file"
-msgstr "Ne mogu da obezbedim memoriju za učitavanje JPEG datoteke"
+msgstr "Ne mogu obezbediti memoriju za učitavanje JPEG datoteke"
 
 # koliko njih će me tući zbog „preinačeni"?
 #: ../gdk-pixbuf/io-jpeg.c:925
 msgid "Transformed JPEG has zero width or height."
-msgstr "Preinačeni JPEG ima nultu visinu ili širinu."
+msgstr "Preinačeni JPEG ima visinu ili širinu nula."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -516,38 +516,38 @@ msgstr "Slika sadrži nepodržan broj %d-bitnih ravni"
 
 #: ../gdk-pixbuf/io-pcx.c:641
 msgid "Couldn't create new pixbuf"
-msgstr "Ne mogu da napravim novu sličicu"
+msgstr "Ne mogu da napravim novi pixbuf"
 
 #: ../gdk-pixbuf/io-pcx.c:649
 msgid "Couldn't allocate memory for line data"
-msgstr "Ne mogu da obezbedim memoriju za podatke linije"
+msgstr "Ne mogu obezbediti memoriju za podatke linije"
 
 #: ../gdk-pixbuf/io-pcx.c:656
 msgid "Couldn't allocate memory for PCX image"
-msgstr "Ne mogu da obezbedim memoriju za PCH sliku"
+msgstr "Ne mogu da obezbedim memoriju za PCX sliku"
 
 #: ../gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
-msgstr "Nisam učitao sve linije iz PCH slike"
+msgstr "Nisam učitao sve linije iz PCX slike"
 
 #: ../gdk-pixbuf/io-pcx.c:710
 msgid "No palette found at end of PCX data"
-msgstr "Nije nađena paleta na kraju PCH podataka"
+msgstr "Nije nađena paleta na kraju PCX podataka"
 
 #: ../gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
-msgstr "PCH zapis slike"
+msgstr "PCX zapis slike"
 
 # koliko njih će me tući zbog „preinačeni"?
 #: ../gdk-pixbuf/io-pixdata.c:148
 #| msgid "Transformed PNG has zero width or height."
 msgid "Transformed pixbuf has zero width or height."
-msgstr "Preinačena sličica ima nultu visinu ili širinu."
+msgstr "Preinačena sličica ima visinu ili širinu nula."
 
 #: ../gdk-pixbuf/io-pixdata.c:186
 #| msgid "The BMP image format"
 msgid "The GdkPixdata format"
-msgstr "Oblik Gdk Piks podataka"
+msgstr "GdkPiksdata zapis slike"
 
 #: ../gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
@@ -556,7 +556,7 @@ msgstr "Neispravan broj bitova po kanalu PNG slike."
 # koliko njih će me tući zbog „preinačeni"?
 #: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:641
 msgid "Transformed PNG has zero width or height."
-msgstr "Preinačeni PNG ima nultu visinu ili širinu."
+msgstr "Preinačeni PNG ima visinu ili širinu nula."
 
 #: ../gdk-pixbuf/io-png.c:143
 msgid "Bits per channel of transformed PNG is not 8."
@@ -577,7 +577,7 @@ msgstr "Kobna greška u PNG slici: %s"
 
 #: ../gdk-pixbuf/io-png.c:315
 msgid "Insufficient memory to load PNG file"
-msgstr "Nema dovoljno memorije za učitavanje PNG datoteke"
+msgstr "Nema dovoljno memorije da učita PNG datoteku"
 
 # ne moramo valjda sve doslovno?
 #: ../gdk-pixbuf/io-png.c:656
@@ -619,8 +619,8 @@ msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
 "be parsed."
 msgstr ""
-"Nivo sažimanja PNG-a mora biti vrednost između 0 i 9; vrednost „%s“ ne može "
-"biti obrađena."
+"Nivo kompresije PNG-a mora biti vrednost između 0 i 9; ne razumem vrednost „%"
+"s“."
 
 #: ../gdk-pixbuf/io-png.c:911
 #, c-format
@@ -628,7 +628,7 @@ msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
 "allowed."
 msgstr ""
-"Nivo sažimanja PNG-a mora biti vrednost između 0 i 9; vrednost „%d“ nije "
+"Nivo kompresije PNG-a mora biti vrednost između 0 i 9; vrednost „%d“ nije "
 "dopuštena."
 
 #: ../gdk-pixbuf/io-png.c:959
@@ -645,7 +645,7 @@ msgstr "PNG zapis slike"
 # Da li koristiti aorist?? Ja sam za, a šta kažu ostali...
 #: ../gdk-pixbuf/io-pnm.c:248
 msgid "PNM loader expected to find an integer, but didn't"
-msgstr "Učitavač PNM slika je očekivao ceo broj, ali nije ga našao"
+msgstr "Deo za učitavanje PNM slika je očekivao ceo broj, ali nije ga našao"
 
 #: ../gdk-pixbuf/io-pnm.c:280
 msgid "PNM file has an incorrect initial byte"
@@ -674,11 +674,11 @@ msgstr "Najveća vrednost boje u PNM datoteci je prevelika"
 #: ../gdk-pixbuf/io-pnm.c:427 ../gdk-pixbuf/io-pnm.c:457
 #: ../gdk-pixbuf/io-pnm.c:502
 msgid "Raw PNM image type is invalid"
-msgstr "Sirova PNM vrsta slike je neispravna"
+msgstr "Sirova PNM vrsta slike neispravna"
 
 #: ../gdk-pixbuf/io-pnm.c:652
 msgid "PNM image loader does not support this PNM subformat"
-msgstr "Učitavač PNM slika ne podržava ovaj PNM podzapis"
+msgstr "Deo za učitavanje PNM slika ne podržava ovaj PNM podzapis"
 
 #: ../gdk-pixbuf/io-pnm.c:739 ../gdk-pixbuf/io-pnm.c:966
 msgid "Raw PNM formats require exactly one whitespace before sample data"
@@ -711,7 +711,7 @@ msgstr "Opisivač ulazne datoteke je NULL."
 
 #: ../gdk-pixbuf/io-qtif.c:143
 msgid "Failed to read QTIF header"
-msgstr "Ne mogu da pročitam KuTIF zaglavlje"
+msgstr "Ne mogu da pročitam QTIF zaglavlje"
 
 #: ../gdk-pixbuf/io-qtif.c:152 ../gdk-pixbuf/io-qtif.c:189
 #: ../gdk-pixbuf/io-qtif.c:460
@@ -729,15 +729,15 @@ msgstr[3] "Veličina KuTIF atoma je prevelika (jedan bajt)"
 #| msgid "Failed to allocate %d bytes for file read buffer"
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
-msgstr[0] "Ne mogu da obezbedim %d bajt u ostavu za čitanje datoteke"
-msgstr[1] "Ne mogu da obezbedim %d bajta u ostavu za čitanje datoteke"
-msgstr[2] "Ne mogu da obezbedim %d bajtova u ostavu za čitanje datoteke"
-msgstr[3] "Ne mogu da obezbedim jedan bajt u ostavu za čitanje datoteke"
+msgstr[0] "Ne mogu da dodelim %d bajt u ostavu za čitanje datoteka"
+msgstr[1] "Ne mogu da dodelim %d bajta u ostavu za čitanje datoteka"
+msgstr[2] "Ne mogu da dodelim %d bajtova u ostavu za čitanje datoteka"
+msgstr[3] "Ne mogu da dodelim jedan bajt u ostavu za čitanje datoteke"
 
 #: ../gdk-pixbuf/io-qtif.c:206
 #, c-format
 msgid "File error when reading QTIF atom: %s"
-msgstr "Greška u datoteci pri čitanju KuTIF atoma: %s"
+msgstr "Greška u datoteci pri čitanju QTIF atoma: %s"
 
 #: ../gdk-pixbuf/io-qtif.c:243
 #, c-format
@@ -751,11 +751,11 @@ msgstr[3] "Ne mogu da preskočim sledeći jedan bajt sa „seek()“."
 
 #: ../gdk-pixbuf/io-qtif.c:270
 msgid "Failed to allocate QTIF context structure."
-msgstr "Ne mogu da obezbedim KuTIF strukturu za kontekst."
+msgstr "Ne mogu da obezbedim QTIF strukturu za kontekst."
 
 #: ../gdk-pixbuf/io-qtif.c:330
 msgid "Failed to create GdkPixbufLoader object."
-msgstr "Ne mogu da obrazujem objekat Gdk učitavača sličice."
+msgstr "Ne mogu da obrazujem GdkPixbufLoader objekat."
 
 #: ../gdk-pixbuf/io-qtif.c:434
 msgid "Failed to find an image data atom."
@@ -763,7 +763,7 @@ msgstr "Ne mogu da pronađem atom sa podacima slike."
 
 #: ../gdk-pixbuf/io-qtif.c:619
 msgid "The QTIF image format"
-msgstr "KuTIF zapis slike"
+msgstr "QTIF zapis slike"
 
 #: ../gdk-pixbuf/io-ras.c:125
 msgid "RAS image has bogus header data"
@@ -784,34 +784,34 @@ msgstr "Nedovoljno memorije za učitavanje RAS slike"
 
 #: ../gdk-pixbuf/io-ras.c:544
 msgid "The Sun raster image format"
-msgstr "Sanov zapis rasterskih slika"
+msgstr "Sun-ov zapis rasterskih slika"
 
 # ovde ne možemo staviti „podatke“ pošto ova struktura pokazuje na podatke, vidi niže
 #: ../gdk-pixbuf/io-tga.c:153
 msgid "Cannot allocate memory for IOBuffer struct"
-msgstr "Ne mogu da obezbedim memoriju za strukturu UI bafera"
+msgstr "Ne mogu da obezbedim memoriju za IOBuffer strukturu"
 
 #: ../gdk-pixbuf/io-tga.c:172
 msgid "Cannot allocate memory for IOBuffer data"
-msgstr "Ne mogu da obezbedim memoriju za podatke UI bafera"
+msgstr "Ne mogu da obezbedim memoriju za IOBuffer podatke"
 
 # malo opširnije nego što bi trebalo: deo „pomoću...“ se može izbaciti
 # bug: don't use slang
 #: ../gdk-pixbuf/io-tga.c:183
 msgid "Cannot realloc IOBuffer data"
-msgstr "Ne mogu ponovo da obezbedim podatke UI bafera"
+msgstr "Ne mogu da proširim IOBuffer podatke pomoću realloc()"
 
 #: ../gdk-pixbuf/io-tga.c:213
 msgid "Cannot allocate temporary IOBuffer data"
-msgstr "Ne mogu da obezbedim privremene podatke UI bafera"
+msgstr "Ne mogu da obezbedim privremene IOBuffer podatke"
 
 #: ../gdk-pixbuf/io-tga.c:346
 msgid "Cannot allocate new pixbuf"
-msgstr "Ne mogu da obezbedim novu sličicu"
+msgstr "Ne mogu da obezbedim novi pixbuf"
 
 #: ../gdk-pixbuf/io-tga.c:685
 msgid "Image is corrupted or truncated"
-msgstr "Slika je odsečena ili neispravna"
+msgstr "Slika je odsečena ili neispravna."
 
 #: ../gdk-pixbuf/io-tga.c:692
 msgid "Cannot allocate colormap structure"
@@ -884,7 +884,7 @@ msgstr "Neuspelo otvaranje TIFF slike"
 # da li je ovo nešto naročito za TIFF, ili se i to može prevesti?
 #: ../gdk-pixbuf/io-tiff.c:362 ../gdk-pixbuf/io-tiff.c:777
 msgid "TIFFClose operation failed"
-msgstr "TIFF zatvori operacija nije uspela"
+msgstr "TIFFClose operacija nije uspela"
 
 #: ../gdk-pixbuf/io-tiff.c:492 ../gdk-pixbuf/io-tiff.c:505
 msgid "Failed to load TIFF image"
@@ -912,11 +912,11 @@ msgstr "TIFF zapis slika"
 
 #: ../gdk-pixbuf/io-wbmp.c:245
 msgid "Image has zero width"
-msgstr "Slika ima nultu širinu"
+msgstr "Slika je širine nula"
 
 #: ../gdk-pixbuf/io-wbmp.c:263
 msgid "Image has zero height"
-msgstr "Slika ima nultu visinu"
+msgstr "Slika je visine nula"
 
 #: ../gdk-pixbuf/io-wbmp.c:274
 msgid "Not enough memory to load image"
@@ -928,67 +928,67 @@ msgstr "Ne mogu da sačuvam ostatak"
 
 #: ../gdk-pixbuf/io-wbmp.c:374
 msgid "The WBMP image format"
-msgstr "VBMP zapis slika"
+msgstr "WBMP zapis slika"
 
 #: ../gdk-pixbuf/io-xbm.c:296
 msgid "Invalid XBM file"
-msgstr "Neispravna IksBM datoteka"
+msgstr "Neispravna XBM datoteka"
 
 #: ../gdk-pixbuf/io-xbm.c:306
 msgid "Insufficient memory to load XBM image file"
-msgstr "Nedovoljno memorije za učitavanje IksBM slike"
+msgstr "Nedovoljno memorije za učitavanje XBM slike"
 
 #: ../gdk-pixbuf/io-xbm.c:454
 msgid "Failed to write to temporary file when loading XBM image"
-msgstr "Neuspeo upis u privremenu datoteku pri učitavanju IksBM slike"
+msgstr "Neuspeo upis u privremenu datoteku pri učitavanju XBM slike"
 
 #: ../gdk-pixbuf/io-xbm.c:493
 msgid "The XBM image format"
-msgstr "IksBM zapis slika"
+msgstr "XBM zapis slika"
 
 #: ../gdk-pixbuf/io-xpm.c:469
 msgid "No XPM header found"
-msgstr "Nisam našao IksPM zaglavlje"
+msgstr "Nije našao XPM zaglavlje"
 
 #: ../gdk-pixbuf/io-xpm.c:478
 msgid "Invalid XPM header"
-msgstr "Neispravno IksPM zaglavlje"
+msgstr "Neispravno XPM zaglavlje"
 
 #: ../gdk-pixbuf/io-xpm.c:486
 msgid "XPM file has image width <= 0"
-msgstr "IksPM slika je širine ≤0"
+msgstr "XPM slika je širine ≤0"
 
 # možda bolje rečima?
 #: ../gdk-pixbuf/io-xpm.c:494
 msgid "XPM file has image height <= 0"
-msgstr "IksPM slika je visine ≤0"
+msgstr "XPM slika je visine ≤0"
 
 # ili možda pikselu?
 #: ../gdk-pixbuf/io-xpm.c:502
 msgid "XPM has invalid number of chars per pixel"
-msgstr "IksPM ima neispravan broj znakova po tački"
+msgstr "XPM ima neispravan broj znakova po tački"
 
 # možda bolje rečima?
 #: ../gdk-pixbuf/io-xpm.c:511
 msgid "XPM file has invalid number of colors"
-msgstr "IksPM datoteka ima neispravan broj boja"
+msgstr "XPM datoteka ima neispravan broj boja"
 
 #: ../gdk-pixbuf/io-xpm.c:523 ../gdk-pixbuf/io-xpm.c:532
 #: ../gdk-pixbuf/io-xpm.c:584
 msgid "Cannot allocate memory for loading XPM image"
-msgstr "Ne mogu da obezbedim memoriju za učitavanje IksPM slike"
+msgstr "Ne mogu da obezbedim memoriju za učitavanje XPM slike"
 
 #: ../gdk-pixbuf/io-xpm.c:546
 msgid "Cannot read XPM colormap"
-msgstr "Ne mogu da učitam IksPM mapu boja"
+msgstr "Ne mogu da učitam XPM mapu boja"
 
 #: ../gdk-pixbuf/io-xpm.c:778
 msgid "Failed to write to temporary file when loading XPM image"
-msgstr "Neuspeo upis u privremenu datoteku pri učitavanju IksPM slike"
+msgstr "Neuspeo upis u privremenu datoteku pri učitavanju XPM slike"
 
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
-msgstr "IksPM zapis slike"
+msgstr "XPM zapis slike"
 
 #~ msgid "Couldn't allocate memory for paletted data"
 #~ msgstr "Ne mogu obezbediti memoriju za podatke palete"
