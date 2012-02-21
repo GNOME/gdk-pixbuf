@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+ 2.31.x\n"
+"Project-Id-Version: gdk-pixbuf 2.25.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-19 15:23+0100\n"
+"POT-Creation-Date: 2012-02-21 14:01+0100\n"
 "PO-Revision-Date: 2012-02-02 13:02+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
