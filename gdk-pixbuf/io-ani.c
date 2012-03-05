@@ -330,13 +330,7 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
 			 (context->Flags & 0x1) != 0);
 #endif
 		if (!(context->Flags & 0x2))
-		{
-			g_set_error_literal (error,
-                                             GDK_PIXBUF_ERROR,
-                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                             _("Unsupported animation type"));
-			return FALSE; 
-		}
+			context->NumSteps = context->NumFrames;
 		if (context->NumFrames == 0 || 
 		    context->NumFrames >= 1024 || 
 		    context->NumSteps == 0 || 
