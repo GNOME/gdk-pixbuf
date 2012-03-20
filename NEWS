@@ -1,3 +1,40 @@
+2.26.0
+======
+
+* Win32 build fixes
+
+* Correctly load .ANI files without sequence chunks
+
+* Translation updates:
+ Assamese
+ Basque
+ Belarusian
+ Brazilian Portuguese
+ British English
+ Bulgarian
+ Catalan
+ Czech
+ Danish
+ Estonian
+ French
+ Galician
+ German
+ Hebrew
+ Italian
+ Khmer
+ Korean
+ Lithuanian
+ Norwegian bokmål
+ Polish
+ Portuguese
+ Russian
+ Serbian
+ Swedish
+ Traditional Chinese
+ Turkish
+ Ukranian
+
+
 2.25.1
 ======
 
