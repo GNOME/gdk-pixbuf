@@ -726,7 +726,7 @@ GdkPixbuf_2_0_gir_INCLUDES = GModule-2.0 Gio-2.0
 GdkPixbuf_2_0_gir_LIBS = libgdk_pixbuf-2.0.la
 GdkPixbuf_2_0_gir_CFLAGS = \
 	-DGDK_PIXBUF_COMPILATION					\
-	-I$(top_srcdir) -I$(top_builddir) 				\
+	-I$(top_builddir) -I$(top_srcdir) 				\
 	-I$(top_srcdir)/gdk-pixbuf 					\
 	-I$(top_builddir)/gdk-pixbuf 					\
 	$(GDK_PIXBUF_DEP_CFLAGS)
