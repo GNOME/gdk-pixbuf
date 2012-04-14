@@ -183,10 +183,16 @@ read_bitmap_file_data (FILE    *fstream,
 				type++;
 			}
 
-			if (!strcmp ("width", type))
+			if (!strcmp ("width", type)) {
+                                if (value <= 0)
+                                        RETURN (FALSE);
 				ww = (unsigned int) value;
-			if (!strcmp ("height", type))
+                        }
+			if (!strcmp ("height", type)) {
+                                if (value <= 0)
+                                        RETURN (FALSE);
 				hh = (unsigned int) value;
+                        }
 			if (!strcmp ("hot", type)) {
 				if (type-- == name_and_type
 				    || type-- == name_and_type)
@@ -231,6 +237,8 @@ read_bitmap_file_data (FILE    *fstream,
 		bytes_per_line = (ww+7)/8 + padding;
 
 		size = bytes_per_line * hh;
+                if (size / bytes_per_line != hh) /* overflow */
+                        RETURN (FALSE);
 		bits = g_malloc (size);
 
 		if (version10p) {
