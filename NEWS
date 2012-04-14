@@ -1,3 +1,17 @@
+2.26.1
+======
+
+* Fix srcdir != builddir build (#672133)
+
+* Avoid an integer overflow in the xbm loader (#672811)
+
+* Translation updates:
+ Catalan (Valencian)
+ Hindi
+ Latvian
+ Odia
+
+
 2.26.0
 ======
 
