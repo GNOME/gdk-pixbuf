@@ -68,7 +68,10 @@ gdk_pixbuf_new_from_file_at_size
 gdk_pixbuf_new_from_file_at_scale
 gdk_pixbuf_get_file_info
 gdk_pixbuf_new_from_stream
+gdk_pixbuf_new_from_stream_async
+gdk_pixbuf_new_from_stream_finish
 gdk_pixbuf_new_from_stream_at_scale
+gdk_pixbuf_new_from_stream_at_scale_async
 </SECTION>
 
 <SECTION>
