@@ -465,6 +465,7 @@ GdkPixbuf *gdk_pixbuf_apply_embedded_orientation (GdkPixbuf *src);
 
 const gchar * gdk_pixbuf_get_option (GdkPixbuf   *pixbuf,
                                               const gchar *key);
+GHashTable * gdk_pixbuf_get_options (GdkPixbuf   *pixbuf);
 
 
 G_END_DECLS

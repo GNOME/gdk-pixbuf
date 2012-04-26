@@ -36,6 +36,7 @@ gdk_pixbuf_get_height
 gdk_pixbuf_get_rowstride
 gdk_pixbuf_get_byte_length
 gdk_pixbuf_get_option
+gdk_pixbuf_get_options
 gdk_pixbuf_read_pixels
 
 <SUBSECTION Standard>

@@ -926,6 +926,42 @@ gdk_pixbuf_get_option (GdkPixbuf   *pixbuf,
 }
 
 /**
+ * gdk_pixbuf_get_options:
+ * @pixbuf: a #GdkPixbuf
+ *
+ * Returns a #GHashTable with a list of all the options that may have been
+ * attached to the @pixbuf when it was loaded, or that may have been
+ * attached by another function using gdk_pixbuf_set_option().
+ *
+ * See gdk_pixbuf_get_option() for more details.
+ *
+ * Return value: (transfer container): a #GHashTable of key/values
+ *
+ * Since: 2.32
+ **/
+GHashTable *
+gdk_pixbuf_get_options (GdkPixbuf *pixbuf)
+{
+        GHashTable *ht;
+        gchar **options;
+
+        g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
+
+        ht = g_hash_table_new (g_str_hash, g_str_equal);
+
+        options = g_object_get_qdata (G_OBJECT (pixbuf),
+                                      g_quark_from_static_string ("gdk_pixbuf_options"));
+        if (options) {
+                gint i;
+
+                for (i = 0; options[2*i]; i++)
+                        g_hash_table_insert (ht, options[2*i], options[2*i+1]);
+        }
+
+        return ht;
+}
+
+/**
  * gdk_pixbuf_set_option:
  * @pixbuf: a #GdkPixbuf
  * @key: a nul-terminated string.

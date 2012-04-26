@@ -31,6 +31,7 @@ gdk_pixbuf_get_byte_length
 gdk_pixbuf_get_rowstride
 gdk_pixbuf_get_width
 gdk_pixbuf_get_option
+gdk_pixbuf_get_options
 gdk_pixbuf_copy
 gdk_pixbuf_new_subpixbuf
 gdk_pixbuf_fill
