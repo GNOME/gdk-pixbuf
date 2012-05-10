@@ -125,11 +125,7 @@
 #define STDC_HEADERS 1
 
 /* Define to 1 if gmodule works and should be used */
-#ifndef _MSC_VER
 #define USE_GMODULE 1
-#else
-/*#undef USE_GMODULE*/
-#endif
 
 /* Whether to load modules via .la files rather than directly */
 /*#undef USE_LA_MODULES*/
