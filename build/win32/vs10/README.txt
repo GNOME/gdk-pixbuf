@@ -22,6 +22,14 @@ party image manipulation libraries, the Debug_NoGDIP/Release_NoGDIP
 configurations).  Note that both variants require LibPNG and ZLib, and
 both variants have the image loaders built into the main GDK-Pixbuf library.
 
+If one wants to build additional GDK-Pixbuf image loaders/modules that are
+not included in the main GDK-Pixbuf library, such as the one included in
+librsvg, he/she needs to place the compiled loader DLL (preferably built
+with Visual C++ 2010) into the following location:
+<parent_folder_of_the_GDK-Pixbuf_DLL>\lib\gdk-pixbuf-2.0\2.10.0\loaders\
+and run the gdk-pixbuf-query-loaders utility to generate a loaders.cache
+file in <parent_folder_of_the_GDK-Pixbuf_DLL>\lib\gdk-pixbuf-2.0\2.10.0.
+
 The dependencies for this package are gettext-runtime (libintl), GLib*,
 ZLib and LibPNG at the minimum.  Note that if you intend to build GDK-Pixbuf
 that does not use GDI+, you will also need the IJG JPEG libraries, libTIFF and
