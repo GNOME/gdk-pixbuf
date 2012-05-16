@@ -138,8 +138,8 @@ get_scaled_pixbuf (GdkPixbufScaledAnim *scaled,
 
 	/* Get a new scaled pixbuf */
 	scaled->current  = gdk_pixbuf_scale_simple (pixbuf, 
-			(int) (gdk_pixbuf_get_width (pixbuf) * scaled->xscale + .5),
-			(int) (gdk_pixbuf_get_height (pixbuf) * scaled->yscale + .5),
+                        MAX((int) (round((gdouble) gdk_pixbuf_get_width (pixbuf) * scaled->xscale + .5)), 1),
+                        MAX((int) (round((gdouble) gdk_pixbuf_get_height (pixbuf) * scaled->yscale + .5)), 1),
 			GDK_INTERP_BILINEAR);
 
 	/* Copy the original pixbuf options to the scaled pixbuf */
