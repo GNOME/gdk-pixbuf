@@ -95,6 +95,11 @@ PKG_PROG_PKG_CONFIG
 
 AC_CANONICAL_HOST
 
+AC_ARG_ENABLE(gio-sniffing,
+              [AC_HELP_STRING([--enable-gio-sniffing=@<:@no/yes/auto@:>@],
+                              [enable or disable gio sniffing [default=auto]])],,
+              [enable_gio_sniffing=auto])
+
 MATH_LIB=-lm
 AC_MSG_CHECKING([for native Win32])
 LIB_EXE_MACHINE_FLAG=X86
@@ -746,7 +751,7 @@ AM_CONDITIONAL(INCLUDE_QTIF, [test x"$INCLUDE_qtif" = xyes])
 # check one of the variables here
 AM_CONDITIONAL(INCLUDE_GDIPLUS, [test x"$INCLUDE_gdip_ico" = xyes])
 
-if test x$gio_can_sniff = x; then
+if test x$enable_gio_sniffing = xauto && test x$gio_can_sniff = x; then
   AC_MSG_CHECKING([if gio can sniff png])
   gtk_save_LIBS="$LIBS"
   gtk_save_CFLAGS="$CFLAGS"
@@ -788,6 +793,13 @@ if test x$gio_can_sniff = x; then
   AC_MSG_RESULT($gio_can_sniff)
   LIBS="$gtk_save_LIBS"
   CFLAGS="$gtk_save_CFLAGS"
+else
+  if test x$enable_gio_sniffing = xyes; then
+     gio_can_sniff=yes
+     AC_DEFINE(GDK_PIXBUF_USE_GIO_MIME, 1, [Define if gio can sniff image data])
+  else
+     gio_can_sniff=no
+  fi
 fi
 
 AM_CONDITIONAL(HAVE_TIFF, test "x$LIBTIFF" != x)
