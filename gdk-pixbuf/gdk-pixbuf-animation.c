@@ -391,7 +391,7 @@ gdk_pixbuf_animation_get_height (GdkPixbufAnimation *animation)
 /**
  * gdk_pixbuf_animation_get_iter:
  * @animation: a #GdkPixbufAnimation
- * @start_time: time when the animation starts playing
+ * @start_time: (allow-none): time when the animation starts playing
  * 
  * Get an iterator for displaying an animation. The iterator provides
  * the frames that should be displayed at a given time.
@@ -529,7 +529,7 @@ gdk_pixbuf_animation_iter_on_currently_loading_frame (GdkPixbufAnimationIter *it
 /**
  * gdk_pixbuf_animation_iter_advance:
  * @iter: a #GdkPixbufAnimationIter
- * @current_time: current time
+ * @current_time: (allow-none): current time
  *
  * Possibly advances an animation to a new frame. Chooses the frame based
  * on the start time passed to gdk_pixbuf_animation_get_iter().
