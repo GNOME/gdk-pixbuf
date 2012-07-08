@@ -2217,7 +2217,7 @@ gdk_pixbuf_real_save_to_callback (GdkPixbuf         *pixbuf,
  * @filename: name of file to save.
  * @type: name of file format.
  * @error: (allow-none): return location for error, or %NULL
- * @Varargs: list of key-value save options
+ * @...: list of key-value save options, followed by %NULL
  *
  * Saves pixbuf to a file in format @type. By default, "jpeg", "png", "ico" 
  * and "bmp" are possible file formats to save in, but more formats may be
@@ -2472,7 +2472,7 @@ gdk_pixbuf_savev (GdkPixbuf  *pixbuf,
  * @user_data: user data to pass to the save function.
  * @type: name of file format.
  * @error: (allow-none): return location for error, or %NULL
- * @Varargs: list of key-value save options
+ * @...: list of key-value save options
  *
  * Saves pixbuf in format @type by feeding the produced data to a 
  * callback. Can be used when you want to store the image to something 
@@ -2574,7 +2574,7 @@ gdk_pixbuf_save_to_callbackv   (GdkPixbuf  *pixbuf,
  * @buffer_size: location to receive the size of the new buffer.
  * @type: name of file format.
  * @error: (allow-none): return location for error, or %NULL
- * @Varargs: list of key-value save options
+ * @...: list of key-value save options
  *
  * Saves pixbuf to a new buffer in format @type, which is currently "jpeg",
  * "png", "tiff", "ico" or "bmp".  This is a convenience function that uses
@@ -2760,7 +2760,7 @@ save_to_stream (const gchar  *buffer,
  * @type: name of file format
  * @cancellable: optional #GCancellable object, %NULL to ignore
  * @error: (allow-none): return location for error, or %NULL
- * @Varargs: list of key-value save options
+ * @...: list of key-value save options
  *
  * Saves @pixbuf to an output stream.
  *
@@ -2864,7 +2864,7 @@ save_to_stream_thread (GSimpleAsyncResult *result,
  * @cancellable: optional #GCancellable object, %NULL to ignore
  * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
  * @user_data: the data to pass to the callback function
- * @Varargs: list of key-value save options
+ * @...: list of key-value save options
  *
  * Saves @pixbuf to an output stream asynchronously.
  *
