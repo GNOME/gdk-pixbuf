@@ -29,7 +29,7 @@
  * 
  * Using #GdkPixdata, images can be compiled into an application,
  * making it unnecessary to refer to external image files at runtime.
- * &gdk-pixbuf; includes a utility named gdk-pixbuf-csource, which 
+ * GdkPixBuf includes a utility named gdk-pixbuf-csource, which
  * can be used to convert image files into #GdkPixdata structures suitable
  * for inclusion in C sources. To convert the #GdkPixdata structures back 
  * into #GdkPixbuf<!-- -->s, use gdk_pixbuf_from_pixdata.

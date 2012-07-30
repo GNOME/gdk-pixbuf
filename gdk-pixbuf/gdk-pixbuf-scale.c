@@ -33,7 +33,7 @@
  * @Title: Scaling
  * @See_also:    <link linkend="gdk-GdkRGB">GdkRGB</link>.
  * 
- * The &gdk-pixbuf; contains functions to scale pixbufs, to scale
+ * The GdkPixBuf contains functions to scale pixbufs, to scale
  * pixbufs and composite against an existing image, and to scale
  * pixbufs and composite against a solid color or checkerboard.
  * Compositing a checkerboard is a common way to show an image with
