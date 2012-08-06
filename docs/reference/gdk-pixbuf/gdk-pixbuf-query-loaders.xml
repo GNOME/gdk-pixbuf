@@ -4,9 +4,22 @@
 ]>
 <refentry id="gdk-pixbuf-query-loaders">
 
+<refentryinfo>
+<title>gdk-pixbuf-query-loaders</title>
+<productname>gdk-pixbuf</productname>
+<authorgroup>
+<author>
+<contrib>Developer</contrib>
+<firstname>Owen</firstname>
+<surname>Taylor</surname>
+</author>
+</authorgroup>
+</refentryinfo>
+
 <refmeta>
 <refentrytitle>gdk-pixbuf-query-loaders</refentrytitle>
 <manvolnum>1</manvolnum>
+<refmiscinfo class="manual">User Commands</refmiscinfo>
 </refmeta>
 
 <refnamediv>
@@ -18,7 +31,7 @@
 <cmdsynopsis>
 <command>gdk-pixbuf-query-loaders</command>
 <arg choice="opt">--update-cache</arg>
-<arg choice="opt" rep="repeat">module</arg>
+<arg choice="opt" rep="repeat">MODULE</arg>
 </cmdsynopsis>
 </refsynopsisdiv>
 
@@ -38,7 +51,7 @@ may be absolute or relative paths.
 </para>
 <para>
 Normally, the output of <command>gdk-pixbuf-queryloaders</command> is written
-to <filename><replaceable>libdir</replaceable>gdk-pixbuf-2.0/2.10.0/loaders.cache</filename>, where <application>gdk-pixbuf</application> looks for it by default. If it is written to some other
+to <filename><replaceable>libdir</replaceable>/gdk-pixbuf-2.0/2.10.0/loaders.cache</filename>, where <application>gdk-pixbuf</application> looks for it by default. If it is written to some other
 location, the environment variable <link linkend="GDK_PIXBUF_MODULE_FILE"><envar>GDK_PIXBUF_MODULE_FILE</envar></link>
 can be set to point <application>gdk-pixbuf</application> at the file.
 </para>
@@ -63,12 +76,4 @@ directory is <filename><replaceable>libdir</replaceable>/gdk-pixbuf-2.0/<replace
 </para>
 </refsect1>
 
-<refsect1><title>Bugs</title>
-<para>
-None known yet.
-</para>
-</refsect1>
-
 </refentry>
-
-

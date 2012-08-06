@@ -4,9 +4,22 @@
 ]>
 <refentry id="gdk-pixbuf-csource">
 
+<refentryinfo>
+<title>gdk-pixbuf-csource</title>
+<productname>gdk-pixbuf</productname>
+<authorgroup>
+<author>
+<contrib>Developer</contrib>
+<firstname>Tim</firstname>
+<surname>Janik</surname>
+</author>
+</authorgroup>
+</refentryinfo>
+
 <refmeta>
 <refentrytitle>gdk-pixbuf-csource</refentrytitle>
 <manvolnum>1</manvolnum>
+<refmiscinfo class="manual">User Commands</refmiscinfo>
 </refmeta>
 
 <refnamediv>
@@ -17,16 +30,16 @@
 <refsynopsisdiv>
 <cmdsynopsis>
 <command>gdk-pixbuf-csource</command>
-<arg choice="opt">options</arg>
-<arg choice="opt">image</arg>
+<arg choice="opt" rep="repeat">OPTION</arg>
+<arg choice="opt">IMAGE</arg>
 </cmdsynopsis>
 <cmdsynopsis>
 <command>gdk-pixbuf-csource</command>
-<arg choice="opt">options</arg>
+<arg choice="opt" rep="repeat">OPTION</arg>
 <arg choice="plain">--build-list</arg>
 <arg rep="repeat">
-  <arg>name</arg>
-  <arg>image</arg>
+  <arg>NAME</arg>
+  <arg>IMAGE</arg>
 </arg>
 </cmdsynopsis>
 </refsynopsisdiv>
@@ -36,16 +49,15 @@
 <command>gdk-pixbuf-csource</command> is a small utility that generates
 C code containing images, useful for compiling images directly into programs.
 </para>
-</refsect1>
-
-<refsect1><title>Invocation</title>
 <para>
 <command>gdk-pixbuf-csource</command> either takes as input one image file
 name to generate code for, or, using the <option>--build-list</option> option,
 a list of (<replaceable>name</replaceable>, <replaceable>image</replaceable>)
 pairs to generate code for a list of images into named variables.
 </para>
-<refsect2><title>Options</title>
+</refsect1>
+
+<refsect1><title>Options</title>
 <variablelist>
 
 <varlistentry>
@@ -146,7 +158,6 @@ Make warnings fatal (causes the program to abort).
 </varlistentry>
 
 </variablelist>
-</refsect2>
 </refsect1>
 
 <refsect1><title>See also</title>
@@ -163,15 +174,4 @@ it includes the rowstride padding in the encoded stream. Furthermore, it
 generates pixbufs with suboptimal rowstride in some cases.
 </para>
 </refsect1>
-
-<refsect1><title>Author</title>
-<para>
-<command>gdk-pixbuf-csource</command> was written by Tim Janik
-<email>timj@gtk.org</email>.
-</para>
-<para>
-This manual page was provided by Tim Janik <email>timj@gtk.org</email>.
-</para>
-</refsect1>
 </refentry>
-
