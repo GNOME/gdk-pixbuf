@@ -1,3 +1,25 @@
+2.26.2
+======
+
+* Various functions have been added to the docs
+
+* Fix introspection of gdk_pixbuf_new_from_xpm_data (#668956)
+
+* Improve the gif loaders handling of animations
+  with varying frame sizes (#613595)
+
+* Translation updates:
+ Galician
+ German
+ Greek
+ Indonesian
+ Kashubian
+ Polish
+ Serbian
+ Slovakian
+ Spanish
+
+
 2.26.1
 ======
 
