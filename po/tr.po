@@ -3,44 +3,44 @@
 #
 #
 # Arman Aksoy <armish@linux-sevenler.de, 2003.
-#  Ömer Fadıl USTA <omer_fad@hotmail.com>,2002.
+# Ömer Fadıl USTA <omer_fad@hotmail.com>,2002.
 # Nilgün Belma Bugüner <nilgun@fide.org>, 2001, 2002.
 # Fatih Demir <kabalak@gtranslator.org>, 1999-2001.
 # Görkem Cetin <gorkem@gelecek.com.tr>, 2001.
 # Baris Cicek <baris@teamforce.name.tr>, 2006, 2007, 2008, 2009, 2010.
-# Muhammet Kara <muhammet.k@gmail.com>, 2011, 2012.
+# Muhammet Kara <muhammetk@acikkaynak.name.tr>, 2011, 2012.
 # Muhammed Eken <gnome@m-eken.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%"
-"2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2012-01-31 15:56+0000\n"
-"PO-Revision-Date: 2012-02-15 15:01+0000\n"
-"Last-Translator: Muhammet Kara <muhammet.k@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
+"%2b&keywords=I18N+L10N&component=gdk\n"
+"POT-Creation-Date: 2012-07-30 11:25+0000\n"
+"PO-Revision-Date: 2012-08-09 16:42+0000\n"
+"Last-Translator: Muhammet Kara <muhammetk@acikkaynak.name.tr>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.4\n"
 
 # gdk-pixbuf/gdk-pixbuf-animation.c:144 gdk-pixbuf/gdk-pixbuf-io.c:516
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1083
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:147 ../gdk-pixbuf/gdk-pixbuf-io.c:1083
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1349
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "'%s' dosyası açılamadı: %s"
 
 # gdk-pixbuf/gdk-pixbuf-animation.c:155 gdk-pixbuf/gdk-pixbuf-io.c:526
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1095
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1095
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Resim dosyası '%s' hiç bilgi içermiyor"
 
 # gdk-pixbuf/gdk-pixbuf-animation.c:205 gdk-pixbuf/gdk-pixbuf-io.c:571
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1131
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:202 ../gdk-pixbuf/gdk-pixbuf-io.c:1131
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1401
 #, c-format
 msgid ""
@@ -48,7 +48,7 @@ msgid ""
 msgstr "'%s' resmi yüklenemedi: sebep bilinmiyor, dosya bozulmuş olabilir"
 
 # gdk-pixbuf/gdk-pixbuf-animation.c:233
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:234
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:235
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -133,8 +133,8 @@ msgstr "'%s' dosyası yazmak için açılamıyor: %s"
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2425
 #, c-format
 msgid ""
-"Failed to close '%s' while writing image, all data may not have been saved: %"
-"s"
+"Failed to close '%s' while writing image, all data may not have been saved: "
+"%s"
 msgstr ""
 "Resim yazılırken '%s' kapatılamadı, tüm veri kaydedilememiş olabilir: %s"
 
@@ -149,7 +149,7 @@ msgid "Error writing to image stream"
 msgstr "Resim akışına yazılırken hata"
 
 # gdk-pixbuf/gdk-pixbuf-loader.c:275 gdk-pixbuf/gdk-pixbuf-loader.c:376
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:395
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:397
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -159,7 +159,7 @@ msgstr ""
 "başarısızlık sebebi de vermedi"
 
 # gdk-pixbuf/gdk-pixbuf-loader.c:252
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:437
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:439
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Resim türü '%s' için arttırımlı yükleme desteklenmiyor"
@@ -190,31 +190,27 @@ msgstr[0] "%u baytlık resim tamponu ayrılamadı"
 msgid "Unexpected icon chunk in animation"
 msgstr "Canlandırmada beklenmeyen simge yığını"
 
-#: ../gdk-pixbuf/io-ani.c:337
-msgid "Unsupported animation type"
-msgstr "Desteklenmeyen canlandırma türü"
-
-#: ../gdk-pixbuf/io-ani.c:348 ../gdk-pixbuf/io-ani.c:406
-#: ../gdk-pixbuf/io-ani.c:432 ../gdk-pixbuf/io-ani.c:455
-#: ../gdk-pixbuf/io-ani.c:482 ../gdk-pixbuf/io-ani.c:569
+#: ../gdk-pixbuf/io-ani.c:342 ../gdk-pixbuf/io-ani.c:400
+#: ../gdk-pixbuf/io-ani.c:426 ../gdk-pixbuf/io-ani.c:449
+#: ../gdk-pixbuf/io-ani.c:476 ../gdk-pixbuf/io-ani.c:563
 msgid "Invalid header in animation"
 msgstr "Canlandırma içinde geçersiz başlık"
 
 # gdk-pixbuf/io-gif.c:746 gdk-pixbuf/io-gif.c:1340 gdk-pixbuf/io-gif.c:1385
 # gdk-pixbuf/io-gif.c:1499
-#: ../gdk-pixbuf/io-ani.c:358 ../gdk-pixbuf/io-ani.c:380
-#: ../gdk-pixbuf/io-ani.c:464 ../gdk-pixbuf/io-ani.c:491
-#: ../gdk-pixbuf/io-ani.c:542 ../gdk-pixbuf/io-ani.c:614
+#: ../gdk-pixbuf/io-ani.c:352 ../gdk-pixbuf/io-ani.c:374
+#: ../gdk-pixbuf/io-ani.c:458 ../gdk-pixbuf/io-ani.c:485
+#: ../gdk-pixbuf/io-ani.c:536 ../gdk-pixbuf/io-ani.c:608
 msgid "Not enough memory to load animation"
 msgstr "Canlandırma dosyasını yüklemek için yetersiz bellek"
 
-#: ../gdk-pixbuf/io-ani.c:398 ../gdk-pixbuf/io-ani.c:424
-#: ../gdk-pixbuf/io-ani.c:443
+#: ../gdk-pixbuf/io-ani.c:392 ../gdk-pixbuf/io-ani.c:418
+#: ../gdk-pixbuf/io-ani.c:437
 msgid "Malformed chunk in animation"
 msgstr "Canlandırmada yanlış biçimlendirilmiş yığın"
 
 # gdk-pixbuf/gdk-pixdata.c:150
-#: ../gdk-pixbuf/io-ani.c:711
+#: ../gdk-pixbuf/io-ani.c:705
 msgid "The ANI image format"
 msgstr "ANI resim biçimi"
 
@@ -262,7 +258,7 @@ msgid "The EMF image format"
 msgstr "EMF resim biçimi"
 
 # gdk-pixbuf/gdk-pixdata.c:150
-#: ../gdk-pixbuf/io-gdip-gif.c:80 ../gdk-pixbuf/io-gif.c:1699
+#: ../gdk-pixbuf/io-gdip-gif.c:80 ../gdk-pixbuf/io-gif.c:1719
 msgid "The GIF image format"
 msgstr "GIF resim biçimi"
 
@@ -341,72 +337,77 @@ msgid "The WMF image format"
 msgstr "WMF resim biçimi"
 
 # gdk-pixbuf/io-gif.c:218
-#: ../gdk-pixbuf/io-gif.c:221
+#: ../gdk-pixbuf/io-gif.c:222
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "GIF okunurken hata: %s"
 
 # gdk-pixbuf/io-gif.c:460 gdk-pixbuf/io-gif.c:1352 gdk-pixbuf/io-gif.c:1511
-#: ../gdk-pixbuf/io-gif.c:495 ../gdk-pixbuf/io-gif.c:1482
-#: ../gdk-pixbuf/io-gif.c:1648
+#: ../gdk-pixbuf/io-gif.c:496 ../gdk-pixbuf/io-gif.c:1501
+#: ../gdk-pixbuf/io-gif.c:1668
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF dosyasında veri eksik (dosya kırpılmış olabilir mi?)"
 
 # gdk-pixbuf/io-gif.c:469
-#: ../gdk-pixbuf/io-gif.c:504
+#: ../gdk-pixbuf/io-gif.c:505
 #, c-format
 msgid "Internal error in the GIF loader (%s)"
 msgstr "GIF yükleyicide dahili hata (%s)"
 
-#: ../gdk-pixbuf/io-gif.c:578
+#: ../gdk-pixbuf/io-gif.c:579
 msgid "Stack overflow"
 msgstr "Yığın taşması"
 
 # gdk-pixbuf/io-gif.c:592
-#: ../gdk-pixbuf/io-gif.c:638
+#: ../gdk-pixbuf/io-gif.c:639
 msgid "GIF image loader cannot understand this image."
 msgstr "GIF resim yükleyicisi bu resmi tanımlayamadı."
 
-#: ../gdk-pixbuf/io-gif.c:667
+#: ../gdk-pixbuf/io-gif.c:668
 msgid "Bad code encountered"
 msgstr "Hatalı kod saptandı"
 
 # gdk-pixbuf/io-gif.c:622
-#: ../gdk-pixbuf/io-gif.c:677
+#: ../gdk-pixbuf/io-gif.c:678
 msgid "Circular table entry in GIF file"
 msgstr "GIF dosyasında döngüsel tablo girdisi"
 
 # gdk-pixbuf/io-gif.c:746 gdk-pixbuf/io-gif.c:1340 gdk-pixbuf/io-gif.c:1385
 # gdk-pixbuf/io-gif.c:1499
-#: ../gdk-pixbuf/io-gif.c:865 ../gdk-pixbuf/io-gif.c:1468
-#: ../gdk-pixbuf/io-gif.c:1521 ../gdk-pixbuf/io-gif.c:1636
+#: ../gdk-pixbuf/io-gif.c:866 ../gdk-pixbuf/io-gif.c:1487
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
 msgid "Not enough memory to load GIF file"
 msgstr "GIF dosyasını yüklemek için yetersiz bellek"
 
 # gdk-pixbuf/io-gif.c:746 gdk-pixbuf/io-gif.c:1340 gdk-pixbuf/io-gif.c:1385
 # gdk-pixbuf/io-gif.c:1499
-#: ../gdk-pixbuf/io-gif.c:959
+#: ../gdk-pixbuf/io-gif.c:960
 msgid "Not enough memory to composite a frame in GIF file"
 msgstr "GIF dosyasındaki bir çerçeveyi oluşturmak için yetersiz bellek"
 
 # gdk-pixbuf/io-gif.c:990
-#: ../gdk-pixbuf/io-gif.c:1131
+#: ../gdk-pixbuf/io-gif.c:1132
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "Bozuk GIF dosyası (LZW sıkıştırması yanlış)"
 
 # gdk-pixbuf/io-gif.c:1040
-#: ../gdk-pixbuf/io-gif.c:1181
+#: ../gdk-pixbuf/io-gif.c:1182
 msgid "File does not appear to be a GIF file"
 msgstr "Dosya bir GIF dosyası gibi görünmüyor"
 
 # gdk-pixbuf/io-gif.c:1052
-#: ../gdk-pixbuf/io-gif.c:1193
+#: ../gdk-pixbuf/io-gif.c:1194
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "%s sürümü GIF dosya biçimi desteklenmiyor"
 
+#: ../gdk-pixbuf/io-gif.c:1241
+#| msgid "Image has zero width"
+msgid "Resulting GIF image has zero size"
+msgstr "Oluşan GIF resim boyutu sıfır"
+
 # gdk-pixbuf/io-gif.c:1178
-#: ../gdk-pixbuf/io-gif.c:1302
+#: ../gdk-pixbuf/io-gif.c:1320
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -415,7 +416,7 @@ msgstr ""
 "de yok."
 
 # gdk-pixbuf/io-gif.c:1407
-#: ../gdk-pixbuf/io-gif.c:1543
+#: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF resmi ya kırpılmış ya da tamamlanmamış."
 
@@ -604,12 +605,10 @@ msgid "The PCX image format"
 msgstr "PCX resim biçimi"
 
 #: ../gdk-pixbuf/io-pixdata.c:148
-#| msgid "Transformed PNG has zero width or height."
 msgid "Transformed pixbuf has zero width or height."
 msgstr "Dönüştürülmüş pixbuf'un genişliği ya da yüksekliği sıfır."
 
 #: ../gdk-pixbuf/io-pixdata.c:186
-#| msgid "The BMP image format"
 msgid "The GdkPixdata format"
 msgstr "GdkPixdata biçimi"
 
@@ -795,9 +794,8 @@ msgid "Failed to read QTIF header"
 msgstr "QTIF başlığı okunurken başarısız olundu"
 
 #: ../gdk-pixbuf/io-qtif.c:152 ../gdk-pixbuf/io-qtif.c:189
-#: ../gdk-pixbuf/io-qtif.c:460
+#: ../gdk-pixbuf/io-qtif.c:459
 #, c-format
-#| msgid "QTIF atom size too large (%d bytes)"
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
 msgstr[0] "QTIF atom boyutu çok büyük (%d bayt)"
@@ -805,7 +803,6 @@ msgstr[0] "QTIF atom boyutu çok büyük (%d bayt)"
 # gdk-pixbuf/gdk-pixdata.c:378
 #: ../gdk-pixbuf/io-qtif.c:175
 #, c-format
-#| msgid "Failed to allocate %d bytes for file read buffer"
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
 msgstr[0] "Dosya okuma tamponu için %d bayt yer ayırma başarısız oldu"
@@ -818,7 +815,6 @@ msgstr "QTIF atomu okunurken hata: %s"
 
 #: ../gdk-pixbuf/io-qtif.c:243
 #, c-format
-#| msgid "Failed to skip the next %d bytes with seek()."
 msgid "Failed to skip the next %d byte with seek()."
 msgid_plural "Failed to skip the next %d bytes with seek()."
 msgstr[0] "Sonraki %d baytın seek() ile  atlanması başarısız oldu."
@@ -838,7 +834,7 @@ msgstr "GdkPixbufLoader nesnesi oluşturulurken başarısız olundu."
 msgid "Failed to find an image data atom."
 msgstr "Bir resim veri atomu bulunurken başarısız olundu."
 
-#: ../gdk-pixbuf/io-qtif.c:619
+#: ../gdk-pixbuf/io-qtif.c:618
 msgid "The QTIF image format"
 msgstr "QTIF resim biçimi"
 
@@ -1023,21 +1019,21 @@ msgid "The WBMP image format"
 msgstr "WBMP resim biçimi"
 
 # gdk-pixbuf/io-xbm.c:284
-#: ../gdk-pixbuf/io-xbm.c:296
+#: ../gdk-pixbuf/io-xbm.c:304
 msgid "Invalid XBM file"
 msgstr "Geçersiz XBM dosyası"
 
 # gdk-pixbuf/io-xbm.c:295
-#: ../gdk-pixbuf/io-xbm.c:306
+#: ../gdk-pixbuf/io-xbm.c:314
 msgid "Insufficient memory to load XBM image file"
 msgstr "XBM resim dosyasını yüklemek için yetersiz bellek"
 
 # gdk-pixbuf/io-xbm.c:429
-#: ../gdk-pixbuf/io-xbm.c:454
+#: ../gdk-pixbuf/io-xbm.c:462
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr "XBM resmi yüklenirken geçici dosyaya yazılamadı"
 
-#: ../gdk-pixbuf/io-xbm.c:493
+#: ../gdk-pixbuf/io-xbm.c:501
 msgid "The XBM image format"
 msgstr "XBM resim biçimi"
 
@@ -1090,6 +1086,9 @@ msgstr "XPM resmi yüklenirken geçici dosyaya yazılamadı"
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "XPM resim biçimi"
+
+#~ msgid "Unsupported animation type"
+#~ msgstr "Desteklenmeyen canlandırma türü"
 
 # gdk-pixbuf/io-xpm.c:1321
 #~ msgid "Couldn't allocate memory for paletted data"
