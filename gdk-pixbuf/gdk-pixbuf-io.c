@@ -904,8 +904,10 @@ _gdk_pixbuf_get_module (guchar *buffer, guint size,
         gboolean uncertain;
 
         mime_type = g_content_type_guess (NULL, buffer, size, &uncertain);
-        if (uncertain)
+        if (uncertain && filename != NULL) {
+                g_free (mime_type);
                 mime_type = g_content_type_guess (filename, buffer, size, NULL);
+        }
 
         for (modules = get_file_formats (); modules; modules = g_slist_next (modules)) {
                 GdkPixbufModule *module = (GdkPixbufModule *)modules->data;
