@@ -927,6 +927,9 @@ _gdk_pixbuf_get_module (guchar *buffer, guint size,
                         g_free (type);
                 }
 
+                if (selected != NULL)
+                        break;
+
 		/* Make sure the builtin GdkPixdata support works even without mime sniffing */
 		if (strcmp (info->name, "GdkPixdata") == 0 &&
 		    format_check (module, buffer, size) == 100) {
