@@ -1,3 +1,23 @@
+2.26.3
+======
+
+* Fix a minor string leak (#681943)
+
+* Bail out as soon as a module is found (#681943)
+
+* Add an option to disable GIO mime detection (#676726)
+
+* Translation updates
+ Assamese
+ Catalan
+ Hebrew
+ Japanese
+ Portuguese
+ Telugu
+ Traditional Chinese
+ Turkish
+
+
 2.26.2
 ======
 
