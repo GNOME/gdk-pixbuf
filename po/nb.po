@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf 2.25.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-21 14:01+0100\n"
-"PO-Revision-Date: 2012-02-02 13:02+0100\n"
+"POT-Creation-Date: 2012-08-22 10:23+0200\n"
+"PO-Revision-Date: 2012-08-22 10:24+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1083
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1349
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:147 ../gdk-pixbuf/gdk-pixbuf-io.c:1088
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1354
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Klarte ikke å åpne fil «%s»: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1095
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1100
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Bildefil «%s» inneholder ikke data"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1131
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1401
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:202 ../gdk-pixbuf/gdk-pixbuf-io.c:1136
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1406
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -37,7 +37,7 @@ msgstr ""
 "Feil under lasting av bilde «%s»: årsak ikke kjent, sannsynligvis korrupt "
 "bildefil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:234
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:235
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -65,49 +65,49 @@ msgstr ""
 msgid "Image type '%s' is not supported"
 msgstr "Bildetype «%s» er ikke støttet"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:964
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:969
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Kunne ikke gjenkjenne bildeformatet for fil «%s»"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:972
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:977
 msgid "Unrecognized image file format"
 msgstr "Ikke-gjenkjent bildeformat"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1140
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1145
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Feil under lasting av bilde «%s»: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2028 ../gdk-pixbuf/io-gdip-utils.c:888
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2033 ../gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Feil under skriving til bildefil: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2073 ../gdk-pixbuf/gdk-pixbuf-io.c:2203
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2078 ../gdk-pixbuf/gdk-pixbuf-io.c:2208
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Dette versjonen av gdk-pixbuf støtter ikke lagring av bildeformatet: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2107
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2112
 msgid "Insufficient memory to save image to callback"
 msgstr "Ikke nok minne til å lagre bilde til callback"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2120
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2125
 msgid "Failed to open temporary file"
 msgstr "Kunne ikke åpne midlertidig fil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2146
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2151
 msgid "Failed to read from temporary file"
 msgstr "Kunne ikke lese fra midlertidig fil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2399
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2404
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Feil under åpning av «%s» for skriving: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2425
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2430
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -116,15 +116,15 @@ msgstr ""
 "Feil under lukking av «%s» under skriving av bilde. Det er ikke sikkert at "
 "alle data er lagret: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2646 ../gdk-pixbuf/gdk-pixbuf-io.c:2698
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2651 ../gdk-pixbuf/gdk-pixbuf-io.c:2703
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Ikke nok minne til å lagre bilde til buffer"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2744
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2749
 msgid "Error writing to image stream"
 msgstr "Feil under skriving til bildestrøm"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:395
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:397
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -133,7 +133,7 @@ msgstr ""
 "Intern feil: Modul for lasting av bilder «%s» klarte ikke å fullføre en "
 "operasjon, men ga ingen årsak for feilen"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:437
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:439
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Stegvis lasting av bildetype «%s» er ikke støttet"
@@ -161,28 +161,24 @@ msgstr[1] "klarte ikke å allokere bildebuffer på %u bytes"
 msgid "Unexpected icon chunk in animation"
 msgstr "Uventet ikondel i animasjonen"
 
-#: ../gdk-pixbuf/io-ani.c:337
-msgid "Unsupported animation type"
-msgstr "Animasjonstype ikke støttet"
-
-#: ../gdk-pixbuf/io-ani.c:348 ../gdk-pixbuf/io-ani.c:406
-#: ../gdk-pixbuf/io-ani.c:432 ../gdk-pixbuf/io-ani.c:455
-#: ../gdk-pixbuf/io-ani.c:482 ../gdk-pixbuf/io-ani.c:569
+#: ../gdk-pixbuf/io-ani.c:342 ../gdk-pixbuf/io-ani.c:400
+#: ../gdk-pixbuf/io-ani.c:426 ../gdk-pixbuf/io-ani.c:449
+#: ../gdk-pixbuf/io-ani.c:476 ../gdk-pixbuf/io-ani.c:563
 msgid "Invalid header in animation"
 msgstr "Ugyldig hode i animasjon"
 
-#: ../gdk-pixbuf/io-ani.c:358 ../gdk-pixbuf/io-ani.c:380
-#: ../gdk-pixbuf/io-ani.c:464 ../gdk-pixbuf/io-ani.c:491
-#: ../gdk-pixbuf/io-ani.c:542 ../gdk-pixbuf/io-ani.c:614
+#: ../gdk-pixbuf/io-ani.c:352 ../gdk-pixbuf/io-ani.c:374
+#: ../gdk-pixbuf/io-ani.c:458 ../gdk-pixbuf/io-ani.c:485
+#: ../gdk-pixbuf/io-ani.c:536 ../gdk-pixbuf/io-ani.c:608
 msgid "Not enough memory to load animation"
 msgstr "Ikke nok minne til å laste animasjon"
 
-#: ../gdk-pixbuf/io-ani.c:398 ../gdk-pixbuf/io-ani.c:424
-#: ../gdk-pixbuf/io-ani.c:443
+#: ../gdk-pixbuf/io-ani.c:392 ../gdk-pixbuf/io-ani.c:418
+#: ../gdk-pixbuf/io-ani.c:437
 msgid "Malformed chunk in animation"
 msgstr "Feil i en del av animasjonen"
 
-#: ../gdk-pixbuf/io-ani.c:711
+#: ../gdk-pixbuf/io-ani.c:705
 msgid "The ANI image format"
 msgstr "ANI bildeformat"
 
@@ -224,7 +220,7 @@ msgstr "BMP bildeformat"
 msgid "The EMF image format"
 msgstr "EMF bildeformat"
 
-#: ../gdk-pixbuf/io-gdip-gif.c:80 ../gdk-pixbuf/io-gif.c:1699
+#: ../gdk-pixbuf/io-gdip-gif.c:80 ../gdk-pixbuf/io-gif.c:1719
 msgid "The GIF image format"
 msgstr "GIF bildeformat"
 
@@ -293,60 +289,64 @@ msgstr "Kunne ikke lagre"
 msgid "The WMF image format"
 msgstr "WMF bildeformat"
 
-#: ../gdk-pixbuf/io-gif.c:221
+#: ../gdk-pixbuf/io-gif.c:222
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "Feil under lesing av GIF: %s"
 
-#: ../gdk-pixbuf/io-gif.c:495 ../gdk-pixbuf/io-gif.c:1482
-#: ../gdk-pixbuf/io-gif.c:1648
+#: ../gdk-pixbuf/io-gif.c:496 ../gdk-pixbuf/io-gif.c:1501
+#: ../gdk-pixbuf/io-gif.c:1668
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF-fil mangler data (kanskje den har blitt avkuttet på en måte?)"
 
-#: ../gdk-pixbuf/io-gif.c:504
+#: ../gdk-pixbuf/io-gif.c:505
 #, c-format
 msgid "Internal error in the GIF loader (%s)"
 msgstr "Intern feil i GIF-laster (%s)"
 
-#: ../gdk-pixbuf/io-gif.c:578
+#: ../gdk-pixbuf/io-gif.c:579
 msgid "Stack overflow"
 msgstr "Stabeloverflyt"
 
-#: ../gdk-pixbuf/io-gif.c:638
+#: ../gdk-pixbuf/io-gif.c:639
 msgid "GIF image loader cannot understand this image."
 msgstr "Laster for GIF-bilder forstår ikke dette bildet."
 
-#: ../gdk-pixbuf/io-gif.c:667
+#: ../gdk-pixbuf/io-gif.c:668
 msgid "Bad code encountered"
 msgstr "Ugyldig kode funnet"
 
-#: ../gdk-pixbuf/io-gif.c:677
+#: ../gdk-pixbuf/io-gif.c:678
 msgid "Circular table entry in GIF file"
 msgstr "Sirkulær tabelloppføring i GIF-fil"
 
-#: ../gdk-pixbuf/io-gif.c:865 ../gdk-pixbuf/io-gif.c:1468
-#: ../gdk-pixbuf/io-gif.c:1521 ../gdk-pixbuf/io-gif.c:1636
+#: ../gdk-pixbuf/io-gif.c:866 ../gdk-pixbuf/io-gif.c:1487
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
 msgid "Not enough memory to load GIF file"
 msgstr "Ikke nok minne til å laste GIF-bilde"
 
-#: ../gdk-pixbuf/io-gif.c:959
+#: ../gdk-pixbuf/io-gif.c:960
 msgid "Not enough memory to composite a frame in GIF file"
 msgstr "Ikke nok minne til å sette sammen en ramme i GIF-filen"
 
-#: ../gdk-pixbuf/io-gif.c:1131
+#: ../gdk-pixbuf/io-gif.c:1132
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "GIF-bilde er korrupt (ukorrekt LZW-kompresjon)"
 
-#: ../gdk-pixbuf/io-gif.c:1181
+#: ../gdk-pixbuf/io-gif.c:1182
 msgid "File does not appear to be a GIF file"
 msgstr "Filen ser ikke ut til å være en GIF-fil"
 
-#: ../gdk-pixbuf/io-gif.c:1193
+#: ../gdk-pixbuf/io-gif.c:1194
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "Versjon %s av GIF filformatet er ikke støttet"
 
-#: ../gdk-pixbuf/io-gif.c:1302
+#: ../gdk-pixbuf/io-gif.c:1241
+msgid "Resulting GIF image has zero size"
+msgstr "GIF-bildet har størrelse null"
+
+#: ../gdk-pixbuf/io-gif.c:1320
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -354,7 +354,7 @@ msgstr ""
 "GIF-bildet har ikke globalt fargekart, og et delbilde i det har ikke lokalt "
 "fargekart."
 
-#: ../gdk-pixbuf/io-gif.c:1543
+#: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF-bildet er avkuttet eller ukomplett."
 
@@ -889,19 +889,19 @@ msgstr "Kunne ikke lagre resten"
 msgid "The WBMP image format"
 msgstr "WBMP bildeformatet"
 
-#: ../gdk-pixbuf/io-xbm.c:296
+#: ../gdk-pixbuf/io-xbm.c:304
 msgid "Invalid XBM file"
 msgstr "Ugyldig XBM-fil"
 
-#: ../gdk-pixbuf/io-xbm.c:306
+#: ../gdk-pixbuf/io-xbm.c:314
 msgid "Insufficient memory to load XBM image file"
 msgstr "Ikke nok minne til å laste XBM-bildefil"
 
-#: ../gdk-pixbuf/io-xbm.c:454
+#: ../gdk-pixbuf/io-xbm.c:462
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr "Feil under skriving til midlertidig file under lasting av XBM-bilde"
 
-#: ../gdk-pixbuf/io-xbm.c:493
+#: ../gdk-pixbuf/io-xbm.c:501
 msgid "The XBM image format"
 msgstr "XBM bildeformat"
 
