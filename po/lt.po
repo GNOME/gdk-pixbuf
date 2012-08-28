@@ -11,38 +11,38 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2012-03-05 18:51+0000\n"
-"PO-Revision-Date: 2012-03-17 18:35+0300\n"
+"POT-Creation-Date: 2012-07-30 11:25+0000\n"
+"PO-Revision-Date: 2012-08-28 22:11+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lt\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Virtaal 0.6.1\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:147
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1083
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1349
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Nepavyko atverti failo „%s“: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1095
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Paveikslėlio faile „%s“ nėra duomenų"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:202
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1131
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1401
 #, c-format
 msgid "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr "Nepavyko įkelti paveikslėlio „%s“: nežinoma priežastis, tikriausiai sugadintas failas"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:234
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:235
 #, c-format
 msgid "Failed to load animation '%s': reason not known, probably a corrupt animation file"
 msgstr "Nepavyko įkelti animacijos „%s“: nežinoma priežastis, tikriausiai sugadintas failas"
@@ -120,12 +120,12 @@ msgstr "Nepakanka atminties įšsaugoti paveikslėlį į buferį"
 msgid "Error writing to image stream"
 msgstr "Klaida rašant į paveikslėlio srautą"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:395
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:397
 #, c-format
 msgid "Internal error: Image loader module '%s' failed to complete an operation, but didn't give a reason for the failure"
 msgstr "Vidinė klaida: Paveikslėlių įkėlimo moduliui „%s“ nepavyko užbaigti, operacijos, tačiau nebuvo išvestas joks klaidos pranešimas"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:437
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:439
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Laipsniškas apdorojimas piešinių, kurių tipas yra „%s“, yra nepalaikomas"
@@ -228,7 +228,7 @@ msgid "The EMF image format"
 msgstr "EMF paveikslėlių formatas"
 
 #: ../gdk-pixbuf/io-gdip-gif.c:80
-#: ../gdk-pixbuf/io-gif.c:1699
+#: ../gdk-pixbuf/io-gif.c:1719
 msgid "The GIF image format"
 msgstr "GIF paveikslėlių formatas"
 
@@ -297,67 +297,72 @@ msgstr "Nepavyko išsaugoti"
 msgid "The WMF image format"
 msgstr "WMF paveikslėlių formatas"
 
-#: ../gdk-pixbuf/io-gif.c:221
+#: ../gdk-pixbuf/io-gif.c:222
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "Klaida skaitant GIF: %s"
 
-#: ../gdk-pixbuf/io-gif.c:495
-#: ../gdk-pixbuf/io-gif.c:1482
-#: ../gdk-pixbuf/io-gif.c:1648
+#: ../gdk-pixbuf/io-gif.c:496
+#: ../gdk-pixbuf/io-gif.c:1501
+#: ../gdk-pixbuf/io-gif.c:1668
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF failui trūksta dalies duomenų (galbūt ji buvo kaip nors sugadinta?)"
 
-#: ../gdk-pixbuf/io-gif.c:504
+#: ../gdk-pixbuf/io-gif.c:505
 #, c-format
 msgid "Internal error in the GIF loader (%s)"
 msgstr "Vidinė klaida GIF kelties programoje (%s)"
 
-#: ../gdk-pixbuf/io-gif.c:578
+#: ../gdk-pixbuf/io-gif.c:579
 msgid "Stack overflow"
 msgstr "Steko perpildymas"
 
-#: ../gdk-pixbuf/io-gif.c:638
+#: ../gdk-pixbuf/io-gif.c:639
 msgid "GIF image loader cannot understand this image."
 msgstr "GIF įkelties programa negali suprasti šio paveikslėlio."
 
-#: ../gdk-pixbuf/io-gif.c:667
+#: ../gdk-pixbuf/io-gif.c:668
 msgid "Bad code encountered"
 msgstr "Aptiktas blogas kodas"
 
-#: ../gdk-pixbuf/io-gif.c:677
+#: ../gdk-pixbuf/io-gif.c:678
 msgid "Circular table entry in GIF file"
 msgstr "Cikliškas lentelės įrašas GIF faile"
 
-#: ../gdk-pixbuf/io-gif.c:865
-#: ../gdk-pixbuf/io-gif.c:1468
-#: ../gdk-pixbuf/io-gif.c:1521
-#: ../gdk-pixbuf/io-gif.c:1636
+#: ../gdk-pixbuf/io-gif.c:866
+#: ../gdk-pixbuf/io-gif.c:1487
+#: ../gdk-pixbuf/io-gif.c:1540
+#: ../gdk-pixbuf/io-gif.c:1656
 msgid "Not enough memory to load GIF file"
 msgstr "Nepakanka atminties įkelti GIF failui"
 
-#: ../gdk-pixbuf/io-gif.c:959
+#: ../gdk-pixbuf/io-gif.c:960
 msgid "Not enough memory to composite a frame in GIF file"
 msgstr "Nepakanka atminties sukurti kadrui GIF faile"
 
-#: ../gdk-pixbuf/io-gif.c:1131
+#: ../gdk-pixbuf/io-gif.c:1132
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "GIF paveikslėlis apgadintas (netinkamas LZW suspaudimas)"
 
-#: ../gdk-pixbuf/io-gif.c:1181
+#: ../gdk-pixbuf/io-gif.c:1182
 msgid "File does not appear to be a GIF file"
 msgstr "Atrodo, kad tai ne GIF failas"
 
-#: ../gdk-pixbuf/io-gif.c:1193
+#: ../gdk-pixbuf/io-gif.c:1194
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "GIF formato versija %s nėra palaikoma"
 
-#: ../gdk-pixbuf/io-gif.c:1302
+#: ../gdk-pixbuf/io-gif.c:1241
+#| msgid "Image has zero width"
+msgid "Resulting GIF image has zero size"
+msgstr "Rezultato GIF paveikslėlio dydis yra nulinis"
+
+#: ../gdk-pixbuf/io-gif.c:1320
 msgid "GIF image has no global colormap, and a frame inside it has no local colormap."
 msgstr "GIF paveikslėlis neturi bendros spalvų lentelės, o jo kadras irgi neturi spalvų lentelės."
 
-#: ../gdk-pixbuf/io-gif.c:1543
+#: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF paveikslėlis buvo nukirstas arba nepilnas."
 
@@ -899,19 +904,19 @@ msgstr "Nepavyko išsaugoti likučių"
 msgid "The WBMP image format"
 msgstr "WBMP paveikslėlių formatas"
 
-#: ../gdk-pixbuf/io-xbm.c:296
+#: ../gdk-pixbuf/io-xbm.c:304
 msgid "Invalid XBM file"
 msgstr "Sugadintas XBM failas"
 
-#: ../gdk-pixbuf/io-xbm.c:306
+#: ../gdk-pixbuf/io-xbm.c:314
 msgid "Insufficient memory to load XBM image file"
 msgstr "Nepakanka atminties įkelti XBM paveikslėlio failą"
 
-#: ../gdk-pixbuf/io-xbm.c:454
+#: ../gdk-pixbuf/io-xbm.c:462
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr "XBM apdorojimo metu nepavyko įrašyti į laikiną failą"
 
-#: ../gdk-pixbuf/io-xbm.c:493
+#: ../gdk-pixbuf/io-xbm.c:501
 msgid "The XBM image format"
 msgstr "XBM paveikslėlių formatas"
 
@@ -957,8 +962,3 @@ msgstr "Įkeliant XPM failą nepavyko įrašyti laikino failo"
 msgid "The XPM image format"
 msgstr "XPM paveikslėlių formatas"
 
-#~ msgid "Unsupported animation type"
-#~ msgstr "Nepalaikomas animacijos tipas"
-
-#~ msgid "Couldn't allocate memory for paletted data"
-#~ msgstr "Nepavyko rezervuoti atminties paletės duomenims"
