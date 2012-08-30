@@ -1505,7 +1505,7 @@ load_from_stream (GdkPixbufLoader  *loader,
  * @width: The width the image should have or -1 to not constrain the width
  * @height: The height the image should have or -1 to not constrain the height
  * @preserve_aspect_ratio: %TRUE to preserve the image's aspect ratio
- * @cancellable: optional #GCancellable object, %NULL to ignore
+ * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
  * @error: Return location for an error
  *
  * Creates a new pixbuf by loading an image from an input stream.  
@@ -1591,7 +1591,7 @@ new_from_stream_thread (GSimpleAsyncResult *result,
  * @width: the width the image should have or -1 to not constrain the width
  * @height: the height the image should have or -1 to not constrain the height
  * @preserve_aspect_ratio: %TRUE to preserve the image's aspect ratio
- * @cancellable: optional #GCancellable object, %NULL to ignore
+ * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
  * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
  * @user_data: the data to pass to the callback function
  *
@@ -1635,7 +1635,7 @@ gdk_pixbuf_new_from_stream_at_scale_async (GInputStream        *stream,
 /**
  * gdk_pixbuf_new_from_stream:
  * @stream:  a #GInputStream to load the pixbuf from
- * @cancellable: optional #GCancellable object, %NULL to ignore
+ * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
  * @error: Return location for an error
  *
  * Creates a new pixbuf by loading an image from an input stream.  
@@ -1783,7 +1783,7 @@ gdk_pixbuf_new_from_resource_at_scale (const char *resource_path,
 /**
  * gdk_pixbuf_new_from_stream_async:
  * @stream: a #GInputStream from which to load the pixbuf
- * @cancellable: optional #GCancellable object, %NULL to ignore
+ * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
  * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
  * @user_data: the data to pass to the callback function
  *
@@ -2763,7 +2763,7 @@ save_to_stream (const gchar  *buffer,
  * @pixbuf: a #GdkPixbuf
  * @stream: a #GOutputStream to save the pixbuf to
  * @type: name of file format
- * @cancellable: optional #GCancellable object, %NULL to ignore
+ * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
  * @error: (allow-none): return location for error, or %NULL
  * @...: list of key-value save options
  *
@@ -2866,7 +2866,7 @@ save_to_stream_thread (GSimpleAsyncResult *result,
  * @pixbuf: a #GdkPixbuf
  * @stream: a #GOutputStream to which to save the pixbuf
  * @type: name of file format
- * @cancellable: optional #GCancellable object, %NULL to ignore
+ * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
  * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
  * @user_data: the data to pass to the callback function
  * @...: list of key-value save options
