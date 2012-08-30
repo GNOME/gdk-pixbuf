@@ -341,7 +341,7 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
         /* Extract embedded ICC profile */
         retval = png_get_iCCP (png_ptr, info_ptr,
                                (png_charpp) &icc_profile_title, &compression_type,
-                               (png_charpp) &icc_profile, (png_uint_32*) &icc_profile_size);
+                               (png_bytepp) &icc_profile, (png_uint_32*) &icc_profile_size);
         if (retval != 0) {
                 icc_profile_base64 = g_base64_encode ((const guchar *) icc_profile, (gsize)icc_profile_size);
                 gdk_pixbuf_set_option (pixbuf, "icc-profile", icc_profile_base64);
@@ -653,8 +653,8 @@ png_info_callback   (png_structp png_read_ptr,
                         g_set_error (lc->error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                     _("Insufficient memory to store a %ld by %ld image; try exiting some applications to reduce memory usage"),
-                                     width, height);
+                                     _("Insufficient memory to store a %lu by %lu image; try exiting some applications to reduce memory usage"),
+                                     (gulong) width, (gulong) height);
                 }
                 return;
         }
@@ -678,7 +678,7 @@ png_info_callback   (png_structp png_read_ptr,
         /* Extract embedded ICC profile */
         retval = png_get_iCCP (png_read_ptr, png_info_ptr,
                                (png_charpp) &icc_profile_title, &compression_type,
-                               (png_charpp) &icc_profile, &icc_profile_size);
+                               (png_bytepp) &icc_profile, &icc_profile_size);
         if (retval != 0) {
                 icc_profile_base64 = g_base64_encode ((const guchar *) icc_profile, (gsize)icc_profile_size);
                 gdk_pixbuf_set_option (lc->pixbuf, "icc-profile", icc_profile_base64);
@@ -776,10 +776,6 @@ static void
 png_warning_callback (png_structp png_read_ptr,
                       png_const_charp warning_msg)
 {
-        LoadContext* lc;
-        
-        lc = png_get_error_ptr(png_read_ptr);
-
         /* Don't print anything; we should not be dumping junk to
          * stderr, since that may be bad for some apps. If it's
          * important enough to display, we need to add a GError
@@ -1017,7 +1013,7 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
         if (icc_profile != NULL) {
                 png_set_iCCP (png_ptr, info_ptr,
                               "ICC profile", PNG_COMPRESSION_TYPE_BASE,
-                              (gchar*) icc_profile, icc_profile_size);
+                              (png_const_bytep) icc_profile, icc_profile_size);
         }
 #endif
 
