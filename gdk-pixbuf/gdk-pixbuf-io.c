@@ -2874,7 +2874,47 @@ save_to_stream (const gchar  *buffer,
         return TRUE;
 }
 
-/** 
+/**
+ * gdk_pixbuf_save_to_streamv:
+ * @pixbuf: a #GdkPixbuf
+ * @stream: a #GOutputStream to save the pixbuf to
+ * @type: name of file format
+ * @option_keys: (array zero-terminated=1): name of options to set, %NULL-terminated
+ * @option_values: (array zero-terminated=1): values for named options
+ * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
+ * @error: (allow-none): return location for error, or %NULL
+ *
+ * Saves @pixbuf to an output stream.
+ *
+ * Supported file formats are currently "jpeg", "tiff", "png", "ico" or
+ * "bmp". See gdk_pixbuf_save_to_stream() for more details.
+ *
+ * Returns: %TRUE if the pixbuf was saved successfully, %FALSE if an
+ *     error was set.
+ *
+ * Since: 2.36
+ */
+gboolean
+gdk_pixbuf_save_to_streamv (GdkPixbuf      *pixbuf,
+                            GOutputStream  *stream,
+                            const char     *type,
+                            char          **option_keys,
+                            char          **option_values,
+                            GCancellable   *cancellable,
+                            GError        **error)
+{
+        SaveToStreamData data;
+
+        data.stream = stream;
+        data.cancellable = cancellable;
+
+        return gdk_pixbuf_save_to_callbackv (pixbuf, save_to_stream,
+                                             &data, type,
+                                             option_keys, option_values,
+                                             error);
+}
+
+/**
  * gdk_pixbuf_save_to_stream:
  * @pixbuf: a #GdkPixbuf
  * @stream: a #GOutputStream to save the pixbuf to
@@ -2912,19 +2952,14 @@ gdk_pixbuf_save_to_stream (GdkPixbuf      *pixbuf,
         gchar **keys = NULL;
         gchar **values = NULL;
         va_list args;
-        SaveToStreamData data;
 
         va_start (args, error);
         collect_save_options (args, &keys, &values);
         va_end (args);
 
-        data.stream = stream;
-        data.cancellable = cancellable;
-
-        res = gdk_pixbuf_save_to_callbackv (pixbuf, save_to_stream, 
-                                            &data, type, 
-                                            keys, values, 
-                                            error);
+        res = gdk_pixbuf_save_to_streamv (pixbuf, stream, type,
+                                          keys, values,
+                                          cancellable, error);
 
         g_strfreev (keys);
         g_strfreev (values);
@@ -2976,6 +3011,59 @@ save_to_stream_thread (GTask                 *task,
 }
 
 /**
+ * gdk_pixbuf_save_to_streamv_async:
+ * @pixbuf: a #GdkPixbuf
+ * @stream: a #GOutputStream to which to save the pixbuf
+ * @type: name of file format
+ * @option_keys: (array zero-terminated=1): name of options to set, %NULL-terminated
+ * @option_values: (array zero-terminated=1): values for named options
+ * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
+ * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
+ * @user_data: the data to pass to the callback function
+ *
+ * Saves @pixbuf to an output stream asynchronously.
+ *
+ * For more details see gdk_pixbuf_save_to_streamv(), which is the synchronous
+ * version of this function.
+ *
+ * When the operation is finished, @callback will be called in the main thread.
+ * You can then call gdk_pixbuf_save_to_stream_finish() to get the result of the operation.
+ *
+ * Since: 2.36
+ **/
+void
+gdk_pixbuf_save_to_streamv_async (GdkPixbuf           *pixbuf,
+                                  GOutputStream       *stream,
+                                  const gchar         *type,
+                                  gchar              **option_keys,
+                                  gchar              **option_values,
+                                  GCancellable        *cancellable,
+                                  GAsyncReadyCallback  callback,
+                                  gpointer             user_data)
+{
+        GTask *task;
+        SaveToStreamAsyncData *data;
+
+        g_return_if_fail (GDK_IS_PIXBUF (pixbuf));
+        g_return_if_fail (G_IS_OUTPUT_STREAM (stream));
+        g_return_if_fail (type != NULL);
+        g_return_if_fail (callback != NULL);
+        g_return_if_fail (!cancellable || G_IS_CANCELLABLE (cancellable));
+
+        data = g_slice_new (SaveToStreamAsyncData);
+        data->stream = g_object_ref (stream);
+        data->type = g_strdup (type);
+        data->keys = g_strdupv (option_keys);
+        data->values = g_strdupv (option_values);
+
+        task = g_task_new (pixbuf, cancellable, callback, user_data);
+        g_task_set_source_tag (task, gdk_pixbuf_save_to_streamv_async);
+        g_task_set_task_data (task, data, (GDestroyNotify) save_to_stream_async_data_free);
+        g_task_run_in_thread (task, (GTaskThreadFunc) save_to_stream_thread);
+        g_object_unref (task);
+}
+
+/**
  * gdk_pixbuf_save_to_stream_async:
  * @pixbuf: a #GdkPixbuf
  * @stream: a #GOutputStream to which to save the pixbuf
@@ -3004,33 +3092,25 @@ gdk_pixbuf_save_to_stream_async (GdkPixbuf           *pixbuf,
 				 gpointer             user_data,
 				 ...)
 {
-	GTask *task;
-	gchar **keys = NULL;
-	gchar **values = NULL;
-	va_list args;
-	SaveToStreamAsyncData *data;
+        gchar **keys = NULL;
+        gchar **values = NULL;
+        va_list args;
 
-	g_return_if_fail (GDK_IS_PIXBUF (pixbuf));
-	g_return_if_fail (G_IS_OUTPUT_STREAM (stream));
-	g_return_if_fail (type != NULL);
-	g_return_if_fail (callback != NULL);
-	g_return_if_fail (!cancellable || G_IS_CANCELLABLE (cancellable));
+        g_return_if_fail (GDK_IS_PIXBUF (pixbuf));
+        g_return_if_fail (G_IS_OUTPUT_STREAM (stream));
+        g_return_if_fail (type != NULL);
+        g_return_if_fail (callback != NULL);
+        g_return_if_fail (!cancellable || G_IS_CANCELLABLE (cancellable));
 
-	va_start (args, user_data);
-	collect_save_options (args, &keys, &values);
-	va_end (args);
+        va_start (args, user_data);
+        collect_save_options (args, &keys, &values);
+        va_end (args);
 
-	data = g_slice_new (SaveToStreamAsyncData);
-	data->stream = g_object_ref (stream);
-	data->type = g_strdup (type);
-	data->keys = keys;
-	data->values = values;
-
-	task = g_task_new (pixbuf, cancellable, callback, user_data);
-	g_task_set_source_tag (task, gdk_pixbuf_save_to_stream_async);
-	g_task_set_task_data (task, data, (GDestroyNotify) save_to_stream_async_data_free);
-	g_task_run_in_thread (task, (GTaskThreadFunc) save_to_stream_thread);
-	g_object_unref (task);
+        gdk_pixbuf_save_to_streamv_async (pixbuf, stream, type,
+                                          keys, values,
+                                          cancellable, callback, user_data);
+        g_strfreev (keys);
+        g_strfreev (values);
 }
 
 /**
@@ -3059,7 +3139,8 @@ gdk_pixbuf_save_to_stream_finish (GAsyncResult  *async_result,
 	task = G_TASK (async_result);
 
 	g_return_val_if_fail (!error || (error && !*error), FALSE);
-	g_warn_if_fail (g_task_get_source_tag (task) == gdk_pixbuf_save_to_stream_async);
+	g_warn_if_fail (g_task_get_source_tag (task) == gdk_pixbuf_save_to_stream_async ||
+			g_task_get_source_tag (task) == gdk_pixbuf_save_to_streamv_async);
 
 	return g_task_propagate_boolean (task, error);
 }

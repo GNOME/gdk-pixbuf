@@ -91,7 +91,9 @@ gdk_pixbuf_save_to_callbackv
 gdk_pixbuf_save_to_buffer
 gdk_pixbuf_save_to_bufferv
 gdk_pixbuf_save_to_stream
+gdk_pixbuf_save_to_streamv
 gdk_pixbuf_save_to_stream_async
+gdk_pixbuf_save_to_streamv_async
 gdk_pixbuf_save_to_stream_finish
 </SECTION>
 

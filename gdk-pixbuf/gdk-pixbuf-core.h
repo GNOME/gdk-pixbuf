@@ -449,6 +449,23 @@ void gdk_pixbuf_save_to_stream_async (GdkPixbuf           *pixbuf,
 gboolean gdk_pixbuf_save_to_stream_finish (GAsyncResult  *async_result,
 					   GError       **error);
 
+void gdk_pixbuf_save_to_streamv_async (GdkPixbuf           *pixbuf,
+                                       GOutputStream       *stream,
+                                       const gchar         *type,
+                                       gchar              **option_keys,
+                                       gchar              **option_values,
+                                       GCancellable        *cancellable,
+                                       GAsyncReadyCallback  callback,
+                                       gpointer             user_data);
+
+gboolean gdk_pixbuf_save_to_streamv (GdkPixbuf      *pixbuf,
+                                     GOutputStream  *stream,
+                                     const char     *type,
+                                     char          **option_keys,
+                                     char          **option_values,
+                                     GCancellable   *cancellable,
+                                     GError        **error);
+
 /* Adding an alpha channel */
 GdkPixbuf *gdk_pixbuf_add_alpha (const GdkPixbuf *pixbuf, gboolean substitute_color,
 				 guchar r, guchar g, guchar b);

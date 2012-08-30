@@ -82,6 +82,8 @@ gdk_pixbuf_savev_utf8
 gdk_pixbuf_save_to_stream
 gdk_pixbuf_save_to_stream_async
 gdk_pixbuf_save_to_stream_finish
+gdk_pixbuf_save_to_streamv
+gdk_pixbuf_save_to_streamv_async
 #endif
 #endif
 
