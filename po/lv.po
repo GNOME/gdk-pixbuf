@@ -4,33 +4,35 @@
 # Raivis Dejus <orvils@gmail.com>, 2006, 2007, 2009.
 # Anita Reitere <nitalynx@gmail.com>, 2010.
 # Rudolfs <rudolfs.mazurs@gmail.com>, 2011, 2012.
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2012.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%"
-"2b&keywords=I18N+L10N&component=gdk\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
+"%2b&keywords=I18N+L10N&component=gdk\n"
 "POT-Creation-Date: 2012-03-05 18:51+0000\n"
-"PO-Revision-Date: 2012-03-24 19:05+0200\n"
+"PO-Revision-Date: 2012-09-02 19:18+0300\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
-"Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
+"Language-Team: Latviešu <lata-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lv\n"
-"X-Generator: Lokalize 1.2\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"X-Generator: Gtranslator 2.91.5\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1083
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1349
 #, c-format
 msgid "Failed to open file '%s': %s"
-msgstr "Neizdevās atvērt failu '%s': %s"
+msgstr "Neizdevās atvērt datni “%s” — %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1095
 #, c-format
 msgid "Image file '%s' contains no data"
-msgstr "Attēla fails '%s' nesatur datus"
+msgstr "Attēla datne “%s” nesatur datus"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1131
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1401
@@ -38,8 +40,8 @@ msgstr "Attēla fails '%s' nesatur datus"
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr ""
-"Neizdevās ielādēt attēlu '%s': iemesls nezināms, iespējams, bojāts attēla "
-"fails"
+"Neizdevās ielādēt attēlu “%s” — iemesls nezināms, iespējams, bojāta attēla "
+"datne"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:234
 #, c-format
@@ -47,13 +49,13 @@ msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
 "animation file"
 msgstr ""
-"Neizdevās ielādēt animāciju '%s': iemesls nezināms, iespējams, bojāts "
-"animācijas fails"
+"Neizdevās ielādēt animāciju “%s” — iemesls nezināms, iespējams, bojāta "
+"animācijas datne"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:809
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
-msgstr "Neizdevās ielādēt attēla ielādēšanas moduli: %s: %s"
+msgstr "Neizdevās ielādēt attēla ielādēšanas moduli — %s — %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:824
 #, c-format
@@ -67,32 +69,32 @@ msgstr ""
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:833 ../gdk-pixbuf/gdk-pixbuf-io.c:884
 #, c-format
 msgid "Image type '%s' is not supported"
-msgstr "Attēlu tips '%s' nav atbalstīts"
+msgstr "Attēlu tips “%s” nav atbalstīts"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:964
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
-msgstr "Neizdevās atpazīt attēla faila formātu failam '%s'"
+msgstr "Neizdevās atpazīt attēla datnes formātu datnei “%s”"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:972
 msgid "Unrecognized image file format"
-msgstr "Neatpazīts attēla faila formāts"
+msgstr "Neatpazīts attēla datnes formāts"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1140
 #, c-format
 msgid "Failed to load image '%s': %s"
-msgstr "Neizdevās ielādēt attēlu '%s': %s"
+msgstr "Neizdevās ielādēt attēlu “%s” — %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2028 ../gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
-msgstr "Kļūda, rakstot attēla failā: %s"
+msgstr "Kļūda, rakstot attēla datnē — %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2073 ../gdk-pixbuf/gdk-pixbuf-io.c:2203
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
-"Šis gdk-pixbuf būvējums nesatur atbalstu, lai saglabātu attēla formātu: %s"
+"Šis gdk-pixbuf būvējums nesatur atbalstu, lai saglabātu attēla formātu — %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2107
 msgid "Insufficient memory to save image to callback"
@@ -100,24 +102,24 @@ msgstr "Nepietiek atmiņas, lai saglabātu attēlu atzvanam"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2120
 msgid "Failed to open temporary file"
-msgstr "Neizdevās atvērt pagaidu failu"
+msgstr "Neizdevās atvērt pagaidu datni"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2146
 msgid "Failed to read from temporary file"
-msgstr "Neizdevās nolasīt no pagaidu faila"
+msgstr "Neizdevās nolasīt no pagaidu datnes"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2399
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
-msgstr "Neizdevās atvērt '%s' rakstīšanai: %s"
+msgstr "Neizdevās atvērt “%s” rakstīšanai — %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2425
 #, c-format
 msgid ""
-"Failed to close '%s' while writing image, all data may not have been saved: %"
-"s"
+"Failed to close '%s' while writing image, all data may not have been saved: "
+"%s"
 msgstr ""
-"Neizdevās aizvērt '%s', rakstot attēlu, visi dati var nebūt saglabāti: %s"
+"Neizdevās aizvērt “%s”, rakstot attēlu, ne visi dati var būt saglabāti — %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2646 ../gdk-pixbuf/gdk-pixbuf-io.c:2698
 msgid "Insufficient memory to save image into a buffer"
@@ -125,7 +127,7 @@ msgstr "Nepietiek atmiņas, lai attēlu saglabātu buferī"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2744
 msgid "Error writing to image stream"
-msgstr "Kļūda, rakstot attēlā"
+msgstr "Kļūda, rakstot attēla straumē"
 
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:395
 #, c-format
@@ -133,13 +135,13 @@ msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
 "but didn't give a reason for the failure"
 msgstr ""
-"Iekšēja kļūda: Attēlu ielādes modulis '%s' nespēja pabeigt darbību, bet "
+"Iekšēja kļūda — attēlu ielādes modulis “%s” nespēja pabeigt darbību, bet "
 "nepaziņoja kļūdas iemeslu"
 
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:437
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
-msgstr "Pakāpeniskā ielāde attēlu tipam '%s' nav atbalstīta"
+msgstr "Pakāpeniskā ielāde attēlu tipam “%s” nav atbalstīta"
 
 #: ../gdk-pixbuf/gdk-pixdata.c:160
 msgid "Image header corrupt"
@@ -169,7 +171,7 @@ msgstr "Negaidīts ikonas fragments animācijā"
 #: ../gdk-pixbuf/io-ani.c:426 ../gdk-pixbuf/io-ani.c:449
 #: ../gdk-pixbuf/io-ani.c:476 ../gdk-pixbuf/io-ani.c:563
 msgid "Invalid header in animation"
-msgstr "Nepareiza galvene animācijā"
+msgstr "Nederīga galvene animācijā"
 
 #: ../gdk-pixbuf/io-ani.c:352 ../gdk-pixbuf/io-ani.c:374
 #: ../gdk-pixbuf/io-ani.c:458 ../gdk-pixbuf/io-ani.c:485
@@ -180,7 +182,7 @@ msgstr "Nav pietiekami daudz atmiņas, lai ielādētu animāciju"
 #: ../gdk-pixbuf/io-ani.c:392 ../gdk-pixbuf/io-ani.c:418
 #: ../gdk-pixbuf/io-ani.c:437
 msgid "Malformed chunk in animation"
-msgstr "Nederīgs ikonas fragments animācijā"
+msgstr "Slikti formēts fragments animācijā"
 
 #: ../gdk-pixbuf/io-ani.c:705
 msgid "The ANI image format"
@@ -190,7 +192,7 @@ msgstr "ANI attēla formāts"
 #: ../gdk-pixbuf/io-bmp.c:337 ../gdk-pixbuf/io-bmp.c:369
 #: ../gdk-pixbuf/io-bmp.c:392 ../gdk-pixbuf/io-bmp.c:495
 msgid "BMP image has bogus header data"
-msgstr "BMP attēlam ir neīsti galvenes dati"
+msgstr "BMP attēlam ir apšaubāmi galvenes dati"
 
 #: ../gdk-pixbuf/io-bmp.c:240 ../gdk-pixbuf/io-bmp.c:432
 msgid "Not enough memory to load bitmap image"
@@ -198,23 +200,23 @@ msgstr "Nepietiek atmiņas, lai ielādētu bitkartes attēlu"
 
 #: ../gdk-pixbuf/io-bmp.c:318
 msgid "BMP image has unsupported header size"
-msgstr "BMP attēlam ir neatbalstāmi liels galvenes izmērs "
+msgstr "BMP attēlam ir neatbalstāmi liels galvenes izmērs"
 
 #: ../gdk-pixbuf/io-bmp.c:356
 msgid "Topdown BMP images cannot be compressed"
-msgstr "Lejupejošie BMP attēli nevar tikt saspiesti"
+msgstr "Nevar saspiest lejupejošos BMP attēlus"
 
 #: ../gdk-pixbuf/io-bmp.c:716 ../gdk-pixbuf/io-pnm.c:707
 msgid "Premature end-of-file encountered"
-msgstr "Priekšlaicīgas faila beigas (end-of-file)"
+msgstr "Priekšlaicīgas datnes beigas (end-of-file)"
 
 #: ../gdk-pixbuf/io-bmp.c:1328
 msgid "Couldn't allocate memory for saving BMP file"
-msgstr "Neizdevās piešķirt atmiņu, lai saglabātu BMP failu"
+msgstr "Neizdevās piešķirt atmiņu, lai saglabātu BMP datni"
 
 #: ../gdk-pixbuf/io-bmp.c:1369
 msgid "Couldn't write to BMP file"
-msgstr "Neizdevās rakstīt BMP failā"
+msgstr "Neizdevās rakstīt BMP datnē"
 
 #: ../gdk-pixbuf/io-bmp.c:1422 ../gdk-pixbuf/io-gdip-bmp.c:82
 msgid "The BMP image format"
@@ -238,7 +240,7 @@ msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
 "parsed."
 msgstr ""
-"JPEG kvalitātei jābūt apzīmētai ar vērtību no 0 līdz 100; vērtību '%s' "
+"JPEG kvalitātei jābūt apzīmētai ar vērtību no 0 līdz 100. Vērtību “%s” "
 "neizdevās interpretēt."
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1154
@@ -246,7 +248,7 @@ msgstr ""
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr ""
-"JPEG kvalitātei jābūt apzīmētai ar vērtību no 0 līdz 100; vērtība '%d' nav "
+"JPEG kvalitātei jābūt apzīmētai ar vērtību no 0 līdz 100. Vērtība “%d” nav "
 "atļauta."
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1316
@@ -256,23 +258,23 @@ msgstr "JPEG attēla formāts"
 #: ../gdk-pixbuf/io-gdip-utils.c:154
 #, c-format
 msgid "Could not allocate memory: %s"
-msgstr "Neizdevās piešķirt atmiņu: %s"
+msgstr "Neizdevās piešķirt atmiņu — %s"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:179 ../gdk-pixbuf/io-gdip-utils.c:293
 #: ../gdk-pixbuf/io-gdip-utils.c:333
 #, c-format
 msgid "Could not create stream: %s"
-msgstr "Neizdevās izveidot straumi: %s"
+msgstr "Neizdevās izveidot straumi — %s"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:193
 #, c-format
 msgid "Could not seek stream: %s"
-msgstr "Neizdevās meklēt straumē: %s"
+msgstr "Neizdevās meklēt straumē — %s"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:205
 #, c-format
 msgid "Could not read from stream: %s"
-msgstr "Neizdevās nolasīt no straumes: %s"
+msgstr "Neizdevās nolasīt no straumes — %s"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:617 ../gdk-pixbuf/io-gdip-utils.c:752
 msgid "Couldn't load bitmap"
@@ -297,12 +299,12 @@ msgstr "WMF attēla formāts"
 #: ../gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
-msgstr "Kļūda, nolasot GIF: %s"
+msgstr "Kļūda, nolasot GIF — %s"
 
 #: ../gdk-pixbuf/io-gif.c:495 ../gdk-pixbuf/io-gif.c:1482
 #: ../gdk-pixbuf/io-gif.c:1648
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
-msgstr "GIF failam iztrūkst dati (varbūt tas ticis aprauts?)"
+msgstr "GIF datnei iztrūkst dati (varbūt tas ticis aprauts?)"
 
 #: ../gdk-pixbuf/io-gif.c:504
 #, c-format
@@ -323,37 +325,37 @@ msgstr "Sastapts slikts kods"
 
 #: ../gdk-pixbuf/io-gif.c:677
 msgid "Circular table entry in GIF file"
-msgstr "Cirkulārs tabulas ieraksts GIF failā"
+msgstr "Cirkulārs tabulas ieraksts GIF datnē"
 
 #: ../gdk-pixbuf/io-gif.c:865 ../gdk-pixbuf/io-gif.c:1468
 #: ../gdk-pixbuf/io-gif.c:1521 ../gdk-pixbuf/io-gif.c:1636
 msgid "Not enough memory to load GIF file"
-msgstr "Nepietiek atmiņas, lai ielādētu GIF failu"
+msgstr "Nepietiek atmiņas, lai ielādētu GIF datni"
 
 #: ../gdk-pixbuf/io-gif.c:959
 msgid "Not enough memory to composite a frame in GIF file"
-msgstr "Nepietiek atmiņas, lai GIF failā izveidotu rāmi"
+msgstr "Nepietiek atmiņas, lai GIF datnē izveidotu kadru"
 
 #: ../gdk-pixbuf/io-gif.c:1131
 msgid "GIF image is corrupt (incorrect LZW compression)"
-msgstr "GIF fails ir bojāts (nepareiza LZW kompresija)"
+msgstr "GIF datne ir bojāta (nepareiza LZW kompresija)"
 
 #: ../gdk-pixbuf/io-gif.c:1181
 msgid "File does not appear to be a GIF file"
-msgstr "Šķiet, ka fails nav GIF fails"
+msgstr "Šķiet, ka datne nav GIF datne"
 
 #: ../gdk-pixbuf/io-gif.c:1193
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
-msgstr "GIF faila formāta versija %s nav atbalstīta"
+msgstr "GIF datnes formāta versija %s nav atbalstīta"
 
 #: ../gdk-pixbuf/io-gif.c:1302
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
 msgstr ""
-"GIF attēlam nav globālas krāsukartes, un kadram tā iekšpusē nav lokālas "
-"krāsukartes."
+"GIF attēlam nav globālas krāsu kartes, un kadram tā iekšpusē nav lokālas "
+"krāsu kartes."
 
 #: ../gdk-pixbuf/io-gif.c:1543
 msgid "GIF image was truncated or incomplete."
@@ -362,11 +364,11 @@ msgstr "GIF attēls ir ticis aprauts vai ir nepilnīgs."
 #: ../gdk-pixbuf/io-icns.c:347
 #, c-format
 msgid "Error reading ICNS image: %s"
-msgstr "Kļūda, nolasot ICNS attēlu: %s"
+msgstr "Kļūda, nolasot ICNS attēlu — %s"
 
 #: ../gdk-pixbuf/io-icns.c:364
 msgid "Could not decode ICNS file"
-msgstr "Neizdevās atkodēt ICNS failu"
+msgstr "Neizdevās atkodēt ICNS datni"
 
 #: ../gdk-pixbuf/io-icns.c:397
 msgid "The ICNS image format"
@@ -402,7 +404,7 @@ msgstr "Neatbalstīts ikonu tips"
 
 #: ../gdk-pixbuf/io-ico.c:537
 msgid "Not enough memory to load ICO file"
-msgstr "Nepietiek atmiņas, lai ielādētu ICO failu"
+msgstr "Nepietiek atmiņas, lai ielādētu ICO datni"
 
 #: ../gdk-pixbuf/io-ico.c:1002
 msgid "Image too large to be saved as ICO"
@@ -415,7 +417,7 @@ msgstr "Kursora karstvieta ārpus attēla"
 #: ../gdk-pixbuf/io-ico.c:1036
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
-msgstr "Neatbalstīts ICO faila dziļums: %d"
+msgstr "Neatbalstīts ICO datnes dziļums — %d"
 
 #: ../gdk-pixbuf/io-jasper.c:74
 msgid "Couldn't allocate memory for stream"
@@ -439,7 +441,7 @@ msgstr "Neizdevās piešķirt atmiņu krāsu profilam"
 
 #: ../gdk-pixbuf/io-jasper.c:182
 msgid "Insufficient memory to open JPEG 2000 file"
-msgstr "Nepietiek atmiņas JPEG 2000 faila ielādei"
+msgstr "Nepietiek atmiņas JPEG 2000 datnes atvēršanai"
 
 #: ../gdk-pixbuf/io-jasper.c:261
 msgid "Couldn't allocate memory to buffer image data"
@@ -452,7 +454,7 @@ msgstr "JPEG 2000 attēla formāts"
 #: ../gdk-pixbuf/io-jpeg.c:116
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
-msgstr "Kļūda, interpretējot JPEG attēla failu (%s)"
+msgstr "Kļūda, interpretējot JPEG attēla datni (%s)"
 
 #: ../gdk-pixbuf/io-jpeg.c:527
 msgid ""
@@ -470,7 +472,7 @@ msgstr "Neatbalstīta JPEG krāsu telpa (%s)"
 #: ../gdk-pixbuf/io-jpeg.c:680 ../gdk-pixbuf/io-jpeg.c:950
 #: ../gdk-pixbuf/io-jpeg.c:1183 ../gdk-pixbuf/io-jpeg.c:1192
 msgid "Couldn't allocate memory for loading JPEG file"
-msgstr "Neizdevās piešķirt atmiņu, lai ielādētu JPEG failu"
+msgstr "Neizdevās piešķirt atmiņu, lai ielādētu JPEG datni"
 
 #: ../gdk-pixbuf/io-jpeg.c:925
 msgid "Transformed JPEG has zero width or height."
@@ -511,7 +513,7 @@ msgstr "Neizdevās piešķirt atmiņu PCX attēlam"
 
 #: ../gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
-msgstr "Netika iegūtas visas PCX attēla rindas"
+msgstr "Neieguva visas PCX attēla rindas"
 
 #: ../gdk-pixbuf/io-pcx.c:710
 msgid "No palette found at end of PCX data"
@@ -552,11 +554,11 @@ msgstr "Transformētajam PNG ir neatbalstīts kanālu skaits, jābūt 3 vai 4."
 #: ../gdk-pixbuf/io-png.c:182
 #, c-format
 msgid "Fatal error in PNG image file: %s"
-msgstr "Fatāla kļūda PNG attēla failā: %s"
+msgstr "Fatāla kļūda PNG attēla datnē — %s"
 
 #: ../gdk-pixbuf/io-png.c:315
 msgid "Insufficient memory to load PNG file"
-msgstr "Nepietiek atmiņas PNG faila ielādei"
+msgstr "Nepietiek atmiņas PNG datnes ielādei"
 
 #: ../gdk-pixbuf/io-png.c:656
 #, c-format
@@ -569,21 +571,21 @@ msgstr ""
 
 #: ../gdk-pixbuf/io-png.c:719
 msgid "Fatal error reading PNG image file"
-msgstr "Kļūda, nolasot PNG attēla failu"
+msgstr "Kļūda, nolasot PNG attēla datni"
 
 #: ../gdk-pixbuf/io-png.c:768
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
-msgstr "Kļūda, nolasot PNG attēla failu: %s"
+msgstr "Kļūda, nolasot PNG attēla datni — %s"
 
 #: ../gdk-pixbuf/io-png.c:862
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
-msgstr "PNG teksta fragmentu atslēgām jābūt no 1 līdz 79 rakstzīmēm."
+msgstr "PNG teksta fragmentiem jābūt no 1 līdz 79 rakstzīmēm."
 
 #: ../gdk-pixbuf/io-png.c:871
 msgid "Keys for PNG text chunks must be ASCII characters."
-msgstr "PNG teksta fragmentu atslēgām jābūt ASCII rakstzīmēm."
+msgstr "PNG teksta fragmentiem jābūt ASCII rakstzīmēm."
 
 #: ../gdk-pixbuf/io-png.c:885 ../gdk-pixbuf/io-tiff.c:737
 #, c-format
@@ -596,7 +598,7 @@ msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
 "be parsed."
 msgstr ""
-"PNG saspiešanas līmeņa vērtībai jābūt starp 0 un 9; vērtību '%s' neizdevās "
+"PNG saspiešanas līmeņa vērtībai jābūt starp 0 un 9; vērtību “%s” neizdevās "
 "parsēt."
 
 #: ../gdk-pixbuf/io-png.c:911
@@ -605,12 +607,12 @@ msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
 "allowed."
 msgstr ""
-"PNG saspiešanas līmeņa vērtībai jābūt starp 0 un 9; vērtība '%d' nav atļauta."
+"PNG saspiešanas līmeņa vērtībai jābūt starp 0 un 9; vērtība “%d” nav atļauta."
 
 #: ../gdk-pixbuf/io-png.c:959
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
-msgstr "PNG teksta vērtība %s nevar tikt pārvērsta ISO-8859-1 kodējumā."
+msgstr "PNG teksta vērtību %s nevar pārvērst ISO-8859-1 kodējumā."
 
 #: ../gdk-pixbuf/io-png.c:1122
 msgid "The PNG image format"
@@ -622,27 +624,27 @@ msgstr "PNM ielādētājam vajadzēja atrast skaitli, bet neatrada"
 
 #: ../gdk-pixbuf/io-pnm.c:280
 msgid "PNM file has an incorrect initial byte"
-msgstr "PNM failam ir nepareizs pirmais bits"
+msgstr "PNM datnei ir nepareizs pirmais bits"
 
 #: ../gdk-pixbuf/io-pnm.c:310
 msgid "PNM file is not in a recognized PNM subformat"
-msgstr "PNM fails ir neatpazītā PNM apakšformātā"
+msgstr "PNM datne ir neatpazītā PNM apakšformātā"
 
 #: ../gdk-pixbuf/io-pnm.c:335
 msgid "PNM file has an image width of 0"
-msgstr "PNM faila attēla platums ir 0"
+msgstr "PNM datnes attēla platums ir 0"
 
 #: ../gdk-pixbuf/io-pnm.c:356
 msgid "PNM file has an image height of 0"
-msgstr "PNM faila attēla augstums ir 0"
+msgstr "PNM datnes attēla augstums ir 0"
 
 #: ../gdk-pixbuf/io-pnm.c:379
 msgid "Maximum color value in PNM file is 0"
-msgstr "Maksimālā krāsu vērtība PNM failā ir 0"
+msgstr "Maksimālā krāsu vērtība PNM datnē ir 0"
 
 #: ../gdk-pixbuf/io-pnm.c:387
 msgid "Maximum color value in PNM file is too large"
-msgstr "Maksimālā krāsu vērtība PNM failā ir par lielu"
+msgstr "Maksimālā krāsu vērtība PNM datnē ir par lielu"
 
 #: ../gdk-pixbuf/io-pnm.c:427 ../gdk-pixbuf/io-pnm.c:457
 #: ../gdk-pixbuf/io-pnm.c:502
@@ -671,15 +673,15 @@ msgstr "Negaidītas PNM attēla datu beigas"
 
 #: ../gdk-pixbuf/io-pnm.c:995
 msgid "Insufficient memory to load PNM file"
-msgstr "Nepietiek atmiņas PNM faila ielādei"
+msgstr "Nepietiek atmiņas PNM datnes ielādei"
 
 #: ../gdk-pixbuf/io-pnm.c:1079
 msgid "The PNM/PBM/PGM/PPM image format family"
-msgstr "PNM/PBM/PGM/PPM attēla formātu ģimene"
+msgstr "PNM/PBM/PGM/PPM attēla formātu saime"
 
 #: ../gdk-pixbuf/io-qtif.c:128
 msgid "Input file descriptor is NULL."
-msgstr "Ievades faila deskriptors ir NULL."
+msgstr "Ievades datnes deskriptors ir NULL."
 
 #: ../gdk-pixbuf/io-qtif.c:143
 msgid "Failed to read QTIF header"
@@ -705,7 +707,7 @@ msgstr[2] "Neizdevās piešķirt %d baitu lasīšanas buferim"
 #: ../gdk-pixbuf/io-qtif.c:206
 #, c-format
 msgid "File error when reading QTIF atom: %s"
-msgstr "Kļūda, nolasot QTIF atomu: %s"
+msgstr "Kļūda, nolasot QTIF atomu — %s"
 
 #: ../gdk-pixbuf/io-qtif.c:243
 #, c-format
@@ -807,7 +809,7 @@ msgstr "Neizdevās piešķirt atmiņu TGA konteksta struktūrai"
 
 #: ../gdk-pixbuf/io-tga.c:926
 msgid "Excess data in file"
-msgstr "Failā lieki dati"
+msgstr "Datnē ir lieki dati"
 
 #: ../gdk-pixbuf/io-tga.c:1007
 msgid "The Targa image format"
@@ -815,11 +817,11 @@ msgstr "Targa attēla formāts"
 
 #: ../gdk-pixbuf/io-tiff.c:164
 msgid "Could not get image width (bad TIFF file)"
-msgstr "Neizdevās iegūt attēla platumu (slikts TIFF fails)"
+msgstr "Neizdevās iegūt attēla platumu (slikta TIFF datne)"
 
 #: ../gdk-pixbuf/io-tiff.c:171
 msgid "Could not get image height (bad TIFF file)"
-msgstr "Neizdevās iegūt attēla augstumu (slikts TIFF fails)"
+msgstr "Neizdevās iegūt attēla augstumu (slikta TIFF datne)"
 
 #: ../gdk-pixbuf/io-tiff.c:179
 msgid "Width or height of TIFF image is zero"
@@ -832,11 +834,11 @@ msgstr "TIFF attēla dimensijas ir par lielu"
 #: ../gdk-pixbuf/io-tiff.c:221 ../gdk-pixbuf/io-tiff.c:233
 #: ../gdk-pixbuf/io-tiff.c:560
 msgid "Insufficient memory to open TIFF file"
-msgstr "Nepietiek atmiņas TIFF faila ielādei"
+msgstr "Nepietiek atmiņas TIFF datnes ielādei"
 
 #: ../gdk-pixbuf/io-tiff.c:294
 msgid "Failed to load RGB data from TIFF file"
-msgstr "Neizdevās nolasīt RGB datus no TIFF faila"
+msgstr "Neizdevās nolasīt RGB datus no TIFF datnes"
 
 #: ../gdk-pixbuf/io-tiff.c:350
 msgid "Failed to open TIFF image"
@@ -844,7 +846,7 @@ msgstr "Neizdevās atvērt TIFF attēlu"
 
 #: ../gdk-pixbuf/io-tiff.c:362 ../gdk-pixbuf/io-tiff.c:777
 msgid "TIFFClose operation failed"
-msgstr "TIFFClose operācija neizdevās"
+msgstr "Operācija TIFFClose neizdevās"
 
 #: ../gdk-pixbuf/io-tiff.c:492 ../gdk-pixbuf/io-tiff.c:505
 msgid "Failed to load TIFF image"
@@ -864,7 +866,7 @@ msgstr "Neizdevās ierakstīt TIFF datus"
 
 #: ../gdk-pixbuf/io-tiff.c:813
 msgid "Couldn't write to TIFF file"
-msgstr "Neizdevās rakstīt TIFF failā"
+msgstr "Neizdevās rakstīt TIFF datnē"
 
 #: ../gdk-pixbuf/io-tiff.c:868
 msgid "The TIFF image format"
@@ -892,15 +894,15 @@ msgstr "WBMP attēla formāts"
 
 #: ../gdk-pixbuf/io-xbm.c:296
 msgid "Invalid XBM file"
-msgstr "Nepareizs XBM fails"
+msgstr "Nepareiza XBM datne"
 
 #: ../gdk-pixbuf/io-xbm.c:306
 msgid "Insufficient memory to load XBM image file"
-msgstr "Nepietiek atmiņas XBM attēla faila ielādei"
+msgstr "Nepietiek atmiņas XBM attēla datnes ielādei"
 
 #: ../gdk-pixbuf/io-xbm.c:454
 msgid "Failed to write to temporary file when loading XBM image"
-msgstr "Neizdevās ierakstīt pagaidu failu, ielādējot XBM attēlu"
+msgstr "Neizdevās ierakstīt pagaidu datni, ielādējot XBM attēlu"
 
 #: ../gdk-pixbuf/io-xbm.c:493
 msgid "The XBM image format"
@@ -916,11 +918,11 @@ msgstr "Nederīga XPM galvene"
 
 #: ../gdk-pixbuf/io-xpm.c:486
 msgid "XPM file has image width <= 0"
-msgstr "XPM failam ir attēla platums <= 0"
+msgstr "XPM datnei ir attēla platums <= 0"
 
 #: ../gdk-pixbuf/io-xpm.c:494
 msgid "XPM file has image height <= 0"
-msgstr "XPM failam ir attēla augstums <= 0"
+msgstr "XPM datnei ir attēla augstums <= 0"
 
 #: ../gdk-pixbuf/io-xpm.c:502
 msgid "XPM has invalid number of chars per pixel"
@@ -928,7 +930,7 @@ msgstr "XPM ir nederīgs rakstzīmju skaits uz pikseli"
 
 #: ../gdk-pixbuf/io-xpm.c:511
 msgid "XPM file has invalid number of colors"
-msgstr "XPM failam ir nederīgs krāsu skaits"
+msgstr "XPM datnei ir nederīgs krāsu skaits"
 
 #: ../gdk-pixbuf/io-xpm.c:523 ../gdk-pixbuf/io-xpm.c:532
 #: ../gdk-pixbuf/io-xpm.c:584
@@ -941,7 +943,7 @@ msgstr "Nevar nolasīt XPM krāsu karti"
 
 #: ../gdk-pixbuf/io-xpm.c:778
 msgid "Failed to write to temporary file when loading XPM image"
-msgstr "Neizdevās ierakstīt pagaidu failu, ielādējot XPM attēlu"
+msgstr "Neizdevās ierakstīt pagaidu datni, ielādējot XPM attēlu"
 
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
