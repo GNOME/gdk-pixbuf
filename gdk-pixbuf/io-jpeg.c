@@ -34,6 +34,8 @@
 #include <setjmp.h>
 #include <jpeglib.h>
 #include <jerror.h>
+#include <math.h>
+
 #include "gdk-pixbuf-private.h"
 
 #ifndef HAVE_SIGSETJMP
@@ -80,6 +82,14 @@ typedef struct {
 	struct jpeg_decompress_struct cinfo;
 	struct error_handler_data     jerr;
 } JpegProgContext;
+
+/* EXIF context */
+typedef struct {
+	gint			 orientation;
+	gchar			*icc_profile;
+	gsize			 icc_profile_size;
+	gsize			 icc_profile_size_allocated;
+} JpegExifContext;
 
 static GdkPixbuf *gdk_pixbuf__jpeg_image_load (FILE *f, GError **error);
 static gpointer gdk_pixbuf__jpeg_image_begin_load (GdkPixbufModuleSizeFunc           func0,
@@ -276,20 +286,11 @@ colorspace_name (const J_COLOR_SPACE jpeg_color_space)
 	}
 }
 
-
-const char leth[]  = {0x49, 0x49, 0x2a, 0x00};	// Little endian TIFF header
-const char beth[]  = {0x4d, 0x4d, 0x00, 0x2a};	// Big endian TIFF header
-const char types[] = {0x00, 0x01, 0x01, 0x02, 0x04, 0x08, 0x00, 
-		      0x08, 0x00, 0x04, 0x08}; 	// size in bytes for EXIF types
- 
 #define DE_ENDIAN16(val) endian == G_BIG_ENDIAN ? GUINT16_FROM_BE(val) : GUINT16_FROM_LE(val)
 #define DE_ENDIAN32(val) endian == G_BIG_ENDIAN ? GUINT32_FROM_BE(val) : GUINT32_FROM_LE(val)
- 
+
 #define ENDIAN16_IT(val) endian == G_BIG_ENDIAN ? GUINT16_TO_BE(val) : GUINT16_TO_LE(val)
 #define ENDIAN32_IT(val) endian == G_BIG_ENDIAN ? GUINT32_TO_BE(val) : GUINT32_TO_LE(val)
- 
-#define EXIF_JPEG_MARKER   JPEG_APP0+1
-#define EXIF_IDENT_STRING  "Exif\000\000"
 
 static unsigned short de_get16(void *ptr, guint endian)
 {
@@ -311,145 +312,219 @@ static unsigned int de_get32(void *ptr, guint endian)
        return val;
 }
 
-static gint 
-get_orientation (j_decompress_ptr cinfo)
+/* application specific data segment */
+static gboolean
+jpeg_parse_exif_app2_segment (JpegExifContext *context, jpeg_saved_marker_ptr marker)
 {
-	/* This function looks through the meta data in the libjpeg decompress structure to
-	   determine if an EXIF Orientation tag is present and if so return its value (1-8). 
-	   If no EXIF Orientation tag is found 0 (zero) is returned. */
+	guint ret = FALSE;
+	guint sequence_number;
+	guint number_of_chunks;
+	guint chunk_size;
+	guint offset;
 
- 	guint   i;              /* index into working buffer */
- 	guint   orient_tag_id;  /* endianed version of orientation tag ID */
-	guint   ret;            /* Return value */
- 	guint   offset;        	/* de-endianed offset in various situations */
- 	guint   tags;           /* number of tags in current ifd */
- 	guint   type;           /* de-endianed type of tag used as index into types[] */
- 	guint   count;          /* de-endianed count of elements in a tag */
-        guint   tiff = 0;   	/* offset to active tiff header */
-        guint   endian = 0;   	/* detected endian of data */
+	/* do we have enough data? */
+	if (marker->data_length < 16)
+		goto out;
 
-	jpeg_saved_marker_ptr exif_marker;  /* Location of the Exif APP1 marker */
-	jpeg_saved_marker_ptr cmarker;	    /* Location to check for Exif APP1 marker */
+	/* unique identification string */
+	if (memcmp (marker->data, "ICC_PROFILE\0", 12) != 0)
+		goto out;
 
-	/* check for Exif marker (also called the APP1 marker) */
-	exif_marker = NULL;
-	cmarker = cinfo->marker_list;
-	while (cmarker) {
-		if (cmarker->marker == EXIF_JPEG_MARKER) {
-			/* The Exif APP1 marker should contain a unique
-			   identification string ("Exif\0\0"). Check for it. */
-			if (!memcmp (cmarker->data, EXIF_IDENT_STRING, 6)) {
-				exif_marker = cmarker;
-				}
-			}
-		cmarker = cmarker->next;
+	/* get data about this segment */
+	sequence_number = marker->data[12];
+	number_of_chunks = marker->data[13];
+
+	/* this is invalid, the base offset is 1 */
+	if (sequence_number == 0)
+		goto out;
+
+	/* this is invalid, the base offset is 1 */
+	if (sequence_number > number_of_chunks)
+		goto out;
+
+	/* size includes the id (12 bytes), length field (1 byte), and sequence field (1 byte) */
+	chunk_size = marker->data_length - 14;
+	offset = (sequence_number - 1) * 0xffef;
+
+	/* Deal with the trivial profile (99% of images) to avoid allocating
+	 * 64kb when we might only use a few kb. */
+	if (number_of_chunks == 1) {
+		if (context->icc_profile_size_allocated > 0)
+			goto out;
+		context->icc_profile_size = chunk_size;
+		context->icc_profile_size_allocated = chunk_size;
+		context->icc_profile = g_new (gchar, chunk_size);
+		/* copy the segment data to the profile space */
+		memcpy (context->icc_profile, marker->data + 14, chunk_size);
+		goto out;
 	}
-	  
-	/* Did we find the Exif APP1 marker? */
-	if (exif_marker == NULL)
-		return 0;
 
-	/* Do we have enough data? */
-	if (exif_marker->data_length < 32)
-		return 0;
+	/* There is no promise the APP2 segments are going to be in order, so we
+	 * have to allocate a huge swathe of memory and fill in the gaps when
+	 * (if) we get the segment.
+	 * Theoretically this could be as much as 16Mb, but display profiles are
+	 * vary rarely above 100kb, and printer profiles are usually less than
+	 * 2Mb */
+	if (context->icc_profile_size_allocated == 0) {
+		context->icc_profile_size_allocated = number_of_chunks * 0xffff;
+		context->icc_profile = g_new0 (gchar, number_of_chunks * 0xffff);
+	}
 
-        /* Check for TIFF header and catch endianess */
- 	i = 0;
+	/* check the data will fit in our previously allocated buffer */
+	if (offset + chunk_size > context->icc_profile_size_allocated)
+		goto out;
+
+	/* copy the segment data to the profile space */
+	memcpy (context->icc_profile + offset, marker->data + 14, chunk_size);
+
+	/* it's now this big plus the new data we've just copied */
+	context->icc_profile_size += chunk_size;
+
+	/* success */
+	ret = TRUE;
+out:
+	return ret;
+}
+
+static gboolean
+jpeg_parse_exif_app1 (JpegExifContext *context, jpeg_saved_marker_ptr marker)
+{
+	guint i;
+	guint ret = FALSE;
+	guint offset;
+	guint tags;	   /* number of tags in current ifd */
+	guint tag;
+	guint type;
+	guint count;
+	guint endian = 0;	/* detected endian of data */
+	const char leth[]  = {0x49, 0x49, 0x2a, 0x00};	// Little endian TIFF header
+	const char beth[]  = {0x4d, 0x4d, 0x00, 0x2a};	// Big endian TIFF header
+
+	/* do we have enough data? */
+	if (marker->data_length < 4)
+		goto out;
+
+	/* unique identification string */
+	if (memcmp (marker->data, "Exif", 4) != 0)
+		goto out;
+
+	/* do we have enough data? */
+	if (marker->data_length < 32)
+		goto out;
 
 	/* Just skip data until TIFF header - it should be within 16 bytes from marker start.
 	   Normal structure relative to APP1 marker -
 		0x0000: APP1 marker entry = 2 bytes
-	   	0x0002: APP1 length entry = 2 bytes
+		0x0002: APP1 length entry = 2 bytes
 		0x0004: Exif Identifier entry = 6 bytes
-		0x000A: Start of TIFF header (Byte order entry) - 4 bytes  
-		    	- This is what we look for, to determine endianess.
+		0x000A: Start of TIFF header (Byte order entry) - 4 bytes
+			- This is what we look for, to determine endianess.
 		0x000E: 0th IFD offset pointer - 4 bytes
 
-		exif_marker->data points to the first data after the APP1 marker
+		marker->data points to the first data after the APP1 marker
 		and length entries, which is the exif identification string.
 		The TIFF header should thus normally be found at i=6, below,
 		and the pointer to IFD0 will be at 6+4 = 10.
- 	*/
-		    
- 	while (i < 16) {
- 
- 		/* Little endian TIFF header */
- 		if (memcmp (&exif_marker->data[i], leth, 4) == 0){ 
- 			endian = G_LITTLE_ENDIAN;
-                }
- 
- 		/* Big endian TIFF header */
- 		else if (memcmp (&exif_marker->data[i], beth, 4) == 0){ 
- 			endian = G_BIG_ENDIAN;
-                }
- 
- 		/* Keep looking through buffer */
- 		else {
- 			i++;
- 			continue;
- 		}
- 		/* We have found either big or little endian TIFF header */
- 		tiff = i;
- 		break;
-        }
+	*/
 
- 	/* So did we find a TIFF header or did we just hit end of buffer? */
- 	if (tiff == 0) 
-		return 0;
- 
-        /* Endian the orientation tag ID, to locate it more easily */
-        orient_tag_id = ENDIAN16_IT(0x112);
- 
-        /* Read out the offset pointer to IFD0 */
-        offset  = de_get32(&exif_marker->data[i] + 4, endian);
- 	i       = i + offset;
+	for (i=0; i<16; i++) {
+		/* little endian TIFF header */
+		if (memcmp (&marker->data[i], leth, 4) == 0) {
+			endian = G_LITTLE_ENDIAN;
+			ret = TRUE;
+			break;
+		}
 
-	/* Check that we still are within the buffer and can read the tag count */
-	if ((i + 2) > exif_marker->data_length)
-		return 0;
+		/* big endian TIFF header */
+		if (memcmp (&marker->data[i], beth, 4) == 0) {
+			endian = G_BIG_ENDIAN;
+			ret = TRUE;
+			break;
+		}
+	}
 
-	/* Find out how many tags we have in IFD0. As per the TIFF spec, the first
+	/* could not find header */
+	if (!ret)
+		goto out;
+
+	/* read out the offset pointer to IFD0 */
+	offset  = de_get32(&marker->data[i] + 4, endian);
+	i = i + offset;
+
+	/* check that we still are within the buffer and can read the tag count */
+	if ((i + 2) > marker->data_length) {
+		ret = FALSE;
+		goto out;
+	}
+
+	/* find out how many tags we have in IFD0. As per the TIFF spec, the first
 	   two bytes of the IFD contain a count of the number of tags. */
-	tags    = de_get16(&exif_marker->data[i], endian);
-	i       = i + 2;
+	tags = de_get16(&marker->data[i], endian);
+	i = i + 2;
 
-	/* Check that we still have enough data for all tags to check. The tags
+	/* check that we still have enough data for all tags to check. The tags
 	   are listed in consecutive 12-byte blocks. The tag ID, type, size, and
 	   a pointer to the actual value, are packed into these 12 byte entries. */
-	if ((i + tags * 12) > exif_marker->data_length)
-		return 0;
+	if ((i + tags * 12) > marker->data_length) {
+		ret = FALSE;
+		goto out;
+	}
 
-	/* Check through IFD0 for tags of interest */
+	/* check through IFD0 for tags */
 	while (tags--){
-		type   = de_get16(&exif_marker->data[i + 2], endian);
-		count  = de_get32(&exif_marker->data[i + 4], endian);
+		tag    = de_get16(&marker->data[i + 0], endian);
+		type   = de_get16(&marker->data[i + 2], endian);
+		count  = de_get32(&marker->data[i + 4], endian);
+		offset = de_get32(&marker->data[i + 8], endian);
 
-		/* Is this the orientation tag? */
-		if (memcmp (&exif_marker->data[i], (char *) &orient_tag_id, 2) == 0){ 
- 
-			/* Check that type and count fields are OK. The orientation field 
-			   will consist of a single (count=1) 2-byte integer (type=3). */
-			if (type != 3 || count != 1) return 0;
+		/* orientation tag? */
+		if (tag == 0x112){
 
-			/* Return the orientation value. Within the 12-byte block, the
-			   pointer to the actual data is at offset 8. */
-			ret =  de_get16(&exif_marker->data[i + 8], endian);
-			return ret <= 8 ? ret : 0;
+			/* The orientation field should consist of a single 2-byte integer */
+			if (type != 0x3 || count != 1)
+				continue;
+
+			/* get the orientation value */
+			context->orientation = offset <= 8 ? offset : 0;
 		}
 		/* move the pointer to the next 12-byte tag field. */
 		i = i + 12;
 	}
 
-	return 0; /* No EXIF Orientation tag found */
+out:
+	return ret;
 }
 
+static void
+jpeg_parse_exif (JpegExifContext *context, j_decompress_ptr cinfo)
+{
+	jpeg_saved_marker_ptr cmarker;
+
+	/* check for interesting Exif markers */
+	cmarker = cinfo->marker_list;
+	while (cmarker != NULL) {
+		if (cmarker->marker == JPEG_APP0+1)
+			jpeg_parse_exif_app1 (context, cmarker);
+		else if (cmarker->marker == JPEG_APP0+2)
+			jpeg_parse_exif_app2_segment (context, cmarker);
+		cmarker = cmarker->next;
+	}
+}
+
+static void
+jpeg_destroy_exif_context (JpegExifContext *context)
+{
+	if (context == NULL)
+		return;
+	g_free (context->icc_profile);
+	g_free (context);
+}
 
 /* Shared library entry point */
 static GdkPixbuf *
 gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 {
 	gint   i;
-	int     is_otag;
 	char   otag_str[5];
 	GdkPixbuf * volatile pixbuf = NULL;
 	guchar *dptr;
@@ -462,6 +537,8 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 	struct jpeg_decompress_struct cinfo;
 	struct error_handler_data jerr;
 	stdio_src_ptr src;
+	gchar *icc_profile_base64;
+	JpegExifContext *exif_context;
 
 	/* setup error handler */
 	cinfo.err = jpeg_std_error (&jerr.pub);
@@ -500,11 +577,13 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 	src->pub.bytes_in_buffer = 0; /* forces fill_input_buffer on first read */
 	src->pub.next_input_byte = NULL; /* until buffer loaded */
 
-	jpeg_save_markers (&cinfo, EXIF_JPEG_MARKER, 0xffff);
+	jpeg_save_markers (&cinfo, JPEG_APP0+1, 0xffff);
+	jpeg_save_markers (&cinfo, JPEG_APP0+2, 0xffff);
 	jpeg_read_header (&cinfo, TRUE);
 
-	/* check for orientation tag */
-	is_otag = get_orientation (&cinfo);
+	/* parse exif data */
+	exif_context = g_new0 (JpegExifContext, 1);
+	jpeg_parse_exif (exif_context, &cinfo);
 	
 	jpeg_start_decompress (&cinfo);
 	cinfo.do_fancy_upsampling = FALSE;
@@ -530,12 +609,18 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 		return NULL;
 	}
 
-	/* if orientation tag was found set an option to remember its value */
-	if (is_otag) {
-		g_snprintf (otag_str, sizeof (otag_str), "%d", is_otag);
+	/* if orientation tag was found */
+	if (exif_context->orientation != 0) {
+		g_snprintf (otag_str, sizeof (otag_str), "%d", exif_context->orientation);
 		gdk_pixbuf_set_option (pixbuf, "orientation", otag_str);
 	}
 
+	/* if icc profile was found */
+	if (exif_context->icc_profile != NULL) {
+		icc_profile_base64 = g_base64_encode ((const guchar *) exif_context->icc_profile, exif_context->icc_profile_size);
+		gdk_pixbuf_set_option (pixbuf, "icc-profile", icc_profile_base64);
+		g_free (icc_profile_base64);
+	}
 
 	dptr = pixbuf->pixels;
 
@@ -576,6 +661,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 
 	jpeg_finish_decompress (&cinfo);
 	jpeg_destroy_decompress (&cinfo);
+	jpeg_destroy_exif_context (exif_context);
 
 	return pixbuf;
 }
@@ -822,8 +908,9 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 	gboolean         first;
 	const guchar    *bufhd;
 	gint             width, height;
-        int              is_otag;
 	char             otag_str[5];
+	JpegExifContext *exif_context = NULL;
+	gboolean	 retval;
 
 	g_return_val_if_fail (context != NULL, FALSE);
 	g_return_val_if_fail (buf != NULL, FALSE);
@@ -836,7 +923,8 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
         
 	/* check for fatal error */
 	if (sigsetjmp (context->jerr.setjmp_buffer, 1)) {
-		return FALSE;
+		retval = FALSE;
+		goto out;
 	}
 
 	/* skip over data if requested, handle unsigned int sizes cleanly */
@@ -844,7 +932,8 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 	if (context->src_initialized && src->skip_next) {
 		if (src->skip_next > size) {
 			src->skip_next -= size;
-			return TRUE;
+			retval = TRUE;
+			goto out;
 		} else {
 			num_left = size - src->skip_next;
 			bufhd = buf + src->skip_next;
@@ -855,8 +944,12 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 		bufhd = buf;
 	}
 
-	if (num_left == 0)
-		return TRUE;
+	if (num_left == 0) {
+		retval = TRUE;
+		goto out;
+	}
+	/* collect exif data */
+	exif_context = g_new0 (JpegExifContext, 1);
 
 	last_num_left = num_left;
 	last_bytes_left = 0;
@@ -895,14 +988,16 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 		}
 
 		/* should not go through twice and not pull bytes out of buf */
-		if (spinguard > 2)
-			return TRUE;
+		if (spinguard > 2) {
+			retval = TRUE;
+			goto out;
+		}
 
 		/* try to load jpeg header */
 		if (!context->got_header) {
 			int rc;
 		
-			jpeg_save_markers (cinfo, EXIF_JPEG_MARKER, 0xffff);
+			jpeg_save_markers (cinfo, JPEG_APP0+1, 0xffff);
 			rc = jpeg_read_header (cinfo, TRUE);
 			context->src_initialized = TRUE;
 			
@@ -911,8 +1006,8 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 			
 			context->got_header = TRUE;
 
-			/* check for orientation tag */
-			is_otag = get_orientation (cinfo);
+			/* parse exif data */
+			jpeg_parse_exif (exif_context, cinfo);
 		
 			width = cinfo->image_width;
 			height = cinfo->image_height;
@@ -923,7 +1018,8 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
                                                              GDK_PIXBUF_ERROR,
                                                              GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
                                                              _("Transformed JPEG has zero width or height."));
-					return FALSE;
+					retval = FALSE;
+					goto out;
 				}
 			}
 			
@@ -948,12 +1044,13 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
                                                      GDK_PIXBUF_ERROR,
                                                      GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
                                                      _("Couldn't allocate memory for loading JPEG file"));
-                                return FALSE;
+                                retval = FALSE;
+				goto out;
 			}
 		
 		        /* if orientation tag was found set an option to remember its value */
-		        if (is_otag) {
-                		g_snprintf (otag_str, sizeof (otag_str), "%d", is_otag);
+			if (exif_context->orientation != 0) {
+				g_snprintf (otag_str, sizeof (otag_str), "%d", exif_context->orientation);
 		                gdk_pixbuf_set_option (context->pixbuf, "orientation", otag_str);
 		        }
 
@@ -984,11 +1081,15 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
                          * simply get scanline by scanline from jpeg lib
                          */
                         if (! gdk_pixbuf__jpeg_image_load_lines (context,
-                                                                 error))
-                                return FALSE;
+                                                                 error)) {
+                                retval = FALSE;
+				goto out;
+			}
 
-			if (cinfo->output_scanline >= cinfo->output_height)
-				return TRUE;
+			if (cinfo->output_scanline >= cinfo->output_height) {
+				retval = TRUE;
+				goto out;
+			}
 		} else {
                         /* we're decompressing buffered (progressive)
                          * so feed jpeg lib scanlines
@@ -1007,8 +1108,10 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 
                                 /* get scanlines from jpeg lib */
                                 if (! gdk_pixbuf__jpeg_image_load_lines (context,
-                                                                         error))
-                                        return FALSE;
+                                                                         error)) {
+                                        retval = FALSE;
+					goto out;
+				}
 
 				if (cinfo->output_scanline >= cinfo->output_height &&
 				    jpeg_finish_output (cinfo))
@@ -1016,13 +1119,18 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 				else
 					break;
 			}
-			if (jpeg_input_complete (cinfo))
+			if (jpeg_input_complete (cinfo)) {
 				/* did entire image */
-				return TRUE;
+				retval = TRUE;
+				goto out;
+			}
 			else
 				continue;
 		}
 	}
+out:
+	jpeg_destroy_exif_context (exif_context);
+	return retval;
 }
 
 /* Save */
@@ -1120,6 +1228,10 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
        int n_channels;
        struct error_handler_data jerr;
        ToFunctionDestinationManager to_callback_destmgr;
+       gchar *icc_profile = NULL;
+       gchar *data;
+       gint retval = TRUE;
+       gsize icc_profile_size = 0;
 
        to_callback_destmgr.buffer = NULL;
 
@@ -1139,7 +1251,8 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                                                     _("JPEG quality must be a value between 0 and 100; value '%s' could not be parsed."),
                                                     *viter);
 
-                                       return FALSE;
+                                       retval = FALSE;
+                                       goto cleanup;
                                }
                                
                                if (quality < 0 ||
@@ -1154,7 +1267,21 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                                                     _("JPEG quality must be a value between 0 and 100; value '%d' is not allowed."),
                                                     quality);
 
-                                       return FALSE;
+                                       retval = FALSE;
+                                       goto cleanup;
+                               }
+                       } else if (strcmp (*kiter, "icc-profile") == 0) {
+                               /* decode from base64 */
+                               icc_profile = (gchar*) g_base64_decode (*viter, &icc_profile_size);
+                               if (icc_profile_size < 127) {
+                                       /* This is a user-visible error */
+                                       g_set_error (error,
+                                                    GDK_PIXBUF_ERROR,
+                                                    GDK_PIXBUF_ERROR_BAD_OPTION,
+                                                    _("Color profile has invalid length '%d'."),
+                                                    icc_profile_size);
+                                       retval = FALSE;
+                                       goto cleanup;
                                }
                        } else {
                                g_warning ("Unrecognized parameter (%s) passed to JPEG saver.", *kiter);
@@ -1181,7 +1308,8 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                                     GDK_PIXBUF_ERROR,
                                     GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
                                     _("Couldn't allocate memory for loading JPEG file"));
-	       return FALSE;
+	       retval = FALSE;
+	       goto cleanup;
        }
        if (to_callback) {
 	       to_callback_destmgr.buffer = g_try_malloc (TO_FUNCTION_BUF_SIZE);
@@ -1190,8 +1318,8 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                                             GDK_PIXBUF_ERROR,
                                             GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
                                             _("Couldn't allocate memory for loading JPEG file"));
-                       g_free (buf);
-		       return FALSE;
+		       retval = FALSE;
+		       goto cleanup;
 	       }
        }
 
@@ -1203,9 +1331,8 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
        
        if (sigsetjmp (jerr.setjmp_buffer, 1)) {
                jpeg_destroy_compress (&cinfo);
-               g_free (buf);
-	       g_free (to_callback_destmgr.buffer);
-               return FALSE;
+	       retval = FALSE;
+	       goto cleanup;
        }
 
        /* setup compress params */
@@ -1229,7 +1356,42 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
        /* set up jepg compression parameters */
        jpeg_set_defaults (&cinfo);
        jpeg_set_quality (&cinfo, quality, TRUE);
+
        jpeg_start_compress (&cinfo, TRUE);
+
+	/* write ICC profile data */
+	if (icc_profile != NULL) {
+		/* optimise for the common case where only one APP2 segment is required */
+		if (icc_profile_size < 0xffef) {
+			data = g_new (gchar, icc_profile_size + 14);
+			memcpy (data, "ICC_PROFILE\000\001\001", 14);
+			memcpy (data + 14, icc_profile, icc_profile_size);
+			jpeg_write_marker (&cinfo, JPEG_APP0+2, (const JOCTET *) data, icc_profile_size + 14);
+			g_free (data);
+		} else {
+			guint segments;
+			guint size = 0xffef;
+			guint offset;
+
+			segments = (guint) ceilf ((gfloat) icc_profile_size / (gfloat) 0xffef);
+			data = g_new (gchar, 0xffff);
+			memcpy (data, "ICC_PROFILE\000", 12);
+			data[13] = segments;
+			for (i=0; i<=segments; i++) {
+				data[12] = i;
+				offset = 0xffef * i;
+
+				/* last segment */
+				if (i == segments)
+					size = icc_profile_size % 0xffef;
+
+				memcpy (data + 14, icc_profile + offset, size);
+				jpeg_write_marker (&cinfo, JPEG_APP0+2, (const JOCTET *) data, size + 14);
+			}
+			g_free (data);
+		}
+	}
+
        /* get the start pointer */
        ptr = pixels;
        /* go one scanline at a time... and save */
@@ -1246,13 +1408,15 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                y++;
 
        }
-       
+
        /* finish off */
        jpeg_finish_compress (&cinfo);
        jpeg_destroy_compress(&cinfo);
-       g_free (buf);
-       g_free (to_callback_destmgr.buffer);
-       return TRUE;
+cleanup:
+	g_free (buf);
+	g_free (to_callback_destmgr.buffer);
+	g_free (icc_profile);
+	return retval;
 }
 
 static gboolean
