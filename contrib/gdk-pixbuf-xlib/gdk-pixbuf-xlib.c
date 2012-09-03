@@ -24,8 +24,8 @@
 
 /**
  * SECTION:gdk-pixbuf-xlib-init
- * @Short_description: Initializing the &gdk-pixbuf; Xlib library.
- * @Title: &gdk-pixbuf; Xlib initialization
+ * @Short_description: Initializing the gdk-pixbuf Xlib library.
+ * @Title: gdk-pixbuf Xlib initialization
  * @See_also:    XlibRGB
  * 
  * In addition to the normal Gdk-specific functions, the &gdk-pixbuf;

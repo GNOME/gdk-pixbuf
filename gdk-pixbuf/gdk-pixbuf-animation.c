@@ -548,8 +548,8 @@ gdk_pixbuf_animation_iter_on_currently_loading_frame (GdkPixbufAnimationIter *it
  *
  * If this function returns %FALSE, there's no need to update the animation
  * display, assuming the display had been rendered prior to advancing;
- * if %TRUE, you need to call gdk_animation_iter_get_pixbuf() and update the
- * display with the new pixbuf.
+ * if %TRUE, you need to call gdk_pixbuf_animation_iter_get_pixbuf()
+ * and update the display with the new pixbuf.
  *
  * Returns: %TRUE if the image may need updating
  * 

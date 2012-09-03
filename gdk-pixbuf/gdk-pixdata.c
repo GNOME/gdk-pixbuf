@@ -191,7 +191,7 @@ get_uint32 (const guint8 *stream, guint *result)
  * #GdkPixdata fields in network byte order, plus the @pixel_data
  * bytes the structure points to.
  * The @pixdata contents are reconstructed byte by byte and are checked
- * for validity. This function may fail with %GDK_PIXBUF_CORRUPT_IMAGE
+ * for validity. This function may fail with %GDK_PIXBUF_ERROR_CORRUPT_IMAGE
  * or %GDK_PIXBUF_ERROR_UNKNOWN_TYPE.
  *
  * Return value: Upon successful deserialization %TRUE is returned,

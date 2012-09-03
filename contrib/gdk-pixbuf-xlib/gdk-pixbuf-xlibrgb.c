@@ -474,7 +474,7 @@ xlib_rgb_colorcube_222 (void)
 
 /**
  * xlib_rgb_set_verbose:
- * @verbose: %True to be verbose
+ * @verbose: True to be verbose
  * 
  * Enables/disables debug spew.
  **/
@@ -486,7 +486,7 @@ xlib_rgb_set_verbose (Bool verbose)
 
 /**
  * xlib_rgb_set_install:
- * @install: %True to install a colormap
+ * @install: True to install a colormap
  * 
  * Sets whether we install an RGB colormap.
  **/

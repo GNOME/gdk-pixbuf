@@ -764,7 +764,7 @@ gdk_pixbuf_get_option (GdkPixbuf   *pixbuf,
  * @key: a nul-terminated string.
  * @value: a nul-terminated string.
  * 
- * Attaches a key/value pair as an option to a #GdkPixbuf. If %key already
+ * Attaches a key/value pair as an option to a #GdkPixbuf. If @key already
  * exists in the list of options attached to @pixbuf, the new value is 
  * ignored and %FALSE is returned.
  *

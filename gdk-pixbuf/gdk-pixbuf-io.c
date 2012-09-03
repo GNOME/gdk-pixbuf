@@ -1513,7 +1513,7 @@ load_from_stream (GdkPixbufLoader  *loader,
  * The file format is detected automatically. If %NULL is returned, then 
  * @error will be set. The @cancellable can be used to abort the operation
  * from another thread. If the operation was cancelled, the error 
- * %GIO_ERROR_CANCELLED will be returned. Other possible errors are in 
+ * %G_IO_ERROR_CANCELLED will be returned. Other possible errors are in 
  * the #GDK_PIXBUF_ERROR and %G_IO_ERROR domains. 
  *
  * The image will be scaled to fit in the requested size, optionally 
@@ -1643,7 +1643,7 @@ gdk_pixbuf_new_from_stream_at_scale_async (GInputStream        *stream,
  * The file format is detected automatically. If %NULL is returned, then 
  * @error will be set. The @cancellable can be used to abort the operation
  * from another thread. If the operation was cancelled, the error 
- * %GIO_ERROR_CANCELLED will be returned. Other possible errors are in 
+ * %G_IO_ERROR_CANCELLED will be returned. Other possible errors are in 
  * the #GDK_PIXBUF_ERROR and %G_IO_ERROR domains. 
  *
  * The stream is not closed.
@@ -2773,7 +2773,7 @@ save_to_stream (const gchar  *buffer,
  * "bmp". See gdk_pixbuf_save_to_buffer() for more details.
  *
  * The @cancellable can be used to abort the operation from another 
- * thread. If the operation was cancelled, the error %GIO_ERROR_CANCELLED 
+ * thread. If the operation was cancelled, the error %G_IO_ERROR_CANCELLED 
  * will be returned. Other possible errors are in the #GDK_PIXBUF_ERROR 
  * and %G_IO_ERROR domains. 
  *
