@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-03 00:33+0200\n"
-"PO-Revision-Date: 2012-09-03 00:34+0200\n"
+"POT-Creation-Date: 2012-09-03 17:46+0200\n"
+"PO-Revision-Date: 2012-09-03 17:48+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -580,10 +580,10 @@ msgstr "Brak pamięci na wczytanie pliku PNG"
 #: ../gdk-pixbuf/io-png.c:656
 #, c-format
 msgid ""
-"Insufficient memory to store a %ld by %ld image; try exiting some "
+"Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
-"Brak pamięci na przechowanie obrazu o wymiarach %ld na %ld punktów. Proszę "
+"Brak pamięci na przechowanie obrazu o wymiarach %lu na %lu punktów. Proszę "
 "spróbować zakończyć pracę niektórych programów, aby zmniejszyć "
 "zapotrzebowanie na pamięć"
 
@@ -596,21 +596,21 @@ msgstr "Krytyczny błąd podczas odczytywania pliku obrazu PNG"
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Krytyczny błąd podczas odczytywania pliku obrazu PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:862
+#: ../gdk-pixbuf/io-png.c:858
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr "Klucze elementów tekstowych PNG muszą mieć długość od 1 do 79 znaków."
 
-#: ../gdk-pixbuf/io-png.c:871
+#: ../gdk-pixbuf/io-png.c:867
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Klucze elementów tekstowych PNG muszą być znakami ASCII."
 
-#: ../gdk-pixbuf/io-png.c:885 ../gdk-pixbuf/io-tiff.c:737
+#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:737
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Profil kolorów posiada nieprawidłową długość %d."
 
-#: ../gdk-pixbuf/io-png.c:898
+#: ../gdk-pixbuf/io-png.c:894
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -619,7 +619,7 @@ msgstr ""
 "Poziom kompresji obrazu PNG musi być wartością od 0 do 9. Wartość \"%s\" nie "
 "może zostać przetworzona."
 
-#: ../gdk-pixbuf/io-png.c:911
+#: ../gdk-pixbuf/io-png.c:907
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -628,14 +628,14 @@ msgstr ""
 "Poziom kompresji obrazu PNG musi być wartością od 0 do 9. Wartość \"%d\" nie "
 "jest dopuszczalna."
 
-#: ../gdk-pixbuf/io-png.c:959
+#: ../gdk-pixbuf/io-png.c:955
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Wartość elementu tekstowego PNG %s nie może być przekształcona na kodowanie "
 "ISO-8859-1."
 
-#: ../gdk-pixbuf/io-png.c:1122
+#: ../gdk-pixbuf/io-png.c:1118
 msgid "The PNG image format"
 msgstr "Format obrazu PNG"
 
