@@ -11,30 +11,30 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2012-07-30 11:25+0000\n"
-"PO-Revision-Date: 2012-08-21 14:26+0700\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
-"Language-Team: Indonesian <gnome@i15n.org>\n"
+"POT-Creation-Date: 2012-09-03 17:59+0000\n"
+"PO-Revision-Date: 2012-09-04 17:55+0700\n"
+"Last-Translator: Dirgita <dirgitadevina@yahoo.co.id>\n"
+"Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 1.1\n"
+"X-Generator: Lokalize 1.2\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:147 ../gdk-pixbuf/gdk-pixbuf-io.c:1083
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1349
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:147 ../gdk-pixbuf/gdk-pixbuf-io.c:1088
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1354
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Gagal membuka berkas '%s': %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1095
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1100
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Berkas gambar '%s' tak memuat data"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:202 ../gdk-pixbuf/gdk-pixbuf-io.c:1131
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1401
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:202 ../gdk-pixbuf/gdk-pixbuf-io.c:1136
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1406
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -70,49 +70,49 @@ msgstr ""
 msgid "Image type '%s' is not supported"
 msgstr "Tipe gambar '%s' tak didukung"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:964
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:969
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Format berkas gambar pada berkas '%s' tidak dikenali"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:972
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:977
 msgid "Unrecognized image file format"
 msgstr "Format berkas gambar tidak dikenali"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1140
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1145
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Gagal memuat berkas citra '%s': %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2028 ../gdk-pixbuf/io-gdip-utils.c:888
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2033 ../gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Galat saat menulis ke berkas citra: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2073 ../gdk-pixbuf/gdk-pixbuf-io.c:2203
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2078 ../gdk-pixbuf/gdk-pixbuf-io.c:2208
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "gdk-pixbuf yang ada sekarang tak mendukung penyimpanan bentuk citra: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2107
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2112
 msgid "Insufficient memory to save image to callback"
 msgstr "Memori yang tersedia tidak mencukupi untuk menyimpan gambar"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2120
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2125
 msgid "Failed to open temporary file"
 msgstr "Gagal membuka berkas sementara"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2146
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2151
 msgid "Failed to read from temporary file"
 msgstr "Gagal membaca dari berkas sementara"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2399
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2404
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Gagal membuka '%s' untuk menulis: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2425
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2430
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -121,13 +121,13 @@ msgstr ""
 "Tak bisa menutup '%s' saat menyimpan gambar, mungkin ada data yang tidak "
 "tersimpan: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2646 ../gdk-pixbuf/gdk-pixbuf-io.c:2698
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2651 ../gdk-pixbuf/gdk-pixbuf-io.c:2703
 msgid "Insufficient memory to save image into a buffer"
 msgstr ""
 "Memori yang tersedia tidak mencukupi untuk menyimpan gambar ke dalam "
 "penyangga"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2744
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2749
 msgid "Error writing to image stream"
 msgstr "Galat menulis citra ke stream"
 
@@ -234,7 +234,7 @@ msgstr "Format gambar GIF"
 msgid "The ICO image format"
 msgstr "Format gambar ICO"
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1139
+#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1251
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -242,13 +242,13 @@ msgid ""
 msgstr ""
 "Kualitas JPEG harus bernilai antara 0 dan 100; nilai '%s' tidak bisa diurai."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1154
+#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1267
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr "Kualitas JPEG harus bernilai antara 0 dan 100; nilai '%d' tidak boleh."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1316
+#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1480
 msgid "The JPEG image format"
 msgstr "Format gambar JPEG"
 
@@ -314,7 +314,7 @@ msgstr "Stack meluap"
 
 #: ../gdk-pixbuf/io-gif.c:639
 msgid "GIF image loader cannot understand this image."
-msgstr "Pembuka gambar GIF tidak mengenali isi berkas ini"
+msgstr "Pembuka gambar GIF tidak mengenali isi berkas ini."
 
 #: ../gdk-pixbuf/io-gif.c:668
 msgid "Bad code encountered"
@@ -347,7 +347,6 @@ msgid "Version %s of the GIF file format is not supported"
 msgstr "Versi %s berkas GIF ini tidak bisa dibuka"
 
 #: ../gdk-pixbuf/io-gif.c:1241
-#| msgid "Image has zero width"
 msgid "Resulting GIF image has zero size"
 msgstr "Gambar GIF yang dihasilkan berukuran nol"
 
@@ -453,12 +452,12 @@ msgstr "Tak bisa mengalokasikan memori untuk menyangga data citra"
 msgid "The JPEG 2000 image format"
 msgstr "Format citra JPEG 2000"
 
-#: ../gdk-pixbuf/io-jpeg.c:116
+#: ../gdk-pixbuf/io-jpeg.c:126
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Galat menginterpretasi berkas citra JPEG (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:527
+#: ../gdk-pixbuf/io-jpeg.c:606
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -466,19 +465,24 @@ msgstr ""
 "Tidak cukup memori untuk membuka gambar, cobalah untuk menutup aplikasi "
 "lainnya untuk mengosongkan memori"
 
-#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:781
+#: ../gdk-pixbuf/io-jpeg.c:653 ../gdk-pixbuf/io-jpeg.c:867
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Ruang warna JPEG tidak bisa ditampilkan (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:680 ../gdk-pixbuf/io-jpeg.c:950
-#: ../gdk-pixbuf/io-jpeg.c:1183 ../gdk-pixbuf/io-jpeg.c:1192
+#: ../gdk-pixbuf/io-jpeg.c:766 ../gdk-pixbuf/io-jpeg.c:1046
+#: ../gdk-pixbuf/io-jpeg.c:1310 ../gdk-pixbuf/io-jpeg.c:1320
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Tidak bisa menyediakan ruang memori saat membuka berkas JPEG"
 
-#: ../gdk-pixbuf/io-jpeg.c:925
+#: ../gdk-pixbuf/io-jpeg.c:1020
 msgid "Transformed JPEG has zero width or height."
-msgstr "JPEG yang telah ditransformasi memiliki lebar atau tinggi 0"
+msgstr "JPEG yang telah ditransformasi memiliki lebar atau tinggi 0."
+
+#: ../gdk-pixbuf/io-jpeg.c:1281
+#, c-format
+msgid "Color profile has invalid length '%d'."
+msgstr "Panjang profil warna '%d' tidak sah."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -539,15 +543,15 @@ msgstr "Nilai bit per channel pada gambar PNG salah."
 
 #: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:641
 msgid "Transformed PNG has zero width or height."
-msgstr "PNG tertransformasi memiliki lebar atau tinggi 0"
+msgstr "PNG tertransformasi memiliki lebar atau tinggi 0."
 
 #: ../gdk-pixbuf/io-png.c:143
 msgid "Bits per channel of transformed PNG is not 8."
-msgstr "Nilai bit ber channel pada berkas PNG tertransformasi tidak bernilai 8"
+msgstr "Nilai bit ber channel pada berkas PNG tertransformasi tidak bernilai 8."
 
 #: ../gdk-pixbuf/io-png.c:152
 msgid "Transformed PNG not RGB or RGBA."
-msgstr "PNG tertransformasi bukan dalam mode RGB atau RGBA"
+msgstr "PNG tertransformasi bukan dalam mode RGB atau RGBA."
 
 #: ../gdk-pixbuf/io-png.c:161
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
@@ -568,10 +572,10 @@ msgstr "Tidak cukup memori untuk meload berkas PNG"
 #: ../gdk-pixbuf/io-png.c:656
 #, c-format
 msgid ""
-"Insufficient memory to store a %ld by %ld image; try exiting some "
+"Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
-"Memori tidak cukup untuk menyompan gambar %ld x %ld. Coba tutup beberapa "
+"Memori tidak cukup untuk menyimpan gambar %lu x %lu; coba tutup beberapa "
 "aplikasi untuk mengurangi penggunaan memori"
 
 #: ../gdk-pixbuf/io-png.c:719
@@ -583,21 +587,21 @@ msgstr "Error fatal saat membaca berkas gambar PNG"
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Error fatal saat membaca berkas gambar PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:862
+#: ../gdk-pixbuf/io-png.c:858
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr "Key untuk teks bagian PNG harus berukuran antara 1 dan 79 karakter."
 
-#: ../gdk-pixbuf/io-png.c:871
+#: ../gdk-pixbuf/io-png.c:867
 msgid "Keys for PNG text chunks must be ASCII characters."
-msgstr "Key untuk teks bagian PNG harus dalam karakter ASCII"
+msgstr "Key untuk teks bagian PNG harus dalam karakter ASCII."
 
-#: ../gdk-pixbuf/io-png.c:885 ../gdk-pixbuf/io-tiff.c:737
+#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:737
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Panjang profil warna %d tak valid."
 
-#: ../gdk-pixbuf/io-png.c:898
+#: ../gdk-pixbuf/io-png.c:894
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -606,7 +610,7 @@ msgstr ""
 "Tingkat kompresi PNG harus bernilai antara 0 dan 9; Nilai '%s' tidak bisa di "
 "baca."
 
-#: ../gdk-pixbuf/io-png.c:911
+#: ../gdk-pixbuf/io-png.c:907
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -615,14 +619,14 @@ msgstr ""
 "Tingkat kompresi PNG harus bernilai antara 0 dan 9; Nilai '%d' tidak "
 "diperbolehkan."
 
-#: ../gdk-pixbuf/io-png.c:959
+#: ../gdk-pixbuf/io-png.c:955
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Nilai teks bagian PNG %s tidak bisa dikonversikan ke gugus karakter "
 "ISO-8859-1."
 
-#: ../gdk-pixbuf/io-png.c:1122
+#: ../gdk-pixbuf/io-png.c:1118
 msgid "The PNG image format"
 msgstr "Format gambar PNG"
 
