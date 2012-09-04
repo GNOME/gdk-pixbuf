@@ -1013,7 +1013,7 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
         if (icc_profile != NULL) {
                 png_set_iCCP (png_ptr, info_ptr,
                               "ICC profile", PNG_COMPRESSION_TYPE_BASE,
-                              (png_const_bytep) icc_profile, icc_profile_size);
+                              (png_bytep) icc_profile, icc_profile_size);
         }
 #endif
 
