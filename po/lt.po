@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2012-07-30 11:25+0000\n"
-"PO-Revision-Date: 2012-08-28 22:11+0300\n"
+"POT-Creation-Date: 2012-09-03 16:16+0000\n"
+"PO-Revision-Date: 2012-09-07 20:10+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "Language: lt\n"
@@ -23,21 +23,21 @@ msgstr ""
 "X-Generator: Virtaal 0.6.1\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:147
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1083
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1349
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1088
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1354
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Nepavyko atverti failo „%s“: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:160
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1095
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1100
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Paveikslėlio faile „%s“ nėra duomenų"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:202
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1131
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1401
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1136
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1406
 #, c-format
 msgid "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr "Nepavyko įkelti paveikslėlio „%s“: nežinoma priežastis, tikriausiai sugadintas failas"
@@ -63,60 +63,60 @@ msgstr "Paveikslėlių kelties modulis „%s“ neeksportuoja teisingos sąsajos
 msgid "Image type '%s' is not supported"
 msgstr "Paveikslėlio tipas „%s“ nepalaikomas"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:964
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:969
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Nepavyko atpažinti paveikslėlio failo „%s“ formato"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:972
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:977
 msgid "Unrecognized image file format"
 msgstr "Neatpažintas paveikslėlio failo formatas"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1140
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1145
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Nepavyko įkelti paveikslėlio „%s“: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2028
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2033
 #: ../gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Klaida rašant į paveikslėlio failą: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2073
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2203
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2078
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2208
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "Jūsų naudojamas gdk-pixbuf variantas nepalaiko saugojimo į šį paveikslėlių formatą: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2107
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2112
 msgid "Insufficient memory to save image to callback"
 msgstr "Nepakanka atminties paveikslėlio išsaugojimui funkcijoje"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2120
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2125
 msgid "Failed to open temporary file"
 msgstr "Nepavyko atverti laikino failo"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2146
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2151
 msgid "Failed to read from temporary file"
 msgstr "Nepavyko perskaityti laikino failo"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2399
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2404
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Nepavyko atverti „%s“ įrašymui: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2425
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2430
 #, c-format
 msgid "Failed to close '%s' while writing image, all data may not have been saved: %s"
 msgstr "Saugant paveikslėlį nepavyko uždaryti „%s“, duomenys gali būti neišsaugoti: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2646
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2698
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2651
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2703
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Nepakanka atminties įšsaugoti paveikslėlį į buferį"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2744
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2749
 msgid "Error writing to image stream"
 msgstr "Klaida rašant į paveikslėlio srautą"
 
@@ -238,19 +238,19 @@ msgid "The ICO image format"
 msgstr "ICO paveikslėlių formatas"
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:53
-#: ../gdk-pixbuf/io-jpeg.c:1139
+#: ../gdk-pixbuf/io-jpeg.c:1251
 #, c-format
 msgid "JPEG quality must be a value between 0 and 100; value '%s' could not be parsed."
 msgstr "JPEG kokybės reikšmė turi būti tarp 0 ir 100, reikšmės „%s“ nepavyko apdoroti."
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:68
-#: ../gdk-pixbuf/io-jpeg.c:1154
+#: ../gdk-pixbuf/io-jpeg.c:1267
 #, c-format
 msgid "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr "JPEG kokybės reikšmė turi būti tarp 0 ir 100; reikšmė „%d“ yra neleistina."
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:136
-#: ../gdk-pixbuf/io-jpeg.c:1316
+#: ../gdk-pixbuf/io-jpeg.c:1480
 msgid "The JPEG image format"
 msgstr "JPEG paveikslėlių formatas"
 
@@ -354,7 +354,6 @@ msgid "Version %s of the GIF file format is not supported"
 msgstr "GIF formato versija %s nėra palaikoma"
 
 #: ../gdk-pixbuf/io-gif.c:1241
-#| msgid "Image has zero width"
 msgid "Resulting GIF image has zero size"
 msgstr "Rezultato GIF paveikslėlio dydis yra nulinis"
 
@@ -461,31 +460,37 @@ msgstr "Nepavyko rezervuoti atminties paveikslėlio duomenims"
 msgid "The JPEG 2000 image format"
 msgstr "JPEG 2000 paveikslėlių formatas"
 
-#: ../gdk-pixbuf/io-jpeg.c:116
+#: ../gdk-pixbuf/io-jpeg.c:126
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Klaida interpretuojant JPEG paveikslėlio failą (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:527
+#: ../gdk-pixbuf/io-jpeg.c:606
 msgid "Insufficient memory to load image, try exiting some applications to free memory"
 msgstr "Nepakanka atminties pakrauti paveikslėlį, uždarykite dalį programų, kad atlaisvinti atmintį"
 
-#: ../gdk-pixbuf/io-jpeg.c:568
-#: ../gdk-pixbuf/io-jpeg.c:781
+#: ../gdk-pixbuf/io-jpeg.c:653
+#: ../gdk-pixbuf/io-jpeg.c:867
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Nepalaikoma JPEG spalvų gama (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:680
-#: ../gdk-pixbuf/io-jpeg.c:950
-#: ../gdk-pixbuf/io-jpeg.c:1183
-#: ../gdk-pixbuf/io-jpeg.c:1192
+#: ../gdk-pixbuf/io-jpeg.c:766
+#: ../gdk-pixbuf/io-jpeg.c:1046
+#: ../gdk-pixbuf/io-jpeg.c:1310
+#: ../gdk-pixbuf/io-jpeg.c:1320
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Nepakako atminties įkelti JPEG failą"
 
-#: ../gdk-pixbuf/io-jpeg.c:925
+#: ../gdk-pixbuf/io-jpeg.c:1020
 msgid "Transformed JPEG has zero width or height."
 msgstr "Pakeistas JPEG turi nulinį plotį arba aukštį."
+
+#: ../gdk-pixbuf/io-jpeg.c:1281
+#, c-format
+#| msgid "Color profile has invalid length %d."
+msgid "Color profile has invalid length '%d'."
+msgstr "Spalvų profilio ilgis „%d“ netinkamas."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -575,8 +580,11 @@ msgstr "Nepakanka atminties įkelti PNG failą"
 
 #: ../gdk-pixbuf/io-png.c:656
 #, c-format
-msgid "Insufficient memory to store a %ld by %ld image; try exiting some applications to reduce memory usage"
-msgstr "Nepakanka atminties apdoroti %ld ant %ld dydžio paveikslėlį; uždarykite dalį programų, kad sumažinti atminties panaudojimą"
+#| msgid ""
+#| "Insufficient memory to store a %ld by %ld image; try exiting some "
+#| "applications to reduce memory usage"
+msgid "Insufficient memory to store a %lu by %lu image; try exiting some applications to reduce memory usage"
+msgstr "Nepakanka atminties įrašyti %lu iš %lu dydžio paveikslėlį; uždarykite dalį programų, kad sumažintumėte atminties naudojimą"
 
 #: ../gdk-pixbuf/io-png.c:719
 msgid "Fatal error reading PNG image file"
@@ -587,36 +595,36 @@ msgstr "Skaitant PNG įvyko lemtinga klaida"
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Įvyko lemtinga klaida skaitant PNG paveikslėlį: %s"
 
-#: ../gdk-pixbuf/io-png.c:862
+#: ../gdk-pixbuf/io-png.c:858
 msgid "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr "PNG tekstiniai raktai turi turėti nuo 1 iki 79 simbolių."
 
-#: ../gdk-pixbuf/io-png.c:871
+#: ../gdk-pixbuf/io-png.c:867
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "PNG tekstiniai raktai turi naudoti tik ASCII simbolius."
 
-#: ../gdk-pixbuf/io-png.c:885
+#: ../gdk-pixbuf/io-png.c:881
 #: ../gdk-pixbuf/io-tiff.c:737
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Spalvų profilio ilgis (%d) netinkamas."
 
-#: ../gdk-pixbuf/io-png.c:898
+#: ../gdk-pixbuf/io-png.c:894
 #, c-format
 msgid "PNG compression level must be a value between 0 and 9; value '%s' could not be parsed."
 msgstr "PNG suspaudimo lygis turi būti reikšmė tarp 0 ir 9: reikšmės „%s“ nesuprasta."
 
-#: ../gdk-pixbuf/io-png.c:911
+#: ../gdk-pixbuf/io-png.c:907
 #, c-format
 msgid "PNG compression level must be a value between 0 and 9; value '%d' is not allowed."
 msgstr "PNG suspaudimo lygis turi būti reikšmė tarp 0 ir 9: reikšmė „%d“ yra neleistina."
 
-#: ../gdk-pixbuf/io-png.c:959
+#: ../gdk-pixbuf/io-png.c:955
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr "PNG tekstinės dalies reikšmė %s negali būti perkoduota į ISO-8859-1 koduotę."
 
-#: ../gdk-pixbuf/io-png.c:1122
+#: ../gdk-pixbuf/io-png.c:1118
 msgid "The PNG image format"
 msgstr "PNG paveikslėlių formatas"
 
