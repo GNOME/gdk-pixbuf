@@ -59,78 +59,19 @@ struct _TiffContext
         guint pos;
 };
 
-
-
-static char *global_error = NULL;
-static TIFFErrorHandler orig_error_handler = NULL;
-static TIFFErrorHandler orig_warning_handler = NULL;
-
 static void
 tiff_warning_handler (const char *mod, const char *fmt, va_list ap)
 {
         /* Don't print anything; we should not be dumping junk to
          * stderr, since that may be bad for some apps.
          */
-
-        /* libTIFF seems to occasionally warn about things that
-         * are really errors, so maybe we should just call tiff_error_handler
-         * here.
-         */
 }
 
 static void
-tiff_error_handler (const char *mod, const char *fmt, va_list ap)
+tiff_set_handlers (void)
 {
-        if (global_error) {                
-                /* Blah, loader called us twice */
-                return;
-        }
-
-        global_error = g_strdup_vprintf (fmt, ap);
-}
-
-static void
-tiff_push_handlers (void)
-{
-        if (global_error)
-                g_warning ("TIFF loader left crufty global_error around, FIXME");
-        
-        orig_error_handler = TIFFSetErrorHandler (tiff_error_handler);
-        orig_warning_handler = TIFFSetWarningHandler (tiff_warning_handler);
-}
-
-static void
-tiff_pop_handlers (void)
-{
-        if (global_error)
-                g_warning ("TIFF loader left crufty global_error around, FIXME");
-        
-        TIFFSetErrorHandler (orig_error_handler);
-        TIFFSetWarningHandler (orig_warning_handler);
-}
-
-static void
-tiff_set_error (GError    **error,
-                int         error_code,
-                const char *msg)
-{
-        /* Take the error message from libtiff and merge it with
-         * some context we provide.
-         */
-        if (global_error) {
-                g_set_error (error,
-                             GDK_PIXBUF_ERROR,
-                             error_code,
-                             "%s%s%s", msg, ": ", global_error);
-
-                g_free (global_error);
-                global_error = NULL;
-        }
-        else {
-                g_set_error_literal (error,
-                                     GDK_PIXBUF_ERROR,
-                                     error_code, msg);
-        }
+        TIFFSetErrorHandler (tiff_warning_handler);
+        TIFFSetWarningHandler (tiff_warning_handler);
 }
 
 
@@ -155,20 +96,20 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
         gint retval;
 
         /* We're called with the lock held. */
-        
-        g_return_val_if_fail (global_error == NULL, NULL);
 
-	if (!TIFFGetField (tiff, TIFFTAG_IMAGEWIDTH, &width) || global_error) {
-                tiff_set_error (error,
-                                GDK_PIXBUF_ERROR_FAILED,
-                                _("Could not get image width (bad TIFF file)"));
+	if (!TIFFGetField (tiff, TIFFTAG_IMAGEWIDTH, &width)) {
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_FAILED,
+                                     _("Could not get image width (bad TIFF file)"));
                 return NULL;
         }
         
-        if (!TIFFGetField (tiff, TIFFTAG_IMAGELENGTH, &height) || global_error) {
-                tiff_set_error (error,
-                                GDK_PIXBUF_ERROR_FAILED,
-                                _("Could not get image height (bad TIFF file)"));
+        if (!TIFFGetField (tiff, TIFFTAG_IMAGELENGTH, &height)) {
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_FAILED,
+                                     _("Could not get image height (bad TIFF file)"));
                 return NULL;
         }
 
@@ -288,10 +229,11 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
 	if (context && context->prepare_func)
 		(* context->prepare_func) (pixbuf, NULL, context->user_data);
 
-	if (!TIFFReadRGBAImageOriented (tiff, width, height, (uint32 *)pixels, ORIENTATION_TOPLEFT, 1) || global_error) {
-		tiff_set_error (error,
-                                GDK_PIXBUF_ERROR_FAILED,
-                                _("Failed to load RGB data from TIFF file"));
+	if (!TIFFReadRGBAImageOriented (tiff, width, height, (uint32 *)pixels, ORIENTATION_TOPLEFT, 1)) {
+		g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_FAILED,
+                                     _("Failed to load RGB data from TIFF file"));
 		g_object_unref (pixbuf);
 		return NULL;
 	}
@@ -332,8 +274,8 @@ gdk_pixbuf__tiff_image_load (FILE *f, GError **error)
         
         g_return_val_if_fail (f != NULL, NULL);
 
-        tiff_push_handlers ();
-        
+        tiff_set_handlers ();
+
         fd = fileno (f);
 
         /* On OSF, apparently fseek() works in some on-demand way, so
@@ -343,26 +285,18 @@ gdk_pixbuf__tiff_image_load (FILE *f, GError **error)
          */
         lseek (fd, 0, SEEK_SET);
         tiff = TIFFFdOpen (fd, "libpixbuf-tiff", "r");
-        
-        if (!tiff || global_error) {
-                tiff_set_error (error,
-                                GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                _("Failed to open TIFF image"));
-                tiff_pop_handlers ();
 
+        if (!tiff) {
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                     _("Failed to open TIFF image"));
                 return NULL;
         }
 
         pixbuf = tiff_image_parse (tiff, NULL, error);
-        
+
         TIFFClose (tiff);
-        if (global_error) {
-                tiff_set_error (error,
-                                GDK_PIXBUF_ERROR_FAILED,
-                                _("TIFFClose operation failed"));
-        }
-        
-        tiff_pop_handlers ();
 
         return pixbuf;
 }
@@ -479,17 +413,18 @@ gdk_pixbuf__tiff_image_stop_load (gpointer data,
         
         g_return_val_if_fail (data != NULL, FALSE);
 
-        tiff_push_handlers ();
-        
+        tiff_set_handlers ();
+
         tiff = TIFFClientOpen ("libtiff-pixbuf", "r", data, 
                                tiff_load_read, tiff_load_write, 
                                tiff_load_seek, tiff_load_close, 
                                tiff_load_size, 
                                tiff_load_map_file, tiff_load_unmap_file);
-        if (!tiff || global_error) {
-                tiff_set_error (error,
-                                GDK_PIXBUF_ERROR_FAILED,
-                                _("Failed to load TIFF image"));
+        if (!tiff) {
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_FAILED,
+                                     _("Failed to load TIFF image"));
                 retval = FALSE;
         } else {
                 GdkPixbuf *pixbuf;
@@ -498,26 +433,20 @@ gdk_pixbuf__tiff_image_stop_load (gpointer data,
                 if (pixbuf)
                         g_object_unref (pixbuf);
                 retval = pixbuf != NULL;
-                if (global_error)
-                        {
-                                tiff_set_error (error,
-                                                GDK_PIXBUF_ERROR_FAILED,
-                                                _("Failed to load TIFF image"));
-                                tiff_pop_handlers ();
-
+                if (!retval && error && !*error) {
+                        g_set_error_literal (error,
+                                             GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_FAILED,
+                                             _("Failed to load TIFF image"));
                                 retval = FALSE;
-                        }
+                }
         }
 
         if (tiff)
                 TIFFClose (tiff);
 
-        g_assert (!global_error);
-        
         g_free (context->buffer);
         g_free (context);
-
-        tiff_pop_handlers ();
 
         return retval;
 }
@@ -533,7 +462,7 @@ make_available_at_least (TiffContext *context, guint needed)
                 guint new_size = 1;
                 while (new_size < need_alloc)
                         new_size *= 2;
-                
+
                 new_buffer = g_try_realloc (context->buffer, new_size);
                 if (new_buffer) {
                         context->buffer = new_buffer;
@@ -553,6 +482,8 @@ gdk_pixbuf__tiff_image_load_increment (gpointer data, const guchar *buf,
         
 	g_return_val_if_fail (data != NULL, FALSE);
         
+        tiff_set_handlers ();
+
         if (!make_available_at_least (context, size)) {
                 g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
@@ -676,7 +607,7 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
         guchar *icc_profile = NULL;
         gsize icc_profile_size = 0;
 
-        tiff_push_handlers ();
+        tiff_set_handlers ();
 
         context = create_save_context ();
         tiff = TIFFClientOpen ("libtiff-pixbuf", "w", context,  
@@ -685,13 +616,11 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                                tiff_save_size, 
                                NULL, NULL);
 
-        if (!tiff || global_error) {
-                tiff_set_error (error,
-                                GDK_PIXBUF_ERROR_FAILED,
-                                _("Failed to save TIFF image"));
-
-                tiff_pop_handlers ();
-
+        if (!tiff) {
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_FAILED,
+                                     _("Failed to save TIFF image"));
                 free_save_context (context);
                 return FALSE;
         }
@@ -721,9 +650,10 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                     if (TIFFIsCODECConfigured (codec))
                         TIFFSetField (tiff, TIFFTAG_COMPRESSION, codec);
                     else {
-                        tiff_set_error (error,
-                                        GDK_PIXBUF_ERROR_FAILED,
-                                        _("TIFF compression doesn't refer to a valid codec."));
+                        g_set_error_literal (error,
+                                             GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_FAILED,
+                                             _("TIFF compression doesn't refer to a valid codec."));
                         retval = FALSE;
                         goto cleanup;
                     }
@@ -755,37 +685,27 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                 TIFFSetField (tiff, TIFFTAG_ICCPROFILE, icc_profile_size, icc_profile);
 
         for (y = 0; y < height; y++) {
-                if (TIFFWriteScanline (tiff, pixels + y * rowstride, y, 0) == -1 ||
-                    global_error)
+                if (TIFFWriteScanline (tiff, pixels + y * rowstride, y, 0) == -1)
                         break;
         }
 
-        if (global_error) {
-                tiff_set_error (error,
-                                GDK_PIXBUF_ERROR_FAILED,
-                                _("Failed to write TIFF data"));
-
+        if (y < height) {
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_FAILED,
+                                     _("Failed to write TIFF data"));
                 TIFFClose (tiff);
                 retval = FALSE;
                 goto cleanup;
         }
 
         TIFFClose (tiff);
-        if (global_error) {
-                tiff_set_error (error,
-                                GDK_PIXBUF_ERROR_FAILED,
-                                _("TIFFClose operation failed"));
-                retval = FALSE;
-                goto cleanup;
-        }
-
 
         /* Now call the callback */
         retval = save_func (context->buffer, context->used, error, user_data);
 
 cleanup:
         g_free (icc_profile);
-        tiff_pop_handlers ();
         free_save_context (context);
         return retval;
 }
@@ -869,6 +789,6 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 	info->mime_types = mime_types;
 	info->extensions = extensions;
         /* not threadsafe, due to the error handler handling */
-	info->flags = GDK_PIXBUF_FORMAT_WRITABLE;
+	info->flags = GDK_PIXBUF_FORMAT_WRITABLE | GDK_PIXBUF_FORMAT_THREADSAFE;
 	info->license = "LGPL";
 }
