@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-03 16:25+0200\n"
-"PO-Revision-Date: 2012-09-03 16:25+0200\n"
+"POT-Creation-Date: 2012-09-17 23:18+0200\n"
+"PO-Revision-Date: 2012-09-17 23:18+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -232,7 +232,7 @@ msgstr "GIF képformátum"
 msgid "The ICO image format"
 msgstr "ICO képformátum"
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1139
+#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1251
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -241,14 +241,14 @@ msgstr ""
 "A JPEG-minőség értékének 0 és 100 között kell lennie, a(z) „%s” értéket nem "
 "lehet feldolgozni."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1154
+#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1267
 #, c-format
 msgid "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr ""
 "A JPEG-minőség értékének 0 és 100 között kell lennie, a(z) „%d” érték nem "
 "megengedett."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1316
+#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1480
 msgid "The JPEG image format"
 msgstr "JPEG képformátum"
 
@@ -452,12 +452,12 @@ msgstr "Nem lehet memóriát foglalni a képadatok számára"
 msgid "The JPEG 2000 image format"
 msgstr "JPEG 2000 képformátum"
 
-#: ../gdk-pixbuf/io-jpeg.c:116
+#: ../gdk-pixbuf/io-jpeg.c:126
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Hiba a JPEG képfájl értelmezésekor (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:527
+#: ../gdk-pixbuf/io-jpeg.c:606
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -465,19 +465,24 @@ msgstr ""
 "Nincs elég memória a kép betöltéséhez, memória felszabadításához próbáljon "
 "meg kilépni néhány alkalmazásból"
 
-#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:781
+#: ../gdk-pixbuf/io-jpeg.c:653 ../gdk-pixbuf/io-jpeg.c:867
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Nem támogatott JPEG-színtér (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:680 ../gdk-pixbuf/io-jpeg.c:950
-#: ../gdk-pixbuf/io-jpeg.c:1183 ../gdk-pixbuf/io-jpeg.c:1192
+#: ../gdk-pixbuf/io-jpeg.c:766 ../gdk-pixbuf/io-jpeg.c:1046
+#: ../gdk-pixbuf/io-jpeg.c:1310 ../gdk-pixbuf/io-jpeg.c:1320
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Nem lehet memóriát kiosztani a JPEG fájl betöltéséhez"
 
-#: ../gdk-pixbuf/io-jpeg.c:925
+#: ../gdk-pixbuf/io-jpeg.c:1020
 msgid "Transformed JPEG has zero width or height."
 msgstr "Az átalakított JPEG szélessége vagy magassága nulla."
+
+#: ../gdk-pixbuf/io-jpeg.c:1281
+#, c-format
+msgid "Color profile has invalid length '%d'."
+msgstr "A színprofil hossza (%d) érvénytelen."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -566,10 +571,10 @@ msgstr "Nincs elég memória a PNG fájl betöltéséhez"
 #: ../gdk-pixbuf/io-png.c:656
 #, c-format
 msgid ""
-"Insufficient memory to store a %ld by %ld image; try exiting some "
+"Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
-"Nincs elég memória egy %ld x %ld méretű kép betöltéséhez, próbáljon meg "
+"Nincs elég memória egy %lu x %lu méretű kép betöltéséhez, próbáljon meg "
 "kilépni néhány alkalmazásból a memóriahasználat csökkentéséhez"
 
 #: ../gdk-pixbuf/io-png.c:719
@@ -581,22 +586,22 @@ msgstr "Végzetes hiba a PNG képfájl olvasásakor"
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Végzetes hiba a PNG képfájl olvasásakor: %s"
 
-#: ../gdk-pixbuf/io-png.c:862
+#: ../gdk-pixbuf/io-png.c:858
 msgid "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "A PNG szöveges darabok kulcsainak legalább 1 és legfeljebb 79 karakterből "
 "kell állniuk."
 
-#: ../gdk-pixbuf/io-png.c:871
+#: ../gdk-pixbuf/io-png.c:867
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "A PNG szöveges darabok kulcsainak ASCII karaktereknek kell lenniük."
 
-#: ../gdk-pixbuf/io-png.c:885 ../gdk-pixbuf/io-tiff.c:737
+#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:667
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "A színprofil hossza (%d) érvénytelen."
 
-#: ../gdk-pixbuf/io-png.c:898
+#: ../gdk-pixbuf/io-png.c:894
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -605,7 +610,7 @@ msgstr ""
 "A PNG-tömörítés értékének 0 és 9 között kell lennie, a(z) „%s” értéket nem "
 "lehet feldolgozni."
 
-#: ../gdk-pixbuf/io-png.c:911
+#: ../gdk-pixbuf/io-png.c:907
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -614,12 +619,12 @@ msgstr ""
 "A PNG-tömörítés értékének 0 és 9 között kell lennie, a(z) „%d” érték nem "
 "engedélyezett."
 
-#: ../gdk-pixbuf/io-png.c:959
+#: ../gdk-pixbuf/io-png.c:955
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr "%s PNG szöveges darab értéke nem konvertálható ISO-8859-1 kódolásúra."
 
-#: ../gdk-pixbuf/io-png.c:1122
+#: ../gdk-pixbuf/io-png.c:1118
 msgid "The PNG image format"
 msgstr "PNG képformátum"
 
@@ -819,60 +824,56 @@ msgstr "Többletadat a fájlban"
 msgid "The Targa image format"
 msgstr "Targa képformátum"
 
-#: ../gdk-pixbuf/io-tiff.c:164
+#: ../gdk-pixbuf/io-tiff.c:104
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Nem lehet megszerezni a kép szélességét (hibás TIFF fájl)"
 
-#: ../gdk-pixbuf/io-tiff.c:171
+#: ../gdk-pixbuf/io-tiff.c:112
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Nem lehet megszerezni a kép magasságát (hibás TIFF fájl)"
 
-#: ../gdk-pixbuf/io-tiff.c:179
+#: ../gdk-pixbuf/io-tiff.c:120
 msgid "Width or height of TIFF image is zero"
 msgstr "A TIFF-kép szélessége vagy magassága nulla"
 
-#: ../gdk-pixbuf/io-tiff.c:188 ../gdk-pixbuf/io-tiff.c:197
+#: ../gdk-pixbuf/io-tiff.c:129 ../gdk-pixbuf/io-tiff.c:138
 msgid "Dimensions of TIFF image too large"
 msgstr "A TGA-kép mérete túl nagy"
 
-#: ../gdk-pixbuf/io-tiff.c:221 ../gdk-pixbuf/io-tiff.c:233
-#: ../gdk-pixbuf/io-tiff.c:560
+#: ../gdk-pixbuf/io-tiff.c:162 ../gdk-pixbuf/io-tiff.c:174
+#: ../gdk-pixbuf/io-tiff.c:491
 msgid "Insufficient memory to open TIFF file"
 msgstr "Nincs elég memória a TIFF fájl megnyitásához"
 
-#: ../gdk-pixbuf/io-tiff.c:294
+#: ../gdk-pixbuf/io-tiff.c:236
 msgid "Failed to load RGB data from TIFF file"
 msgstr "RGB-adat betöltése a TIFF-fájlból sikertelen"
 
-#: ../gdk-pixbuf/io-tiff.c:350
+#: ../gdk-pixbuf/io-tiff.c:293
 msgid "Failed to open TIFF image"
 msgstr "Nem sikerült megnyitni a TIFF képet"
 
-#: ../gdk-pixbuf/io-tiff.c:362 ../gdk-pixbuf/io-tiff.c:777
-msgid "TIFFClose operation failed"
-msgstr "A TIFFClose művelet sikertelen"
-
-#: ../gdk-pixbuf/io-tiff.c:492 ../gdk-pixbuf/io-tiff.c:505
+#: ../gdk-pixbuf/io-tiff.c:427 ../gdk-pixbuf/io-tiff.c:440
 msgid "Failed to load TIFF image"
 msgstr "Nem sikerült betölteni a TIFF képet"
 
-#: ../gdk-pixbuf/io-tiff.c:691
+#: ../gdk-pixbuf/io-tiff.c:623
 msgid "Failed to save TIFF image"
 msgstr "Nem sikerült menteni a TIFF képet"
 
-#: ../gdk-pixbuf/io-tiff.c:726
+#: ../gdk-pixbuf/io-tiff.c:656
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr "A TIFF tömörítés nem érvényes kodekre hivatkozik."
 
-#: ../gdk-pixbuf/io-tiff.c:766
+#: ../gdk-pixbuf/io-tiff.c:696
 msgid "Failed to write TIFF data"
 msgstr "Nem sikerült kiírni a TIFF adatokat"
 
-#: ../gdk-pixbuf/io-tiff.c:813
+#: ../gdk-pixbuf/io-tiff.c:733
 msgid "Couldn't write to TIFF file"
 msgstr "Nem sikerült írni a TIFF fájlba"
 
-#: ../gdk-pixbuf/io-tiff.c:868
+#: ../gdk-pixbuf/io-tiff.c:788
 msgid "The TIFF image format"
 msgstr "TIFF képformátum"
 
@@ -952,7 +953,4 @@ msgstr "Átmeneti fájlba írás az XPM-kép betöltésekor sikertelen"
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "XPM képformátum"
-
-#~ msgid "Unsupported animation type"
-#~ msgstr "Nem támogatott animációtípus"
 
