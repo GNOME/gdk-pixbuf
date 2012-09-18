@@ -1,3 +1,43 @@
+2.26.4
+======
+
+* Make tiff loader threadsafe
+
+* Support saving ICC profiles in jpeg (#604610)
+
+* Add some missing annotations (#683064)
+
+* Documentation improvements (#676430)
+
+* Translation updates
+ Assamese
+ Belarusian
+ Brazilian Portuguese
+ British English
+ Catalan
+ Czech
+ Danish
+ French
+ Galician
+ German
+ Greek
+ Hebrew
+ Hungarian
+ Indonesian
+ Korean
+ Latvian
+ Lithuanian
+ Norwegian bokmål
+ Polish
+ Portuguese
+ Punjabi
+ Russian
+ Serbian
+ Slovenian
+ Spanish
+ Traditional Chinese
+ Vietnamese
+
 2.26.3
 ======
 
