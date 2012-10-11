@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf 2.25.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-22 10:23+0200\n"
-"PO-Revision-Date: 2012-08-22 10:24+0200\n"
+"POT-Creation-Date: 2012-10-12 00:16+0200\n"
+"PO-Revision-Date: 2012-10-12 00:16+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -228,7 +228,7 @@ msgstr "GIF bildeformat"
 msgid "The ICO image format"
 msgstr "ICO bildeformat"
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1139
+#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1251
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -237,14 +237,14 @@ msgstr ""
 "JPEG-kvalitet må være en verdi mellom 0 og 100; verdien «%s» kunne ikke "
 "tolkes."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1154
+#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1267
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr ""
 "JPEG-kvalitet må være en verdi mellom 0 og 100; verdien «%d» er ikke tillatt."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1316
+#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1480
 msgid "The JPEG image format"
 msgstr "JPEG bildeformatet"
 
@@ -448,12 +448,12 @@ msgstr "Kunne ikke allokere minne for buffer til bildedata"
 msgid "The JPEG 2000 image format"
 msgstr "JPEG2000 bildeformatet"
 
-#: ../gdk-pixbuf/io-jpeg.c:116
+#: ../gdk-pixbuf/io-jpeg.c:126
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Feil under tolking av JPEG-bildefil (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:527
+#: ../gdk-pixbuf/io-jpeg.c:606
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -461,19 +461,24 @@ msgstr ""
 "Ikke nok minne til å laste bildet. Prøv å avslutte noen applikasjoner for å "
 "frigjøre minne"
 
-#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:781
+#: ../gdk-pixbuf/io-jpeg.c:653 ../gdk-pixbuf/io-jpeg.c:867
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "JPEG-fargeområde ikke støttet (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:680 ../gdk-pixbuf/io-jpeg.c:950
-#: ../gdk-pixbuf/io-jpeg.c:1183 ../gdk-pixbuf/io-jpeg.c:1192
+#: ../gdk-pixbuf/io-jpeg.c:766 ../gdk-pixbuf/io-jpeg.c:1046
+#: ../gdk-pixbuf/io-jpeg.c:1310 ../gdk-pixbuf/io-jpeg.c:1320
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Kunne ikke allokere minne for lasting av JPEG-fil"
 
-#: ../gdk-pixbuf/io-jpeg.c:925
+#: ../gdk-pixbuf/io-jpeg.c:1020
 msgid "Transformed JPEG has zero width or height."
 msgstr "Transformert JPEG har bredde eller høyde lik null."
+
+#: ../gdk-pixbuf/io-jpeg.c:1281
+#, c-format
+msgid "Color profile has invalid length '%d'."
+msgstr "Fargeprofilen har ugyldig lengde «%d»."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -561,11 +566,9 @@ msgstr "Ikke nok minne til å laste PNG-fil"
 #: ../gdk-pixbuf/io-png.c:656
 #, c-format
 msgid ""
-"Insufficient memory to store a %ld by %ld image; try exiting some "
+"Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
-msgstr ""
-"Ikke nok minne til å lagre et %ld ganger %ld bilde; prøv å avslutte noen "
-"applikasjoner for å redusere minnebruken"
+msgstr "Ikke nok minne til å lagre et %lu ganger %lu bilde; prøv å avslutte noen applikasjoner for å redusere minnebruken"
 
 #: ../gdk-pixbuf/io-png.c:719
 msgid "Fatal error reading PNG image file"
@@ -576,21 +579,21 @@ msgstr "Fatal feil under lesing av PNG-bildefil"
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Fatal feil under lesing av PNG-bildefil: %s"
 
-#: ../gdk-pixbuf/io-png.c:862
+#: ../gdk-pixbuf/io-png.c:858
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr "Nøkler for PNG tekstbiter må minst ha mellom 1 og 79 tegn."
 
-#: ../gdk-pixbuf/io-png.c:871
+#: ../gdk-pixbuf/io-png.c:867
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Nøkler for PNG tekstbiter må bestå av ASCII-tegn."
 
-#: ../gdk-pixbuf/io-png.c:885 ../gdk-pixbuf/io-tiff.c:737
+#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:667
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Fargeprofilen har ugyldig lengde %d."
 
-#: ../gdk-pixbuf/io-png.c:898
+#: ../gdk-pixbuf/io-png.c:894
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -599,7 +602,7 @@ msgstr ""
 "Nivået til PNG-komprimeringen må være en verdi mello 0 og 9; verdi «%s» kan "
 "ikke brukes."
 
-#: ../gdk-pixbuf/io-png.c:911
+#: ../gdk-pixbuf/io-png.c:907
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -608,12 +611,12 @@ msgstr ""
 "Nivået på PNG-komprimering må være en verdi mellom 0 og 9; verdien «%d» er "
 "ikke tillat."
 
-#: ../gdk-pixbuf/io-png.c:959
+#: ../gdk-pixbuf/io-png.c:955
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr "Verdi for PNG-tekstbit %s kan ikke konverteres til ISO-8859-1-koding."
 
-#: ../gdk-pixbuf/io-png.c:1122
+#: ../gdk-pixbuf/io-png.c:1118
 msgid "The PNG image format"
 msgstr "PNG-bildeformat"
 
@@ -812,60 +815,56 @@ msgstr "Overflødige data i filen"
 msgid "The Targa image format"
 msgstr "Targa bildeformatet"
 
-#: ../gdk-pixbuf/io-tiff.c:164
+#: ../gdk-pixbuf/io-tiff.c:104
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Kunne ikke finne bildebredde (ugyldig TIFF-fil)"
 
-#: ../gdk-pixbuf/io-tiff.c:171
+#: ../gdk-pixbuf/io-tiff.c:112
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Kunne ikke finne bildehøyde (ugyldig TIFF-fil)"
 
-#: ../gdk-pixbuf/io-tiff.c:179
+#: ../gdk-pixbuf/io-tiff.c:120
 msgid "Width or height of TIFF image is zero"
 msgstr "Bredde eller høyde på TIFF-bilde er null"
 
-#: ../gdk-pixbuf/io-tiff.c:188 ../gdk-pixbuf/io-tiff.c:197
+#: ../gdk-pixbuf/io-tiff.c:129 ../gdk-pixbuf/io-tiff.c:138
 msgid "Dimensions of TIFF image too large"
 msgstr "TIFF-bildet er for stort"
 
-#: ../gdk-pixbuf/io-tiff.c:221 ../gdk-pixbuf/io-tiff.c:233
-#: ../gdk-pixbuf/io-tiff.c:560
+#: ../gdk-pixbuf/io-tiff.c:162 ../gdk-pixbuf/io-tiff.c:174
+#: ../gdk-pixbuf/io-tiff.c:491
 msgid "Insufficient memory to open TIFF file"
 msgstr "Ikke nok minne til å åpne TIFF-bilde"
 
-#: ../gdk-pixbuf/io-tiff.c:294
+#: ../gdk-pixbuf/io-tiff.c:236
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Feil under lasting av RGB-data fra TIFF-fil"
 
-#: ../gdk-pixbuf/io-tiff.c:350
+#: ../gdk-pixbuf/io-tiff.c:293
 msgid "Failed to open TIFF image"
 msgstr "Feil under åpning av TIFF-bilde"
 
-#: ../gdk-pixbuf/io-tiff.c:362 ../gdk-pixbuf/io-tiff.c:777
-msgid "TIFFClose operation failed"
-msgstr "TIFFClose operasjonen feilet"
-
-#: ../gdk-pixbuf/io-tiff.c:492 ../gdk-pixbuf/io-tiff.c:505
+#: ../gdk-pixbuf/io-tiff.c:427 ../gdk-pixbuf/io-tiff.c:440
 msgid "Failed to load TIFF image"
 msgstr "Feil under åpning av TIFF-bilde"
 
-#: ../gdk-pixbuf/io-tiff.c:691
+#: ../gdk-pixbuf/io-tiff.c:623
 msgid "Failed to save TIFF image"
 msgstr "Klarte ikke å lagre TIFF-bilde"
 
-#: ../gdk-pixbuf/io-tiff.c:726
+#: ../gdk-pixbuf/io-tiff.c:656
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr "TIFF-komprimering har ingen referanse til en gyldig kodek."
 
-#: ../gdk-pixbuf/io-tiff.c:766
+#: ../gdk-pixbuf/io-tiff.c:696
 msgid "Failed to write TIFF data"
 msgstr "Klarte ikke å lagre TIFF-data"
 
-#: ../gdk-pixbuf/io-tiff.c:813
+#: ../gdk-pixbuf/io-tiff.c:733
 msgid "Couldn't write to TIFF file"
 msgstr "Kunne ikke skrive til TIFF-fil"
 
-#: ../gdk-pixbuf/io-tiff.c:868
+#: ../gdk-pixbuf/io-tiff.c:788
 msgid "The TIFF image format"
 msgstr "TIFF bildeformat"
 
