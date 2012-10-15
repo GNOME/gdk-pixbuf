@@ -15,8 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2012-08-07 05:34+0000\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
+"%2b&keywords=I18N+L10N&component=gdk\n"
+"POT-Creation-Date: 2012-10-11 22:17+0000\n"
 "PO-Revision-Date: 2012-08-07 01:01+0900\n"
 "Last-Translator: Yoji TOYODA <bsyamato@sea.plala.or.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
@@ -27,27 +28,34 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Gtranslator 2.91.5\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:147 ../gdk-pixbuf/gdk-pixbuf-io.c:1083
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1349
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:147 ../gdk-pixbuf/gdk-pixbuf-io.c:1088
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1354
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "ファイル '%s' のオープンに失敗しました: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1095
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1100
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "画像ファイル '%s' にはデータがありません"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:202 ../gdk-pixbuf/gdk-pixbuf-io.c:1131
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1401
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:202 ../gdk-pixbuf/gdk-pixbuf-io.c:1136
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1406
 #, c-format
-msgid "Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr "画像 '%s' の読み込みに失敗しました: 理由は不明ですが、おそらく画像ファイルが壊れていると思われます"
+msgid ""
+"Failed to load image '%s': reason not known, probably a corrupt image file"
+msgstr ""
+"画像 '%s' の読み込みに失敗しました: 理由は不明ですが、おそらく画像ファイルが"
+"壊れていると思われます"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:235
 #, c-format
-msgid "Failed to load animation '%s': reason not known, probably a corrupt animation file"
-msgstr "アニメーション '%s' の読み込みに失敗しました: 理由は不明ですが、おそらくアニメーションファイルが壊れていると思われます"
+msgid ""
+"Failed to load animation '%s': reason not known, probably a corrupt "
+"animation file"
+msgstr ""
+"アニメーション '%s' の読み込みに失敗しました: 理由は不明ですが、おそらくアニ"
+"メーションファイルが壊れていると思われます"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:809
 #, c-format
@@ -56,72 +64,85 @@ msgstr "画像ロード・モジュールを読み込めません: %s: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:824
 #, c-format
-msgid "Image-loading module %s does not export the proper interface; perhaps it's from a different gdk-pixbuf version?"
-msgstr "画像ロード・モジュール %s は適切なインターフェースをエクスポートしていません。gdk-pixbuf の別のバージョンのモジュールかも?"
+msgid ""
+"Image-loading module %s does not export the proper interface; perhaps it's "
+"from a different gdk-pixbuf version?"
+msgstr ""
+"画像ロード・モジュール %s は適切なインターフェースをエクスポートしていませ"
+"ん。gdk-pixbuf の別のバージョンのモジュールかも?"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:833 ../gdk-pixbuf/gdk-pixbuf-io.c:884
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "画像の種類 '%s' はサポートされていません"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:964
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:969
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "ファイル '%s' の画像ファイルの形式を認識できませんでした"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:972
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:977
 msgid "Unrecognized image file format"
 msgstr "認識できない画像ファイルの形式"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1140
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1145
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "画像 '%s' の読み込みに失敗しました: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2028 ../gdk-pixbuf/io-gdip-utils.c:888
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2033 ../gdk-pixbuf/io-gdip-utils.c:888
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "画像ファイルの書き込み中にエラー: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2073 ../gdk-pixbuf/gdk-pixbuf-io.c:2203
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2078 ../gdk-pixbuf/gdk-pixbuf-io.c:2208
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
-msgstr "お使いの gdk-pixbuf は画像ファイルの形式 %s の保存をサポートしていません"
+msgstr ""
+"お使いの gdk-pixbuf は画像ファイルの形式 %s の保存をサポートしていません"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2107
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2112
 msgid "Insufficient memory to save image to callback"
 msgstr "画像をコールバックへ保存するために必要なメモリが足りません"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2120
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2125
 msgid "Failed to open temporary file"
 msgstr "一時保存ファイルのオープンに失敗しました"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2146
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2151
 msgid "Failed to read from temporary file"
 msgstr "一時保存ファイルからの読み込みに失敗しました"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2399
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2404
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "書き込みモードで '%s' のオープンに失敗しました: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2425
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2430
 #, c-format
-msgid "Failed to close '%s' while writing image, all data may not have been saved: %s"
-msgstr "画像を書き込む際に '%s' を閉じることができなかったため、すべてのデータが保存されていないかもしれません: %s"
+msgid ""
+"Failed to close '%s' while writing image, all data may not have been saved: "
+"%s"
+msgstr ""
+"画像を書き込む際に '%s' を閉じることができなかったため、すべてのデータが保存"
+"されていないかもしれません: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2646 ../gdk-pixbuf/gdk-pixbuf-io.c:2698
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2651 ../gdk-pixbuf/gdk-pixbuf-io.c:2703
 msgid "Insufficient memory to save image into a buffer"
 msgstr "画像をバッファーへ保存するために必要なメモリが足りません"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2744
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2749
 msgid "Error writing to image stream"
 msgstr "画像ストリームの書き込み中にエラー"
 
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:397
 #, c-format
-msgid "Internal error: Image loader module '%s' failed to complete an operation, but didn't give a reason for the failure"
-msgstr "内部エラー: 画像ロード・モジュール '%s' の処理に失敗しましたが、その原因を取得できませんでした"
+msgid ""
+"Internal error: Image loader module '%s' failed to complete an operation, "
+"but didn't give a reason for the failure"
+msgstr ""
+"内部エラー: 画像ロード・モジュール '%s' の処理に失敗しましたが、その原因を取"
+"得できませんでした"
 
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:439
 #, c-format
@@ -217,17 +238,23 @@ msgstr "GIF 画像形式"
 msgid "The ICO image format"
 msgstr "ICO 画像形式"
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1139
+#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1251
 #, c-format
-msgid "JPEG quality must be a value between 0 and 100; value '%s' could not be parsed."
-msgstr "JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%s' を解析できませんでした"
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"parsed."
+msgstr ""
+"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%s' を解析できません"
+"でした"
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1154
+#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1267
 #, c-format
-msgid "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgstr "JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%d' は確保されません"
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgstr ""
+"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%d' は確保されません"
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1316
+#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1480
 msgid "The JPEG image format"
 msgstr "JPEG 画像形式"
 
@@ -280,7 +307,9 @@ msgstr "GIF 画像の読み込みに失敗: %s"
 #: ../gdk-pixbuf/io-gif.c:496 ../gdk-pixbuf/io-gif.c:1501
 #: ../gdk-pixbuf/io-gif.c:1668
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
-msgstr "GIF ファイルに何か足りないデータがあります (理由は不明ですが切りつめられたかも?)"
+msgstr ""
+"GIF ファイルに何か足りないデータがあります (理由は不明ですが切りつめられたか"
+"も?)"
 
 #: ../gdk-pixbuf/io-gif.c:505
 #, c-format
@@ -330,8 +359,12 @@ msgid "Resulting GIF image has zero size"
 msgstr "GIF 画像の幅が 0 です"
 
 #: ../gdk-pixbuf/io-gif.c:1320
-msgid "GIF image has no global colormap, and a frame inside it has no local colormap."
-msgstr "GIF 画像にグローバルなカラーマップがありません。そしてフレームにローカルなカラーマップがありません"
+msgid ""
+"GIF image has no global colormap, and a frame inside it has no local "
+"colormap."
+msgstr ""
+"GIF 画像にグローバルなカラーマップがありません。そしてフレームにローカルなカ"
+"ラーマップがありません"
 
 #: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
@@ -427,28 +460,37 @@ msgstr "画像データを格納するためのメモリを確保できません
 msgid "The JPEG 2000 image format"
 msgstr "JPEG 2000 画像形式"
 
-#: ../gdk-pixbuf/io-jpeg.c:116
+#: ../gdk-pixbuf/io-jpeg.c:126
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "JPEG 画像ファイル (%s) の解釈でエラー"
 
-#: ../gdk-pixbuf/io-jpeg.c:527
-msgid "Insufficient memory to load image, try exiting some applications to free memory"
-msgstr "画像の読み込みに必要なメモリがありません。アプリケーションをいくつか終了してメモリを解放してください"
+#: ../gdk-pixbuf/io-jpeg.c:606
+msgid ""
+"Insufficient memory to load image, try exiting some applications to free "
+"memory"
+msgstr ""
+"画像の読み込みに必要なメモリがありません。アプリケーションをいくつか終了して"
+"メモリを解放してください"
 
-#: ../gdk-pixbuf/io-jpeg.c:568 ../gdk-pixbuf/io-jpeg.c:781
+#: ../gdk-pixbuf/io-jpeg.c:653 ../gdk-pixbuf/io-jpeg.c:867
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "サポートしていない JPEG のカラー・スペースです (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:680 ../gdk-pixbuf/io-jpeg.c:950
-#: ../gdk-pixbuf/io-jpeg.c:1183 ../gdk-pixbuf/io-jpeg.c:1192
+#: ../gdk-pixbuf/io-jpeg.c:766 ../gdk-pixbuf/io-jpeg.c:1046
+#: ../gdk-pixbuf/io-jpeg.c:1310 ../gdk-pixbuf/io-jpeg.c:1320
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "JPEG 画像を読み込むためのメモリを確保できませんでした"
 
-#: ../gdk-pixbuf/io-jpeg.c:925
+#: ../gdk-pixbuf/io-jpeg.c:1020
 msgid "Transformed JPEG has zero width or height."
 msgstr "変換した JPEG の幅または高さが 0 です。"
+
+#: ../gdk-pixbuf/io-jpeg.c:1281
+#, fuzzy, c-format
+msgid "Color profile has invalid length '%d'."
+msgstr "カラープロファイルの長さ %d が不正です。"
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -521,7 +563,9 @@ msgstr "変換した PNG は RGB でも RGBA でもありません。"
 
 #: ../gdk-pixbuf/io-png.c:161
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
-msgstr "変換した PNG のチャンネル数がサポートされているものではありません。3 または 4 にしてください"
+msgstr ""
+"変換した PNG のチャンネル数がサポートされているものではありません。3 または "
+"4 にしてください"
 
 #: ../gdk-pixbuf/io-png.c:182
 #, c-format
@@ -533,9 +577,13 @@ msgid "Insufficient memory to load PNG file"
 msgstr "PNG 画像を読み込むために必要なメモリが足りません"
 
 #: ../gdk-pixbuf/io-png.c:656
-#, c-format
-msgid "Insufficient memory to store a %ld by %ld image; try exiting some applications to reduce memory usage"
-msgstr "%ldx%ld の画像を保存するために必要なメモリが足りません。アプリケーションをいくつか終了してメモリの使用量を減らしてください"
+#, fuzzy, c-format
+msgid ""
+"Insufficient memory to store a %lu by %lu image; try exiting some "
+"applications to reduce memory usage"
+msgstr ""
+"%ldx%ld の画像を保存するために必要なメモリが足りません。アプリケーションをい"
+"くつか終了してメモリの使用量を減らしてください"
 
 #: ../gdk-pixbuf/io-png.c:719
 msgid "Fatal error reading PNG image file"
@@ -546,35 +594,43 @@ msgstr "PNG 画像ファイルの読み込み中に致命的なエラー"
 msgid "Fatal error reading PNG image file: %s"
 msgstr "PNG 画像ファイルの読み込み中に致命的なエラー: %s"
 
-#: ../gdk-pixbuf/io-png.c:862
-msgid "Keys for PNG text chunks must have at least 1 and at most 79 characters."
+#: ../gdk-pixbuf/io-png.c:858
+msgid ""
+"Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr "PNG のテキスト・チャンクのキーは 1〜79 文字にしてください。"
 
-#: ../gdk-pixbuf/io-png.c:871
+#: ../gdk-pixbuf/io-png.c:867
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "PNG のテキスト・チャンクのキーは ASCII 文字にしてください。"
 
-#: ../gdk-pixbuf/io-png.c:885 ../gdk-pixbuf/io-tiff.c:737
+#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:667
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "カラープロファイルの長さ %d が不正です。"
 
-#: ../gdk-pixbuf/io-png.c:898
+#: ../gdk-pixbuf/io-png.c:894
 #, c-format
-msgid "PNG compression level must be a value between 0 and 9; value '%s' could not be parsed."
-msgstr "PNG の圧縮レベルは 0〜9 の値にしてください。値 '%s' を解析できませんでした"
+msgid ""
+"PNG compression level must be a value between 0 and 9; value '%s' could not "
+"be parsed."
+msgstr ""
+"PNG の圧縮レベルは 0〜9 の値にしてください。値 '%s' を解析できませんでした"
 
-#: ../gdk-pixbuf/io-png.c:911
+#: ../gdk-pixbuf/io-png.c:907
 #, c-format
-msgid "PNG compression level must be a value between 0 and 9; value '%d' is not allowed."
+msgid ""
+"PNG compression level must be a value between 0 and 9; value '%d' is not "
+"allowed."
 msgstr "PNG の圧縮レベルは 0〜9 の値にしてください。値 '%d' は範囲外です。"
 
-#: ../gdk-pixbuf/io-png.c:959
+#: ../gdk-pixbuf/io-png.c:955
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
-msgstr "PNG のテキスト・チャンク %s の値を ISO-8859-1 エンコーディングに変換できません。"
+msgstr ""
+"PNG のテキスト・チャンク %s の値を ISO-8859-1 エンコーディングに変換できませ"
+"ん。"
 
-#: ../gdk-pixbuf/io-png.c:1122
+#: ../gdk-pixbuf/io-png.c:1118
 msgid "The PNG image format"
 msgstr "PNG 画像形式"
 
@@ -617,7 +673,8 @@ msgstr "PNM 画像ローダーはこの PNM サブ形式をサポートしてい
 
 #: ../gdk-pixbuf/io-pnm.c:739 ../gdk-pixbuf/io-pnm.c:966
 msgid "Raw PNM formats require exactly one whitespace before sample data"
-msgstr "バイナリ形式の PNM 形式ではサンプルデータの前に空白文字が 1 つだけ必要です"
+msgstr ""
+"バイナリ形式の PNM 形式ではサンプルデータの前に空白文字が 1 つだけ必要です"
 
 #: ../gdk-pixbuf/io-pnm.c:766
 msgid "Cannot allocate memory for loading PNM image"
@@ -769,60 +826,56 @@ msgstr "ファイルのデータが多すぎます"
 msgid "The Targa image format"
 msgstr "Targa 画像形式"
 
-#: ../gdk-pixbuf/io-tiff.c:164
+#: ../gdk-pixbuf/io-tiff.c:104
 msgid "Could not get image width (bad TIFF file)"
 msgstr "画像の幅を取得できません (不正な TIFF ファイル)"
 
-#: ../gdk-pixbuf/io-tiff.c:171
+#: ../gdk-pixbuf/io-tiff.c:112
 msgid "Could not get image height (bad TIFF file)"
 msgstr "画像の高さを取得できません (不正な TIFF ファイル)"
 
-#: ../gdk-pixbuf/io-tiff.c:179
+#: ../gdk-pixbuf/io-tiff.c:120
 msgid "Width or height of TIFF image is zero"
 msgstr "TIFF 画像の幅か高さが 0 です"
 
-#: ../gdk-pixbuf/io-tiff.c:188 ../gdk-pixbuf/io-tiff.c:197
+#: ../gdk-pixbuf/io-tiff.c:129 ../gdk-pixbuf/io-tiff.c:138
 msgid "Dimensions of TIFF image too large"
 msgstr "TIFF 画像の次元が大きすぎます"
 
-#: ../gdk-pixbuf/io-tiff.c:221 ../gdk-pixbuf/io-tiff.c:233
-#: ../gdk-pixbuf/io-tiff.c:560
+#: ../gdk-pixbuf/io-tiff.c:162 ../gdk-pixbuf/io-tiff.c:174
+#: ../gdk-pixbuf/io-tiff.c:491
 msgid "Insufficient memory to open TIFF file"
 msgstr "TIFF ファイルをオープンするために必要なメモリが足りません"
 
-#: ../gdk-pixbuf/io-tiff.c:294
+#: ../gdk-pixbuf/io-tiff.c:236
 msgid "Failed to load RGB data from TIFF file"
 msgstr "TIFF ファイルから RGB データの読み込みに失敗しました"
 
-#: ../gdk-pixbuf/io-tiff.c:350
+#: ../gdk-pixbuf/io-tiff.c:293
 msgid "Failed to open TIFF image"
 msgstr "TIFF 画像のオープンに失敗しました"
 
-#: ../gdk-pixbuf/io-tiff.c:362 ../gdk-pixbuf/io-tiff.c:777
-msgid "TIFFClose operation failed"
-msgstr "TIFFClose 操作に失敗しました"
-
-#: ../gdk-pixbuf/io-tiff.c:492 ../gdk-pixbuf/io-tiff.c:505
+#: ../gdk-pixbuf/io-tiff.c:427 ../gdk-pixbuf/io-tiff.c:440
 msgid "Failed to load TIFF image"
 msgstr "TIFF 画像の読み込みに失敗しました"
 
-#: ../gdk-pixbuf/io-tiff.c:691
+#: ../gdk-pixbuf/io-tiff.c:623
 msgid "Failed to save TIFF image"
 msgstr "TIFF 画像の保存に失敗しました"
 
-#: ../gdk-pixbuf/io-tiff.c:726
+#: ../gdk-pixbuf/io-tiff.c:656
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr "TIFF 圧縮が適切なコーデックを参照していません。"
 
-#: ../gdk-pixbuf/io-tiff.c:766
+#: ../gdk-pixbuf/io-tiff.c:696
 msgid "Failed to write TIFF data"
 msgstr "TIFF データの書き込みに失敗しました"
 
-#: ../gdk-pixbuf/io-tiff.c:813
+#: ../gdk-pixbuf/io-tiff.c:733
 msgid "Couldn't write to TIFF file"
 msgstr "TIFF ファイルに書き込めませんでした"
 
-#: ../gdk-pixbuf/io-tiff.c:868
+#: ../gdk-pixbuf/io-tiff.c:788
 msgid "The TIFF image format"
 msgstr "TIFF 画像形式"
 
@@ -902,6 +955,9 @@ msgstr "XPM 画像を読み込む際に一時ファイルへの書き込みに�
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "XPM 画像形式"
+
+#~ msgid "TIFFClose operation failed"
+#~ msgstr "TIFFClose 操作に失敗しました"
 
 #~ msgid "Unsupported animation type"
 #~ msgstr "サポートされていないアニメーションの種類です"
