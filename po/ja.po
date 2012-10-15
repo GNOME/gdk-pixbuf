@@ -1,8 +1,8 @@
 # gdk-pixbuf ja.po.
-# Copyright (C) 1998,2000-2009 Free Software Foundation, Inc.
+# Copyright (C) 1998,2000-2012 Free Software Foundation, Inc.
 # Yasuhiro SHIRASAKI <yasuhiro@awa.tohoku.ac.jp>, 1998.
 # Yukihiro Nakai <nakai@gnome.gr.jp>, 2000-2001.
-# Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2002, 2009-2010.
+# Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2002, 2009-2010, 2012.
 # Akira TAGOH <tagoh@gnome.gr.jp>, 2002.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2003-2009.
 # KAMAGASAKO Masatoshi <emerald@gnome.gr.jp>, 2003.
@@ -18,8 +18,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
 "POT-Creation-Date: 2012-10-11 22:17+0000\n"
-"PO-Revision-Date: 2012-08-07 01:01+0900\n"
-"Last-Translator: Yoji TOYODA <bsyamato@sea.plala.or.jp>\n"
+"PO-Revision-Date: 2012-10-15 22:39+0900\n"
+"Last-Translator: Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -488,9 +488,9 @@ msgid "Transformed JPEG has zero width or height."
 msgstr "変換した JPEG の幅または高さが 0 です。"
 
 #: ../gdk-pixbuf/io-jpeg.c:1281
-#, fuzzy, c-format
+#, c-format
 msgid "Color profile has invalid length '%d'."
-msgstr "カラープロファイルの長さ %d が不正です。"
+msgstr "カラープロファイルの長さ '%d' が不正です。"
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -577,13 +577,13 @@ msgid "Insufficient memory to load PNG file"
 msgstr "PNG 画像を読み込むために必要なメモリが足りません"
 
 #: ../gdk-pixbuf/io-png.c:656
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
-"%ldx%ld の画像を保存するために必要なメモリが足りません。アプリケーションをい"
-"くつか終了してメモリの使用量を減らしてください"
+"%lu x %lu の画像を保存するために必要なメモリが足りません。アプリケーションを"
+"いくつか終了してメモリの使用量を減らしてください"
 
 #: ../gdk-pixbuf/io-png.c:719
 msgid "Fatal error reading PNG image file"
