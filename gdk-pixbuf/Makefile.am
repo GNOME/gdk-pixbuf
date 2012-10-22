@@ -19,7 +19,7 @@ gdk_pixbuf_win32_res_ldflag = -Wl,gdk_pixbuf-win32-res.o
 libole32 = -lole32
 
 gdk_pixbuf-win32-res.o : gdk_pixbuf.rc
-	$(WINDRES) gdk_pixbuf.rc $@
+	$(AM_V_GEN)$(WINDRES) gdk_pixbuf.rc $@
 
 install-def-file:
 	$(INSTALL) $(srcdir)/gdk_pixbuf.def $(DESTDIR)$(libdir)/gdk_pixbuf-$(GDK_PIXBUF_API_VERSION).def
@@ -49,7 +49,7 @@ endif
 # This places the generated .def file in srcdir, since it is expected to be there.
 # (The one from a tarball is)
 gdk_pixbuf.def: gdk-pixbuf.symbols
-	(echo -e EXPORTS; $(CPP) -P -DINCLUDE_VARIABLES -DG_OS_WIN32 -DALL_FILES - <$(srcdir)/gdk-pixbuf.symbols | sed -e '/^$$/d' -e 's/^/	/' -e 's/G_GNUC_[^ ]*//g') > $(srcdir)/gdk_pixbuf.def
+	$(AM_V_GEN)(echo -e EXPORTS; $(CPP) -P -DINCLUDE_VARIABLES -DG_OS_WIN32 -DALL_FILES - <$(srcdir)/gdk-pixbuf.symbols | sed -e '/^$$/d' -e 's/^/	/' -e 's/G_GNUC_[^ ]*//g') > $(srcdir)/gdk_pixbuf.def
 
 if OS_LINUX
 TESTS = abicheck.sh
@@ -211,7 +211,7 @@ libgdiplus = libgdiplus.dll.a
 gdiplus_ldflag = -Wl,$(libgdiplus)
 
 libgdiplus.dll.a: gdiplus.def
-	$(DLLTOOL) --kill-at --dllname gdiplus.dll --input-def $(srcdir)/gdiplus.def --output-lib $@
+	$(AM_V_GEN)$(DLLTOOL) --kill-at --dllname gdiplus.dll --input-def $(srcdir)/gdiplus.def --output-lib $@
 
 if INCLUDE_GDIPLUS
 
@@ -621,7 +621,7 @@ gdk-pixbuf-enum-types.h: s-enum-types-h
 	@true
 
 s-enum-types-h: @REBUILD@ $(gdk_pixbuf_headers) gdk-pixbuf-enum-types.h.template
-	( cd $(srcdir) && $(GLIB_MKENUMS) --template gdk-pixbuf-enum-types.h.template \
+	$(AM_V_GEN)( cd $(srcdir) && $(GLIB_MKENUMS) --template gdk-pixbuf-enum-types.h.template \
 		$(gdk_pixbuf_headers) ) > tmp-gdk-pixbuf-enum-types.h \
 	&& (cmp -s tmp-gdk-pixbuf-enum-types.h gdk-pixbuf-enum-types.h || cp tmp-gdk-pixbuf-enum-types.h gdk-pixbuf-enum-types.h ) \
 	&& rm -f tmp-gdk-pixbuf-enum-types.h \
@@ -634,7 +634,7 @@ MAINTAINERCLEANFILES += s-enum-types-h
 # gdk-pixbuf-enum-types.c
 #
 gdk-pixbuf-enum-types.c: @REBUILD@ $(gdk_pixbuf_headers) gdk-pixbuf-enum-types.c.template
-	(cd $(srcdir) && $(GLIB_MKENUMS) --template gdk-pixbuf-enum-types.c.template \
+	$(AM_V_GEN)(cd $(srcdir) && $(GLIB_MKENUMS) --template gdk-pixbuf-enum-types.c.template \
 		  $(gdk_pixbuf_headers)) > gdk-pixbuf-enum-types.c
 
 #
@@ -644,7 +644,7 @@ gdk-pixbuf-marshal.h: @REBUILD@ stamp-gdk-pixbuf-marshal.h
 	@true
 
 stamp-gdk-pixbuf-marshal.h: @REBUILD@ $(srcdir)/gdk-pixbuf-marshal.list
-	echo "#if !defined(GDK_PIXBUF_DISABLE_DEPRECATED) || defined(GDK_PIXBUF_COMPILATION)" > xgen-gmh \
+	$(AM_V_GEN)echo "#if !defined(GDK_PIXBUF_DISABLE_DEPRECATED) || defined(GDK_PIXBUF_COMPILATION)" > xgen-gmh \
 	&& $(GLIB_GENMARSHAL) --prefix=_gdk_pixbuf_marshal $(srcdir)/gdk-pixbuf-marshal.list --header >> xgen-gmh \
 	&& echo "#endif /* !GDK_PIXBUF_DISABLE_DEPRECATED || GDK_PIXBUF_COMPILATION */" >> xgen-gmh \
 	&& (cmp -s xgen-gmh gdk-pixbuf-marshal.h || cp xgen-gmh gdk-pixbuf-marshal.h) \
@@ -658,7 +658,7 @@ MAINTAINERCLEANFILES += stamp-gdk-pixbuf-marshal.h
 # gdk-pixbuf-marshal.c
 #
 $(srcdir)/gdk-pixbuf-marshal.c: @REBUILD@ $(srcdir)/gdk-pixbuf-marshal.list
-	(echo -e "#include <gdk-pixbuf/gdk-pixbuf.h>\n" | $(GLIB_GENMARSHAL) --prefix=_gdk_pixbuf_marshal $(srcdir)/gdk-pixbuf-marshal.list --body ) >> xgen-gmc \
+	$(AM_V_GEN)(echo -e "#include <gdk-pixbuf/gdk-pixbuf.h>\n" | $(GLIB_GENMARSHAL) --prefix=_gdk_pixbuf_marshal $(srcdir)/gdk-pixbuf-marshal.list --body ) >> xgen-gmc \
 	&& cp xgen-gmc gdk-pixbuf-marshal.c \
 	&& rm -f xgen-gmc xgen-gmc~
 
