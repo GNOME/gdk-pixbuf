@@ -16,14 +16,14 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf MASTER\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2012-02-29 12:49+0000\n"
-"PO-Revision-Date: 2012-03-01 19:43+0200\n"
+"POT-Creation-Date: 2012-10-15 14:15+0000\n"
+"PO-Revision-Date: 2012-10-21 21:09+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #, c-format
@@ -139,9 +139,6 @@ msgstr[1] "Tõrge pildipuhvrile %u baidi eraldamisel"
 
 msgid "Unexpected icon chunk in animation"
 msgstr "Animatsioonis on ootamatu ikoonitükk"
-
-msgid "Unsupported animation type"
-msgstr "Animatsioonitüüp pole toetatud"
 
 msgid "Invalid header in animation"
 msgstr "Vigane päis animatsioonis"
@@ -275,6 +272,9 @@ msgstr "Fail ei tundu olevat GIF-fail"
 msgid "Version %s of the GIF file format is not supported"
 msgstr "GIF-failivormingu versioon %s pole toetatud"
 
+msgid "Resulting GIF image has zero size"
+msgstr "Saadud GIF pildi suurus on null"
+
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -370,6 +370,10 @@ msgstr "JPEG-faili laadimiseks pole võimalik mälu eraldada"
 msgid "Transformed JPEG has zero width or height."
 msgstr "Transformeeritud JPEG laius või kõrgus on null."
 
+#, c-format
+msgid "Color profile has invalid length '%d'."
+msgstr "Värvusprofiilil on vigane pikkus %d."
+
 msgid "Couldn't allocate memory for header"
 msgstr "Päise jaoks pole võimalik mälu eraldada"
 
@@ -435,10 +439,10 @@ msgstr "PNG-faili laadimiseks pole piisavalt mälu"
 
 #, c-format
 msgid ""
-"Insufficient memory to store a %ld by %ld image; try exiting some "
+"Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
-"%ldx%ld suurusega pildi salvestamiseks pole piisavalt mälu. Mälukasutuse "
+"%lu x%lu suurusega pildi salvestamiseks pole piisavalt mälu. Mälukasutuse "
 "vähendamiseks võid sa proovida mõnede rakenduste sulgemist"
 
 msgid "Fatal error reading PNG image file"
@@ -650,9 +654,6 @@ msgstr "TIFF-failist pole võimalik RGB andmeid lugeda "
 
 msgid "Failed to open TIFF image"
 msgstr "Tõrge TIFF-faili avamisel"
-
-msgid "TIFFClose operation failed"
-msgstr "TIFFSulgemisoperatsioon nurjus"
 
 msgid "Failed to load TIFF image"
 msgstr "Tõrge TIFF-faili laadimisel"
