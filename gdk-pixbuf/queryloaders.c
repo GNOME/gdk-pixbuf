@@ -312,6 +312,17 @@ int main (int argc, char **argv)
 
 #endif
 
+	/* This call is necessary to ensure we actually link against libgobject;
+	 * otherwise it may be stripped if -Wl,--as-needed is in use.
+	 * 
+	 * The reason we need to link against libgobject is because it now has
+	 * a global constructor.  If the dynamically loaded modules happen
+	 * to dlclose() libgobject, then reopen it again, we're in for trouble.
+	 *
+	 * See: https://bugzilla.gnome.org/show_bug.cgi?id=686822
+	 */
+	g_type_ensure (G_TYPE_OBJECT);
+
         if (argc > 1 && strcmp (argv[1], "--update-cache") == 0) {
                 cache_file = gdk_pixbuf_get_module_file ();
                 first_file = 2;
