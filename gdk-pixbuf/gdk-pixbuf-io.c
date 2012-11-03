@@ -512,9 +512,13 @@ gdk_pixbuf_io_init (void)
         channel = g_io_channel_new_file (filename, "r",  &error);
         if (!channel) {
                 /* Don't bother warning if we have some built-in loaders */
-                if (file_formats == NULL)
-                        g_warning ("Cannot open pixbuf loader module file '%s': %s",
-                                   filename, error->message);
+                if (file_formats == NULL || file_formats->next == NULL)
+                        g_warning ("Cannot open pixbuf loader module file '%s': %s\n\n"
+                                   "This likely means that your installation is broken.\n"
+                                   "Try running the command\n"
+                                   "  gdk-pixbuf-query-loaders > %s\n"
+                                   "to make things work again for the time being.",
+                                   filename, error->message, filename);
                 g_string_free (tmp_buf, TRUE);
                 g_free (filename);
                 return;
