@@ -15,8 +15,8 @@ AC_PREREQ([2.63])
 
 m4_define([gdk_pixbuf_major_version], [2])
 m4_define([gdk_pixbuf_minor_version], [26])
-m4_define([gdk_pixbuf_micro_version], [5])
-m4_define([gdk_pixbuf_interface_age], [5])
+m4_define([gdk_pixbuf_micro_version], [6])
+m4_define([gdk_pixbuf_interface_age], [6])
 m4_define([gdk_pixbuf_binary_age],
           [m4_eval(100 * gdk_pixbuf_minor_version + gdk_pixbuf_micro_version)])
 m4_define([gdk_pixbuf_version],
