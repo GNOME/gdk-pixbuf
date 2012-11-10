@@ -1,3 +1,30 @@
+2.26.5
+======
+
+* Improve error message for missing cache file (686844)
+
+* Ensure we link to gobject (#686822)
+
+* Silence custom make rule (#686605)
+
+* Prevent an error pileup (#686139)
+
+* Don't use AC_PATH_PROG (#671516)
+
+* Translation updates
+ Bulgarian
+ Estonian
+ Hindi
+ Italian
+ Japanese
+ Latvian
+ Malayalam
+ Norwegian bokmål
+ Simplified Chinese
+ Telugu
+ Thai
+
+
 2.26.4
 ======
 
