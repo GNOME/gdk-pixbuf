@@ -749,7 +749,6 @@ gdk_pixbuf__gdip_image_stop_load (gpointer data, GError **error)
 
   if (!bitmap) {
     destroy_gdipcontext (context);
-    g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE, _("Couldn't load bitmap"));
     return FALSE;
   }
 
