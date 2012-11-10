@@ -152,7 +152,7 @@ LT_OUTPUT
 AC_SYS_LARGEFILE
 
 AM_PROG_AS
-AC_PATH_PROG(NM, nm, nm)
+AC_CHECK_TOOLS(NM, nm, nm)
 
 AC_MSG_CHECKING([for some Win32 platform])
 AS_CASE(["$host"],
