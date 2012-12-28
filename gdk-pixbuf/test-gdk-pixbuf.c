@@ -230,8 +230,10 @@ main (int argc, char **argv)
 
 	result = EXIT_SUCCESS;
 
+#if !GLIB_CHECK_VERSION (2, 35, 3)
 	g_type_init ();
-	
+#endif
+
 	/* Run some tests. */
 	if (!simple_composite_test ()) {
 		result = EXIT_FAILURE;

@@ -76,8 +76,10 @@ main (int   argc,
   GError *error = NULL;
   gchar *infilename;
 
-  /* initialize glib/GdkPixbuf */
+#if !GLIB_CHECK_VERSION (2, 35, 3)
+  /* initialize gtype */
   g_type_init ();
+#endif
 
   /* parse args and do fast exits */
   parse_args (&argc, &argv);

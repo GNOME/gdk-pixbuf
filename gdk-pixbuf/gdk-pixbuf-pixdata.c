@@ -55,8 +55,10 @@ main (int   argc,
   guint8 *data;
   guint data_len;
 
-  /* initialize glib/GdkPixbuf */
+#if !GLIB_CHECK_VERSION (2, 35, 3)
+  /* initialize GType */
   g_type_init ();
+#endif
 
   /* parse args and do fast exits */
   parse_args (&argc, &argv);
