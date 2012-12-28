@@ -1428,6 +1428,7 @@ gif_main_loop (GifContext *context)
 
 		case GIF_DONE:
                         LOG("done\n");
+                        /* fall through */
 		default:
 			retval = 0;
 			goto done;
