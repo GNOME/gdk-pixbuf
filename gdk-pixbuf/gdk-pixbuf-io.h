@@ -291,9 +291,8 @@ gboolean gdk_pixbuf_set_option  (GdkPixbuf   *pixbuf,
  * GdkPixbufFormatFlags:
  * @GDK_PIXBUF_FORMAT_WRITABLE: the module can write out images in the format.
  * @GDK_PIXBUF_FORMAT_SCALABLE: the image format is scalable
- * @GDK_PIXBUF_FORMAT_THREADSAFE: the module is threadsafe. If this flag is not
- *  set, &gdk-pixbuf; will use a lock to prevent multiple threads from using
- *  this module at the same time. (Since 2.6)
+ * @GDK_PIXBUF_FORMAT_THREADSAFE: the module is threadsafe. &gdk-pixbuf;
+ *     ignores modules that are not marked as threadsafe. (Since 2.28).
  * 
  * Flags which allow a module to specify further details about the supported
  * operations.
