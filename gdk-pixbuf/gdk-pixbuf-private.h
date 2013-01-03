@@ -82,9 +82,6 @@ struct _GdkPixbufClass {
 
 #ifdef GDK_PIXBUF_ENABLE_BACKEND
 
-gboolean _gdk_pixbuf_lock (GdkPixbufModule *image_module);
-void _gdk_pixbuf_unlock (GdkPixbufModule *image_module);
-
 GdkPixbufModule *_gdk_pixbuf_get_module (guchar *buffer, guint size,
                                          const gchar *filename,
                                          GError **error);
