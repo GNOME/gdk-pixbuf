@@ -86,11 +86,15 @@ main (int argc, char **argv)
 {
   int i, start;
   GThreadPool *pool;
-  
-  g_type_init ();
 
+#if !GLIB_CHECK_VERSION (2, 35, 3)
+  g_type_init ();
+#endif
+
+#if !GLIB_CHECK_VERSION (2, 32, 0)
   if (!g_thread_supported ())
     g_thread_init (NULL);
+#endif
 
   g_log_set_always_fatal (G_LOG_LEVEL_WARNING | G_LOG_LEVEL_ERROR | G_LOG_LEVEL_CRITICAL);
 
