@@ -1,3 +1,10 @@
+2.27.0
+======
+
+* The broken locking mechanism for loaders has been removed.
+  gdk-pixbuf now ignores loaders that are not marked as thread-safe.
+
+
 2.26.5
 ======
 
