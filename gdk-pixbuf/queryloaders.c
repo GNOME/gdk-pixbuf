@@ -255,7 +255,7 @@ gdk_pixbuf_get_module_file (void)
 int main (int argc, char **argv)
 {
         gint i;
-        gchar *prgname;
+        const gchar *prgname;
         GString *contents;
         gchar *cache_file = NULL;
         gint first_file = 1;
