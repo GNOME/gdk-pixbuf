@@ -759,7 +759,7 @@ endif
 install-data-hook: install-ms-lib install-def-file
 	@if $(RUN_QUERY_LOADER_TEST) ; then \
 	  $(mkinstalldirs) $(DESTDIR)$(libdir)/gdk-pixbuf-2.0/$(GDK_PIXBUF_BINARY_VERSION) ; \
-	  $(top_builddir)/gdk-pixbuf/gdk-pixbuf-query-loaders > $(DESTDIR)$(libdir)/gdk-pixbuf-2.0/$(GDK_PIXBUF_BINARY_VERSION)/loaders.cache ; \
+	  $(top_builddir)/gdk-pixbuf/gdk-pixbuf-query-loaders$(EXEEXT) > $(DESTDIR)$(libdir)/gdk-pixbuf-2.0/$(GDK_PIXBUF_BINARY_VERSION)/loaders.cache ; \
 	else \
 	  echo "***" ; \
 	  echo "*** Warning: loaders.cache not built" ; \
@@ -782,7 +782,7 @@ loaders.cache: $(loader_LTLIBRARIES) gdk-pixbuf-query-loaders$(EXEEXT)
 	LOADERS=`echo libpixbufloader-*.la` ; \
 	if test "x$$LOADERS" != 'xlibpixbufloader-*.la' ; then \
           echo "Writing a loaders.cache file to use when running examples before installing gdk-pixbuf."; \
-	  $(top_builddir)/gdk-pixbuf/gdk-pixbuf-query-loaders $$LOADERS > ./loaders.cache ;\
+	  $(top_builddir)/gdk-pixbuf/gdk-pixbuf-query-loaders$(EXEEXT) $$LOADERS > ./loaders.cache ;\
 	else \
           echo "No dynamic modules found; will use only static modules for uninstalled example programs."; \
 	  touch loaders.cache; \
