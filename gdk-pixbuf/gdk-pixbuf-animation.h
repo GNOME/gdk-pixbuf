@@ -81,6 +81,8 @@ void                gdk_pixbuf_animation_new_from_stream_async (GInputStream *st
                                                           gpointer            user_data);
 GdkPixbufAnimation *gdk_pixbuf_animation_new_from_stream_finish (GAsyncResult*async_result,
                                                           GError            **error);
+GdkPixbufAnimation *gdk_pixbuf_animation_new_from_resource(const char        *resource_path,
+                                                          GError            **error);
 
 #ifndef GDK_PIXBUF_DISABLE_DEPRECATED
 G_DEPRECATED_FOR(g_object_ref)

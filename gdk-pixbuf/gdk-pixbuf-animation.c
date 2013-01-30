@@ -478,6 +478,47 @@ gdk_pixbuf_animation_new_from_stream_finish (GAsyncResult  *async_result,
 }
 
 /**
+ * gdk_pixbuf_animation_new_from_resource:
+ * @resource_path: the path of the resource file
+ * @error: Return location for an error
+ *
+ * Creates a new pixbuf animation by loading an image from an resource.
+ *
+ * The file format is detected automatically. If %NULL is returned, then
+ * @error will be set.
+ *
+ * Return value: A newly-created animation, or %NULL if any of several error
+ * conditions occurred: the file could not be opened, the image format is
+ * not supported, there was not enough memory to allocate the image buffer,
+ * the stream contained invalid data, or the operation was cancelled.
+ *
+ * Since: 2.28
+ **/
+GdkPixbufAnimation *
+gdk_pixbuf_animation_new_from_resource (const char *resource_path,
+                                        GError    **error)
+{
+	GInputStream *stream;
+	GdkPixbufAnimation *anim;
+	GdkPixbuf *pixbuf;
+
+        pixbuf = _gdk_pixbuf_new_from_resource_try_mmap (resource_path);
+        if (pixbuf) {
+                anim = gdk_pixbuf_non_anim_new (pixbuf);
+                g_object_unref (pixbuf);
+                return anim;
+        }
+
+	stream = g_resources_open_stream (resource_path, 0, error);
+	if (stream == NULL)
+		return NULL;
+
+	anim = gdk_pixbuf_animation_new_from_stream (stream, NULL, error);
+	g_object_unref (stream);
+	return anim;
+}
+
+/**
  * gdk_pixbuf_animation_ref: (skip)
  * @animation: An animation.
  *
