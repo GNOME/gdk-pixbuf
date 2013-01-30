@@ -395,6 +395,88 @@ gdk_pixbuf_animation_new_from_stream  (GInputStream  *stream,
         return animation;
 }
 
+static void
+animation_new_from_stream_thread (GSimpleAsyncResult *result,
+                                  GInputStream       *stream,
+                                  GCancellable       *cancellable)
+{
+	GdkPixbufAnimation *animation;
+	GError *error = NULL;
+
+	animation = gdk_pixbuf_animation_new_from_stream (stream, cancellable, &error);
+
+	/* Set the new pixbuf as the result, or error out */
+	if (animation == NULL) {
+		g_simple_async_result_take_error (result, error);
+	} else {
+		g_simple_async_result_set_op_res_gpointer (result, g_object_ref (animation), g_object_unref);
+	}
+}
+
+/**
+ * gdk_pixbuf_animation_new_from_stream_async:
+ * @stream: a #GInputStream from which to load the animation
+ * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
+ * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
+ * @user_data: the data to pass to the callback function
+ *
+ * Creates a new animation by asynchronously loading an image from an input stream.
+ *
+ * For more details see gdk_pixbuf_new_from_stream(), which is the synchronous
+ * version of this function.
+ *
+ * When the operation is finished, @callback will be called in the main thread.
+ * You can then call gdk_pixbuf_animation_new_from_stream_finish() to get the
+ * result of the operation.
+ *
+ * Since: 2.28
+ **/
+void
+gdk_pixbuf_animation_new_from_stream_async (GInputStream        *stream,
+                                            GCancellable        *cancellable,
+                                            GAsyncReadyCallback  callback,
+                                            gpointer             user_data)
+{
+	GSimpleAsyncResult *result;
+
+	g_return_if_fail (G_IS_INPUT_STREAM (stream));
+	g_return_if_fail (callback != NULL);
+	g_return_if_fail (!cancellable || G_IS_CANCELLABLE (cancellable));
+
+	result = g_simple_async_result_new (G_OBJECT (stream), callback, user_data, gdk_pixbuf_animation_new_from_stream_async);
+	g_simple_async_result_run_in_thread (result, (GSimpleAsyncThreadFunc) animation_new_from_stream_thread, G_PRIORITY_DEFAULT, cancellable);
+	g_object_unref (result);
+}
+
+/**
+ * gdk_pixbuf_animation_new_from_stream_finish:
+ * @async_result: a #GAsyncResult
+ * @error: a #GError, or %NULL
+ *
+ * Finishes an asynchronous pixbuf animation creation operation started with
+ * gdk_pixbuf_animation_new_from_stream_async().
+ *
+ * Return value: a #GdkPixbufAnimation or %NULL on error. Free the returned
+ * object with g_object_unref().
+ *
+ * Since: 2.24
+ **/
+GdkPixbufAnimation *
+gdk_pixbuf_animation_new_from_stream_finish (GAsyncResult  *async_result,
+			              	     GError       **error)
+{
+	GSimpleAsyncResult *result = G_SIMPLE_ASYNC_RESULT (async_result);
+
+	g_return_val_if_fail (G_IS_ASYNC_RESULT (async_result), NULL);
+	g_return_val_if_fail (!error || (error && !*error), NULL);
+	g_warn_if_fail (g_simple_async_result_get_source_tag (result) == gdk_pixbuf_animation_new_from_stream_async);
+
+	if (g_simple_async_result_propagate_error (result, error))
+		return NULL;
+
+	return g_simple_async_result_get_op_res_gpointer (result);
+}
+
 /**
  * gdk_pixbuf_animation_ref: (skip)
  * @animation: An animation.
