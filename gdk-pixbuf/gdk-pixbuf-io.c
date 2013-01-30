@@ -1646,29 +1646,9 @@ gdk_pixbuf_new_from_stream (GInputStream  *stream,
         return pixbuf;
 }
 
-/**
- * gdk_pixbuf_new_from_resource:
- * @resource_path: the path of the resource file
- * @error: Return location for an error
- *
- * Creates a new pixbuf by loading an image from an resource.
- *
- * The file format is detected automatically. If %NULL is returned, then
- * @error will be set.
- *
- * Return value: A newly-created pixbuf, or %NULL if any of several error
- * conditions occurred: the file could not be opened, the image format is
- * not supported, there was not enough memory to allocate the image buffer,
- * the stream contained invalid data, or the operation was cancelled.
- *
- * Since: 2.26
- **/
 GdkPixbuf *
-gdk_pixbuf_new_from_resource (const char *resource_path,
-			      GError    **error)
+_gdk_pixbuf_new_from_resource_try_mmap (const char *resource_path)
 {
-	GInputStream *stream;
-	GdkPixbuf *pixbuf;
 	guint32 flags;
 	gsize data_size;
 	GBytes *bytes;
@@ -1698,6 +1678,37 @@ gdk_pixbuf_new_from_resource (const char *resource_path,
 			g_bytes_unref (bytes);
 		}
 	}
+
+        return NULL;
+}
+
+/**
+ * gdk_pixbuf_new_from_resource:
+ * @resource_path: the path of the resource file
+ * @error: Return location for an error
+ *
+ * Creates a new pixbuf by loading an image from an resource.
+ *
+ * The file format is detected automatically. If %NULL is returned, then
+ * @error will be set.
+ *
+ * Return value: A newly-created pixbuf, or %NULL if any of several error
+ * conditions occurred: the file could not be opened, the image format is
+ * not supported, there was not enough memory to allocate the image buffer,
+ * the stream contained invalid data, or the operation was cancelled.
+ *
+ * Since: 2.26
+ **/
+GdkPixbuf *
+gdk_pixbuf_new_from_resource (const char *resource_path,
+			      GError    **error)
+{
+	GInputStream *stream;
+	GdkPixbuf *pixbuf;
+
+        pixbuf = _gdk_pixbuf_new_from_resource_try_mmap (resource_path);
+        if (pixbuf)
+                return pixbuf;
 
 	stream = g_resources_open_stream (resource_path, 0, error);
 	if (stream == NULL)
