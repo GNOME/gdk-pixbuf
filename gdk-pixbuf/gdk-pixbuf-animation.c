@@ -107,6 +107,19 @@ gdk_pixbuf_animation_init (GdkPixbufAnimation *animation)
 {
 }
 
+static void
+prepared_notify (GdkPixbuf *pixbuf, 
+                 GdkPixbufAnimation *anim, 
+                 gpointer user_data)
+{
+        if (anim != NULL)
+                g_object_ref (anim);
+        else
+                anim = gdk_pixbuf_non_anim_new (pixbuf);
+
+        *((GdkPixbufAnimation **)user_data) = anim;
+}
+
 /**
  * gdk_pixbuf_animation_new_from_file:
  * @filename: Name of file to load, in the GLib file name encoding
@@ -199,6 +212,37 @@ gdk_pixbuf_animation_new_from_file (const char *filename,
                                      display_name);
                 }
                 
+		fclose (f);
+        } else if (image_module->begin_load != NULL) {
+                guchar buffer[4096];
+                size_t length;
+                GdkPixbufAnimation *anim = NULL;
+                gpointer context;
+
+		fseek (f, 0, SEEK_SET);
+
+                context = image_module->begin_load (NULL, prepared_notify, NULL, &anim, error);
+                
+                if (!context)
+                        return NULL;
+                
+                while (!feof (f) && !ferror (f)) {
+                        length = fread (buffer, 1, sizeof (buffer), f);
+                        if (length > 0)
+                                if (!image_module->load_increment (context, buffer, length, error)) {
+                                        image_module->stop_load (context, NULL);
+                                        if (anim != NULL)
+                                                g_object_unref (anim);
+                                        return NULL;
+                                }
+                }
+
+                if (!image_module->stop_load (context, error)) {
+                        if (anim != NULL)
+                                g_object_unref (anim);
+                        return NULL;
+                }
+
 		fclose (f);
 	} else {
 		GdkPixbuf *pixbuf;
