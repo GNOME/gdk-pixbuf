@@ -627,50 +627,6 @@ gdk_pixbuf__ani_image_stop_load (gpointer data,
         return TRUE;
 }
 
-static void
-prepared_notify (GdkPixbuf *pixbuf, 
-		 GdkPixbufAnimation *anim, 
-		 gpointer user_data)
-{
-	if (anim != NULL)
-		g_object_ref (anim);
-	*((GdkPixbufAnimation **)user_data) = anim;
-}
-
-static GdkPixbufAnimation *
-gdk_pixbuf__ani_image_load_animation (FILE *f, GError **error)
-{
-	guchar buffer[4096];
-	size_t length;
-	GdkPixbufAnimation *anim = NULL;
-	gpointer context;
-
-	context = gdk_pixbuf__ani_image_begin_load (NULL, prepared_notify, 
-						    NULL, &anim, error);
-	
-	if (!context)
-                return NULL;
-	
-	while (!feof (f) && !ferror (f)) {
-		length = fread (buffer, 1, sizeof (buffer), f);
-		if (length > 0)
-			if (!gdk_pixbuf__ani_image_load_increment (context, buffer, length, error)) {
-				gdk_pixbuf__ani_image_stop_load (context, NULL);
-				if (anim != NULL)
-					g_object_unref (anim);
-				return NULL;
-			}
-	}
-
-	if (!gdk_pixbuf__ani_image_stop_load (context, error)) {
-		if (anim != NULL)
-			g_object_unref (anim);
-		return NULL;
-	}
-	
-	return anim;
-}
-
 #ifndef INCLUDE_ani
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
 #else
@@ -679,7 +635,6 @@ gdk_pixbuf__ani_image_load_animation (FILE *f, GError **error)
 
 MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 {
-        module->load_animation = gdk_pixbuf__ani_image_load_animation;
         module->begin_load = gdk_pixbuf__ani_image_begin_load;
         module->stop_load = gdk_pixbuf__ani_image_stop_load;
         module->load_increment = gdk_pixbuf__ani_image_load_increment;

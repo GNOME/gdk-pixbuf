@@ -819,56 +819,6 @@ gdk_pixbuf__gdip_image_stop_vector_load (gpointer data, GError **error)
   return stop_load (bitmap, context, error);
 }
 
-static void 
-gdip_animation_prepare (GdkPixbuf *pixbuf,
-                        GdkPixbufAnimation *animation,
-                        gpointer user_data)
-{
-  GdkPixbufAnimation **anim;
-
-  anim = (GdkPixbufAnimation **)user_data;
-
-  /* save a reference to the animation */
-  g_object_ref (animation);
-  *anim = animation;
-}
-
-static GdkPixbufAnimation *
-gdk_pixbuf__gdip_image_load_animation (FILE *file,
-                                       GError **error)
-{
-  GdkPixbufAnimation *animation = NULL;
-
-  gpointer context;
-  char buffer[LOAD_BUFFER_SIZE];
-  size_t length;
-
-  context = gdk_pixbuf__gdip_image_begin_load (NULL, gdip_animation_prepare, NULL, &animation, error);
-
-  while (!feof (file) && !ferror (file)) {
-    length = fread (buffer, 1, sizeof (buffer), file);
-    if (length > 0) {
-      if (!gdk_pixbuf__gdip_image_load_increment (context, buffer, length, error)) {
-        gdk_pixbuf__gdip_image_stop_load (context, NULL);
-
-        if (animation)
-          g_object_unref (animation);
-
-        return NULL;
-      }
-    }
-  }
-
-  if (!gdk_pixbuf__gdip_image_stop_load(context, error)) {
-    if (animation)
-      g_object_unref (animation);
-    
-    return NULL;
-  }
-
-  return animation;
-}
-
 gboolean
 gdip_save_to_file_callback (const gchar *buf,
                             gsize        count,
@@ -899,10 +849,6 @@ gdip_fill_vtable (GdkPixbufModule *module)
     module->begin_load     = gdk_pixbuf__gdip_image_begin_load;
     module->stop_load      = gdk_pixbuf__gdip_image_stop_load;
     module->load_increment = gdk_pixbuf__gdip_image_load_increment;
-    
-    /* this is the only way to get gtk_image_new_from_file() to load animations. it regrettably
-       does not use the GdkPixbufLoader interface. */
-    module->load_animation = gdk_pixbuf__gdip_image_load_animation;
   }
 }
 
