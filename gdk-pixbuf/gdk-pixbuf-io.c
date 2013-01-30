@@ -48,7 +48,6 @@
 #endif
 
 #define SNIFF_BUFFER_SIZE 4096
-#define LOAD_BUFFER_SIZE 65536
 
 /**
  * SECTION:file-loading

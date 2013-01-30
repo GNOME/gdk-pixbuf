@@ -35,6 +35,8 @@
 #include "gdk-pixbuf-io.h"
 #include "gdk-pixbuf-i18n.h"
 
+#define LOAD_BUFFER_SIZE 65536
+
 
 
 typedef struct _GdkPixbufClass GdkPixbufClass;

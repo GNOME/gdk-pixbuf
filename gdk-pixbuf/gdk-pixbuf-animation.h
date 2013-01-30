@@ -72,6 +72,9 @@ GType               gdk_pixbuf_animation_get_type        (void) G_GNUC_CONST;
 
 GdkPixbufAnimation *gdk_pixbuf_animation_new_from_file   (const char         *filename,
                                                           GError            **error);
+GdkPixbufAnimation *gdk_pixbuf_animation_new_from_stream (GInputStream       *stream,
+                                                          GCancellable       *cancellable,
+                                                          GError            **error);
 
 #ifndef GDK_PIXBUF_DISABLE_DEPRECATED
 G_DEPRECATED_FOR(g_object_ref)
