@@ -459,7 +459,7 @@ gdk_pixbuf_animation_new_from_stream_async (GInputStream        *stream,
  * Return value: a #GdkPixbufAnimation or %NULL on error. Free the returned
  * object with g_object_unref().
  *
- * Since: 2.24
+ * Since: 2.28
  **/
 GdkPixbufAnimation *
 gdk_pixbuf_animation_new_from_stream_finish (GAsyncResult  *async_result,
