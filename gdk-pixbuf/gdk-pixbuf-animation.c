@@ -177,7 +177,30 @@ gdk_pixbuf_animation_new_from_file (const char *filename,
                         return NULL;
                 }
 
-	if (image_module->load_animation == NULL) {
+	if (image_module->load_animation != NULL) {
+		fseek (f, 0, SEEK_SET);
+		animation = (* image_module->load_animation) (f, error);
+
+                if (animation == NULL && error != NULL && *error == NULL) {
+                        /* I don't trust these crufty longjmp()'ing
+                         * image libs to maintain proper error
+                         * invariants, and I don't want user code to
+                         * segfault as a result. We need to maintain
+                         * the invariant that error gets set if NULL
+                         * is returned.
+                         */
+                        
+                        g_warning ("Bug! gdk-pixbuf loader '%s' didn't set an error on failure.",
+                                   image_module->module_name);
+                        g_set_error (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_FAILED,
+                                     _("Failed to load animation '%s': reason not known, probably a corrupt animation file"),
+                                     display_name);
+                }
+                
+		fclose (f);
+	} else {
 		GdkPixbuf *pixbuf;
 
 		/* Keep this logic in sync with gdk_pixbuf_new_from_file() */
@@ -211,29 +234,6 @@ gdk_pixbuf_animation_new_from_file (const char *filename,
                 animation = gdk_pixbuf_non_anim_new (pixbuf);
 
                 g_object_unref (pixbuf);
-	} else {
-		fseek (f, 0, SEEK_SET);
-		animation = (* image_module->load_animation) (f, error);
-
-                if (animation == NULL && error != NULL && *error == NULL) {
-                        /* I don't trust these crufty longjmp()'ing
-                         * image libs to maintain proper error
-                         * invariants, and I don't want user code to
-                         * segfault as a result. We need to maintain
-                         * the invariant that error gets set if NULL
-                         * is returned.
-                         */
-                        
-                        g_warning ("Bug! gdk-pixbuf loader '%s' didn't set an error on failure.",
-                                   image_module->module_name);
-                        g_set_error (error,
-                                     GDK_PIXBUF_ERROR,
-                                     GDK_PIXBUF_ERROR_FAILED,
-                                     _("Failed to load animation '%s': reason not known, probably a corrupt animation file"),
-                                     display_name);
-                }
-                
-		fclose (f);
 	}
 
         g_free (display_name);
