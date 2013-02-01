@@ -217,34 +217,37 @@ gdk_pixbuf_animation_new_from_file (const char *filename,
         } else if (image_module->begin_load != NULL) {
                 guchar buffer[4096];
                 size_t length;
-                GdkPixbufAnimation *anim = NULL;
                 gpointer context;
 
+                animation = NULL;
 		fseek (f, 0, SEEK_SET);
 
-                context = image_module->begin_load (NULL, prepared_notify, NULL, &anim, error);
+                context = image_module->begin_load (NULL, prepared_notify, NULL, &animation, error);
                 
-                if (!context)
-                        return NULL;
+                if (!context || !animation) {
+                        error = NULL;
+                        goto fail_progressive_load;
+                }
                 
                 while (!feof (f) && !ferror (f)) {
                         length = fread (buffer, 1, sizeof (buffer), f);
-                        if (length > 0)
+                        if (length > 0) {
                                 if (!image_module->load_increment (context, buffer, length, error)) {
-                                        image_module->stop_load (context, NULL);
-                                        if (anim != NULL)
-                                                g_object_unref (anim);
-                                        return NULL;
+                                        error = NULL;
+                                        goto fail_progressive_load;
                                 }
+                        }
                 }
 
-                if (!image_module->stop_load (context, error)) {
-                        if (anim != NULL)
-                                g_object_unref (anim);
+fail_progressive_load:
+		fclose (f);
+
+                if (context && !image_module->stop_load (context, error)) {
+                        if (animation)
+                                g_object_unref (animation);
+                        g_free (display_name);
                         return NULL;
                 }
-
-		fclose (f);
 	} else {
 		GdkPixbuf *pixbuf;
 
