@@ -1,3 +1,14 @@
+2.27.1
+======
+
+* Allow loading animations from streams
+
+* Allow loading animations from resources
+
+* Fix cross-compiling for Windows and Wine (692072)
+
+* Translation updates (Hungarian, German, Polish)
+
 2.27.0
 ======
 
