@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-02 02:27+0100\n"
-"PO-Revision-Date: 2013-02-02 02:28+0100\n"
+"POT-Creation-Date: 2013-02-10 22:18+0100\n"
+"PO-Revision-Date: 2013-02-10 22:19+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -494,8 +494,9 @@ msgid "Transformed JPEG has zero width or height."
 msgstr "Przekształcony JPEG ma zerową szerokość lub wysokość."
 
 #: ../gdk-pixbuf/io-jpeg.c:1279
-msgid "Color profile has invalid length '%"
-msgstr "Profil kolorów posiada nieprawidłową długość \"%"
+#, c-format
+msgid "Color profile has invalid length '%u'."
+msgstr "Profil kolorów posiada nieprawidłową długość \"%u\"."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
