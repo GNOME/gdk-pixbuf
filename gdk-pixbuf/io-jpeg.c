@@ -1276,8 +1276,8 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                                        g_set_error (error,
                                                     GDK_PIXBUF_ERROR,
                                                     GDK_PIXBUF_ERROR_BAD_OPTION,
-                                                    _("Color profile has invalid length '%"G_GSIZE_FORMAT"'."),
-                                                    icc_profile_size);
+                                                    _("Color profile has invalid length '%u'."),
+                                                    (guint) icc_profile_size);
                                        retval = FALSE;
                                        goto cleanup;
                                }
