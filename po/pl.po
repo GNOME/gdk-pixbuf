@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-10 22:18+0100\n"
-"PO-Revision-Date: 2013-02-10 22:19+0100\n"
+"POT-Creation-Date: 2013-02-17 15:59+0100\n"
+"PO-Revision-Date: 2013-02-17 16:00+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -169,9 +169,9 @@ msgstr "Uszkodzone dane o pikselach obrazu"
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
-msgstr[0] "Przydzielenie %u bajtów dla bufora odczytu pliku się nie powiodło"
-msgstr[1] "Przydzielenie %u bajtów dla bufora odczytu pliku się nie powiodło"
-msgstr[2] "Przydzielenie %u bajtów dla bufora odczytu pliku się nie powiodło"
+msgstr[0] "przydzielenie %u bajtu dla bufora odczytu pliku się nie powiodło"
+msgstr[1] "przydzielenie %u bajtów dla bufora odczytu pliku się nie powiodło"
+msgstr[2] "przydzielenie %u bajtów dla bufora odczytu pliku się nie powiodło"
 
 #: ../gdk-pixbuf/io-ani.c:244
 msgid "Unexpected icon chunk in animation"
@@ -707,7 +707,7 @@ msgstr "Rodzina formatów obrazów PNM/PBM/PGM/PPM"
 
 #: ../gdk-pixbuf/io-qtif.c:128
 msgid "Input file descriptor is NULL."
-msgstr "Deskryptor pliku wejściowego jest PUSTY."
+msgstr "Deskryptor pliku wejściowego wynosi NULL."
 
 #: ../gdk-pixbuf/io-qtif.c:143
 msgid "Failed to read QTIF header"
