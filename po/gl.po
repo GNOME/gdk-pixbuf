@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+-master-po-gl-77922___.merged\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-06 18:21+0100\n"
-"PO-Revision-Date: 2013-02-06 18:22+0200\n"
+"POT-Creation-Date: 2013-02-17 13:34+0100\n"
+"PO-Revision-Date: 2013-02-17 13:36+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -492,8 +492,9 @@ msgid "Transformed JPEG has zero width or height."
 msgstr "O JPEG transformado ten cero en largura ou altura."
 
 #: ../gdk-pixbuf/io-jpeg.c:1279
-msgid "Color profile has invalid length '%"
-msgstr "O perfil de cor ten unha lonxitude incorrecta '%"
+#, c-format
+msgid "Color profile has invalid length '%u'."
+msgstr "O perfil de cor ten unha lonxitude «%u» non válida."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
