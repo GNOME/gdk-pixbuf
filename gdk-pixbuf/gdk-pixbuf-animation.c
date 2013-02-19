@@ -224,7 +224,7 @@ gdk_pixbuf_animation_new_from_file (const char *filename,
 
                 context = image_module->begin_load (NULL, prepared_notify, NULL, &animation, error);
                 
-                if (!context || !animation) {
+                if (!context) {
                         error = NULL;
                         goto fail_progressive_load;
                 }
@@ -248,6 +248,9 @@ fail_progressive_load:
                         g_free (display_name);
                         return NULL;
                 }
+
+                /* If there was no error, there must be an animation that was successfully loaded */
+                g_assert (animation);
 	} else {
 		GdkPixbuf *pixbuf;
 
