@@ -218,39 +218,41 @@ gdk_pixbuf_animation_new_from_file (const char *filename,
                 guchar buffer[4096];
                 size_t length;
                 gpointer context;
+                gboolean success;
 
+                success = FALSE;
                 animation = NULL;
 		fseek (f, 0, SEEK_SET);
 
                 context = image_module->begin_load (NULL, prepared_notify, NULL, &animation, error);
-                
-                if (!context) {
-                        error = NULL;
-                        goto fail_progressive_load;
-                }
+                if (!context)
+                        goto fail_begin_load;
                 
                 while (!feof (f) && !ferror (f)) {
                         length = fread (buffer, 1, sizeof (buffer), f);
                         if (length > 0) {
                                 if (!image_module->load_increment (context, buffer, length, error)) {
                                         error = NULL;
-                                        goto fail_progressive_load;
+                                        goto fail_load_increment;
                                 }
                         }
                 }
 
-fail_progressive_load:
-		fclose (f);
-
-                if (context && !image_module->stop_load (context, error)) {
-                        if (animation)
-                                g_object_unref (animation);
-                        g_free (display_name);
-                        return NULL;
-                }
-
                 /* If there was no error, there must be an animation that was successfully loaded */
                 g_assert (animation);
+                success = TRUE;
+
+fail_load_increment:
+                if (!image_module->stop_load (context, error))
+                        success = FALSE;
+
+fail_begin_load:
+		fclose (f);
+
+                if (!success && animation) {
+                        g_object_unref (animation);
+                        animation = NULL;
+                }
 	} else {
 		GdkPixbuf *pixbuf;
 
