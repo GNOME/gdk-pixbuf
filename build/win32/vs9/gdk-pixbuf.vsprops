@@ -32,25 +32,41 @@ glib-genmarshal.exe --prefix=_gdk_pixbuf_marshal ..\..\..\gdk-pixbuf\gdk-pixbuf-
 "
 	/>
 	<UserMacro
-		Name="GdkPixbufApiVersion"
+		Name="VSVer"
+		Value="9"
+	/>
+	<UserMacro
+		Name="GlibEtcInstallRoot"
+		Value="..\..\..\..\vs$(VSVer)\$(PlatformName)"
+	/>
+	<UserMacro
+		Name="GlibEtcInstallRootFromBuildWin32"
+		Value="..\..\..\vs$(VSVer)\$(PlatformName)"
+	/>
+	<UserMacro
+		Name="CopyDir"
+		Value="$(GlibEtcInstallRoot)"
+	/>
+	<UserMacro
+		Name="ApiVersion"
 		Value="2.0"
 	/>
 	<UserMacro
 		Name="GdkPixbufBinaryVersion"
 		Value="2.10.0"
 	/>
-  <UserMacro
+	<UserMacro
 		Name="GDIP_MACROS"
 		Value="INCLUDE_gdiplus"
 	/>
-  <UserMacro
-    Name="NOGDIP_MACROS"
-    Value="JAS_WIN_MSVC_BUILD;INCLUDE_bmp;INCLUDE_gif;INCLUDE_ico;INCLUDE_jasper;INCLUDE_jpeg;INCLUDE_tiff;"
-  />
-  <UserMacro
-    Name="MODULAR_MACROS"
-    Value="INCLUDE_ani;INCLUDE_pcx;INCLUDE_tga;INCLUDE_xbm;INCLUDE_png;INCLUDE_qtif;INCLUDE_pnm;INCLUDE_icns;INCLUDE_ras;INCLUDE_wbmp;INCLUDE_xpm"
-  />
+	<UserMacro
+		Name="NOGDIP_MACROS"
+		Value="JAS_WIN_MSVC_BUILD;INCLUDE_bmp;INCLUDE_gif;INCLUDE_ico;INCLUDE_jasper;INCLUDE_jpeg;INCLUDE_tiff;"
+	/>
+	<UserMacro
+		Name="MODULAR_MACROS"
+		Value="INCLUDE_ani;INCLUDE_pcx;INCLUDE_tga;INCLUDE_xbm;INCLUDE_png;INCLUDE_qtif;INCLUDE_pnm;INCLUDE_icns;INCLUDE_ras;INCLUDE_wbmp;INCLUDE_xpm"
+	/>
 	<UserMacro
 		Name="GdkPixbufDummyPrefix"
 		Value="/dummy"
@@ -61,7 +77,7 @@ glib-genmarshal.exe --prefix=_gdk_pixbuf_marshal ..\..\..\gdk-pixbuf\gdk-pixbuf-
 	/>
 	<UserMacro
 		Name="GdkPixbufLibdirDefine"
-		Value="PIXBUF_LIBDIR=&quot;\&quot;$(GdkPixbufDummyPrefix)/lib/gdk-pixbuf-$(GdkPixbufApiVersion)/$(GdkPixbufBinaryVersion)/loaders\&quot;&quot;"
+		Value="PIXBUF_LIBDIR=&quot;\&quot;$(GdkPixbufDummyPrefix)/lib/gdk-pixbuf-$(ApiVersion)/$(GdkPixbufBinaryVersion)/loaders\&quot;&quot;"
 	/>
 	<UserMacro
 		Name="GPBLibdirDefine"
@@ -82,29 +98,41 @@ glib-genmarshal.exe --prefix=_gdk_pixbuf_marshal ..\..\..\gdk-pixbuf\gdk-pixbuf-
 	<UserMacro
 		Name="GdkPixbufDoInstall"
 		Value="
-echo on&#x0D;&#x0A;
-mkdir $(OutDir)\bin&#x0D;&#x0A;
-copy $(ConfigurationName)\$(PlatformName)\bin\*.dll $(OutDir)\bin&#x0D;&#x0A;
-copy $(ConfigurationName)\$(PlatformName)\bin\*.exe $(OutDir)\bin&#x0D;&#x0A;
+mkdir $(CopyDir)\bin&#x0D;&#x0A;
+copy $(ConfigurationName)\$(PlatformName)\bin\*.dll $(CopyDir)\bin&#x0D;&#x0A;
+copy $(ConfigurationName)\$(PlatformName)\bin\*.exe $(CopyDir)\bin&#x0D;&#x0A;
 
-mkdir $(OutDir)\lib&#x0D;&#x0A;
-copy $(ConfigurationName)\$(PlatformName)\bin\*-$(GdkPixbufApiVersion).lib $(OutDir)\lib&#x0D;&#x0A;
+mkdir $(CopyDir)\lib&#x0D;&#x0A;
+copy $(ConfigurationName)\$(PlatformName)\bin\*-$(ApiVersion).lib $(CopyDir)\lib&#x0D;&#x0A;
 
-mkdir $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-animation.h $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-core.h $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-enum-types.h $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-features.h $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-io.h $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-loader.h $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-marshal.h $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-simple-anim.h $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf-transform.h $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
-copy ..\..\..\gdk-pixbuf\gdk-pixbuf.h $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
-copy ..\..\..\gdk-pixbuf\gdk-pixdata.h $(OutDir)\include\gdk-pixbuf-$(GdkPixbufApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+mkdir $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-animation.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-core.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-enum-types.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-features.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-io.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-loader.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-marshal.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-simple-anim.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf-transform.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+copy ..\..\..\gdk-pixbuf\gdk-pixbuf.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+copy ..\..\..\gdk-pixbuf\gdk-pixdata.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
 
-copy $(ConfigurationName)\$(PlatformName)\bin\*-$(GdkPixbufApiVersion).lib $(OutDir)\lib&#x0D;&#x0A;
+copy $(ConfigurationName)\$(PlatformName)\bin\*-$(ApiVersion).lib $(CopyDir)\lib&#x0D;&#x0A;
 "
+	/>
+	<UserMacro
+		Name="DoGenGir"
+		Value="
+set VSVER=$(VSVer)&#x0D;&#x0A;
+set CONF=$(ConfigurationName)&#x0D;&#x0A;
+set PLAT=$(PlatformName)&#x0D;&#x0A;
+set BASEDIR=$(GlibEtcInstallRootFromBuildWin32)&#x0D;&#x0A;
+cd ..&#x0D;&#x0A;
+
+call gengir_gdkpixbuf.bat&#x0D;&#x0A;
+cd vs$(VSVer)&#x0D;&#x0A;
+		      "
 	/>
 	<UserMacro
 		Name="GdkPixbufGenerateGdkPixbufDef"
@@ -116,28 +144,24 @@ copy $(ConfigurationName)\$(PlatformName)\bin\*-$(GdkPixbufApiVersion).lib $(Out
 	/>
 	<UserMacro
 		Name="GdkPixbufLibtoolCompatibleDllSuffix"
-		Value="-$(GdkPixbufApiVersion)-0"
+		Value="-$(ApiVersion)-0"
 	/>
 	<UserMacro
-		Name="GdkPixbufSeparateVS9DllPrefix"
+		Name="GdkPixbufSeparateVSDllPrefix"
 		Value=""
 	/>
 	<UserMacro
-		Name="GdkPixbufSeparateVS9DllSuffix"
-		Value="-2-vs9"
+		Name="GdkPixbufSeparateVSDllSuffix"
+		Value="-2-vs$(VSVer)"
 	/>
 	<!-- Change these two to GdkPixbufLibtoolCompatibleDllPrefix and
 	GdkPixbufLibtoolCompatibleDllSuffix if that is what you want -->
 	<UserMacro
 		Name="GdkPixbufDllPrefix"
-		Value="$(GdkPixbufSeparateVS9DllPrefix)"
+		Value="$(GdkPixbufSeparateVSDllPrefix)"
 	/>
 	<UserMacro
 		Name="GdkPixbufDllSuffix"
-		Value="$(GdkPixbufSeparateVS9DllSuffix)"
-	/>
-	<UserMacro
-		Name="GlibEtcInstallRoot"
-		Value="..\..\..\..\vs9\$(PlatformName)"
+		Value="$(GdkPixbufSeparateVSDllSuffix)"
 	/>
 </VisualStudioPropertySheet>
