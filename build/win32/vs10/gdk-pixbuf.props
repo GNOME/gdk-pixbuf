@@ -61,6 +61,16 @@ copy ..\..\..\gdk-pixbuf\gdk-pixdata.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersio
 copy $(Configuration)\$(Platform)\bin\*-$(ApiVersion).lib $(CopyDir)\\lib
 
 </GdkPixbufDoInstall>
+<DoGenGir>
+set VSVER=$(VSVer)
+set CONF=$(Configuration)
+set PLAT=$(Platform)
+set BASEDIR=$(GlibEtcInstallRootFromBuildWin32)
+cd ..
+call gengir_gdkpixbuf.bat
+
+cd vs$(VSVer)
+</DoGenGir>
     <GdkPixbufGenerateGdkPixbufDef>echo EXPORTS &gt;$(DefDir)\gdk-pixbuf.def &amp;&amp; cl /EP -DG_OS_WIN32 -DINCLUDE_VARIABLES -DALL_FILES -DG_GNUC_CONST= -DG_GNUC_NULL_TERMINATED= ..\..\..\gdk-pixbuf\gdk-pixbuf.symbols &gt;&gt;$(DefDir)\gdk-pixbuf.def</GdkPixbufGenerateGdkPixbufDef>
     <GdkPixbufLibtoolCompatibleDllPrefix>lib</GdkPixbufLibtoolCompatibleDllPrefix>
     <GdkPixbufLibtoolCompatibleDllSuffix>-$(ApiVersion)-0</GdkPixbufLibtoolCompatibleDllSuffix>
