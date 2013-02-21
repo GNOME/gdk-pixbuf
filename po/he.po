@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-21 19:19+0200\n"
-"PO-Revision-Date: 2013-02-21 19:25+0200\n"
+"POT-Creation-Date: 2013-02-21 23:39+0200\n"
+"PO-Revision-Date: 2013-02-21 23:57+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "Language: he\n"
@@ -25,7 +25,7 @@ msgstr ""
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1330
 #, c-format
 msgid "Failed to open file '%s': %s"
-msgstr "ארע כשל בפתיחת הקובץ '%s':‏ %s"
+msgstr "פתיחת הקובץ '%s' נכשלה:‏ %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:173
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1076
@@ -36,14 +36,14 @@ msgstr "התמונה '%s' לא מכילה מידע"
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:212
 #, c-format
 msgid "Failed to load animation '%s': reason not known, probably a corrupt animation file"
-msgstr "נכשל בפתיחת ההנפשה '%s': הסיבה איננה ידועה, כנראה קובץ הנפשה פגום"
+msgstr "פתיחת ההנפשה '%s' נכשלה: הסיבה איננה ידועה, כנראה קובץ הנפשה פגום"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:277
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1112
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid "Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr "נכשל בפתיחת התמונה '%s': הסיבה איננה ידועה, כנראה קובץ תמונה פגום"
+msgstr "פתיחת התמונה '%s' נכשלה: הסיבה איננה ידועה, כנראה קובץ תמונה פגום"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:790
 #, c-format
@@ -64,16 +64,16 @@ msgstr "סוג התמונה '%s' אינו נתמך"
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:950
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
-msgstr "לא ניתן לזהות את פורמט התמונה בקובץ '%s'"
+msgstr "לא ניתן לזהות את תבנית התמונה בקובץ '%s'"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:958
 msgid "Unrecognized image file format"
-msgstr "פורמט קובץ תמונה לא מזוהה"
+msgstr "תבנית קובץ התמונה לא מזוהה"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1121
 #, c-format
 msgid "Failed to load image '%s': %s"
-msgstr "ארע כשל בטעינת התמונה '%s':‏ %s"
+msgstr "טעינת התמונה '%s' נכשלה:‏ %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2015
 #: ../gdk-pixbuf/io-gdip-utils.c:837
@@ -85,7 +85,7 @@ msgstr "שגיאה בכתיבה לקובץ תמונה: %s"
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2178
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
-msgstr "בניה זו של gdk-pixbuf לא תומכת בשמירת התמונה בפורמט: %s"
+msgstr "מהדורה זו של gdk-pixbuf לא תומכת בשמירת התמונה בתבנית: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2088
 msgid "Insufficient memory to save image to callback"
@@ -93,26 +93,26 @@ msgstr "Insufficient memory to save image to callback"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2101
 msgid "Failed to open temporary file"
-msgstr "נכשל בפתיחת קובץ זמני"
+msgstr "פתיחת קובץ זמני נכשלה"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2124
 msgid "Failed to read from temporary file"
-msgstr "נכשל בקריאה מקובץ זמני"
+msgstr "קריאה מקובץ זמני נכשלה"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2372
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
-msgstr "נכשל בפתיחת '%s' לכתיבה: %s"
+msgstr "פתיחת '%s' לכתיבה נכשלה: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2398
 #, c-format
 msgid "Failed to close '%s' while writing image, all data may not have been saved: %s"
-msgstr "נכשל בסגירת '%s' בזמן כתיבת תמונה, ייתכן וכל המידע לא נשמר: %s"
+msgstr "סגירת '%s' בזמן כתיבת תמונה נכשלה, ייתכן וכל המידע לא נשמר: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2619
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2671
 msgid "Insufficient memory to save image into a buffer"
-msgstr "אין מספיק זיכרון לשמירת התמונה לחוצץ"
+msgstr "אין מספיק זיכרון לשמירת התמונה למאגר"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2717
 msgid "Error writing to image stream"
@@ -121,7 +121,7 @@ msgstr "שגיאה בכתיבה לזרימת תמונה"
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:393
 #, c-format
 msgid "Internal error: Image loader module '%s' failed to complete an operation, but didn't give a reason for the failure"
-msgstr "שגיאה פנימית: מודול טעינת התמונה '%s' נכשל בהשלמת פעולה, אך לא נתן סיבה לכשלון זה"
+msgstr "שגיאה פנימית: מודול טעינת התמונות '%s' נכשל בהשלמת פעולה, אך לא ניתנה סיבה לכישלון זה"
 
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:435
 #, c-format
@@ -145,8 +145,8 @@ msgstr "נתוני הפיקסלים של התמונה פגומים"
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
-msgstr[0] "ארע כשל בהקצאת חוצץ תמונה בגודל בית אחד"
-msgstr[1] "ארע כשל בהקצאת חוצץ תמונה בגודל %u בתים"
+msgstr[0] "הקצאת חוצץ תמונה בגודל בית אחד נכשלה"
+msgstr[1] "הקצאת חוצץ תמונה בגודל %u בתים נכשלה"
 
 #: ../gdk-pixbuf/io-ani.c:244
 msgid "Unexpected icon chunk in animation"
@@ -178,7 +178,7 @@ msgstr "נתח פגום בהנפשה"
 
 #: ../gdk-pixbuf/io-ani.c:660
 msgid "The ANI image format"
-msgstr "פורמט תמונת ANI"
+msgstr "תבנית תמונת ANI"
 
 #: ../gdk-pixbuf/io-bmp.c:229
 #: ../gdk-pixbuf/io-bmp.c:266
@@ -187,7 +187,7 @@ msgstr "פורמט תמונת ANI"
 #: ../gdk-pixbuf/io-bmp.c:392
 #: ../gdk-pixbuf/io-bmp.c:495
 msgid "BMP image has bogus header data"
-msgstr "לתמונת ה־BMP יש מידע כותרת מזוייף"
+msgstr "לתמונת ה־BMP יש נתוני כותרת מזויפים"
 
 #: ../gdk-pixbuf/io-bmp.c:240
 #: ../gdk-pixbuf/io-bmp.c:432
@@ -205,7 +205,7 @@ msgstr "Topdown BMP images cannot be compressed"
 #: ../gdk-pixbuf/io-bmp.c:716
 #: ../gdk-pixbuf/io-pnm.c:707
 msgid "Premature end-of-file encountered"
-msgstr "התקלות מוקדמת מידי בסוף הקובץ"
+msgstr "סוף הקובץ התגלה במיקום מוקדם מדי"
 
 #: ../gdk-pixbuf/io-bmp.c:1328
 msgid "Couldn't allocate memory for saving BMP file"
@@ -218,27 +218,27 @@ msgstr "לא ניתן לכתוב לקובץ ה־BMP"
 #: ../gdk-pixbuf/io-bmp.c:1422
 #: ../gdk-pixbuf/io-gdip-bmp.c:82
 msgid "The BMP image format"
-msgstr "פורמט תמונת BMP"
+msgstr "תבנית תמונת BMP"
 
 #: ../gdk-pixbuf/io-gdip-emf.c:59
 msgid "The EMF image format"
-msgstr "פורמט התמונה EMF"
+msgstr "תבנית התמונה EMF"
 
 #: ../gdk-pixbuf/io-gdip-gif.c:80
 #: ../gdk-pixbuf/io-gif.c:1720
 msgid "The GIF image format"
-msgstr "פורמט קובץ GIF"
+msgstr "תבנית קובץ GIF"
 
 #: ../gdk-pixbuf/io-gdip-ico.c:59
 #: ../gdk-pixbuf/io-ico.c:1271
 msgid "The ICO image format"
-msgstr "פורמט קובץ ICO"
+msgstr "תבנית קובץ ICO"
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:53
 #: ../gdk-pixbuf/io-jpeg.c:1249
 #, c-format
 msgid "JPEG quality must be a value between 0 and 100; value '%s' could not be parsed."
-msgstr "איכות קובץ JPEG חייבת להיות בין 0 ל 100, הערך '%s' לא יכול להיות מפורש."
+msgstr "איכות קובץ JPEG חייבת להיות בין 0 ל־100, הערך '%s' לא ניתן לפענוח."
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:68
 #: ../gdk-pixbuf/io-jpeg.c:1265
@@ -249,7 +249,7 @@ msgstr "איכות קובץ JPEG חייבת להיות בין 0 ל־100, הער�
 #: ../gdk-pixbuf/io-gdip-jpeg.c:136
 #: ../gdk-pixbuf/io-jpeg.c:1478
 msgid "The JPEG image format"
-msgstr "פורמט קובץ JPEG"
+msgstr "תבנית קובץ JPEG"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:154
 #, c-format
@@ -266,7 +266,7 @@ msgstr "לא ניתן ליצור תזרים: %s"
 #: ../gdk-pixbuf/io-gdip-utils.c:193
 #, c-format
 msgid "Could not seek stream: %s"
-msgstr "לא ניתן לקפץ בתוך התזרים: %s"
+msgstr "לא ניתן לדלג בתוך התזרים: %s"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:205
 #, c-format
@@ -279,11 +279,11 @@ msgstr "לא ניתן לטעון מפת סיביות"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:773
 msgid "Couldn't load metafile"
-msgstr "לא ניתן לטעון מטה־קובץ"
+msgstr "לא ניתן לטעון קובץ נתוני על"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:878
 msgid "Unsupported image format for GDI+"
-msgstr "פורמט הקובץ אינו נתמך עבור GDI+‎"
+msgstr "תבנית הקובץ אינה נתמכת עבור GDI+‎"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:885
 msgid "Couldn't save"
@@ -291,7 +291,7 @@ msgstr "לא ניתן לשמור"
 
 #: ../gdk-pixbuf/io-gdip-wmf.c:58
 msgid "The WMF image format"
-msgstr "פורמט התמונה WMF"
+msgstr "תבנית התמונה WMF"
 
 #: ../gdk-pixbuf/io-gif.c:222
 #, c-format
@@ -307,7 +307,7 @@ msgstr "חסרים נתונים בקובץ ה־GIF (ייתכן שנקטע בדר
 #: ../gdk-pixbuf/io-gif.c:505
 #, c-format
 msgid "Internal error in the GIF loader (%s)"
-msgstr "שגיאה פנימית בטוען ה GIF‏ (%s)"
+msgstr "שגיאה פנימית בטוען ה־GIF‏ (%s)"
 
 #: ../gdk-pixbuf/io-gif.c:579
 msgid "Stack overflow"
@@ -315,30 +315,30 @@ msgstr "גלישת מחסנית"
 
 #: ../gdk-pixbuf/io-gif.c:639
 msgid "GIF image loader cannot understand this image."
-msgstr "טוען תמונת ה GIF לא יכול להבין את התמונה הזו."
+msgstr "טוען תמונות ה־GIF לא יכול להבין את התמונה הזו."
 
 #: ../gdk-pixbuf/io-gif.c:668
 msgid "Bad code encountered"
-msgstr "התקלות בקוד גרוע"
+msgstr "המפענח נתקל בקוד פגום"
 
 #: ../gdk-pixbuf/io-gif.c:678
 msgid "Circular table entry in GIF file"
-msgstr "רישום טבלה מעגלי בקובץ ה GIF"
+msgstr "רישום טבלה מעגלי בקובץ ה־GIF"
 
 #: ../gdk-pixbuf/io-gif.c:866
 #: ../gdk-pixbuf/io-gif.c:1488
 #: ../gdk-pixbuf/io-gif.c:1541
 #: ../gdk-pixbuf/io-gif.c:1657
 msgid "Not enough memory to load GIF file"
-msgstr "אין מספיק זכרון לטעינת קובץ GIF"
+msgstr "אין מספיק זיכרון לטעינת קובץ GIF"
 
 #: ../gdk-pixbuf/io-gif.c:960
 msgid "Not enough memory to composite a frame in GIF file"
-msgstr "אין מספיק זכרון להרכיב מסגרת נוספת בקובץ ה GIF"
+msgstr "אין מספיק זיכרון להרכיב מסגרת נוספת בקובץ ה־GIF"
 
 #: ../gdk-pixbuf/io-gif.c:1132
 msgid "GIF image is corrupt (incorrect LZW compression)"
-msgstr "תמונת ה GIF פגומה (כיווץ LZW שגוי)"
+msgstr "תמונת ה־GIF פגומה (כיווץ LZW שגוי)"
 
 #: ../gdk-pixbuf/io-gif.c:1182
 msgid "File does not appear to be a GIF file"
@@ -347,7 +347,7 @@ msgstr "הקובץ לא נראה כקובץ GIF"
 #: ../gdk-pixbuf/io-gif.c:1194
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
-msgstr "גירסה %s של פורמט קובץ ה GIF אינה נתמכת"
+msgstr "גרסה %s של תבנית קובץ ה־GIF אינה נתמכת"
 
 #: ../gdk-pixbuf/io-gif.c:1241
 msgid "Resulting GIF image has zero size"
@@ -359,12 +359,12 @@ msgstr "GIF image has no global colormap, and a frame inside it has no local col
 
 #: ../gdk-pixbuf/io-gif.c:1564
 msgid "GIF image was truncated or incomplete."
-msgstr "תמונת ה GIF הייתה קטועה או לא מושלמת."
+msgstr "תמונת ה־GIF הייתה קטועה או לא מושלמת."
 
 #: ../gdk-pixbuf/io-icns.c:347
 #, c-format
 msgid "Error reading ICNS image: %s"
-msgstr "שגיאה בקריאת קובץ ICNS: %s"
+msgstr "שגיאה בקריאת קובץ ICNS:‏ %s"
 
 #: ../gdk-pixbuf/io-icns.c:364
 msgid "Could not decode ICNS file"
@@ -372,7 +372,7 @@ msgstr "לא ניתן לפענח את קובץ ה־ICNS"
 
 #: ../gdk-pixbuf/io-icns.c:397
 msgid "The ICNS image format"
-msgstr "תצורת התמונה ICNS"
+msgstr "תבנית התמונה ICNS"
 
 #: ../gdk-pixbuf/io-ico.c:228
 #: ../gdk-pixbuf/io-ico.c:242
@@ -380,7 +380,7 @@ msgstr "תצורת התמונה ICNS"
 #: ../gdk-pixbuf/io-ico.c:302
 #: ../gdk-pixbuf/io-ico.c:395
 msgid "Invalid header in icon"
-msgstr "כותרת לא תקנית בסמל"
+msgstr "כותרת לא תקנית לסמל"
 
 #: ../gdk-pixbuf/io-ico.c:257
 #: ../gdk-pixbuf/io-ico.c:312
@@ -408,11 +408,11 @@ msgstr "סוג הסמל לא נתמך"
 
 #: ../gdk-pixbuf/io-ico.c:537
 msgid "Not enough memory to load ICO file"
-msgstr "אין מספיק זכרון לטעינת קובץ ICO"
+msgstr "אין מספיק זיכרון לטעינת קובץ ICO"
 
 #: ../gdk-pixbuf/io-ico.c:1002
 msgid "Image too large to be saved as ICO"
-msgstr "הגדולה גדולה מכדי שמירה כ־ICO"
+msgstr "התמונה גדולה מכדי שמירה כ־ICO"
 
 #: ../gdk-pixbuf/io-ico.c:1013
 msgid "Cursor hotspot outside image"
@@ -442,7 +442,7 @@ msgstr "סוג התמונה אינו נתמך"
 #: ../gdk-pixbuf/io-jasper.c:148
 #: ../gdk-pixbuf/io-jasper.c:156
 msgid "Couldn't allocate memory for color profile"
-msgstr "לא ניתן להקצות זכרון עבור פרופיל הצבע"
+msgstr "לא ניתן להקצות זיכרון עבור פרופיל הצבע"
 
 #: ../gdk-pixbuf/io-jasper.c:182
 msgid "Insufficient memory to open JPEG 2000 file"
@@ -463,7 +463,7 @@ msgstr "שגיאה בפענוח קובץ תמונת JPEG‏ (%s)"
 
 #: ../gdk-pixbuf/io-jpeg.c:604
 msgid "Insufficient memory to load image, try exiting some applications to free memory"
-msgstr "אין מספיק זיכרון לטעינת התמונה, נסה לסגור מספר יישומים כדי לפנות זיכרון"
+msgstr "אין מספיק זיכרון לטעינת התמונה, כדאי לנסות לסגור מספר יישומים כדי לפנות זיכרון"
 
 #: ../gdk-pixbuf/io-jpeg.c:651
 #: ../gdk-pixbuf/io-jpeg.c:865
@@ -476,7 +476,7 @@ msgstr "מרחב הצבעים של ה־JPEG אינו נתמך (%s)"
 #: ../gdk-pixbuf/io-jpeg.c:1308
 #: ../gdk-pixbuf/io-jpeg.c:1318
 msgid "Couldn't allocate memory for loading JPEG file"
-msgstr "לא ניתן להקצות זכרון לטעינת קובץ JPEG"
+msgstr "לא ניתן להקצות זיכרון לטעינת קובץ JPEG"
 
 #: ../gdk-pixbuf/io-jpeg.c:1018
 msgid "Transformed JPEG has zero width or height."
@@ -525,7 +525,7 @@ msgstr "לא ניתן להקצות זיכרון לתמונת PCX"
 
 #: ../gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
-msgstr "Didn't get all lines of PCX image"
+msgstr "לא התקבלו כל השורות של תמונת ה־PCX"
 
 #: ../gdk-pixbuf/io-pcx.c:710
 msgid "No palette found at end of PCX data"
@@ -533,7 +533,7 @@ msgstr "לא נמצאה ערכת צבעים בסוף נתוני ה־PCX"
 
 #: ../gdk-pixbuf/io-pcx.c:755
 msgid "The PCX image format"
-msgstr "מבנה תמונת PCX"
+msgstr "תבנית תמונת PCX"
 
 #: ../gdk-pixbuf/io-pixdata.c:148
 msgid "Transformed pixbuf has zero width or height."
@@ -545,7 +545,7 @@ msgstr "המבנה GdkPixdata"
 
 #: ../gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
-msgstr "הסיביות לערוץ של קובץ PNG אינן תקינות."
+msgstr "הסיביות לערוץ של תמונת ה־PNG אינן תקינות."
 
 #: ../gdk-pixbuf/io-png.c:135
 #: ../gdk-pixbuf/io-png.c:641
@@ -585,7 +585,7 @@ msgstr "שגיאה חמורה בקריאת קובץ PNG"
 #: ../gdk-pixbuf/io-png.c:768
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
-msgstr "שגיאה חמורה בקריאת קובץ PNG: %s"
+msgstr "שגיאה חמורה בקריאת קובץ PNG:‏ %s"
 
 #: ../gdk-pixbuf/io-png.c:858
 msgid "Keys for PNG text chunks must have at least 1 and at most 79 characters."
@@ -604,12 +604,12 @@ msgstr "לפרופיל הצבע יש אורך בלתי תקני %d."
 #: ../gdk-pixbuf/io-png.c:894
 #, c-format
 msgid "PNG compression level must be a value between 0 and 9; value '%s' could not be parsed."
-msgstr "איכות קובץ PNG חייבת להיות בין 0 ל 100, הערך '%s' לא יכול להיות מפורש."
+msgstr "איכות קובץ PNG חייבת להיות בין 0 ל־100, לא ניתן לפענח את הערך '%s'."
 
 #: ../gdk-pixbuf/io-png.c:907
 #, c-format
 msgid "PNG compression level must be a value between 0 and 9; value '%d' is not allowed."
-msgstr "איכות קובץ PNG חייבת להיות בין 0 ל 100, הערך '%d' אינו מורשה."
+msgstr "איכות קובץ PNG חייבת להיות בין 0 ל־100, הערך '%d' אינו מורשה."
 
 #: ../gdk-pixbuf/io-png.c:955
 #, c-format
@@ -618,19 +618,19 @@ msgstr "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 
 #: ../gdk-pixbuf/io-png.c:1118
 msgid "The PNG image format"
-msgstr "פורמט תמונת PNG"
+msgstr "תבנית תמונת PNG"
 
 #: ../gdk-pixbuf/io-pnm.c:248
 msgid "PNM loader expected to find an integer, but didn't"
-msgstr "טוען ה PNM ציפה למצוא מספר שלם; אך לא מצא"
+msgstr "טוען ה־PNM ציפה למצוא מספר שלם, אך לא מצא"
 
 #: ../gdk-pixbuf/io-pnm.c:280
 msgid "PNM file has an incorrect initial byte"
-msgstr "לקובץ ה PNM יש סיבית פנימית לא תיקנית"
+msgstr "לקובץ ה־PNM יש סיבית פנימית לא תקנית"
 
 #: ../gdk-pixbuf/io-pnm.c:310
 msgid "PNM file is not in a recognized PNM subformat"
-msgstr "PNM file is not in a recognized PNM subformat"
+msgstr "קובץ ה־PNM אינו בתת־תבנית מוכרת של PNM"
 
 #: ../gdk-pixbuf/io-pnm.c:335
 msgid "PNM file has an image width of 0"
@@ -646,7 +646,7 @@ msgstr "ערך הצבע המקסימלי בקובץ PNM הוא 0"
 
 #: ../gdk-pixbuf/io-pnm.c:387
 msgid "Maximum color value in PNM file is too large"
-msgstr "ערך הצבע המקסימלי בקובץ PNM הוא גדול מידי"
+msgstr "ערך הצבע המקסימלי בקובץ PNM הוא גדול מדי"
 
 #: ../gdk-pixbuf/io-pnm.c:427
 #: ../gdk-pixbuf/io-pnm.c:457
@@ -656,7 +656,7 @@ msgstr "סוג תמונת ה־PNM הגולמית שגוי"
 
 #: ../gdk-pixbuf/io-pnm.c:652
 msgid "PNM image loader does not support this PNM subformat"
-msgstr "טוען תמונות ה־PNM אינו תומך בתת־פורמט זה של PNM"
+msgstr "טוען תמונות ה־PNM אינו תומך בתת־תבנית זו של PNM"
 
 #: ../gdk-pixbuf/io-pnm.c:739
 #: ../gdk-pixbuf/io-pnm.c:966
@@ -689,7 +689,7 @@ msgstr "מתאר קובץ הקלט הוא NULL."
 
 #: ../gdk-pixbuf/io-qtif.c:143
 msgid "Failed to read QTIF header"
-msgstr "ארע כשל בקריאת כותרת ה־QTIF"
+msgstr "קריאת כותרת ה־QTIF נכשלה"
 
 #: ../gdk-pixbuf/io-qtif.c:152
 #: ../gdk-pixbuf/io-qtif.c:189
@@ -710,7 +710,7 @@ msgstr[1] "הקצאת %d בתים לחוצץ קריאת הקובץ נכשלה"
 #: ../gdk-pixbuf/io-qtif.c:206
 #, c-format
 msgid "File error when reading QTIF atom: %s"
-msgstr "ארעה שגיאת קובץ בעת קריאת אטום QTIF:‏ %s"
+msgstr "אירעה שגיאת קובץ בעת קריאת אטום QTIF:‏ %s"
 
 #: ../gdk-pixbuf/io-qtif.c:243
 #, c-format
@@ -725,19 +725,19 @@ msgstr "לא ניתן להקצות מבנה הקשר ל־QTIF."
 
 #: ../gdk-pixbuf/io-qtif.c:330
 msgid "Failed to create GdkPixbufLoader object."
-msgstr "ארע כשל ביצירת פריט מסוג GdkPixbufLoader."
+msgstr "יצירת פריט מסוג GdkPixbufLoader נכשלה."
 
 #: ../gdk-pixbuf/io-qtif.c:434
 msgid "Failed to find an image data atom."
-msgstr "ארע כשל במציאת נתוני אטום לתמונה."
+msgstr "מציאת נתוני אטום לתמונה נכשלה."
 
 #: ../gdk-pixbuf/io-qtif.c:618
 msgid "The QTIF image format"
-msgstr "פורמט התמונה QTIF"
+msgstr "תבנית התמונה QTIF"
 
 #: ../gdk-pixbuf/io-ras.c:125
 msgid "RAS image has bogus header data"
-msgstr "לתמונת RAS יש מידע כותרת מזוייף"
+msgstr "לתמונת RAS יש מידע כותרת מזויף"
 
 #: ../gdk-pixbuf/io-ras.c:147
 msgid "RAS image has unknown type"
@@ -754,7 +754,7 @@ msgstr "אין מספיק זיכרון לטעינת תמונת RAS"
 
 #: ../gdk-pixbuf/io-ras.c:544
 msgid "The Sun raster image format"
-msgstr "פורמט התמונה Sun raster"
+msgstr "תבנית התמונה Sun raster"
 
 #: ../gdk-pixbuf/io-tga.c:153
 msgid "Cannot allocate memory for IOBuffer struct"
@@ -818,7 +818,7 @@ msgstr "מידע עודף בקובץ"
 
 #: ../gdk-pixbuf/io-tga.c:1007
 msgid "The Targa image format"
-msgstr "פורמט התמונה Targa"
+msgstr "תבנית התמונה Targa"
 
 #: ../gdk-pixbuf/io-tiff.c:104
 msgid "Could not get image width (bad TIFF file)"
@@ -845,20 +845,20 @@ msgstr "אין מספיק זיכרון לפתיחת תמונת TIFF"
 
 #: ../gdk-pixbuf/io-tiff.c:236
 msgid "Failed to load RGB data from TIFF file"
-msgstr "ארע כשל בטעינת נתוני RGB מקובץ TIFF"
+msgstr "טעינת נתוני RGB מקובץ TIFF נכשלה"
 
 #: ../gdk-pixbuf/io-tiff.c:293
 msgid "Failed to open TIFF image"
-msgstr "ארע כשל בפתיחת תמונת TIFF"
+msgstr "פתיחת תמונת TIFF נכשלה"
 
 #: ../gdk-pixbuf/io-tiff.c:427
 #: ../gdk-pixbuf/io-tiff.c:440
 msgid "Failed to load TIFF image"
-msgstr "ארע כשל בטעינת תמונת TIFF"
+msgstr "טעינת תמונת TIFF נכשלה"
 
 #: ../gdk-pixbuf/io-tiff.c:623
 msgid "Failed to save TIFF image"
-msgstr "ארע כשל בשמירת תמונת TIFF"
+msgstr "שמירת תמונת TIFF נכשלה"
 
 #: ../gdk-pixbuf/io-tiff.c:656
 msgid "TIFF compression doesn't refer to a valid codec."
@@ -866,7 +866,7 @@ msgstr "דחיסת ה־TIFF אינה מתייחסת למקודד תקני."
 
 #: ../gdk-pixbuf/io-tiff.c:696
 msgid "Failed to write TIFF data"
-msgstr "ארע כשל בכתיבת תמונת TIFF"
+msgstr "כתיבת תמונת TIFF נכשלה"
 
 #: ../gdk-pixbuf/io-tiff.c:733
 msgid "Couldn't write to TIFF file"
@@ -874,7 +874,7 @@ msgstr "לא ניתן לכתוב לקובץ ה־TIFF"
 
 #: ../gdk-pixbuf/io-tiff.c:788
 msgid "The TIFF image format"
-msgstr "פורמט התמונה TIFF"
+msgstr "תבנית התמונה TIFF"
 
 #: ../gdk-pixbuf/io-wbmp.c:245
 msgid "Image has zero width"
@@ -894,7 +894,7 @@ msgstr "לא ניתן לשמור את השאר"
 
 #: ../gdk-pixbuf/io-wbmp.c:374
 msgid "The WBMP image format"
-msgstr "פורמט התמונה WBMP"
+msgstr "תבנית התמונה WBMP"
 
 #: ../gdk-pixbuf/io-xbm.c:304
 msgid "Invalid XBM file"
@@ -906,11 +906,11 @@ msgstr "אין מספיק זיכרון לטעינת קובץ תמונת XBM"
 
 #: ../gdk-pixbuf/io-xbm.c:462
 msgid "Failed to write to temporary file when loading XBM image"
-msgstr "ארע כשל בכתיבה לקובץ זמני בזמן טעינת תמונת XBM"
+msgstr "כתיבה לקובץ זמני בזמן טעינת תמונת XBM נכשלה"
 
 #: ../gdk-pixbuf/io-xbm.c:501
 msgid "The XBM image format"
-msgstr "פורמט התמונה XBM"
+msgstr "תבנית התמונה XBM"
 
 #: ../gdk-pixbuf/io-xpm.c:469
 msgid "No XPM header found"
@@ -930,7 +930,7 @@ msgstr "גובה התמונה בקובץ ה־XPM‏ <= 0"
 
 #: ../gdk-pixbuf/io-xpm.c:502
 msgid "XPM has invalid number of chars per pixel"
-msgstr "לקובץ XPM יש מספר לא תקני של תוים לפיקסלים"
+msgstr "לקובץ XPM יש מספר לא תקני של תווים לפיקסלים"
 
 #: ../gdk-pixbuf/io-xpm.c:511
 msgid "XPM file has invalid number of colors"
@@ -948,11 +948,11 @@ msgstr "לא ניתן לקרוא את מפת הצבעים של XPM"
 
 #: ../gdk-pixbuf/io-xpm.c:778
 msgid "Failed to write to temporary file when loading XPM image"
-msgstr "ארע כשל בכתיבה לקובץ זמני בזמן טעינת תמונת XPM"
+msgstr "כתיבה לקובץ זמני בזמן טעינת תמונת XPM נכשלה"
 
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
-msgstr "פורמט התמונה XPM"
+msgstr "תבנית התמונה XPM"
 
 #~ msgid "TIFFClose operation failed"
 #~ msgstr "פעולת ה־TIFFClose נכשלה"
