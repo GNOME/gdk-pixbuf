@@ -1,5 +1,5 @@
 # Brazilian Portuguese translation of GTK+.
-# Copyright (C) 1999,2004-2009 the GTK+ authors.
+# Copyright (C) 1999,2004-2009, 2013 the GTK+ authors.
 # This file is distributed under the same license as the gtk+ package
 # Alex Sandro Queiroz e Silva <asandro@lcg.dc.ufc.br>, 1999.
 # Gustavo Noronha Silva <kov@debian.org>, 2004.
@@ -12,20 +12,21 @@
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
 # Leonardo Ferreira Fontenelle <leonardof@gnome.org>, 2006-2009.
 # Vladimir Melo <vmelo@gnome.org>, 2009.
-# André Gondim <andregondim@ubuntu.com>, 2009.
+# André Gondim <In Memoriam>, 2009.
 # Rodrigo L. M. Flores <mail@rodrigoflores.org>
 # Fabrício Godoy <skarllot@gmail.com>, 2010.
 # Jonh Wendell <jwendell@gnome.org>, 2009, 2010, 2012.
 # Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
+# Adorilson Bezerra <adorilson@gmail.com>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2013-02-01 16:44+0000\n"
-"PO-Revision-Date: 2013-02-04 22:19-0300\n"
-"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"POT-Creation-Date: 2013-02-21 05:01+0000\n"
+"PO-Revision-Date: 2013-02-21 11:31-0300\n"
+"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +55,7 @@ msgstr ""
 "Falha ao carregar a animação \"%s\": razão desconhecida, provavelmente um "
 "arquivo de animação corrompido"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:269 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:277 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid ""
@@ -496,9 +497,9 @@ msgid "Transformed JPEG has zero width or height."
 msgstr "Imagem JPEG transformada tem altura ou largura igual a zero."
 
 #: ../gdk-pixbuf/io-jpeg.c:1279
-#| msgid "Color profile has invalid length '%d'."
-msgid "Color profile has invalid length '%"
-msgstr "O perfil de cores tem tamanho inválido \"%d\""
+#, c-format
+msgid "Color profile has invalid length '%u'."
+msgstr "O perfil de cores tem tamanho inválido \"%u\"."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
