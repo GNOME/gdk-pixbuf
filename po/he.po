@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-02 11:14+0200\n"
-"PO-Revision-Date: 2013-02-02 11:14+0200\n"
+"POT-Creation-Date: 2013-02-21 19:19+0200\n"
+"PO-Revision-Date: 2013-02-21 19:25+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "Language: he\n"
@@ -38,7 +38,7 @@ msgstr "התמונה '%s' לא מכילה מידע"
 msgid "Failed to load animation '%s': reason not known, probably a corrupt animation file"
 msgstr "נכשל בפתיחת ההנפשה '%s': הסיבה איננה ידועה, כנראה קובץ הנפשה פגום"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:272
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:277
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1112
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
@@ -483,8 +483,9 @@ msgid "Transformed JPEG has zero width or height."
 msgstr "Transformed JPEG has zero width or height."
 
 #: ../gdk-pixbuf/io-jpeg.c:1279
-msgid "Color profile has invalid length '%"
-msgstr "אורך פרופיל הצבע '% אינו תקני"
+#, c-format
+msgid "Color profile has invalid length '%u'."
+msgstr "אורך פרופיל הצבע '%u' אינו תקני."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
