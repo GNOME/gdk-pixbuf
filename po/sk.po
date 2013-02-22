@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2013-02-15 06:28+0000\n"
-"PO-Revision-Date: 2013-02-15 17:20+0000\n"
+"POT-Creation-Date: 2013-02-21 05:01+0000\n"
+"PO-Revision-Date: 2013-02-21 22:28+0100\n"
 "Last-Translator: Ján Kyselica <kyselica.jan@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -40,7 +40,7 @@ msgid ""
 "animation file"
 msgstr "Zlyhalo načítanie animácie „%s“: príčina neznáma, asi poškodený súbor"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:272 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:277 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid ""
@@ -155,11 +155,11 @@ msgstr "Údaje obrázku poškodené"
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
 msgstr[0] ""
-"nepodarilo sa alokovať vyrovnávaciu pamäť pre obrázok s veľkosťou %u bajtov"
+"nepodarilo sa vyhradiť vyrovnávaciu pamäť pre obrázok s veľkosťou %u bajtov"
 msgstr[1] ""
-"nepodarilo sa alokovať vyrovnávaciu pamäť pre obrázok s veľkosťou %u bajtu"
+"nepodarilo sa vyhradiť vyrovnávaciu pamäť pre obrázok s veľkosťou %u bajtu"
 msgstr[2] ""
-"nepodarilo sa alokovať vyrovnávaciu pamäť pre obrázok s veľkosťou %u bajtov"
+"nepodarilo sa vyhradiť vyrovnávaciu pamäť pre obrázok s veľkosťou %u bajtov"
 
 #: ../gdk-pixbuf/io-ani.c:244
 msgid "Unexpected icon chunk in animation"
@@ -210,7 +210,7 @@ msgstr "Nájdený predčasný koniec súboru"
 
 #: ../gdk-pixbuf/io-bmp.c:1328
 msgid "Couldn't allocate memory for saving BMP file"
-msgstr "Nepodarilo sa alokovať pamäť pre uloženie súboru BMP"
+msgstr "Nepodarilo sa vyhradiť pamäť pre uloženie súboru BMP"
 
 #: ../gdk-pixbuf/io-bmp.c:1369
 msgid "Couldn't write to BMP file"
@@ -253,7 +253,7 @@ msgstr "Formát obrázkov JPEG"
 #: ../gdk-pixbuf/io-gdip-utils.c:154
 #, c-format
 msgid "Could not allocate memory: %s"
-msgstr "Nepodarilo sa alokovať pamäť: %s"
+msgstr "Nepodarilo sa vyhradiť pamäť: %s"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:179 ../gdk-pixbuf/io-gdip-utils.c:293
 #: ../gdk-pixbuf/io-gdip-utils.c:333
@@ -420,15 +420,15 @@ msgstr "Nepodporovaná farebná hĺbka pre súbor ICO: %d"
 
 #: ../gdk-pixbuf/io-jasper.c:74
 msgid "Couldn't allocate memory for stream"
-msgstr "Nepodarilo sa alokovať pamäť pre prúd"
+msgstr "Nepodarilo sa vyhradiť pamäť pre prúd"
 
 #: ../gdk-pixbuf/io-jasper.c:104
 msgid "Couldn't decode image"
 msgstr "Nepodarilo sa dekódovať obrázok"
 
 # PK: v originale chyba medzera medzi JPEG a 2000 -> nahlas bug
+# JK: https://bugzilla.gnome.org/show_bug.cgi?id=694207
 #: ../gdk-pixbuf/io-jasper.c:122
-#, fuzzy
 msgid "Transformed JPEG2000 has zero width or height"
 msgstr "Transformovaný JPEG 2000 má nulovú výšku alebo šírku"
 
@@ -438,7 +438,7 @@ msgstr "Typ obrázku nie je momentálne podporovaný"
 
 #: ../gdk-pixbuf/io-jasper.c:148 ../gdk-pixbuf/io-jasper.c:156
 msgid "Couldn't allocate memory for color profile"
-msgstr "Nepodarilo sa alokovať pamäť pre farebný profil"
+msgstr "Nepodarilo sa vyhradiť pamäť pre farebný profil"
 
 #: ../gdk-pixbuf/io-jasper.c:182
 msgid "Insufficient memory to open JPEG 2000 file"
@@ -446,7 +446,7 @@ msgstr "Nedostatok pamäte pre otvorenie súboru JPEG 2000"
 
 #: ../gdk-pixbuf/io-jasper.c:261
 msgid "Couldn't allocate memory to buffer image data"
-msgstr "Nepodarilo sa alokovať pamäť pre dáta obrázku"
+msgstr "Nepodarilo sa vyhradiť pamäť pre dáta obrázku"
 
 #: ../gdk-pixbuf/io-jasper.c:305
 msgid "The JPEG 2000 image format"
@@ -473,7 +473,7 @@ msgstr "Nepodporovaný priestor farieb JPEG (%s)"
 #: ../gdk-pixbuf/io-jpeg.c:764 ../gdk-pixbuf/io-jpeg.c:1044
 #: ../gdk-pixbuf/io-jpeg.c:1308 ../gdk-pixbuf/io-jpeg.c:1318
 msgid "Couldn't allocate memory for loading JPEG file"
-msgstr "Nepodarilo sa alokovať pamäť pre načítanie súboru JPEG"
+msgstr "Nepodarilo sa vyhradiť pamäť pre načítanie súboru JPEG"
 
 #: ../gdk-pixbuf/io-jpeg.c:1018
 msgid "Transformed JPEG has zero width or height."
@@ -486,11 +486,11 @@ msgstr "Farebný profil má neplatnú dĺžku „%u“."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
-msgstr "Nepodarilo sa alokovať pamäť pre hlavičku"
+msgstr "Nepodarilo sa vyhradiť pamäť pre hlavičku"
 
 #: ../gdk-pixbuf/io-pcx.c:201 ../gdk-pixbuf/io-pcx.c:559
 msgid "Couldn't allocate memory for context buffer"
-msgstr "Nepodarilo sa alokovať pamäť pre vyrovnávaciu pamäť obsahu"
+msgstr "Nepodarilo sa vyhradiť pamäť pre vyrovnávaciu pamäť obsahu"
 
 #: ../gdk-pixbuf/io-pcx.c:600
 msgid "Image has invalid width and/or height"
@@ -511,11 +511,11 @@ msgstr "Nepodarilo sa vytvoriť nový obrázok"
 
 #: ../gdk-pixbuf/io-pcx.c:649
 msgid "Couldn't allocate memory for line data"
-msgstr "Nepodarilo sa alokovať pamäť pre údaje na riadku"
+msgstr "Nepodarilo sa vyhradiť pamäť pre údaje na riadku"
 
 #: ../gdk-pixbuf/io-pcx.c:656
 msgid "Couldn't allocate memory for PCX image"
-msgstr "Nepodarilo sa alokovať pamäť pre obrázok PCX"
+msgstr "Nepodarilo sa vyhradiť pamäť pre obrázok PCX"
 
 #: ../gdk-pixbuf/io-pcx.c:703
 msgid "Didn't get all lines of PCX image"
@@ -541,9 +541,8 @@ msgstr "Formát GdkPixdata"
 
 # PM: zdá sa mi že tu má byť počet bitov na kanál - viackrát
 #: ../gdk-pixbuf/io-png.c:54
-#, fuzzy
 msgid "Bits per channel of PNG image is invalid."
-msgstr "Počet bitov kanálu obrázku PNG nie je platný."
+msgstr "Počet bitov na kanál obrázku PNG nie je platný."
 
 #: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:641
 msgid "Transformed PNG has zero width or height."
@@ -551,7 +550,7 @@ msgstr "Transformovaný PNG má nulovú výšku alebo šírku."
 
 #: ../gdk-pixbuf/io-png.c:143
 msgid "Bits per channel of transformed PNG is not 8."
-msgstr "Počet bitov kanálu transformovaného PNG nie je 8."
+msgstr "Počet bitov na kanál transformovaného PNG nie je 8."
 
 #: ../gdk-pixbuf/io-png.c:152
 msgid "Transformed PNG not RGB or RGBA."
@@ -662,7 +661,7 @@ msgstr "Maximálna hodnota farby v súbore PNM je príliš veľká"
 #: ../gdk-pixbuf/io-pnm.c:427 ../gdk-pixbuf/io-pnm.c:457
 #: ../gdk-pixbuf/io-pnm.c:502
 msgid "Raw PNM image type is invalid"
-msgstr "Typ obrázku PNM „raw“ nie je platný"
+msgstr "Typ nespracovaného obrázku PNM nie je platný"
 
 #: ../gdk-pixbuf/io-pnm.c:652
 msgid "PNM image loader does not support this PNM subformat"
@@ -671,14 +670,13 @@ msgstr "Modul pre načítanie PNM nepodporuje tento pod-formát PNM"
 # PK: sample neni vzorka?
 # PM: preklad Raw je tiež diskutabilný skôr nespracované - viackrát
 #: ../gdk-pixbuf/io-pnm.c:739 ../gdk-pixbuf/io-pnm.c:966
-#, fuzzy
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr ""
-"Čisté formáty PNM vyžadujú presne jednu medzeru pred náhľadovými údajmi"
+"Nespracované formáty PNM vyžadujú presne jednu medzeru pred údajmi vzorky"
 
 #: ../gdk-pixbuf/io-pnm.c:766
 msgid "Cannot allocate memory for loading PNM image"
-msgstr "Nepodarilo sa alokovať pamäť pre načítanie obrázku PNM"
+msgstr "Nepodarilo sa vyhradiť pamäť pre načítanie obrázku PNM"
 
 #: ../gdk-pixbuf/io-pnm.c:816
 msgid "Insufficient memory to load PNM context struct"
@@ -718,13 +716,13 @@ msgstr[2] "Atóm QTIF je príliš veľký (%d bajty)"
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
 msgstr[0] ""
-"Nepodarilo sa alokovať vyrovnávaciu pamäť pre načítanie súboru o veľkosti %d "
+"Nepodarilo sa vyhradiť vyrovnávaciu pamäť pre načítanie súboru o veľkosti %d "
 "bajtov"
 msgstr[1] ""
-"Nepodarilo sa alokovať vyrovnávaciu pamäť pre načítanie súboru o veľkosti %d "
+"Nepodarilo sa vyhradiť vyrovnávaciu pamäť pre načítanie súboru o veľkosti %d "
 "bajtu"
 msgstr[2] ""
-"Nepodarilo sa alokovať vyrovnávaciu pamäť pre načítanie súboru o veľkosti %d "
+"Nepodarilo sa vyhradiť vyrovnávaciu pamäť pre načítanie súboru o veľkosti %d "
 "bajtov"
 
 #: ../gdk-pixbuf/io-qtif.c:206
@@ -742,7 +740,7 @@ msgstr[2] "Zlyhalo posunutie o ďalšie %d bajty pomocou seek()."
 
 #: ../gdk-pixbuf/io-qtif.c:270
 msgid "Failed to allocate QTIF context structure."
-msgstr "Zlyhalo alokovanie kontextovej štruktúry QTIF."
+msgstr "Zlyhalo vyhradenie kontextovej štruktúry QTIF."
 
 #: ../gdk-pixbuf/io-qtif.c:330
 msgid "Failed to create GdkPixbufLoader object."
@@ -778,13 +776,12 @@ msgstr "Formát rastrových obrázkov Sun"
 
 # PM: nebude lepšie vyhradiť miesto alokovať?
 #: ../gdk-pixbuf/io-tga.c:153
-#, fuzzy
 msgid "Cannot allocate memory for IOBuffer struct"
-msgstr "Nedá sa alokovať pamäť pre štruktúru IOBuffer"
+msgstr "Nedá sa vyhradiť pamäť pre štruktúru IOBuffer"
 
 #: ../gdk-pixbuf/io-tga.c:172
 msgid "Cannot allocate memory for IOBuffer data"
-msgstr "Nedá sa sa alokovať pamäť pre údaje IOBuffer"
+msgstr "Nedá sa vyhradiť pamäť pre údaje IOBuffer"
 
 #: ../gdk-pixbuf/io-tga.c:183
 msgid "Cannot realloc IOBuffer data"
@@ -792,11 +789,11 @@ msgstr "Nedá sa zmeniť alokáciu pre údaje IOBuffer"
 
 #: ../gdk-pixbuf/io-tga.c:213
 msgid "Cannot allocate temporary IOBuffer data"
-msgstr "Nedá sa alokovať dočasné údaje IOBuffer"
+msgstr "Nedajú sa vyhradiť dočasné údaje IOBuffer"
 
 #: ../gdk-pixbuf/io-tga.c:346
 msgid "Cannot allocate new pixbuf"
-msgstr "Nedá sa alokovať nový pixbuf"
+msgstr "Nedá sa vyhradiť nový pixbuf"
 
 #: ../gdk-pixbuf/io-tga.c:685
 msgid "Image is corrupted or truncated"
@@ -804,11 +801,11 @@ msgstr "Obrázok je poškodený alebo skrátený"
 
 #: ../gdk-pixbuf/io-tga.c:692
 msgid "Cannot allocate colormap structure"
-msgstr "Nedá sa alokovať štruktúru pre farebnú mapu"
+msgstr "Nedá sa vyhradiť štruktúra pre farebnú mapu"
 
 #: ../gdk-pixbuf/io-tga.c:699
 msgid "Cannot allocate colormap entries"
-msgstr "Nedá sa alokovať položky farebnej mapy"
+msgstr "Nedajú sa vyhradiť položky farebnej mapy"
 
 #: ../gdk-pixbuf/io-tga.c:721
 msgid "Unexpected bitdepth for colormap entries"
@@ -816,7 +813,7 @@ msgstr "Neočakávaná farebná hĺbka v položkách farebnej mapy"
 
 #: ../gdk-pixbuf/io-tga.c:739
 msgid "Cannot allocate TGA header memory"
-msgstr "Nedá sa alokovať pamäť pre hlavičku TGA"
+msgstr "Nedá sa vyhradiť pamäť pre hlavičku TGA"
 
 #: ../gdk-pixbuf/io-tga.c:772
 msgid "TGA image has invalid dimensions"
@@ -830,7 +827,7 @@ msgstr "Typ obrázku TGA nie je podporovaný"
 
 #: ../gdk-pixbuf/io-tga.c:861
 msgid "Cannot allocate memory for TGA context struct"
-msgstr "Nedá sa alokovať pamäť pre kontextovú štruktúru TGA"
+msgstr "Nedá sa vyhradiť pamäť pre kontextovú štruktúru TGA"
 
 #: ../gdk-pixbuf/io-tga.c:926
 msgid "Excess data in file"
@@ -956,7 +953,7 @@ msgstr "Súbor XPM má neplatný počet farieb"
 #: ../gdk-pixbuf/io-xpm.c:523 ../gdk-pixbuf/io-xpm.c:532
 #: ../gdk-pixbuf/io-xpm.c:584
 msgid "Cannot allocate memory for loading XPM image"
-msgstr "Nedá sa alokovať pamäť pre načítanie obrázku XPM"
+msgstr "Nedá sa vyhradiť pamäť pre načítanie obrázku XPM"
 
 #: ../gdk-pixbuf/io-xpm.c:546
 msgid "Cannot read XPM colormap"
