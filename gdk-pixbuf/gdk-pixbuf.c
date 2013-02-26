@@ -135,10 +135,11 @@ enum
 };
 
 static void gdk_pixbuf_icon_iface_init (GIconIface *iface);
+static void gdk_pixbuf_loadable_icon_iface_init (GLoadableIconIface *iface);
 
 G_DEFINE_TYPE_WITH_CODE (GdkPixbuf, gdk_pixbuf, G_TYPE_OBJECT,
-                         G_IMPLEMENT_INTERFACE (G_TYPE_ICON,
-                                                gdk_pixbuf_icon_iface_init))
+                         G_IMPLEMENT_INTERFACE (G_TYPE_ICON, gdk_pixbuf_icon_iface_init)
+                         G_IMPLEMENT_INTERFACE (G_TYPE_LOADABLE_ICON, gdk_pixbuf_loadable_icon_iface_init))
 
 static void 
 gdk_pixbuf_init (GdkPixbuf *pixbuf)
@@ -292,11 +293,110 @@ gdk_pixbuf_unref (GdkPixbuf *pixbuf)
         g_object_unref (pixbuf);
 }
 
+static GBytes *
+gdk_pixbuf_make_bytes (GdkPixbuf  *pixbuf,
+                       GError    **error)
+{
+  gchar *buffer;
+  gsize size;
+
+  if (!gdk_pixbuf_save_to_buffer (pixbuf, &buffer, &size, "png", error, NULL))
+    return NULL;
+
+  return g_bytes_new_take (buffer, size);
+}
+
+static GVariant *
+gdk_pixbuf_serialize (GIcon *icon)
+{
+  GError *error = NULL;
+  GVariant *result;
+  GBytes *bytes;
+
+  bytes = gdk_pixbuf_make_bytes (GDK_PIXBUF (icon), &error);
+  if (!bytes)
+    {
+      g_critical ("Unable to serialise GdkPixbuf to png (via g_icon_serialize()): %s", error->message);
+      g_error_free (error);
+      return NULL;
+    }
+  result = g_variant_new_from_bytes (G_VARIANT_TYPE_BYTESTRING, bytes, TRUE);
+  g_bytes_unref (bytes);
+
+  return g_variant_new ("(sv)", "bytes", result);
+}
+
+static GInputStream *
+gdk_pixbuf_load (GLoadableIcon  *icon,
+                 int             size,
+                 char          **type,
+                 GCancellable   *cancellable,
+                 GError        **error)
+{
+  GInputStream *stream;
+  GBytes *bytes;
+
+  bytes = gdk_pixbuf_make_bytes (GDK_PIXBUF (icon), error);
+  if (!bytes)
+    return NULL;
+
+  stream = g_memory_input_stream_new_from_bytes (bytes);
+  g_bytes_unref (bytes);
+
+  if (type)
+    *type = g_strdup ("image/png");
+
+  return stream;
+}
+
+static void
+gdk_pixbuf_load_async (GLoadableIcon       *icon,
+                       int                  size,
+                       GCancellable        *cancellable,
+                       GAsyncReadyCallback  callback,
+                       gpointer             user_data)
+{
+  GTask *task;
+
+  task = g_task_new (icon, cancellable, callback, user_data);
+  g_task_return_pointer (task, icon, NULL);
+  g_object_unref (task);
+}
+
+static GInputStream *
+gdk_pixbuf_load_finish (GLoadableIcon  *icon,
+                        GAsyncResult   *res,
+                        char          **type,
+                        GError        **error)
+{
+  g_return_val_if_fail (g_task_is_valid (res, icon), NULL);
+
+  if (!g_task_propagate_pointer (G_TASK (res), error))
+    return NULL;
+
+  return gdk_pixbuf_load (icon, 0, type, NULL, error);
+}
+
+static void
+gdk_pixbuf_loadable_icon_iface_init (GLoadableIconIface *iface)
+{
+  iface->load = gdk_pixbuf_load;
+
+  /* In theory encoding a png could be time-consuming but we're talking
+   * about icons here, so assume it's probably going to be OK and handle
+   * the async variant of the call in-thread instead of having the
+   * default implementation dispatch it to a worker.
+   */
+  iface->load_async = gdk_pixbuf_load_async;
+  iface->load_finish = gdk_pixbuf_load_finish;
+}
+
 static void
 gdk_pixbuf_icon_iface_init (GIconIface *iface)
 {
         iface->hash = (guint (*) (GIcon *)) g_direct_hash;
         iface->equal = (gboolean (*) (GIcon *, GIcon *)) g_direct_equal;
+        iface->serialize = gdk_pixbuf_serialize;
 }
 
 /* Used as the destroy notification function for gdk_pixbuf_new() */
