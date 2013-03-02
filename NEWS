@@ -1,3 +1,15 @@
+2.27.2
+======
+
+* Make gdk_pixbuf_animation_new_from_file load png files (694148)
+
+* Fix string formatting for l10n extraction (693534)
+
+* Translation updates (Hebrew, Spanish, Brazilian Portuguese,
+  Slovenian, Galician, French, Catalan, Catalan (Valencian),
+  Malayalam, Slovak, Polish, Czech, Serbian, Uyghur, Norwegian
+  bokmål, Punjabi, Traditional Chinese)
+
 2.27.1
 ======
 
