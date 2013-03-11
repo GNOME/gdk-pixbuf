@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
 "POT-Creation-Date: 2013-02-10 21:15+0000\n"
-"PO-Revision-Date: 2013-03-12 02:26+0900\n"
+"PO-Revision-Date: 2013-03-12 02:32+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Gnome Korea <gnome-kr@googlegroups.com>\n"
 "Language: Korean\n"
@@ -467,7 +467,7 @@ msgid "Transformed JPEG has zero width or height."
 msgstr "변환된 JPEG의 너비나 높이가 0입니다."
 
 #: ../gdk-pixbuf/io-jpeg.c:1279
-#, fuzzy, c-format
+#, c-format
 msgid "Color profile has invalid length '%u'."
 msgstr "색 프로파일의 길이가('%u') 올바르지 않습니다."
 
