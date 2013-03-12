@@ -238,8 +238,6 @@ gdk_pixbuf_animation_new_from_file (const char *filename,
                         }
                 }
 
-                /* If there was no error, there must be an animation that was successfully loaded */
-                g_assert (animation);
                 success = TRUE;
 
 fail_load_increment:
@@ -249,9 +247,14 @@ fail_load_increment:
 fail_begin_load:
 		fclose (f);
 
-                if (!success && animation) {
-                        g_object_unref (animation);
-                        animation = NULL;
+                if (success) {
+                        /* If there was no error, there must be an animation that was successfully loaded */
+                        g_assert (animation);
+                } else {
+                        if (animation) {
+                                g_object_unref (animation);
+                                animation = NULL;
+                        }
                 }
 	} else {
 		GdkPixbuf *pixbuf;
