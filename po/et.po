@@ -9,15 +9,15 @@
 # Tõivo Leedjärv <toivo linux ee>, 2002-2004.
 # Priit Laes <amd tt ee>, 2004, 2005.
 # Ivar Smolin <okul linux ee>, 2005-2010.
-# Mattias Põldaru <mahfiaz@gmail.com>, 2009-2010, 2012.
+# Mattias Põldaru <mahfiaz@gmail.com>, 2009-2010, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf MASTER\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2012-10-15 14:15+0000\n"
-"PO-Revision-Date: 2012-10-21 21:09+0300\n"
+"POT-Creation-Date: 2013-03-12 12:44+0000\n"
+"PO-Revision-Date: 2013-03-12 22:43+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <>\n"
 "Language: et\n"
@@ -36,18 +36,18 @@ msgstr "Pildifaili '%s' ei sisalda andmeid"
 
 #, c-format
 msgid ""
-"Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr ""
-"Tõrge pildifaili '%s' laadimisel: põhjus teadmata, arvatavasti on pildifail "
-"rikutud"
-
-#, c-format
-msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
 "animation file"
 msgstr ""
 "Tõrge animatsiooni '%s' laadimisel: põhjus teadmata, arvatavasti on "
 "animatsioonifail rikutud"
+
+#, c-format
+msgid ""
+"Failed to load image '%s': reason not known, probably a corrupt image file"
+msgstr ""
+"Tõrge pildifaili '%s' laadimisel: põhjus teadmata, arvatavasti on pildifail "
+"rikutud"
 
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
@@ -371,8 +371,8 @@ msgid "Transformed JPEG has zero width or height."
 msgstr "Transformeeritud JPEG laius või kõrgus on null."
 
 #, c-format
-msgid "Color profile has invalid length '%d'."
-msgstr "Värvusprofiilil on vigane pikkus %d."
+msgid "Color profile has invalid length '%u'."
+msgstr "Värvusprofiilil pikkus '%u' on vigane."
 
 msgid "Couldn't allocate memory for header"
 msgstr "Päise jaoks pole võimalik mälu eraldada"
