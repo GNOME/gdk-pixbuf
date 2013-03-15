@@ -6,41 +6,35 @@
 # Andras Timar <timar at gnome dot hu>, 2002.
 # Laszlo Dvornik <dvornik at gnome dot hu>, 2004, 2005.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2004, 2005, 2007, 2008, 2009, 2010, 2012, 2013.
+# Balázs Úr <urbalazs at gmail dot com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-24 23:31+0100\n"
-"PO-Revision-Date: 2013-01-24 23:46+0100\n"
-"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
+"%2b&keywords=I18N+L10N&component=gdk\n"
+"POT-Creation-Date: 2013-02-10 21:15+0000\n"
+"PO-Revision-Date: 2013-03-15 11:36+0100\n"
+"Last-Translator: Balázs Úr <urbalazs at gmail dot com>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.2\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:146 ../gdk-pixbuf/gdk-pixbuf-io.c:1065
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1331
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1064
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1330
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Nem sikerült megnyitni a(z) „%s” fájlt: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:159 ../gdk-pixbuf/gdk-pixbuf-io.c:1077
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:173 ../gdk-pixbuf/gdk-pixbuf-io.c:1076
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "A(z) „%s” képfájl nem tartalmaz adatokat"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:201 ../gdk-pixbuf/gdk-pixbuf-io.c:1113
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1383
-#, c-format
-msgid "Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr ""
-"Nem sikerült betölteni a(z) „%s” képet: ok ismeretlen, valószínűleg sérült a "
-"képfájl"
-
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:232
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:212
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -49,12 +43,21 @@ msgstr ""
 "Nem sikerült betölteni a(z) „%s” animációt: ok ismeretlen, valószínűleg "
 "sérült az animációfájl"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:791
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:272 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
+#, c-format
+msgid ""
+"Failed to load image '%s': reason not known, probably a corrupt image file"
+msgstr ""
+"Nem sikerült betölteni a(z) „%s” képet: ok ismeretlen, valószínűleg sérült a "
+"képfájl"
+
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:790
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Nem lehet betölteni a képbetöltő modult: %s: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:806
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:805
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -63,55 +66,55 @@ msgstr ""
 "A(z) %s képbetöltő-modul nem exportálja a megfelelő felületet, talán egy "
 "másik gdk-pixbuf verzióból van?"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:815 ../gdk-pixbuf/gdk-pixbuf-io.c:866
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:814 ../gdk-pixbuf/gdk-pixbuf-io.c:865
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "A(z) „%s” képtípus nem támogatott"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:951
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:950
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Nem lehet azonosítani a(z) „%s” képfájl formátumát"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:959
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:958
 msgid "Unrecognized image file format"
 msgstr "Azonosíthatatlan képfájl formátum"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1122
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1121
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Nem sikerült betölteni a(z) „%s” képet: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2005 ../gdk-pixbuf/io-gdip-utils.c:887
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2015 ../gdk-pixbuf/io-gdip-utils.c:837
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Hiba képfájlba íráskor: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2047 ../gdk-pixbuf/gdk-pixbuf-io.c:2168
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2057 ../gdk-pixbuf/gdk-pixbuf-io.c:2178
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "A gdk-pixbuf ezen változatába nincs befordítva a(z) %s képformátumba való "
 "mentés támogatása"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2078
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2088
 msgid "Insufficient memory to save image to callback"
 msgstr "Nincs elég memória a visszahíváshoz használandó kép mentéséhez"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2091
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2101
 msgid "Failed to open temporary file"
 msgstr "Nem sikerült megnyitni az átmeneti fájlt"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2114
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2124
 msgid "Failed to read from temporary file"
 msgstr "Nem sikerült olvasni az átmeneti fájlból"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2362
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2372
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "„%s” megnyitása írásra sikertelen: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2388
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2398
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -120,11 +123,11 @@ msgstr ""
 "A(z) „%s” nem zárható le a kép írása közben, lehet, hogy nem sikerült minden "
 "adatot elmenteni: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2609 ../gdk-pixbuf/gdk-pixbuf-io.c:2661
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2619 ../gdk-pixbuf/gdk-pixbuf-io.c:2671
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Nincs elég memória a kép pufferbe mentéséhez"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2707
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2717
 msgid "Error writing to image stream"
 msgstr "Hiba képfolyamba íráskor"
 
@@ -182,7 +185,7 @@ msgstr "Nincs elég memória az animáció betöltéséhez"
 msgid "Malformed chunk in animation"
 msgstr "Hibás részlet az animációban"
 
-#: ../gdk-pixbuf/io-ani.c:705
+#: ../gdk-pixbuf/io-ani.c:660
 msgid "The ANI image format"
 msgstr "ANI képformátum"
 
@@ -243,7 +246,8 @@ msgstr ""
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1265
 #, c-format
-msgid "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr ""
 "A JPEG-minőség értékének 0 és 100 között kell lennie, a(z) „%d” érték nem "
 "megengedett."
@@ -281,11 +285,11 @@ msgstr "Nem lehet betölteni a bitképet"
 msgid "Couldn't load metafile"
 msgstr "Nem lehet betölteni a metafájlt"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:932
+#: ../gdk-pixbuf/io-gdip-utils.c:878
 msgid "Unsupported image format for GDI+"
 msgstr "Nem támogatott képformátum a GDI+-hoz"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:939
+#: ../gdk-pixbuf/io-gdip-utils.c:885
 msgid "Couldn't save"
 msgstr "Nem lehet menteni"
 
@@ -481,8 +485,9 @@ msgstr "Az átalakított JPEG szélessége vagy magassága nulla."
 
 #: ../gdk-pixbuf/io-jpeg.c:1279
 #, c-format
-msgid "Color profile has invalid length '%d'."
-msgstr "A színprofil hossza (%d) érvénytelen."
+#| msgid "Color profile has invalid length '%d'."
+msgid "Color profile has invalid length '%u'."
+msgstr "A színprofil hossza („%u”) érvénytelen."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -587,7 +592,8 @@ msgid "Fatal error reading PNG image file: %s"
 msgstr "Végzetes hiba a PNG képfájl olvasásakor: %s"
 
 #: ../gdk-pixbuf/io-png.c:858
-msgid "Keys for PNG text chunks must have at least 1 and at most 79 characters."
+msgid ""
+"Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "A PNG szöveges darabok kulcsainak legalább 1 és legfeljebb 79 karakterből "
 "kell állniuk."
