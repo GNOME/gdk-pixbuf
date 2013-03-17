@@ -37,8 +37,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-16 13:18+0200\n"
-"PO-Revision-Date: 2012-09-16 01:16+0200\n"
+"POT-Creation-Date: 2013-03-17 14:55+0100\n"
+"PO-Revision-Date: 2013-03-16 17:43+0100\n"
 "Last-Translator: Kenneth Nielsen <k.nielsen81@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -47,27 +47,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:147 ../gdk-pixbuf/gdk-pixbuf-io.c:1088
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1354
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1064
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1330
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Kunne ikke åbne filen \"%s\": %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1100
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:173 ../gdk-pixbuf/gdk-pixbuf-io.c:1076
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Billedfilen \"%s\" indeholder ingen data"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:202 ../gdk-pixbuf/gdk-pixbuf-io.c:1136
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1406
-#, c-format
-msgid ""
-"Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr ""
-"Kunne ikke indlæse billedet \"%s\": årsag ukendt, formentlig en ødelagt "
-"billedfil"
-
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:235
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:212
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -76,12 +67,21 @@ msgstr ""
 "Kunne ikke indlæse animationen \"%s\": årsag ukendt, formentlig en ødelagt "
 "animationsfil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:809
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:280 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
+#, c-format
+msgid ""
+"Failed to load image '%s': reason not known, probably a corrupt image file"
+msgstr ""
+"Kunne ikke indlæse billedet \"%s\": årsag ukendt, formentlig en ødelagt "
+"billedfil"
+
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:790
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Kunne ikke indlæse billedindlæsningmodulet %s: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:824
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:805
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -90,54 +90,54 @@ msgstr ""
 "Billedindlæsningsmodulet %s eksporterer ikke den rigtige grænseflade; måske "
 "er det fra en anden gdk-pixbuf-version?"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:833 ../gdk-pixbuf/gdk-pixbuf-io.c:884
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:814 ../gdk-pixbuf/gdk-pixbuf-io.c:865
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Billedtypen \"%s\" er ikke understøttet"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:969
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:950
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Kunne ikke genkende billedfilformatet for filen \"%s\""
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:977
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:958
 msgid "Unrecognized image file format"
 msgstr "Ukendt billedfilformat"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1145
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1121
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Kunne ikke indlæse billedet \"%s\": %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2033 ../gdk-pixbuf/io-gdip-utils.c:888
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2015 ../gdk-pixbuf/io-gdip-utils.c:837
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Fejl ved skrivning af billedfil: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2078 ../gdk-pixbuf/gdk-pixbuf-io.c:2208
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2057 ../gdk-pixbuf/gdk-pixbuf-io.c:2178
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Denne bygning af gdk-pixbuf understøtter ikke gemning af billedformatet: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2112
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2088
 msgid "Insufficient memory to save image to callback"
 msgstr "Ikke tilstrækkelig hukommelse til at gemme billede til tilbagekald"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2125
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2101
 msgid "Failed to open temporary file"
 msgstr "Kunne ikke åbne midlertidig fil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2151
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2124
 msgid "Failed to read from temporary file"
 msgstr "Kunne ikke læse fra midlertidig fil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2404
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2372
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Kunne ikke åbne \"%s\" til skrivning: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2430
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2398
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -146,15 +146,15 @@ msgstr ""
 "Kunne ikke lukke \"%s\" ved skrivning af billede, formentlig er ikke alle "
 "data blevet gemt: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2651 ../gdk-pixbuf/gdk-pixbuf-io.c:2703
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2619 ../gdk-pixbuf/gdk-pixbuf-io.c:2671
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Ikke tilstrækkelig hukommelse til at gemme billede i et mellemlager"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2749
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2717
 msgid "Error writing to image stream"
 msgstr "Fejl ved skrivning til billedstrøm"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:397
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:393
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -163,7 +163,7 @@ msgstr ""
 "Intern fejl: Billedindlæsningsmodulet \"%s\" kunne ikke færdiggøre en "
 "handling, men angav ikke nogen årsag til fejlen"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:439
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:435
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Gradvis indlæsning af billedtypen \"%s\" er ikke understøttet"
@@ -208,7 +208,7 @@ msgstr "Ikke nok hukommelse til indlæsning af animation"
 msgid "Malformed chunk in animation"
 msgstr "Forkert udformet blok i animation"
 
-#: ../gdk-pixbuf/io-ani.c:705
+#: ../gdk-pixbuf/io-ani.c:660
 msgid "The ANI image format"
 msgstr "ANI-billedformatet"
 
@@ -250,7 +250,7 @@ msgstr "BMP-billedformatet"
 msgid "The EMF image format"
 msgstr "EMF-billedformatet"
 
-#: ../gdk-pixbuf/io-gdip-gif.c:80 ../gdk-pixbuf/io-gif.c:1719
+#: ../gdk-pixbuf/io-gdip-gif.c:80 ../gdk-pixbuf/io-gif.c:1720
 msgid "The GIF image format"
 msgstr "GIF-billedformatet"
 
@@ -258,7 +258,7 @@ msgstr "GIF-billedformatet"
 msgid "The ICO image format"
 msgstr "ICO-billedformatet"
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1251
+#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1249
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -267,7 +267,7 @@ msgstr ""
 "JPEG-kvalitet skal være en værdi mellem 0 og 100; værdien \"%s\" kunne ikke "
 "fortolkes."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1267
+#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1265
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
@@ -275,7 +275,7 @@ msgstr ""
 "JPEG-kvalitet skal være en værdi mellem 0 og 100; værdien \"%d\" er ikke "
 "tilladt."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1480
+#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1478
 msgid "The JPEG image format"
 msgstr "JPEG-billedformatet"
 
@@ -300,19 +300,19 @@ msgstr "Kunne ikke søge i strøm: %s"
 msgid "Could not read from stream: %s"
 msgstr "Kunne ikke læse fra strøm: %s"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:617 ../gdk-pixbuf/io-gdip-utils.c:752
+#: ../gdk-pixbuf/io-gdip-utils.c:617
 msgid "Couldn't load bitmap"
 msgstr "Kunne ikke indlæse bitmap"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:774
+#: ../gdk-pixbuf/io-gdip-utils.c:773
 msgid "Couldn't load metafile"
 msgstr "Kunne ikke indlæse metafil"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:933
+#: ../gdk-pixbuf/io-gdip-utils.c:878
 msgid "Unsupported image format for GDI+"
 msgstr "Uunderstøttet billedformat til GDI+"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:940
+#: ../gdk-pixbuf/io-gdip-utils.c:885
 msgid "Couldn't save"
 msgstr "Kunne ikke gemme"
 
@@ -325,8 +325,8 @@ msgstr "WMF-billedformatet"
 msgid "Failure reading GIF: %s"
 msgstr "Fejl under læsning af GIF: %s"
 
-#: ../gdk-pixbuf/io-gif.c:496 ../gdk-pixbuf/io-gif.c:1501
-#: ../gdk-pixbuf/io-gif.c:1668
+#: ../gdk-pixbuf/io-gif.c:496 ../gdk-pixbuf/io-gif.c:1502
+#: ../gdk-pixbuf/io-gif.c:1669
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF-fil manglede nogle data (måske er den blev afkortet?)"
 
@@ -351,8 +351,8 @@ msgstr "Ugyldig kode fundet"
 msgid "Circular table entry in GIF file"
 msgstr "Cirkulær tabelindgang i GIF-fil"
 
-#: ../gdk-pixbuf/io-gif.c:866 ../gdk-pixbuf/io-gif.c:1487
-#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
+#: ../gdk-pixbuf/io-gif.c:866 ../gdk-pixbuf/io-gif.c:1488
+#: ../gdk-pixbuf/io-gif.c:1541 ../gdk-pixbuf/io-gif.c:1657
 msgid "Not enough memory to load GIF file"
 msgstr "Ikke nok hukommelse til indlæsning af GIF-fil"
 
@@ -385,7 +385,7 @@ msgstr ""
 "GIF-animation har ikke en global farvetabel, og et billede i den mangler en "
 "lokal farvetabel."
 
-#: ../gdk-pixbuf/io-gif.c:1563
+#: ../gdk-pixbuf/io-gif.c:1564
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF-billedet er afkortet eller ikke komplet."
 
@@ -485,7 +485,7 @@ msgstr "JPEG 2000-billedformatet"
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Fejl ved fortolkning af JPEG-billedfil (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:606
+#: ../gdk-pixbuf/io-jpeg.c:604
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -493,24 +493,24 @@ msgstr ""
 "Ikke tilstrækkelig hukommelse til at indlæse billede, prøv at afslutte nogle "
 "programmer for at frigøre hukommelse"
 
-#: ../gdk-pixbuf/io-jpeg.c:653 ../gdk-pixbuf/io-jpeg.c:867
+#: ../gdk-pixbuf/io-jpeg.c:651 ../gdk-pixbuf/io-jpeg.c:865
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "JPEG-farverum understøttes ikke (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:766 ../gdk-pixbuf/io-jpeg.c:1046
-#: ../gdk-pixbuf/io-jpeg.c:1310 ../gdk-pixbuf/io-jpeg.c:1320
+#: ../gdk-pixbuf/io-jpeg.c:764 ../gdk-pixbuf/io-jpeg.c:1044
+#: ../gdk-pixbuf/io-jpeg.c:1308 ../gdk-pixbuf/io-jpeg.c:1318
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Kunne ikke tildele hukommelse til indlæsning af JPEG-fil"
 
-#: ../gdk-pixbuf/io-jpeg.c:1020
+#: ../gdk-pixbuf/io-jpeg.c:1018
 msgid "Transformed JPEG has zero width or height."
 msgstr "Transformeret JPEG har bredde eller højde på nul."
 
-#: ../gdk-pixbuf/io-jpeg.c:1281
+#: ../gdk-pixbuf/io-jpeg.c:1279
 #, c-format
-msgid "Color profile has invalid length '%d'."
-msgstr "Farveprofil har ugyldig længde \"%d\"."
+msgid "Color profile has invalid length '%u'."
+msgstr "Farveprofil har ugyldig længde \"%u\"."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
