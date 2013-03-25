@@ -7,22 +7,22 @@
 # Rajesh Ranjan <rranjan@redhat.com>, 2005, 2006, 2009.
 # Manoj Kumar Giri <mgiri@redhat.com>, 2009.
 # Rajesh Ranjan <rajesh672@gmail.com>, 2009.
-# chandankumar(ciypro) <chandankumar.093047@gmail.com>, 2012.
+# chandankumar(ciypro) <chandankumar.093047@gmail.com>, 2012, 2013.
 # rajesh <rajeshkajha@yahoo.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2012-09-14 22:09+0000\n"
-"PO-Revision-Date: 2012-09-19 17:42+0530\n"
-"Last-Translator: rajesh <rajeshkajha@yahoo.com>\n"
+"POT-Creation-Date: 2013-02-10 21:15+0000\n"
+"PO-Revision-Date: 2013-03-25 13:33+0000\n"
+"Last-Translator: chandankumar <chandankumar.093047@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "\n"
 "\n"
@@ -30,25 +30,18 @@ msgstr ""
 "\n"
 "\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:147 ../gdk-pixbuf/gdk-pixbuf-io.c:1088
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1354
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1064
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1330
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "'%s' फ़ाइल खोलने में विफल: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1100
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:173 ../gdk-pixbuf/gdk-pixbuf-io.c:1076
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "छवि फ़ाइल '%s' में कोई डेटा नहीं है"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:202 ../gdk-pixbuf/gdk-pixbuf-io.c:1136
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1406
-#, c-format
-msgid ""
-"Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr "'%s' छवि लोड करने में विफल: कारण अनजान हैं, संभवतः एक खराब छवि फ़ाइल"
-
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:235
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:212
 #, c-format
 msgid ""
 "Failed to load animation '%s': reason not known, probably a corrupt "
@@ -56,12 +49,19 @@ msgid ""
 msgstr ""
 "एनीमेशन '%s' को लोड करने में असफल, कारण अज्ञात, शायद खराब एनीमेशन फ़ाइल."
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:809
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:272 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
+#, c-format
+msgid ""
+"Failed to load image '%s': reason not known, probably a corrupt image file"
+msgstr "'%s' छवि लोड करने में विफल: कारण अनजान हैं, संभवतः एक खराब छवि फ़ाइल"
+
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:790
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "छवि लोडिंग माड्यूलः %s को लोड करने में अक्षमः %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:824
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:805
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -71,53 +71,53 @@ msgstr ""
 "gdk-pixbuf "
 "संस्करण से है?"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:833 ../gdk-pixbuf/gdk-pixbuf-io.c:884
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:814 ../gdk-pixbuf/gdk-pixbuf-io.c:865
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "छवि प्रकार '%s' समर्थित नहीं है"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:969
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:950
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "फ़ाइल '%s' हेतु छवि फ़ाइल फ़ॉर्मेट पहचाना नहीं सका"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:977
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:958
 msgid "Unrecognized image file format"
 msgstr "अपरिचित छवि फ़ाइल फ़ॉर्मेट"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1145
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1121
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "छवि '%s' को लोड करने में असफल: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2033 ../gdk-pixbuf/io-gdip-utils.c:888
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2015 ../gdk-pixbuf/io-gdip-utils.c:837
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "छवि फ़ाइल में लिखने में त्रुटि: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2078 ../gdk-pixbuf/gdk-pixbuf-io.c:2208
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2057 ../gdk-pixbuf/gdk-pixbuf-io.c:2178
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "gdk-pixbf  का यह बिल्ड छवि फ़ॉर्मेट: %s को सहेजना समर्थित नहीं करता"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2112
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2088
 msgid "Insufficient memory to save image to callback"
 msgstr "छवि को कालबैक में सहेजने हेतु अपर्याप्त स्मृति"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2125
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2101
 msgid "Failed to open temporary file"
 msgstr "अस्थाई फ़ाइल खोलने में असफल"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2151
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2124
 msgid "Failed to read from temporary file"
 msgstr "अस्थाई फ़ाइल से पढ़ने में अक्षम"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2404
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2372
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "'%s' को लिखने हेतु खोलने में असफलः %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2430
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2398
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -126,15 +126,15 @@ msgstr ""
 "लिखने के दौरान छवि '%s' को बन्द करने में असफल, सभी डेटा सहेजे नहीं गए होंगे: %"
 "s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2651 ../gdk-pixbuf/gdk-pixbuf-io.c:2703
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2619 ../gdk-pixbuf/gdk-pixbuf-io.c:2671
 msgid "Insufficient memory to save image into a buffer"
 msgstr "छवि को बफ़र में सहेजने हेतु अपर्याप्त स्मृति"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2749
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2717
 msgid "Error writing to image stream"
 msgstr "छवि फ़ाइल में लिखने में त्रुटि"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:397
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:393
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -144,7 +144,7 @@ msgstr ""
 "असफलता का "
 "कारण नहीं दिया"
 
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:439
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:435
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "छवि प्रकार '%s' की बढ़ती हुई लोडिंग समर्थित नहीं है"
@@ -189,7 +189,7 @@ msgstr "एनीमेशन लोड करने हेतु पर्य�
 msgid "Malformed chunk in animation"
 msgstr "एनीमेशन में खराब भाग"
 
-#: ../gdk-pixbuf/io-ani.c:705
+#: ../gdk-pixbuf/io-ani.c:660
 msgid "The ANI image format"
 msgstr "ANI छवि फ़ॉर्मेट"
 
@@ -231,7 +231,7 @@ msgstr "BMP- छवि फ़ॉर्मेट"
 msgid "The EMF image format"
 msgstr "EMF छवि फ़ॉर्मेट"
 
-#: ../gdk-pixbuf/io-gdip-gif.c:80 ../gdk-pixbuf/io-gif.c:1719
+#: ../gdk-pixbuf/io-gdip-gif.c:80 ../gdk-pixbuf/io-gif.c:1720
 msgid "The GIF image format"
 msgstr "GIF छवि फ़ॉर्मेट"
 
@@ -239,7 +239,7 @@ msgstr "GIF छवि फ़ॉर्मेट"
 msgid "The ICO image format"
 msgstr "ICO छवि फ़ॉर्मेट"
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1251
+#: ../gdk-pixbuf/io-gdip-jpeg.c:53 ../gdk-pixbuf/io-jpeg.c:1249
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -248,14 +248,14 @@ msgstr ""
 "JPEG गुणवत्ता का मान 0 से 100 के बीच होना चाहिए मान '%s' पार्स्ड नहीं किया जा "
 "सका."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1267
+#: ../gdk-pixbuf/io-gdip-jpeg.c:68 ../gdk-pixbuf/io-jpeg.c:1265
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr ""
 "JPEG गुणवत्ता का मान 0 से 100 के बीच होना चाहिए, '%d' स्वीकार्य नहीं है."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1480
+#: ../gdk-pixbuf/io-gdip-jpeg.c:136 ../gdk-pixbuf/io-jpeg.c:1478
 msgid "The JPEG image format"
 msgstr "JPEG छवि फ़ॉर्मेट"
 
@@ -280,19 +280,19 @@ msgstr "स्ट्रीम पा नहीं सका: %s"
 msgid "Could not read from stream: %s"
 msgstr "स्ट्रीम से पढ़ नहीं सका: %s"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:617 ../gdk-pixbuf/io-gdip-utils.c:752
+#: ../gdk-pixbuf/io-gdip-utils.c:617
 msgid "Couldn't load bitmap"
 msgstr "बिटमैप भारित नहीं किया जा सका"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:774
+#: ../gdk-pixbuf/io-gdip-utils.c:773
 msgid "Couldn't load metafile"
 msgstr "मेटाफ़ाइल लोड नहीं किया जा सका"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:933
+#: ../gdk-pixbuf/io-gdip-utils.c:878
 msgid "Unsupported image format for GDI+"
 msgstr "GDI+ के लिए असमर्थित छवि प्रारूप"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:940
+#: ../gdk-pixbuf/io-gdip-utils.c:885
 msgid "Couldn't save"
 msgstr "सहेज नहीं सका"
 
@@ -305,8 +305,8 @@ msgstr "WMF छवि प्रारूप"
 msgid "Failure reading GIF: %s"
 msgstr "GIF: %s को पढ़ने में असफल"
 
-#: ../gdk-pixbuf/io-gif.c:496 ../gdk-pixbuf/io-gif.c:1501
-#: ../gdk-pixbuf/io-gif.c:1668
+#: ../gdk-pixbuf/io-gif.c:496 ../gdk-pixbuf/io-gif.c:1502
+#: ../gdk-pixbuf/io-gif.c:1669
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF फ़ाइल में कुछ डेटा गुम है (संभवतः यह कुछ खराब है?)"
 
@@ -331,8 +331,8 @@ msgstr "खराब कोड मिला"
 msgid "Circular table entry in GIF file"
 msgstr "GIF फ़ाइल में चक्राकार तालिका प्रविष्टि"
 
-#: ../gdk-pixbuf/io-gif.c:866 ../gdk-pixbuf/io-gif.c:1487
-#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
+#: ../gdk-pixbuf/io-gif.c:866 ../gdk-pixbuf/io-gif.c:1488
+#: ../gdk-pixbuf/io-gif.c:1541 ../gdk-pixbuf/io-gif.c:1657
 msgid "Not enough memory to load GIF file"
 msgstr "GIF फ़ाइल को लोड करने हेतु पर्याप्त स्मृति नहीं है"
 
@@ -354,7 +354,6 @@ msgid "Version %s of the GIF file format is not supported"
 msgstr "GIF फ़ाइल फ़ॉर्मेट का संस्करण %s समर्थित नहीं है"
 
 #: ../gdk-pixbuf/io-gif.c:1241
-#| msgid "Image has zero width"
 msgid "Resulting GIF image has zero size"
 msgstr "परिणामतः आई ज़िफ छवि शून्य है"
 
@@ -366,7 +365,7 @@ msgstr ""
 "GIF छवि में वैश्विक रंगमैप नहीं है तथा एक फ्रेम के अंदर स्थानीय रंगमैप नहीं "
 "है."
 
-#: ../gdk-pixbuf/io-gif.c:1563
+#: ../gdk-pixbuf/io-gif.c:1564
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF छवि अधूरा या बिगड़ा हुआ है."
 
@@ -465,7 +464,7 @@ msgstr "JPEG 2000 छवि फ़ॉर्मेट"
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "JPEG छवि फ़ाइल (%s) को समझने में त्रुटि"
 
-#: ../gdk-pixbuf/io-jpeg.c:606
+#: ../gdk-pixbuf/io-jpeg.c:604
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -473,25 +472,25 @@ msgstr ""
 "छवि को लोड करने हेतु अपर्याप्त स्मृति, कुछ अनुप्रयोग बन्द कर कुछ स्मृति मुक्त "
 "करने की कोशिश करें"
 
-#: ../gdk-pixbuf/io-jpeg.c:653 ../gdk-pixbuf/io-jpeg.c:867
+#: ../gdk-pixbuf/io-jpeg.c:651 ../gdk-pixbuf/io-jpeg.c:865
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "असमर्थित JPEG रंग स्थान (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:766 ../gdk-pixbuf/io-jpeg.c:1046
-#: ../gdk-pixbuf/io-jpeg.c:1310 ../gdk-pixbuf/io-jpeg.c:1320
+#: ../gdk-pixbuf/io-jpeg.c:764 ../gdk-pixbuf/io-jpeg.c:1044
+#: ../gdk-pixbuf/io-jpeg.c:1308 ../gdk-pixbuf/io-jpeg.c:1318
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "JPEG फ़ाइल लोड करने के लिए स्मृति आबंटित नहीं की जा सकी"
 
-#: ../gdk-pixbuf/io-jpeg.c:1020
+#: ../gdk-pixbuf/io-jpeg.c:1018
 msgid "Transformed JPEG has zero width or height."
 msgstr "परिवर्तित JPEG की चौड़ाई या ऊँचाई शून्य है"
 
-#: ../gdk-pixbuf/io-jpeg.c:1281
+#: ../gdk-pixbuf/io-jpeg.c:1279
 #, c-format
-#| msgid "Color profile has invalid length %d."
-msgid "Color profile has invalid length '%d'."
-msgstr "रंग प्रोफ़ाइल की अमान्य लंबाई '%d' है."
+#| msgid "Color profile has invalid length '%d'."
+msgid "Color profile has invalid length '%u'."
+msgstr "रंग प्रोफ़ाइल की अमान्य लंबाई '%u' है."
 
 #: ../gdk-pixbuf/io-pcx.c:186
 msgid "Couldn't allocate memory for header"
@@ -577,16 +576,13 @@ msgstr "PNG फ़ाइल को लोड करने हेतु अपर
 
 #: ../gdk-pixbuf/io-png.c:656
 #, c-format
-#| msgid ""
-#| "Insufficient memory to store a %ld by %ld image; try exiting some "
-#| "applications to reduce memory usage"
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
 "%lu बाई %lu छवि को सहेजने हेतु अपर्याप्त स्मृति, स्मृति उपयोग कम करने हेतु "
-"कुछ "
-"अनुप्रयोगों को बंद करें"
+"कुछ अनुप्रयोगों को "
+"बंद करें"
 
 #: ../gdk-pixbuf/io-png.c:719
 msgid "Fatal error reading PNG image file"
