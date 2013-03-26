@@ -1,9 +1,14 @@
+2.28.0
+======
+
+* Translation updates (Tadjik, Russian, Crimean Tatar, Hindi)
+
 2.27.3
 ======
 
 * Allow prepare_func call in stop_load (695228)
 
-* Translatio updates (Lithuanian, German, Basque, Belarusian,
+* Translation updates (Lithuanian, German, Basque, Belarusian,
   Thai, Greek, Indonesian, Korean, Assamese, Italian, Estonian,
   Hungarian, Portuguese, Danish, Latvian)
 
