@@ -94,6 +94,9 @@ gboolean             gdk_pixbuf_loader_write         (GdkPixbufLoader *loader,
 						      const guchar    *buf,
 						      gsize            count,
                                                       GError         **error);
+gboolean             gdk_pixbuf_loader_write_bytes   (GdkPixbufLoader *loader,
+                                                      GBytes          *buffer,
+                                                      GError         **error);
 GdkPixbuf *          gdk_pixbuf_loader_get_pixbuf    (GdkPixbufLoader *loader);
 GdkPixbufAnimation * gdk_pixbuf_loader_get_animation (GdkPixbufLoader *loader);
 gboolean             gdk_pixbuf_loader_close         (GdkPixbufLoader *loader,

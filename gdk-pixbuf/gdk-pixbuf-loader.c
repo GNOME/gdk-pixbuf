@@ -544,6 +544,42 @@ gdk_pixbuf_loader_write (GdkPixbufLoader *loader,
 }
 
 /**
+ * gdk_pixbuf_loader_write_bytes:
+ * @loader: A pixbuf loader.
+ * @buffer: The image data as a #GBytes
+ * @error: return location for errors
+ *
+ * This will cause a pixbuf loader to parse a buffer inside a #GBytes
+ * for an image.  It will return %TRUE if the data was loaded successfully,
+ * and %FALSE if an error occurred.  In the latter case, the loader
+ * will be closed, and will not accept further writes. If %FALSE is
+ * returned, @error will be set to an error from the #GDK_PIXBUF_ERROR
+ * or #G_FILE_ERROR domains.
+ *
+ * See also: gdk_pixbuf_loader_write()
+ *
+ * Return value: %TRUE if the write was successful, or %FALSE if the loader
+ * cannot parse the buffer.
+ *
+ * Since: 2.30
+ */
+gboolean
+gdk_pixbuf_loader_write_bytes (GdkPixbufLoader *loader,
+                               GBytes          *buffer,
+                               GError         **error)
+{
+        g_return_val_if_fail (GDK_IS_PIXBUF_LOADER (loader), FALSE);
+
+        g_return_val_if_fail (buffer != NULL, FALSE);
+        g_return_val_if_fail (error == NULL || *error == NULL, FALSE);
+
+        return gdk_pixbuf_loader_write (loader,
+                                        g_bytes_get_data (buffer, NULL),
+                                        g_bytes_get_size (buffer),
+                                        error);
+}
+
+/**
  * gdk_pixbuf_loader_new:
  *
  * Creates a new pixbuf loader object.

@@ -199,6 +199,7 @@ gdk_pixbuf_loader_new_with_mime_type
 gdk_pixbuf_loader_new_with_type
 gdk_pixbuf_loader_set_size
 gdk_pixbuf_loader_write
+gdk_pixbuf_loader_write_bytes
 #endif
 #endif
 
