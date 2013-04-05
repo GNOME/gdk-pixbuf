@@ -298,8 +298,9 @@ gdk_pixbuf_simple_anim_iter_finalize (GObject *object)
         
         iter = GDK_PIXBUF_SIMPLE_ANIM_ITER (object);
         iter_clear (iter);
-        
-        g_object_unref (iter->simple_anim);
+
+        if (iter->simple_anim)
+                g_object_unref (iter->simple_anim);
         
         G_OBJECT_CLASS (gdk_pixbuf_simple_anim_iter_parent_class)->finalize (object);
 }
