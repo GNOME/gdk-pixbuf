@@ -586,7 +586,7 @@ fi
 
 dnl Test for libpng
   if test x$with_libpng != xno && test -z "$LIBPNG"; then
-    for l in libpng16 libpng15 libpng14 libpng12 libpng13 libpng10 libpng; do
+    for l in libpng16 libpng15 libpng14 libpng12 libpng13 libpng10; do
       AC_MSG_CHECKING(for $l)
       if $PKG_CONFIG --exists $l ; then
         AC_MSG_RESULT(yes)
