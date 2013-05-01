@@ -1,3 +1,14 @@
+2.29.0
+======
+
+* Add gdk_pixbuf_loader_write_bytes (696917)
+
+* Update GIcon implementation (688820)
+
+* Fix libpng linking issues (698093)
+
+* Translation updates (Turkish)
+
 2.28.0
 ======
 
