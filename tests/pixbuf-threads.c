@@ -86,6 +86,7 @@ main (int argc, char **argv)
 {
   int i, start;
   GThreadPool *pool;
+  int l, iterations;
 
 #if !GLIB_CHECK_VERSION (2, 35, 3)
   g_type_init ();
@@ -95,6 +96,11 @@ main (int argc, char **argv)
   if (!g_thread_supported ())
     g_thread_init (NULL);
 #endif
+
+  if (g_getenv ("ITERATIONS"))
+    iterations = atoi (g_getenv ("ITERATIONS"));
+  else
+    iterations = 1000;
 
   g_log_set_always_fatal (G_LOG_LEVEL_WARNING | G_LOG_LEVEL_ERROR | G_LOG_LEVEL_CRITICAL);
 
@@ -107,16 +113,25 @@ main (int argc, char **argv)
       verbose = TRUE;
       start = 2;
     }
-  
+
   pool = g_thread_pool_new (load_image, NULL, 20, FALSE, NULL);
 
+  l = 0;
   i = start;
   while (1) {
     i++;
     if (i == argc)
-      i = start;
+      {
+        i = start;
+        l++;
+      }
     g_thread_pool_push (pool, argv[i], NULL);
+    if (verbose) g_print ("now %d items pending\n", g_thread_pool_unprocessed (pool));
+    if (l == iterations)
+      break;
   }
-  
+
+  g_thread_pool_free (pool, FALSE, TRUE);
+
   return 0;
 }

@@ -98,18 +98,22 @@ main (int argc, char **argv)
   int seed, i;
   gboolean got_seed = FALSE;
   GPtrArray *files = g_ptr_array_new ();
+  int l, iterations;
+
+  if (g_getenv ("ITERATIONS"))
+    iterations = atoi (g_getenv ("ITERATIONS"));
+  else
+    iterations = 1000;
 
   if (argc == 1)
     usage ();
-  
+
   seed = time (NULL);
 
   for (i = 1; i < argc; ++i)
     {
-      if (strncmp (argv[i], "-s", 2) == 0)
+      if (strcmp (argv[i], "-s") == 0)
 	{
-	  if (strlen (argv[i]) > 2)
-	    usage();
 	  if (i+1 < argc)
 	    {
 	      seed = atoi (argv[i+1]);
@@ -135,13 +139,13 @@ main (int argc, char **argv)
 #endif
   g_log_set_always_fatal (G_LOG_LEVEL_WARNING | G_LOG_LEVEL_ERROR | G_LOG_LEVEL_CRITICAL);
 
-  for (;;)
+  for (l = 0; l < iterations; l++)
     for (i = 0; i < files->len; ++i)
       {
 	gchar *contents;
 	gsize size;
 	GError *err = NULL;
-	
+
 	fflush (stdout);
 	if (!g_file_get_contents (files->pdata[i], &contents, &size, &err))
 	  {
@@ -152,10 +156,10 @@ main (int argc, char **argv)
 	    g_print ("%s\t\t", (char *)files->pdata[i]);
 	    randomly_modify (contents, size);
 	    g_print ("done\n");
-	    
+
 	    g_free (contents);
 	  }
       }
-  
+
   return 0;
 }

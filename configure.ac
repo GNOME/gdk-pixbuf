@@ -1026,6 +1026,13 @@ fi
 AC_SUBST(GDK_PIXBUF_LINK_FLAGS)
 
 
+AC_ARG_ENABLE(installed_tests,
+              AS_HELP_STRING([--enable-installed-tests],
+                             [Install test programs (default: no)]),,
+              [enable_installed_tests=no])
+AM_CONDITIONAL(BUILDOPT_INSTALL_TESTS, test x$enable_installed_tests = xyes)
+
+
 ##################################################
 # Output commands
 ##################################################
