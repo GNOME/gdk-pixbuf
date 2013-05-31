@@ -40,6 +40,8 @@ insttest_PROGRAMS = 			\
 	pixbuf-threads			\
 	$(NULL)
 
+insttest_DATA = test-image.png
+
 testimagedir = $(insttestdir)/test-images
 testimage_DATA = $(wildcard test-images/*)
 
