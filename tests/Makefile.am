@@ -43,7 +43,7 @@ insttest_PROGRAMS = 			\
 insttest_DATA = test-image.png
 
 testimagedir = $(insttestdir)/test-images
-testimage_DATA = $(wildcard test-images/*)
+testimage_DATA = $(wildcard $(srcdir)/test-images/*)
 
 substitutions = \
 	-e s,@pkglibexecdir\@,$(pkglibexecdir),g \
