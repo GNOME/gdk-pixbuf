@@ -33,6 +33,8 @@ disaster (const char *what)
   exit (EXIT_FAILURE);
 }
 
+static gint verbose;
+
 static void
 randomly_modify (const gchar *image, guint size)
 {
@@ -132,7 +134,8 @@ main (int argc, char **argv)
 
   g_random_set_seed (seed);
 
-  g_print ("the last tested image is saved to pixbuf-randomly-modified-image\n");
+  if (verbose)
+    g_print ("the last tested image is saved to pixbuf-randomly-modified-image\n");
 
 #if !GLIB_CHECK_VERSION (2, 35, 3)
   g_type_init ();
@@ -149,13 +152,15 @@ main (int argc, char **argv)
 	fflush (stdout);
 	if (!g_file_get_contents (files->pdata[i], &contents, &size, &err))
 	  {
-	    g_print ("%s: error: %s\n", (char *)files->pdata[i], err->message);
+	    g_warning ("%s: error: %s\n", (char *)files->pdata[i], err->message);
 	  }
 	else
 	  {
-	    g_print ("%s\t\t", (char *)files->pdata[i]);
+            if (verbose)
+              g_print ("%s\t\t", (char *)files->pdata[i]);
 	    randomly_modify (contents, size);
-	    g_print ("done\n");
+            if (verbose)
+              g_print ("done\n");
 
 	    g_free (contents);
 	  }
