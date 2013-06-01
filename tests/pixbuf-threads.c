@@ -43,7 +43,11 @@ load_image (gpointer  data,
   loader = gdk_pixbuf_loader_new ();
 
   file = fopen (filename, "r");
-  g_assert (file);
+  if (!file)
+    {
+      g_warning ("failed to open %s\n", filename);
+      g_assert_not_reached ();
+    }
 
   if (verbose) g_print ("%p start image %s\n", self, filename);
   while (!feof (file)) 
