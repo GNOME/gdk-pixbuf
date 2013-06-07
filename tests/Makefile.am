@@ -37,6 +37,7 @@ pixbuf_icon_serialize_LDADD = $(LDADDS) $(GLIB_LIBS)
 if BUILDOPT_INSTALL_TESTS
 insttestdir = $(pkglibexecdir)/installed-tests
 insttest_PROGRAMS = 			\
+	animation			\
 	pixbuf-icon-serialize 		\
 	pixbuf-randomly-modified	\
 	pixbuf-threads			\
