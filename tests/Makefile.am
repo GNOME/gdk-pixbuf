@@ -18,6 +18,7 @@ LDADDS = \
 	$(GDK_PIXBUF_DEP_LIBS)
 
 noinst_PROGRAMS = \
+	animation			\
 	pixbuf-read			\
 	pixbuf-lowmem			\
 	pixbuf-randomly-modified	\
@@ -25,6 +26,7 @@ noinst_PROGRAMS = \
 	pixbuf-threads			\
 	pixbuf-icon-serialize
 
+animation_LDADD = $(LDADDS)
 pixbuf_read_LDADD = $(LDADDS)
 pixbuf_lowmem_LDADD = $(LDADDS)
 pixbuf_randomly_modified_LDADD = $(LDADDS)
@@ -40,7 +42,10 @@ insttest_PROGRAMS = 			\
 	pixbuf-threads			\
 	$(NULL)
 
-insttest_DATA = test-image.png
+insttest_DATA = 			\
+	test-image.png			\
+	test-animation.gif		\
+	$(NULL)
 
 testimagedir = $(insttestdir)/test-images
 testimage_DATA = $(wildcard $(srcdir)/test-images/*)
