@@ -612,6 +612,7 @@ gdk_pixbuf__ani_image_begin_load (GdkPixbufModuleSizeFunc size_func,
         context->byte = context->buffer;
         context->n_bytes = 0;
         
+g_print ("begin load\n");
         return (gpointer) context;
 }
 
@@ -620,11 +621,22 @@ gdk_pixbuf__ani_image_stop_load (gpointer data,
 				 GError **error)
 {
         AniLoaderContext *context = (AniLoaderContext *) data;
-        
+        gboolean retval;
+
 	g_return_val_if_fail (context != NULL, TRUE);
+        if (!context->animation) {
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                     _("ANI image was truncated or incomplete."));
+                retval = FALSE;
+        }
+        else {
+                retval = TRUE;
+        }
         context_free (context);
-        
-        return TRUE;
+
+        return retval;
 }
 
 #ifndef INCLUDE_ani
