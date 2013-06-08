@@ -612,7 +612,6 @@ gdk_pixbuf__ani_image_begin_load (GdkPixbufModuleSizeFunc size_func,
         context->byte = context->buffer;
         context->n_bytes = 0;
         
-g_print ("begin load\n");
         return (gpointer) context;
 }
 
