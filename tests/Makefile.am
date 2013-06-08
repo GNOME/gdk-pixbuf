@@ -46,6 +46,7 @@ insttest_PROGRAMS = 			\
 insttest_DATA = 			\
 	test-image.png			\
 	test-animation.gif		\
+	test-animation.ani		\
 	$(NULL)
 
 testimagedir = $(insttestdir)/test-images
