@@ -35,6 +35,13 @@ ZLib and LibPNG at the minimum.  Note that if you intend to build GDK-Pixbuf
 that does not use GDI+, you will also need the IJG JPEG libraries, libTIFF and
 libjasper (for JPEG-2000 operations).
 
+Please note that the Visual Studio project files will typically link to the
+latest stable release of LibPNG which the GDK-Pixbuf codebase supports by
+default.  If you intend to use and link to an older version of LibPNG, you
+may change the "Additional Dependencies" setting accordingly (such as changing
+from libpng16.lib to libpng14.lib) for the GDK-Pixbuf project.  The minimum
+supported release series for LibPNG is 1.0.x at this time of writing.
+
 For the Dependencies, you may either:
 
 a) look for all of the dependencies (except GLib*, libjasper) under
