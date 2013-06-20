@@ -1,14 +1,14 @@
 # Norwegian bokmål translation of gdk-pixbuf.
 # Copyright (C) 1998-2004, 2005 Free Software Foundation, Inc.
-# Kjartan Maraas <kmaraas@gnome.org>, 1998-2012.
+# Kjartan Maraas <kmaraas@gnome.org>, 1998-2013.
 # Terance Edward Sola <terance@lyse.net>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gdk-pixbuf 2.25.x\n"
+"Project-Id-Version: gdk-pixbuf 2.29.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-25 17:09+0100\n"
-"PO-Revision-Date: 2013-02-25 17:10+0100\n"
+"POT-Creation-Date: 2013-06-20 11:44+0200\n"
+"PO-Revision-Date: 2013-06-20 11:44+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -37,7 +37,7 @@ msgstr ""
 "Feil under lasting av animasjon «%s»: årsak ikke kjent, sannsynligvis "
 "korrupt animasjonsfil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:277 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:280 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid ""
@@ -178,7 +178,11 @@ msgstr "Ikke nok minne til å laste animasjon"
 msgid "Malformed chunk in animation"
 msgstr "Feil i en del av animasjonen"
 
-#: ../gdk-pixbuf/io-ani.c:660
+#: ../gdk-pixbuf/io-ani.c:630
+msgid "ANI image was truncated or incomplete."
+msgstr "ANI-bildet er avkuttet eller ukomplett."
+
+#: ../gdk-pixbuf/io-ani.c:671
 msgid "The ANI image format"
 msgstr "ANI bildeformat"
 
@@ -533,37 +537,37 @@ msgstr "Transformert pixbuf har bredde eller høyde lik null."
 msgid "The GdkPixdata format"
 msgstr "GdkPixdata-format"
 
-#: ../gdk-pixbuf/io-png.c:54
+#: ../gdk-pixbuf/io-png.c:55
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Ugyldig antall biter per kanal i PNG-bilde."
 
-#: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:641
+#: ../gdk-pixbuf/io-png.c:136 ../gdk-pixbuf/io-png.c:642
 msgid "Transformed PNG has zero width or height."
 msgstr "Transformert PNG har bredde eller høyde lik null."
 
-#: ../gdk-pixbuf/io-png.c:143
+#: ../gdk-pixbuf/io-png.c:144
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Antall biter per kanal i transformert PNG er forskjellig fra 8."
 
-#: ../gdk-pixbuf/io-png.c:152
+#: ../gdk-pixbuf/io-png.c:153
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Transformert PNG er ikke RGB eller RGBA."
 
-#: ../gdk-pixbuf/io-png.c:161
+#: ../gdk-pixbuf/io-png.c:162
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "Transformert PNG har et ikke-støttet antall kanaler, må være 3 eller 4."
 
-#: ../gdk-pixbuf/io-png.c:182
+#: ../gdk-pixbuf/io-png.c:183
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Fatal feil i PNG-bildefil: %s"
 
-#: ../gdk-pixbuf/io-png.c:315
+#: ../gdk-pixbuf/io-png.c:316
 msgid "Insufficient memory to load PNG file"
 msgstr "Ikke nok minne til å laste PNG-fil"
 
-#: ../gdk-pixbuf/io-png.c:656
+#: ../gdk-pixbuf/io-png.c:657
 #, c-format
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
@@ -572,30 +576,30 @@ msgstr ""
 "Ikke nok minne til å lagre et %lu ganger %lu bilde; prøv å avslutte noen "
 "applikasjoner for å redusere minnebruken"
 
-#: ../gdk-pixbuf/io-png.c:719
+#: ../gdk-pixbuf/io-png.c:720
 msgid "Fatal error reading PNG image file"
 msgstr "Fatal feil under lesing av PNG-bildefil"
 
-#: ../gdk-pixbuf/io-png.c:768
+#: ../gdk-pixbuf/io-png.c:769
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Fatal feil under lesing av PNG-bildefil: %s"
 
-#: ../gdk-pixbuf/io-png.c:858
+#: ../gdk-pixbuf/io-png.c:859
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr "Nøkler for PNG tekstbiter må minst ha mellom 1 og 79 tegn."
 
-#: ../gdk-pixbuf/io-png.c:867
+#: ../gdk-pixbuf/io-png.c:868
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Nøkler for PNG tekstbiter må bestå av ASCII-tegn."
 
-#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:667
+#: ../gdk-pixbuf/io-png.c:882 ../gdk-pixbuf/io-tiff.c:667
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Fargeprofilen har ugyldig lengde %d."
 
-#: ../gdk-pixbuf/io-png.c:894
+#: ../gdk-pixbuf/io-png.c:895
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -604,7 +608,7 @@ msgstr ""
 "Nivået til PNG-komprimeringen må være en verdi mello 0 og 9; verdi «%s» kan "
 "ikke brukes."
 
-#: ../gdk-pixbuf/io-png.c:907
+#: ../gdk-pixbuf/io-png.c:908
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -613,12 +617,12 @@ msgstr ""
 "Nivået på PNG-komprimering må være en verdi mellom 0 og 9; verdien «%d» er "
 "ikke tillat."
 
-#: ../gdk-pixbuf/io-png.c:955
+#: ../gdk-pixbuf/io-png.c:956
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr "Verdi for PNG-tekstbit %s kan ikke konverteres til ISO-8859-1-koding."
 
-#: ../gdk-pixbuf/io-png.c:1118
+#: ../gdk-pixbuf/io-png.c:1119
 msgid "The PNG image format"
 msgstr "PNG-bildeformat"
 
