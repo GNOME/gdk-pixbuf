@@ -34,35 +34,46 @@ pixbuf_random_LDADD = $(LDADDS)
 pixbuf_threads_LDADD = $(LDADDS) $(GLIB_LIBS)
 pixbuf_icon_serialize_LDADD = $(LDADDS) $(GLIB_LIBS)
 
-if BUILDOPT_INSTALL_TESTS
-insttestdir = $(pkglibexecdir)/installed-tests
-insttest_PROGRAMS = 			\
+test_programs = 			\
 	animation			\
 	pixbuf-icon-serialize 		\
 	pixbuf-randomly-modified	\
 	pixbuf-threads			\
 	$(NULL)
 
-insttest_DATA = 			\
+test_data = 				\
 	test-image.png			\
 	test-animation.gif		\
 	test-animation.ani		\
 	$(NULL)
 
+testimage_data = $(wildcard $(srcdir)/test-images/*)
+
+test_in_files = $(test_programs:=.test.in)
+
+EXTRA_DIST += 				\
+	$(test_data) 			\
+	$(testimage_data) 		\
+	$(test_in_files)		\
+	$(NULL)
+
+if BUILDOPT_INSTALL_TESTS
+insttestdir = $(pkglibexecdir)/installed-tests
+insttest_PROGRAMS = $(test_programs)
+
+insttest_DATA = $(test_data)
+
 testimagedir = $(insttestdir)/test-images
-testimage_DATA = $(wildcard $(srcdir)/test-images/*)
+testimage_DATA = $(testimage_data)
 
 substitutions = \
 	-e s,@pkglibexecdir\@,$(pkglibexecdir),g \
 	$(NULL)
 
-test_in_files = $(insttest_PROGRAMS:=.test.in)
 test_files = $(test_in_files:.test.in=.test)
 
 $(test_files): %.test: %.test.in
 	$(AM_V_GEN) sed $(substitutions) $< > $@.tmp && mv $@.tmp $@
-
-EXTRA_DIST += $(test_in_files)
 
 testmetadir = $(datadir)/installed-tests/$(PACKAGE)
 testmeta_DATA = $(test_files)
