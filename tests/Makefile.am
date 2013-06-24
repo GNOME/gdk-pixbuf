@@ -1,38 +1,30 @@
-include $(top_srcdir)/Makefile.decl
-
-NULL =
+include $(top_srcdir)/glib.mk
 
 INCLUDES =				\
 	-I$(top_srcdir)			\
 	-I$(top_srcdir)/gdk-pixbuf	\
 	$(GDK_PIXBUF_DEBUG_FLAGS)	\
-	$(GDK_PIXBUF_DEP_CFLAGS)
-
-AM_CFLAGS = '-DABS_SRCDIR="$(abs_srcdir)"'
+	$(GDK_PIXBUF_DEP_CFLAGS)	\
+	$(NULL)
 
 DEPS = \
 	$(top_builddir)/gdk-pixbuf/libgdk_pixbuf-$(GDK_PIXBUF_API_VERSION).la
 
-LDADDS = \
-	$(top_builddir)/gdk-pixbuf/libgdk_pixbuf-$(GDK_PIXBUF_API_VERSION).la \
-	$(GDK_PIXBUF_DEP_LIBS)
+LDADD = \
+	$(top_builddir)/gdk-pixbuf/libgdk_pixbuf-$(GDK_PIXBUF_API_VERSION).la 	\
+	$(GDK_PIXBUF_DEP_LIBS) \
+	$(GLIB_LIBS) \
+	$(NULL)
 
-noinst_PROGRAMS = \
+noinst_PROGRAMS = 			\
 	animation			\
 	pixbuf-read			\
 	pixbuf-lowmem			\
 	pixbuf-randomly-modified	\
 	pixbuf-random			\
 	pixbuf-threads			\
-	pixbuf-icon-serialize
-
-animation_LDADD = $(LDADDS)
-pixbuf_read_LDADD = $(LDADDS)
-pixbuf_lowmem_LDADD = $(LDADDS)
-pixbuf_randomly_modified_LDADD = $(LDADDS)
-pixbuf_random_LDADD = $(LDADDS)
-pixbuf_threads_LDADD = $(LDADDS) $(GLIB_LIBS)
-pixbuf_icon_serialize_LDADD = $(LDADDS) $(GLIB_LIBS)
+	pixbuf-icon-serialize		\
+	$(NULL)
 
 test_programs = 			\
 	animation			\
@@ -41,43 +33,10 @@ test_programs = 			\
 	pixbuf-threads			\
 	$(NULL)
 
-test_data = 				\
+dist_test_data = 			\
 	test-image.png			\
 	test-animation.gif		\
 	test-animation.ani		\
-	$(NULL)
-
-testimage_data = $(wildcard $(srcdir)/test-images/*)
-
-test_in_files = $(test_programs:=.test.in)
-
-EXTRA_DIST += 				\
-	$(test_data) 			\
-	$(testimage_data) 		\
-	$(test_in_files)		\
-	$(NULL)
-
-if BUILDOPT_INSTALL_TESTS
-insttestdir = $(pkglibexecdir)/installed-tests
-insttest_PROGRAMS = $(test_programs)
-
-insttest_DATA = $(test_data)
-
-testimagedir = $(insttestdir)/test-images
-testimage_DATA = $(testimage_data)
-
-substitutions = \
-	-e s,@pkglibexecdir\@,$(pkglibexecdir),g \
-	$(NULL)
-
-test_files = $(test_in_files:.test.in=.test)
-
-$(test_files): %.test: %.test.in
-	$(AM_V_GEN) sed $(substitutions) $< > $@.tmp && mv $@.tmp $@
-
-testmetadir = $(datadir)/installed-tests/$(PACKAGE)
-testmeta_DATA = $(test_files)
-
-endif
+	$(wildcard $(srcdir)/test-images/*)
 
 -include $(top_srcdir)/git.mk
