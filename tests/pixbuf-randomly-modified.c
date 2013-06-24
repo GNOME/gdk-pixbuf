@@ -108,7 +108,7 @@ main (int argc, char **argv)
   if (g_getenv ("ITERATIONS"))
     iterations = atoi (g_getenv ("ITERATIONS"));
   else
-    iterations = 1000;
+    iterations = 10;
 
   seed = time (NULL);
 
