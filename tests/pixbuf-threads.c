@@ -78,19 +78,15 @@ load_image (gpointer  data,
   g_object_unref (loader);
 }
 
-static void
-usage (void)
-{
-  g_print ("usage: pixbuf-threads [--verbose] <files>\n");
-  exit (EXIT_FAILURE);
-}
-
 int
 main (int argc, char **argv)
 {
   int i, start;
   GThreadPool *pool;
+  GPtrArray *files = g_ptr_array_new_with_free_func ((GDestroyNotify)g_free);
   int l, iterations;
+
+  g_test_init (&argc, &argv, NULL);
 
 #if !GLIB_CHECK_VERSION (2, 35, 3)
   g_type_init ();
@@ -108,11 +104,8 @@ main (int argc, char **argv)
 
   g_log_set_always_fatal (G_LOG_LEVEL_WARNING | G_LOG_LEVEL_ERROR | G_LOG_LEVEL_CRITICAL);
 
-  if (argc == 1)
-    usage();
-
   start = 1;
-  if (strcmp (argv[1], "--verbose") == 0)
+  if (argc > 1 && strcmp (argv[1], "--verbose") == 0)
     {
       verbose = TRUE;
       start = 2;
@@ -121,19 +114,27 @@ main (int argc, char **argv)
   pool = g_thread_pool_new (load_image, NULL, 20, FALSE, NULL);
 
   l = 0;
-  i = start;
-  while (1) {
-    i++;
-    if (i == argc)
-      {
-        i = start;
-        l++;
-      }
-    g_thread_pool_push (pool, argv[i], NULL);
-    if (verbose) g_print ("now %d items pending\n", g_thread_pool_unprocessed (pool));
-    if (l == iterations)
-      break;
-  }
+
+  for (i = start; i < argc; i++)
+    g_ptr_array_add (files, argv[i]);
+
+  if (files->len == 0)
+    {
+      const gchar *distdir = g_test_get_dir (G_TEST_DIST);
+      g_ptr_array_add (files, g_build_filename (distdir, "test-images", "valid_jpeg_progressive_test", NULL));
+      g_ptr_array_add (files, g_build_filename (distdir, "test-images", "valid_png_test", NULL));
+    }
+
+  g_assert_cmpint (files->len, >, 0);
+
+  for (l = 0; l < iterations; l++)
+    {
+      for (i = 0; i < files->len; i++)
+	{
+	  g_thread_pool_push (pool, files->pdata[i], NULL);
+	  if (verbose) g_print ("now %d items pending\n", g_thread_pool_unprocessed (pool));
+	}
+    }
 
   g_thread_pool_free (pool, FALSE, TRUE);
 

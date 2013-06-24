@@ -98,17 +98,17 @@ int
 main (int argc, char **argv)
 {
   int seed, i;
+  GError *err = NULL;
   gboolean got_seed = FALSE;
   GPtrArray *files = g_ptr_array_new ();
   int l, iterations;
+
+  g_test_init (&argc, &argv, NULL);
 
   if (g_getenv ("ITERATIONS"))
     iterations = atoi (g_getenv ("ITERATIONS"));
   else
     iterations = 1000;
-
-  if (argc == 1)
-    usage ();
 
   seed = time (NULL);
 
@@ -142,17 +142,33 @@ main (int argc, char **argv)
 #endif
   g_log_set_always_fatal (G_LOG_LEVEL_WARNING | G_LOG_LEVEL_ERROR | G_LOG_LEVEL_CRITICAL);
 
+  if (files->len == 0)
+    {
+      const gchar *name;
+      const gchar *distdir = g_test_get_dir (G_TEST_DIST);
+      gchar *test_images_dir = g_build_filename (distdir, "test-images", NULL);
+      GDir *dir = g_dir_open (test_images_dir, 0, &err);
+      if (!dir)
+	goto out;
+      while ((name = g_dir_read_name (dir)) != NULL)
+	g_ptr_array_add (files, g_build_filename (test_images_dir, name, NULL));
+      g_dir_close (dir);
+      g_free (test_images_dir);
+    }
+
+  g_assert_cmpint (files->len, >, 0);
+
   for (l = 0; l < iterations; l++)
     for (i = 0; i < files->len; ++i)
       {
 	gchar *contents;
 	gsize size;
-	GError *err = NULL;
 
 	fflush (stdout);
 	if (!g_file_get_contents (files->pdata[i], &contents, &size, &err))
 	  {
-	    g_warning ("%s: error: %s\n", (char *)files->pdata[i], err->message);
+	    g_prefix_error (&err, "Reading %s: ", (char *)files->pdata[i]);
+	    goto out;
 	  }
 	else
 	  {
@@ -166,5 +182,11 @@ main (int argc, char **argv)
 	  }
       }
 
+ out:
+  if (err)
+    {
+      g_printerr ("%s\n", err->message);
+      return 1;
+    }
   return 0;
 }

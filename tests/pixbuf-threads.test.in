@@ -1,3 +1,0 @@
-[Test]
-Exec=sh -c "env ITERATIONS=50 @pkglibexecdir@/installed-tests/pixbuf-threads @pkglibexecdir@/installed-tests/test-images/{valid_jpeg_progressive_test,valid_png_test}"
-Type=session
