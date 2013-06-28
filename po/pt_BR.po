@@ -24,16 +24,16 @@ msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2013-02-21 05:01+0000\n"
-"PO-Revision-Date: 2013-02-21 11:31-0300\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>\n"
+"POT-Creation-Date: 2013-06-08 17:42+0000\n"
+"PO-Revision-Date: 2013-06-09 17:01-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:160 ../gdk-pixbuf/gdk-pixbuf-io.c:1064
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1330
@@ -55,7 +55,7 @@ msgstr ""
 "Falha ao carregar a animação \"%s\": razão desconhecida, provavelmente um "
 "arquivo de animação corrompido"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:277 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:280 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid ""
@@ -196,7 +196,11 @@ msgstr "Memória insuficiente para carregar a animação"
 msgid "Malformed chunk in animation"
 msgstr "Pedaço malformado na animação"
 
-#: ../gdk-pixbuf/io-ani.c:660
+#: ../gdk-pixbuf/io-ani.c:630
+msgid "ANI image was truncated or incomplete."
+msgstr "A imagem ANI estava truncada ou incompleta."
+
+#: ../gdk-pixbuf/io-ani.c:671
 msgid "The ANI image format"
 msgstr "Formato de imagem ANI"
 
@@ -554,37 +558,37 @@ msgstr "Pixbuf transformado tem altura ou largura igual a zero."
 msgid "The GdkPixdata format"
 msgstr "O formato GdkPixdata"
 
-#: ../gdk-pixbuf/io-png.c:54
+#: ../gdk-pixbuf/io-png.c:55
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Número de bits por canal da imagem PNG inválido."
 
-#: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:641
+#: ../gdk-pixbuf/io-png.c:136 ../gdk-pixbuf/io-png.c:642
 msgid "Transformed PNG has zero width or height."
 msgstr "Imagem PNG transformada tem altura ou largura igual a zero."
 
-#: ../gdk-pixbuf/io-png.c:143
+#: ../gdk-pixbuf/io-png.c:144
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Número de bits por canal do PNG transformado não é 8."
 
-#: ../gdk-pixbuf/io-png.c:152
+#: ../gdk-pixbuf/io-png.c:153
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "O PNG transformado não é RGB nem RGBA."
 
-#: ../gdk-pixbuf/io-png.c:161
+#: ../gdk-pixbuf/io-png.c:162
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "O PNG transformado tem um número de canais sem suporte, deve ser 3 ou 4."
 
-#: ../gdk-pixbuf/io-png.c:182
+#: ../gdk-pixbuf/io-png.c:183
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Erro fatal no arquivo de imagem PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:315
+#: ../gdk-pixbuf/io-png.c:316
 msgid "Insufficient memory to load PNG file"
 msgstr "Memória insuficiente para carregar o arquivo PNG"
 
-#: ../gdk-pixbuf/io-png.c:656
+#: ../gdk-pixbuf/io-png.c:657
 #, c-format
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
@@ -593,32 +597,32 @@ msgstr ""
 "Memória insuficiente para armazenar uma imagem de %lu por %lu; tente sair de "
 "alguns aplicativos para reduzir o uso de memória"
 
-#: ../gdk-pixbuf/io-png.c:719
+#: ../gdk-pixbuf/io-png.c:720
 msgid "Fatal error reading PNG image file"
 msgstr "Erro fatal ao ler o arquivo de imagem PNG"
 
-#: ../gdk-pixbuf/io-png.c:768
+#: ../gdk-pixbuf/io-png.c:769
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Erro fatal ao ler o arquivo de imagem PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:858
+#: ../gdk-pixbuf/io-png.c:859
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "Chaves para blocos de texto PNG devem ter pelo menos 1 e no máximo 79 "
 "caracteres."
 
-#: ../gdk-pixbuf/io-png.c:867
+#: ../gdk-pixbuf/io-png.c:868
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Chaves para blocos de texto PNG devem ser caracteres ASCII."
 
-#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:667
+#: ../gdk-pixbuf/io-png.c:882 ../gdk-pixbuf/io-tiff.c:667
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "O tamanho do perfil de cor é inválido: %d."
 
-#: ../gdk-pixbuf/io-png.c:894
+#: ../gdk-pixbuf/io-png.c:895
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -627,7 +631,7 @@ msgstr ""
 "O nível de compressão do PNG deve ser um valor entre 0 e 9; não foi possível "
 "analisar o valor \"%s\"."
 
-#: ../gdk-pixbuf/io-png.c:907
+#: ../gdk-pixbuf/io-png.c:908
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -636,14 +640,14 @@ msgstr ""
 "O nível de compressão do PNG precisa ser um valor entre 0 e 9; o valor \"%d"
 "\" não é permitido."
 
-#: ../gdk-pixbuf/io-png.c:955
+#: ../gdk-pixbuf/io-png.c:956
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "O valor para blocos de texto PNG %s não pode ser convertido para a "
 "codificação ISO-8859-1."
 
-#: ../gdk-pixbuf/io-png.c:1118
+#: ../gdk-pixbuf/io-png.c:1119
 msgid "The PNG image format"
 msgstr "Formato de imagem PNG"
 
