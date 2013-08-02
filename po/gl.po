@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+-master-po-gl-77922___.merged\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-10 10:29+0200\n"
-"PO-Revision-Date: 2013-06-10 10:29+0200\n"
+"POT-Creation-Date: 2013-08-02 12:19+0200\n"
+"PO-Revision-Date: 2013-08-02 12:19+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -194,7 +194,6 @@ msgid "Malformed chunk in animation"
 msgstr "Fragmento malformado na animación"
 
 #: ../gdk-pixbuf/io-ani.c:630
-#, fuzzy
 msgid "ANI image was truncated or incomplete."
 msgstr "A imaxe ANI está truncada ou incompleta."
 
