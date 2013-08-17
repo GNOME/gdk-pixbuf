@@ -4,16 +4,16 @@
 #
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
 # Martin Srebotnjak <miles@filmsi.net>, 2007.
-# Klemen Košir <klemen.kosir@gmx.com>, 2010 - 2011.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007 - 2012.
+# Klemen Košir <klemen.kosir@gmx.com>, 2010-2011.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007-2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2013-02-16 13:30+0000\n"
-"PO-Revision-Date: 2013-02-16 22:50+0100\n"
+"POT-Creation-Date: 2013-08-13 07:20+0000\n"
+"PO-Revision-Date: 2013-08-18 01:49+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -45,7 +45,7 @@ msgstr ""
 "Animacije '%s' ni mogoče naložiti: razlog ni znan, najverjetneje je datoteka "
 "okvarjena"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:272 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:280 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid ""
@@ -188,7 +188,11 @@ msgstr "Za nalaganje animacije ni dovolj pomnilnika"
 msgid "Malformed chunk in animation"
 msgstr "Nepravilno oblikovan del v animaciji"
 
-#: ../gdk-pixbuf/io-ani.c:660
+#: ../gdk-pixbuf/io-ani.c:630
+msgid "ANI image was truncated or incomplete."
+msgstr "Slika ANI je prirezana ali nepopolna."
+
+#: ../gdk-pixbuf/io-ani.c:671
 msgid "The ANI image format"
 msgstr "Vrsta zapisa slike ANI"
 
@@ -544,38 +548,38 @@ msgstr "Preoblikovana sličica ima ničelno višino ali širino."
 msgid "The GdkPixdata format"
 msgstr "Zapis GdkPixdata"
 
-#: ../gdk-pixbuf/io-png.c:54
+#: ../gdk-pixbuf/io-png.c:55
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Število bitov na kanal slike PNG ni veljavno."
 
-#: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:641
+#: ../gdk-pixbuf/io-png.c:136 ../gdk-pixbuf/io-png.c:642
 msgid "Transformed PNG has zero width or height."
 msgstr "Preoblikovana slika PNG ima ničelno višino ali širino."
 
-#: ../gdk-pixbuf/io-png.c:143
+#: ../gdk-pixbuf/io-png.c:144
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Število bitov na kanal preoblikovane slike PNG ni 8."
 
-#: ../gdk-pixbuf/io-png.c:152
+#: ../gdk-pixbuf/io-png.c:153
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Preoblikovana slika PNG ni RGB ali RGBA."
 
-#: ../gdk-pixbuf/io-png.c:161
+#: ../gdk-pixbuf/io-png.c:162
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "Preoblikovana slika PNG ima nepodprto število kanalov. Število mora biti med "
 "3 in 4."
 
-#: ../gdk-pixbuf/io-png.c:182
+#: ../gdk-pixbuf/io-png.c:183
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Usodna napaka v datoteki slike PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:315
+#: ../gdk-pixbuf/io-png.c:316
 msgid "Insufficient memory to load PNG file"
 msgstr "Za nalaganje datoteke PNG ni dovolj pomnilnika"
 
-#: ../gdk-pixbuf/io-png.c:656
+#: ../gdk-pixbuf/io-png.c:657
 #, c-format
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
@@ -584,30 +588,30 @@ msgstr ""
 "Za shranjevanje slike velikosti %lu x %lu ni dovolj pomnilnika. Za "
 "sprostitev pomnilnika je treba zapreti nekaj programov."
 
-#: ../gdk-pixbuf/io-png.c:719
+#: ../gdk-pixbuf/io-png.c:720
 msgid "Fatal error reading PNG image file"
 msgstr "Usodna napaka med branjem slikovne datoteke PNG"
 
-#: ../gdk-pixbuf/io-png.c:768
+#: ../gdk-pixbuf/io-png.c:769
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Usodna napaka med branjem slikovne datoteke PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:858
+#: ../gdk-pixbuf/io-png.c:859
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr "Ključi za dele besedila PNG morajo imeti med 1 in 79 znakov."
 
-#: ../gdk-pixbuf/io-png.c:867
+#: ../gdk-pixbuf/io-png.c:868
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Ključi za dele besedila PNG morajo biti znaki ASCII."
 
-#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:667
+#: ../gdk-pixbuf/io-png.c:882 ../gdk-pixbuf/io-tiff.c:667
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Barvni profil je neveljavne dolžine %d."
 
-#: ../gdk-pixbuf/io-png.c:894
+#: ../gdk-pixbuf/io-png.c:895
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -616,7 +620,7 @@ msgstr ""
 "Raven stiskanja PNG mora biti vrednost med 0 in 9. Vrednosti '%s' ni mogoče "
 "razčleniti."
 
-#: ../gdk-pixbuf/io-png.c:907
+#: ../gdk-pixbuf/io-png.c:908
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -625,13 +629,13 @@ msgstr ""
 "Raven stiskanja JPEG mora biti vrednost med 0 in 9. Vrednost '%d' ni "
 "dovoljena."
 
-#: ../gdk-pixbuf/io-png.c:955
+#: ../gdk-pixbuf/io-png.c:956
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Vrednosti za del besedila PNG %s ni mogoče pretvoriti v kodiranje ISO-8859-1."
 
-#: ../gdk-pixbuf/io-png.c:1118
+#: ../gdk-pixbuf/io-png.c:1119
 msgid "The PNG image format"
 msgstr "Vrsta zapisa slike PNG"
 
