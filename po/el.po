@@ -31,8 +31,8 @@ msgstr ""
 "Project-Id-Version: gtk+ 2.20.1.1\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%"
 "2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2013-02-10 21:15+0000\n"
-"PO-Revision-Date: 2013-03-09 11:17+0300\n"
+"POT-Creation-Date: 2013-08-05 11:27+0000\n"
+"PO-Revision-Date: 2013-08-18 09:27+0300\n"
 "Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -63,7 +63,7 @@ msgstr ""
 "Αποτυχία φόρτωσης κινούμενης εικόνας '%s': Άγνωστη αιτία, πιθανόν πρόκειται "
 "για κατεστραμμένο αρχείο"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:272 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:280 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid ""
@@ -205,7 +205,12 @@ msgstr "Ανεπάρκεια μνήμης για τη φόρτωση της κι
 msgid "Malformed chunk in animation"
 msgstr "Η κινούμενη εικόνα περιέχει κομμάτι εσφαλμένης μορφής"
 
-#: ../gdk-pixbuf/io-ani.c:660
+#: ../gdk-pixbuf/io-ani.c:630
+#| msgid "GIF image was truncated or incomplete."
+msgid "ANI image was truncated or incomplete."
+msgstr "Η εικόνα ANI περικόπηκε ή είναι ατελής."
+
+#: ../gdk-pixbuf/io-ani.c:671
 msgid "The ANI image format"
 msgstr "Ο τύπος εικόνας ΑΝΙ"
 
@@ -508,7 +513,6 @@ msgstr "Το μετασχηματισμένο JPEG έχει μηδενικό ύ�
 
 #: ../gdk-pixbuf/io-jpeg.c:1279
 #, c-format
-#| msgid "Color profile has invalid length '%d'."
 msgid "Color profile has invalid length '%u'."
 msgstr "Η κατατομή χρωμάτων έχει άκυρο μήκος '%u'."
 
@@ -565,38 +569,38 @@ msgstr "Το μετασχηματισμένο pixbuf έχει μηδενικό �
 msgid "The GdkPixdata format"
 msgstr "Η μορφοποίηση GdkPixdata"
 
-#: ../gdk-pixbuf/io-png.c:54
+#: ../gdk-pixbuf/io-png.c:55
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Μη έγκυρος αριθμός bits ανά κανάλι στην εικόνα PNG."
 
-#: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:641
+#: ../gdk-pixbuf/io-png.c:136 ../gdk-pixbuf/io-png.c:642
 msgid "Transformed PNG has zero width or height."
 msgstr "Το μετασχηματισμένο PNG έχει μηδενικό ύψος ή πλάτος."
 
-#: ../gdk-pixbuf/io-png.c:143
+#: ../gdk-pixbuf/io-png.c:144
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Τα bits ανά κανάλι του μετασχηματισμένου PNG δεν είναι 8."
 
-#: ../gdk-pixbuf/io-png.c:152
+#: ../gdk-pixbuf/io-png.c:153
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Το μετασχηματισμένο PNG δεν είναι RGB ή RGBA."
 
-#: ../gdk-pixbuf/io-png.c:161
+#: ../gdk-pixbuf/io-png.c:162
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "Το μετασχηματισμένο PNG περιέχει μη υποστηριζόμενο αριθμό καναλιών· θα "
 "έπρεπε να είναι 3 ή 4."
 
-#: ../gdk-pixbuf/io-png.c:182
+#: ../gdk-pixbuf/io-png.c:183
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Μοιραίο σφάλμα στο αρχείο εικόνας PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:315
+#: ../gdk-pixbuf/io-png.c:316
 msgid "Insufficient memory to load PNG file"
 msgstr "Ανεπάρκεια μνήμης για τη φόρτωση του αρχείου PNG"
 
-#: ../gdk-pixbuf/io-png.c:656
+#: ../gdk-pixbuf/io-png.c:657
 #, c-format
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
@@ -605,34 +609,34 @@ msgstr ""
 "Ανεπάρκεια μνήμης για την αποθήκευση εικόνας %lu επί %lu· δοκιμάστε να "
 "τερματίσετε μερικές εφαρμογές για να απελευθερώσετε μνήμη"
 
-#: ../gdk-pixbuf/io-png.c:719
+#: ../gdk-pixbuf/io-png.c:720
 msgid "Fatal error reading PNG image file"
 msgstr "Μοιραίο σφάλμα κατά την ανάγνωση του αρχείου εικόνας PNG"
 
-#: ../gdk-pixbuf/io-png.c:768
+#: ../gdk-pixbuf/io-png.c:769
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Μοιραίο σφάλμα κατά την ανάγνωση του αρχείου εικόνας PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:858
+#: ../gdk-pixbuf/io-png.c:859
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "Τα κλειδιά για τα κομμάτια κειμένου του PNG θα πρέπει να περιέχουν "
 "τουλάχιστον 1 και όχι περισσότερους από 79 χαρακτήρες."
 
-#: ../gdk-pixbuf/io-png.c:867
+#: ../gdk-pixbuf/io-png.c:868
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr ""
 "Τα κλειδιά για τα κομμάτια κειμένου του PNG θα πρέπει να απαρτίζονται από "
 "χαρακτήρες ASCII."
 
-#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:667
+#: ../gdk-pixbuf/io-png.c:882 ../gdk-pixbuf/io-tiff.c:667
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Η κατατομή χρωμάτων έχει άκυρο μήκος %d."
 
-#: ../gdk-pixbuf/io-png.c:894
+#: ../gdk-pixbuf/io-png.c:895
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -641,7 +645,7 @@ msgstr ""
 "Η ποιότητα συμπίεσης του PNG πρέπει να έχει τιμή μεταξύ 0 και 9· η τιμή '%s' "
 "δεν μπορεί να ερμηνευτεί."
 
-#: ../gdk-pixbuf/io-png.c:907
+#: ../gdk-pixbuf/io-png.c:908
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -650,14 +654,14 @@ msgstr ""
 "Η ποιότητα συμπίεσης του PNG πρέπει να έχει τιμή μεταξύ 0 και 9· η τιμή '%d' "
 "δεν επιτρέπεται."
 
-#: ../gdk-pixbuf/io-png.c:955
+#: ../gdk-pixbuf/io-png.c:956
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Η τιμή του κομματιού κειμένου του PNG %s δεν μπορεί να μετατραπεί σε "
 "κωδικοποίηση ISO-8859-1."
 
-#: ../gdk-pixbuf/io-png.c:1118
+#: ../gdk-pixbuf/io-png.c:1119
 msgid "The PNG image format"
 msgstr "O τύπος εικόνας PNG"
 
@@ -745,8 +749,10 @@ msgstr[1] "Το άτομο QTIF είναι πολύ μεγάλο (%d ψηφιο�
 #, c-format
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
-msgstr[0] "Αποτυχία διάθεσης %d ψηφιολέξης ως αρχείο ανάγνωσης ενδιάμεσης μνήμης"
-msgstr[1] "Αποτυχία διάθεσης %d ψηφιολέξεων ως αρχείο ανάγνωσης ενδιάμεσης μνήμης"
+msgstr[0] ""
+"Αποτυχία διάθεσης %d ψηφιολέξης ως αρχείο ανάγνωσης ενδιάμεσης μνήμης"
+msgstr[1] ""
+"Αποτυχία διάθεσης %d ψηφιολέξεων ως αρχείο ανάγνωσης ενδιάμεσης μνήμης"
 
 #: ../gdk-pixbuf/io-qtif.c:206
 #, c-format
@@ -758,7 +764,8 @@ msgstr "Αποτυχία αρχείου κατά την ανάγνωση του 
 msgid "Failed to skip the next %d byte with seek()."
 msgid_plural "Failed to skip the next %d bytes with seek()."
 msgstr[0] "Αποτυχία παράκαμψης της επόμενης %d ψηφιολέξης με χρήση του seek()."
-msgstr[1] "Αποτυχία παράκαμψης των επόμενων %d ψηφιολέξεων με χρήση του seek()."
+msgstr[1] ""
+"Αποτυχία παράκαμψης των επόμενων %d ψηφιολέξεων με χρήση του seek()."
 
 #: ../gdk-pixbuf/io-qtif.c:270
 msgid "Failed to allocate QTIF context structure."
