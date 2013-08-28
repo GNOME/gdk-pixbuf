@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2013-02-10 21:15+0000\n"
-"PO-Revision-Date: 2013-03-02 23:16+0200\n"
+"POT-Creation-Date: 2013-08-22 12:19+0000\n"
+"PO-Revision-Date: 2013-08-28 23:03+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -46,7 +46,7 @@ msgstr ""
 "Nepavyko įkelti animacijos „%s“: nežinoma priežastis, tikriausiai sugadintas "
 "failas"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:272 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:280 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid ""
@@ -190,7 +190,12 @@ msgstr "Nepakanka atminties įkelti animacijai"
 msgid "Malformed chunk in animation"
 msgstr "Blogai suformuotas animacijos blokas"
 
-#: ../gdk-pixbuf/io-ani.c:660
+#: ../gdk-pixbuf/io-ani.c:630
+#| msgid "GIF image was truncated or incomplete."
+msgid "ANI image was truncated or incomplete."
+msgstr "ANI paveikslėlis buvo nukirstas arba nepilnas."
+
+#: ../gdk-pixbuf/io-ani.c:671
 msgid "The ANI image format"
 msgstr "ANI paveikslėlių formatas"
 
@@ -490,7 +495,6 @@ msgstr "Pakeistas JPEG turi nulinį plotį arba aukštį."
 
 #: ../gdk-pixbuf/io-jpeg.c:1279
 #, c-format
-#| msgid "Color profile has invalid length '%d'."
 msgid "Color profile has invalid length '%u'."
 msgstr "Spalvų profilio ilgis „%u“ netinkamas."
 
@@ -547,36 +551,36 @@ msgstr "Transformuotas pikselių žemėlapis turi nulinį plotį arba aukštį."
 msgid "The GdkPixdata format"
 msgstr "GdkPixdata formatas"
 
-#: ../gdk-pixbuf/io-png.c:54
+#: ../gdk-pixbuf/io-png.c:55
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Netinkamas PNG paveikslėlio bitų skaičius kanalui."
 
-#: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:641
+#: ../gdk-pixbuf/io-png.c:136 ../gdk-pixbuf/io-png.c:642
 msgid "Transformed PNG has zero width or height."
 msgstr "Pakeistas PNG turi nulinį plotį arba aukštį."
 
-#: ../gdk-pixbuf/io-png.c:143
+#: ../gdk-pixbuf/io-png.c:144
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Pakeistas PNG turi ne 8 bitus kanalui."
 
-#: ../gdk-pixbuf/io-png.c:152
+#: ../gdk-pixbuf/io-png.c:153
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Pakeistas PNG yra ne RGB arba RGBA formate."
 
-#: ../gdk-pixbuf/io-png.c:161
+#: ../gdk-pixbuf/io-png.c:162
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr "Pakeistas PNG turi nepalaikomą kanalų kiekį, turi būti 3 arba 4."
 
-#: ../gdk-pixbuf/io-png.c:182
+#: ../gdk-pixbuf/io-png.c:183
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Lemtinga klaida PNG paveikslėlių faile: %s"
 
-#: ../gdk-pixbuf/io-png.c:315
+#: ../gdk-pixbuf/io-png.c:316
 msgid "Insufficient memory to load PNG file"
 msgstr "Nepakanka atminties įkelti PNG failą"
 
-#: ../gdk-pixbuf/io-png.c:656
+#: ../gdk-pixbuf/io-png.c:657
 #, c-format
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
@@ -585,30 +589,30 @@ msgstr ""
 "Nepakanka atminties įrašyti %lu iš %lu dydžio paveikslėlį; uždarykite dalį "
 "programų, kad sumažintumėte atminties naudojimą"
 
-#: ../gdk-pixbuf/io-png.c:719
+#: ../gdk-pixbuf/io-png.c:720
 msgid "Fatal error reading PNG image file"
 msgstr "Skaitant PNG įvyko lemtinga klaida"
 
-#: ../gdk-pixbuf/io-png.c:768
+#: ../gdk-pixbuf/io-png.c:769
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Įvyko lemtinga klaida skaitant PNG paveikslėlį: %s"
 
-#: ../gdk-pixbuf/io-png.c:858
+#: ../gdk-pixbuf/io-png.c:859
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr "PNG tekstiniai raktai turi turėti nuo 1 iki 79 simbolių."
 
-#: ../gdk-pixbuf/io-png.c:867
+#: ../gdk-pixbuf/io-png.c:868
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "PNG tekstiniai raktai turi naudoti tik ASCII simbolius."
 
-#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:667
+#: ../gdk-pixbuf/io-png.c:882 ../gdk-pixbuf/io-tiff.c:667
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Spalvų profilio ilgis (%d) netinkamas."
 
-#: ../gdk-pixbuf/io-png.c:894
+#: ../gdk-pixbuf/io-png.c:895
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -616,7 +620,7 @@ msgid ""
 msgstr ""
 "PNG suspaudimo lygis turi būti reikšmė tarp 0 ir 9: reikšmės „%s“ nesuprasta."
 
-#: ../gdk-pixbuf/io-png.c:907
+#: ../gdk-pixbuf/io-png.c:908
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -625,13 +629,13 @@ msgstr ""
 "PNG suspaudimo lygis turi būti reikšmė tarp 0 ir 9: reikšmė „%d“ yra "
 "neleistina."
 
-#: ../gdk-pixbuf/io-png.c:955
+#: ../gdk-pixbuf/io-png.c:956
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "PNG tekstinės dalies reikšmė %s negali būti perkoduota į ISO-8859-1 koduotę."
 
-#: ../gdk-pixbuf/io-png.c:1118
+#: ../gdk-pixbuf/io-png.c:1119
 msgid "The PNG image format"
 msgstr "PNG paveikslėlių formatas"
 
@@ -963,4 +967,3 @@ msgstr "Įkeliant XPM failą nepavyko įrašyti laikino failo"
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "XPM paveikslėlių formatas"
-
