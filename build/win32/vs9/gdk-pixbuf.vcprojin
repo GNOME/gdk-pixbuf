@@ -42,10 +42,6 @@
 				DebugInformationFormat="4"
 			/>
 			<Tool
-				Name="VCPreLinkEventTool"
-				CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
-			/>
-			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="Gdiplus.lib libpng16d.lib zlib1d.lib"
 				OutputFile="$(OutDir)/$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
@@ -79,10 +75,6 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-				CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
 			/>
 			<Tool
 				Name="VCLinkerTool"
@@ -122,10 +114,6 @@
 				DebugInformationFormat="3"
 			/>
 			<Tool
-				Name="VCPreLinkEventTool"
-				CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
-			/>
-			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="Gdiplus.lib libpng16d.lib zlib1d.lib"
 				OutputFile="$(OutDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
@@ -153,10 +141,6 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-				CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
 			/>
 			<Tool
 				Name="VCLinkerTool"
@@ -197,10 +181,6 @@
 
 			/>
 			<Tool
-				Name="VCPreLinkEventTool"
-				CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
-			/>
-			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="libpng16d.lib zlib1d.lib intld.lib libjpegd.lib libjasper.lib libtiffd_i.lib"
 				OutputFile="$(OutDir)/$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
@@ -236,10 +216,6 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-				CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
 			/>
 			<Tool
 				Name="VCLinkerTool"
@@ -281,10 +257,6 @@
 				DebugInformationFormat="3"
 			/>
 			<Tool
-				Name="VCPreLinkEventTool"
-				CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
-			/>
-			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="libpng16d.lib zlib1d.lib intld.lib libjpegd.lib libjasper.lib libtiffd_i.lib"
 				OutputFile="$(OutDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
@@ -314,10 +286,6 @@
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-				CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
 			/>
 			<Tool
 				Name="VCLinkerTool"
@@ -461,10 +429,76 @@
 			>
 		</Filter>
 		<Filter
-			Name="Resouce Files"
+			Name="Resource Files"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File RelativePath="..\..\..\gdk-pixbuf\gdk-pixbuf.symbols">
+				<FileConfiguration Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Generating gdk-pixbuf.def..."
+						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						Outputs="$(IntDir)\gdk-pixbuf.def"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Debug_NoGDIP|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Generating gdk-pixbuf.def..."
+						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						Outputs="$(IntDir)\gdk-pixbuf.def"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Generating gdk-pixbuf.def..."
+						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						Outputs="$(IntDir)\gdk-pixbuf.def"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Release_NoGDIP|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Generating gdk-pixbuf.def..."
+						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						Outputs="$(IntDir)\gdk-pixbuf.def"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Debug|x64">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Generating gdk-pixbuf.def..."
+						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						Outputs="$(IntDir)\gdk-pixbuf.def"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Debug_NoGDIP|x64">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Generating gdk-pixbuf.def..."
+						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						Outputs="$(IntDir)\gdk-pixbuf.def"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Release|x64">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Generating gdk-pixbuf.def..."
+						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						Outputs="$(IntDir)\gdk-pixbuf.def"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Release_NoGDIP|x64">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Generating gdk-pixbuf.def..."
+						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						Outputs="$(IntDir)\gdk-pixbuf.def"
+					/>
+				</FileConfiguration>
+			</File>
 			<File RelativePath="..\..\..\gdk-pixbuf\gdk_pixbuf.rc" />
 		</Filter>
 	</Files>

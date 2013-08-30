@@ -144,9 +144,6 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
-    <PreLinkEvent>
-      <Command>$(GdkPixbufGenerateGdkPixbufDef)</Command>
-    </PreLinkEvent>
     <Link>
       <AdditionalDependencies>Gdiplus.lib;libpng16d.lib;zlib1d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll</OutputFile>
@@ -173,9 +170,6 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
-    <PreLinkEvent>
-      <Command>$(GdkPixbufGenerateGdkPixbufDef)</Command>
-    </PreLinkEvent>
     <Link>
       <AdditionalDependencies>Gdiplus.lib;libpng16.lib;zlib1.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll</OutputFile>
@@ -204,9 +198,6 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
-    <PreLinkEvent>
-      <Command>$(GdkPixbufGenerateGdkPixbufDef)</Command>
-    </PreLinkEvent>
     <Link>
       <AdditionalDependencies>Gdiplus.lib;libpng16d.lib;zlib1d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll</OutputFile>
@@ -226,9 +217,6 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
-    <PreLinkEvent>
-      <Command>$(GdkPixbufGenerateGdkPixbufDef)</Command>
-    </PreLinkEvent>
     <Link>
       <AdditionalDependencies>Gdiplus.lib;libpng16.lib;zlib1.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll</OutputFile>
@@ -255,9 +243,6 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
-    <PreLinkEvent>
-      <Command>$(GdkPixbufGenerateGdkPixbufDef)</Command>
-    </PreLinkEvent>
     <Link>
       <AdditionalDependencies>libpng16d.lib;zlib1d.lib;intld.lib;libjpegd.lib;libjasper.lib;libtiffd_i.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll</OutputFile>
@@ -285,9 +270,6 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
-    <PreLinkEvent>
-      <Command>$(GdkPixbufGenerateGdkPixbufDef)</Command>
-    </PreLinkEvent>
     <Link>
       <AdditionalDependencies>libpng16.lib;zlib1.lib;intl.lib;libjpeg.lib;libjasper.lib;libtiff_i.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll</OutputFile>
@@ -317,9 +299,6 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
-    <PreLinkEvent>
-      <Command>$(GdkPixbufGenerateGdkPixbufDef)</Command>
-    </PreLinkEvent>
     <Link>
       <AdditionalDependencies>libpng16d.lib;zlib1d.lib;intld.lib;libjpegd.lib;libjasper.lib;libtiffd_i.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll</OutputFile>
@@ -340,9 +319,6 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
-    <PreLinkEvent>
-      <Command>$(GdkPixbufGenerateGdkPixbufDef)</Command>
-    </PreLinkEvent>
     <Link>
       <AdditionalDependencies>libpng16.lib;zlib1.lib;intl.lib;libjpeg.lib;libjasper.lib;libtiff_i.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll</OutputFile>
@@ -463,6 +439,34 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\..\gdk-pixbuf\gdk-pixbuf.symbols">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating gdk-pixbuf.def...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(GdkPixbufGenerateGdkPixbufDef)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)gdk-pixbuf.def;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_NoGDIP|Win32'">Generating gdk-pixbuf.def...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_NoGDIP|Win32'">$(GdkPixbufGenerateGdkPixbufDef)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_NoGDIP|Win32'">$(IntDir)gdk-pixbuf.def;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating gdk-pixbuf.def...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(GdkPixbufGenerateGdkPixbufDef)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)gdk-pixbuf.def;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_NoGDIP|x64'">Generating gdk-pixbuf.def...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_NoGDIP|x64'">$(GdkPixbufGenerateGdkPixbufDef)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_NoGDIP|x64'">$(IntDir)gdk-pixbuf.def;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating gdk-pixbuf.def...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(GdkPixbufGenerateGdkPixbufDef)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)gdk-pixbuf.def;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_NoGDIP|Win32'">Generating gdk-pixbuf.def...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_NoGDIP|Win32'">$(GdkPixbufGenerateGdkPixbufDef)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_NoGDIP|Win32'">$(IntDir)gdk-pixbuf.def;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating gdk-pixbuf.def...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(GdkPixbufGenerateGdkPixbufDef)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)gdk-pixbuf.def;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release_NoGDIP|x64'">Generating gdk-pixbuf.def...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release_NoGDIP|x64'">$(GdkPixbufGenerateGdkPixbufDef)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_NoGDIP|x64'">$(IntDir)gdk-pixbuf.def;%(Outputs)</Outputs>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\..\..\gdk-pixbuf\gdk_pixbuf.rc" />

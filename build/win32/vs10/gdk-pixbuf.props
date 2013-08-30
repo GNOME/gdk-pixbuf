@@ -2,8 +2,7 @@
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="UserMacros">
     <VSVer>10</VSVer>
-    <GlibEtcInstallRoot>..\..\..\..\vs$(VSVer)\$(Platform)</GlibEtcInstallRoot>
-    <GlibEtcInstallRootFromBuildWin32>..\..\..\vs$(VSVer)\$(Platform)</GlibEtcInstallRootFromBuildWin32>
+    <GlibEtcInstallRoot>$(SolutionDir)\..\..\..\..\vs$(VSVer)\$(Platform)</GlibEtcInstallRoot>
     <CopyDir>$(GlibEtcInstallRoot)</CopyDir>
     <ApiVersion>2.0</ApiVersion>
     <GdkPixbufBinaryVersion>2.10.0</GdkPixbufBinaryVersion>
@@ -65,7 +64,7 @@ copy $(Configuration)\$(Platform)\bin\*-$(ApiVersion).lib $(CopyDir)\\lib
 set VSVER=$(VSVer)
 set CONF=$(Configuration)
 set PLAT=$(Platform)
-set BASEDIR=$(GlibEtcInstallRootFromBuildWin32)
+set BASEDIR=$(GlibEtcInstallRoot)
 cd ..
 call gengir_gdkpixbuf.bat
 
@@ -96,25 +95,12 @@ cd vs$(VSVer)
     </Link>
     <PreBuildEvent>
       <Command>
-if exist ..\..\..\config.h goto GEN_MARS_H
+if exist ..\..\..\config.h goto DONE_CONFIG_H
 
 copy ..\..\..\config.h.win32 ..\..\..\config.h
 
-:GEN_MARS_H
-
-if exist ..\..\..\gdk-pixbuf\gdk-pixbuf-marshal.h goto GEN_MARS_C
-
-glib-genmarshal.exe --prefix=_gdk_pixbuf_marshal ..\..\..\gdk-pixbuf\gdk-pixbuf-marshal.list --header &gt;..\..\..\gdk-pixbuf\gdk-pixbuf-marshal.h
-
-:GEN_MARS_C
-
-if exist ..\..\..\gdk-pixbuf\gdk-pixbuf-marshal.c goto END
-
-glib-genmarshal.exe --prefix=_gdk_pixbuf_marshal ..\..\..\gdk-pixbuf\gdk-pixbuf-marshal.list --body &gt;..\..\..\gdk-pixbuf\gdk-pixbuf-marshal.c
-
-:END
-
-</Command>
+:DONE_CONFIG_H
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -123,9 +109,6 @@ glib-genmarshal.exe --prefix=_gdk_pixbuf_marshal ..\..\..\gdk-pixbuf\gdk-pixbuf-
     </BuildMacro>
     <BuildMacro Include="GlibEtcInstallRoot">
       <Value>$(GlibEtcInstallRoot)</Value>
-    </BuildMacro>
-    <BuildMacro Include="GlibEtcInstallRootFromBuildWin32">
-      <Value>$(GlibEtcInstallRootFromBuildWin32)</Value>
     </BuildMacro>
     <BuildMacro Include="CopyDir">
       <Value>$(CopyDir)</Value>
