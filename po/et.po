@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf MASTER\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2013-03-12 12:44+0000\n"
-"PO-Revision-Date: 2013-03-12 22:43+0300\n"
+"POT-Creation-Date: 2013-09-11 19:46+0000\n"
+"PO-Revision-Date: 2013-09-11 23:20+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <>\n"
 "Language: et\n"
@@ -25,6 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #, c-format
 msgid "Failed to open file '%s': %s"
@@ -148,6 +149,9 @@ msgstr "Animatsiooni laadimiseks pole piisavalt mälu"
 
 msgid "Malformed chunk in animation"
 msgstr "Animatsioonis on vigaselt vormindatud tükk"
+
+msgid "ANI image was truncated or incomplete."
+msgstr "ANI-pilt pole täielik või on seda tükeldatud."
 
 msgid "The ANI image format"
 msgstr "ANI-pildivorming"
