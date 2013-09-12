@@ -1,13 +1,13 @@
 # Ales Nyakhaychyk <nab@mail.by>, 2001-2003, 2005.
 # Vital Khilko <vk@altlinux.ru> 2005.
-# Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2011.
+# Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2011, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2013-02-10 21:15+0000\n"
+"POT-Creation-Date: 2013-07-29 23:48+0000\n"
 "PO-Revision-Date: 2012-09-07 18:38+0300\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
@@ -38,7 +38,7 @@ msgstr ""
 "Не ўдалося загрузіць анімацыйны файл \"%s\": прычына невядомая, відаць, файл "
 "пашкоджаны"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:272 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:280 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid ""
@@ -179,7 +179,11 @@ msgstr "Не стае памяці для загрузкі анімацыі"
 msgid "Malformed chunk in animation"
 msgstr "Кадр анімацыі ў хібным фармаце"
 
-#: ../gdk-pixbuf/io-ani.c:660
+#: ../gdk-pixbuf/io-ani.c:630
+msgid "ANI image was truncated or incomplete."
+msgstr "Выява ANI была абрэзана або не закончана."
+
+#: ../gdk-pixbuf/io-ani.c:671
 msgid "The ANI image format"
 msgstr "Фармат выяў ANI"
 
@@ -535,39 +539,39 @@ msgstr "Трансфармаваны растравы буфер мае нуля
 msgid "The GdkPixdata format"
 msgstr "Фармат GdkPixdata"
 
-#: ../gdk-pixbuf/io-png.c:54
+#: ../gdk-pixbuf/io-png.c:55
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Хібная колькасць бітаў на канал выявы PNG."
 
-#: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:641
+#: ../gdk-pixbuf/io-png.c:136 ../gdk-pixbuf/io-png.c:642
 msgid "Transformed PNG has zero width or height."
 msgstr "Трансфармаваная выява PNG мае нулявую шырыню ці вышыню."
 
-#: ../gdk-pixbuf/io-png.c:143
+#: ../gdk-pixbuf/io-png.c:144
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr ""
 "Колькасць бітаў на канал у трансфармаванай выяве PNG адрозніваецца ад 8."
 
-#: ../gdk-pixbuf/io-png.c:152
+#: ../gdk-pixbuf/io-png.c:153
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Трансфармаваная выява PNG не з'яўляецца ні RGB, ні RGBA."
 
-#: ../gdk-pixbuf/io-png.c:161
+#: ../gdk-pixbuf/io-png.c:162
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "Трансфармаваная выява PNG мае невядомую колькасць каналаў, якая мусіць быць "
 "3 ці 4."
 
-#: ../gdk-pixbuf/io-png.c:182
+#: ../gdk-pixbuf/io-png.c:183
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Фатальная памылка ў файле выявы PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:315
+#: ../gdk-pixbuf/io-png.c:316
 msgid "Insufficient memory to load PNG file"
 msgstr "Не стае памяці для загрузкі файла PNG"
 
-#: ../gdk-pixbuf/io-png.c:656
+#: ../gdk-pixbuf/io-png.c:657
 #, c-format
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
@@ -576,31 +580,31 @@ msgstr ""
 "Не стае памяці для захавання выявы %lux%lu. Каб зменшыць узровень "
 "выкарыстання памяці, паспрабуйце выйсці з некаторых праграм"
 
-#: ../gdk-pixbuf/io-png.c:719
+#: ../gdk-pixbuf/io-png.c:720
 msgid "Fatal error reading PNG image file"
 msgstr "Фатальная памылка пры чытанні файла выявы PNG"
 
-#: ../gdk-pixbuf/io-png.c:768
+#: ../gdk-pixbuf/io-png.c:769
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Фатальная памылка пры чытанні файла выявы PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:858
+#: ../gdk-pixbuf/io-png.c:859
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "Ключы да тэкставых урыўкаў выявы PNG мусяць мець даўжыню ад 1 да 79 знакаў."
 
-#: ../gdk-pixbuf/io-png.c:867
+#: ../gdk-pixbuf/io-png.c:868
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Ключы да тэкставых урыўкаў выявы PNG мусяць быць знакамі ASCII."
 
-#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:667
+#: ../gdk-pixbuf/io-png.c:882 ../gdk-pixbuf/io-tiff.c:667
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Профіль колераў мае хібную даўжыню %d."
 
-#: ../gdk-pixbuf/io-png.c:894
+#: ../gdk-pixbuf/io-png.c:895
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -609,7 +613,7 @@ msgstr ""
 "Ступень сціску выявы PNG мусіць мець значэнне ў дыяпазоне ад 0 да 9. Не "
 "ўдалося разабраць значэнне \"%s\"."
 
-#: ../gdk-pixbuf/io-png.c:907
+#: ../gdk-pixbuf/io-png.c:908
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -618,14 +622,14 @@ msgstr ""
 "Ступень сціску выявы PNG мусіць мець значэнне ў дыяпазоне ад 0 і 9. Значэнне "
 "\"%d\" не дазволена."
 
-#: ../gdk-pixbuf/io-png.c:955
+#: ../gdk-pixbuf/io-png.c:956
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Не ўдалося пераўтварыць значэнне тэкставага ўрыўка %s выявы PNG у кадаванне "
 "ISO-8859-1."
 
-#: ../gdk-pixbuf/io-png.c:1118
+#: ../gdk-pixbuf/io-png.c:1119
 msgid "The PNG image format"
 msgstr "Фармат выяў PNG"
 
@@ -959,4 +963,3 @@ msgstr "Не ўдалося запісаць у часовы файл пры з�
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "Фармат выяў XPM"
-
