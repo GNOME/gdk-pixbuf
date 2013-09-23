@@ -25,6 +25,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <sys/time.h>
+#include <sys/resource.h>
 
 static void
 disaster (const char *what)
@@ -102,13 +104,19 @@ main (int argc, char **argv)
   gboolean got_seed = FALSE;
   GPtrArray *files = g_ptr_array_new ();
   int l, iterations;
+  struct rlimit max_mem_size;
+
+  max_mem_size.rlim_cur = 100 * 1024 * 1024; /* 100M */
+  max_mem_size.rlim_max = max_mem_size.rlim_cur;
+  setrlimit (RLIMIT_DATA, &max_mem_size);
+  setrlimit (RLIMIT_AS, &max_mem_size);
 
   g_test_init (&argc, &argv, NULL);
 
   if (g_getenv ("ITERATIONS"))
     iterations = atoi (g_getenv ("ITERATIONS"));
   else
-    iterations = 10;
+    iterations = 1;
 
   seed = time (NULL);
 
