@@ -29,8 +29,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 2.8.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-10 23:49+0100\n"
-"PO-Revision-Date: 2013-02-10 23:43+0100\n"
+"POT-Creation-Date: 2013-10-13 23:59+0200\n"
+"PO-Revision-Date: 2013-08-31 22:46+0200\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca-XV\n"
@@ -59,7 +59,7 @@ msgstr ""
 "No es pot carregar l'animació «%s»: se'n desconeix el motiu; probablement es "
 "tracta d'un fitxer d'animació malmés"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:272 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:280 ../gdk-pixbuf/gdk-pixbuf-io.c:1112
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid ""
@@ -200,7 +200,11 @@ msgstr "No hi ha memòria suficient per carregar l'animació"
 msgid "Malformed chunk in animation"
 msgstr "Bloc erroni en l'animació"
 
-#: ../gdk-pixbuf/io-ani.c:660
+#: ../gdk-pixbuf/io-ani.c:630
+msgid "ANI image was truncated or incomplete."
+msgstr "Imatge ANI truncada o incompleta."
+
+#: ../gdk-pixbuf/io-ani.c:671
 msgid "The ANI image format"
 msgstr "El format d'imatge ANI"
 
@@ -560,37 +564,37 @@ msgstr "La memòria de píxels transformada té amplada o alçada zero."
 msgid "The GdkPixdata format"
 msgstr "El format de la GdkPixdata"
 
-#: ../gdk-pixbuf/io-png.c:54
+#: ../gdk-pixbuf/io-png.c:55
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Els bits per canal de la imatge PNG no són vàlids."
 
-#: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:641
+#: ../gdk-pixbuf/io-png.c:136 ../gdk-pixbuf/io-png.c:642
 msgid "Transformed PNG has zero width or height."
 msgstr "El PNG transformat té amplada o alçada zero."
 
-#: ../gdk-pixbuf/io-png.c:143
+#: ../gdk-pixbuf/io-png.c:144
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Els bits per canal del PNG transformat no són 8."
 
-#: ../gdk-pixbuf/io-png.c:152
+#: ../gdk-pixbuf/io-png.c:153
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "El PNG transformat no és RGB o RGBA."
 
-#: ../gdk-pixbuf/io-png.c:161
+#: ../gdk-pixbuf/io-png.c:162
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "El PNG transformat té un nombre no implementat de canals, ha de ser 3 o 4."
 
-#: ../gdk-pixbuf/io-png.c:182
+#: ../gdk-pixbuf/io-png.c:183
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Error fatal al fitxer d'imatge PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:315
+#: ../gdk-pixbuf/io-png.c:316
 msgid "Insufficient memory to load PNG file"
 msgstr "No hi ha memòria suficient per carregar el fitxer PNG"
 
-#: ../gdk-pixbuf/io-png.c:656
+#: ../gdk-pixbuf/io-png.c:657
 #, c-format
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
@@ -599,31 +603,31 @@ msgstr ""
 "No hi ha suficient memòria per emmagatzemar una imatge de %lu per %lu. Eixiu "
 "d'algunes aplicacions per alliberar memòria"
 
-#: ../gdk-pixbuf/io-png.c:719
+#: ../gdk-pixbuf/io-png.c:720
 msgid "Fatal error reading PNG image file"
 msgstr "Error fatal en llegir el fitxer gràfic PNG"
 
-#: ../gdk-pixbuf/io-png.c:768
+#: ../gdk-pixbuf/io-png.c:769
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Error fatal en llegir el fitxer gràfic PNG: %s"
 
-#: ../gdk-pixbuf/io-png.c:858
+#: ../gdk-pixbuf/io-png.c:859
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "Les claus per als blocs text de PNG han de tindre entre 1 i 79 caràcters."
 
-#: ../gdk-pixbuf/io-png.c:867
+#: ../gdk-pixbuf/io-png.c:868
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Les claus per als blocs text de PNG han de ser caràcters ASCII."
 
-#: ../gdk-pixbuf/io-png.c:881 ../gdk-pixbuf/io-tiff.c:667
+#: ../gdk-pixbuf/io-png.c:882 ../gdk-pixbuf/io-tiff.c:667
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "El perfil de color té una llargada no vàlida (%d)."
 
-#: ../gdk-pixbuf/io-png.c:894
+#: ../gdk-pixbuf/io-png.c:895
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -632,7 +636,7 @@ msgstr ""
 "El nivell de compressió de PNG ha de ser un valor entre 0 i 9; el valor «%s» "
 "no es pot analitzar."
 
-#: ../gdk-pixbuf/io-png.c:907
+#: ../gdk-pixbuf/io-png.c:908
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -641,14 +645,14 @@ msgstr ""
 "El nivell de compressió de PNG ha de ser un valor entre 0 i 9; el valor «%d» "
 "no és permés."
 
-#: ../gdk-pixbuf/io-png.c:955
+#: ../gdk-pixbuf/io-png.c:956
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "El valor per al fragment de text PNG %s no es pot convertir a la codificació "
 "ISO-8859-1."
 
-#: ../gdk-pixbuf/io-png.c:1118
+#: ../gdk-pixbuf/io-png.c:1119
 msgid "The PNG image format"
 msgstr "El format d'imatge PNG"
 
@@ -981,12 +985,3 @@ msgstr "No s'ha pogut escriure al fitxer temporal en carregar la imatge XPM"
 #: ../gdk-pixbuf/io-xpm.c:817
 msgid "The XPM image format"
 msgstr "El format d'imatge XPM"
-
-#~ msgid "TIFFClose operation failed"
-#~ msgstr "L'operació TIFFClose ha fallat"
-
-#~ msgid "Unsupported animation type"
-#~ msgstr "Tipus d'animació no implementada"
-
-#~ msgid "Couldn't allocate memory for paletted data"
-#~ msgstr "No s'ha pogut assignar memòria per a les dades de la paleta"
