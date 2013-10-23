@@ -26,7 +26,9 @@
 #include <time.h>
 #include <string.h>
 #include <sys/time.h>
+#ifdef HAVE_SYS_RESOURCE_H
 #include <sys/resource.h>
+#endif
 
 static void
 disaster (const char *what)
@@ -104,13 +106,16 @@ main (int argc, char **argv)
   gboolean got_seed = FALSE;
   GPtrArray *files = g_ptr_array_new ();
   int l, iterations;
+
+#ifdef HAVE_SETRLIMIT
   struct rlimit max_mem_size;
 
   max_mem_size.rlim_cur = 100 * 1024 * 1024; /* 100M */
   max_mem_size.rlim_max = max_mem_size.rlim_cur;
   setrlimit (RLIMIT_DATA, &max_mem_size);
-#if defined (RLIMIT_AS)
+#ifdef RLIMIT_AS
   setrlimit (RLIMIT_AS, &max_mem_size);
+#endif
 #endif
 
   g_test_init (&argc, &argv, NULL);
