@@ -1,4 +1,15 @@
-2.30.4
+2.30.1
+======
+
+* Only use RLIMIT_AS when available (#708666)
+
+* Only use setrlimit when available (#710690)
+
+* Avoid a bashism (#711600)
+
+* Translation updates
+
+2.30.0
 ======
 
 * Visual C++ build fixes
