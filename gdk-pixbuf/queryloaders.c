@@ -374,7 +374,7 @@ int main (int argc, char **argv)
         else {
                 char *cwd = g_get_current_dir ();
 
-                for (i = 1; i < argc; i++) {
+                for (i = first_file; i < argc; i++) {
                         char *infilename = argv[i];
 #ifdef G_OS_WIN32
                         infilename = g_locale_to_utf8 (infilename,
