@@ -2824,16 +2824,15 @@ save_to_stream_async_data_free (SaveToStreamAsyncData *data)
 }
 
 static void
-save_to_stream_thread (GSimpleAsyncResult *result,
-		       GdkPixbuf          *pixbuf,
-		       GCancellable       *cancellable)
+save_to_stream_thread (GTask                 *task,
+		       GdkPixbuf             *pixbuf,
+		       SaveToStreamAsyncData *data,
+		       GCancellable          *cancellable)
 {
-	SaveToStreamAsyncData *data;
 	SaveToStreamData sync_data;
 	gboolean retval;
 	GError *error = NULL;
 
-	data = g_simple_async_result_get_op_res_gpointer (result);
 	sync_data.stream = data->stream;
 	sync_data.cancellable = cancellable;
 
@@ -2842,11 +2841,10 @@ save_to_stream_thread (GSimpleAsyncResult *result,
 					       data->keys, data->values,
 					       &error);
 
-	/* Set the new pixbuf as the result, or error out */
 	if (retval == FALSE) {
-		g_simple_async_result_take_error (result, error);
+		g_task_return_error (task, error);
 	} else {
-		g_simple_async_result_set_op_res_gboolean (result, TRUE);
+		g_task_return_boolean (task, TRUE);
 	}
 }
 
@@ -2879,7 +2877,7 @@ gdk_pixbuf_save_to_stream_async (GdkPixbuf           *pixbuf,
 				 gpointer             user_data,
 				 ...)
 {
-	GSimpleAsyncResult *result;
+	GTask *task;
 	gchar **keys = NULL;
 	gchar **values = NULL;
 	va_list args;
@@ -2901,10 +2899,11 @@ gdk_pixbuf_save_to_stream_async (GdkPixbuf           *pixbuf,
 	data->keys = keys;
 	data->values = values;
 
-	result = g_simple_async_result_new (G_OBJECT (pixbuf), callback, user_data, gdk_pixbuf_save_to_stream_async);
-	g_simple_async_result_set_op_res_gpointer (result, data, (GDestroyNotify) save_to_stream_async_data_free);
-	g_simple_async_result_run_in_thread (result, (GSimpleAsyncThreadFunc) save_to_stream_thread, G_PRIORITY_DEFAULT, cancellable);
-	g_object_unref (result);
+	task = g_task_new (pixbuf, cancellable, callback, user_data);
+	g_task_set_source_tag (task, gdk_pixbuf_save_to_stream_async);
+	g_task_set_task_data (task, data, (GDestroyNotify) save_to_stream_async_data_free);
+	g_task_run_in_thread (task, (GTaskThreadFunc) save_to_stream_thread);
+	g_object_unref (task);
 }
 
 /**
@@ -2923,16 +2922,19 @@ gboolean
 gdk_pixbuf_save_to_stream_finish (GAsyncResult  *async_result,
 				  GError       **error)
 {
-	GSimpleAsyncResult *result = G_SIMPLE_ASYNC_RESULT (async_result);
+	GTask *task;
 
-	g_return_val_if_fail (G_IS_ASYNC_RESULT (async_result), FALSE);
+	/* Can not use g_task_is_valid because our GTask has a
+	 * source_object which is not available to us anymore.
+	 */
+	g_return_val_if_fail (G_IS_TASK (async_result), NULL);
+
+	task = G_TASK (async_result);
+
 	g_return_val_if_fail (!error || (error && !*error), FALSE);
-	g_warn_if_fail (g_simple_async_result_get_source_tag (result) == gdk_pixbuf_save_to_stream_async);
+	g_warn_if_fail (g_task_get_source_tag (task) == gdk_pixbuf_save_to_stream_async);
 
-	if (g_simple_async_result_propagate_error (result, error))
-		return FALSE;
-
-	return g_simple_async_result_get_op_res_gboolean (result);
+	return g_task_propagate_boolean (task, error);
 }
 
 /**
