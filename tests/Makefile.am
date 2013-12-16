@@ -31,12 +31,15 @@ test_programs = 			\
 	pixbuf-icon-serialize 		\
 	pixbuf-randomly-modified	\
 	pixbuf-threads			\
+	pixbuf-icc			\
 	$(NULL)
 
 dist_test_data = 			\
 	test-image.png			\
 	test-animation.gif		\
 	test-animation.ani		\
+	icc-profile.jpeg		\
+	icc-profile.png			\
 	$(wildcard $(srcdir)/test-images/*)
 
 -include $(top_srcdir)/git.mk
