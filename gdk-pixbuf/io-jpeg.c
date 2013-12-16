@@ -512,10 +512,7 @@ jpeg_parse_exif (JpegExifContext *context, j_decompress_ptr cinfo)
 static void
 jpeg_destroy_exif_context (JpegExifContext *context)
 {
-	if (context == NULL)
-		return;
 	g_free (context->icc_profile);
-	g_free (context);
 }
 
 /* Shared library entry point */
@@ -536,7 +533,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 	struct error_handler_data jerr;
 	stdio_src_ptr src;
 	gchar *icc_profile_base64;
-	JpegExifContext *exif_context = NULL;
+	JpegExifContext exif_context = { 0, };
 
 	/* setup error handler */
 	cinfo.err = jpeg_std_error (&jerr.pub);
@@ -580,8 +577,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 	jpeg_read_header (&cinfo, TRUE);
 
 	/* parse exif data */
-	exif_context = g_new0 (JpegExifContext, 1);
-	jpeg_parse_exif (exif_context, &cinfo);
+	jpeg_parse_exif (&exif_context, &cinfo);
 	
 	jpeg_start_decompress (&cinfo);
 	cinfo.do_fancy_upsampling = FALSE;
@@ -606,14 +602,14 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 	}
 
 	/* if orientation tag was found */
-	if (exif_context->orientation != 0) {
-		g_snprintf (otag_str, sizeof (otag_str), "%d", exif_context->orientation);
+	if (exif_context.orientation != 0) {
+		g_snprintf (otag_str, sizeof (otag_str), "%d", exif_context.orientation);
 		gdk_pixbuf_set_option (pixbuf, "orientation", otag_str);
 	}
 
 	/* if icc profile was found */
-	if (exif_context->icc_profile != NULL) {
-		icc_profile_base64 = g_base64_encode ((const guchar *) exif_context->icc_profile, exif_context->icc_profile_size);
+	if (exif_context.icc_profile != NULL) {
+		icc_profile_base64 = g_base64_encode ((const guchar *) exif_context.icc_profile, exif_context.icc_profile_size);
 		gdk_pixbuf_set_option (pixbuf, "icc-profile", icc_profile_base64);
 		g_free (icc_profile_base64);
 	}
@@ -657,7 +653,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 out:
 	jpeg_finish_decompress (&cinfo);
 	jpeg_destroy_decompress (&cinfo);
-	jpeg_destroy_exif_context (exif_context);
+	jpeg_destroy_exif_context (&exif_context);
 
 	return pixbuf;
 }
@@ -905,7 +901,8 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 	const guchar    *bufhd;
 	gint             width, height;
 	char             otag_str[5];
-	JpegExifContext *exif_context = NULL;
+	gchar 		*icc_profile_base64;
+	JpegExifContext  exif_context = { 0, };
 	gboolean	 retval;
 
 	g_return_val_if_fail (context != NULL, FALSE);
@@ -944,8 +941,6 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 		retval = TRUE;
 		goto out;
 	}
-	/* collect exif data */
-	exif_context = g_new0 (JpegExifContext, 1);
 
 	last_num_left = num_left;
 	last_bytes_left = 0;
@@ -994,6 +989,7 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 			int rc;
 		
 			jpeg_save_markers (cinfo, JPEG_APP0+1, 0xffff);
+			jpeg_save_markers (cinfo, JPEG_APP0+2, 0xffff);
 			rc = jpeg_read_header (cinfo, TRUE);
 			context->src_initialized = TRUE;
 			
@@ -1003,7 +999,7 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 			context->got_header = TRUE;
 
 			/* parse exif data */
-			jpeg_parse_exif (exif_context, cinfo);
+			jpeg_parse_exif (&exif_context, cinfo);
 		
 			width = cinfo->image_width;
 			height = cinfo->image_height;
@@ -1045,10 +1041,17 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 			}
 		
 		        /* if orientation tag was found set an option to remember its value */
-			if (exif_context->orientation != 0) {
-				g_snprintf (otag_str, sizeof (otag_str), "%d", exif_context->orientation);
+			if (exif_context.orientation != 0) {
+				g_snprintf (otag_str, sizeof (otag_str), "%d", exif_context.orientation);
 		                gdk_pixbuf_set_option (context->pixbuf, "orientation", otag_str);
 		        }
+			/* if icc profile was found */
+			if (exif_context.icc_profile != NULL) {
+				icc_profile_base64 = g_base64_encode ((const guchar *) exif_context.icc_profile, exif_context.icc_profile_size);
+				gdk_pixbuf_set_option (context->pixbuf, "icc-profile", icc_profile_base64);
+				g_free (icc_profile_base64);
+			}
+
 
 			/* Use pixbuf buffer to store decompressed data */
 			context->dptr = context->pixbuf->pixels;
@@ -1125,7 +1128,7 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 		}
 	}
 out:
-	jpeg_destroy_exif_context (exif_context);
+	jpeg_destroy_exif_context (&exif_context);
 	return retval;
 }
 
