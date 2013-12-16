@@ -536,7 +536,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 	struct error_handler_data jerr;
 	stdio_src_ptr src;
 	gchar *icc_profile_base64;
-	JpegExifContext *exif_context;
+	JpegExifContext *exif_context = NULL;
 
 	/* setup error handler */
 	cinfo.err = jpeg_std_error (&jerr.pub);
@@ -592,8 +592,6 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 				 8, cinfo.output_width, cinfo.output_height);
 	      
 	if (!pixbuf) {
-		jpeg_destroy_decompress (&cinfo);
-
                 /* broken check for *error == NULL for robustness against
                  * crappy JPEG library
                  */
@@ -603,8 +601,8 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
                                              GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
                                              _("Insufficient memory to load image, try exiting some applications to free memory"));
                 }
-                
-		return NULL;
+               
+		goto out; 
 	}
 
 	/* if orientation tag was found */
@@ -644,6 +642,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 		      break;
 		    default:
 		      g_object_unref (pixbuf);
+		      pixbuf = NULL;
 		      if (error && *error == NULL) {
                         g_set_error (error,
                                      GDK_PIXBUF_ERROR,
@@ -651,12 +650,11 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 				     _("Unsupported JPEG color space (%s)"),
 				     colorspace_name (cinfo.out_color_space)); 
 		      }
-                
-		      jpeg_destroy_decompress (&cinfo);
-		      return NULL;
+               	      goto out; 
 		}
 	}
 
+out:
 	jpeg_finish_decompress (&cinfo);
 	jpeg_destroy_decompress (&cinfo);
 	jpeg_destroy_exif_context (exif_context);
