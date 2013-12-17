@@ -959,6 +959,29 @@ _gdk_pixbuf_get_module (guchar *buffer, guint size,
         return NULL;
 }
 
+static
+GdkPixbufModule *
+_gdk_pixbuf_get_module_for_file (FILE *f, const gchar *filename, GError **error)
+{
+        guchar buffer[SNIFF_BUFFER_SIZE];
+        int size;
+
+        size = fread (&buffer, 1, sizeof (buffer), f);
+        if (size == 0) {
+		gchar *display_name;
+        	display_name = g_filename_display_name (filename);      
+                g_set_error (error,
+                             GDK_PIXBUF_ERROR,
+                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                             _("Image file '%s' contains no data"),
+                             display_name);
+                g_free (display_name);
+                return NULL;
+        }
+
+	return _gdk_pixbuf_get_module (buffer, size, filename, error);
+}
+
 static void
 prepared_notify (GdkPixbuf *pixbuf, 
                  GdkPixbufAnimation *anim, 
@@ -1051,20 +1074,17 @@ gdk_pixbuf_new_from_file (const char *filename,
                           GError    **error)
 {
         GdkPixbuf *pixbuf;
-        int size;
         FILE *f;
-        guchar buffer[SNIFF_BUFFER_SIZE];
         GdkPixbufModule *image_module;
-        gchar *display_name;
 
         g_return_val_if_fail (filename != NULL, NULL);
         g_return_val_if_fail (error == NULL || *error == NULL, NULL);
         
-        display_name = g_filename_display_name (filename);      
-
         f = g_fopen (filename, "rb");
         if (!f) {
                 gint save_errno = errno;
+		gchar *display_name;
+        	display_name = g_filename_display_name (filename);      
                 g_set_error (error,
                              G_FILE_ERROR,
                              g_file_error_from_errno (save_errno),
@@ -1075,27 +1095,13 @@ gdk_pixbuf_new_from_file (const char *filename,
                 return NULL;
         }
 
-        size = fread (&buffer, 1, sizeof (buffer), f);
-        if (size == 0) {
-                g_set_error (error,
-                             GDK_PIXBUF_ERROR,
-                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                             _("Image file '%s' contains no data"),
-                             display_name);
-                g_free (display_name);
-                fclose (f);
-                return NULL;
-        }
-
-        image_module = _gdk_pixbuf_get_module (buffer, size, filename, error);
+        image_module = _gdk_pixbuf_get_module_for_file (f, filename, error);
         if (image_module == NULL) {
-                g_free (display_name);
                 fclose (f);
                 return NULL;
         }
 
         if (!_gdk_pixbuf_load_module (image_module, error)) {
-                g_free (display_name);
                 fclose (f);
                 return NULL;
         }
@@ -1112,26 +1118,30 @@ gdk_pixbuf_new_from_file (const char *filename,
                  * the invariant that error gets set if NULL is returned.
                  */
 
+		gchar *display_name;
+        	display_name = g_filename_display_name (filename);      
                 g_warning ("Bug! gdk-pixbuf loader '%s' didn't set an error on failure.", image_module->module_name);
                 g_set_error (error,
                              GDK_PIXBUF_ERROR,
                              GDK_PIXBUF_ERROR_FAILED,
                              _("Failed to load image '%s': reason not known, probably a corrupt image file"),
                              display_name);
+		g_free (display_name);
         } else if (error != NULL && *error != NULL) {
+		/* Add the filename to the error message */
+		GError *e = *error;
+		gchar  *old;
+		gchar *display_name;
 
-          /* Add the filename to the error message */
-          GError *e = *error;
-          gchar  *old;
-
-          old = e->message;
-          e->message = g_strdup_printf (_("Failed to load image '%s': %s"),
-                                        display_name,
-                                        old);
-          g_free (old);
+        	display_name = g_filename_display_name (filename);      
+		old = e->message;
+		e->message = g_strdup_printf (_("Failed to load image '%s': %s"),
+					      display_name,
+					      old);
+		g_free (old);
+		g_free (display_name);
         }
 
-        g_free (display_name);
         return pixbuf;
 }
 
