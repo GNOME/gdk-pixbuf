@@ -143,7 +143,7 @@ gdk_pixbuf_animation_new_from_file (const char *filename,
 	GdkPixbufAnimation *animation;
 	int size;
 	FILE *f;
-	guchar buffer [1024];
+	guchar buffer [SNIFF_BUFFER_SIZE];
 	GdkPixbufModule *image_module;
         gchar *display_name;
 
