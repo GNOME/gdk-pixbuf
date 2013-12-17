@@ -1,3 +1,14 @@
+2.30.2
+======
+
+* jpeg: fix icc profile loading
+
+* jpeg: Improve error handling
+
+* Make --update-cache work better
+
+* Translation updates
+
 2.30.1
 ======
 
