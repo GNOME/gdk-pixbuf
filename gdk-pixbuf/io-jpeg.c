@@ -547,6 +547,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 			g_object_unref (pixbuf);
 
 		jpeg_destroy_decompress (&cinfo);
+		jpeg_destroy_exif_context (&exif_context);
 
 		/* error should have been set by fatal_error_handler () */
 		return NULL;
