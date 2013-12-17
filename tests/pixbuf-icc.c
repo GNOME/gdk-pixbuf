@@ -1,7 +1,7 @@
 /* -*- Mode: C; c-basic-offset: 2; -*- */
 /* GdkPixbuf library - test loaders
  *
- * Copyright (C) 2001 Søren Sandmann (sandmann@daimi.au.dk)
+ * Copyright (C) 2013 Red Hat, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,6 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+ *
+ * Author: Matthias Clasen
  */
 
 #include "config.h"
