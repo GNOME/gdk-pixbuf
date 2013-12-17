@@ -111,13 +111,11 @@ static guint    pixbuf_loader_signals[LAST_SIGNAL] = { 0 };
 
 /* Internal data */
 
-#define LOADER_HEADER_SIZE 1024
-
 typedef struct
 {
         GdkPixbufAnimation *animation;
         gboolean closed;
-        guchar header_buf[LOADER_HEADER_SIZE];
+        guchar header_buf[SNIFF_BUFFER_SIZE];
         gint header_buf_offset;
         GdkPixbufModule *image_module;
         gpointer context;
@@ -466,12 +464,12 @@ gdk_pixbuf_loader_eat_header_write (GdkPixbufLoader *loader,
         gint n_bytes;
         GdkPixbufLoaderPrivate *priv = loader->priv;
   
-        n_bytes = MIN(LOADER_HEADER_SIZE - priv->header_buf_offset, count);
+        n_bytes = MIN(SNIFF_BUFFER_SIZE - priv->header_buf_offset, count);
         memcpy (priv->header_buf + priv->header_buf_offset, buf, n_bytes);
   
         priv->header_buf_offset += n_bytes;
   
-        if (priv->header_buf_offset >= LOADER_HEADER_SIZE)
+        if (priv->header_buf_offset >= SNIFF_BUFFER_SIZE)
                 {
                         if (gdk_pixbuf_loader_load_module (loader, NULL, error) == 0)
                                 return 0;
@@ -797,7 +795,7 @@ gdk_pixbuf_loader_close (GdkPixbufLoader *loader,
         if (priv->closed)
                 return TRUE;
   
-        /* We have less the LOADER_HEADER_SIZE bytes in the image.  
+        /* We have less than SNIFF_BUFFER_SIZE bytes in the image.  
          * Flush it, and keep going. 
          */
         if (priv->image_module == NULL)

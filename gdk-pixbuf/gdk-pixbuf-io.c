@@ -47,8 +47,6 @@
 #undef STRICT
 #endif
 
-#define SNIFF_BUFFER_SIZE 4096
-
 /**
  * SECTION:file-loading
  * @Short_description: Loading a pixbuf from a file.

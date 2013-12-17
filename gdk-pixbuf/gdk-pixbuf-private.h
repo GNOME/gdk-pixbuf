@@ -36,6 +36,7 @@
 #include "gdk-pixbuf-i18n.h"
 
 #define LOAD_BUFFER_SIZE 65536
+#define SNIFF_BUFFER_SIZE 4096
 
 
 
