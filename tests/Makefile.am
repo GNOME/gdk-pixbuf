@@ -33,6 +33,7 @@ test_programs = 			\
 	pixbuf-threads			\
 	pixbuf-icc			\
 	pixbuf-stream			\
+	pixbuf-resource			\
 	$(NULL)
 
 dist_test_data = 			\
@@ -42,5 +43,20 @@ dist_test_data = 			\
 	icc-profile.jpeg		\
 	icc-profile.png			\
 	$(wildcard $(srcdir)/test-images/*)
+
+pixbuf_resource_SOURCES = 		\
+	pixbuf-resource.c		\
+	resources.h			\
+	resources.c
+
+BUILT_SOURCES = resources.h resources.c
+DISTCLEANFILES = resources.h resources.c
+EXTRADIST = resources.gresource.xml
+
+resources.h: resources.gresource.xml
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $(srcdir)/resources.gresource.xml --target=$@ --sourcedir=$(srcdir) --generate-header
+
+resources.c: resources.gresource.xml
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $(srcdir)/resources.gresource.xml --target=$@ --sourcedir=$(srcdir) --generate-source
 
 -include $(top_srcdir)/git.mk
