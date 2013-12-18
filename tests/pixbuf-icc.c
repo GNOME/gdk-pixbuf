@@ -22,8 +22,6 @@
 
 #include "config.h"
 #include "gdk-pixbuf/gdk-pixbuf.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 static void
 test_incremental (gconstpointer data)
