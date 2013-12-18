@@ -32,6 +32,7 @@ test_programs = 			\
 	pixbuf-randomly-modified	\
 	pixbuf-threads			\
 	pixbuf-icc			\
+	pixbuf-stream			\
 	$(NULL)
 
 dist_test_data = 			\
