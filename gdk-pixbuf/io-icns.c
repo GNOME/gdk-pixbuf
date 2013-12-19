@@ -22,6 +22,8 @@
 #ifndef _WIN32
 #define _GNU_SOURCE
 #endif
+#include "config.h"
+
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
