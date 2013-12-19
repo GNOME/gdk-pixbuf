@@ -31,15 +31,6 @@
 #endif
 
 static void
-disaster (const char *what)
-{
-  perror (what);
-  exit (EXIT_FAILURE);
-}
-
-static gint verbose;
-
-static void
 randomly_modify (const gchar *image, guint size)
 {
   int i;
@@ -57,11 +48,9 @@ randomly_modify (const gchar *image, guint size)
       
       img_copy[index] = byte;
       f = fopen ("pixbuf-randomly-modified-image", "w");
-      if (!f)
-	disaster ("fopen");
+      g_assert (f != NULL);
       fwrite (img_copy, size, 1, f);
-      if (ferror (f))
-	disaster ("fwrite");
+      g_assert (!ferror (f));
       fclose (f);
 
       loader = gdk_pixbuf_loader_new ();
@@ -73,40 +62,38 @@ randomly_modify (const gchar *image, guint size)
 }
 
 static void
-write_seed (int seed)
+test_randomly_modified (gconstpointer data)
 {
-  FILE *f;
-  /* write this so you can reproduce failed tests */
-  f = fopen ("pixbuf-randomly-modified-seed", "w");
+  const gchar *file = data;
+  const gchar *path;
+  gchar *buffer;
+  gsize size;
+  gint iterations;
+  gint i;
+  GError *error = NULL;
 
-  if (!f)
-    disaster ("fopen");
+  path = g_test_get_filename (G_TEST_DIST, "test-images", file, NULL);
+  g_file_get_contents (path, &buffer, &size, &error);
+  g_assert_no_error (error);
 
-  if (fprintf (f, "%d\n", seed) < 0)
-    disaster ("fprintf");
+  if (g_test_thorough ())
+    iterations = 1000;
+  else
+    iterations = 1;
 
-  if (fclose (f) < 0)
-    disaster ("fclose");
+  for (i = 0; i < iterations; i++)
+    randomly_modify (buffer, size);
 
-  g_print ("seed: %d\n", seed);
-}
-
-static void
-usage (void)
-{
-  g_print ("usage: pixbuf-randomly-modified [-s <seed>] <files> ... \n");
-  exit (EXIT_FAILURE);
+  g_free (buffer);
 }
 
 int
 main (int argc, char **argv)
 {
-  int seed, i;
-  GError *err = NULL;
-  gboolean got_seed = FALSE;
-  GPtrArray *files = g_ptr_array_new ();
-  int l, iterations;
-
+  const gchar *name;
+  gchar *test_images_dir;
+  gchar *path;
+  GDir *dir;
 #ifdef HAVE_SETRLIMIT
   struct rlimit max_mem_size;
 
@@ -120,85 +107,18 @@ main (int argc, char **argv)
 
   g_test_init (&argc, &argv, NULL);
 
-  if (g_getenv ("ITERATIONS"))
-    iterations = atoi (g_getenv ("ITERATIONS"));
-  else
-    iterations = 1;
-
-  seed = time (NULL);
-
-  for (i = 1; i < argc; ++i)
+  test_images_dir = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images", NULL);
+  dir = g_dir_open (test_images_dir, 0, NULL);
+  while ((name = g_dir_read_name (dir)) != NULL)
     {
-      if (strcmp (argv[i], "-s") == 0)
-	{
-	  if (i+1 < argc)
-	    {
-	      seed = atoi (argv[i+1]);
-	      got_seed = TRUE;
-	      ++i;
-	    }
-	  else
-	    usage();
-	}
-      else
-	g_ptr_array_add (files, strdup (argv[i]));
+      path = g_strconcat ("/pixbuf/randomly-modified/", name, NULL);
+      g_test_add_data_func_full (path, g_strdup (name), test_randomly_modified, g_free);
+      g_free (path);
     }
+  g_dir_close (dir);
+  g_free (test_images_dir);
 
-  if (!got_seed)
-    write_seed (seed);
+  g_test_message ("Modified image is written to pixbuf-randomly-modified-image");
 
-  g_random_set_seed (seed);
-
-  if (verbose)
-    g_print ("the last tested image is saved to pixbuf-randomly-modified-image\n");
-
-  g_log_set_always_fatal (G_LOG_LEVEL_WARNING | G_LOG_LEVEL_ERROR | G_LOG_LEVEL_CRITICAL);
-
-  if (files->len == 0)
-    {
-      const gchar *name;
-      const gchar *distdir = g_test_get_dir (G_TEST_DIST);
-      gchar *test_images_dir = g_build_filename (distdir, "test-images", NULL);
-      GDir *dir = g_dir_open (test_images_dir, 0, &err);
-      if (!dir)
-	goto out;
-      while ((name = g_dir_read_name (dir)) != NULL)
-	g_ptr_array_add (files, g_build_filename (test_images_dir, name, NULL));
-      g_dir_close (dir);
-      g_free (test_images_dir);
-    }
-
-  g_assert_cmpint (files->len, >, 0);
-
-  for (l = 0; l < iterations; l++)
-    for (i = 0; i < files->len; ++i)
-      {
-	gchar *contents;
-	gsize size;
-
-	fflush (stdout);
-	if (!g_file_get_contents (files->pdata[i], &contents, &size, &err))
-	  {
-	    g_prefix_error (&err, "Reading %s: ", (char *)files->pdata[i]);
-	    goto out;
-	  }
-	else
-	  {
-            if (verbose)
-              g_print ("%s\t\t", (char *)files->pdata[i]);
-	    randomly_modify (contents, size);
-            if (verbose)
-              g_print ("done\n");
-
-	    g_free (contents);
-	  }
-      }
-
- out:
-  if (err)
-    {
-      g_printerr ("%s\n", err->message);
-      return 1;
-    }
-  return 0;
+  return g_test_run ();
 }
