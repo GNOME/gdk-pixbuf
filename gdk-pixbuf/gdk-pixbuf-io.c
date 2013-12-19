@@ -1351,7 +1351,7 @@ gdk_pixbuf_new_from_file_at_scale (const char *filename,
                 return NULL;
         }
 
-        loader = gdk_pixbuf_loader_new ();
+        loader = _gdk_pixbuf_loader_new_with_filename (filename);
 
         info.width = width;
         info.height = height;
@@ -1909,7 +1909,7 @@ gdk_pixbuf_get_file_info (const gchar  *filename,
         if (!f)
                 return NULL;
 
-        loader = gdk_pixbuf_loader_new ();
+        loader = _gdk_pixbuf_loader_new_with_filename (filename);
 
         info.format = NULL;
         info.width = -1;

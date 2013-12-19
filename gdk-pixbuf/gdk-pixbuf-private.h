@@ -32,6 +32,7 @@
 #include <glib-object.h>
 
 #include "gdk-pixbuf-core.h"
+#include "gdk-pixbuf-loader.h"
 #include "gdk-pixbuf-io.h"
 #include "gdk-pixbuf-i18n.h"
 
@@ -99,9 +100,11 @@ GdkPixbuf *_gdk_pixbuf_generic_image_load (GdkPixbufModule *image_module,
 
 GdkPixbufFormat *_gdk_pixbuf_get_format (GdkPixbufModule *image_module);
 
+
 #endif /* GDK_PIXBUF_ENABLE_BACKEND */
 
 GdkPixbuf * _gdk_pixbuf_new_from_resource_try_mmap (const char *resource_path);
+GdkPixbufLoader *_gdk_pixbuf_loader_new_with_filename (const char *filename);
 
 #endif /* GDK_PIXBUF_PRIVATE_H */
 
