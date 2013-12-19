@@ -20,7 +20,6 @@
 #ifndef __GDKPIXBUFINTL_H__
 #define __GDKPIXBUFINTL_H__
 
-#include "config.h"
 #include <glib.h>
 
 #ifdef ENABLE_NLS
