@@ -71,6 +71,7 @@ main (int argc, char **argv)
   g_test_add_data_func ("/pixbuf/scale/ras", "test-images/valid_ras_test", test_scale);
   g_test_add_data_func ("/pixbuf/scale/tga", "test-images/valid_tga_test", test_scale);
   g_test_add_data_func ("/pixbuf/scale/xpm", "test-images/valid_xpm_test", test_scale);
+  g_test_add_data_func ("/pixbuf/scale/xbm", "test-images/valid.xbm", test_scale);
 
   return g_test_run ();
 }
