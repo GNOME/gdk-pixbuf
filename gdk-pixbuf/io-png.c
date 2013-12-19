@@ -852,7 +852,7 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
                        if (strncmp (*kiter, "tEXt::", 6) == 0) {
                                gchar  *key = *kiter + 6;
                                int     len = strlen (key);
-                               if (len <= 1 || len > 79) {
+                               if (len < 1 || len > 79) {
                                        g_set_error_literal (error,
                                                             GDK_PIXBUF_ERROR,
                                                             GDK_PIXBUF_ERROR_BAD_OPTION,
