@@ -788,7 +788,6 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 	info->description = N_("The TIFF image format");
 	info->mime_types = (gchar **) mime_types;
 	info->extensions = (gchar **) extensions;
-        /* not threadsafe, due to the error handler handling */
 	info->flags = GDK_PIXBUF_FORMAT_WRITABLE | GDK_PIXBUF_FORMAT_THREADSAFE;
 	info->license = "LGPL";
 }
