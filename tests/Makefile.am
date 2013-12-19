@@ -1,6 +1,6 @@
 include $(top_srcdir)/glib-tap.mk
 
-INCLUDES =				\
+AM_CPPFLAGS =				\
 	-I$(top_srcdir)			\
 	-I$(top_srcdir)/gdk-pixbuf	\
 	$(GDK_PIXBUF_DEBUG_FLAGS)	\
