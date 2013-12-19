@@ -40,7 +40,7 @@
 
 /* I have must have done something to deserve this.
  * XPM is such a crappy format to handle.
- * This code is an ugly hybred from gdkpixmap.c
+ * This code is an ugly hybrid from gdkpixmap.c
  * modified to respect transparent colors.
  * It's still a mess, though.
  */
@@ -688,7 +688,7 @@ struct _XPMContext
 /*
  * FIXME xpm loading progressively is not properly implemented.
  * Instead we will buffer to a file then load that file when done.
- * This is very broken but it should be relayively simple to fix
+ * This is very broken but it should be relatively simple to fix
  * in the future.
  */
 static gpointer
