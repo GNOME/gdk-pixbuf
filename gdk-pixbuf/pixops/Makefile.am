@@ -2,7 +2,7 @@ include $(top_srcdir)/Makefile.decl
 
 noinst_LTLIBRARIES = libpixops.la
 
-INCLUDES = \
+AM_CPPFLAGS = \
 	-I$(top_srcdir) -I$(top_builddir) 	\
 	$(GTK_DEBUG_FLAGS)			\
 	$(GDK_PIXBUF_DEP_CFLAGS)
