@@ -28,6 +28,7 @@ noinst_PROGRAMS = 			\
 	pixbuf-stream			\
 	pixbuf-resource			\
 	pixbuf-scale			\
+	pixbuf-save			\
 	$(NULL)
 
 test_programs = 			\
@@ -39,6 +40,7 @@ test_programs = 			\
 	pixbuf-stream			\
 	pixbuf-resource			\
 	pixbuf-scale			\
+	pixbuf-save			\
 	$(NULL)
 
 dist_test_data = 			\
