@@ -2927,7 +2927,7 @@ gdk_pixbuf_save_to_stream_finish (GAsyncResult  *async_result,
 	/* Can not use g_task_is_valid because our GTask has a
 	 * source_object which is not available to us anymore.
 	 */
-	g_return_val_if_fail (G_IS_TASK (async_result), NULL);
+	g_return_val_if_fail (G_IS_TASK (async_result), FALSE);
 
 	task = G_TASK (async_result);
 
