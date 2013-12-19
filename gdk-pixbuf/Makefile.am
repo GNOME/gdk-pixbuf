@@ -513,7 +513,7 @@ noinst_LTLIBRARIES =		\
 builtin_objs = @INCLUDED_LOADER_OBJ@ $(STATIC_PIXDATA_LIB)
 
 DEPS = libgdk_pixbuf-$(GDK_PIXBUF_API_VERSION).la
-INCLUDES = \
+AM_CPPFLAGS = \
 	-DG_LOG_DOMAIN=\"GdkPixbuf\"					\
 	-DGDK_PIXBUF_COMPILATION					\
 	-I$(top_srcdir) -I$(top_builddir) 				\
@@ -526,9 +526,10 @@ INCLUDES = \
 	$(INCLUDED_LOADER_DEFINE) 					\
 	$(GDK_PIXBUF_DEBUG_FLAGS)					\
 	$(GDK_PIXBUF_DEP_CFLAGS)					\
-	-DGDK_PIXBUF_ENABLE_BACKEND
+	-DGDK_PIXBUF_ENABLE_BACKEND					\
+	-DPIXBUF_LIBDIR=\"$(loaderdir)\"				\
+	-DBUILT_MODULES_DIR=\"$(srcdir)/.libs\"
 
-AM_CPPFLAGS = "-DPIXBUF_LIBDIR=\"$(loaderdir)\"" "-DBUILT_MODULES_DIR=\"$(srcdir)/.libs\""
 LDADDS = libgdk_pixbuf-$(GDK_PIXBUF_API_VERSION).la $(GDK_PIXBUF_DEP_LIBS)
 
 noinst_PROGRAMS = test-gdk-pixbuf

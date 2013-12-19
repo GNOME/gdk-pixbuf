@@ -34,7 +34,7 @@ IGNORE_HFILES=				\
 	xpm-color-table.h		\
 	test-images.h
 
-INCLUDES = 				\
+AM_CPPFLAGS = 				\
 	-I$(top_srcdir) 		\
 	-I$(top_builddir) 		\
 	$(GDK_PIXBUF_DEBUG_FLAGS)	\
