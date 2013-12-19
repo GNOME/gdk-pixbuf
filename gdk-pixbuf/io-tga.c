@@ -241,7 +241,7 @@ static GdkPixbuf *get_contiguous_pixbuf (guint width,
 					 gboolean has_alpha)
 {
 	guchar *pixels;
-	guint channels, rowstride, bytes;
+	guint channels, rowstride;
 	
 	if (has_alpha) 
 		channels = 4;
