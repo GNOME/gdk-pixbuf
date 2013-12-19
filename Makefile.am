@@ -2,7 +2,11 @@ include $(top_srcdir)/Makefile.decl
 
 SUBDIRS = gdk-pixbuf po docs tests contrib build
 
-EXTRA_DIST += config.h.win32
+EXTRA_DIST += 			\
+	config.h.win32 		\
+	glib-tap.mk		\
+	tap-driver.sh		\
+	tap-test
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gdk-pixbuf-2.0.pc

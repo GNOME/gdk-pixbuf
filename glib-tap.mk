@@ -1,19 +1,24 @@
 # GLIB - Library of useful C routines
 
-GTESTER = gtester 			# for non-GLIB packages
-GTESTER_REPORT = gtester-report        # for non-GLIB packages
-#GTESTER = $(top_builddir)/glib/gtester			# for the GLIB package
-#GTESTER_REPORT = $(top_builddir)/glib/gtester-report	# for the GLIB package
+TESTS_ENVIRONMENT= \
+	G_TEST_SRCDIR="$(abs_srcdir)" 		\
+	G_TEST_BUILDDIR="$(abs_builddir)" 	\
+	G_DEBUG=gc-friendly 			\
+	MALLOC_CHECK_=2 			\
+	MALLOC_PERTURB_=$$(($${RANDOM:-256} % 256))
+LOG_DRIVER = env AM_TAP_AWK='$(AWK)' $(SHELL) $(top_srcdir)/tap-driver.sh
+LOG_COMPILER = $(top_srcdir)/tap-test
+
 NULL =
 
 # initialize variables for unconditional += appending
 BUILT_SOURCES =
 BUILT_EXTRA_DIST =
-CLEANFILES =
+CLEANFILES = *.log *.trs
 DISTCLEANFILES =
 MAINTAINERCLEANFILES =
 EXTRA_DIST =
-TEST_PROGS =
+TESTS =
 
 installed_test_LTLIBRARIES =
 installed_test_PROGRAMS =
@@ -29,96 +34,6 @@ check_LTLIBRARIES =
 check_PROGRAMS =
 check_SCRIPTS =
 check_DATA =
-
-TESTS =
-
-### testing rules
-
-# test: run all tests in cwd and subdirs
-test: test-nonrecursive
-if OS_UNIX
-	@ for subdir in $(SUBDIRS) . ; do \
-	    test "$$subdir" = "." -o "$$subdir" = "po" || \
-	    ( cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $@ ) || exit $? ; \
-	  done
-
-# test-nonrecursive: run tests only in cwd
-test-nonrecursive: ${TEST_PROGS}
-	@test -z "${TEST_PROGS}" || G_TEST_SRCDIR="$(abs_srcdir)" G_TEST_BUILDDIR="$(abs_builddir)" G_DEBUG=gc-friendly MALLOC_CHECK_=2 MALLOC_PERTURB_=$$(($${RANDOM:-256} % 256)) ${GTESTER} --verbose ${TEST_PROGS}
-else
-test-nonrecursive:
-endif
-
-# test-report: run tests in subdirs and generate report
-# perf-report: run tests in subdirs with -m perf and generate report
-# full-report: like test-report: with -m perf and -m slow
-test-report perf-report full-report:	${TEST_PROGS}
-	@test -z "${TEST_PROGS}" || { \
-	  case $@ in \
-	  test-report) test_options="-k";; \
-	  perf-report) test_options="-k -m=perf";; \
-	  full-report) test_options="-k -m=perf -m=slow";; \
-	  esac ; \
-	  if test -z "$$GTESTER_LOGDIR" ; then	\
-	    G_TEST_SRCDIR="$(abs_srcdir)" G_TEST_BUILDDIR="$(abs_builddir)" ${GTESTER} --verbose $$test_options -o test-report.xml ${TEST_PROGS} ; \
-	  elif test -n "${TEST_PROGS}" ; then \
-	    G_TEST_SRCDIR="$(abs_srcdir)" G_TEST_BUILDDIR="$(abs_builddir)" ${GTESTER} --verbose $$test_options -o `mktemp "$$GTESTER_LOGDIR/log-XXXXXX"` ${TEST_PROGS} ; \
-	  fi ; \
-	}
-	@ ignore_logdir=true ; \
-	  if test -z "$$GTESTER_LOGDIR" ; then \
-	    GTESTER_LOGDIR=`mktemp -d "\`pwd\`/.testlogs-XXXXXX"`; export GTESTER_LOGDIR ; \
-	    ignore_logdir=false ; \
-	  fi ; \
-	  if test -d "$(top_srcdir)/.git" ; then \
-	    REVISION=`git describe` ; \
-	  else \
-	    REVISION=$(VERSION) ; \
-	  fi ; \
-	  for subdir in $(SUBDIRS) . ; do \
-	    test "$$subdir" = "." -o "$$subdir" = "po" || \
-	    ( cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $@ ) || exit $? ; \
-	  done ; \
-	  $$ignore_logdir || { \
-	    echo '<?xml version="1.0"?>'              > $@.xml ; \
-	    echo '<report-collection>'               >> $@.xml ; \
-	    echo '<info>'                            >> $@.xml ; \
-	    echo '  <package>$(PACKAGE)</package>'   >> $@.xml ; \
-	    echo '  <version>$(VERSION)</version>'   >> $@.xml ; \
-	    echo "  <revision>$$REVISION</revision>" >> $@.xml ; \
-	    echo '</info>'                           >> $@.xml ; \
-	    for lf in `ls -L "$$GTESTER_LOGDIR"/.` ; do \
-	      sed '1,1s/^<?xml\b[^>?]*?>//' <"$$GTESTER_LOGDIR"/"$$lf" >> $@.xml ; \
-	    done ; \
-	    echo >> $@.xml ; \
-	    echo '</report-collection>' >> $@.xml ; \
-	    rm -rf "$$GTESTER_LOGDIR"/ ; \
-	    ${GTESTER_REPORT} --version 2>/dev/null 1>&2 ; test "$$?" != 0 || ${GTESTER_REPORT} $@.xml >$@.html ; \
-	  }
-.PHONY: test test-report perf-report full-report test-nonrecursive
-
-.PHONY: lcov genlcov lcov-clean
-# use recursive makes in order to ignore errors during check
-lcov:
-	-$(MAKE) $(AM_MAKEFLAGS) -k check
-	$(MAKE) $(AM_MAKEFLAGS) genlcov
-
-# we have to massage the lcov.info file slightly to hide the effect of libtool
-# placing the objects files in the .libs/ directory separate from the *.c
-# we also have to delete tests/.libs/libmoduletestplugin_*.gcda
-genlcov:
-	rm -f $(top_builddir)/tests/.libs/libmoduletestplugin_*.gcda
-	$(LTP) --directory $(top_builddir) --capture --output-file glib-lcov.info --test-name GLIB_PERF --no-checksum --compat-libtool
-	LANG=C $(LTP_GENHTML) --prefix $(top_builddir) --output-directory glib-lcov --title "GLib Code Coverage" --legend --show-details glib-lcov.info
-	@echo "file://$(abs_top_builddir)/glib-lcov/index.html"
-
-lcov-clean:
-	-$(LTP) --directory $(top_builddir) -z
-	-rm -rf glib-lcov.info glib-lcov
-	-find -name '*.gcda' -print | xargs rm
-
-# run tests in cwd as part of make check
-check-local: test-nonrecursive
 
 # We support a fairly large range of possible variables.  It is expected that all types of files in a test suite
 # will belong in exactly one of the following variables.
@@ -160,14 +75,8 @@ check-local: test-nonrecursive
 # variants) will be run as part of the in-tree 'make check'.  These are all assumed to be runnable under
 # gtester.  That's a bit strange for scripts, but it's possible.
 
-# we use test -z "$(TEST_PROGS)" above, so make sure we have no extra whitespace...
-TEST_PROGS += $(strip $(test_programs) $(test_scripts) $(uninstalled_test_programs) $(uninstalled_test_scripts) \
-                      $(dist_test_scripts) $(dist_uninstalled_test_scripts))
-
-if OS_WIN32
 TESTS += $(test_programs) $(test_scripts) $(uninstalled_test_programs) $(uninstalled_test_scripts) \
          $(dist_test_scripts) $(dist_uninstalled_test_scripts)
-endif
 
 # Note: build even the installed-only targets during 'make check' to ensure that they still work.
 # We need to do a bit of trickery here and manage disting via EXTRA_DIST instead of using dist_ prefixes to

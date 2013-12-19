@@ -1,4 +1,4 @@
-include $(top_srcdir)/glib.mk
+include $(top_srcdir)/glib-tap.mk
 
 INCLUDES =				\
 	-I$(top_srcdir)			\
@@ -24,6 +24,10 @@ noinst_PROGRAMS = 			\
 	pixbuf-random			\
 	pixbuf-threads			\
 	pixbuf-icon-serialize		\
+	pixbuf-icc			\
+	pixbuf-stream			\
+	pixbuf-resource			\
+	pixbuf-scale			\
 	$(NULL)
 
 test_programs = 			\
