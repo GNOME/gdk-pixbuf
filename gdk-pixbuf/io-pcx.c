@@ -733,7 +733,7 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 
 MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 {
-	static GdkPixbufModulePattern signature[] = {
+	static const GdkPixbufModulePattern signature[] = {
 		{ "\x0a \x01", NULL, 100 },
 		{ "\x0a\x02\x01", NULL, 100 },
 		{ "\x0a\x03\x01", NULL, 100 },
@@ -741,20 +741,20 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 		{ "\x0a\x05\x01", NULL, 100 },
 		{ NULL, NULL, 0 }
 	};
-	static gchar *mime_types[] = {
+	static const gchar *mime_types[] = {
 		"image/x-pcx",
 		NULL,
 	};
-	static gchar *extensions[] = {
+	static const gchar *extensions[] = {
 		"pcx",
 		NULL,
 	};
 
 	info->name = "pcx";
-	info->signature = signature;
+	info->signature = (GdkPixbufModulePattern *) signature;
 	info->description = N_("The PCX image format");
-	info->mime_types = mime_types;
-	info->extensions = extensions;
+	info->mime_types = (gchar **) mime_types;
+	info->extensions = (gchar **) extensions;
 	info->flags = GDK_PIXBUF_FORMAT_THREADSAFE;
 	info->license = "LGPL";
 }

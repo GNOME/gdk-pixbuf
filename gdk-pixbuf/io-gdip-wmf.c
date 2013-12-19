@@ -36,28 +36,28 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 
 MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 {
-  static GdkPixbufModulePattern signature[] = {
+  static const GdkPixbufModulePattern signature[] = {
     { "\xd7\xcd\xc6\x9a", NULL, 100 }, /* WMF */
     { "\x01\x00\x09\x00", NULL, 100 }, /* WMF */
     { NULL, NULL, 0 }
   };
 
-  static gchar *mime_types[] = {
+  static const gchar *mime_types[] = {
     "image/x-wmf",
     NULL
   };
 
-  static gchar *extensions[] = {
+  static const gchar *extensions[] = {
     "wmf",
     "apm",
     NULL
   };
 
   info->name        = "wmf";
-  info->signature   = signature;
+  info->signature   = (GdkPixbufModulePattern *) signature;
   info->description = _("The WMF image format");
-  info->mime_types  = mime_types;
-  info->extensions  = extensions;
+  info->mime_types  = (gchar **) mime_types;
+  info->extensions  = (gchar **) extensions;
   info->flags       = GDK_PIXBUF_FORMAT_THREADSAFE;
   info->license     = "LGPL";
 }

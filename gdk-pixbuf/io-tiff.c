@@ -767,27 +767,27 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 
 MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 {
-        static GdkPixbufModulePattern signature[] = {
+        static const GdkPixbufModulePattern signature[] = {
                 { "MM \x2a", "  z ", 100 },
                 { "II\x2a ", "   z", 100 },
                 { "II* \020   CR\002 ", "   z zzz   z", 0 },
                 { NULL, NULL, 0 }
         };
-	static gchar * mime_types[] = {
+	static const gchar *mime_types[] = {
 		"image/tiff",
 		NULL
 	};
-	static gchar * extensions[] = {
+	static const gchar *extensions[] = {
 		"tiff",
 		"tif",
 		NULL
 	};
 
 	info->name = "tiff";
-        info->signature = signature;
+        info->signature = (GdkPixbufModulePattern *) signature;
 	info->description = N_("The TIFF image format");
-	info->mime_types = mime_types;
-	info->extensions = extensions;
+	info->mime_types = (gchar **) mime_types;
+	info->extensions = (gchar **) extensions;
         /* not threadsafe, due to the error handler handling */
 	info->flags = GDK_PIXBUF_FORMAT_WRITABLE | GDK_PIXBUF_FORMAT_THREADSAFE;
 	info->license = "LGPL";

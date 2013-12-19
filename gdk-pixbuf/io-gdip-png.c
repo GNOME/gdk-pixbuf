@@ -113,26 +113,26 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 
 MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 {
-  static GdkPixbufModulePattern signature[] = {
+  static const GdkPixbufModulePattern signature[] = {
     { "\x89PNG\r\n\x1a\x0a", NULL, 100 }, /* PNG */
     { NULL, NULL, 0 }
   };
 
-  static gchar *mime_types[] = {
+  static const gchar *mime_types[] = {
     "image/png",
     NULL
   };
 
-  static gchar *extensions[] = {
+  static const gchar *extensions[] = {
     "png",
     NULL
   };
 
   info->name        = "png";
-  info->signature   = signature;
+  info->signature   = (GdkPixbufModulePattern *) signature;
   info->description = _("The PNG image format");
-  info->mime_types  = mime_types;
-  info->extensions  = extensions;
+  info->mime_types  = (gchar **) mime_types;
+  info->extensions  = (gchar **) extensions;
   info->flags       = GDK_PIXBUF_FORMAT_WRITABLE | GDK_PIXBUF_FORMAT_THREADSAFE;
   info->license     = "LGPL";
 }

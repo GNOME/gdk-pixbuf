@@ -280,18 +280,18 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule * module)
 
 MODULE_ENTRY (fill_info) (GdkPixbufFormat * info)
 {
-	static GdkPixbufModulePattern signature[] = {
+	static const GdkPixbufModulePattern signature[] = {
 		{ "    jP", "!!!!  ", 100 },		/* file begins with 'jP' at offset 4 */
 		{ "\xff\x4f\xff\x51\x00", NULL, 100 },	/* file starts with FF 4F FF 51 00 */
 		{ NULL, NULL, 0 }
 	};
-	static gchar *mime_types[] = {
+	static const gchar *mime_types[] = {
 		"image/jp2",
 		"image/jpeg2000",
 		"image/jpx",
 		NULL
 	};
-	static gchar *extensions[] = {
+	static const gchar *extensions[] = {
 		"jp2",
 		"jpc",
 		"jpx",
@@ -301,10 +301,10 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat * info)
 	};
 
 	info->name = "jpeg2000";
-	info->signature = signature;
+	info->signature = (GdkPixbufModulePattern *) signature;
 	info->description = N_("The JPEG 2000 image format");
-	info->mime_types = mime_types;
-	info->extensions = extensions;
+	info->mime_types = (gchar **) mime_types;
+	info->extensions = (gchar **) extensions;
 	info->flags = GDK_PIXBUF_FORMAT_THREADSAFE;
 	info->license = "LGPL";
 	info->disabled = FALSE;

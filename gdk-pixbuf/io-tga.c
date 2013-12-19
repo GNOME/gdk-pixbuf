@@ -983,7 +983,7 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 
 MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 {
-	static GdkPixbufModulePattern signature[] = {
+	static const GdkPixbufModulePattern signature[] = {
 		{ " \x1\x1", "x  ", 100 },
 		{ " \x1\x9", "x  ", 100 },
 		{ "  \x2", "xz ",  99 }, /* only 99 since .CUR also matches this */
@@ -992,21 +992,21 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 		{ "  \xb", "xz ", 100 },
 		{ NULL, NULL, 0 }
 	};
-	static gchar * mime_types[] = {
+	static const gchar *mime_types[] = {
 		"image/x-tga",
 		NULL
 	};
-	static gchar * extensions[] = {
+	static const gchar *extensions[] = {
 		"tga",
 		"targa",
 		NULL
 	};
 
 	info->name = "tga";
-	info->signature = signature;
+	info->signature = (GdkPixbufModulePattern *) signature;
 	info->description = N_("The Targa image format");
-	info->mime_types = mime_types;
-	info->extensions = extensions;
+	info->mime_types = (gchar **) mime_types;
+	info->extensions = (gchar **) extensions;
 	info->flags = GDK_PIXBUF_FORMAT_THREADSAFE;
 	info->license = "LGPL";
 }

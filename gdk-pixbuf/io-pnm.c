@@ -1050,7 +1050,7 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 
 MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 {
-	static GdkPixbufModulePattern signature[] = {
+	static const GdkPixbufModulePattern signature[] = {
 		{ "P1", NULL, 100 },
 		{ "P2", NULL, 100 },
 		{ "P3", NULL, 100 },
@@ -1059,14 +1059,14 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 		{ "P6", NULL, 100 },
 		{ NULL, NULL, 0 }
 	};
-	static gchar * mime_types[] = {
+	static const gchar *mime_types[] = {
 		"image/x-portable-anymap",
 		"image/x-portable-bitmap",
 		"image/x-portable-graymap",
 		"image/x-portable-pixmap",
 		NULL
 	};
-	static gchar * extensions[] = {
+	static const gchar *extensions[] = {
 		"pnm",
 		"pbm",
 		"pgm",
@@ -1075,10 +1075,10 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 	};
 
 	info->name = "pnm";
-	info->signature = signature;
+	info->signature = (GdkPixbufModulePattern *) signature;
 	info->description = N_("The PNM/PBM/PGM/PPM image format family");
-	info->mime_types = mime_types;
-	info->extensions = extensions;
+	info->mime_types = (gchar **) mime_types;
+	info->extensions = (gchar **) extensions;
 	info->flags = GDK_PIXBUF_FORMAT_THREADSAFE;
 	info->license = "LGPL";
 }
