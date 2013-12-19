@@ -56,7 +56,7 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 
   info->name        = "emf";
   info->signature   = (GdkPixbufModulePattern *) signature;
-  info->description = _("The EMF image format");
+  info->description = N_("The EMF image format");
   info->mime_types  = (gchar **) mime_types;
   info->extensions  = (gchar **) extensions;
   info->flags       = GDK_PIXBUF_FORMAT_THREADSAFE;

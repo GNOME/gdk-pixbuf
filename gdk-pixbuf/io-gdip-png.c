@@ -130,7 +130,7 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 
   info->name        = "png";
   info->signature   = (GdkPixbufModulePattern *) signature;
-  info->description = _("The PNG image format");
+  info->description = N_("The PNG image format");
   info->mime_types  = (gchar **) mime_types;
   info->extensions  = (gchar **) extensions;
   info->flags       = GDK_PIXBUF_FORMAT_WRITABLE | GDK_PIXBUF_FORMAT_THREADSAFE;

@@ -55,7 +55,7 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 
   info->name        = "wmf";
   info->signature   = (GdkPixbufModulePattern *) signature;
-  info->description = _("The WMF image format");
+  info->description = N_("The WMF image format");
   info->mime_types  = (gchar **) mime_types;
   info->extensions  = (gchar **) extensions;
   info->flags       = GDK_PIXBUF_FORMAT_THREADSAFE;
