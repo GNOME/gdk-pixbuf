@@ -325,8 +325,10 @@ gdk_pixbuf_loader_prepare (GdkPixbuf          *pixbuf,
 
         if (!priv->size_fixed) 
                 {
+			gint w = width;
+			gint h = height;
                         /* Defend against lazy loaders which don't call size_func */
-                        gdk_pixbuf_loader_size_func (&width, &height, loader);
+                        gdk_pixbuf_loader_size_func (&w, &h, loader);
                 }
 
         priv->needs_scale = FALSE;
