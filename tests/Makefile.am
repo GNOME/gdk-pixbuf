@@ -34,6 +34,7 @@ test_programs = 			\
 	pixbuf-icc			\
 	pixbuf-stream			\
 	pixbuf-resource			\
+	pixbuf-scale			\
 	$(NULL)
 
 dist_test_data = 			\
