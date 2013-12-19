@@ -88,15 +88,6 @@ main (int argc, char **argv)
 
   g_test_init (&argc, &argv, NULL);
 
-#if !GLIB_CHECK_VERSION (2, 35, 3)
-  g_type_init ();
-#endif
-
-#if !GLIB_CHECK_VERSION (2, 32, 0)
-  if (!g_thread_supported ())
-    g_thread_init (NULL);
-#endif
-
   if (g_getenv ("ITERATIONS"))
     iterations = atoi (g_getenv ("ITERATIONS"));
   else

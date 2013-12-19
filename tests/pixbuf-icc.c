@@ -74,10 +74,6 @@ test_nonincremental (gconstpointer data)
 int
 main (int argc, char **argv)
 {
-#if !GLIB_CHECK_VERSION (2, 35, 3)
-  g_type_init ();
-#endif
-
   g_test_init (&argc, &argv, NULL);
 
   g_test_add_data_func ("/pixbuf/icc/png", "icc-profile.png", test_nonincremental);

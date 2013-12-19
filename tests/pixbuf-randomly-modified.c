@@ -152,9 +152,6 @@ main (int argc, char **argv)
   if (verbose)
     g_print ("the last tested image is saved to pixbuf-randomly-modified-image\n");
 
-#if !GLIB_CHECK_VERSION (2, 35, 3)
-  g_type_init ();
-#endif
   g_log_set_always_fatal (G_LOG_LEVEL_WARNING | G_LOG_LEVEL_ERROR | G_LOG_LEVEL_CRITICAL);
 
   if (files->len == 0)
