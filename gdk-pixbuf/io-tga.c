@@ -253,12 +253,7 @@ static GdkPixbuf *get_contiguous_pixbuf (guint width,
 	if (rowstride / channels != width)
                 return NULL;                
 
-	bytes = height * rowstride;
-
-        if (bytes / rowstride != height)
-                return NULL;                
-
-        pixels = g_try_malloc (bytes);
+        pixels = g_try_malloc_n (height, rowstride);
 
 	if (!pixels)
 		return NULL;

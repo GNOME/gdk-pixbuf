@@ -437,7 +437,7 @@ gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
     copy_pixels = TRUE;
   if (copy_pixels)
     {
-      data = g_try_malloc (pixdata->rowstride * pixdata->height);
+      data = g_try_malloc_n (pixdata->height, pixdata->rowstride);
       if (!data)
 	{
 	  g_set_error (error, GDK_PIXBUF_ERROR,
