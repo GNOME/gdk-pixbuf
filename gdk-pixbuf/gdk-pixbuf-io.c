@@ -883,7 +883,7 @@ _gdk_pixbuf_get_module (guchar *buffer, guint size,
         gboolean uncertain;
 
         mime_type = g_content_type_guess (NULL, buffer, size, &uncertain);
-        if (uncertain && filename != NULL) {
+        if ((uncertain || g_str_equal (mime_type, "text/plain")) && filename != NULL) {
                 g_free (mime_type);
                 mime_type = g_content_type_guess (filename, buffer, size, NULL);
         }
