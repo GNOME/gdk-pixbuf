@@ -1,10 +1,8 @@
-include $(top_srcdir)/Makefile.decl
-
 SUBDIRS = \
 	vs9 \
 	vs10
 
-EXTRA_DIST +=	\
+EXTRA_DIST =	\
 	gengir_gdkpixbuf.bat	\
 	gen-file-list-gdkpixbuf.py
 
