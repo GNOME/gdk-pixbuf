@@ -34,5 +34,16 @@ MAINTAINERCLEANFILES = \
 	ltmain.sh \
 	missing
 
+if WITH_COVERAGE
+.PHONY: coverage clear-coverage
+
+coverage:
+	$(AM_V_GEN) $(LCOV) --quiet --directory $(top_builddir) --capture --output-file $(top_builddir)/coverage.info --no-checksum --compat-libtool; \
+	  $(GENHTML) --quiet --output-directory $(top_builddir)/coverage $(top_builddir)/coverage.info
+	@echo "file://$(abs_top_builddir)/coverage/index.html"
+
+clear-coverage:
+	$(AM_V_GEN) $(LCOV) --directory . --zerocounters
+endif
 
 -include $(top_srcdir)/git.mk
