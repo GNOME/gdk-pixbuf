@@ -1,5 +1,3 @@
-include $(top_srcdir)/Makefile.decl
-
 noinst_LTLIBRARIES = libpixops.la
 
 AM_CPPFLAGS = \
@@ -26,7 +24,7 @@ libpixops_la_SOURCES =  		\
 	pixops-internal.h		\
 	$(mmx_sources)
 
-EXTRA_DIST +=				\
+EXTRA_DIST =				\
 	DETAILS				\
 	pixbuf-transform-math.ltx	\
 	makefile.msc

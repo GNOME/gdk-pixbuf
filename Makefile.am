@@ -1,8 +1,6 @@
-include $(top_srcdir)/Makefile.decl
-
 SUBDIRS = gdk-pixbuf po docs tests contrib build
 
-EXTRA_DIST += 			\
+EXTRA_DIST = 			\
 	config.h.win32 		\
 	glib-tap.mk		\
 	tap-driver.sh		\

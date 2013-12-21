@@ -1,4 +1,3 @@
-include $(top_srcdir)/Makefile.decl
 -include $(INTROSPECTION_MAKEFILE)
 
 INTROSPECTION_GIRS =
@@ -672,7 +671,7 @@ distclean-local:
 	  rm -f $(MAINTAINERCLEANFILES); \
 	fi
 
-EXTRA_DIST +=					\
+EXTRA_DIST =					\
         gdk-pixbuf-csource.1			\
 	makefile.msc				\
 	gdk-pixbuf.symbols			\

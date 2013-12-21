@@ -1,5 +1,3 @@
-include $(top_srcdir)/Makefile.decl
-
 SUBDIRS = gdk-pixbuf
 
 GITIGNOREFILES = */*.1
