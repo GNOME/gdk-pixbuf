@@ -22,7 +22,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			ConfigurationType="2"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-gen-srcs.vsprops"
 			CharacterSet="2"
 			>
 			<Tool
@@ -33,7 +33,7 @@
 				AdditionalOptions=""
 				Optimization="0"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="_DEBUG;$(GdkPixbufDefines);$(GDIP_MACROS);DLL_EXPORT"
+				PreprocessorDefinitions="_DEBUG;$(GdkPixbufDefines);$(GDIP_MACROS)"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -59,7 +59,7 @@
 		<Configuration
 			Name="Release|Win32"
 			ConfigurationType="2"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-gen-srcs.vsprops"
 			CharacterSet="2"
 			>
 			<Tool
@@ -70,7 +70,7 @@
 				AdditionalOptions=""
 				Optimization="3"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="$(GdkPixbufDefines);$(GDIP_MACROS);DLL_EXPORT"
+				PreprocessorDefinitions="$(GdkPixbufDefines);$(GDIP_MACROS)"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -94,7 +94,7 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|x64"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-gen-srcs.vsprops"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -105,7 +105,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="_DEBUG;$(GdkPixbufDefines);$(GDIP_MACROS);DLL_EXPORT"
+				PreprocessorDefinitions="_DEBUG;$(GdkPixbufDefines);$(GDIP_MACROS)"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -127,7 +127,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|x64"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-gen-srcs.vsprops"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -136,7 +136,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				PreprocessorDefinitions="$(GdkPixbufDefines);$(GDIP_MACROS);DLL_EXPORT"
+				PreprocessorDefinitions="$(GdkPixbufDefines);$(GDIP_MACROS)"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -160,7 +160,7 @@
 			Name="Debug_NoGDIP|Win32"
 			OutputDirectory="Debug\$(PlatformName)\bin"
 			ConfigurationType="2"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-gen-srcs.vsprops"
 			CharacterSet="2"
 			>
 			<Tool
@@ -171,7 +171,7 @@
 				Optimization="0"
 				AdditionalOptions=""
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="$(GdkPixbufDefines);$(NOGDIP_MACROS);DLL_EXPORT"
+				PreprocessorDefinitions="$(GdkPixbufDefines);$(NOGDIP_MACROS)"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -200,7 +200,7 @@
 			Name="Release_NoGDIP|Win32"
 			OutputDirectory="Release\$(PlatformName)\bin"
 			ConfigurationType="2"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-gen-srcs.vsprops"
 			CharacterSet="2"
 			>
 			<Tool
@@ -211,7 +211,7 @@
 				AdditionalOptions=""
 				Optimization="3"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="$(GdkPixbufDefines);$(NOGDIP_MACROS);DLL_EXPORT"
+				PreprocessorDefinitions="$(GdkPixbufDefines);$(NOGDIP_MACROS)"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -237,7 +237,7 @@
 		<Configuration
 			Name="Debug_NoGDIP|x64"
 			OutputDirectory="Debug\$(PlatformName)\bin"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-gen-srcs.vsprops"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -248,7 +248,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="_DEBUG;$(GdkPixbufDefines);$(NOGDIP_MACROS);DLL_EXPORT"
+				PreprocessorDefinitions="_DEBUG;$(GdkPixbufDefines);$(NOGDIP_MACROS)"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -272,7 +272,7 @@
 		<Configuration
 			Name="Release_NoGDIP|x64"
 			OutputDirectory="Release\$(PlatformName)\bin"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-gen-srcs.vsprops"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -281,7 +281,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				PreprocessorDefinitions="$(GdkPixbufDefines);$(NOGDIP_MACROS);DLL_EXPORT"
+				PreprocessorDefinitions="$(GdkPixbufDefines);$(NOGDIP_MACROS)"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -433,12 +433,78 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File RelativePath="..\..\..\config.h.win32">
+				<FileConfiguration Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying config.h from config.h.win32..."
+						CommandLine="$(GenConfigH)"
+						Outputs="..\..\..\config.h"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Debug_NoGDIP|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying config.h from config.h.win32..."
+						CommandLine="$(GenConfigH)"
+						Outputs="..\..\..\config.h"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying config.h from config.h.win32..."
+						CommandLine="$(GenConfigH)"
+						Outputs="..\..\..\config.h"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Release_NoGDIP|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying config.h from config.h.win32..."
+						CommandLine="$(GenConfigH)"
+						Outputs="..\..\..\config.h"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Debug|x64">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying config.h from config.h.win32..."
+						CommandLine="$(GenConfigH)"
+						Outputs="..\..\..\config.h"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Debug_NoGDIP|x64">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying config.h from config.h.win32..."
+						CommandLine="$(GenConfigH)"
+						Outputs="..\..\..\config.h"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Release|x64">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying config.h from config.h.win32..."
+						CommandLine="$(GenConfigH)"
+						Outputs="..\..\..\config.h"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Release_NoGDIP|x64">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copying config.h from config.h.win32..."
+						CommandLine="$(GenConfigH)"
+						Outputs="..\..\..\config.h"
+					/>
+				</FileConfiguration>
+			</File>
 			<File RelativePath="..\..\..\gdk-pixbuf\gdk-pixbuf.symbols">
 				<FileConfiguration Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						CommandLine="$(GenerateGdkPixbufDef)"
 						Outputs="$(IntDir)\gdk-pixbuf.def"
 					/>
 				</FileConfiguration>
@@ -446,7 +512,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						CommandLine="$(GenerateGdkPixbufDef)"
 						Outputs="$(IntDir)\gdk-pixbuf.def"
 					/>
 				</FileConfiguration>
@@ -454,7 +520,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						CommandLine="$(GenerateGdkPixbufDef)"
 						Outputs="$(IntDir)\gdk-pixbuf.def"
 					/>
 				</FileConfiguration>
@@ -462,7 +528,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						CommandLine="$(GenerateGdkPixbufDef)"
 						Outputs="$(IntDir)\gdk-pixbuf.def"
 					/>
 				</FileConfiguration>
@@ -470,7 +536,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						CommandLine="$(GenerateGdkPixbufDef)"
 						Outputs="$(IntDir)\gdk-pixbuf.def"
 					/>
 				</FileConfiguration>
@@ -478,7 +544,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						CommandLine="$(GenerateGdkPixbufDef)"
 						Outputs="$(IntDir)\gdk-pixbuf.def"
 					/>
 				</FileConfiguration>
@@ -486,7 +552,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						CommandLine="$(GenerateGdkPixbufDef)"
 						Outputs="$(IntDir)\gdk-pixbuf.def"
 					/>
 				</FileConfiguration>
@@ -494,7 +560,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GdkPixbufGenerateGdkPixbufDef)"
+						CommandLine="$(GenerateGdkPixbufDef)"
 						Outputs="$(IntDir)\gdk-pixbuf.def"
 					/>
 				</FileConfiguration>

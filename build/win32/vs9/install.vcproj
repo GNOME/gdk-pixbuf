@@ -23,7 +23,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="$(GlibEtcInstallRoot)"
 			ConfigurationType="10"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-install.vsprops"
 			CharacterSet="2"
 			DeleteExtensionsOnClean=""
 			>
@@ -36,7 +36,7 @@
 			Name="Release|Win32"
 			OutputDirectory="$(GlibEtcInstallRoot)"
 			ConfigurationType="10"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-install.vsprops"
 			CharacterSet="2"
 			DeleteExtensionsOnClean=""
 			WholeProgramOptimization="1"
@@ -48,7 +48,7 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|x64"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-install.vsprops"
 			OutputDirectory="$(GlibEtcInstallRoot)"
 			ConfigurationType="10"
 			CharacterSet="2"
@@ -61,7 +61,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|x64"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-install.vsprops"
 			OutputDirectory="$(GlibEtcInstallRoot)"
 			ConfigurationType="10"
 			CharacterSet="2"

@@ -22,7 +22,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			ConfigurationType="1"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-build-defines.vsprops"
 			CharacterSet="2"
 			>
 			<Tool
@@ -54,7 +54,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-build-defines.vsprops"
 			ConfigurationType="1"
 			CharacterSet="2"
 			>
@@ -86,7 +86,7 @@
 		<Configuration
 			Name="Debug|x64"
 			ConfigurationType="1"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-build-defines.vsprops"
 			CharacterSet="2"
 			>
 			<Tool
@@ -119,7 +119,7 @@
 		<Configuration
 			Name="Release|x64"
 			ConfigurationType="1"
-			InheritedPropertySheets=".\gdk-pixbuf.vsprops"
+			InheritedPropertySheets=".\gdk-pixbuf-build-defines.vsprops"
 			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>
