@@ -196,10 +196,7 @@ static GdkPixbuf *gdk_pixbuf__qtif_image_load (FILE *f, GError **error)
                 /* Read atom data. */
                 while(hdr.length != 0u)
                 {
-                    rd = (hdr.length > READ_BUFFER_SIZE) ? READ_BUFFER_SIZE : hdr.length;
-
-                    rd = fread(buf, 1, rd, f);
-                    if(rd < 0)
+                    if(fread(buf, 1, rd, f) != rd)
                     {
                         g_set_error(error, GDK_PIXBUF_ERROR,
                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
