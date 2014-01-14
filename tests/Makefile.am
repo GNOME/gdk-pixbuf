@@ -16,7 +16,7 @@ LDADD = \
 	$(GLIB_LIBS) \
 	$(NULL)
 
-noinst_PROGRAMS = 			\
+noinst_PROGRAMS += 			\
 	animation			\
 	pixbuf-read			\
 	pixbuf-lowmem			\
@@ -56,9 +56,9 @@ pixbuf_resource_SOURCES = 		\
 	resources.h			\
 	resources.c
 
-BUILT_SOURCES = resources.h resources.c
-DISTCLEANFILES = resources.h resources.c
-EXTRADIST = resources.gresource.xml
+BUILT_SOURCES += resources.h resources.c
+DISTCLEANFILES += resources.h resources.c
+EXTRA_DIST += resources.gresource.xml
 
 resources.h: resources.gresource.xml
 	$(AM_V_GEN) GDK_PIXBUF_MODULE_FILE=$(top_builddir)/gdk-pixbuf/loaders.cache GDK_PIXBUF_PIXDATA=$(top_builddir)/gdk-pixbuf/gdk-pixbuf-pixdata $(GLIB_COMPILE_RESOURCES) $(srcdir)/resources.gresource.xml --target=$@ --sourcedir=$(srcdir) --generate-header
