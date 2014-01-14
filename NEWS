@@ -1,3 +1,22 @@
+2.30.3
+======
+
+* Expand the test suite
+
+* Enable coverage testing with --enable-coverage
+
+* Unify sniff buffer sizes across loaders: 4k everywhere
+
+* Port to GTask (#712704)
+
+* xpm: Fix scaling (#686514)
+
+* xpm: Update colors from pango (#678996)
+
+* qtif: fix fread() error check (#721371)
+
+* Translation updates
+
 2.30.2
 ======
 
