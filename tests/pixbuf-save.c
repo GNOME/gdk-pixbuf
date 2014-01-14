@@ -104,7 +104,9 @@ test_save_options (void)
   gdk_pixbuf_save (ref, "pixbuf-save-options", "png", &error,
                    "tEXt::option1", "Some text to transport via option",
                    "tEXt::long-option-name123456789123456789123456789", "",
+#ifdef PNG_iTXt_SUPPORTED
                    "tEXt::3", "αβγδ",
+#endif
                    NULL);
   g_assert_no_error (error);
 
@@ -113,7 +115,9 @@ test_save_options (void)
 
   g_assert_cmpstr (gdk_pixbuf_get_option (pixbuf, "tEXt::option1"), ==, "Some text to transport via option");
   g_assert_cmpstr (gdk_pixbuf_get_option (pixbuf, "tEXt::long-option-name123456789123456789123456789"), ==, "");
+#ifdef PNG_iTXt_SUPPORTED
   g_assert_cmpstr (gdk_pixbuf_get_option (pixbuf, "tEXt::3"), ==, "αβγδ");
+#endif
 
   g_object_unref (pixbuf);
   g_object_unref (ref);
