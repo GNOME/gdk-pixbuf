@@ -17,18 +17,9 @@ LDADD = \
 	$(NULL)
 
 noinst_PROGRAMS += 			\
-	animation			\
 	pixbuf-read			\
 	pixbuf-lowmem			\
-	pixbuf-randomly-modified	\
 	pixbuf-random			\
-	pixbuf-threads			\
-	pixbuf-icon-serialize		\
-	pixbuf-icc			\
-	pixbuf-stream			\
-	pixbuf-resource			\
-	pixbuf-scale			\
-	pixbuf-save			\
 	$(NULL)
 
 test_programs = 			\
@@ -43,7 +34,7 @@ test_programs = 			\
 	pixbuf-save			\
 	$(NULL)
 
-dist_test_data = 			\
+dist_installed_test_data =		\
 	test-image.png			\
 	test-animation.gif		\
 	test-animation.ani		\
@@ -57,8 +48,14 @@ pixbuf_resource_SOURCES = 		\
 	resources.c
 
 BUILT_SOURCES += resources.h resources.c
-DISTCLEANFILES += resources.h resources.c
+DISTCLEANFILES += 			\
+	resources.h resources.c 	\
+	pixbuf-save-options		\
+	pixbuf-randomly-modified-image	\
+	pixbuf-save-roundtrip
+	
 EXTRA_DIST += resources.gresource.xml
+TESTS_ENVIRONMENT += GDK_PIXBUF_MODULE_FILE=$(top_builddir)/gdk-pixbuf/loaders.cache
 
 resources.h: resources.gresource.xml
 	$(AM_V_GEN) GDK_PIXBUF_MODULE_FILE=$(top_builddir)/gdk-pixbuf/loaders.cache GDK_PIXBUF_PIXDATA=$(top_builddir)/gdk-pixbuf/gdk-pixbuf-pixdata $(GLIB_COMPILE_RESOURCES) $(srcdir)/resources.gresource.xml --target=$@ --sourcedir=$(srcdir) --generate-header
