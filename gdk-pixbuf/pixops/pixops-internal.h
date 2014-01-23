@@ -12,9 +12,7 @@
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
+ * License along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 #ifdef USE_MMX
 guchar *_pixops_scale_line_22_33_mmx (guint32 weights[16][8], guchar *p, guchar *q1, guchar *q2, int x_step, guchar *p_stop, int x_init);
