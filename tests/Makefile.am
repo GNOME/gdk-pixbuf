@@ -42,17 +42,57 @@ dist_installed_test_data =		\
 	icc-profile.png			\
 	$(wildcard $(srcdir)/test-images/*)
 
+pixbuf_icc_SOURCES = 			\
+	pixbuf-icc.c			\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_scale_SOURCES = 			\
+	pixbuf-scale.c			\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_stream_SOURCES =			\
+	pixbuf-stream.c			\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_threads_SOURCES =		\
+	pixbuf-threads.c		\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_icon_serialize_SOURCES =		\
+	pixbuf-icon-serialize.c		\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_save_SOURCES =			\
+	pixbuf-save.c			\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
 pixbuf_resource_SOURCES = 		\
 	pixbuf-resource.c		\
+	test-common.c			\
+	test-common.h			\
 	resources.h			\
-	resources.c
+	resources.c			\
+	$(NULL)
 
 BUILT_SOURCES += resources.h resources.c
 DISTCLEANFILES += 			\
 	resources.h resources.c 	\
 	pixbuf-save-options		\
 	pixbuf-randomly-modified-image	\
-	pixbuf-save-roundtrip
+	pixbuf-save-roundtrip		\
+	$(NULL)
 	
 EXTRA_DIST += resources.gresource.xml
 TESTS_ENVIRONMENT += GDK_PIXBUF_MODULE_FILE=$(top_builddir)/gdk-pixbuf/loaders.cache

@@ -1,5 +1,6 @@
 #include "config.h"
 #include "gdk-pixbuf/gdk-pixbuf.h"
+#include "test-common.h"
 #include <string.h>
 #include <glib.h>
 
@@ -12,6 +13,12 @@ test_serialize (void)
   GVariant *data;
   GIcon *icon;
   GInputStream *stream;
+
+  if (!format_supported ("png"))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
 
   pixbuf = gdk_pixbuf_new_from_file (g_test_get_filename (G_TEST_DIST, "test-image.png", NULL), &error);
   g_assert_no_error (error);

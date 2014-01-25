@@ -21,6 +21,7 @@
  */
 
 #include "gdk-pixbuf/gdk-pixbuf.h"
+#include "test-common.h"
 #include <string.h>
 
 #define compare_option(p1, p2, key) \
@@ -76,6 +77,12 @@ test_save_roundtrip (void)
   GdkPixbuf *ref;
   GdkPixbuf *pixbuf;
 
+  if (!format_supported ("png"))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
+
   ref = gdk_pixbuf_new_from_file (g_test_get_filename (G_TEST_DIST, "test-image.png", NULL), &error);
   g_assert_no_error (error);
 
@@ -97,6 +104,12 @@ test_save_options (void)
   GdkPixbuf *ref;
   GdkPixbuf *pixbuf;
   GError *error = NULL;
+
+  if (!format_supported ("png"))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
 
   ref = gdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8, 10, 10);
   gdk_pixbuf_fill (ref, 0xff00ff00);

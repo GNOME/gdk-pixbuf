@@ -18,7 +18,9 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include "config.h"
 #include "gdk-pixbuf/gdk-pixbuf.h"
+#include "test-common.h"
 
 static void
 load_image (gpointer data, 
@@ -71,15 +73,24 @@ test_threads (void)
 
   for (i = 0; i < iterations; i++)
     {
-      g_thread_pool_push (pool, "valid_jpeg_test", NULL);
-      g_thread_pool_push (pool, "valid_png_test", NULL);
-      g_thread_pool_push (pool, "valid_gif_test", NULL);
-      g_thread_pool_push (pool, "valid_bmp_test", NULL);
-      g_thread_pool_push (pool, "valid_jpeg_progressive_test", NULL);
-      g_thread_pool_push (pool, "valid_xpm_test", NULL);
-      g_thread_pool_push (pool, "valid_ras_test", NULL);
-      g_thread_pool_push (pool, "valid_tga_test", NULL);
-      g_thread_pool_push (pool, "valid_tiff1_test", NULL);
+      if (format_supported ("jpeg"))
+        g_thread_pool_push (pool, "valid_jpeg_test", NULL);
+      if (format_supported ("png"))
+        g_thread_pool_push (pool, "valid_png_test", NULL);
+      if (format_supported ("gif"))
+        g_thread_pool_push (pool, "valid_gif_test", NULL);
+      if (format_supported ("bmp"))
+        g_thread_pool_push (pool, "valid_bmp_test", NULL);
+      if (format_supported ("jpeg"))
+        g_thread_pool_push (pool, "valid_jpeg_progressive_test", NULL);
+      if (format_supported ("xpm"))
+        g_thread_pool_push (pool, "valid_xpm_test", NULL);
+      if (format_supported ("ras"))
+        g_thread_pool_push (pool, "valid_ras_test", NULL);
+      if (format_supported ("tga"))
+        g_thread_pool_push (pool, "valid_tga_test", NULL);
+      if (format_supported ("tiff"))
+        g_thread_pool_push (pool, "valid_tiff1_test", NULL);
     }
 
   g_thread_pool_free (pool, FALSE, TRUE);

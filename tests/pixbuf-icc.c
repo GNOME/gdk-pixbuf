@@ -22,6 +22,7 @@
 
 #include "config.h"
 #include "gdk-pixbuf/gdk-pixbuf.h"
+#include "test-common.h"
 
 static void
 test_incremental (gconstpointer data)
@@ -34,7 +35,12 @@ test_incremental (gconstpointer data)
   gchar *contents;
   gsize size;
 
-  
+  if (!format_supported (filename))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
+
   g_file_get_contents (g_test_get_filename (G_TEST_DIST, filename, NULL), &contents, &size, &error);
   g_assert_no_error (error);
 
@@ -61,6 +67,12 @@ test_nonincremental (gconstpointer data)
   GError *error = NULL;
   GdkPixbuf *pixbuf;
   const gchar *profile;
+
+  if (!format_supported (filename))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
 
   pixbuf = gdk_pixbuf_new_from_file (g_test_get_filename (G_TEST_DIST, filename, NULL), &error);
   g_assert_no_error (error);

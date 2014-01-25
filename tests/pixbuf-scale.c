@@ -22,6 +22,7 @@
 
 #include "config.h"
 #include "gdk-pixbuf/gdk-pixbuf.h"
+#include "test-common.h"
 
 static void
 test_scale (gconstpointer data)
@@ -32,6 +33,12 @@ test_scale (gconstpointer data)
   GdkPixbuf *ref;
   GdkPixbuf *pixbuf;
   gint width, height;
+
+  if (!format_supported (filename))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
 
   path = g_test_get_filename (G_TEST_DIST, filename, NULL);
   ref = gdk_pixbuf_new_from_file (path, &error);

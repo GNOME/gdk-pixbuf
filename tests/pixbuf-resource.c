@@ -22,6 +22,7 @@
 
 #include "config.h"
 #include "gdk-pixbuf/gdk-pixbuf.h"
+#include "test-common.h"
 #include <string.h>
 
 #define compare_option(p1, p2, key) \
@@ -77,6 +78,12 @@ test_resource (void)
   GError *error = NULL;
   GdkPixbuf *pixbuf, *ref;
 
+  if (!format_supported ("png"))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
+
   path = g_test_get_filename (G_TEST_DIST, "icc-profile.png", NULL);
   ref = gdk_pixbuf_new_from_file (path, &error);
   g_assert_no_error (error);
@@ -110,6 +117,12 @@ test_resource_at_scale (void)
   const gchar *path;
   GError *error = NULL;
   GdkPixbuf *pixbuf, *ref;
+
+  if (!format_supported ("png"))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
 
   path = g_test_get_filename (G_TEST_DIST, "icc-profile.png", NULL);
   ref = gdk_pixbuf_new_from_file_at_scale (path, 40, 10, FALSE, &error);
