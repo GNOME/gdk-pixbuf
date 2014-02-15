@@ -53,18 +53,15 @@
  * in %NULL as the destroy notification function so that the data
  * will not be freed.
  * 
- * 
  * The gdk_pixbuf_new() function can be used as a convenience to
  * create a pixbuf with an empty buffer.  This is equivalent to
- * allocating a data buffer using <function>malloc()</function> and 
- * then wrapping it with gdk_pixbuf_new_from_data(). The gdk_pixbuf_new() 
- * function will compute an optimal rowstride so that rendering can be 
- * performed with an efficient algorithm.
- * 
+ * allocating a data buffer using malloc() and then wrapping it with
+ * gdk_pixbuf_new_from_data(). The gdk_pixbuf_new() function will
+ * compute an optimal rowstride so that rendering can be performed
+ * with an efficient algorithm.
  * 
  * As a special case, you can use the gdk_pixbuf_new_from_xpm_data()
  * function to create a pixbuf from inline XPM image data.
- * 
  * 
  * You can also copy an existing pixbuf with the gdk_pixbuf_copy()
  * function.  This is not the same as just doing a g_object_ref()
@@ -87,14 +84,11 @@
  * its reference count drops to zero.  Newly-created #GdkPixbuf
  * structures start with a reference count of one.
  * 
+ * > As #GdkPixbuf is derived from #GObject now, gdk_pixbuf_ref() and
+ * > gdk_pixbuf_unref() are deprecated in favour of g_object_ref()
+ * > and g_object_unref() resp.
  * 
- * <note>
- * As #GdkPixbuf is derived from #GObject now, gdk_pixbuf_ref() and
- * gdk_pixbuf_unref() are deprecated in favour of g_object_ref()
- * and g_object_unref () resp.
- * </note>
- * 
- * <emphasis>Finalizing</emphasis> a pixbuf means to free its pixel
+ * Finalizing a pixbuf means to free its pixel
  * data and to free the #GdkPixbuf structure itself.  Most of the
  * library functions that create #GdkPixbuf structures create the
  * pixel data by themselves and define the way it should be freed;
@@ -621,8 +615,8 @@ gdk_pixbuf_get_bits_per_sample (const GdkPixbuf *pixbuf)
  * Queries a pointer to the pixel data of a pixbuf.
  *
  * Return value: (array): A pointer to the pixbuf's pixel data.
- * Please see <xref linkend="image-data"/> for information about how
- * the pixel data is stored in memory.
+ * Please see the section on [image data](image-data) for information
+ * about how the pixel data is stored in memory.
  **/
 guchar *
 gdk_pixbuf_get_pixels (const GdkPixbuf *pixbuf)
@@ -640,9 +634,8 @@ gdk_pixbuf_get_pixels (const GdkPixbuf *pixbuf)
  * Queries a pointer to the pixel data of a pixbuf.
  *
  * Return value: (array length=length): A pointer to the pixbuf's
- * pixel data.  Please see <xref linkend="image-data"/>
- * for information about how the pixel data is stored in
- * memory.
+ * pixel data.  Please see the section on [image data](image-data)
+ * for information about how the pixel data is stored in memory.
  *
  * Rename to: gdk_pixbuf_get_pixels
  *
@@ -696,8 +689,8 @@ gdk_pixbuf_get_height (const GdkPixbuf *pixbuf)
  * gdk_pixbuf_get_rowstride:
  * @pixbuf: A pixbuf.
  *
- * Queries the rowstride of a pixbuf, which is the number of bytes between the start of a row
- * and the start of the next row.
+ * Queries the rowstride of a pixbuf, which is the number of bytes between
+ * the start of a row and the start of the next row.
  *
  * Return value: Distance between row starts.
  **/

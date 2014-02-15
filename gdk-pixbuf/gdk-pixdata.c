@@ -621,8 +621,9 @@ save_rle_decoder (GString     *gstring,
  * Generates C source code suitable for compiling images directly 
  * into programs. 
  *
- * gdk-pixbuf ships with a program called <command>gdk-pixbuf-csource</command> 
- * which offers a command line interface to this function.
+ * gdk-pixbuf ships with a program called
+ * [gdk-pixbuf-csource][gdk-pixbuf-csource], which offers a command
+ * line interface to this function.
  *
  * Returns: a newly-allocated string containing the C source form
  *   of @pixdata.
@@ -864,28 +865,27 @@ gdk_pixdata_to_csource (GdkPixdata        *pixdata,
  * ship a program with images, but don't want to depend on any
  * external files.
  *
- * gdk-pixbuf ships with a program called <command>gdk-pixbuf-csource</command> 
+ * gdk-pixbuf ships with a program called [gdk-pixbuf-csource][gdk-pixbuf-csource],
  * which allows for conversion of #GdkPixbufs into such a inline representation.
- * In almost all cases, you should pass the <option>--raw</option> flag to
- * <command>gdk-pixbuf-csource</command>. A sample invocation would be:
+ * In almost all cases, you should pass the `--raw` option to
+ * `gdk-pixbuf-csource`. A sample invocation would be:
  *
- * <informalexample><programlisting>
+ * |[
  *  gdk-pixbuf-csource --raw --name=myimage_inline myimage.png
- * </programlisting></informalexample>
+ * ]|
  * 
  * For the typical case where the inline pixbuf is read-only static data,
  * you don't need to copy the pixel data unless you intend to write to
- * it, so you can pass %FALSE for @copy_pixels.  (If you pass 
- * <option>--rle</option> to <command>gdk-pixbuf-csource</command>, a copy 
- * will be made even if @copy_pixels is %FALSE, so using this option is 
- * generally a bad idea.)
+ * it, so you can pass %FALSE for @copy_pixels.  (If you pass `--rle` to
+ * `gdk-pixbuf-csource`, a copy will be made even if @copy_pixels is %FALSE,
+ * so using this option is generally a bad idea.)
  *
  * If you create a pixbuf from const inline data compiled into your
  * program, it's probably safe to ignore errors and disable length checks, 
  * since things will always succeed:
- * <informalexample><programlisting>
+ * |[
  * pixbuf = gdk_pixbuf_new_from_inline (-1, myimage_inline, FALSE, NULL);
- * </programlisting></informalexample>
+ * ]|
  *
  * For non-const inline data, you could get out of memory. For untrusted 
  * inline data located at runtime, you could have corrupt inline data in 

@@ -84,51 +84,39 @@
  * If GdkPixBuf has been compiled with GModule support, it can be extended by
  * modules which can load (and perhaps also save) new image and animation
  * formats. Each loadable module must export a
- * #GdkPixbufModuleFillInfoFunc function named <function>fill_info</function> and
+ * #GdkPixbufModuleFillInfoFunc function named `fill_info` and
  * a #GdkPixbufModuleFillVtableFunc function named
- * <function>fill_vtable</function>.
- * 
+ * `fill_vtable`.
  * 
  * In order to make format-checking work before actually loading the modules
  * (which may require dlopening image libraries), modules export their 
- * signatures (and other information) via the <function>fill_info</function>
- * function. An external utility, <command>gdk-pixbuf-query-loaders</command>, 
- * uses this to create a text file containing a list of all available loaders and 
- * their signatures. This file is then read at runtime by GdkPixBuf to obtain
- * the list of available loaders and their signatures. 
- * 
+ * signatures (and other information) via the `fill_info` function. An
+ * external utility, gdk-pixbuf-query-loaders, uses this to create a text
+ * file containing a list of all available loaders and  their signatures.
+ * This file is then read at runtime by GdkPixBuf to obtain the list of
+ * available loaders and their signatures. 
  * 
  * Modules may only implement a subset of the functionality available via
  * #GdkPixbufModule. If a particular functionality is not implemented, the
- * <function>fill_vtable</function> function will simply not set the corresponding
+ * `fill_vtable` function will simply not set the corresponding
  * function pointers of the #GdkPixbufModule structure. If a module supports
  * incremental loading (i.e. provides #begin_load, #stop_load and
  * #load_increment), it doesn't have to implement #load, since GdkPixBuf can
  * supply a generic #load implementation wrapping the incremental loading. 
  * 
- * 
  * Installing a module is a two-step process:
- * <itemizedlist>
- * <listitem><para>copy the module file(s) to the loader directory (normally
- * <filename><replaceable>libdir</replaceable>/gtk-2.0/<replaceable>version</replaceable>/loaders</filename>,
- * unless overridden by the environment variable
- * <envar>GDK_PIXBUF_MODULEDIR</envar>) 
- * </para></listitem>
- * <listitem><para>call <command>gdk-pixbuf-query-loaders</command> to update the
- * module file (normally
- * <filename><replaceable>sysconfdir</replaceable>/gtk-2.0/gdk-pixbuf.loaders</filename>,
- * unless overridden by the environment variable
- * <envar>GDK_PIXBUF_MODULE_FILE</envar>)
- * </para></listitem>
- * </itemizedlist>
- * 
+ * - copy the module file(s) to the loader directory (normally
+ *   `$libdir/gtk-2.0/$version/loaders`, unless overridden by the
+ *   environment variable `GDK_PIXBUF_MODULEDIR`) 
+ * - call gdk-pixbuf-query-loaders to update the module file (normally
+ *   `$sysconfdir/gtk-2.0/gdk-pixbuf.loaders`, unless overridden by the
+ *   environment variable `GDK_PIXBUF_MODULE_FILE`)
  * 
  * The GdkPixBuf interfaces needed for implementing modules are contained in
- * <filename>gdk-pixbuf-io.h</filename> (and
- * <filename>gdk-pixbuf-animation.h</filename> if the module supports animations).
- * They are not covered by the same stability guarantees as the regular 
- * GdkPixBuf API. To underline this fact, they are protected by
- * <literal>#ifdef GDK_PIXBUF_ENABLE_BACKEND</literal>.
+ * `gdk-pixbuf-io.h` (and `gdk-pixbuf-animation.h` if the module supports
+ * animations). They are not covered by the same stability guarantees as the
+ * regular  GdkPixBuf API. To underline this fact, they are protected by
+ * `#ifdef GDK_PIXBUF_ENABLE_BACKEND`.
  */
 
 
@@ -2235,10 +2223,9 @@ gdk_pixbuf_real_save_to_callback (GdkPixbuf         *pixbuf,
  * The variable argument list should be %NULL-terminated; if not empty,
  * it should contain pairs of strings that modify the save
  * parameters. For example:
- * <informalexample><programlisting>
- * gdk_pixbuf_save (pixbuf, handle, "jpeg", &amp;error,
- *                  "quality", "100", NULL);
- * </programlisting></informalexample>
+ * |[
+ * gdk_pixbuf_save (pixbuf, handle, "jpeg", &error, "quality", "100", NULL);
+ * ]|
  *
  * Currently only few parameters exist. JPEG images can be saved with a
  * "quality" parameter; its value should be in the range [0,100].
@@ -2253,16 +2240,14 @@ gdk_pixbuf_real_save_to_callback (GdkPixbuf         *pixbuf,
  * The "icc-profile" value should be the complete ICC profile encoded
  * into base64.
  *
- * <informalexample><programlisting>
+ * |[
  * gchar *contents;
  * gchar *contents_encode;
  * gsize length;
  * g_file_get_contents ("/home/hughsie/.color/icc/L225W.icm", &contents, &length, NULL);
  * contents_encode = g_base64_encode ((const guchar *) contents, length);
- * gdk_pixbuf_save (pixbuf, handle, "png", &amp;error,
- *                  "icc-profile", contents_encode,
- *                  NULL);
- * </programlisting></informalexample>
+ * gdk_pixbuf_save (pixbuf, handle, "png", &error, "icc-profile", contents_encode, NULL);
+ * ]|
  *
  * TIFF images recognize a "compression" option which acceps an integer value.
  * Among the codecs are 1 None, 2 Huffman, 5 LZW, 7 JPEG and 8 Deflate, see
@@ -2274,7 +2259,6 @@ gdk_pixbuf_real_save_to_callback (GdkPixbuf         *pixbuf,
  *
  * Return value: whether an error was set
  **/
-
 gboolean
 gdk_pixbuf_save (GdkPixbuf  *pixbuf, 
                  const char *filename, 
@@ -3133,10 +3117,9 @@ _gdk_pixbuf_get_format (GdkPixbufModule *module)
  * by GdkPixbuf.
  *
  * Returns: (transfer container) (element-type GdkPixbufFormat): A list of
- * #GdkPixbufFormat<!-- -->s describing the supported
- * image formats.  The list should be freed when it is no longer needed,
- * but the structures themselves are owned by #GdkPixbuf and should not be
- * freed.
+ * #GdkPixbufFormats describing the supported image formats. The list should
+ * be freed when it is no longer needed, but the structures themselves are
+ * owned by #GdkPixbuf and should not be freed.
  *
  * Since: 2.2
  */
