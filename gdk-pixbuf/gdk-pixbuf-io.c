@@ -2545,7 +2545,7 @@ gdk_pixbuf_save_to_callbackv   (GdkPixbuf  *pixbuf,
 /**
  * gdk_pixbuf_save_to_buffer:
  * @pixbuf: a #GdkPixbuf.
- * @buffer: (array length=buffer_size): location to receive a pointer
+ * @buffer: (array length=buffer_size) (out) (element-type guint8): location to receive a pointer
  *   to the new buffer.
  * @buffer_size: location to receive the size of the new buffer.
  * @type: name of file format.
