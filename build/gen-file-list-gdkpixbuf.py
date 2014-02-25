@@ -100,7 +100,7 @@ def read_vars_from_AM(path, vars = {}, conds = {}, filters = None):
         return cur_vars
 
 def main(argv):
-    srcroot = '..\\..'
+    srcroot = '..'
     subdir = 'gdk-pixbuf'
     gen_gdkpixbuf_filelist(srcroot, subdir, 'gdkpixbuf_list')
     return 0
