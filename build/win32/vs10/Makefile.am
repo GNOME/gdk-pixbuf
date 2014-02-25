@@ -4,7 +4,6 @@ EXTRA_DIST = \
 	gdk-pixbuf-version-paths.props	\
 	gdk-pixbuf-build-defines.props	\
 	gdk-pixbuf-gen-srcs.props	\
-	gdk-pixbuf-gengir.props	\
 	gdk-pixbuf-install.props	\
 	gdk-pixbuf.vcxproj	\
 	gdk-pixbuf.vcxprojin	\
@@ -16,7 +15,6 @@ EXTRA_DIST = \
 	gdk-pixbuf-query-loaders.vcxproj.filters	\
 	gdk-pixbuf-pixdata.vcxproj	\
 	gdk-pixbuf-pixdata.vcxproj.filters	\
-	install.vcxproj	\
-	gengir.vcxproj
+	install.vcxproj
 
 -include $(top_srcdir)/git.mk

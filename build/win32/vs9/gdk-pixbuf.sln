@@ -26,11 +26,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk-pixbuf-pixdata", "gdk-p
 		{01ADE22D-F6EC-4D09-8FE1-B9A97DEC2BA3} = {01ADE22D-F6EC-4D09-8FE1-B9A97DEC2BA3}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gengir", "gengir.vcproj", "{2093D218-190E-4194-9421-3BA7CBF33B15}"
-	ProjectSection(ProjectDependencies) = postProject
-		{01ADE22D-F6EC-4D09-8FE1-B9A97DEC2BA3} = {01ADE22D-F6EC-4D09-8FE1-B9A97DEC2BA3}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_NoGDIP|Win32 = Debug_NoGDIP|Win32
@@ -123,10 +118,6 @@ Global
 		{7212330C-14DF-4815-9E3B-4BDB3D21F665}.Release|Win32.Build.0 = Release|Win32
 		{7212330C-14DF-4815-9E3B-4BDB3D21F665}.Release|x64.ActiveCfg = Release|x64
 		{7212330C-14DF-4815-9E3B-4BDB3D21F665}.Release|x64.Build.0 = Release|x64
-		{2093D218-190E-4194-9421-3BA7CBF33B15}.Debug|Win32.ActiveCfg = Debug|Win32
-		{2093D218-190E-4194-9421-3BA7CBF33B15}.Debug|x64.ActiveCfg = Debug|x64
-		{2093D218-190E-4194-9421-3BA7CBF33B15}.Release|Win32.ActiveCfg = Release|Win32
-		{2093D218-190E-4194-9421-3BA7CBF33B15}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
