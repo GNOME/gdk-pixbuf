@@ -46,7 +46,7 @@ G_BEGIN_DECLS
 /**
  * GdkPixbufLoader:
  * 
- * The <structname>GdkPixbufLoader</structname> struct contains only private
+ * The GdkPixbufLoader struct contains only private
  * fields. 
  */
 typedef struct _GdkPixbufLoader GdkPixbufLoader;
