@@ -147,7 +147,7 @@ typedef enum
  * @GDK_COLORSPACE_RGB: Indicates a red/green/blue additive color space.
  * 
  * This enumeration defines the color spaces that are supported by
- * the &gdk-pixbuf; library.  Currently only RGB is supported.
+ * the gdk-pixbuf library.  Currently only RGB is supported.
  */
 /* Note that these values are encoded in inline pixbufs
  * as ints, so don't reorder them
@@ -161,7 +161,7 @@ typedef enum {
 /**
  * GdkPixbuf:
  * 
- * This is the main structure in the &gdk-pixbuf; library.  It is
+ * This is the main structure in the gdk-pixbuf library.  It is
  * used to represent images.  It contains information about the
  * image's pixel data, its color space, bits per sample, width and
  * height, and the rowstride (the number of bytes between the start of
@@ -208,7 +208,7 @@ typedef void (* GdkPixbufDestroyNotify) (guchar *pixels, gpointer data);
  *  given operation on the type of image at hand.
  * @GDK_PIXBUF_ERROR_FAILED: Generic failure code, something went wrong.
  * 
- * An error code in the #GDK_PIXBUF_ERROR domain. Many &gdk-pixbuf;
+ * An error code in the #GDK_PIXBUF_ERROR domain. Many gdk-pixbuf
  * operations can cause errors in this domain, or in the #G_FILE_ERROR
  * domain.
  */

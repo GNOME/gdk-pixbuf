@@ -3,9 +3,6 @@
                "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
 <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
 <!ENTITY version SYSTEM "version.xml">
-
-<!ENTITY gdk-pixbuf "<application>gdk-pixbuf</application>">
-<!ENTITY Imlib "<application>Imlib</application>">
 ]>
 <book id="index" xmlns:xi="http://www.w3.org/2003/XInclude">
   <bookinfo>
@@ -69,7 +66,7 @@
     <partintro>
       <para>
 	This part presents the class and function reference for the
-	&gdk-pixbuf; library.  Classes are described together with
+	gdk-pixbuf library.  Classes are described together with
 	their methods; individual functions are grouped by functional
 	group.
       </para>
@@ -103,8 +100,7 @@
 
     <partintro>
       <para>
-	This part presents the tools which are shipped with the
-	&gdk-pixbuf; library.
+	This part presents the tools which are shipped with the gdk-pixbuf library.
       </para>
     </partintro>
 
