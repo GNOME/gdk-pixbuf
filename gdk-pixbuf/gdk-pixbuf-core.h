@@ -39,14 +39,11 @@ G_BEGIN_DECLS
  * @Short_description: Information that describes an image.
  * @Title: The GdkPixbuf Structure
  * 
- * 
  * The #GdkPixbuf structure contains
  * information that describes an image in memory.
  * 
- * 
- * <section id="image-data">
- * <title>Image Data</title>
- * <para>
+ * ## Image Data ## {#image-data}
+ *
  * Image data in a pixbuf is stored in memory in uncompressed,
  * packed format.  Rows in the image are stored top to bottom, and
  * in each row pixels are stored from left to right.  There may be
@@ -54,19 +51,15 @@ G_BEGIN_DECLS
  * as returned by gdk_pixbuf_get_rowstride(), indicates the number
  * of bytes between rows.
  * 
+ * ## put_pixel() Example ## {#put-pixel}
  * 
- * <example id="put-pixel">
- * <title>put_pixel(<!-- -->) example</title>
- * <para>
- * 
- * The following code illustrates a simple put_pixel(<!-- -->)
+ * The following code illustrates a simple put_pixel()
  * function for RGB pixbufs with 8 bits per channel with an alpha
  * channel.  It is not included in the gdk-pixbuf library for
  * performance reasons; rather than making several function calls
  * for each pixel, your own code can take shortcuts.
  * 
- * 
- * <programlisting>
+ * |[<!-- language="C" -->
  * static void
  * put_pixel (GdkPixbuf *pixbuf, int x, int y, guchar red, guchar green, guchar blue, guchar alpha)
  * {
@@ -95,26 +88,18 @@ G_BEGIN_DECLS
  *   p[2] = blue;
  *   p[3] = alpha;
  * }
- * </programlisting>
+ * ]|
  * 
  * This function will not work for pixbufs with images that are
  * other than 8 bits per sample or channel, but it will work for
  * most of the pixbufs that GTK+ uses.
- * </para>
- * </example>
  * 
- * <note>
- * If you are doing memcpy() of raw pixbuf data, note that the
- * last row in the pixbuf may not be as wide as the full
- * rowstride, but rather just as wide as the pixel data needs to
- * be.  That is, it is unsafe to do <literal>memcpy (dest,
- * pixels, rowstride * height)</literal> to copy a whole pixbuf.
- * Use gdk_pixbuf_copy() instead, or compute the width in bytes
- * of the last row as <literal>width * ((n_channels *
- * bits_per_sample + 7) / 8)</literal>.
- * </note>
- * </para>
- * </section>
+ * If you are doing memcpy() of raw pixbuf data, note that the last row
+ * in the pixbuf may not be as wide as the full rowstride, but rather
+ * just as wide as the pixel data needs to be. That is, it is unsafe to
+ * do `memcpy (dest, pixels, rowstride * height)` to copy a whole pixbuf.
+ * Use gdk_pixbuf_copy() instead, or compute the width in bytes of the
+ * last row as `width * ((n_channels * bits_per_sample + 7) / 8)`.
  */
 
 
