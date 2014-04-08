@@ -1496,11 +1496,16 @@ load_from_stream (GdkPixbufLoader  *loader,
  * the #GDK_PIXBUF_ERROR and %G_IO_ERROR domains. 
  *
  * The image will be scaled to fit in the requested size, optionally 
- * preserving the image's aspect ratio. When preserving the aspect ratio, 
- * a @width of -1 will cause the image to be scaled to the exact given 
- * height, and a @height of -1 will cause the image to be scaled to the 
- * exact given width. When not preserving aspect ratio, a @width or 
- * @height of -1 means to not scale the image at all in that dimension.
+ * preserving the image's aspect ratio.
+ *
+ * When preserving the aspect ratio, a @width of -1 will cause the image to be
+ * scaled to the exact given height, and a @height of -1 will cause the image
+ * to be scaled to the exact given width. If both @width and @height are
+ * given, this function will behave as if the smaller of the two values
+ * is passed as -1.
+ *
+ * When not preserving aspect ratio, a @width or @height of -1 means to not
+ * scale the image at all in that dimension.
  *
  * The stream is not closed.
  *
