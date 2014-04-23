@@ -106,10 +106,10 @@
  * 
  * Installing a module is a two-step process:
  * - copy the module file(s) to the loader directory (normally
- *   `$libdir/gtk-2.0/$version/loaders`, unless overridden by the
+ *   `$libdir/gdk-pixbuf-2.0/$version/loaders`, unless overridden by the
  *   environment variable `GDK_PIXBUF_MODULEDIR`) 
  * - call gdk-pixbuf-query-loaders to update the module file (normally
- *   `$sysconfdir/gtk-2.0/gdk-pixbuf.loaders`, unless overridden by the
+ *   `$libdir/gdk-pixbuf-2.0/$version/loaders.cache`, unless overridden by the
  *   environment variable `GDK_PIXBUF_MODULE_FILE`)
  * 
  * The GdkPixBuf interfaces needed for implementing modules are contained in
@@ -334,7 +334,7 @@ correct_prefix (gchar **path)
 
       /* This is an entry put there by gdk-pixbuf-query-loaders on the
        * packager's system. On Windows a prebuilt gdk-pixbuf package can be
-       * installed in a random location. The gdk-pixbuf.loaders file
+       * installed in a random location. The loaders.cache file
        * distributed in such a package contains paths from the package
        * builder's machine. Replace the build-time prefix with the
        * installation prefix on this machine.
