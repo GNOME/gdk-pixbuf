@@ -206,6 +206,47 @@ gdk_pixbuf_gif_anim_iter_finalize (GObject *object)
         G_OBJECT_CLASS (gdk_pixbuf_gif_anim_iter_parent_class)->finalize (object);
 }
 
+static void
+gtk_pixpuf_gif_reuse_old_composited_buffer (GdkPixbufFrame *old,
+                                            GdkPixbufFrame *new)
+{
+        /* Move old buffer to new frame to reuse memory and
+         * minimise footprint */
+        new->composited = old->composited;
+        old->composited = NULL;
+}
+
+static void
+gdk_pixbuf_gif_anim_iter_clean_previous (GList *initial)
+{
+        GdkPixbufFrame *frame;
+        GList *tmp;
+
+        /* Cleanup previous frames until first cleaned frame */
+        frame = initial->data;
+
+        /* Check the current frame */
+        if (!frame->composited || frame->need_recomposite) {
+                /* The composite frame doesn't exist,
+                 * nothing to cleanup */
+                return;
+        }
+
+        /* Work with previous frames */
+        tmp = initial->prev;
+        while (tmp != NULL) {
+                frame = tmp->data;
+                if (!frame->composited || frame->need_recomposite) {
+                        /* Composite for previous frame doesn't exist */
+                        break;
+                }
+
+                /* delete cached pixbuf */
+                g_clear_object (&frame->composited);
+                tmp = tmp->prev;
+        }
+}
+
 static gboolean
 gdk_pixbuf_gif_anim_iter_advance (GdkPixbufAnimationIter *anim_iter,
                                   const GTimeVal         *current_time)
@@ -243,7 +284,7 @@ gdk_pixbuf_gif_anim_iter_advance (GdkPixbufAnimationIter *anim_iter,
                 loop = 0;
         else {
                 /* If current_frame is NULL at this point, we have loaded the
-                 * animation from a source which fell behind the speed of the 
+                 * animation from a source which fell behind the speed of the
                  * display. We remember how much slower the first loop was due
                  * to this and correct the position calculation in order to not
                  * jump in the middle of the second loop.
@@ -270,6 +311,8 @@ gdk_pixbuf_gif_anim_iter_advance (GdkPixbufAnimationIter *anim_iter,
                         break;
 
                 tmp = tmp->next;
+                if (tmp)
+                        gdk_pixbuf_gif_anim_iter_clean_previous(tmp);
         }
 
         old = iter->current_frame;
@@ -411,13 +454,13 @@ gdk_pixbuf_gif_anim_frame_composite (GdkPixbufGifAnim *gif_anim,
                                  */
 
                                 if (prev_frame->action == GDK_PIXBUF_FRAME_RETAIN) {
-                                        f->composited = gdk_pixbuf_copy (prev_frame->composited);
+                                        gtk_pixpuf_gif_reuse_old_composited_buffer (prev_frame, f);
 
                                         if (f->composited == NULL)
                                                 return;
 
                                 } else if (prev_frame->action == GDK_PIXBUF_FRAME_DISPOSE) {
-                                        f->composited = gdk_pixbuf_copy (prev_frame->composited);
+                                        gtk_pixpuf_gif_reuse_old_composited_buffer (prev_frame, f);
 
                                         if (f->composited == NULL)
                                                 return;
@@ -443,7 +486,7 @@ gdk_pixbuf_gif_anim_frame_composite (GdkPixbufGifAnim *gif_anim,
                                                 g_object_unref (area);
                                         }
                                 } else if (prev_frame->action == GDK_PIXBUF_FRAME_REVERT) {
-                                        f->composited = gdk_pixbuf_copy (prev_frame->composited);
+                                        gtk_pixpuf_gif_reuse_old_composited_buffer (prev_frame, f);
 
                                         if (f->composited == NULL)
                                                 return;
@@ -510,6 +553,8 @@ gdk_pixbuf_gif_anim_frame_composite (GdkPixbufGifAnim *gif_anim,
                                 break;
 
                         tmp = tmp->next;
+                        if (tmp)
+                                 gdk_pixbuf_gif_anim_iter_clean_previous(tmp);
                 }
         }
 }
