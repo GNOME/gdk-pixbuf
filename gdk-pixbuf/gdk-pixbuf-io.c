@@ -1867,14 +1867,16 @@ info_cb (GdkPixbufLoader *loader,
 /**
  * gdk_pixbuf_get_file_info:
  * @filename: The name of the file to identify.
- * @width: (out): Return location for the width of the image, or %NULL
- * @height: (out): Return location for the height of the image, or %NULL
+ * @width: (optional) (out): Return location for the width of the
+ *     image, or %NULL
+ * @height: (optional) (out): Return location for the height of the
+ *     image, or %NULL
  * 
  * Parses an image file far enough to determine its format and size.
  * 
- * Returns: (transfer none): A #GdkPixbufFormat describing the image
- *    format of the file or %NULL if the image format wasn't
- *    recognized. The return value is owned by GdkPixbuf and should
+ * Returns: (nullable) (transfer none): A #GdkPixbufFormat describing
+ *    the image format of the file or %NULL if the image format wasn't
+ *    recognized. The return value is owned by #GdkPixbuf and should
  *    not be freed.
  *
  * Since: 2.4

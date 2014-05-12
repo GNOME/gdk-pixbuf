@@ -319,8 +319,9 @@ free_buffer (guchar *pixels, gpointer data)
  * pixel data is run-length encoded into newly-allocated memory and a 
  * pointer to that memory is returned. 
  *
- * Returns: If @ure_rle is %TRUE, a pointer to the newly-allocated memory 
- *   for the run-length encoded pixel data, otherwise %NULL.
+ * Returns: (nullable): If @use_rle is %TRUE, a pointer to the
+ *   newly-allocated memory for the run-length encoded pixel data,
+ *   otherwise %NULL.
  **/
 gpointer
 gdk_pixdata_from_pixbuf (GdkPixdata      *pixdata,

@@ -383,8 +383,8 @@ gdk_pixbuf_composite_color_simple (const GdkPixbuf *src,
  * Rotates a pixbuf by a multiple of 90 degrees, and returns the
  * result in a new pixbuf.
  *
- * Returns: (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
- * allocated for it.
+ * Returns: (nullable) (transfer full): the new #GdkPixbuf, or %NULL
+ * if not enough memory could be allocated for it.
  *
  * Since: 2.6
  */
@@ -476,8 +476,8 @@ gdk_pixbuf_rotate_simple (const GdkPixbuf   *src,
  * Flips a pixbuf horizontally or vertically and returns the
  * result in a new pixbuf.
  *
- * Returns: (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
- * allocated for it.
+ * Returns: (nullable) (transfer full): the new #GdkPixbuf, or %NULL
+ * if not enough memory could be allocated for it.
  *
  * Since: 2.6
  */
