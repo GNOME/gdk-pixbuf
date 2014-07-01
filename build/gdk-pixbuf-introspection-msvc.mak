@@ -15,10 +15,6 @@ gdkpixbuf_list:
 	@-echo Generating Filelist to Introspect for GDK-Pixbuf...
 	$(PYTHON2) gen-file-list-gdkpixbuf.py
 
-win32\vs$(VSVER)\$(CFG)\$(PLAT)\bin\GdkPixbuf-$(APIVERSION).lib: win32\vs$(VSVER)\$(CFG)\$(PLAT)\bin\gdk_pixbuf-$(APIVERSION).lib
-	@-echo Copying win32\vs$(VSVER)\$(CFG)\$(PLAT)\bin\GdkPixbuf-$(APIVERSION).lib from win32\vs$(VSVER)\$(CFG)\$(PLAT)\bin\gdk_pixbuf-$(APIVERSION).lib...
-	@-copy /b win32\vs$(VSVER)\$(CFG)\$(PLAT)\bin\gdk_pixbuf-$(APIVERSION).lib win32\vs$(VSVER)\$(CFG)\$(PLAT)\bin\GdkPixbuf-$(APIVERSION).lib
-
 setgirbuildnev:
 	@-set CC=$(CC)
 	@-set PYTHONPATH=$(BASEDIR)\lib\gobject-introspection
@@ -26,7 +22,7 @@ setgirbuildnev:
 	@-set PKG_CONFIG_PATH=$(PKG_CONFIG_PATH)
 	@-set LIB=win32\vs$(VSVER)\$(CFG)\$(PLAT)\bin;$(LIB)
 
-GdkPixbuf-$(APIVERSION).gir: gdkpixbuf_list win32\vs$(VSVER)\$(CFG)\$(PLAT)\bin\GdkPixbuf-$(APIVERSION).lib
+GdkPixbuf-$(APIVERSION).gir: gdkpixbuf_list
 	@-echo Generating GdkPixbuf-$(APIVERSION).gir...
 	$(PYTHON2) $(G_IR_SCANNER) --verbose -I.. -I..\gdk-pixbuf	\
 	-I$(BASEDIR)\include\glib-2.0 -I$(BASEDIR)\lib\glib-2.0\include	\
@@ -56,6 +52,5 @@ install-introspection: all
 clean:
 	@-del /f/q GdkPixbuf-$(APIVERSION).typelib
 	@-del /f/q GdkPixbuf-$(APIVERSION).gir
-	@-del /f/q win32\vs$(VSVER)\$(CFG)\$(PLAT)\bin\GdkPixbuf-$(APIVERSION).lib
 	@-del /f/q gdkpixbuf_list
 	@-del /f/q *.pyc
