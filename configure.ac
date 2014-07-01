@@ -1081,6 +1081,8 @@ build/Makefile
 build/win32/Makefile
 build/win32/vs9/Makefile
 build/win32/vs10/Makefile
+build/win32/vs11/Makefile
+build/win32/vs12/Makefile
 docs/Makefile
 docs/reference/Makefile
 docs/reference/gdk-pixbuf/Makefile
