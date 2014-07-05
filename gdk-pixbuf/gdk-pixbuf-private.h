@@ -73,6 +73,9 @@ struct _GdkPixbuf {
 	/* User data for the destroy notification function */
 	gpointer destroy_fn_data;
 
+        /* Replaces "pixels" member (and destroy notify) */
+        GBytes *bytes;
+
 	/* Do we have an alpha channel? */
 	guint has_alpha : 1;
 };

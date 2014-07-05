@@ -32,6 +32,7 @@ test_programs = 			\
 	pixbuf-resource			\
 	pixbuf-scale			\
 	pixbuf-save			\
+	pixbuf-readonly-to-mutable	\
 	$(NULL)
 
 dist_installed_test_data =		\
@@ -74,6 +75,12 @@ pixbuf_icon_serialize_SOURCES =		\
 
 pixbuf_save_SOURCES =			\
 	pixbuf-save.c			\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_readonly_to_mutable_SOURCES =	\
+	pixbuf-readonly-to-mutable.c	\
 	test-common.c			\
 	test-common.h			\
 	$(NULL)

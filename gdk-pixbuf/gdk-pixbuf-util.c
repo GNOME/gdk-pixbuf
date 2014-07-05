@@ -65,11 +65,15 @@ gdk_pixbuf_add_alpha (const GdkPixbuf *pixbuf,
 {
 	GdkPixbuf *new_pixbuf;
 	int x, y;
+	const guint8 *src_pixels;
+	guint8 *ret_pixels;
 
 	g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
 	g_return_val_if_fail (pixbuf->colorspace == GDK_COLORSPACE_RGB, NULL);
 	g_return_val_if_fail (pixbuf->n_channels == 3 || pixbuf->n_channels == 4, NULL);
 	g_return_val_if_fail (pixbuf->bits_per_sample == 8, NULL);
+
+	src_pixels = gdk_pixbuf_read_pixels (pixbuf);
 
 	if (pixbuf->has_alpha) {
 		new_pixbuf = gdk_pixbuf_copy (pixbuf);
@@ -85,12 +89,15 @@ gdk_pixbuf_add_alpha (const GdkPixbuf *pixbuf,
 	if (!new_pixbuf)
 		return NULL;
 
+	ret_pixels = gdk_pixbuf_get_pixels (new_pixbuf);
+
 	for (y = 0; y < pixbuf->height; y++) {
-		guchar *src, *dest;
+		const guchar *src;
+		guchar *dest;
 		guchar tr, tg, tb;
 
-		src = pixbuf->pixels + y * pixbuf->rowstride;
-		dest = new_pixbuf->pixels + y * new_pixbuf->rowstride;
+		src = src_pixels + y * pixbuf->rowstride;
+		dest = ret_pixels + y * new_pixbuf->rowstride;
                 
                 if (pixbuf->has_alpha) {
                         /* Just subst color, we already copied everything else */
@@ -208,9 +215,9 @@ gdk_pixbuf_saturate_and_pixelate(const GdkPixbuf *src,
         } else {
                 int i, j, t;
                 int width, height, has_alpha, src_rowstride, dest_rowstride, bytes_per_pixel;
-		guchar *src_line;
+		const guchar *src_line;
 		guchar *dest_line;
-                guchar *src_pixel;
+                const guchar *src_pixel;
 		guchar *dest_pixel;
                 guchar intensity;
 
@@ -221,8 +228,8 @@ gdk_pixbuf_saturate_and_pixelate(const GdkPixbuf *src,
                 src_rowstride = gdk_pixbuf_get_rowstride (src);
                 dest_rowstride = gdk_pixbuf_get_rowstride (dest);
                 
-                src_line = gdk_pixbuf_get_pixels (src);
                 dest_line = gdk_pixbuf_get_pixels (dest);
+                src_line = gdk_pixbuf_read_pixels (src);
 		
 #define DARK_FACTOR 0.7
 #define INTENSITY(r, g, b) ((r) * 0.30 + (g) * 0.59 + (b) * 0.11)

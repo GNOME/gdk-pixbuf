@@ -241,6 +241,9 @@ gsize         gdk_pixbuf_get_byte_length     (const GdkPixbuf *pixbuf);
 guchar       *gdk_pixbuf_get_pixels_with_length (const GdkPixbuf *pixbuf,
                                                  guint           *length);
 
+const guint8* gdk_pixbuf_read_pixels    (const GdkPixbuf  *pixbuf);
+					      
+
 
 
 
@@ -298,6 +301,13 @@ GdkPixbuf *gdk_pixbuf_new_from_data (const guchar *data,
 				     GdkPixbufDestroyNotify destroy_fn,
 				     gpointer destroy_fn_data);
 
+GdkPixbuf *gdk_pixbuf_new_from_bytes (GBytes *data,
+				      GdkColorspace colorspace,
+				      gboolean has_alpha,
+				      int bits_per_sample,
+				      int width, int height,
+				      int rowstride);
+ 
 GdkPixbuf *gdk_pixbuf_new_from_xpm_data (const char **data);
 GdkPixbuf* gdk_pixbuf_new_from_inline	(gint          data_length,
 					 const guint8 *data,

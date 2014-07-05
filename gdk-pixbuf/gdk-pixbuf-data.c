@@ -41,7 +41,15 @@
  * 
  * Creates a new #GdkPixbuf out of in-memory image data.  Currently only RGB
  * images with 8 bits per sample are supported.
- * 
+ *
+ * Since you are providing a pre-allocated pixel buffer, you must also
+ * specify a way to free that data.  This is done with a function of
+ * type #GdkPixbufDestroyNotify.  When a pixbuf created with is
+ * finalized, your destroy notification function will be called, and
+ * it is its responsibility to free the pixel array.
+ *
+ * See also gdk_pixbuf_new_from_bytes().
+ *
  * Return value: (transfer full): A newly-created #GdkPixbuf structure with a reference count of 1.
  **/
 GdkPixbuf *
@@ -74,4 +82,44 @@ gdk_pixbuf_new_from_data (const guchar *data, GdkColorspace colorspace, gboolean
 	pixbuf->destroy_fn_data = destroy_fn_data;
 
 	return pixbuf;
+}
+
+/**
+ * gdk_pixbuf_new_from_bytes:
+ * @data: Image data in 8-bit/sample packed format inside a #GBytes
+ * @colorspace: Colorspace for the image data
+ * @has_alpha: Whether the data has an opacity channel
+ * @bits_per_sample: Number of bits per sample
+ * @width: Width of the image in pixels, must be > 0
+ * @height: Height of the image in pixels, must be > 0
+ * @rowstride: Distance in bytes between row starts
+ * 
+ * Creates a new #GdkPixbuf out of in-memory readonly image data.
+ * Currently only RGB images with 8 bits per sample are supported.
+ * This is the #GBytes variant of gdk_pixbuf_new_from_data().
+ *
+ * Return value: (transfer full): A newly-created #GdkPixbuf structure with a reference count of 1.
+ * Since: 2.32
+ **/
+GdkPixbuf *
+gdk_pixbuf_new_from_bytes (GBytes *data, GdkColorspace colorspace, gboolean has_alpha,
+			   int bits_per_sample, int width, int height, int rowstride)
+{
+	g_return_val_if_fail (data != NULL, NULL);
+	g_return_val_if_fail (colorspace == GDK_COLORSPACE_RGB, NULL);
+	g_return_val_if_fail (bits_per_sample == 8, NULL);
+	g_return_val_if_fail (width > 0, NULL);
+	g_return_val_if_fail (height > 0, NULL);
+	g_return_val_if_fail (g_bytes_get_size (data) >= width * height * (has_alpha ? 4 : 3), NULL);
+
+	return (GdkPixbuf*) g_object_new (GDK_TYPE_PIXBUF, 
+					  "pixel-bytes", data,
+					  "colorspace", colorspace,
+					  "n-channels", has_alpha ? 4 : 3,
+					  "bits-per-sample", bits_per_sample,
+					  "has-alpha", has_alpha ? TRUE : FALSE,
+					  "width", width,
+					  "height", height,
+					  "rowstride", rowstride,
+					  NULL);
 }
