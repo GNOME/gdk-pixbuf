@@ -148,12 +148,38 @@ test_mutate_readonly (void)
   g_object_unref (src);
 }
 
+static void
+test_read_pixel_bytes (void)
+{
+  GdkPixbuf *src;
+  GBytes *bytes;
+  
+  if (!format_supported ("png"))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
+  
+  src = get_readonly_pixbuf ();
+  bytes = gdk_pixbuf_read_pixel_bytes (src);
+  g_object_unref (src);
+  g_bytes_unref (bytes);
+
+  src = get_readonly_pixbuf ();
+  /* Force a mutable conversion */
+  (void) gdk_pixbuf_get_pixels (src);
+  bytes = gdk_pixbuf_read_pixel_bytes (src);
+  g_object_unref (src);
+  g_bytes_unref (bytes);
+}
+
 int
 main (int argc, char **argv)
 {
   g_test_init (&argc, &argv, NULL);
 
   g_test_add_func ("/pixbuf/readonly/mutate", test_mutate_readonly);
+  g_test_add_func ("/pixbuf/readonly/readpixelbytes", test_read_pixel_bytes);
 
   return g_test_run ();
 }

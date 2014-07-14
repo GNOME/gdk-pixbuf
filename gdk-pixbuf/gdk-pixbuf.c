@@ -709,6 +709,30 @@ gdk_pixbuf_read_pixels (const GdkPixbuf  *pixbuf)
 }
 
 /**
+ * gdk_pixbuf_read_pixel_bytes:
+ * @pixbuf: A pixbuf
+ *
+ * Returns: (transfer full): A new reference to a read-only copy of
+ * the pixel data.  Note that for mutable pixbufs, this function will
+ * incur a one-time copy of the pixel data for conversion into the
+ * returned #GBytes.
+ *
+ * Since: 2.32
+ */
+GBytes *
+gdk_pixbuf_read_pixel_bytes (const GdkPixbuf  *pixbuf)
+{
+        g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
+
+        if (pixbuf->bytes) {
+                return g_bytes_ref (pixbuf->bytes);
+        } else {
+                return g_bytes_new (pixbuf->pixels,
+                                    gdk_pixbuf_get_byte_length (pixbuf));
+        }
+}
+
+/**
  * gdk_pixbuf_get_width:
  * @pixbuf: A pixbuf.
  *

@@ -241,9 +241,8 @@ gsize         gdk_pixbuf_get_byte_length     (const GdkPixbuf *pixbuf);
 guchar       *gdk_pixbuf_get_pixels_with_length (const GdkPixbuf *pixbuf,
                                                  guint           *length);
 
-const guint8* gdk_pixbuf_read_pixels    (const GdkPixbuf  *pixbuf);
-					      
-
+const guint8* gdk_pixbuf_read_pixels         (const GdkPixbuf  *pixbuf);
+GBytes *      gdk_pixbuf_read_pixel_bytes    (const GdkPixbuf  *pixbuf);
 
 
 
