@@ -1,3 +1,13 @@
+2.31.0
+======
+
+* To improve the situation for language bindings, pixbufs can now
+  be constructed from data in GBytes, and pixbuf data can also be
+  extracted in this form. The GBytes data is treated as readonly,
+  and gdk_pixbuf_get_pixels() will create a copy. To avoid this
+  copy, a new function gdk_pixbuf_read_pixels() was introduced
+  which returns a const pointer to the data without copying.
+
 2.30.8
 ======
 
