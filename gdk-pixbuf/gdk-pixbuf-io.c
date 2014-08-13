@@ -1932,6 +1932,128 @@ gdk_pixbuf_get_file_info (const gchar  *filename,
         return info.format;
 }
 
+typedef struct {
+        gchar *filename;
+        gint width;
+        gint height;
+} GetFileInfoAsyncData;
+
+static void
+get_file_info_async_data_free (GetFileInfoAsyncData *data)
+{
+        g_free (data->filename);
+        g_slice_free (GetFileInfoAsyncData, data);
+}
+
+static void
+get_file_info_thread (GTask                *task,
+                      gpointer              source_object,
+                      GetFileInfoAsyncData *data,
+                      GCancellable         *cancellable)
+{
+        GdkPixbufFormat *format;
+
+        format = gdk_pixbuf_get_file_info (data->filename, &data->width, &data->height);
+        if (format == NULL) {
+                g_task_return_new_error (task,
+                                         GDK_PIXBUF_ERROR,
+                                         GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+                                         "Failed to recognize image format");
+        } else {
+                g_task_return_pointer (task,
+                                       gdk_pixbuf_format_copy (format),
+                                       (GDestroyNotify) gdk_pixbuf_format_free);
+        }
+}
+
+/**
+ * gdk_pixbuf_get_file_info_async:
+ * @filename: The name of the file to identify
+ * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
+ * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
+ * @user_data: the data to pass to the callback function
+ *
+ * Asynchronously parses an image file far enough to determine its
+ * format and size.
+ *
+ * For more details see gdk_pixbuf_get_file_info(), which is the synchronous
+ * version of this function.
+ *
+ * When the operation is finished, @callback will be called in the
+ * main thread. You can then call gdk_pixbuf_get_file_info_finish() to
+ * get the result of the operation.
+ *
+ * Since: 2.32
+ **/
+void
+gdk_pixbuf_get_file_info_async  (const gchar          *filename,
+                                 GCancellable         *cancellable,
+                                 GAsyncReadyCallback   callback,
+                                 gpointer              user_data)
+{
+        GetFileInfoAsyncData *data;
+        GTask *task;
+
+        g_return_if_fail (filename != NULL);
+        g_return_if_fail (callback != NULL);
+        g_return_if_fail (!cancellable || G_IS_CANCELLABLE (cancellable));
+
+        data = g_slice_new0 (GetFileInfoAsyncData);
+        data->filename = g_strdup (filename);
+
+        task = g_task_new (NULL, cancellable, callback, user_data);
+        g_task_set_return_on_cancel (task, TRUE);
+        g_task_set_source_tag (task, gdk_pixbuf_get_file_info_async);
+        g_task_set_task_data (task, data, (GDestroyNotify) get_file_info_async_data_free);
+        g_task_run_in_thread (task, (GTaskThreadFunc) get_file_info_thread);
+        g_object_unref (task);
+}
+
+/**
+ * gdk_pixbuf_get_file_info_finish:
+ * @async_result: a #GAsyncResult
+ * @width: (out): Return location for the width of the image, or %NULL
+ * @height: (out): Return location for the height of the image, or %NULL
+ * @error: a #GError, or %NULL
+ *
+ * Finishes an asynchronous pixbuf parsing operation started with
+ * gdk_pixbuf_get_file_info_async().
+ *
+ * Returns: (transfer none): A #GdkPixbufFormat describing the image
+ *    format of the file or %NULL if the image format wasn't
+ *    recognized. The return value is owned by GdkPixbuf and should
+ *    not be freed.
+ *
+ * Since: 2.32
+ **/
+GdkPixbufFormat *
+gdk_pixbuf_get_file_info_finish (GAsyncResult         *async_result,
+                                 gint                 *width,
+                                 gint                 *height,
+                                 GError              **error)
+{
+        GetFileInfoAsyncData *data;
+        GTask *task;
+
+        g_return_val_if_fail (g_task_is_valid (async_result, NULL), NULL);
+
+        task = G_TASK (async_result);
+
+        g_return_val_if_fail (!error || (error && !*error), NULL);
+        g_warn_if_fail (g_task_get_source_tag (task) == gdk_pixbuf_get_file_info_async);
+
+        data = g_task_get_task_data (task);
+
+        if (!g_task_had_error (task)) {
+                if (width)
+                        *width = data->width;
+                if (height)
+                        *height = data->height;
+        }
+
+        return g_task_propagate_pointer (task, error);
+}
+
 /**
  * gdk_pixbuf_new_from_xpm_data:
  * @data: (array zero-terminated=1): Pointer to inline XPM data.

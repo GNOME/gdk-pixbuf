@@ -58,6 +58,14 @@ gchar     *gdk_pixbuf_format_get_license     (GdkPixbufFormat *format);
 GdkPixbufFormat *gdk_pixbuf_get_file_info    (const gchar     *filename,
 					      gint            *width, 
 					      gint            *height);
+void             gdk_pixbuf_get_file_info_async  (const gchar          *filename,
+						  GCancellable         *cancellable,
+						  GAsyncReadyCallback   callback,
+						  gpointer              user_data);
+GdkPixbufFormat *gdk_pixbuf_get_file_info_finish (GAsyncResult         *async_result,
+						  gint                 *width,
+						  gint                 *height,
+						  GError              **error);
 
 GdkPixbufFormat *gdk_pixbuf_format_copy (const GdkPixbufFormat *format);
 void             gdk_pixbuf_format_free (GdkPixbufFormat       *format);
