@@ -36,6 +36,7 @@ gdk_pixbuf_get_height
 gdk_pixbuf_get_rowstride
 gdk_pixbuf_get_byte_length
 gdk_pixbuf_get_option
+gdk_pixbuf_read_pixels
 
 <SUBSECTION Standard>
 GDK_TYPE_PIXBUF_ERROR
@@ -95,6 +96,7 @@ gdk_pixbuf_save_to_stream_finish
 <SECTION>
 <FILE>creating</FILE>
 gdk_pixbuf_new
+gdk_pixbuf_new_from_bytes
 gdk_pixbuf_new_from_data
 gdk_pixbuf_new_from_xpm_data
 gdk_pixbuf_new_from_inline
