@@ -1,3 +1,10 @@
+2.31.1
+======
+
+* Add gdk_pixbuf_get_file_info_async
+
+* Translation updates
+
 2.31.0
 ======
 
