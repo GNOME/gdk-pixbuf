@@ -706,6 +706,18 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
 
         try_module (pixdata,pixdata);
 
+#ifdef INCLUDE_gdiplus
+        try_module (ico,gdip_ico);
+        try_module (wmf,gdip_wmf);
+        try_module (emf,gdip_emf);
+        try_module (bmp,gdip_bmp);
+        try_module (gif,gdip_gif);
+        try_module (jpeg,gdip_jpeg);
+        try_module (tiff,gdip_tiff);
+#endif
+#ifdef INCLUDE_gdip_png
+        try_module (png,gdip_png);
+#endif
 #ifdef INCLUDE_png      
         try_module (png,png);
 #endif
@@ -756,18 +768,6 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
 #endif
 #ifdef INCLUDE_qtif
         try_module (qtif,qtif);
-#endif
-#ifdef INCLUDE_gdiplus
-        try_module (ico,gdip_ico);
-        try_module (wmf,gdip_wmf);
-        try_module (emf,gdip_emf);
-        try_module (bmp,gdip_bmp);
-        try_module (gif,gdip_gif);
-        try_module (jpeg,gdip_jpeg);
-        try_module (tiff,gdip_tiff);
-#endif
-#ifdef INCLUDE_gdip_png
-        try_module (png,gdip_png);
 #endif
 
 #undef try_module
