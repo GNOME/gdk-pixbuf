@@ -349,22 +349,28 @@ gdk_pixbuf_apply_embedded_orientation (GdkPixbuf *src)
         return dest;
 }
 
-#ifdef G_OS_WIN32
+#ifdef GDK_PIXBUF_RELOCATABLE
 
 static const gchar *
 get_localedir (void)
 {
     gchar *temp;
-    gchar *retval;
     
-    temp = g_build_filename (gdk_pixbuf_win32_get_toplevel (), "share/locale", NULL);
+    temp = g_build_filename (gdk_pixbuf_get_toplevel (), "share/locale", NULL);
 
-    /* The localedir is passed to bindtextdomain() which isn't
-     * UTF-8-aware.
-     */
-    retval = g_win32_locale_filename_from_utf8 (temp);
-    g_free (temp);
-    return retval;
+#ifdef G_OS_WIN32
+    {
+      gchar *retval;
+      /* The localedir is passed to bindtextdomain() which isn't
+      * UTF-8-aware.
+      */
+      retval = g_win32_locale_filename_from_utf8 (temp);
+      g_free (temp);
+      return retval;
+    }
+#else
+    return temp;
+#endif
 }
 
 #undef GDK_PIXBUF_LOCALEDIR

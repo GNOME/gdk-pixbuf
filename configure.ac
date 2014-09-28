@@ -129,6 +129,10 @@ AC_SUBST(EXE_MANIFEST_ARCHITECTURE)
 case $host in
   *-*-linux*)
     os_linux=yes
+    AC_DEFINE(OS_LINUX, 1, [Define to 1 if it's a Linux platform])
+    ;;
+  *-*-darwin*)
+    AC_DEFINE(OS_DARWIN, 1, [Define to 1 if it's a darwin platform])
     ;;
 esac
 
@@ -1064,6 +1068,28 @@ AM_CONDITIONAL([WITH_COVERAGE], [test "$enable_coverage" = "yes"])
 AC_SUBST(LCOV)
 AC_SUBST(GCOV)
 AC_SUBST(GENHTML)
+
+#######################################################
+# Enable replacing the build-time prefix in the loaders
+# cache with the installation prefix on this machine
+# for relocatable packages such as Windows and OS X
+# applicationsapplications and linux bundles
+#######################################################
+
+enable_relocations=no
+case $host in
+  *-*-mingw*)
+    enable_relocations=yes
+    ;;
+  *-*-darwin*)
+    enable_relocations=yes
+    ;;
+esac
+
+if test "x$enable_relocations" = "xyes"; then
+  AC_DEFINE(GDK_PIXBUF_RELOCATABLE, 1,
+                  [Define to 1 to replace the build-time prefix in modules])
+fi
 
 ##################################################
 # Output commands

@@ -115,8 +115,8 @@ GdkPixbufLoader *_gdk_pixbuf_loader_new_with_filename (const char *filename);
 
 #endif /* GDK_PIXBUF_PRIVATE_H */
 
-#ifdef G_OS_WIN32
+#ifdef GDK_PIXBUF_RELOCATABLE
 
-gchar * gdk_pixbuf_win32_get_toplevel (void);
+gchar * gdk_pixbuf_get_toplevel (void);
 
 #endif /* G_OS_WIN32 */
