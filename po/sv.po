@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2014-06-12 04:58+0000\n"
-"PO-Revision-Date: 2014-06-16 22:25+0100\n"
+"POT-Creation-Date: 2014-09-18 16:55+0000\n"
+"PO-Revision-Date: 2014-09-18 19:59+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -83,34 +83,34 @@ msgstr "Okänt bildfilformat"
 msgid "Failed to load image '%s': %s"
 msgstr "Misslyckades med att läsa in bilden ”%s”: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2029 ../gdk-pixbuf/io-gdip-utils.c:835
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2151 ../gdk-pixbuf/io-gdip-utils.c:835
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Fel vid skrivning till bildfil: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2071 ../gdk-pixbuf/gdk-pixbuf-io.c:2192
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2193 ../gdk-pixbuf/gdk-pixbuf-io.c:2314
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "Detta bygge av gdk-pixbuf stöder inte sparande av bildformatet: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2102
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2224
 msgid "Insufficient memory to save image to callback"
 msgstr "Inte tillräckligt med minne för att spara bild till återuppringning"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2115
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2237
 msgid "Failed to open temporary file"
 msgstr "Misslyckades med att öppna temporär fil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2138
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2260
 msgid "Failed to read from temporary file"
 msgstr "Misslyckades med att läsa från temporär fil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2382
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2504
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Misslyckades med att öppna ”%s” för skrivning: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2408
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2530
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -119,11 +119,11 @@ msgstr ""
 "Misslyckades med att stänga ”%s” när bilden skrevs, all data kanske inte har "
 "sparats: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2629 ../gdk-pixbuf/gdk-pixbuf-io.c:2681
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2751 ../gdk-pixbuf/gdk-pixbuf-io.c:2803
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Inte tillräckligt med minne för att spara bild till en buffert"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2727
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2849
 msgid "Error writing to image stream"
 msgstr "Fel vid skrivning till bildström"
 
@@ -182,7 +182,6 @@ msgid "Malformed chunk in animation"
 msgstr "Felaktigt stycke i animation"
 
 #: ../gdk-pixbuf/io-ani.c:628
-#| msgid "GIF image was truncated or incomplete."
 msgid "ANI image was truncated or incomplete."
 msgstr "ANI-bilden var trunkerad eller ofullständig."
 
@@ -357,7 +356,6 @@ msgid "Version %s of the GIF file format is not supported"
 msgstr "Version %s av filformatet GIF stöds inte"
 
 #: ../gdk-pixbuf/io-gif.c:1239
-#| msgid "Image has zero width"
 msgid "Resulting GIF image has zero size"
 msgstr "Resulterande GIF-bild har storleken noll"
 
@@ -494,7 +492,6 @@ msgstr "Transformerad JPEG har bredden eller höjden noll."
 
 #: ../gdk-pixbuf/io-jpeg.c:1279
 #, c-format
-#| msgid "Color profile has invalid length %d."
 msgid "Color profile has invalid length '%u'."
 msgstr "Färgprofilen har en ogiltig längd ”%u”."
 
@@ -583,9 +580,6 @@ msgstr "Inte tillräckligt med minne för att läsa in PNG-fil"
 
 #: ../gdk-pixbuf/io-png.c:655
 #, c-format
-#| msgid ""
-#| "Insufficient memory to store a %ld by %ld image; try exiting some "
-#| "applications to reduce memory usage"
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
@@ -707,7 +701,7 @@ msgstr "Bildformatsfamiljen PNM/PBM/PGM/PPM"
 
 #: ../gdk-pixbuf/io-qtif.c:126
 msgid "Input file descriptor is NULL."
-msgstr "Filbeskrivare för inmating är NULL."
+msgstr "Filhandtag för inmatning är NULL."
 
 #: ../gdk-pixbuf/io-qtif.c:141
 msgid "Failed to read QTIF header"
