@@ -897,7 +897,8 @@ gdk_pixbuf_fill (GdkPixbuf *pixbuf,
  * options for cursor definitions. The PNG loader provides the tEXt ancillary
  * chunk key/value pairs as options. Since 2.12, the TIFF and JPEG loaders
  * return an "orientation" option string that corresponds to the embedded 
- * TIFF/Exif orientation tag (if present).
+ * TIFF/Exif orientation tag (if present). Since 2.32, the TIFF loader sets
+ * the "multipage" option string to "yes" when a multi-page TIFF is loaded.
  * 
  * Return value: the value associated with @key. This is a nul-terminated 
  * string that should not be freed or %NULL if @key was not found.
