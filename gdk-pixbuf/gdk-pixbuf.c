@@ -647,7 +647,7 @@ gdk_pixbuf_get_pixels (const GdkPixbuf *pixbuf)
 }
 
 /**
- * gdk_pixbuf_get_pixels_with_length:
+ * gdk_pixbuf_get_pixels_with_length: (rename-to gdk_pixbuf_get_pixels)
  * @pixbuf: A pixbuf.
  * @length: (out): The length of the binary data.
  *
@@ -659,8 +659,6 @@ gdk_pixbuf_get_pixels (const GdkPixbuf *pixbuf)
  *
  * This function will cause an implicit copy of the pixbuf data if the
  * pixbuf was created from read-only data.
- *
- * Rename to: gdk_pixbuf_get_pixels
  *
  * Since: 2.26
  */
