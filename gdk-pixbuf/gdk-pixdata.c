@@ -31,6 +31,9 @@
  * can be used to convert image files into #GdkPixdata structures suitable
  * for inclusion in C sources. To convert the #GdkPixdata structures back 
  * into #GdkPixbuf<!-- -->s, use gdk_pixbuf_from_pixdata.
+ *
+ * #GdkPixdata should not be used any more. #GResource should be used to save
+ * the original compressed images inside the program's binary.
  */
 
 #define APPEND g_string_append_printf
@@ -102,6 +105,8 @@ pixdata_get_length (const GdkPixdata *pixdata)
  * Return value: (array length=stream_length_p) (transfer full): A
  * newly-allocated string containing the serialized #GdkPixdata
  * structure.
+ *
+ * Deprecated: 2.32: Use #GResource instead.
  **/
 guint8* /* free result */
 gdk_pixdata_serialize (const GdkPixdata *pixdata,
@@ -194,6 +199,8 @@ get_uint32 (const guint8 *stream, guint *result)
  *
  * Return value: Upon successful deserialization %TRUE is returned,
  * %FALSE otherwise.
+ *
+ * Deprecated: 2.32: Use #GResource instead.
  **/
 gboolean
 gdk_pixdata_deserialize (GdkPixdata   *pixdata,
@@ -322,6 +329,8 @@ free_buffer (guchar *pixels, gpointer data)
  * Returns: (nullable): If @use_rle is %TRUE, a pointer to the
  *   newly-allocated memory for the run-length encoded pixel data,
  *   otherwise %NULL.
+ *
+ * Deprecated: 2.32: Use #GResource instead.
  **/
 gpointer
 gdk_pixdata_from_pixbuf (GdkPixdata      *pixdata,
@@ -410,6 +419,7 @@ gdk_pixdata_from_pixbuf (GdkPixdata      *pixdata,
  * newly-allocated memory; otherwise it is reused.
  *
  * Returns: (transfer full): a new #GdkPixbuf.
+ * Deprecated: 2.32: Use #GResource instead.
  **/
 GdkPixbuf*
 gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
@@ -628,6 +638,7 @@ save_rle_decoder (GString     *gstring,
  *
  * Returns: a newly-allocated string containing the C source form
  *   of @pixdata.
+ * Deprecated: 2.32: Use #GResource instead.
  **/
 GString*
 gdk_pixdata_to_csource (GdkPixdata        *pixdata,
@@ -894,6 +905,8 @@ gdk_pixdata_to_csource (GdkPixdata        *pixdata,
  *
  * Return value: A newly-created #GdkPixbuf structure with a reference,
  *   count of 1, or %NULL if an error occurred.
+ *
+ * Deprecated: 2.32: Use #GResource instead.
  **/
 GdkPixbuf*
 gdk_pixbuf_new_from_inline (gint          data_length,
