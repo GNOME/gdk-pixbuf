@@ -30,7 +30,7 @@
  * GdkPixBuf includes a utility named gdk-pixbuf-csource, which
  * can be used to convert image files into #GdkPixdata structures suitable
  * for inclusion in C sources. To convert the #GdkPixdata structures back 
- * into #GdkPixbuf<!-- -->s, use gdk_pixbuf_from_pixdata.
+ * into #GdkPixbufs, use gdk_pixbuf_from_pixdata.
  *
  * #GdkPixdata should not be used any more. #GResource should be used to save
  * the original compressed images inside the program's binary.
