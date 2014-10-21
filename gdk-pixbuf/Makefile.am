@@ -721,7 +721,7 @@ dist-hook: ../build/win32/vs9/gdk-pixbuf.vcproj ../build/win32/vs10/gdk-pixbuf.v
 if HAVE_INTROSPECTION
 
 GdkPixbuf-2.0.gir: libgdk_pixbuf-2.0.la Makefile
-GdkPixbuf_2_0_gir_SCANNERFLAGS = --warn-all --strip-prefix=Gdk --c-include="gdk-pixbuf/gdk-pixbuf.h"
+GdkPixbuf_2_0_gir_SCANNERFLAGS = --warn-all --identifier-prefix=Gdk --c-include="gdk-pixbuf/gdk-pixbuf.h"
 GdkPixbuf_2_0_gir_EXPORT_PACKAGES = gdk-pixbuf-2.0
 GdkPixbuf_2_0_gir_INCLUDES = GModule-2.0 Gio-2.0
 GdkPixbuf_2_0_gir_LIBS = libgdk_pixbuf-2.0.la
