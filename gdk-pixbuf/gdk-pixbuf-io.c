@@ -2357,7 +2357,9 @@ gdk_pixbuf_real_save_to_callback (GdkPixbuf         *pixbuf,
  * ]|
  *
  * Currently only few parameters exist. JPEG images can be saved with a
- * "quality" parameter; its value should be in the range [0,100].
+ * "quality" parameter; its value should be in the range [0,100]. JPEG
+ * density can be set by setting the "x-dpi" and "y-dpi" parameters
+ * to the appropriate values in dots per inch.
  *
  * Text chunks can be attached to PNG images by specifying parameters of
  * the form "tEXt::key", where key is an ASCII string of length 1-79.
