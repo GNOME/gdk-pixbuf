@@ -54,12 +54,13 @@ test_incremental (gconstpointer data)
   g_assert_no_error (error);
 
   pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+  g_assert_nonnull (pixbuf);
   x_dpi = gdk_pixbuf_get_option (pixbuf, "x-dpi");
   y_dpi = gdk_pixbuf_get_option (pixbuf, "y-dpi");
-  g_assert (x_dpi != NULL);
-  g_assert (y_dpi != NULL);
-  g_assert (strcmp (x_dpi, "300") == 0);
-  g_assert (strcmp (y_dpi, "600") == 0);
+  g_assert_nonnull (x_dpi);
+  g_assert_nonnull (y_dpi);
+  g_assert_cmpstr (x_dpi, ==, "300");
+  g_assert_cmpstr (y_dpi, ==, "600");
 
   g_object_unref (loader);
   g_free (contents);
@@ -84,10 +85,10 @@ test_nonincremental (gconstpointer data)
 
   x_dpi = gdk_pixbuf_get_option (pixbuf, "x-dpi");
   y_dpi = gdk_pixbuf_get_option (pixbuf, "y-dpi");
-  g_assert (x_dpi != NULL);
-  g_assert (y_dpi != NULL);
-  g_assert (strcmp (x_dpi, "300") == 0);
-  g_assert (strcmp (y_dpi, "600") == 0);
+  g_assert_nonnull (x_dpi);
+  g_assert_nonnull (y_dpi);
+  g_assert_cmpstr (x_dpi, ==, "300");
+  g_assert_cmpstr (y_dpi, ==, "600");
 
   g_object_unref (pixbuf);
 }
@@ -98,9 +99,11 @@ main (int argc, char **argv)
   g_test_init (&argc, &argv, NULL);
 
   g_test_add_data_func ("/pixbuf/dpi/png", "dpi.png", test_nonincremental);
+  g_test_add_data_func ("/pixbuf/dpi/png-incremental", "dpi.png", test_incremental);
   g_test_add_data_func ("/pixbuf/dpi/jpeg", "dpi.jpeg", test_nonincremental);
-  g_test_add_data_func ("/pixbuf/dpi/png/incremental", "dpi.png", test_incremental);
-  g_test_add_data_func ("/pixbuf/dpi/jpeg/incremental", "dpi.jpeg", test_incremental);
+  g_test_add_data_func ("/pixbuf/dpi/jpeg-incremental", "dpi.jpeg", test_incremental);
+  g_test_add_data_func ("/pixbuf/dpi/tiff", "dpi.tiff", test_nonincremental);
+  g_test_add_data_func ("/pixbuf/dpi/tiff-incremental", "dpi.tiff", test_incremental);
 
   return g_test_run ();
 }

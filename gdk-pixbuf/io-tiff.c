@@ -94,6 +94,8 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
         gchar *icc_profile_base64;
         const gchar *icc_profile;
         guint icc_profile_size;
+        uint16 resolution_unit;
+        gchar *density_str;
         gint retval;
 
         /* We're called with the lock held. */
@@ -234,6 +236,33 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
                 icc_profile_base64 = g_base64_encode ((const guchar *) icc_profile, icc_profile_size);
                 gdk_pixbuf_set_option (pixbuf, "icc-profile", icc_profile_base64);
                 g_free (icc_profile_base64);
+        }
+
+        retval = TIFFGetField (tiff, TIFFTAG_RESOLUTIONUNIT, &resolution_unit);
+        if (retval == 1) {
+                float x_resolution = 0, y_resolution = 0;
+
+                TIFFGetField (tiff, TIFFTAG_XRESOLUTION, &x_resolution);
+                TIFFGetField (tiff, TIFFTAG_YRESOLUTION, &y_resolution);
+
+                switch (resolution_unit) {
+                case RESUNIT_INCH:
+                        density_str = g_strdup_printf ("%d", (int) round (x_resolution));
+                        gdk_pixbuf_set_option (pixbuf, "x-dpi", density_str);
+                        g_free (density_str);
+                        density_str = g_strdup_printf ("%d", (int) round (y_resolution));
+                        gdk_pixbuf_set_option (pixbuf, "y-dpi", density_str);
+                        g_free (density_str);
+                        break;
+                case RESUNIT_CENTIMETER:
+                        density_str = g_strdup_printf ("%d", DPCM_TO_DPI (x_resolution));
+                        gdk_pixbuf_set_option (pixbuf, "x-dpi", density_str);
+                        g_free (density_str);
+                        density_str = g_strdup_printf ("%d", DPCM_TO_DPI (y_resolution));
+                        gdk_pixbuf_set_option (pixbuf, "y-dpi", density_str);
+                        g_free (density_str);
+                        break;
+                }
         }
 
 	if (context && context->prepare_func)
@@ -661,6 +690,8 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
         TiffSaveContext *context;
         gboolean retval;
         const gchar *icc_profile = NULL;
+        const gchar *x_dpi = NULL;
+        const gchar *y_dpi = NULL;
 
         tiff_set_handlers ();
 
@@ -703,6 +734,10 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                             compression = values[i];
                     else if (g_str_equal (keys[i], "icc-profile"))
                             icc_profile = values[i];
+                    else if (g_str_equal (keys[i], "x-dpi"))
+                            x_dpi = values[i];
+                    else if (g_str_equal (keys[i], "y-dpi"))
+                            y_dpi = values[i];
                    i++;
             }
         }
@@ -857,6 +892,41 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                 TIFFClose (tiff);
                 retval = FALSE;
                 goto cleanup;
+        }
+
+        if (x_dpi != NULL && y_dpi != NULL) {
+                char *endptr = NULL;
+                uint16 resolution_unit = RESUNIT_INCH;
+                float x_dpi_value, y_dpi_value;
+
+                x_dpi_value = strtol (x_dpi, &endptr, 10);
+                if (x_dpi[0] != '\0' && *endptr != '\0')
+                        x_dpi_value = -1;
+                if (x_dpi_value <= 0) {
+                    g_set_error (error,
+                                 GDK_PIXBUF_ERROR,
+                                 GDK_PIXBUF_ERROR_BAD_OPTION,
+                                 _("TIFF x-dpi must be greater than zero; value '%s' is not allowed."),
+                                 x_dpi);
+                    retval = FALSE;
+                    goto cleanup;
+                }
+                y_dpi_value = strtol (y_dpi, &endptr, 10);
+                if (y_dpi[0] != '\0' && *endptr != '\0')
+                        y_dpi_value = -1;
+                if (y_dpi_value <= 0) {
+                    g_set_error (error,
+                                 GDK_PIXBUF_ERROR,
+                                 GDK_PIXBUF_ERROR_BAD_OPTION,
+                                 _("TIFF y-dpi must be greater than zero; value '%s' is not allowed."),
+                                 y_dpi);
+                    retval = FALSE;
+                    goto cleanup;
+                }
+
+                TIFFSetField (tiff, TIFFTAG_RESOLUTIONUNIT, resolution_unit);
+                TIFFSetField (tiff, TIFFTAG_XRESOLUTION, x_dpi_value);
+                TIFFSetField (tiff, TIFFTAG_YRESOLUTION, y_dpi_value);
         }
 
         TIFFClose (tiff);

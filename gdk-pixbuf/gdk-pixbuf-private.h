@@ -26,6 +26,7 @@
 #define GDK_PIXBUF_PRIVATE_H
 
 #include <stdio.h>
+#include <math.h>
 
 #include <glib-object.h>
 #include <glib/gi18n.h>

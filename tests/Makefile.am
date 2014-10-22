@@ -43,8 +43,9 @@ dist_installed_test_data =		\
 	test-animation.ani		\
 	icc-profile.jpeg		\
 	icc-profile.png			\
-	dpi.jpeg				\
-	dpi.png					\
+	dpi.jpeg			\
+	dpi.png				\
+	dpi.tiff			\
 	$(wildcard $(srcdir)/test-images/*)
 
 pixbuf_icc_SOURCES = 			\
