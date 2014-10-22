@@ -933,7 +933,7 @@ gdk_pixbuf_get_option (GdkPixbuf   *pixbuf,
  *
  * See gdk_pixbuf_get_option() for more details.
  *
- * Return value: (transfer container): a #GHashTable of key/values
+ * Return value: (transfer container) (element-type utf8 utf8): a #GHashTable of key/values
  *
  * Since: 2.32
  **/
