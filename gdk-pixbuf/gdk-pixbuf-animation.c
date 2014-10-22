@@ -723,6 +723,10 @@ gdk_pixbuf_animation_iter_init (GdkPixbufAnimationIter *iter)
  * conveniently takes a timeout in milliseconds, so you can use a timeout
  * to schedule the next update.
  *
+ * Note that some formats, like GIF, might clamp the timeout values in the
+ * image file to avoid updates that are just too quick. The minimum timeout
+ * for GIF images is currently 20 milliseconds.
+ *
  * Return value: delay time in milliseconds (thousandths of a second)
  **/
 int
