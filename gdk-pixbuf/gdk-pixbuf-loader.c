@@ -62,10 +62,8 @@
  * The second signal, #GdkPixbufLoader::area-prepared, will be emitted as
  * soon as the pixbuf of the desired has been allocated. You can obtain it
  * by calling gdk_pixbuf_loader_get_pixbuf(). If you want to use it, simply
- * ref it.  In addition, no actual information will be passed in yet, so the
- * pixbuf can be safely filled with any temporary graphics (or an initial
- * color) as needed.  You can also call gdk_pixbuf_loader_get_pixbuf() later
- * and get the same pixbuf.
+ * ref it. You can also call gdk_pixbuf_loader_get_pixbuf() later and get
+ * the same pixbuf.
  * 
  * The last signal, #GdkPixbufLoader::area-updated, gets emitted every time
  * a region is updated. This way you can update a partially completed image.
