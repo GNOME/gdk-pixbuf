@@ -2404,9 +2404,13 @@ gdk_pixbuf_real_save_to_callback (GdkPixbuf         *pixbuf,
  * gdk_pixbuf_save (pixbuf, handle, "png", &error, "icc-profile", contents_encode, NULL);
  * ]|
  *
- * TIFF images recognize a "compression" option which acceps an integer value.
- * Among the codecs are 1 None, 2 Huffman, 5 LZW, 7 JPEG and 8 Deflate, see
- * the libtiff documentation and tiff.h for all supported codec values.
+ * TIFF images recognize: (1) a "bits-per-sample" option (integer) which
+ * can be either 1 for saving bi-level CCITTFAX4 images, or 8 for saving
+ * 8-bits per sample; (2) a "compression" option (integer) which can be
+ * 1 for no compression, 2 for Huffman, 5 for LZW, 7 for JPEG and 8 for
+ * DEFLATE (see the libtiff documentation and tiff.h for all supported
+ * codec values); (3) an "icc-profile" option (zero-terminated string)
+ * containing a base64 encoded ICC color profile.
  *
  * ICO images can be saved in depth 16, 24, or 32, by using the "depth"
  * parameter. When the ICO saver is given "x_hot" and "y_hot" parameters,
