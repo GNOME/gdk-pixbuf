@@ -31,9 +31,6 @@
 
 
 
-#define DPI_TO_DPM(value) ((int) round ((value) * 1000 / 25.4))
-#define DPM_TO_DPI(value) ((int) round ((value) * 25.4 / 1000))
-
 static gboolean
 setup_png_transformations(png_structp png_read_ptr, png_infop png_info_ptr,
                           GError **error,

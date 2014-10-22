@@ -46,8 +46,6 @@
 /* we are a "source manager" as far as libjpeg is concerned */
 #define JPEG_PROG_BUF_SIZE 65536
 
-#define DPCM_TO_DPI(value) ((int) round ((value) / 2.54))
-
 typedef struct {
 	struct jpeg_source_mgr pub;   /* public fields */
 
