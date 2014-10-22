@@ -28,6 +28,7 @@ test_programs = 			\
 	pixbuf-randomly-modified	\
 	pixbuf-threads			\
 	pixbuf-icc			\
+	pixbuf-dpi			\
 	pixbuf-stream			\
 	pixbuf-resource			\
 	pixbuf-scale			\
@@ -41,10 +42,18 @@ dist_installed_test_data =		\
 	test-animation.ani		\
 	icc-profile.jpeg		\
 	icc-profile.png			\
+	dpi.jpeg				\
+	dpi.png					\
 	$(wildcard $(srcdir)/test-images/*)
 
 pixbuf_icc_SOURCES = 			\
 	pixbuf-icc.c			\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_dpi_SOURCES = 			\
+	pixbuf-dpi.c			\
 	test-common.c			\
 	test-common.h			\
 	$(NULL)

@@ -923,6 +923,7 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 	gint             width, height;
 	char             otag_str[5];
 	gchar 		*icc_profile_base64;
+	char            *density_str;
 	JpegExifContext  exif_context = { 0, };
 	gboolean	 retval;
 
@@ -1059,6 +1060,27 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
                                                      _("Couldn't allocate memory for loading JPEG file"));
                                 retval = FALSE;
 				goto out;
+			}
+
+			switch (cinfo->density_unit) {
+			case 1:
+				/* Dots per inch (no conversion required) */
+				density_str = g_strdup_printf ("%d", cinfo->X_density);
+				gdk_pixbuf_set_option (context->pixbuf, "x-dpi", density_str);
+				g_free (density_str);
+				density_str = g_strdup_printf ("%d", cinfo->Y_density);
+				gdk_pixbuf_set_option (context->pixbuf, "y-dpi", density_str);
+				g_free (density_str);
+				break;
+			case 2:
+				/* Dots per cm - convert into dpi */
+				density_str = g_strdup_printf ("%d", DPCM_TO_DPI (cinfo->X_density));
+				gdk_pixbuf_set_option (context->pixbuf, "x-dpi", density_str);
+				g_free (density_str);
+				density_str = g_strdup_printf ("%d", DPCM_TO_DPI (cinfo->Y_density));
+				gdk_pixbuf_set_option (context->pixbuf, "y-dpi", density_str);
+				g_free (density_str);
+				break;
 			}
 		
 		        /* if orientation tag was found set an option to remember its value */

@@ -632,6 +632,10 @@ png_info_callback   (png_structp png_read_ptr,
         const gchar *icc_profile_title;
         const gchar *icc_profile;
         png_uint_32 icc_profile_size;
+        png_uint_32 x_resolution;
+        png_uint_32 y_resolution;
+        int unit_type;
+        gchar *density_str;
         guint32 retval;
         gint compression_type;
 
@@ -708,6 +712,18 @@ png_info_callback   (png_structp png_read_ptr,
                 icc_profile_base64 = g_base64_encode ((const guchar *) icc_profile, (gsize)icc_profile_size);
                 gdk_pixbuf_set_option (lc->pixbuf, "icc-profile", icc_profile_base64);
                 g_free (icc_profile_base64);
+        }
+#endif
+
+#ifdef PNG_pHYs_SUPPORTED
+        retval = png_get_pHYs (png_read_ptr, png_info_ptr, &x_resolution, &y_resolution, &unit_type);
+        if (retval != 0 && unit_type == PNG_RESOLUTION_METER) {
+                density_str = g_strdup_printf ("%d", DPM_TO_DPI (x_resolution));
+                gdk_pixbuf_set_option (lc->pixbuf, "x-dpi", density_str);
+                g_free (density_str);
+                density_str = g_strdup_printf ("%d", DPM_TO_DPI (y_resolution));
+                gdk_pixbuf_set_option (lc->pixbuf, "y-dpi", density_str);
+                g_free (density_str);
         }
 #endif
 
