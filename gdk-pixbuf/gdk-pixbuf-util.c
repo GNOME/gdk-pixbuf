@@ -357,10 +357,7 @@ get_localedir (void)
     gchar *temp;
     gchar *retval;
     
-    /* In gdk-pixbuf-io.c */
-    extern char *_gdk_pixbuf_win32_get_toplevel (void);
-
-    temp = g_build_filename (_gdk_pixbuf_win32_get_toplevel (), "share/locale", NULL);
+    temp = g_build_filename (gdk_pixbuf_win32_get_toplevel (), "share/locale", NULL);
 
     /* The localedir is passed to bindtextdomain() which isn't
      * UTF-8-aware.
