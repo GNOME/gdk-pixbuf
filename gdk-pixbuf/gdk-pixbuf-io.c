@@ -3392,6 +3392,41 @@ gdk_pixbuf_format_free (GdkPixbufFormat *format)
                 g_slice_free (GdkPixbufFormat, format);
 }
 
+/**
+ * gdk_pixbuf_format_is_save_option_supported:
+ * @format: a #GdkPixbufFormat
+ * @option_key: the name of an option
+ *
+ * Returns %TRUE if the save option specified by @option_key is supported when
+ * saving a pixbuf using the module implementing @format.
+ * See gdk_pixbuf_save() for more information about option keys.
+ *
+ * Returns: %TRUE if the specified option is supported
+ *
+ * Since: 2.36
+ */
+gboolean
+gdk_pixbuf_format_is_save_option_supported (GdkPixbufFormat *format,
+                                            const gchar *option_key)
+{
+        GdkPixbufModule *module;
+
+        g_return_val_if_fail (format != NULL, FALSE);
+        g_return_val_if_fail (option_key != NULL, FALSE);
+
+        module = _gdk_pixbuf_get_named_module (format->name, NULL);
+        if (!module)
+                return FALSE;
+
+        if (!_gdk_pixbuf_load_module (module, NULL))
+                return FALSE;
+
+        if (!module->is_save_option_supported)
+                return FALSE;
+
+        return (* module->is_save_option_supported) (option_key);
+}
+
 G_DEFINE_BOXED_TYPE (GdkPixbufFormat, gdk_pixbuf_format,
 		     gdk_pixbuf_format_copy,
 		     gdk_pixbuf_format_free)

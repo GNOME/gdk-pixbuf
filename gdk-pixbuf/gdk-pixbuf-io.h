@@ -54,6 +54,9 @@ GDK_PIXBUF_AVAILABLE_IN_2_2
 gchar    **gdk_pixbuf_format_get_mime_types  (GdkPixbufFormat *format);
 GDK_PIXBUF_AVAILABLE_IN_2_2
 gchar    **gdk_pixbuf_format_get_extensions  (GdkPixbufFormat *format);
+GDK_PIXBUF_AVAILABLE_IN_2_36
+gboolean   gdk_pixbuf_format_is_save_option_supported (GdkPixbufFormat *format,
+                                                       const gchar     *option_key);
 GDK_PIXBUF_AVAILABLE_IN_2_2
 gboolean   gdk_pixbuf_format_is_writable     (GdkPixbufFormat *format);
 GDK_PIXBUF_AVAILABLE_IN_2_6
@@ -219,6 +222,7 @@ struct _GdkPixbufModulePattern {
  * @load_animation: loads an animation from a file.
  * @save: saves a #GdkPixbuf to a file.
  * @save_to_callback: saves a #GdkPixbuf by calling the given #GdkPixbufSaveFunc.
+ * @is_save_option_supported: returns whether a save option key is supported by the module
  * 
  * A #GdkPixbufModule contains the necessary functions to load and save 
  * images in a certain file format. 
@@ -271,13 +275,13 @@ struct _GdkPixbufModule {
 				      gchar **option_values,
 				      GError **error);
   
+        gboolean (* is_save_option_supported) (const gchar *option_key);
+
   /*< private >*/
 	void (*_reserved1) (void); 
 	void (*_reserved2) (void); 
 	void (*_reserved3) (void); 
-	void (*_reserved4) (void); 
-	void (*_reserved5) (void); 
-
+	void (*_reserved4) (void);
 };
 
 /**
