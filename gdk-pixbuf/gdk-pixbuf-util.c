@@ -379,7 +379,7 @@ get_localedir (void)
 #endif
 
 void
-gdk_pixbuf_init_gettext (void)
+_gdk_pixbuf_init_gettext (void)
 {
         static gsize gettext_initialized = FALSE;
 

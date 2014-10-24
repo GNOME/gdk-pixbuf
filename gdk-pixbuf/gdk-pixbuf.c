@@ -141,7 +141,7 @@ gdk_pixbuf_class_init (GdkPixbufClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        gdk_pixbuf_init_gettext ();
+        _gdk_pixbuf_init_gettext ();
 
         object_class->finalize = gdk_pixbuf_finalize;
         object_class->set_property = gdk_pixbuf_set_property;
