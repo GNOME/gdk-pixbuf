@@ -28,11 +28,11 @@
 #include <stdio.h>
 
 #include <glib-object.h>
+#include <glib/gi18n.h>
 
 #include "gdk-pixbuf-core.h"
 #include "gdk-pixbuf-loader.h"
 #include "gdk-pixbuf-io.h"
-#include "gdk-pixbuf-i18n.h"
 
 #define LOAD_BUFFER_SIZE 65536
 #define SNIFF_BUFFER_SIZE 4096
@@ -112,6 +112,8 @@ GdkPixbufFormat *_gdk_pixbuf_get_format (GdkPixbufModule *image_module);
 
 GdkPixbuf * _gdk_pixbuf_new_from_resource_try_mmap (const char *resource_path);
 GdkPixbufLoader *_gdk_pixbuf_loader_new_with_filename (const char *filename);
+
+void gdk_pixbuf_init_gettext (void);
 
 #endif /* GDK_PIXBUF_PRIVATE_H */
 

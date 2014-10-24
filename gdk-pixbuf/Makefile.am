@@ -553,7 +553,6 @@ gdk_pixbuf_query_loaders_SOURCES = queryloaders.c
 #
 libgdk_pixbufincludedir = $(includedir)/gdk-pixbuf-2.0/gdk-pixbuf
 libgdk_pixbuf_2_0_la_SOURCES =   \
-	gdk-pixbuf-i18n.h	 \
 	gdk-pixbuf.c		 \
 	gdk-pixbuf-animation.c	 \
 	gdk-pixbuf-data.c	 \

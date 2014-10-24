@@ -378,8 +378,8 @@ get_localedir (void)
 
 #endif
 
-const gchar *
-gdk_pixbuf_gettext (const gchar *msgid)
+void
+gdk_pixbuf_init_gettext (void)
 {
         static gsize gettext_initialized = FALSE;
 
@@ -390,6 +390,10 @@ gdk_pixbuf_gettext (const gchar *msgid)
 #endif
                 g_once_init_leave (&gettext_initialized, TRUE);
         }
+}
 
+const gchar *
+gdk_pixbuf_gettext (const gchar *msgid)
+{
         return g_dgettext (GETTEXT_PACKAGE, msgid);
 }
