@@ -32,6 +32,7 @@ test_programs = 			\
 	pixbuf-stream			\
 	pixbuf-resource			\
 	pixbuf-scale			\
+	pixbuf-short-gif-write		\
 	pixbuf-save			\
 	pixbuf-readonly-to-mutable	\
 	$(NULL)
@@ -87,6 +88,9 @@ pixbuf_save_SOURCES =			\
 	test-common.c			\
 	test-common.h			\
 	$(NULL)
+
+pixbuf_short_git_write_SOURCES =	\
+	pixbuf-short-gif-write.c
 
 pixbuf_readonly_to_mutable_SOURCES =	\
 	pixbuf-readonly-to-mutable.c	\
