@@ -666,7 +666,7 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 	
 	info->name = "ani";
 	info->signature = (GdkPixbufModulePattern *) signature;
-	info->description = N_("The ANI image format");
+	info->description = NC_("image format", "Windows animated cursor");
 	info->mime_types = (gchar **) mime_types;
 	info->extensions = (gchar **) extensions;
 	info->flags = GDK_PIXBUF_FORMAT_THREADSAFE;

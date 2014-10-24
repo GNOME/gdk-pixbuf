@@ -77,7 +77,7 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 
   info->name        = "bmp";
   info->signature   = (GdkPixbufModulePattern *) signature;
-  info->description = N_("The BMP image format");
+  info->description = NC_("image format", "BMP");
   info->mime_types  = (gchar **) mime_types;
   info->extensions  = (gchar **) extensions;
   info->flags       = GDK_PIXBUF_FORMAT_WRITABLE | GDK_PIXBUF_FORMAT_THREADSAFE;
