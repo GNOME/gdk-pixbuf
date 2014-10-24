@@ -269,6 +269,8 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 	for (I=0;I<IconCount;I++) {
 		entry = g_new0 (struct ico_direntry_data, 1);
 		entry->ImageScore = (Ptr[11] << 24) + (Ptr[10] << 16) + (Ptr[9] << 8) + (Ptr[8]);
+		if (entry->ImageScore == 0)
+			entry->ImageScore = 256;
 		entry->x_hot = (Ptr[5] << 8) + Ptr[4];
 		entry->y_hot = (Ptr[7] << 8) + Ptr[6];
 		entry->DIBoffset = (Ptr[15]<<24)+(Ptr[14]<<16)+
@@ -349,23 +351,14 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 		
 	State->Header.width =
 	    (int)(BIH[7] << 24) + (BIH[6] << 16) + (BIH[5] << 8) + (BIH[4]);
-	if (State->Header.width == 0) {
-		g_set_error_literal (error,
-                                     GDK_PIXBUF_ERROR,
-                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                     _("Icon has zero width"));
-		return;
-	}
+	if (State->Header.width == 0)
+		State->Header.width = 256;
+
 	State->Header.height =
 	    (int)((BIH[11] << 24) + (BIH[10] << 16) + (BIH[9] << 8) + (BIH[8]))/2;
 	    /* /2 because the BIH height includes the transparency mask */
-	if (State->Header.height == 0) {
-		g_set_error_literal (error,
-                                     GDK_PIXBUF_ERROR,
-                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                     _("Icon has zero height"));
-		return;
-	}
+	if (State->Header.height == 0)
+		State->Header.height = 256;
 	State->Header.depth = (BIH[15] << 8) + (BIH[14]);
 
 	State->Type = State->Header.depth;	
@@ -993,7 +986,7 @@ fill_entry (IconEntry *icon,
 	guchar *p, *pixels, *and, *xor;
 	gint n_channels, v, x, y;
 
-	if (icon->width > 255 || icon->height > 255) {
+	if (icon->width > 256 || icon->height > 256) {
 		g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_BAD_OPTION,
@@ -1132,8 +1125,14 @@ write_icon (FILE *f, GSList *entries)
 		size = 40 + icon->height * (icon->and_rowstride + icon->xor_rowstride);
 		
 		/* directory entry */
-		bytes[0] = icon->width;
-		bytes[1] = icon->height;
+		if (icon->width == 256)
+			bytes[0] = 0;
+		else
+			bytes[0] = icon->width;
+		if (icon->height == 256)
+			bytes[1] = 0;
+		else
+			bytes[1] = icon->height;
 		bytes[2] = icon->n_colors;
 		bytes[3] = 0;
 		write8 (f, bytes, 4);

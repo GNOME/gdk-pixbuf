@@ -33,7 +33,7 @@ format_supported (const gchar *filename)
   GSList *formats, *l;
   gboolean retval;
   const gchar *names[] = { "png", "jpeg", "bmp", "gif", "ras",
-    "tga", "xpm", "xbm" };
+    "tga", "xpm", "xbm", "ico" };
   gint i;
 
   for (i = 0; i < G_N_ELEMENTS (names); i++)

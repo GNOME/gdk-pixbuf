@@ -98,6 +98,38 @@ test_save_roundtrip (void)
 }
 
 static void
+test_save_ico (void)
+{
+  GError *error = NULL;
+  GdkPixbuf *ref, *ref2;
+  GdkPixbuf *pixbuf;
+
+  if (!format_supported ("ico") || !format_supported ("png"))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
+
+  ref = gdk_pixbuf_new_from_file (g_test_get_filename (G_TEST_DIST, "test-image.png", NULL), &error);
+  g_assert_no_error (error);
+
+  ref2 = gdk_pixbuf_scale_simple (ref, 256, 256, GDK_INTERP_NEAREST);
+  g_object_unref (ref);
+  ref = ref2;
+
+  gdk_pixbuf_save (ref, "pixbuf-save-roundtrip", "ico", &error, NULL);
+  g_assert_no_error (error);
+
+  pixbuf = gdk_pixbuf_new_from_file ("pixbuf-save-roundtrip", &error);
+  g_assert_no_error (error);
+
+  g_assert (pixbuf_equal (pixbuf, ref));
+
+  g_object_unref (pixbuf);
+  g_object_unref (ref);
+}
+
+static void
 test_save_options (void)
 {
   GdkPixbuf *ref;
@@ -142,6 +174,7 @@ main (int argc, char **argv)
 
   g_test_add_func ("/pixbuf/save/roundtrip", test_save_roundtrip);
   g_test_add_func ("/pixbuf/save/options", test_save_options);
+  g_test_add_func ("/pixbuf/save/ico", test_save_ico);
 
   return g_test_run ();
 }
