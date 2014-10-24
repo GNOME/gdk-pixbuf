@@ -36,11 +36,11 @@ static void
 test_short_gif_write (void)
 {
     GIOChannel* channel = g_io_channel_new_file (g_test_get_filename (G_TEST_DIST, "test-animation.gif", NULL), "r", NULL);
-    g_assert_nonnull (channel);
+    g_assert (channel != NULL);
     g_io_channel_set_encoding (channel, NULL, NULL);
 
     GdkPixbufLoader *loader = gdk_pixbuf_loader_new_with_type ("gif", NULL);
-    g_assert_nonnull (loader);
+    g_assert (loader != NULL);
 
     loader_write_from_channel (loader, channel, 10);
     loader_write_from_channel (loader, channel, G_MAXSIZE);
