@@ -1456,7 +1456,8 @@ new_context (void)
 	context->update_func = NULL;
 	context->user_data = NULL;
 	context->buf = NULL;
-	context->amount_needed = 0;
+	context->amount_needed = 13;
+	context->buf = g_new (guchar, context->amount_needed);
 	context->gif89.transparent = -1;
 	context->gif89.delay_time = -1;
 	context->gif89.input_flag = -1;
