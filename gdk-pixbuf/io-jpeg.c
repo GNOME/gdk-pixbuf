@@ -190,16 +190,13 @@ convert_cmyk_to_rgb (struct jpeg_decompress_struct *cinfo,
 			m = p[1];
 			y = p[2];
 			k = p[3];
-			if (cinfo->saw_Adobe_marker) {
-				p[0] = k*c / 255;
-				p[1] = k*m / 255;
-				p[2] = k*y / 255;
-			}
-			else {
-				p[0] = (255 - k)*(255 - c) / 255;
-				p[1] = (255 - k)*(255 - m) / 255;
-				p[2] = (255 - k)*(255 - y) / 255;
-			}
+
+			/* We now assume that all CMYK JPEG files
+			 * use inverted CMYK, as Photoshop does
+			 * See https://bugzilla.gnome.org/show_bug.cgi?id=618096 */
+			p[0] = k*c / 255;
+			p[1] = k*m / 255;
+			p[2] = k*y / 255;
 			p[3] = 255;
 			p += 4;
 		}
