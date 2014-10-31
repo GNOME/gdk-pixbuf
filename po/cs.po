@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2014-10-25 16:45+0000\n"
-"PO-Revision-Date: 2014-10-25 21:58+0200\n"
+"POT-Creation-Date: 2014-10-31 05:43+0000\n"
+"PO-Revision-Date: 2014-10-31 18:07+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -281,12 +281,12 @@ msgid "Windows animated cursor"
 msgstr "Animovaný kurzor Windows"
 
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:335 ../gdk-pixbuf/io-bmp.c:367
-#: ../gdk-pixbuf/io-bmp.c:390 ../gdk-pixbuf/io-bmp.c:493
+#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
+#: ../gdk-pixbuf/io-bmp.c:484
 msgid "BMP image has bogus header data"
 msgstr "Obrázek formátu BMP má neplatná data v záhlaví"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:430
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
 msgid "Not enough memory to load bitmap image"
 msgstr "Nedostatek paměti k načtení rastrového obrázku"
 
@@ -294,24 +294,24 @@ msgstr "Nedostatek paměti k načtení rastrového obrázku"
 msgid "BMP image has unsupported header size"
 msgstr "Obrázek BMP má nepodporovanou velikost záhlaví"
 
-#: ../gdk-pixbuf/io-bmp.c:354
+#: ../gdk-pixbuf/io-bmp.c:345
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Obrázky BMP shora dolů nelze komprimovat"
 
-#: ../gdk-pixbuf/io-bmp.c:714 ../gdk-pixbuf/io-png.c:530
+#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:530
 #: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Nalezen předčasný konec souboru"
 
-#: ../gdk-pixbuf/io-bmp.c:1326
+#: ../gdk-pixbuf/io-bmp.c:1317
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Nelze alokovat paměť k uložení souboru BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1367
+#: ../gdk-pixbuf/io-bmp.c:1358
 msgid "Couldn't write to BMP file"
 msgstr "Nelze zapisovat do souboru BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1420 ../gdk-pixbuf/io-gdip-bmp.c:80
+#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:80
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
@@ -352,7 +352,7 @@ msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
 
-#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:947
+#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:1017
 msgctxt "image format"
 msgid "TIFF"
 msgstr "TIFF"
@@ -712,7 +712,7 @@ msgstr "Klíče textových bloků PNG musí mít alespoň 1 a nejvýše 79 znak�
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Klíče textových bloků PNG musí být znaky ASCII."
 
-#: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:760
+#: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:795
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Profil barev má neplatnou délku %d."
@@ -959,56 +959,70 @@ msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
 
-#: ../gdk-pixbuf/io-tiff.c:105
+#: ../gdk-pixbuf/io-tiff.c:107
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Nelze získat šířku obrázku (chybný soubor TIFF)"
 
-#: ../gdk-pixbuf/io-tiff.c:113
+#: ../gdk-pixbuf/io-tiff.c:115
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Nelze získat výšku obrázku (chybný soubor TIFF)"
 
-#: ../gdk-pixbuf/io-tiff.c:121
+#: ../gdk-pixbuf/io-tiff.c:123
 msgid "Width or height of TIFF image is zero"
 msgstr "Výška nebo šířka obrázku TIFF je 0"
 
-#: ../gdk-pixbuf/io-tiff.c:130 ../gdk-pixbuf/io-tiff.c:139
+#: ../gdk-pixbuf/io-tiff.c:132 ../gdk-pixbuf/io-tiff.c:141
 msgid "Dimensions of TIFF image too large"
 msgstr "Rozměry obrázku TIFF jsou příliš velké"
 
-#: ../gdk-pixbuf/io-tiff.c:163 ../gdk-pixbuf/io-tiff.c:175
-#: ../gdk-pixbuf/io-tiff.c:506
+#: ../gdk-pixbuf/io-tiff.c:165 ../gdk-pixbuf/io-tiff.c:177
+#: ../gdk-pixbuf/io-tiff.c:535
 msgid "Insufficient memory to open TIFF file"
 msgstr "Nedostatek paměti k otevření souboru TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:246
+#: ../gdk-pixbuf/io-tiff.c:275
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Nelze načíst data RGB ze souboru TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:308
+#: ../gdk-pixbuf/io-tiff.c:337
 msgid "Failed to open TIFF image"
 msgstr "Nelze otevřít obrázek TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:442 ../gdk-pixbuf/io-tiff.c:455
+#: ../gdk-pixbuf/io-tiff.c:471 ../gdk-pixbuf/io-tiff.c:484
 msgid "Failed to load TIFF image"
 msgstr "Nelze načíst obrázek TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:678
+#: ../gdk-pixbuf/io-tiff.c:709
 msgid "Failed to save TIFF image"
 msgstr "Ukládání obrázku TIFF selhalo"
 
-#: ../gdk-pixbuf/io-tiff.c:730
+#: ../gdk-pixbuf/io-tiff.c:765
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr "Komprese TIFF neodkazuje na platný kodek."
 
-#: ../gdk-pixbuf/io-tiff.c:775
+#: ../gdk-pixbuf/io-tiff.c:810
 msgid "TIFF bits-per-sample doesn't contain a supported value."
 msgstr "Počet bitů na vzorek u formátu TIFF neobsahuje podporovanou hodnotu."
 
-#: ../gdk-pixbuf/io-tiff.c:856
+#: ../gdk-pixbuf/io-tiff.c:891
 msgid "Failed to write TIFF data"
 msgstr "Zápis dat TIFF selhal"
 
-#: ../gdk-pixbuf/io-tiff.c:892
+#: ../gdk-pixbuf/io-tiff.c:909
+#, c-format
+msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
+msgstr ""
+"Pixelová hustota u formátu TIFF ve směru X musí být větší než nula; hodnota "
+"„%s“ není povolena."
+
+#: ../gdk-pixbuf/io-tiff.c:921
+#, c-format
+msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
+msgstr ""
+"Pixelová hustota u formátu TIFF ve směru Y musí být větší než nula; hodnota "
+"„%s“ není povolena."
+
+#: ../gdk-pixbuf/io-tiff.c:962
 msgid "Couldn't write to TIFF file"
 msgstr "Nelze zapisovat do souboru TIFF"
 
