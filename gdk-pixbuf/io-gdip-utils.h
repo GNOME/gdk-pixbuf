@@ -23,7 +23,6 @@
 #define _HAVE_IO_GDIP_UTILS_H
 
 #include "gdk-pixbuf.h"
-#include "gdk-pixbuf-i18n.h"
 
 #include "io-gdip-native.h"
 

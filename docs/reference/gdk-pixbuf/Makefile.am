@@ -23,7 +23,6 @@ IGNORE_HFILES=				\
 	pixops				\
 	gdk-pixbuf-alias.h		\
 	gdk-pixbuf-marshal.h		\
-	gdk-pixbuf-i18n.h 		\
 	gdk-pixbuf-private.h		\
 	gdk-pixbuf-xlib-private.h	\
 	io-gif-animation.h		\
