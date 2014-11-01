@@ -18,22 +18,23 @@
 # Jonh Wendell <jwendell@gnome.org>, 2009, 2010, 2012.
 # Adorilson Bezerra <adorilson@gmail.com>, 2013.
 # Rafael Ferreira <rafael.f.f1@gmail.com>, 2013, 2014.
+# Enrico Nicoletto <liverig@gmail.com>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2014-10-23 04:06+0000\n"
-"PO-Revision-Date: 2014-10-23 20:16-0300\n"
-"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"POT-Creation-Date: 2014-10-31 17:43+0000\n"
+"PO-Revision-Date: 2014-10-31 22:28-0300\n"
+"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.6.3\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:158 ../gdk-pixbuf/gdk-pixbuf-io.c:1101
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1357
@@ -63,6 +64,82 @@ msgid ""
 msgstr ""
 "Falha ao carregar a imagem \"%s\": razão desconhecida, provavelmente um "
 "arquivo de imagem corrompido"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:161
+msgid "Number of Channels"
+msgstr "Número de canais"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:162
+#| msgid "XPM has invalid number of chars per pixel"
+msgid "The number of samples per pixel"
+msgstr "O número de amostras por pixel"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:171
+msgid "Colorspace"
+msgstr "Espaço de cores"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:172
+msgid "The colorspace in which the samples are interpreted"
+msgstr "O espaço de cores no qual as amostras são interpretadas"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:180
+msgid "Has Alpha"
+msgstr "Possui Alfa"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:181
+msgid "Whether the pixbuf has an alpha channel"
+msgstr "Se o pixbuf possui, ou não, um canal alfa"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:194
+msgid "Bits per Sample"
+msgstr "Bits por amostra"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:195
+msgid "The number of bits per sample"
+msgstr "O número de bits por amostra"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:204
+msgid "Width"
+msgstr "Largura"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:205
+msgid "The number of columns of the pixbuf"
+msgstr "O número de colunas do pixbuf"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:214
+msgid "Height"
+msgstr "Altura"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:215
+msgid "The number of rows of the pixbuf"
+msgstr "O número de linhas do pixbuf"
+
+# Não consegui encontrar uma tradução para "Rowstride". A equipe Tchecha traduziu para algo como "a seção de linha", porém preferi manter o termo com a definição original --Enrico
+#: ../gdk-pixbuf/gdk-pixbuf.c:231
+msgid "Rowstride"
+msgstr "Rowstride"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:232
+msgid ""
+"The number of bytes between the start of a row and the start of the next row"
+msgstr ""
+"O número de bytes entre o início de uma linha e o começo da próxima linha"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:241
+msgid "Pixels"
+msgstr "Pixels"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:242
+msgid "A pointer to the pixel data of the pixbuf"
+msgstr "Um ponteiro para os dados de pixel do pixbuf"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:256
+msgid "Pixel Bytes"
+msgstr "Bytes de Pixel"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:257
+msgid "Readonly pixel data"
+msgstr "Dados de pixel somente leitura"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:798
 #, c-format
@@ -156,6 +233,14 @@ msgstr ""
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Não há suporte para carregamento incremental do tipo de imagem \"%s\""
 
+#: ../gdk-pixbuf/gdk-pixbuf-simple-anim.c:161
+msgid "Loop"
+msgstr "Loop"
+
+#: ../gdk-pixbuf/gdk-pixbuf-simple-anim.c:162
+msgid "Whether the animation should loop when it reaches the end"
+msgstr "Se a animação deveria, ou não, efetuar loop ao alcançar o final"
+
 #: ../gdk-pixbuf/gdk-pixdata.c:163
 msgid "Image header corrupt"
 msgstr "Cabeçalho da imagem corrompido"
@@ -201,16 +286,17 @@ msgid "ANI image was truncated or incomplete."
 msgstr "A imagem ANI estava truncada ou incompleta."
 
 #: ../gdk-pixbuf/io-ani.c:669
-msgid "The ANI image format"
-msgstr "Formato de imagem ANI"
+msgctxt "image format"
+msgid "Windows animated cursor"
+msgstr "Cursor animado do Windows"
 
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:335 ../gdk-pixbuf/io-bmp.c:367
-#: ../gdk-pixbuf/io-bmp.c:390 ../gdk-pixbuf/io-bmp.c:493
+#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
+#: ../gdk-pixbuf/io-bmp.c:484
 msgid "BMP image has bogus header data"
 msgstr "A imagem BMP tem dados de cabeçalho incorretos"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:430
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
 msgid "Not enough memory to load bitmap image"
 msgstr "Memória insuficiente para carregar imagem bitmap"
 
@@ -218,38 +304,42 @@ msgstr "Memória insuficiente para carregar imagem bitmap"
 msgid "BMP image has unsupported header size"
 msgstr "Não há suporte ao tamanho de cabeçalho da imagem BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:354
+#: ../gdk-pixbuf/io-bmp.c:345
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Imagens BMP topdown não podem ser compactadas"
 
-#: ../gdk-pixbuf/io-bmp.c:714 ../gdk-pixbuf/io-png.c:530
+#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:530
 #: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Fim de arquivo inesperado"
 
-#: ../gdk-pixbuf/io-bmp.c:1326
+#: ../gdk-pixbuf/io-bmp.c:1317
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Não foi possível alocar memória para salvar o arquivo BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1367
+#: ../gdk-pixbuf/io-bmp.c:1358
 msgid "Couldn't write to BMP file"
 msgstr "Não foi possível gravar no arquivo BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1420 ../gdk-pixbuf/io-gdip-bmp.c:80
-msgid "The BMP image format"
-msgstr "Formato de imagem BMP"
+#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:80
+msgctxt "image format"
+msgid "BMP"
+msgstr "BMP"
 
 #: ../gdk-pixbuf/io-gdip-emf.c:57
-msgid "The EMF image format"
-msgstr "Formato de imagem EMF"
+msgctxt "image format"
+msgid "EMF"
+msgstr "EMF"
 
-#: ../gdk-pixbuf/io-gdip-gif.c:78 ../gdk-pixbuf/io-gif.c:1718
-msgid "The GIF image format"
-msgstr "Formato de imagem GIF"
+#: ../gdk-pixbuf/io-gdip-gif.c:78 ../gdk-pixbuf/io-gif.c:1719
+msgctxt "image format"
+msgid "GIF"
+msgstr "GIF"
 
-#: ../gdk-pixbuf/io-gdip-ico.c:57 ../gdk-pixbuf/io-ico.c:1269
-msgid "The ICO image format"
-msgstr "Formato de imagem ICO"
+#: ../gdk-pixbuf/io-gdip-ico.c:57 ../gdk-pixbuf/io-ico.c:1268
+msgctxt "image format"
+msgid "Windows icon"
+msgstr "Ícone do Windows"
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:51 ../gdk-pixbuf/io-jpeg.c:1295
 #, c-format
@@ -269,12 +359,14 @@ msgstr ""
 "permitido."
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:134 ../gdk-pixbuf/io-jpeg.c:1573
-msgid "The JPEG image format"
-msgstr "Formato de imagem JPEG"
+msgctxt "image format"
+msgid "JPEG"
+msgstr "JPEG"
 
-#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:947
-msgid "The TIFF image format"
-msgstr "Formato de imagem TIFF"
+#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:1017
+msgctxt "image format"
+msgid "TIFF"
+msgstr "TIFF"
 
 #: ../gdk-pixbuf/io-gdip-utils.c:152
 #, c-format
@@ -314,16 +406,17 @@ msgid "Couldn't save"
 msgstr "Não foi possível salvar"
 
 #: ../gdk-pixbuf/io-gdip-wmf.c:56
-msgid "The WMF image format"
-msgstr "Formato de imagem WMF"
+msgctxt "image format"
+msgid "WMF"
+msgstr "WMF"
 
 #: ../gdk-pixbuf/io-gif.c:220
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "Falha ao ler o GIF: %s"
 
-#: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1500
-#: ../gdk-pixbuf/io-gif.c:1667
+#: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1501
+#: ../gdk-pixbuf/io-gif.c:1668
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr ""
 "Havia dados faltando no arquivo GIF (talvez ele tenha sido truncado de "
@@ -350,8 +443,8 @@ msgstr "Código inválido encontrado"
 msgid "Circular table entry in GIF file"
 msgstr "Entrada de tabela circular no arquivo GIF"
 
-#: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1486
-#: ../gdk-pixbuf/io-gif.c:1539 ../gdk-pixbuf/io-gif.c:1655
+#: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1487
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
 msgid "Not enough memory to load GIF file"
 msgstr "Memória insuficiente para carregar o arquivo GIF"
 
@@ -384,64 +477,57 @@ msgstr ""
 "A imagem GIF não tem um mapa de cores global, e um quadro dentro dela não "
 "tem um mapa de cores local."
 
-#: ../gdk-pixbuf/io-gif.c:1562
+#: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "A imagem GIF estava truncada ou incompleta."
 
-#: ../gdk-pixbuf/io-icns.c:347
+#: ../gdk-pixbuf/io-icns.c:358
 #, c-format
 msgid "Error reading ICNS image: %s"
 msgstr "Erro ao ler imagem ICNS: %s"
 
-#: ../gdk-pixbuf/io-icns.c:364
+#: ../gdk-pixbuf/io-icns.c:375 ../gdk-pixbuf/io-icns.c:452
 msgid "Could not decode ICNS file"
 msgstr "Não foi possível decodificar arquivo ICNS"
 
-#: ../gdk-pixbuf/io-icns.c:397
-msgid "The ICNS image format"
-msgstr "Formato de imagem ICNS"
+#: ../gdk-pixbuf/io-icns.c:511
+msgctxt "image format"
+msgid "MacOS X icon"
+msgstr "Ícone do MacOS X"
 
 #: ../gdk-pixbuf/io-ico.c:226 ../gdk-pixbuf/io-ico.c:240
-#: ../gdk-pixbuf/io-ico.c:289 ../gdk-pixbuf/io-ico.c:300
-#: ../gdk-pixbuf/io-ico.c:393
+#: ../gdk-pixbuf/io-ico.c:291 ../gdk-pixbuf/io-ico.c:302
+#: ../gdk-pixbuf/io-ico.c:386
 msgid "Invalid header in icon"
 msgstr "Cabeçalho inválido no ícone"
 
-#: ../gdk-pixbuf/io-ico.c:255 ../gdk-pixbuf/io-ico.c:310
-#: ../gdk-pixbuf/io-ico.c:403 ../gdk-pixbuf/io-ico.c:456
-#: ../gdk-pixbuf/io-ico.c:486
+#: ../gdk-pixbuf/io-ico.c:255 ../gdk-pixbuf/io-ico.c:312
+#: ../gdk-pixbuf/io-ico.c:396 ../gdk-pixbuf/io-ico.c:449
+#: ../gdk-pixbuf/io-ico.c:479
 msgid "Not enough memory to load icon"
 msgstr "Memória insuficiente para carregar o ícone"
 
-#: ../gdk-pixbuf/io-ico.c:336
+#: ../gdk-pixbuf/io-ico.c:338
 msgid "Compressed icons are not supported"
 msgstr "Não há suporte para ícones compactados"
 
-#: ../gdk-pixbuf/io-ico.c:356
-msgid "Icon has zero width"
-msgstr "O ícone tem largura zero"
-
-#: ../gdk-pixbuf/io-ico.c:366
-msgid "Icon has zero height"
-msgstr "O ícone tem altura zero"
-
-#: ../gdk-pixbuf/io-ico.c:441
+#: ../gdk-pixbuf/io-ico.c:434
 msgid "Unsupported icon type"
 msgstr "Tipo de ícone sem suporte"
 
-#: ../gdk-pixbuf/io-ico.c:535
+#: ../gdk-pixbuf/io-ico.c:528
 msgid "Not enough memory to load ICO file"
 msgstr "Memória insuficiente para carregar o arquivo ICO"
 
-#: ../gdk-pixbuf/io-ico.c:1000
+#: ../gdk-pixbuf/io-ico.c:993
 msgid "Image too large to be saved as ICO"
 msgstr "Imagem grande demais para ser salva como ICO"
 
-#: ../gdk-pixbuf/io-ico.c:1011
+#: ../gdk-pixbuf/io-ico.c:1004
 msgid "Cursor hotspot outside image"
 msgstr "Zona de ação do cursor fora da imagem"
 
-#: ../gdk-pixbuf/io-ico.c:1034
+#: ../gdk-pixbuf/io-ico.c:1027
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Não há suporte a esta profundidade para o arquivo ICO: %d"
@@ -475,8 +561,9 @@ msgid "Couldn't allocate memory to buffer image data"
 msgstr "Não foi possível alocar memória para o buffer de dados de imagem"
 
 #: ../gdk-pixbuf/io-jasper.c:304
-msgid "The JPEG 2000 image format"
-msgstr "Formato de imagem JPEG 2000"
+msgctxt "image format"
+msgid "JPEG 2000"
+msgstr "JPEG 2000"
 
 #: ../gdk-pixbuf/io-jpeg.c:124
 #, c-format
@@ -568,16 +655,19 @@ msgid "No palette found at end of PCX data"
 msgstr "Nenhuma paleta localizada ao final dos dados PCX"
 
 #: ../gdk-pixbuf/io-pcx.c:753
-msgid "The PCX image format"
-msgstr "Formato de imagem PCX"
+msgctxt "image format"
+msgid "PCX"
+msgstr "PCX"
 
 #: ../gdk-pixbuf/io-pixdata.c:146
 msgid "Transformed pixbuf has zero width or height."
 msgstr "Pixbuf transformado tem altura ou largura igual a zero."
 
 #: ../gdk-pixbuf/io-pixdata.c:184
-msgid "The GdkPixdata format"
-msgstr "O formato GdkPixdata"
+#| msgid "The GdkPixdata format"
+msgctxt "image format"
+msgid "GdkPixdata"
+msgstr "GdkPixdata"
 
 #: ../gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
@@ -638,7 +728,7 @@ msgstr ""
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Chaves para blocos de texto PNG devem ser caracteres ASCII."
 
-#: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:760
+#: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:795
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "O tamanho do perfil de cor é inválido: %d."
@@ -681,8 +771,9 @@ msgstr ""
 "codificação ISO-8859-1."
 
 #: ../gdk-pixbuf/io-png.c:1206
-msgid "The PNG image format"
-msgstr "Formato de imagem PNG"
+msgctxt "image format"
+msgid "PNG"
+msgstr "PNG"
 
 #: ../gdk-pixbuf/io-pnm.c:246
 msgid "PNM loader expected to find an integer, but didn't"
@@ -744,8 +835,9 @@ msgid "Insufficient memory to load PNM file"
 msgstr "Memória insuficiente para carregar o arquivo PNM"
 
 #: ../gdk-pixbuf/io-pnm.c:1077
-msgid "The PNM/PBM/PGM/PPM image format family"
-msgstr "Família de formatos de imagem PNM/PBM/PGM/PPM"
+msgctxt "image format"
+msgid "PNM/PBM/PGM/PPM"
+msgstr "PNM/PBM/PGM/PPM"
 
 #: ../gdk-pixbuf/io-qtif.c:126
 msgid "Input file descriptor is NULL."
@@ -795,8 +887,9 @@ msgid "Failed to find an image data atom."
 msgstr "Falha ao localizar unidade de dados da imagem."
 
 #: ../gdk-pixbuf/io-qtif.c:613
-msgid "The QTIF image format"
-msgstr "Formato de imagem QTIF"
+msgctxt "image format"
+msgid "QuickTime"
+msgstr "QuickTime"
 
 #: ../gdk-pixbuf/io-ras.c:123
 msgid "RAS image has bogus header data"
@@ -815,8 +908,9 @@ msgid "Not enough memory to load RAS image"
 msgstr "Memória insuficiente para carregar a imagem RAS"
 
 #: ../gdk-pixbuf/io-ras.c:542
-msgid "The Sun raster image format"
-msgstr "Formato de imagem raster Sun"
+msgctxt "image format"
+msgid "Sun raster"
+msgstr "Varredura Sun"
 
 #: ../gdk-pixbuf/io-tga.c:151
 msgid "Cannot allocate memory for IOBuffer struct"
@@ -877,59 +971,74 @@ msgid "Excess data in file"
 msgstr "Excesso de dados no arquivo"
 
 #: ../gdk-pixbuf/io-tga.c:1000
-msgid "The Targa image format"
-msgstr "Formato de imagem Targa"
+msgctxt "image format"
+msgid "Targa"
+msgstr "Targa"
 
-#: ../gdk-pixbuf/io-tiff.c:105
+#: ../gdk-pixbuf/io-tiff.c:107
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Não foi possível obter a largura da imagem (arquivo TIFF inválido)"
 
-#: ../gdk-pixbuf/io-tiff.c:113
+#: ../gdk-pixbuf/io-tiff.c:115
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Não foi possível obter a altura da imagem (arquivo TIFF inválido)"
 
-#: ../gdk-pixbuf/io-tiff.c:121
+#: ../gdk-pixbuf/io-tiff.c:123
 msgid "Width or height of TIFF image is zero"
 msgstr "A largura ou a altura da imagem TIFF é zero"
 
-#: ../gdk-pixbuf/io-tiff.c:130 ../gdk-pixbuf/io-tiff.c:139
+#: ../gdk-pixbuf/io-tiff.c:132 ../gdk-pixbuf/io-tiff.c:141
 msgid "Dimensions of TIFF image too large"
 msgstr "As dimensões da imagem TIFF são grandes demais"
 
-#: ../gdk-pixbuf/io-tiff.c:163 ../gdk-pixbuf/io-tiff.c:175
-#: ../gdk-pixbuf/io-tiff.c:506
+#: ../gdk-pixbuf/io-tiff.c:165 ../gdk-pixbuf/io-tiff.c:177
+#: ../gdk-pixbuf/io-tiff.c:535
 msgid "Insufficient memory to open TIFF file"
 msgstr "Memória insuficiente para abrir o arquivo TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:246
+#: ../gdk-pixbuf/io-tiff.c:275
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Falha ao carregar os dados RGB do arquivo TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:308
+#: ../gdk-pixbuf/io-tiff.c:337
 msgid "Failed to open TIFF image"
 msgstr "Falha ao abrir a imagem TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:442 ../gdk-pixbuf/io-tiff.c:455
+#: ../gdk-pixbuf/io-tiff.c:471 ../gdk-pixbuf/io-tiff.c:484
 msgid "Failed to load TIFF image"
 msgstr "Falha ao carregar a imagem TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:678
+#: ../gdk-pixbuf/io-tiff.c:709
 msgid "Failed to save TIFF image"
 msgstr "Falha ao salvar a imagem TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:730
+#: ../gdk-pixbuf/io-tiff.c:765
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr "Compressão TIFF não referencia um codec válido."
 
-#: ../gdk-pixbuf/io-tiff.c:775
+#: ../gdk-pixbuf/io-tiff.c:810
 msgid "TIFF bits-per-sample doesn't contain a supported value."
 msgstr "Bits por amostra TIFF não contém um valor válido"
 
-#: ../gdk-pixbuf/io-tiff.c:856
+#: ../gdk-pixbuf/io-tiff.c:891
 msgid "Failed to write TIFF data"
 msgstr "Falha ao gravar dados TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:892
+#: ../gdk-pixbuf/io-tiff.c:909
+#, c-format
+#| msgid "PNG x-dpi must be greater than zero; value '%s' is not allowed."
+msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
+msgstr ""
+"O x-dpi do TIFF deve ser maior que zero; o valor \"%s\" não é permitido."
+
+#: ../gdk-pixbuf/io-tiff.c:921
+#, c-format
+#| msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
+msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
+msgstr ""
+"O y-dpi do TIFF deve ser maior que zero; o valor \"%s\" não é permitido."
+
+#: ../gdk-pixbuf/io-tiff.c:962
 msgid "Couldn't write to TIFF file"
 msgstr "Não foi possível gravar no arquivo TIFF"
 
@@ -950,8 +1059,9 @@ msgid "Couldn't save the rest"
 msgstr "Não foi possível salvar o restante"
 
 #: ../gdk-pixbuf/io-wbmp.c:372
-msgid "The WBMP image format"
-msgstr "Formato de imagem WBMP"
+msgctxt "image format"
+msgid "WBMP"
+msgstr "WBMP"
 
 #: ../gdk-pixbuf/io-xbm.c:302
 msgid "Invalid XBM file"
@@ -966,8 +1076,9 @@ msgid "Failed to write to temporary file when loading XBM image"
 msgstr "Falha ao gravar no arquivo temporário ao carregar a imagem XBM"
 
 #: ../gdk-pixbuf/io-xbm.c:499
-msgid "The XBM image format"
-msgstr "Formato de imagem XBM"
+msgctxt "image format"
+msgid "XBM"
+msgstr "XBM"
 
 #: ../gdk-pixbuf/io-xpm.c:467
 msgid "No XPM header found"
@@ -1007,8 +1118,72 @@ msgid "Failed to write to temporary file when loading XPM image"
 msgstr "Falha ao gravar o arquivo temporário ao carregar a imagem XPM"
 
 #: ../gdk-pixbuf/io-xpm.c:815
-msgid "The XPM image format"
-msgstr "O formato de imagem XPM"
+msgctxt "image format"
+msgid "XPM"
+msgstr "XPM"
+
+#~ msgid "The ANI image format"
+#~ msgstr "Formato de imagem ANI"
+
+#~ msgid "The BMP image format"
+#~ msgstr "Formato de imagem BMP"
+
+#~ msgid "The EMF image format"
+#~ msgstr "Formato de imagem EMF"
+
+#~ msgid "The GIF image format"
+#~ msgstr "Formato de imagem GIF"
+
+#~ msgid "The ICO image format"
+#~ msgstr "Formato de imagem ICO"
+
+#~ msgid "The JPEG image format"
+#~ msgstr "Formato de imagem JPEG"
+
+#~ msgid "The TIFF image format"
+#~ msgstr "Formato de imagem TIFF"
+
+#~ msgid "The WMF image format"
+#~ msgstr "Formato de imagem WMF"
+
+#~ msgid "The ICNS image format"
+#~ msgstr "Formato de imagem ICNS"
+
+#~ msgid "Icon has zero width"
+#~ msgstr "O ícone tem largura zero"
+
+#~ msgid "Icon has zero height"
+#~ msgstr "O ícone tem altura zero"
+
+#~ msgid "The JPEG 2000 image format"
+#~ msgstr "Formato de imagem JPEG 2000"
+
+#~ msgid "The PCX image format"
+#~ msgstr "Formato de imagem PCX"
+
+#~ msgid "The PNG image format"
+#~ msgstr "Formato de imagem PNG"
+
+#~ msgid "The PNM/PBM/PGM/PPM image format family"
+#~ msgstr "Família de formatos de imagem PNM/PBM/PGM/PPM"
+
+#~ msgid "The QTIF image format"
+#~ msgstr "Formato de imagem QTIF"
+
+#~ msgid "The Sun raster image format"
+#~ msgstr "Formato de imagem raster Sun"
+
+#~ msgid "The Targa image format"
+#~ msgstr "Formato de imagem Targa"
+
+#~ msgid "The WBMP image format"
+#~ msgstr "Formato de imagem WBMP"
+
+#~ msgid "The XBM image format"
+#~ msgstr "Formato de imagem XBM"
+
+#~ msgid "The XPM image format"
+#~ msgstr "O formato de imagem XPM"
 
 #~ msgid "TIFFClose operation failed"
 #~ msgstr "Falha na operação TIFFClose"
