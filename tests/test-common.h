@@ -23,10 +23,12 @@
 #ifndef __TEST_COMMON_H__
 
 #include <glib.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 G_BEGIN_DECLS
 
 gboolean format_supported (const gchar *filename);
+gboolean pixdata_equal (GdkPixbuf *p1, GdkPixbuf *p2);
 
 G_END_DECLS
 

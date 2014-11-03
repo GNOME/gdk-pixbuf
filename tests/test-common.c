@@ -63,3 +63,25 @@ format_supported (const gchar *filename)
 
   return retval;
 }
+
+gboolean
+pixdata_equal (GdkPixbuf *p1, GdkPixbuf *p2)
+{
+  if (gdk_pixbuf_get_colorspace (p1) != gdk_pixbuf_get_colorspace (p2))
+    return FALSE;
+  if (gdk_pixbuf_get_n_channels (p1) != gdk_pixbuf_get_n_channels (p2))
+    return FALSE;
+  if (gdk_pixbuf_get_bits_per_sample (p1) != gdk_pixbuf_get_bits_per_sample (p2))
+    return FALSE;
+  if (gdk_pixbuf_get_width (p1) != gdk_pixbuf_get_width (p2))
+    return FALSE;
+  if (gdk_pixbuf_get_height (p1) != gdk_pixbuf_get_height (p2))
+    return FALSE;
+  if (gdk_pixbuf_get_rowstride (p1) != gdk_pixbuf_get_rowstride (p2))
+    return FALSE;
+  if (memcmp (gdk_pixbuf_get_pixels (p1), gdk_pixbuf_get_pixels (p2),
+          gdk_pixbuf_get_byte_length (p1)) != 0)
+    return FALSE;
+
+  return TRUE;
+}
