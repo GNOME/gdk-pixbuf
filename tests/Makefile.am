@@ -28,6 +28,7 @@ test_programs = 			\
 	pixbuf-randomly-modified	\
 	pixbuf-threads			\
 	pixbuf-icc			\
+	pixbuf-jpeg			\
 	pixbuf-dpi			\
 	pixbuf-stream			\
 	pixbuf-resource			\
@@ -86,6 +87,12 @@ pixbuf_icon_serialize_SOURCES =		\
 
 pixbuf_save_SOURCES =			\
 	pixbuf-save.c			\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_jpeg_SOURCES =			\
+	pixbuf-jpeg.c			\
 	test-common.c			\
 	test-common.h			\
 	$(NULL)
