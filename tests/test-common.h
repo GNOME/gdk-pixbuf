@@ -28,7 +28,7 @@
 G_BEGIN_DECLS
 
 gboolean format_supported (const gchar *filename);
-gboolean pixdata_equal (GdkPixbuf *p1, GdkPixbuf *p2);
+gboolean pixdata_equal (GdkPixbuf *p1, GdkPixbuf *p2, GError **error);
 
 G_END_DECLS
 

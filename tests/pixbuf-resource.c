@@ -30,7 +30,7 @@
 static gboolean
 pixbuf_equal (GdkPixbuf *p1, GdkPixbuf *p2)
 {
-  if (!pixdata_equal (p1, p2))
+  if (!pixdata_equal (p1, p2, NULL))
     return FALSE;
   if (compare_option (p1, p2, "Title") != 0)
     return FALSE;
@@ -72,7 +72,7 @@ test_resource (void)
   
   pixbuf = gdk_pixbuf_new_from_resource ("/test/resource/icc-profile.pixdata", &error);
   g_assert_no_error (error);
-  g_assert (pixdata_equal (pixbuf, ref));
+  g_assert (pixdata_equal (pixbuf, ref, NULL));
   g_object_unref (pixbuf);
 
   pixbuf = gdk_pixbuf_new_from_resource ("/no/such/resource", &error);

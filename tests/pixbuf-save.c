@@ -29,7 +29,7 @@
 static gboolean
 pixbuf_equal (GdkPixbuf *p1, GdkPixbuf *p2)
 {
-  if (!pixdata_equal (p1, p2))
+  if (!pixdata_equal (p1, p2, NULL))
     return FALSE;
   if (compare_option (p1, p2, "Title") != 0)
     return FALSE;
