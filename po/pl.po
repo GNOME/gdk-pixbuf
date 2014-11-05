@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-25 19:00+0200\n"
-"PO-Revision-Date: 2014-10-25 19:01+0200\n"
+"POT-Creation-Date: 2014-11-05 12:19+0100\n"
+"PO-Revision-Date: 2014-11-05 12:20+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -285,12 +285,12 @@ msgid "Windows animated cursor"
 msgstr "Animowany kursor systemu Windows"
 
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:335 ../gdk-pixbuf/io-bmp.c:367
-#: ../gdk-pixbuf/io-bmp.c:390 ../gdk-pixbuf/io-bmp.c:493
+#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
+#: ../gdk-pixbuf/io-bmp.c:484
 msgid "BMP image has bogus header data"
 msgstr "Błędny nagłówek obrazu BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:430
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
 msgid "Not enough memory to load bitmap image"
 msgstr "Brak pamięci na wczytanie bitmapy z pliku"
 
@@ -298,24 +298,24 @@ msgstr "Brak pamięci na wczytanie bitmapy z pliku"
 msgid "BMP image has unsupported header size"
 msgstr "Obraz BMP zawiera nagłówek o nieobsługiwanym rozmiarze"
 
-#: ../gdk-pixbuf/io-bmp.c:354
+#: ../gdk-pixbuf/io-bmp.c:345
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Zstępujące (top-down) obrazy BMP nie mogą być skompresowane"
 
-#: ../gdk-pixbuf/io-bmp.c:714 ../gdk-pixbuf/io-png.c:530
+#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:530
 #: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Przedwcześnie wystąpił koniec pliku"
 
-#: ../gdk-pixbuf/io-bmp.c:1326
+#: ../gdk-pixbuf/io-bmp.c:1317
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Nie można przydzielić pamięci do zapisu pliku BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1367
+#: ../gdk-pixbuf/io-bmp.c:1358
 msgid "Couldn't write to BMP file"
 msgstr "Nie można zapisać do pliku BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1420 ../gdk-pixbuf/io-gdip-bmp.c:80
+#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:80
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
@@ -357,7 +357,7 @@ msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
 
-#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:947
+#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:1017
 msgctxt "image format"
 msgid "TIFF"
 msgstr "TIFF"
@@ -720,7 +720,7 @@ msgstr "Klucze elementów tekstowych PNG muszą mieć długość od 1 do 79 znak
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Klucze elementów tekstowych PNG muszą być znakami ASCII."
 
-#: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:760
+#: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:795
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Profil kolorów posiada nieprawidłową długość %d."
@@ -970,58 +970,72 @@ msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
 
-#: ../gdk-pixbuf/io-tiff.c:105
+#: ../gdk-pixbuf/io-tiff.c:107
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Nie można uzyskać szerokości obrazu (błędny plik TIFF)"
 
-#: ../gdk-pixbuf/io-tiff.c:113
+#: ../gdk-pixbuf/io-tiff.c:115
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Nie można uzyskać wysokości obrazu (błędny plik TIFF)"
 
-#: ../gdk-pixbuf/io-tiff.c:121
+#: ../gdk-pixbuf/io-tiff.c:123
 msgid "Width or height of TIFF image is zero"
 msgstr "Szerokość lub wysokość obrazu TIFF jest równa zeru"
 
-#: ../gdk-pixbuf/io-tiff.c:130 ../gdk-pixbuf/io-tiff.c:139
+#: ../gdk-pixbuf/io-tiff.c:132 ../gdk-pixbuf/io-tiff.c:141
 msgid "Dimensions of TIFF image too large"
 msgstr "Za duże wymiary obrazu TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:163 ../gdk-pixbuf/io-tiff.c:175
-#: ../gdk-pixbuf/io-tiff.c:506
+#: ../gdk-pixbuf/io-tiff.c:165 ../gdk-pixbuf/io-tiff.c:177
+#: ../gdk-pixbuf/io-tiff.c:535
 msgid "Insufficient memory to open TIFF file"
 msgstr "Brak pamięci na odczytanie pliku TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:246
+#: ../gdk-pixbuf/io-tiff.c:275
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Wczytanie danych RGB z pliku TIFF się nie powiodło"
 
-#: ../gdk-pixbuf/io-tiff.c:308
+#: ../gdk-pixbuf/io-tiff.c:337
 msgid "Failed to open TIFF image"
 msgstr "Otwarcie obrazu TIFF się nie powiodło"
 
-#: ../gdk-pixbuf/io-tiff.c:442 ../gdk-pixbuf/io-tiff.c:455
+#: ../gdk-pixbuf/io-tiff.c:471 ../gdk-pixbuf/io-tiff.c:484
 msgid "Failed to load TIFF image"
 msgstr "Wczytanie obrazu TIFF się nie powiodło"
 
-#: ../gdk-pixbuf/io-tiff.c:678
+#: ../gdk-pixbuf/io-tiff.c:709
 msgid "Failed to save TIFF image"
 msgstr "Zapisanie obrazu TIFF się nie powiodło"
 
-#: ../gdk-pixbuf/io-tiff.c:730
+#: ../gdk-pixbuf/io-tiff.c:765
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr "Kompresja TIFF nie odnosi się do prawidłowego kodeka."
 
-#: ../gdk-pixbuf/io-tiff.c:775
+#: ../gdk-pixbuf/io-tiff.c:810
 msgid "TIFF bits-per-sample doesn't contain a supported value."
 msgstr ""
 "\"bits-per-sample\" (bity na próbkę) obrazu TIFF nie zawiera obsługiwanej "
 "wartości."
 
-#: ../gdk-pixbuf/io-tiff.c:856
+#: ../gdk-pixbuf/io-tiff.c:891
 msgid "Failed to write TIFF data"
 msgstr "Zapisanie danych TIFF się nie powiodło"
 
-#: ../gdk-pixbuf/io-tiff.c:892
+#: ../gdk-pixbuf/io-tiff.c:909
+#, c-format
+msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
+msgstr ""
+"x-dpi obrazu TIFF musi być wartością większą niż zero. Wartość \"%s\" nie "
+"jest dozwolona."
+
+#: ../gdk-pixbuf/io-tiff.c:921
+#, c-format
+msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
+msgstr ""
+"y-dpi obrazu TIFF musi być wartością większą niż zero. Wartość \"%s\" nie "
+"jest dozwolona."
+
+#: ../gdk-pixbuf/io-tiff.c:962
 msgid "Couldn't write to TIFF file"
 msgstr "Nie można zapisać do pliku TIFF"
 
