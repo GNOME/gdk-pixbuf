@@ -21,12 +21,12 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\..;..\..\..\gdk-pixbuf;$(GlibEtcInstallRoot)\lib\glib-2.0\include;$(GlibEtcInstallRoot)\include\glib-2.0;$(GlibEtcInstallRoot)\include;$(GlibEtcInstallRoot)\include\cairo;$(GlibEtcInstallRoot)\include\atk-1.0;$(GlibEtcInstallRoot)\include\pango-1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..;..\..\..\gdk-pixbuf;$(GlibEtcInstallRoot)\include\glib-2.0;$(GlibEtcInstallRoot)\lib\glib-2.0\include;$(GlibEtcInstallRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>HAVE_CONFIG_H;G_DISABLE_SINGLE_INCLUDES;GDK_PIXBUF_DISABLE_SINGLE_INCLUDES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ForcedIncludeFiles>msvc_recommended_pragmas.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>gio-2.0.lib;gmodule-2.0.lib;gobject-2.0.lib;glib-2.0.lib;gthread-2.0.lib;intl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gio-2.0.lib;gmodule-2.0.lib;gobject-2.0.lib;glib-2.0.lib;intl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(GlibEtcInstallRoot)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
