@@ -12,7 +12,7 @@
     <GdkPixbufPrefixDefine>GDK_PIXBUF_PREFIX="$(GdkPixbufDummyPrefix)"</GdkPixbufPrefixDefine>
     <GdkPixbufLibdirDefine>PIXBUF_LIBDIR="$(GdkPixbufDummyPrefix)/lib/gdk-pixbuf-$(ApiVersion)/$(GdkPixbufBinaryVersion)/loaders"</GdkPixbufLibdirDefine>
     <GdkPixbufBinVerDefine>GDK_PIXBUF_BINARY_VERSION="$(GdkPixbufBinaryVersion)"</GdkPixbufBinVerDefine>
-    <GdkPixbufDefines>HAVE_CONFIG_H;GDK_PIXBUF_COMPILATION;GDK_PIXBUF_ENABLE_BACKEND;DLL_EXPORT;$(GdkPixbufPrefixDefine);$(GdkPixbufBinVerDefine);$(MODULAR_MACROS)</GdkPixbufDefines>
+    <GdkPixbufDefines>HAVE_CONFIG_H;GDK_PIXBUF_COMPILATION;GDK_PIXBUF_ENABLE_BACKEND;DLL_EXPORT;GDK_PIXBUF_RELOCATABLE;$(GdkPixbufPrefixDefine);$(GdkPixbufBinVerDefine);$(MODULAR_MACROS)</GdkPixbufDefines>
   </PropertyGroup>
   <PropertyGroup>
     <_PropertySheetDisplayName>gdk-pixbufbuilddefinesprops</_PropertySheetDisplayName>

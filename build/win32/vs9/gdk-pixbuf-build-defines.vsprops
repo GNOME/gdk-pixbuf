@@ -52,6 +52,6 @@
 	/>
 	<UserMacro
 		Name="GdkPixbufDefines"
-		Value="HAVE_CONFIG_H;GDK_PIXBUF_COMPILATION;GDK_PIXBUF_ENABLE_BACKEND;DLL_EXPORT;$(GdkPixbufBinVerDefine);$(GdkPixbufPrefixDefine);$(MODULAR_MACROS)"
+		Value="HAVE_CONFIG_H;GDK_PIXBUF_COMPILATION;GDK_PIXBUF_ENABLE_BACKEND;DLL_EXPORT;GDK_PIXBUF_RELOCATABLE;$(GdkPixbufBinVerDefine);$(GdkPixbufPrefixDefine);$(MODULAR_MACROS)"
 	/>
 </VisualStudioPropertySheet>
