@@ -692,6 +692,7 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
         const gchar *icc_profile = NULL;
         const gchar *x_dpi = NULL;
         const gchar *y_dpi = NULL;
+        guint16 codec;
 
         tiff_set_handlers ();
 
@@ -754,7 +755,7 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
 
         /* libtiff supports a number of 'codecs' such as:
            1 None, 2 Huffman, 5 LZW, 7 JPEG, 8 Deflate, see tiff.h */
-        guint16 codec = strtol (compression, NULL, 0);
+        codec = strtol (compression, NULL, 0);
 
         if (TIFFIsCODECConfigured (codec))
                 TIFFSetField (tiff, TIFFTAG_COMPRESSION, codec);
