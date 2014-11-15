@@ -571,13 +571,13 @@ msgstr "Transformert JPEG har bredde eller høyde lik null."
 #, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
-msgstr "JPEG x-dpi må være en verdi mellom 1 og 65535; verdien «%d» er ikke tillatt."
+msgstr "JPEG x-dpi må være en verdi mellom 1 og 65535; verdien «%s» er ikke tillatt."
 
 #: ../gdk-pixbuf/io-jpeg.c:1353
 #, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
-msgstr "JPEG y-dpi må være en verdi mellom 1 og 65535; verdien «%d» er ikke tillatt."
+msgstr "JPEG y-dpi må være en verdi mellom 1 og 65535; verdien «%s» er ikke tillatt."
 
 #: ../gdk-pixbuf/io-jpeg.c:1367
 #, c-format
@@ -722,12 +722,12 @@ msgstr ""
 #: ../gdk-pixbuf/io-png.c:969
 #, c-format
 msgid "PNG x-dpi must be greater than zero; value '%s' is not allowed."
-msgstr "PNG x-dpi må være større enn 0; verdien «%d» er ikke tillatt."
+msgstr "PNG x-dpi må være større enn 0; verdien «%s» er ikke tillatt."
 
 #: ../gdk-pixbuf/io-png.c:989
 #, c-format
 msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
-msgstr "PNG y-dpi må være større enn 0; verdien «%d» er ikke tillatt."
+msgstr "PNG y-dpi må være større enn 0; verdien «%s» er ikke tillatt."
 
 #: ../gdk-pixbuf/io-png.c:1038
 #, c-format
