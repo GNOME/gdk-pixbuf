@@ -990,12 +990,12 @@ msgstr "Klarte ikke å lagre TIFF-data"
 #: ../gdk-pixbuf/io-tiff.c:910
 #, c-format
 msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
-msgstr "TIFF x-dpi må være større enn 0; verdien «%d» er ikke tillatt."
+msgstr "TIFF x-dpi må være større enn 0; verdien «%s» er ikke tillatt."
 
 #: ../gdk-pixbuf/io-tiff.c:922
 #, c-format
 msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
-msgstr "TIFF y-dpi må være større enn 0; verdien «%d» er ikke tillatt."
+msgstr "TIFF y-dpi må være større enn 0; verdien «%s» er ikke tillatt."
 
 #: ../gdk-pixbuf/io-tiff.c:963
 msgid "Couldn't write to TIFF file"
