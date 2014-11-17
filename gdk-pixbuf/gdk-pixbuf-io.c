@@ -350,7 +350,7 @@ correct_prefix (gchar **path)
       strncmp (*path, GDK_PIXBUF_PREFIX "\\", strlen (GDK_PIXBUF_PREFIX "\\")) == 0)
     {
           gchar *tem = NULL;
-      if (strlen(*path) > 5 && strncmp (*path - 5, ".libs", 5) == 0)
+      if (g_str_has_suffix (*path, ".libs"))
         {
           /* We are being run from inside the build tree, and shouldn't mess about. */
           return;
