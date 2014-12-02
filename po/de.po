@@ -19,9 +19,9 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2014-10-30 20:33+0000\n"
-"PO-Revision-Date: 2014-11-01 10:11+0100\n"
-"Last-Translator: Benjamin Steinwender <b@stbe.at>\n"
+"POT-Creation-Date: 2014-11-27 17:44+0000\n"
+"PO-Revision-Date: 2014-11-27 21:36+0100\n"
+"Last-Translator: Bernd Homuth <dev@hmt.im>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -333,7 +333,7 @@ msgctxt "image format"
 msgid "Windows icon"
 msgstr "Windows-Symbol"
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:51 ../gdk-pixbuf/io-jpeg.c:1295
+#: ../gdk-pixbuf/io-gdip-jpeg.c:51 ../gdk-pixbuf/io-jpeg.c:1292
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -342,7 +342,7 @@ msgstr ""
 "JPEG-Qualität muss ein Wert zwischen 0 und 100 sein; Wert »%s« konnte nicht "
 "verarbeitet werden."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:66 ../gdk-pixbuf/io-jpeg.c:1311
+#: ../gdk-pixbuf/io-gdip-jpeg.c:66 ../gdk-pixbuf/io-jpeg.c:1308
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
@@ -350,12 +350,12 @@ msgstr ""
 "JPEG-Qualität muss ein Wert zwischen 0 und 100 sein; Wert »%d« ist nicht "
 "erlaubt."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:134 ../gdk-pixbuf/io-jpeg.c:1573
+#: ../gdk-pixbuf/io-gdip-jpeg.c:134 ../gdk-pixbuf/io-jpeg.c:1570
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
 
-#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:1017
+#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:1018
 msgctxt "image format"
 msgid "TIFF"
 msgstr "TIFF"
@@ -563,7 +563,7 @@ msgstr "JPEG 2000"
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Fehler beim Lesen einer JPEG-Bilddatei (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:598
+#: ../gdk-pixbuf/io-jpeg.c:595
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -571,21 +571,21 @@ msgstr ""
 "Nicht genug Speicher, um das Bild zu laden. Versuchen Sie, einige "
 "Anwendungen zu beenden, um Speicher frei zu machen"
 
-#: ../gdk-pixbuf/io-jpeg.c:667 ../gdk-pixbuf/io-jpeg.c:880
+#: ../gdk-pixbuf/io-jpeg.c:664 ../gdk-pixbuf/io-jpeg.c:877
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Nicht unterstützter JPEG-Farbraum (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:779 ../gdk-pixbuf/io-jpeg.c:1060
-#: ../gdk-pixbuf/io-jpeg.c:1396 ../gdk-pixbuf/io-jpeg.c:1406
+#: ../gdk-pixbuf/io-jpeg.c:776 ../gdk-pixbuf/io-jpeg.c:1057
+#: ../gdk-pixbuf/io-jpeg.c:1393 ../gdk-pixbuf/io-jpeg.c:1403
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Speicher zum Laden von JPEG-Datei konnte nicht bereit gestellt werden"
 
-#: ../gdk-pixbuf/io-jpeg.c:1034
+#: ../gdk-pixbuf/io-jpeg.c:1031
 msgid "Transformed JPEG has zero width or height."
 msgstr "Höhe oder Breite des transformierten JPEGs beträgt null."
 
-#: ../gdk-pixbuf/io-jpeg.c:1332
+#: ../gdk-pixbuf/io-jpeg.c:1329
 #, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
@@ -593,7 +593,7 @@ msgstr ""
 "JPEG x-dpi muss einen Wert zwischen 1 und 65535 haben; »%s« ist nicht "
 "zulässig."
 
-#: ../gdk-pixbuf/io-jpeg.c:1353
+#: ../gdk-pixbuf/io-jpeg.c:1350
 #, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
@@ -601,7 +601,7 @@ msgstr ""
 "JPEG y-dpi muss einen Wert zwischen 1 und 65535 haben; »%s« ist nicht "
 "zulässig."
 
-#: ../gdk-pixbuf/io-jpeg.c:1367
+#: ../gdk-pixbuf/io-jpeg.c:1364
 #, c-format
 msgid "Color profile has invalid length '%u'."
 msgstr "Farbprofil hat die ungültige Länge »%u«."
@@ -722,7 +722,7 @@ msgstr ""
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Schlüssel für PNG-Textstücke müssen ASCII-Zeichen sein."
 
-#: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:795
+#: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:796
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Farbprofil hat die ungültige Länge %d."
@@ -1003,36 +1003,33 @@ msgstr "TIFF-Bild konnte nicht geöffnet werden"
 msgid "Failed to load TIFF image"
 msgstr "TIFF-Bild konnte nicht geladen werden"
 
-#: ../gdk-pixbuf/io-tiff.c:709
+#: ../gdk-pixbuf/io-tiff.c:710
 msgid "Failed to save TIFF image"
 msgstr "TIFF-Bild konnte nicht gespeichert werden"
 
-#: ../gdk-pixbuf/io-tiff.c:765
+#: ../gdk-pixbuf/io-tiff.c:766
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr "TIFF-Kompression bezieht sich nicht auf einen gültigen Codec."
 
-#: ../gdk-pixbuf/io-tiff.c:810
-#, fuzzy
+#: ../gdk-pixbuf/io-tiff.c:811
 msgid "TIFF bits-per-sample doesn't contain a supported value."
-msgstr "TIFF bits-per-sample beinhaltet keinen unterstützten Wert."
+msgstr "TIFF bit pro Farbanteil enthält keinen unterstützten Wert."
 
-#: ../gdk-pixbuf/io-tiff.c:891
+#: ../gdk-pixbuf/io-tiff.c:892
 msgid "Failed to write TIFF data"
 msgstr "TIFF-Daten konnten nicht gespeichert werden"
 
-#: ../gdk-pixbuf/io-tiff.c:909
+#: ../gdk-pixbuf/io-tiff.c:910
 #, c-format
-#| msgid "PNG x-dpi must be greater than zero; value '%s' is not allowed."
 msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
 msgstr "TIFF x-dpi muss größer als Null sein; »%s« ist nicht zulässig."
 
-#: ../gdk-pixbuf/io-tiff.c:921
+#: ../gdk-pixbuf/io-tiff.c:922
 #, c-format
-#| msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
 msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
 msgstr "TIFF y-dpi muss größer als Null sein; »%s« ist nicht zulässig."
 
-#: ../gdk-pixbuf/io-tiff.c:962
+#: ../gdk-pixbuf/io-tiff.c:963
 msgid "Couldn't write to TIFF file"
 msgstr "TIFF-Datei konnte nicht geschrieben werden"
 
