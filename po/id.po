@@ -4,15 +4,15 @@
 #
 # Ahmad Riza H Nst  <rizahnst@gnome.org>, 2006.
 # Mohammad DAMT <mdamt@bisnisweb.com>, 2003.
-# Andika Triwidada <andika@gmail.com>, 2010, 2012, 2013.
+# Andika Triwidada <andika@gmail.com>, 2010, 2012, 2013, 2014.
 # Dirgita <dirgitadevina@yahoo.co.id>, 2012, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2014-10-25 16:45+0000\n"
-"PO-Revision-Date: 2014-10-26 04:29+0700\n"
+"POT-Creation-Date: 2014-12-08 05:46+0000\n"
+"PO-Revision-Date: 2014-12-08 16:52+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.7\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:158 ../gdk-pixbuf/gdk-pixbuf-io.c:1101
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1357
@@ -274,12 +274,12 @@ msgid "Windows animated cursor"
 msgstr "Kursor teranimasi Windows"
 
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:335 ../gdk-pixbuf/io-bmp.c:367
-#: ../gdk-pixbuf/io-bmp.c:390 ../gdk-pixbuf/io-bmp.c:493
+#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
+#: ../gdk-pixbuf/io-bmp.c:484
 msgid "BMP image has bogus header data"
 msgstr "Citra BMP memiliki data header yang palsu"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:430
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
 msgid "Not enough memory to load bitmap image"
 msgstr "Tak cukup memori untuk memuat citra bitmap"
 
@@ -287,24 +287,24 @@ msgstr "Tak cukup memori untuk memuat citra bitmap"
 msgid "BMP image has unsupported header size"
 msgstr "Citra BMP memiliki ukuran header yang tak didukung"
 
-#: ../gdk-pixbuf/io-bmp.c:354
+#: ../gdk-pixbuf/io-bmp.c:345
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Citra BMP topdown tak dapat dikompresi"
 
-#: ../gdk-pixbuf/io-bmp.c:714 ../gdk-pixbuf/io-png.c:530
+#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:530
 #: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Akhir berkas dijumpai secara dini"
 
-#: ../gdk-pixbuf/io-bmp.c:1326
+#: ../gdk-pixbuf/io-bmp.c:1317
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Tak dapat mengalokasikan memori untuk menyimpan berkas BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1367
+#: ../gdk-pixbuf/io-bmp.c:1358
 msgid "Couldn't write to BMP file"
 msgstr "Tak dapat menulis ke berkas BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1420 ../gdk-pixbuf/io-gdip-bmp.c:80
+#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:80
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
@@ -324,7 +324,7 @@ msgctxt "image format"
 msgid "Windows icon"
 msgstr "Ikon Windows"
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:51 ../gdk-pixbuf/io-jpeg.c:1295
+#: ../gdk-pixbuf/io-gdip-jpeg.c:51 ../gdk-pixbuf/io-jpeg.c:1292
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -332,18 +332,18 @@ msgid ""
 msgstr ""
 "Kualitas JPEG harus bernilai antara 0 dan 100; nilai '%s' tidak bisa diurai."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:66 ../gdk-pixbuf/io-jpeg.c:1311
+#: ../gdk-pixbuf/io-gdip-jpeg.c:66 ../gdk-pixbuf/io-jpeg.c:1308
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr "Kualitas JPEG harus bernilai antara 0 dan 100; nilai '%d' tidak boleh."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:134 ../gdk-pixbuf/io-jpeg.c:1573
+#: ../gdk-pixbuf/io-gdip-jpeg.c:134 ../gdk-pixbuf/io-jpeg.c:1570
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
 
-#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:947
+#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:1018
 msgctxt "image format"
 msgid "TIFF"
 msgstr "TIFF"
@@ -548,7 +548,7 @@ msgstr "JPEG 2000"
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Galat menginterpretasi berkas citra JPEG (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:598
+#: ../gdk-pixbuf/io-jpeg.c:595
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -556,33 +556,33 @@ msgstr ""
 "Tak cukup memori untuk membuka gambar, cobalah untuk menutup aplikasi "
 "lainnya untuk mengosongkan memori"
 
-#: ../gdk-pixbuf/io-jpeg.c:667 ../gdk-pixbuf/io-jpeg.c:880
+#: ../gdk-pixbuf/io-jpeg.c:664 ../gdk-pixbuf/io-jpeg.c:877
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Ruang warna JPEG tidak bisa ditampilkan (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:779 ../gdk-pixbuf/io-jpeg.c:1060
-#: ../gdk-pixbuf/io-jpeg.c:1396 ../gdk-pixbuf/io-jpeg.c:1406
+#: ../gdk-pixbuf/io-jpeg.c:776 ../gdk-pixbuf/io-jpeg.c:1057
+#: ../gdk-pixbuf/io-jpeg.c:1393 ../gdk-pixbuf/io-jpeg.c:1403
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Tak dapat menyediakan ruang memori saat membuka berkas JPEG"
 
-#: ../gdk-pixbuf/io-jpeg.c:1034
+#: ../gdk-pixbuf/io-jpeg.c:1031
 msgid "Transformed JPEG has zero width or height."
 msgstr "JPEG yang telah ditransformasi memiliki lebar atau tinggi 0."
 
-#: ../gdk-pixbuf/io-jpeg.c:1332
+#: ../gdk-pixbuf/io-jpeg.c:1329
 #, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 msgstr "x-dpi JPEG harus bernilai antara 1 dan 65535; nilai '%s' tidak boleh."
 
-#: ../gdk-pixbuf/io-jpeg.c:1353
+#: ../gdk-pixbuf/io-jpeg.c:1350
 #, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 msgstr "y-dpi JPEG harus bernilai antara 1 dan 65535; nilai '%s' tidak boleh."
 
-#: ../gdk-pixbuf/io-jpeg.c:1367
+#: ../gdk-pixbuf/io-jpeg.c:1364
 #, c-format
 msgid "Color profile has invalid length '%u'."
 msgstr "Panjang profil warna '%u' tidak sah."
@@ -701,7 +701,7 @@ msgstr "Key untuk teks bagian PNG harus berukuran antara 1 dan 79 karakter."
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Key untuk teks bagian PNG harus dalam karakter ASCII."
 
-#: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:760
+#: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:796
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Panjang profil warna %d tak valid."
@@ -942,56 +942,66 @@ msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
 
-#: ../gdk-pixbuf/io-tiff.c:105
+#: ../gdk-pixbuf/io-tiff.c:107
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Tak dapat menentukan lebar gambar (file TIFFnya rusak)"
 
-#: ../gdk-pixbuf/io-tiff.c:113
+#: ../gdk-pixbuf/io-tiff.c:115
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Tak dapat menentukan tinggi gambar (file TIFFnya rusak)"
 
-#: ../gdk-pixbuf/io-tiff.c:121
+#: ../gdk-pixbuf/io-tiff.c:123
 msgid "Width or height of TIFF image is zero"
 msgstr "Lebar atau tinggi gambar TIFF ini bernilai nol"
 
-#: ../gdk-pixbuf/io-tiff.c:130 ../gdk-pixbuf/io-tiff.c:139
+#: ../gdk-pixbuf/io-tiff.c:132 ../gdk-pixbuf/io-tiff.c:141
 msgid "Dimensions of TIFF image too large"
 msgstr "Dimensi gambar TIFF ini terlampau besar"
 
-#: ../gdk-pixbuf/io-tiff.c:163 ../gdk-pixbuf/io-tiff.c:175
-#: ../gdk-pixbuf/io-tiff.c:506
+#: ../gdk-pixbuf/io-tiff.c:165 ../gdk-pixbuf/io-tiff.c:177
+#: ../gdk-pixbuf/io-tiff.c:535
 msgid "Insufficient memory to open TIFF file"
 msgstr "Memori yang tersedia tidak mencukupi untuk membuka berkas TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:246
+#: ../gdk-pixbuf/io-tiff.c:275
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Data RGB gagal dibaca dari berkas TIFF"
 
-#: ../gdk-pixbuf/io-tiff.c:308
+#: ../gdk-pixbuf/io-tiff.c:337
 msgid "Failed to open TIFF image"
 msgstr "Gambar TIFF ini tidak dapat dibuka"
 
-#: ../gdk-pixbuf/io-tiff.c:442 ../gdk-pixbuf/io-tiff.c:455
+#: ../gdk-pixbuf/io-tiff.c:471 ../gdk-pixbuf/io-tiff.c:484
 msgid "Failed to load TIFF image"
 msgstr "Berkas TIFF tidak dapat dibuka"
 
-#: ../gdk-pixbuf/io-tiff.c:678
+#: ../gdk-pixbuf/io-tiff.c:710
 msgid "Failed to save TIFF image"
 msgstr "Gambar TIFF ini tidak dapat disimpan"
 
-#: ../gdk-pixbuf/io-tiff.c:730
+#: ../gdk-pixbuf/io-tiff.c:766
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr "Kompresi TIFF tidak mengacu ke suatu codec yang valid."
 
-#: ../gdk-pixbuf/io-tiff.c:775
+#: ../gdk-pixbuf/io-tiff.c:811
 msgid "TIFF bits-per-sample doesn't contain a supported value."
 msgstr "bits-per-sample TIFF tak memuat suatu nilai yang didukung."
 
-#: ../gdk-pixbuf/io-tiff.c:856
+#: ../gdk-pixbuf/io-tiff.c:892
 msgid "Failed to write TIFF data"
 msgstr "Gambar TIFF ini tidak dapat ditulis"
 
-#: ../gdk-pixbuf/io-tiff.c:892
+#: ../gdk-pixbuf/io-tiff.c:910
+#, c-format
+msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
+msgstr "x-dpi TIFF harus lebih dari nol; nilai '%s' tidak diizinkan."
+
+#: ../gdk-pixbuf/io-tiff.c:922
+#, c-format
+msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
+msgstr "y-dpi TIFF harus lebih dari nol; nilai '%s' tidak boleh."
+
+#: ../gdk-pixbuf/io-tiff.c:963
 msgid "Couldn't write to TIFF file"
 msgstr "Tak dapat menulis ke berkas TIFF"
 
