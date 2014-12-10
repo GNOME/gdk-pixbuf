@@ -17,26 +17,26 @@ msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2014-06-03 16:49+0000\n"
-"PO-Revision-Date: 2014-06-04 02:16+0200\n"
+"POT-Creation-Date: 2014-12-10 17:44+0000\n"
+"PO-Revision-Date: 2014-12-10 23:43+0200\n"
 "Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
-"Language-Team: Türkçe <>\n"
+"Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 # gdk-pixbuf/gdk-pixbuf-animation.c:144 gdk-pixbuf/gdk-pixbuf-io.c:516
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:158 ../gdk-pixbuf/gdk-pixbuf-io.c:1077
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1333
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:158 ../gdk-pixbuf/gdk-pixbuf-io.c:1101
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1357
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "'%s' dosyası açılamadı: %s"
 
 # gdk-pixbuf/gdk-pixbuf-animation.c:155 gdk-pixbuf/gdk-pixbuf-io.c:526
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:171 ../gdk-pixbuf/gdk-pixbuf-io.c:962
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:171 ../gdk-pixbuf/gdk-pixbuf-io.c:986
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Resim dosyası '%s' hiç bilgi içermiyor"
@@ -52,21 +52,96 @@ msgstr ""
 "bozulmuş olabilir"
 
 # gdk-pixbuf/gdk-pixbuf-animation.c:205 gdk-pixbuf/gdk-pixbuf-io.c:571
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:278 ../gdk-pixbuf/gdk-pixbuf-io.c:1113
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1385
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:278 ../gdk-pixbuf/gdk-pixbuf-io.c:1137
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1409
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
 msgstr "'%s' resmi yüklenemedi: sebep bilinmiyor, dosya bozulmuş olabilir"
 
+#: ../gdk-pixbuf/gdk-pixbuf.c:161
+msgid "Number of Channels"
+msgstr "Kanal Sayısı"
+
+# gdk-pixbuf/io-xpm.c:1265
+#: ../gdk-pixbuf/gdk-pixbuf.c:162
+#| msgid "XPM has invalid number of chars per pixel"
+msgid "The number of samples per pixel"
+msgstr "Piksel başına örnek sayısı"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:171
+msgid "Colorspace"
+msgstr "Renk uzayı"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:172
+msgid "The colorspace in which the samples are interpreted"
+msgstr "İçinde örneklerin yorumlandığı renk uzayı"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:180
+msgid "Has Alpha"
+msgstr ""
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:181
+msgid "Whether the pixbuf has an alpha channel"
+msgstr ""
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:194
+msgid "Bits per Sample"
+msgstr ""
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:195
+msgid "The number of bits per sample"
+msgstr ""
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:204
+msgid "Width"
+msgstr "Genişlik"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:205
+msgid "The number of columns of the pixbuf"
+msgstr ""
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:214
+msgid "Height"
+msgstr "Yükseklik"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:215
+msgid "The number of rows of the pixbuf"
+msgstr ""
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:231
+msgid "Rowstride"
+msgstr ""
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:232
+msgid ""
+"The number of bytes between the start of a row and the start of the next row"
+msgstr ""
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:241
+msgid "Pixels"
+msgstr "Piksel"
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:242
+msgid "A pointer to the pixel data of the pixbuf"
+msgstr ""
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:256
+msgid "Pixel Bytes"
+msgstr ""
+
+#: ../gdk-pixbuf/gdk-pixbuf.c:257
+msgid "Readonly pixel data"
+msgstr ""
+
 # gdk-pixbuf/gdk-pixbuf-io.c:295
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:774
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:798
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Resim yükleme modülü bulunamadı: %s: %s"
 
 # gdk-pixbuf/gdk-pixbuf-io.c:314
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:789
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:813
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -76,63 +151,63 @@ msgstr ""
 "sürümünden olabilir mi?"
 
 # gdk-pixbuf/gdk-pixbuf-io.c:425 gdk-pixbuf/gdk-pixbuf-io.c:451
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:798 ../gdk-pixbuf/gdk-pixbuf-io.c:849
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:822 ../gdk-pixbuf/gdk-pixbuf-io.c:873
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Resim türü '%s' desteklenmiyor"
 
 # gdk-pixbuf/gdk-pixbuf-io.c:473
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:934
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:958
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "'%s' dosyasındaki resmin biçimi anlaşılamadı"
 
 # gdk-pixbuf/gdk-pixbuf-io.c:479
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:942
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:966
 msgid "Unrecognized image file format"
 msgstr "Bilinmeyen resim dosyası biçimi"
 
 # gdk-pixbuf/gdk-pixbuf-io.c:582
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1124
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1148
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Resim '%s' yüklenemedi: %s"
 
 # gdk-pixbuf/io-jpeg.c:125
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2029 ../gdk-pixbuf/io-gdip-utils.c:835
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2175 ../gdk-pixbuf/io-gdip-utils.c:835
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "JPEG resim dosyası işlenirken hata: %s"
 
 # gdk-pixbuf/gdk-pixbuf-io.c:687
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2071 ../gdk-pixbuf/gdk-pixbuf-io.c:2192
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2217 ../gdk-pixbuf/gdk-pixbuf-io.c:2338
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "gdk-pixbuf'un bu kurgusu resim biçimi kaydını desteklemiyor: %s"
 
 # gdk-pixbuf/io-xbm.c:295
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2102
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2248
 msgid "Insufficient memory to save image to callback"
 msgstr "Geri çağırım için resim kaydedilirken yetersiz bellek"
 
 # gdk-pixbuf/io-tiff.c:264
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2115
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2261
 msgid "Failed to open temporary file"
 msgstr "Geçici dosya açılamadı"
 
 # gdk-pixbuf/io-xbm.c:429
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2138
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2284
 msgid "Failed to read from temporary file"
 msgstr "Geçici dosya okumak için açılamadı"
 
 # gdk-pixbuf/gdk-pixbuf-io.c:790
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2382
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2534
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "'%s' dosyası yazmak için açılamıyor: %s"
 
 # gdk-pixbuf/gdk-pixbuf-io.c:811
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2408
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2560
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -141,17 +216,17 @@ msgstr ""
 "Resim yazılırken '%s' kapatılamadı, tüm veri kaydedilememiş olabilir: %s"
 
 # gdk-pixbuf/io-xbm.c:295
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2629 ../gdk-pixbuf/gdk-pixbuf-io.c:2681
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2781 ../gdk-pixbuf/gdk-pixbuf-io.c:2833
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Resmi tampona kaydetmek için yetersiz bellek"
 
 # gdk-pixbuf/io-jpeg.c:125
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2727
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2879
 msgid "Error writing to image stream"
 msgstr "Resim akışına yazılırken hata"
 
 # gdk-pixbuf/gdk-pixbuf-loader.c:275 gdk-pixbuf/gdk-pixbuf-loader.c:376
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:384
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:382
 #, c-format
 msgid ""
 "Internal error: Image loader module '%s' failed to complete an operation, "
@@ -161,28 +236,36 @@ msgstr ""
 "başarısızlık sebebi de vermedi"
 
 # gdk-pixbuf/gdk-pixbuf-loader.c:252
-#: ../gdk-pixbuf/gdk-pixbuf-loader.c:426
+#: ../gdk-pixbuf/gdk-pixbuf-loader.c:424
 #, c-format
 msgid "Incremental loading of image type '%s' is not supported"
 msgstr "Resim türü '%s' için arttırımlı yükleme desteklenmiyor"
 
+#: ../gdk-pixbuf/gdk-pixbuf-simple-anim.c:161
+msgid "Loop"
+msgstr "Döngü"
+
+#: ../gdk-pixbuf/gdk-pixbuf-simple-anim.c:162
+msgid "Whether the animation should loop when it reaches the end"
+msgstr ""
+
 # gdk-pixbuf/gdk-pixdata.c:145
-#: ../gdk-pixbuf/gdk-pixdata.c:158
+#: ../gdk-pixbuf/gdk-pixdata.c:163
 msgid "Image header corrupt"
 msgstr "Resim başlığı bozuk"
 
 # gdk-pixbuf/gdk-pixdata.c:150
-#: ../gdk-pixbuf/gdk-pixdata.c:163
+#: ../gdk-pixbuf/gdk-pixdata.c:168
 msgid "Image format unknown"
 msgstr "Resim biçimi bilinmiyor"
 
 # gdk-pixbuf/gdk-pixdata.c:155 gdk-pixbuf/gdk-pixdata.c:432
-#: ../gdk-pixbuf/gdk-pixdata.c:168 ../gdk-pixbuf/gdk-pixdata.c:501
+#: ../gdk-pixbuf/gdk-pixdata.c:173 ../gdk-pixbuf/gdk-pixdata.c:511
 msgid "Image pixel data corrupt"
 msgstr "Resmin piksel verisi bozuk"
 
 # gdk-pixbuf/gdk-pixdata.c:378
-#: ../gdk-pixbuf/gdk-pixdata.c:445
+#: ../gdk-pixbuf/gdk-pixdata.c:455
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -213,24 +296,23 @@ msgstr "Canlandırmada yanlış biçimlendirilmiş yığın"
 
 # gdk-pixbuf/io-gif.c:1407
 #: ../gdk-pixbuf/io-ani.c:628
-#| msgid "GIF image was truncated or incomplete."
 msgid "ANI image was truncated or incomplete."
 msgstr "ANI resmi ya kırpılmış ya da tamamlanmamış."
 
-# gdk-pixbuf/gdk-pixdata.c:150
 #: ../gdk-pixbuf/io-ani.c:669
-msgid "The ANI image format"
-msgstr "ANI resim biçimi"
+msgctxt "image format"
+msgid "Windows animated cursor"
+msgstr ""
 
 # gdk-pixbuf/io-bmp.c:278 gdk-pixbuf/io-bmp.c:300
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:335 ../gdk-pixbuf/io-bmp.c:367
-#: ../gdk-pixbuf/io-bmp.c:390 ../gdk-pixbuf/io-bmp.c:493
+#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
+#: ../gdk-pixbuf/io-bmp.c:484
 msgid "BMP image has bogus header data"
 msgstr "BMP resmi başlığı hatalı veri içeriyor"
 
 # gdk-pixbuf/io-bmp.c:325
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:430
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
 msgid "Not enough memory to load bitmap image"
 msgstr "Biteşlem resmi yüklemek için bellek yetersiz"
 
@@ -239,44 +321,47 @@ msgstr "Biteşlem resmi yüklemek için bellek yetersiz"
 msgid "BMP image has unsupported header size"
 msgstr "BMP resmi desteklenmeyen bir başlık büyüklüğüne sahip"
 
-#: ../gdk-pixbuf/io-bmp.c:354
+#: ../gdk-pixbuf/io-bmp.c:345
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Yukarıdan aşağıya BMP resimleri sıkıştırılamıyor"
 
-#: ../gdk-pixbuf/io-bmp.c:714 ../gdk-pixbuf/io-pnm.c:705
+#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:530
+#: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Erken dosya sonu ile karşılaşıldı"
 
 # gdk-pixbuf/io-jpeg.c:529
-#: ../gdk-pixbuf/io-bmp.c:1326
+#: ../gdk-pixbuf/io-bmp.c:1317
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "BMP dosyasını kaydetmek için bellek ayrılamadı"
 
 # gtk/gtkfilesel.c:3277
-#: ../gdk-pixbuf/io-bmp.c:1367
+#: ../gdk-pixbuf/io-bmp.c:1358
 msgid "Couldn't write to BMP file"
 msgstr "BMP dosyasına yazılamadı"
 
-#: ../gdk-pixbuf/io-bmp.c:1420 ../gdk-pixbuf/io-gdip-bmp.c:80
-msgid "The BMP image format"
-msgstr "BMP resim biçimi"
+#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:80
+msgctxt "image format"
+msgid "BMP"
+msgstr "BMP"
 
 #: ../gdk-pixbuf/io-gdip-emf.c:57
-msgid "The EMF image format"
-msgstr "EMF resim biçimi"
+msgctxt "image format"
+msgid "EMF"
+msgstr "EMF"
 
-# gdk-pixbuf/gdk-pixdata.c:150
-#: ../gdk-pixbuf/io-gdip-gif.c:78 ../gdk-pixbuf/io-gif.c:1718
-msgid "The GIF image format"
-msgstr "GIF resim biçimi"
+#: ../gdk-pixbuf/io-gdip-gif.c:78 ../gdk-pixbuf/io-gif.c:1719
+msgctxt "image format"
+msgid "GIF"
+msgstr "GIF"
 
-# gdk-pixbuf/gdk-pixdata.c:150
-#: ../gdk-pixbuf/io-gdip-ico.c:57 ../gdk-pixbuf/io-ico.c:1269
-msgid "The ICO image format"
-msgstr "ICO resim biçimi"
+#: ../gdk-pixbuf/io-gdip-ico.c:57 ../gdk-pixbuf/io-ico.c:1268
+msgctxt "image format"
+msgid "Windows icon"
+msgstr "Windows simgesi"
 
 # gdk-pixbuf/io-jpeg.c:655
-#: ../gdk-pixbuf/io-gdip-jpeg.c:51 ../gdk-pixbuf/io-jpeg.c:1249
+#: ../gdk-pixbuf/io-gdip-jpeg.c:51 ../gdk-pixbuf/io-jpeg.c:1292
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -286,7 +371,7 @@ msgstr ""
 "ayrıştırılamadı."
 
 # gdk-pixbuf/io-jpeg.c:670
-#: ../gdk-pixbuf/io-gdip-jpeg.c:66 ../gdk-pixbuf/io-jpeg.c:1265
+#: ../gdk-pixbuf/io-gdip-jpeg.c:66 ../gdk-pixbuf/io-jpeg.c:1308
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
@@ -294,13 +379,15 @@ msgstr ""
 "JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
 "edilmiyor."
 
-#: ../gdk-pixbuf/io-gdip-jpeg.c:134 ../gdk-pixbuf/io-jpeg.c:1478
-msgid "The JPEG image format"
-msgstr "JPEG resim biçimi"
+#: ../gdk-pixbuf/io-gdip-jpeg.c:134 ../gdk-pixbuf/io-jpeg.c:1570
+msgctxt "image format"
+msgid "JPEG"
+msgstr "JPEG"
 
-#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:786
-msgid "The TIFF image format"
-msgstr "TIFF resim biçimi"
+#: ../gdk-pixbuf/io-gdip-tiff.c:80 ../gdk-pixbuf/io-tiff.c:1018
+msgctxt "image format"
+msgid "TIFF"
+msgstr "TIFF"
 
 # gdk-pixbuf/io-xpm.c:1321
 #: ../gdk-pixbuf/io-gdip-utils.c:152
@@ -345,8 +432,9 @@ msgid "Couldn't save"
 msgstr "Kaydedilemedi"
 
 #: ../gdk-pixbuf/io-gdip-wmf.c:56
-msgid "The WMF image format"
-msgstr "WMF resim biçimi"
+msgctxt "image format"
+msgid "WMF"
+msgstr "WMF"
 
 # gdk-pixbuf/io-gif.c:218
 #: ../gdk-pixbuf/io-gif.c:220
@@ -355,8 +443,8 @@ msgid "Failure reading GIF: %s"
 msgstr "GIF okunurken hata: %s"
 
 # gdk-pixbuf/io-gif.c:460 gdk-pixbuf/io-gif.c:1352 gdk-pixbuf/io-gif.c:1511
-#: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1500
-#: ../gdk-pixbuf/io-gif.c:1667
+#: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1501
+#: ../gdk-pixbuf/io-gif.c:1668
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF dosyasında veri eksik (dosya kırpılmış olabilir mi?)"
 
@@ -386,8 +474,8 @@ msgstr "GIF dosyasında döngüsel tablo girdisi"
 
 # gdk-pixbuf/io-gif.c:746 gdk-pixbuf/io-gif.c:1340 gdk-pixbuf/io-gif.c:1385
 # gdk-pixbuf/io-gif.c:1499
-#: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1486
-#: ../gdk-pixbuf/io-gif.c:1539 ../gdk-pixbuf/io-gif.c:1655
+#: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1487
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
 msgid "Not enough memory to load GIF file"
 msgstr "GIF dosyasını yüklemek için yetersiz bellek"
 
@@ -427,71 +515,63 @@ msgstr ""
 "de yok."
 
 # gdk-pixbuf/io-gif.c:1407
-#: ../gdk-pixbuf/io-gif.c:1562
+#: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF resmi ya kırpılmış ya da tamamlanmamış."
 
 # gdk-pixbuf/io-png.c:610
-#: ../gdk-pixbuf/io-icns.c:347
+#: ../gdk-pixbuf/io-icns.c:358
 #, c-format
 msgid "Error reading ICNS image: %s"
 msgstr "ICNS resmi okunurken hata: %s"
 
-#: ../gdk-pixbuf/io-icns.c:364
+#: ../gdk-pixbuf/io-icns.c:375 ../gdk-pixbuf/io-icns.c:452
 msgid "Could not decode ICNS file"
 msgstr "ICNS dosyası kodu çözülemedi"
 
-# gdk-pixbuf/gdk-pixdata.c:150
-#: ../gdk-pixbuf/io-icns.c:397
-msgid "The ICNS image format"
-msgstr "ICNS resim biçimi"
+#: ../gdk-pixbuf/io-icns.c:511
+msgctxt "image format"
+msgid "MacOS X icon"
+msgstr "MacOS X simgesi"
 
 #: ../gdk-pixbuf/io-ico.c:226 ../gdk-pixbuf/io-ico.c:240
-#: ../gdk-pixbuf/io-ico.c:289 ../gdk-pixbuf/io-ico.c:300
-#: ../gdk-pixbuf/io-ico.c:393
+#: ../gdk-pixbuf/io-ico.c:291 ../gdk-pixbuf/io-ico.c:302
+#: ../gdk-pixbuf/io-ico.c:386
 msgid "Invalid header in icon"
 msgstr "Simge içinde geçersiz başlık"
 
 # gdk-pixbuf/io-gif.c:746 gdk-pixbuf/io-gif.c:1340 gdk-pixbuf/io-gif.c:1385
 # gdk-pixbuf/io-gif.c:1499
-#: ../gdk-pixbuf/io-ico.c:255 ../gdk-pixbuf/io-ico.c:310
-#: ../gdk-pixbuf/io-ico.c:403 ../gdk-pixbuf/io-ico.c:456
-#: ../gdk-pixbuf/io-ico.c:486
+#: ../gdk-pixbuf/io-ico.c:255 ../gdk-pixbuf/io-ico.c:312
+#: ../gdk-pixbuf/io-ico.c:396 ../gdk-pixbuf/io-ico.c:449
+#: ../gdk-pixbuf/io-ico.c:479
 msgid "Not enough memory to load icon"
 msgstr "Simge dosyasını yüklemek için yetersiz bellek"
 
 # gdk-pixbuf/gdk-pixbuf-io.c:425 gdk-pixbuf/gdk-pixbuf-io.c:451
-#: ../gdk-pixbuf/io-ico.c:336
+#: ../gdk-pixbuf/io-ico.c:338
 msgid "Compressed icons are not supported"
 msgstr "Sıkıştırılmış simgeler desteklenmiyor"
 
-#: ../gdk-pixbuf/io-ico.c:356
-msgid "Icon has zero width"
-msgstr "Simge genişliği sıfır"
-
-#: ../gdk-pixbuf/io-ico.c:366
-msgid "Icon has zero height"
-msgstr "Simge yüksekliği sıfır"
-
-#: ../gdk-pixbuf/io-ico.c:441
+#: ../gdk-pixbuf/io-ico.c:434
 msgid "Unsupported icon type"
 msgstr "Desteklenmeyen simge türü"
 
 # gdk-pixbuf/io-gif.c:746 gdk-pixbuf/io-gif.c:1340 gdk-pixbuf/io-gif.c:1385
 # gdk-pixbuf/io-gif.c:1499
-#: ../gdk-pixbuf/io-ico.c:535
+#: ../gdk-pixbuf/io-ico.c:528
 msgid "Not enough memory to load ICO file"
 msgstr "ICO dosyasını yüklemek için yetersiz bellek"
 
-#: ../gdk-pixbuf/io-ico.c:1000
+#: ../gdk-pixbuf/io-ico.c:993
 msgid "Image too large to be saved as ICO"
 msgstr "Resim ICO olarak kaydedilmek için çok büyük"
 
-#: ../gdk-pixbuf/io-ico.c:1011
+#: ../gdk-pixbuf/io-ico.c:1004
 msgid "Cursor hotspot outside image"
 msgstr "İmleç işaretleyicisi resmin dışında"
 
-#: ../gdk-pixbuf/io-ico.c:1034
+#: ../gdk-pixbuf/io-ico.c:1027
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "ICO dosyası için desteklenmeyen derinlik: %d"
@@ -531,8 +611,9 @@ msgid "Couldn't allocate memory to buffer image data"
 msgstr "Resim verisini tamponlamak için bellek ayrılamadı"
 
 #: ../gdk-pixbuf/io-jasper.c:304
-msgid "The JPEG 2000 image format"
-msgstr "JPEG 2000 resim biçimi"
+msgctxt "image format"
+msgid "JPEG 2000"
+msgstr "JPEG 2000"
 
 # gdk-pixbuf/io-jpeg.c:125
 #: ../gdk-pixbuf/io-jpeg.c:124
@@ -541,7 +622,7 @@ msgid "Error interpreting JPEG image file (%s)"
 msgstr "JPEG resim dosyası işlenirken hata (%s)"
 
 # gdk-pixbuf/io-jpeg.c:234
-#: ../gdk-pixbuf/io-jpeg.c:597
+#: ../gdk-pixbuf/io-jpeg.c:595
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -549,22 +630,44 @@ msgstr ""
 "Resim yüklemek için bellek yetersiz, diğer uygulamaları kapatarak belleği "
 "boşaltmayı deneyin"
 
-#: ../gdk-pixbuf/io-jpeg.c:645 ../gdk-pixbuf/io-jpeg.c:858
+#: ../gdk-pixbuf/io-jpeg.c:664 ../gdk-pixbuf/io-jpeg.c:877
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Desteklenmeyen JPEG renk uzayı (%s)"
 
 # gdk-pixbuf/io-jpeg.c:529
-#: ../gdk-pixbuf/io-jpeg.c:757 ../gdk-pixbuf/io-jpeg.c:1037
-#: ../gdk-pixbuf/io-jpeg.c:1308 ../gdk-pixbuf/io-jpeg.c:1318
+#: ../gdk-pixbuf/io-jpeg.c:776 ../gdk-pixbuf/io-jpeg.c:1057
+#: ../gdk-pixbuf/io-jpeg.c:1393 ../gdk-pixbuf/io-jpeg.c:1403
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "JPEG dosyasını yüklemek için bellek ayrılamadı"
 
-#: ../gdk-pixbuf/io-jpeg.c:1011
+#: ../gdk-pixbuf/io-jpeg.c:1031
 msgid "Transformed JPEG has zero width or height."
 msgstr "Dönüştürülmüş JPEG resminin genişliği ve yüksekliği sıfır."
 
-#: ../gdk-pixbuf/io-jpeg.c:1279
+# gdk-pixbuf/io-jpeg.c:670
+#: ../gdk-pixbuf/io-jpeg.c:1329
+#, fuzzy, c-format
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid ""
+"JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
+msgstr ""
+"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
+"edilmiyor."
+
+# gdk-pixbuf/io-jpeg.c:670
+#: ../gdk-pixbuf/io-jpeg.c:1350
+#, fuzzy, c-format
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid ""
+"JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
+msgstr ""
+"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
+"edilmiyor."
+
+#: ../gdk-pixbuf/io-jpeg.c:1364
 #, c-format
 msgid "Color profile has invalid length '%u'."
 msgstr "Renk profili için geçersiz uzunluk '%u'."
@@ -617,51 +720,54 @@ msgid "No palette found at end of PCX data"
 msgstr "PCX verisinin sonunda palet bulunamadı"
 
 #: ../gdk-pixbuf/io-pcx.c:753
-msgid "The PCX image format"
-msgstr "PCX resim biçimi"
+msgctxt "image format"
+msgid "PCX"
+msgstr "PCX"
 
 #: ../gdk-pixbuf/io-pixdata.c:146
 msgid "Transformed pixbuf has zero width or height."
 msgstr "Dönüştürülmüş pixbuf'un genişliği ya da yüksekliği sıfır."
 
 #: ../gdk-pixbuf/io-pixdata.c:184
-msgid "The GdkPixdata format"
-msgstr "GdkPixdata biçimi"
+#| msgid "The GdkPixdata format"
+msgctxt "image format"
+msgid "GdkPixdata"
+msgstr "GdkPixdata"
 
 # gdk-pixbuf/io-pnm.c:423 gdk-pixbuf/io-pnm.c:451 gdk-pixbuf/io-pnm.c:483
-#: ../gdk-pixbuf/io-png.c:53
+#: ../gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
 msgstr "PNG dosyasının kanal başına bit sayısı geçersiz."
 
-#: ../gdk-pixbuf/io-png.c:134 ../gdk-pixbuf/io-png.c:640
+#: ../gdk-pixbuf/io-png.c:135 ../gdk-pixbuf/io-png.c:670
 msgid "Transformed PNG has zero width or height."
 msgstr "Dönüştürülmüş PNG resminin genişliği ve yüksekliği sıfır."
 
-#: ../gdk-pixbuf/io-png.c:142
+#: ../gdk-pixbuf/io-png.c:143
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Dönüştürülmüş PNG'nin kanal başına bit sayısı 8 değil."
 
-#: ../gdk-pixbuf/io-png.c:151
+#: ../gdk-pixbuf/io-png.c:152
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Dönüştürülen PNG,  RGB veya RGBA değil."
 
-#: ../gdk-pixbuf/io-png.c:160
+#: ../gdk-pixbuf/io-png.c:161
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr "Dönüştürülmüş PNG'de desteklenmeyen sayıda kanal var, 3 veya 4 olmalı."
 
 # gdk-pixbuf/io-png.c:161
-#: ../gdk-pixbuf/io-png.c:181
+#: ../gdk-pixbuf/io-png.c:182
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "PNG resim dosyasında ölümcül hata: %s"
 
 # gdk-pixbuf/io-png.c:245
-#: ../gdk-pixbuf/io-png.c:314
+#: ../gdk-pixbuf/io-png.c:319
 msgid "Insufficient memory to load PNG file"
 msgstr "PNG dosyasını yüklemek için yetersiz bellek"
 
 # gdk-pixbuf/io-png.c:536
-#: ../gdk-pixbuf/io-png.c:655
+#: ../gdk-pixbuf/io-png.c:685
 #, c-format
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
@@ -671,32 +777,32 @@ msgstr ""
 "kapatarak bellek kullanımını düşürmeyi deneyin."
 
 # gdk-pixbuf/io-png.c:610
-#: ../gdk-pixbuf/io-png.c:718
+#: ../gdk-pixbuf/io-png.c:760
 msgid "Fatal error reading PNG image file"
 msgstr "PNG dosyası okunurken ölümcül hata"
 
 # gdk-pixbuf/io-png.c:610
-#: ../gdk-pixbuf/io-png.c:767
+#: ../gdk-pixbuf/io-png.c:809
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "PNG dosyası okunurken ölümcül hata: %s"
 
-#: ../gdk-pixbuf/io-png.c:857
+#: ../gdk-pixbuf/io-png.c:901
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr "PNG metin yığın anahtarları en az 1 en çok 79 karakter olabilirler."
 
-#: ../gdk-pixbuf/io-png.c:866
+#: ../gdk-pixbuf/io-png.c:910
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "PNG metin yığın anahtarları ASCII karakter olmalıdır."
 
-#: ../gdk-pixbuf/io-png.c:880 ../gdk-pixbuf/io-tiff.c:665
+#: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:796
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Renk profili %d geçersiz uzunluğuna sahip."
 
 # gdk-pixbuf/io-jpeg.c:655
-#: ../gdk-pixbuf/io-png.c:893
+#: ../gdk-pixbuf/io-png.c:937
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -706,7 +812,7 @@ msgstr ""
 "ayrıştırılamadı."
 
 # gdk-pixbuf/io-jpeg.c:670
-#: ../gdk-pixbuf/io-png.c:906
+#: ../gdk-pixbuf/io-png.c:950
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -715,15 +821,35 @@ msgstr ""
 "PNG sıkıştırma seviyesi 0 ile 9 arasında bir değer olmalı; '%d' değeri kabul "
 "edilmiyor."
 
-#: ../gdk-pixbuf/io-png.c:954
+# gdk-pixbuf/io-jpeg.c:670
+#: ../gdk-pixbuf/io-png.c:969
+#, fuzzy, c-format
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid "PNG x-dpi must be greater than zero; value '%s' is not allowed."
+msgstr ""
+"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
+"edilmiyor."
+
+# gdk-pixbuf/io-jpeg.c:670
+#: ../gdk-pixbuf/io-png.c:989
+#, fuzzy, c-format
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
+msgstr ""
+"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
+"edilmiyor."
+
+#: ../gdk-pixbuf/io-png.c:1038
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr "%s PNG metin yığın değerleri ISO-8859-1 kodlamaya dönüştürülemiyor."
 
-# gdk-pixbuf/io-pnm.c:543 gdk-pixbuf/io-pnm.c:585
-#: ../gdk-pixbuf/io-png.c:1117
-msgid "The PNG image format"
-msgstr "PNG resim biçimi"
+#: ../gdk-pixbuf/io-png.c:1206
+msgctxt "image format"
+msgid "PNG"
+msgstr "PNG"
 
 # gdk-pixbuf/io-pnm.c:254
 #: ../gdk-pixbuf/io-pnm.c:246
@@ -797,8 +923,9 @@ msgid "Insufficient memory to load PNM file"
 msgstr "PNM dosyasını yüklemek için yetersiz bellek"
 
 #: ../gdk-pixbuf/io-pnm.c:1077
-msgid "The PNM/PBM/PGM/PPM image format family"
-msgstr "PNM/PBM/PGM/PPM resim biçimi ailesi"
+msgctxt "image format"
+msgid "PNM/PBM/PGM/PPM"
+msgstr "PNM/PBM/PGM/PPM"
 
 #: ../gdk-pixbuf/io-qtif.c:126
 msgid "Input file descriptor is NULL."
@@ -851,8 +978,9 @@ msgid "Failed to find an image data atom."
 msgstr "Bir resim veri atomu bulunurken başarısız olundu."
 
 #: ../gdk-pixbuf/io-qtif.c:613
-msgid "The QTIF image format"
-msgstr "QTIF resim biçimi"
+msgctxt "image format"
+msgid "QuickTime"
+msgstr "QuickTime"
 
 # gdk-pixbuf/io-bmp.c:278 gdk-pixbuf/io-bmp.c:300
 #: ../gdk-pixbuf/io-ras.c:123
@@ -874,8 +1002,9 @@ msgid "Not enough memory to load RAS image"
 msgstr "RAS resmini yükleyebilmek için yeterli bellek yok"
 
 #: ../gdk-pixbuf/io-ras.c:542
-msgid "The Sun raster image format"
-msgstr "Sun ızgara resim biçimi"
+msgctxt "image format"
+msgid "Sun raster"
+msgstr ""
 
 # gdk-pixbuf/io-xpm.c:1321
 #: ../gdk-pixbuf/io-tga.c:151
@@ -942,65 +1071,90 @@ msgid "Excess data in file"
 msgstr "Dosyada aşırı veri"
 
 #: ../gdk-pixbuf/io-tga.c:1000
-msgid "The Targa image format"
-msgstr "Targa resim biçimi"
+msgctxt "image format"
+msgid "Targa"
+msgstr "Targa"
 
 # gdk-pixbuf/io-tiff.c:152
-#: ../gdk-pixbuf/io-tiff.c:102
+#: ../gdk-pixbuf/io-tiff.c:107
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Resim genişligi alınamadı (bozuk TIFF dosyası)"
 
 # gdk-pixbuf/io-tiff.c:159
-#: ../gdk-pixbuf/io-tiff.c:110
+#: ../gdk-pixbuf/io-tiff.c:115
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Resim yüksekliği alınamadı (bozuk TIFF dosyası)"
 
 # gdk-pixbuf/io-tiff.c:169
-#: ../gdk-pixbuf/io-tiff.c:118
+#: ../gdk-pixbuf/io-tiff.c:123
 msgid "Width or height of TIFF image is zero"
 msgstr "TIFF resminin genişlik veya yüksekliği sıfır"
 
-#: ../gdk-pixbuf/io-tiff.c:127 ../gdk-pixbuf/io-tiff.c:136
+#: ../gdk-pixbuf/io-tiff.c:132 ../gdk-pixbuf/io-tiff.c:141
 msgid "Dimensions of TIFF image too large"
 msgstr "TIFF resminin boyutları çok büyük"
 
 # gdk-pixbuf/io-tiff.c:178 gdk-pixbuf/io-tiff.c:194 gdk-pixbuf/io-tiff.c:471
-#: ../gdk-pixbuf/io-tiff.c:160 ../gdk-pixbuf/io-tiff.c:172
-#: ../gdk-pixbuf/io-tiff.c:489
+#: ../gdk-pixbuf/io-tiff.c:165 ../gdk-pixbuf/io-tiff.c:177
+#: ../gdk-pixbuf/io-tiff.c:535
 msgid "Insufficient memory to open TIFF file"
 msgstr "TIFF dosyasını açmak için yetersiz bellek"
 
 # gdk-pixbuf/io-tiff.c:201
-#: ../gdk-pixbuf/io-tiff.c:234
+#: ../gdk-pixbuf/io-tiff.c:275
 msgid "Failed to load RGB data from TIFF file"
 msgstr "TIFF dosyasından RGB verisi yüklenemedi"
 
 # gdk-pixbuf/io-tiff.c:264
-#: ../gdk-pixbuf/io-tiff.c:291
+#: ../gdk-pixbuf/io-tiff.c:337
 msgid "Failed to open TIFF image"
 msgstr "TIFF resmi açılamadı"
 
 # gdk-pixbuf/io-tiff.c:411
-#: ../gdk-pixbuf/io-tiff.c:425 ../gdk-pixbuf/io-tiff.c:438
+#: ../gdk-pixbuf/io-tiff.c:471 ../gdk-pixbuf/io-tiff.c:484
 msgid "Failed to load TIFF image"
 msgstr "TIFF resmi yüklenemedi"
 
 # gdk-pixbuf/io-tiff.c:264
-#: ../gdk-pixbuf/io-tiff.c:621
+#: ../gdk-pixbuf/io-tiff.c:710
 msgid "Failed to save TIFF image"
 msgstr "TIFF resmi kaydedilemedi"
 
-#: ../gdk-pixbuf/io-tiff.c:654
+#: ../gdk-pixbuf/io-tiff.c:766
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr "TIFF sıkıştırması geçerli bir kodeki belirtmiyor."
 
+#: ../gdk-pixbuf/io-tiff.c:811
+msgid "TIFF bits-per-sample doesn't contain a supported value."
+msgstr ""
+
 # gdk-pixbuf/io-tiff.c:264
-#: ../gdk-pixbuf/io-tiff.c:694
+#: ../gdk-pixbuf/io-tiff.c:892
 msgid "Failed to write TIFF data"
 msgstr "TIFF verisi yazılamadı"
 
+# gdk-pixbuf/io-jpeg.c:670
+#: ../gdk-pixbuf/io-tiff.c:910
+#, fuzzy, c-format
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
+msgstr ""
+"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
+"edilmiyor."
+
+# gdk-pixbuf/io-jpeg.c:670
+#: ../gdk-pixbuf/io-tiff.c:922
+#, fuzzy, c-format
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
+msgstr ""
+"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
+"edilmiyor."
+
 # gtk/gtkfilesel.c:3277
-#: ../gdk-pixbuf/io-tiff.c:731
+#: ../gdk-pixbuf/io-tiff.c:963
 msgid "Couldn't write to TIFF file"
 msgstr "TIFF dosyasına yazılamadı"
 
@@ -1022,8 +1176,9 @@ msgid "Couldn't save the rest"
 msgstr "Geriye kalanlar kaydedilemedi"
 
 #: ../gdk-pixbuf/io-wbmp.c:372
-msgid "The WBMP image format"
-msgstr "WBMP resim biçimi"
+msgctxt "image format"
+msgid "WBMP"
+msgstr "WBMP"
 
 # gdk-pixbuf/io-xbm.c:284
 #: ../gdk-pixbuf/io-xbm.c:302
@@ -1041,8 +1196,9 @@ msgid "Failed to write to temporary file when loading XBM image"
 msgstr "XBM resmi yüklenirken geçici dosyaya yazılamadı"
 
 #: ../gdk-pixbuf/io-xbm.c:499
-msgid "The XBM image format"
-msgstr "XBM resim biçimi"
+msgctxt "image format"
+msgid "XBM"
+msgstr "XBM"
 
 # gdk-pixbuf/io-xpm.c:1257
 #: ../gdk-pixbuf/io-xpm.c:467
@@ -1089,7 +1245,76 @@ msgstr "XPM colormap okunamıyor"
 msgid "Failed to write to temporary file when loading XPM image"
 msgstr "XPM resmi yüklenirken geçici dosyaya yazılamadı"
 
-# gdk-pixbuf/io-pnm.c:543 gdk-pixbuf/io-pnm.c:585
 #: ../gdk-pixbuf/io-xpm.c:815
-msgid "The XPM image format"
-msgstr "XPM resim biçimi"
+msgctxt "image format"
+msgid "XPM"
+msgstr "XPM"
+
+# gdk-pixbuf/gdk-pixdata.c:150
+#~ msgid "The ANI image format"
+#~ msgstr "ANI resim biçimi"
+
+#~ msgid "The BMP image format"
+#~ msgstr "BMP resim biçimi"
+
+#~ msgid "The EMF image format"
+#~ msgstr "EMF resim biçimi"
+
+# gdk-pixbuf/gdk-pixdata.c:150
+#~ msgid "The GIF image format"
+#~ msgstr "GIF resim biçimi"
+
+# gdk-pixbuf/gdk-pixdata.c:150
+#~ msgid "The ICO image format"
+#~ msgstr "ICO resim biçimi"
+
+#~ msgid "The JPEG image format"
+#~ msgstr "JPEG resim biçimi"
+
+#~ msgid "The TIFF image format"
+#~ msgstr "TIFF resim biçimi"
+
+#~ msgid "The WMF image format"
+#~ msgstr "WMF resim biçimi"
+
+# gdk-pixbuf/gdk-pixdata.c:150
+#~ msgid "The ICNS image format"
+#~ msgstr "ICNS resim biçimi"
+
+#~ msgid "Icon has zero width"
+#~ msgstr "Simge genişliği sıfır"
+
+#~ msgid "Icon has zero height"
+#~ msgstr "Simge yüksekliği sıfır"
+
+#~ msgid "The JPEG 2000 image format"
+#~ msgstr "JPEG 2000 resim biçimi"
+
+#~ msgid "The PCX image format"
+#~ msgstr "PCX resim biçimi"
+
+# gdk-pixbuf/io-pnm.c:543 gdk-pixbuf/io-pnm.c:585
+#~ msgid "The PNG image format"
+#~ msgstr "PNG resim biçimi"
+
+#~ msgid "The PNM/PBM/PGM/PPM image format family"
+#~ msgstr "PNM/PBM/PGM/PPM resim biçimi ailesi"
+
+#~ msgid "The QTIF image format"
+#~ msgstr "QTIF resim biçimi"
+
+#~ msgid "The Sun raster image format"
+#~ msgstr "Sun ızgara resim biçimi"
+
+#~ msgid "The Targa image format"
+#~ msgstr "Targa resim biçimi"
+
+#~ msgid "The WBMP image format"
+#~ msgstr "WBMP resim biçimi"
+
+#~ msgid "The XBM image format"
+#~ msgstr "XBM resim biçimi"
+
+# gdk-pixbuf/io-pnm.c:543 gdk-pixbuf/io-pnm.c:585
+#~ msgid "The XPM image format"
+#~ msgstr "XPM resim biçimi"
