@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
 "POT-Creation-Date: 2014-12-10 17:44+0000\n"
-"PO-Revision-Date: 2014-12-10 23:43+0200\n"
+"PO-Revision-Date: 2014-12-10 23:55+0200\n"
 "Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -79,19 +79,19 @@ msgstr "İçinde örneklerin yorumlandığı renk uzayı"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:180
 msgid "Has Alpha"
-msgstr ""
+msgstr "Alfa Var"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:181
 msgid "Whether the pixbuf has an alpha channel"
-msgstr ""
+msgstr "pixbuf'un bir alfa kanalına sahip olup olmaması"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:194
 msgid "Bits per Sample"
-msgstr ""
+msgstr "Örnek Başına Bit"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:195
 msgid "The number of bits per sample"
-msgstr ""
+msgstr "Örnek başına düşen bit sayısı"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:204
 msgid "Width"
@@ -99,7 +99,7 @@ msgstr "Genişlik"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:205
 msgid "The number of columns of the pixbuf"
-msgstr ""
+msgstr "pixbuf'un sütun sayısı"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:214
 msgid "Height"
@@ -107,7 +107,7 @@ msgstr "Yükseklik"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:215
 msgid "The number of rows of the pixbuf"
-msgstr ""
+msgstr "pixbuf'un satır sayısı"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:231
 msgid "Rowstride"
@@ -127,12 +127,13 @@ msgid "A pointer to the pixel data of the pixbuf"
 msgstr ""
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:256
+#, fuzzy
 msgid "Pixel Bytes"
-msgstr ""
+msgstr "Resmin piksel verisi bozuk"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:257
 msgid "Readonly pixel data"
-msgstr ""
+msgstr "Salt okunur piksel verisi"
 
 # gdk-pixbuf/gdk-pixbuf-io.c:295
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:798
@@ -300,9 +301,10 @@ msgid "ANI image was truncated or incomplete."
 msgstr "ANI resmi ya kırpılmış ya da tamamlanmamış."
 
 #: ../gdk-pixbuf/io-ani.c:669
+#, fuzzy
 msgctxt "image format"
 msgid "Windows animated cursor"
-msgstr ""
+msgstr "İmleç işaretleyicisi resmin dışında"
 
 # gdk-pixbuf/io-bmp.c:278 gdk-pixbuf/io-bmp.c:300
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
@@ -1002,9 +1004,10 @@ msgid "Not enough memory to load RAS image"
 msgstr "RAS resmini yükleyebilmek için yeterli bellek yok"
 
 #: ../gdk-pixbuf/io-ras.c:542
+#, fuzzy
 msgctxt "image format"
 msgid "Sun raster"
-msgstr ""
+msgstr "Sun ızgara resim biçimi"
 
 # gdk-pixbuf/io-xpm.c:1321
 #: ../gdk-pixbuf/io-tga.c:151
@@ -1249,72 +1252,3 @@ msgstr "XPM resmi yüklenirken geçici dosyaya yazılamadı"
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
-
-# gdk-pixbuf/gdk-pixdata.c:150
-#~ msgid "The ANI image format"
-#~ msgstr "ANI resim biçimi"
-
-#~ msgid "The BMP image format"
-#~ msgstr "BMP resim biçimi"
-
-#~ msgid "The EMF image format"
-#~ msgstr "EMF resim biçimi"
-
-# gdk-pixbuf/gdk-pixdata.c:150
-#~ msgid "The GIF image format"
-#~ msgstr "GIF resim biçimi"
-
-# gdk-pixbuf/gdk-pixdata.c:150
-#~ msgid "The ICO image format"
-#~ msgstr "ICO resim biçimi"
-
-#~ msgid "The JPEG image format"
-#~ msgstr "JPEG resim biçimi"
-
-#~ msgid "The TIFF image format"
-#~ msgstr "TIFF resim biçimi"
-
-#~ msgid "The WMF image format"
-#~ msgstr "WMF resim biçimi"
-
-# gdk-pixbuf/gdk-pixdata.c:150
-#~ msgid "The ICNS image format"
-#~ msgstr "ICNS resim biçimi"
-
-#~ msgid "Icon has zero width"
-#~ msgstr "Simge genişliği sıfır"
-
-#~ msgid "Icon has zero height"
-#~ msgstr "Simge yüksekliği sıfır"
-
-#~ msgid "The JPEG 2000 image format"
-#~ msgstr "JPEG 2000 resim biçimi"
-
-#~ msgid "The PCX image format"
-#~ msgstr "PCX resim biçimi"
-
-# gdk-pixbuf/io-pnm.c:543 gdk-pixbuf/io-pnm.c:585
-#~ msgid "The PNG image format"
-#~ msgstr "PNG resim biçimi"
-
-#~ msgid "The PNM/PBM/PGM/PPM image format family"
-#~ msgstr "PNM/PBM/PGM/PPM resim biçimi ailesi"
-
-#~ msgid "The QTIF image format"
-#~ msgstr "QTIF resim biçimi"
-
-#~ msgid "The Sun raster image format"
-#~ msgstr "Sun ızgara resim biçimi"
-
-#~ msgid "The Targa image format"
-#~ msgstr "Targa resim biçimi"
-
-#~ msgid "The WBMP image format"
-#~ msgstr "WBMP resim biçimi"
-
-#~ msgid "The XBM image format"
-#~ msgstr "XBM resim biçimi"
-
-# gdk-pixbuf/io-pnm.c:543 gdk-pixbuf/io-pnm.c:585
-#~ msgid "The XPM image format"
-#~ msgstr "XPM resim biçimi"
