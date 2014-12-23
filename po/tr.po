@@ -10,6 +10,7 @@
 # Baris Cicek <baris@teamforce.name.tr>, 2006, 2007, 2008, 2009, 2010.
 # Muhammed Eken <gnome@m-eken.com>, 2011.
 # Ozan Çağlayan <ozancag@gmail.com>, 2013.
+# Necdet Yücel <necdetyucel@gmail.com>, 2014.
 # Muhammet Kara <muhammetk@gmail.com>, 2011, 2012, 2014.
 #
 msgid ""
@@ -17,8 +18,8 @@ msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2014-12-10 17:44+0000\n"
-"PO-Revision-Date: 2014-12-10 23:55+0200\n"
+"POT-Creation-Date: 2014-12-21 17:49+0000\n"
+"PO-Revision-Date: 2014-12-23 18:29+0200\n"
 "Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -27,6 +28,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Gtranslator 2.91.6\n"
+"X-POOTLE-MTIME: 1419206017.000000\n"
 
 # gdk-pixbuf/gdk-pixbuf-animation.c:144 gdk-pixbuf/gdk-pixbuf-io.c:516
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:158 ../gdk-pixbuf/gdk-pixbuf-io.c:1101
@@ -65,7 +67,6 @@ msgstr "Kanal Sayısı"
 
 # gdk-pixbuf/io-xpm.c:1265
 #: ../gdk-pixbuf/gdk-pixbuf.c:162
-#| msgid "XPM has invalid number of chars per pixel"
 msgid "The number of samples per pixel"
 msgstr "Piksel başına örnek sayısı"
 
@@ -111,12 +112,13 @@ msgstr "pixbuf'un satır sayısı"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:231
 msgid "Rowstride"
-msgstr ""
+msgstr "Satır adımlaması"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:232
 msgid ""
 "The number of bytes between the start of a row and the start of the next row"
 msgstr ""
+"Bir satırın başlangıcı ile sonraki satırın başlangıcı arasındaki bayt sayısı"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:241
 msgid "Pixels"
@@ -124,12 +126,11 @@ msgstr "Piksel"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:242
 msgid "A pointer to the pixel data of the pixbuf"
-msgstr ""
+msgstr "Pixbuf'un piksel verisine bir işaretçi"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:256
-#, fuzzy
 msgid "Pixel Bytes"
-msgstr "Resmin piksel verisi bozuk"
+msgstr "Piksel Bayt"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:257
 msgid "Readonly pixel data"
@@ -248,7 +249,7 @@ msgstr "Döngü"
 
 #: ../gdk-pixbuf/gdk-pixbuf-simple-anim.c:162
 msgid "Whether the animation should loop when it reaches the end"
-msgstr ""
+msgstr "Canlandırmanın bittikten sonra tekrar başa dönüp dönmeyeceği"
 
 # gdk-pixbuf/gdk-pixdata.c:145
 #: ../gdk-pixbuf/gdk-pixdata.c:163
@@ -301,10 +302,9 @@ msgid "ANI image was truncated or incomplete."
 msgstr "ANI resmi ya kırpılmış ya da tamamlanmamış."
 
 #: ../gdk-pixbuf/io-ani.c:669
-#, fuzzy
 msgctxt "image format"
 msgid "Windows animated cursor"
-msgstr "İmleç işaretleyicisi resmin dışında"
+msgstr "Pencere canlandırmalı imleç"
 
 # gdk-pixbuf/io-bmp.c:278 gdk-pixbuf/io-bmp.c:300
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
@@ -649,24 +649,20 @@ msgstr "Dönüştürülmüş JPEG resminin genişliği ve yüksekliği sıfır."
 
 # gdk-pixbuf/io-jpeg.c:670
 #: ../gdk-pixbuf/io-jpeg.c:1329
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 msgstr ""
-"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
+"JPEG x-dpi 0 ile 65535 arasında bir değer olmalıdır; '%s' değeri kabul "
 "edilmiyor."
 
 # gdk-pixbuf/io-jpeg.c:670
 #: ../gdk-pixbuf/io-jpeg.c:1350
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 msgstr ""
-"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
+"JPEG y-dpi 0 ile 65535 arasında bir değer olmalıdır; '%s' değeri kabul "
 "edilmiyor."
 
 #: ../gdk-pixbuf/io-jpeg.c:1364
@@ -731,7 +727,6 @@ msgid "Transformed pixbuf has zero width or height."
 msgstr "Dönüştürülmüş pixbuf'un genişliği ya da yüksekliği sıfır."
 
 #: ../gdk-pixbuf/io-pixdata.c:184
-#| msgid "The GdkPixdata format"
 msgctxt "image format"
 msgid "GdkPixdata"
 msgstr "GdkPixdata"
@@ -825,23 +820,15 @@ msgstr ""
 
 # gdk-pixbuf/io-jpeg.c:670
 #: ../gdk-pixbuf/io-png.c:969
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid "PNG x-dpi must be greater than zero; value '%s' is not allowed."
-msgstr ""
-"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
-"edilmiyor."
+msgstr "PNG x-dpi sıfırdan büyük olmalıdır; '%s' değeri kabul edilmiyor."
 
 # gdk-pixbuf/io-jpeg.c:670
 #: ../gdk-pixbuf/io-png.c:989
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
-msgstr ""
-"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
-"edilmiyor."
+msgstr "PNG y-dpi sıfırdan büyük olmalıdır; '%s' değeri kabul edilmiyor."
 
 #: ../gdk-pixbuf/io-png.c:1038
 #, c-format
@@ -1004,10 +991,9 @@ msgid "Not enough memory to load RAS image"
 msgstr "RAS resmini yükleyebilmek için yeterli bellek yok"
 
 #: ../gdk-pixbuf/io-ras.c:542
-#, fuzzy
 msgctxt "image format"
 msgid "Sun raster"
-msgstr "Sun ızgara resim biçimi"
+msgstr "Sun raster"
 
 # gdk-pixbuf/io-xpm.c:1321
 #: ../gdk-pixbuf/io-tga.c:151
@@ -1129,7 +1115,7 @@ msgstr "TIFF sıkıştırması geçerli bir kodeki belirtmiyor."
 
 #: ../gdk-pixbuf/io-tiff.c:811
 msgid "TIFF bits-per-sample doesn't contain a supported value."
-msgstr ""
+msgstr "TIFF örnek-başına-bit desteklenen bir değer içermiyor."
 
 # gdk-pixbuf/io-tiff.c:264
 #: ../gdk-pixbuf/io-tiff.c:892
@@ -1138,23 +1124,15 @@ msgstr "TIFF verisi yazılamadı"
 
 # gdk-pixbuf/io-jpeg.c:670
 #: ../gdk-pixbuf/io-tiff.c:910
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
-msgstr ""
-"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
-"edilmiyor."
+msgstr "TIFF x-dpi sıfırdan büyük olmalıdır; '%s' değeri kabul edilmiyor."
 
 # gdk-pixbuf/io-jpeg.c:670
 #: ../gdk-pixbuf/io-tiff.c:922
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
-msgstr ""
-"JPEG kalitesi 0 ile 100 arasında bir değer olmalı; '%d' değeri kabul "
-"edilmiyor."
+msgstr "TIFF y-dpi sıfırdan büyük olmalıdır; '%s' değeri kabul edilmiyor."
 
 # gtk/gtkfilesel.c:3277
 #: ../gdk-pixbuf/io-tiff.c:963
