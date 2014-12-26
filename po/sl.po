@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2014-12-25 17:49+0000\n"
-"PO-Revision-Date: 2014-12-25 19:09+0100\n"
+"POT-Creation-Date: 2014-12-26 17:49+0000\n"
+"PO-Revision-Date: 2014-12-26 19:34+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -59,9 +59,8 @@ msgid "Number of Channels"
 msgstr "Število kanalov"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:162
-#, fuzzy
 msgid "The number of samples per pixel"
-msgstr "Skrčenost bitov na točko"
+msgstr "Število vzorcev na točko"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:171
 msgid "Colorspace"
@@ -69,26 +68,23 @@ msgstr "Barvni prostor"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:172
 msgid "The colorspace in which the samples are interpreted"
-msgstr ""
+msgstr "Barvni prostor v katerem so tolmačeni vzorci"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:180
-#, fuzzy
 msgid "Has Alpha"
-msgstr "Najmanjša alfa"
+msgstr "Ima prosojno ozadje"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:181
 msgid "Whether the pixbuf has an alpha channel"
-msgstr ""
+msgstr "Ali je medpomnilniku sličic določen kanal"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:194
-#, fuzzy
 msgid "Bits per Sample"
-msgstr "Bitov na vzorec"
+msgstr "Biti na vzorec"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:195
-#, fuzzy
 msgid "The number of bits per sample"
-msgstr "Zvokovni biti na vzorec"
+msgstr "Število bitov na vzorec"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:204
 msgid "Width"
@@ -108,12 +104,12 @@ msgstr "Število vrstic v medpomnilniku sličic"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:231
 msgid "Rowstride"
-msgstr ""
+msgstr "Rowstride"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:232
 msgid ""
 "The number of bytes between the start of a row and the start of the next row"
-msgstr ""
+msgstr "Število bajtov med začetno vrstico in začetkom naslednje vrstice"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:241
 msgid "Pixels"
@@ -121,7 +117,7 @@ msgstr "Točke"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:242
 msgid "A pointer to the pixel data of the pixbuf"
-msgstr ""
+msgstr "Kazalo na podatke točke v medpomnilniku slike"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:256
 msgid "Pixel Bytes"
@@ -229,7 +225,7 @@ msgstr "Zanka"
 
 #: ../gdk-pixbuf/gdk-pixbuf-simple-anim.c:162
 msgid "Whether the animation should loop when it reaches the end"
-msgstr ""
+msgstr "Ali naj se animacija ponovi, ko se izteče do konca"
 
 #: ../gdk-pixbuf/gdk-pixdata.c:163
 msgid "Image header corrupt"
@@ -1013,7 +1009,7 @@ msgstr "Stiskanje datoteke TIFF se ne sklicuje na veljaven kodek."
 
 #: ../gdk-pixbuf/io-tiff.c:811
 msgid "TIFF bits-per-sample doesn't contain a supported value."
-msgstr ""
+msgstr "Bajti na vzorec zapisa TIFF ne vključujejo podprte vrednosti."
 
 #: ../gdk-pixbuf/io-tiff.c:892
 msgid "Failed to write TIFF data"
