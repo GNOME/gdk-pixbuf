@@ -27,6 +27,12 @@
 #endif
 
 #ifdef G_OS_UNIX
+
+/* see https://bugzilla.gnome.org/show_bug.cgi?id=741933 */
+#ifndef MAP_ANONYMOUS
+#define MAP_ANONYMOUS MAP_ANON
+#endif
+
 typedef struct {
   void *buf;
   gsize len;
