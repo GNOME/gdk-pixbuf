@@ -25,7 +25,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
 "POT-Creation-Date: 2015-01-09 17:44+0000\n"
-"PO-Revision-Date: 2015-01-10 02:08+0300\n"
+"PO-Revision-Date: 2015-01-10 02:17+0300\n"
 "Last-Translator: Stas Solovey <whats_up@tut.by>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -1130,7 +1130,7 @@ msgstr "Не удалось прочитать цветовую карту XPM"
 
 #: ../gdk-pixbuf/io-xpm.c:776
 msgid "Failed to write to temporary file when loading XPM image"
-msgstr "Cбой при записи временного файла во время загрузки изображения XPM"
+msgstr "Сбой при записи временного файла во время загрузки изображения XPM"
 
 #: ../gdk-pixbuf/io-xpm.c:815
 msgctxt "image format"
