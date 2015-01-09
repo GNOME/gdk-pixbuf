@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: gtk+.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2015-01-05 05:47+0000\n"
-"PO-Revision-Date: 2015-01-06 12:22+0300\n"
+"POT-Creation-Date: 2015-01-09 17:44+0000\n"
+"PO-Revision-Date: 2015-01-10 02:08+0300\n"
 "Last-Translator: Stas Solovey <whats_up@tut.by>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -71,7 +71,7 @@ msgstr "Число каналов"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:162
 msgid "The number of samples per pixel"
-msgstr "Число сэмплов на пиксель"
+msgstr "Число семплов на пиксель"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:171
 msgid "Colorspace"
@@ -79,7 +79,7 @@ msgstr "Цветовое пространство"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:172
 msgid "The colorspace in which the samples are interpreted"
-msgstr "Цветовое пространство, в котором интерпретируются сэмплы"
+msgstr "Цветовое пространство, в котором интерпретируются семплы"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:180
 msgid "Has Alpha"
@@ -91,11 +91,11 @@ msgstr "Имеет ли pixbuf альфа-канал"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:194
 msgid "Bits per Sample"
-msgstr "Битов на сэмпл"
+msgstr "Битов на семпл"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:195
 msgid "The number of bits per sample"
-msgstr "Число битов на сэмпл"
+msgstr "Число битов на семпл"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:204
 msgid "Width"
@@ -206,8 +206,8 @@ msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
 "%s"
 msgstr ""
-"Не удалось закрыть файл «%s» во время записи изображения, не все данные "
-"могли быть сохранены: %s"
+"Не удалось закрыть файл «%s» во время записи изображения, возможно не все "
+"данные сохранены: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2781 ../gdk-pixbuf/gdk-pixbuf-io.c:2833
 msgid "Insufficient memory to save image into a buffer"
@@ -470,7 +470,7 @@ msgstr "Файлы формата GIF версии %s не поддержива�
 
 #: ../gdk-pixbuf/io-gif.c:1239
 msgid "Resulting GIF image has zero size"
-msgstr "Результрующее изображение в формате GIF имеет нулевой размер"
+msgstr "Получаемое изображение в формате GIF имеет нулевой размер"
 
 #: ../gdk-pixbuf/io-gif.c:1318
 msgid ""
@@ -595,15 +595,15 @@ msgstr "Не удалось выделить память для загрузк�
 #: ../gdk-pixbuf/io-jpeg.c:1031
 msgid "Transformed JPEG has zero width or height."
 msgstr ""
-"Преобразованное изображение формата JPEG имеет нулевую ширину или высоту"
+"Преобразованное изображение формата JPEG имеет нулевую ширину или высоту."
 
 #: ../gdk-pixbuf/io-jpeg.c:1329
 #, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 msgstr ""
-"X-dpi формата JPEG должно иметь значение от 1 до 65535. Значение "
-"«%s»недопустимо."
+"X-dpi формата JPEG должно иметь значение от 1 до 65535; значение «%s» "
+"недопустимо."
 
 #: ../gdk-pixbuf/io-jpeg.c:1350
 #, c-format
@@ -741,7 +741,7 @@ msgstr ""
 #: ../gdk-pixbuf/io-png.c:924 ../gdk-pixbuf/io-tiff.c:796
 #, c-format
 msgid "Color profile has invalid length %d."
-msgstr "Неправильная длина (%d) цветового профиля."
+msgstr "Цветовой профиль имеет неправильную длину %d."
 
 #: ../gdk-pixbuf/io-png.c:937
 #, c-format
@@ -764,16 +764,12 @@ msgstr ""
 #: ../gdk-pixbuf/io-png.c:969
 #, c-format
 msgid "PNG x-dpi must be greater than zero; value '%s' is not allowed."
-msgstr ""
-"X-dpi формата PNG должно иметь значение между 0 и 100; значение «%s» "
-"недопустимо."
+msgstr "X-dpi формата PNG должно быть больше нуля; значение «%s» недопустимо."
 
 #: ../gdk-pixbuf/io-png.c:989
 #, c-format
 msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
-msgstr ""
-"Y-dpi формата JPEG должно иметь значение между 0 и 100; значение «%s» "
-"недопустимо."
+msgstr "Y-dpi формата JPEG должно быть больше нуля; значение «%s» недопустимо."
 
 #: ../gdk-pixbuf/io-png.c:1038
 #, c-format
@@ -820,7 +816,7 @@ msgstr "Максимальное значение цвета в файле фо�
 #: ../gdk-pixbuf/io-pnm.c:425 ../gdk-pixbuf/io-pnm.c:455
 #: ../gdk-pixbuf/io-pnm.c:500
 msgid "Raw PNM image type is invalid"
-msgstr "Недопустимый тип изображения в формает raw PNM"
+msgstr "Недопустимый тип изображения в формате raw PNM"
 
 #: ../gdk-pixbuf/io-pnm.c:650
 msgid "PNM image loader does not support this PNM subformat"
@@ -829,7 +825,7 @@ msgstr ""
 
 #: ../gdk-pixbuf/io-pnm.c:737 ../gdk-pixbuf/io-pnm.c:964
 msgid "Raw PNM formats require exactly one whitespace before sample data"
-msgstr "Форматы raw PNM требуют ровно одного пробела перед данными сэмпла"
+msgstr "Форматы raw PNM требуют ровно одного пробела перед данными семпла"
 
 #: ../gdk-pixbuf/io-pnm.c:764
 msgid "Cannot allocate memory for loading PNM image"
@@ -916,7 +912,7 @@ msgstr "Заголовок изображения формата RAS содер�
 
 #: ../gdk-pixbuf/io-ras.c:145
 msgid "RAS image has unknown type"
-msgstr "Неизвестный тТип изображения формата RAS неизвестен"
+msgstr "Изображение формата RAS имеет неизвестный тип"
 
 #: ../gdk-pixbuf/io-ras.c:153
 msgid "unsupported RAS image variation"
@@ -1006,7 +1002,7 @@ msgstr ""
 
 #: ../gdk-pixbuf/io-tiff.c:123
 msgid "Width or height of TIFF image is zero"
-msgstr "Ширина или высота изображения формата TIFF равна 0"
+msgstr "Ширина или высота изображения формата TIFF равна нулю"
 
 #: ../gdk-pixbuf/io-tiff.c:132 ../gdk-pixbuf/io-tiff.c:141
 msgid "Dimensions of TIFF image too large"
@@ -1039,7 +1035,7 @@ msgstr "Сжатие TIFF не указывает на допустимый ко
 
 #: ../gdk-pixbuf/io-tiff.c:811
 msgid "TIFF bits-per-sample doesn't contain a supported value."
-msgstr "Значение битов-на-сэмпл в TIFF не содержит поддерживаемого значения"
+msgstr "Значение битов-на-семпл в TIFF не содержит поддерживаемого значения."
 
 #: ../gdk-pixbuf/io-tiff.c:892
 msgid "Failed to write TIFF data"
@@ -1048,16 +1044,12 @@ msgstr "Сбой записи данных TIFF"
 #: ../gdk-pixbuf/io-tiff.c:910
 #, c-format
 msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
-msgstr ""
-"X-dpi формата TIFF должно иметь значение между 0 и 100; значение «%s» "
-"недопустимо."
+msgstr "X-dpi формата TIFF должно быть больше нуля; значение «%s» недопустимо."
 
 #: ../gdk-pixbuf/io-tiff.c:922
 #, c-format
 msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
-msgstr ""
-"Y-dpi формата TIFF должно иметь значение между 0 и 100; значение «%s» "
-"недопустимо."
+msgstr "Y-dpi формата TIFF должно быть больше нуля; значение «%s» недопустимо."
 
 #: ../gdk-pixbuf/io-tiff.c:963
 msgid "Couldn't write to TIFF file"
@@ -1144,72 +1136,3 @@ msgstr "Cбой при записи временного файла во вре�
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
-
-#~ msgid "The ANI image format"
-#~ msgstr "Формат изображений ANI"
-
-#~ msgid "The BMP image format"
-#~ msgstr "Формат изображений BMP"
-
-#~ msgid "The EMF image format"
-#~ msgstr "Формат изображений EMF"
-
-#~ msgid "The GIF image format"
-#~ msgstr "Формат изображений GIF"
-
-#~ msgid "The ICO image format"
-#~ msgstr "Формат изображений ICO"
-
-#~ msgid "The JPEG image format"
-#~ msgstr "Формат изображений JPEG"
-
-#~ msgid "The WMF image format"
-#~ msgstr "Формат изображений WMF"
-
-#~ msgid "The ICNS image format"
-#~ msgstr "Формат изображений ICNS"
-
-#~ msgid "Icon has zero width"
-#~ msgstr "Ширина значка равна нулю"
-
-#~ msgid "Icon has zero height"
-#~ msgstr "Высота значка равна нулю"
-
-#~ msgid "The JPEG 2000 image format"
-#~ msgstr "Формат изображений JPEG 2000"
-
-#~ msgid "The PCX image format"
-#~ msgstr "Формат изображений PCX"
-
-#~ msgid "The PNG image format"
-#~ msgstr "Формат изображений PNG"
-
-#~ msgid "The PNM/PBM/PGM/PPM image format family"
-#~ msgstr "Семейство форматов изображений PNM/PBM/PGM/PPM"
-
-#~ msgid "The QTIF image format"
-#~ msgstr "Формат изображений QTIF"
-
-#~ msgid "The Sun raster image format"
-#~ msgstr "Формат растровых изображений компании Sun"
-
-#~ msgid "The Targa image format"
-#~ msgstr "Формат изображений Targa"
-
-#~ msgid "The TIFF image format"
-#~ msgstr "Формат изображений TIFF"
-
-#~ msgid "The WBMP image format"
-#~ msgstr "Формат изображений WBMP"
-
-#~ msgid "The XBM image format"
-#~ msgstr "Формат изображений XBM"
-
-#~ msgid "The XPM image format"
-#~ msgstr "Формат изображений XPM"
-
-#~ msgid "Unsupported animation type"
-#~ msgstr "Неподдерживаемый тип анимации"
-
-#~ msgid "TIFFClose operation failed"
-#~ msgstr "Сбой в функции TIFFClose"
