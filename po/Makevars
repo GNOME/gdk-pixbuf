@@ -56,3 +56,14 @@ MSGID_BUGS_ADDRESS =
 # This is the list of locale categories, beyond LC_MESSAGES, for which the
 # message catalogs shall be used.  It is usually empty.
 EXTRA_LOCALE_CATEGORIES =
+
+# Ignore the timestamp of the .pot file, as git clones do not have
+# deterministic timestamps, and .po files are updated by translators
+# (only) in GNOME projects.
+PO_DEPENDS_ON_POT = no
+
+# This tells whether or not to forcibly update $(DOMAIN).pot and
+# regenerate PO files on "make dist".  Possible values are "yes" and
+# "no".  Set this to no if the POT file and PO files are maintained
+# externally.
+DIST_DEPENDS_ON_UPDATE_PO = no
