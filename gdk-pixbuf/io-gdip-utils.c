@@ -20,6 +20,9 @@
  */
 
 #define INITGUID
+#include "config.h"
+#include <glib/gi18n-lib.h>
+
 #include <ole2.h>
 
 #include "io-gdip-utils.h"
