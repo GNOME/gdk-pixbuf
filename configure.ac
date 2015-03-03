@@ -339,7 +339,7 @@ if test "$gtk_ok" = "yes"; then
 fi
 
 # i18n stuff
-AM_GNU_GETTEXT_VERSION([0.19])
+AM_GNU_GETTEXT_VERSION([0.17])
 AM_GNU_GETTEXT([external])
 
 GETTEXT_PACKAGE="$PACKAGE"
