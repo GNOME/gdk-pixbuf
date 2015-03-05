@@ -13,6 +13,8 @@
     <GdkPixbufLibdirDefine>PIXBUF_LIBDIR="$(GdkPixbufDummyPrefix)/lib/gdk-pixbuf-$(ApiVersion)/$(GdkPixbufBinaryVersion)/loaders"</GdkPixbufLibdirDefine>
     <GdkPixbufBinVerDefine>GDK_PIXBUF_BINARY_VERSION="$(GdkPixbufBinaryVersion)"</GdkPixbufBinVerDefine>
     <GdkPixbufDefines>HAVE_CONFIG_H;GDK_PIXBUF_COMPILATION;GDK_PIXBUF_ENABLE_BACKEND;DLL_EXPORT;GDK_PIXBUF_RELOCATABLE;$(GdkPixbufPrefixDefine);$(GdkPixbufBinVerDefine);$(MODULAR_MACROS)</GdkPixbufDefines>
+    <GdipLibs>gdiplus.lib</GdipLibs>
+    <ImagingLibs>jpeg.lib;libjasper.lib;libtiff_i.lib</ImagingLibs>
   </PropertyGroup>
   <PropertyGroup>
     <_PropertySheetDisplayName>gdk-pixbufbuilddefinesprops</_PropertySheetDisplayName>
@@ -24,10 +26,12 @@
       <AdditionalIncludeDirectories>..\..\..;..\..\..\gdk-pixbuf;..\math-compat;$(GlibEtcInstallRoot)\include\glib-2.0;$(GlibEtcInstallRoot)\lib\glib-2.0\include;$(GlibEtcInstallRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>HAVE_CONFIG_H;G_DISABLE_SINGLE_INCLUDES;GDK_PIXBUF_DISABLE_SINGLE_INCLUDES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ForcedIncludeFiles>msvc_recommended_pragmas.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>gio-2.0.lib;gmodule-2.0.lib;gobject-2.0.lib;glib-2.0.lib;intl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gio-2.0.lib;gmodule-2.0.lib;gobject-2.0.lib;glib-2.0.lib;intl.lib;libpng16.lib;zlib1.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(GlibEtcInstallRoot)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LIBCMTD.lib;LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -57,6 +61,12 @@
     </BuildMacro>
     <BuildMacro Include="GdkPixbufDefines">
       <Value>$(GdkPixbufDefines)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GdipLibs">
+      <Value>$(GdipLibs)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ImagingLibs">
+      <Value>$(ImagingLibs)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

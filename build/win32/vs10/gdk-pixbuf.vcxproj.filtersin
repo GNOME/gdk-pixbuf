@@ -5,10 +5,10 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source Files\Native">
+    <Filter Include="Source Files\GDI+">
       <UniqueIdentifier>{c4d26c4e-e8c9-48fa-b402-0ab65b5eee2f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Non-Native">
+    <Filter Include="Source Files\Opensource_Imaging">
       <UniqueIdentifier>{744a1b93-b9d4-44cc-a3c0-15944c405223}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
@@ -37,21 +37,21 @@
     <ClCompile Include="..\..\..\gdk-pixbuf\io-xbm.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-xpm.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\pixops\pixops.c"><Filter>Source Files</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-animation.c"><Filter>Source Files\Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-bmp.c"><Filter>Source Files\Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-emf.c"><Filter>Source Files\Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-gif.c"><Filter>Source Files\Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-ico.c"><Filter>Source Files\Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-jpeg.c"><Filter>Source Files\Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-tiff.c"><Filter>Source Files\Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-utils.c"><Filter>Source Files\Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-wmf.c"><Filter>Source Files\Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-bmp.c"><Filter>Source Files\Non-Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gif.c"><Filter>Source Files\Non-Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-ico.c"><Filter>Source Files\Non-Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-jasper.c"><Filter>Source Files\Non-Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-jpeg.c"><Filter>Source Files\Non-Native</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-tiff.c"><Filter>Source Files\Non-Native</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-animation.c"><Filter>Source Files\GDI+</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-bmp.c"><Filter>Source Files\GDI+</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-emf.c"><Filter>Source Files\GDI+</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-gif.c"><Filter>Source Files\GDI+</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-ico.c"><Filter>Source Files\GDI+</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-jpeg.c"><Filter>Source Files\GDI+</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-tiff.c"><Filter>Source Files\GDI+</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-utils.c"><Filter>Source Files\GDI+</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-wmf.c"><Filter>Source Files\GDI+</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-bmp.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gif.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-ico.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-jasper.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-jpeg.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-tiff.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\..\gdk-pixbuf\gdk-pixbuf.symbols"><Filter>Resource Files</Filter></CustomBuild>
