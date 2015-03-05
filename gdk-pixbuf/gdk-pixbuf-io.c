@@ -2493,7 +2493,7 @@ gdk_pixbuf_save (GdkPixbuf  *pixbuf,
 #endif
 
 /**
- * gdk_pixbuf_savev: (rename-to gdk_pixbuf_save)
+ * gdk_pixbuf_savev:
  * @pixbuf: a #GdkPixbuf.
  * @filename: name of file to save.
  * @type: name of file format.
@@ -2654,7 +2654,7 @@ gdk_pixbuf_save_to_callback    (GdkPixbuf  *pixbuf,
 }
 
 /**
- * gdk_pixbuf_save_to_callbackv: (rename-to gdk_pixbuf_save_to_callback)
+ * gdk_pixbuf_save_to_callbackv:
  * @pixbuf: a #GdkPixbuf.
  * @save_func: (scope call): a function that is called to save each block of data that
  *   the save routine generates.
@@ -2790,7 +2790,7 @@ save_to_buffer_callback (const gchar *data,
 }
 
 /**
- * gdk_pixbuf_save_to_bufferv: (rename-to gdk_pixbuf_save_to_buffer)
+ * gdk_pixbuf_save_to_bufferv:
  * @pixbuf: a #GdkPixbuf.
  * @buffer: (array length=buffer_size) (out) (element-type guint8):
  *   location to receive a pointer to the new buffer.
