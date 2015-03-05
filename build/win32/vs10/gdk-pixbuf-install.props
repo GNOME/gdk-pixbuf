@@ -11,39 +11,25 @@
 echo on
 
 mkdir $(CopyDir)\bin
-
-copy $(BinDir)\*.dll $(CopyDir)\bin
-
-copy $(BinDir)\*.exe $(CopyDir)\bin
-
+copy $(BinDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll $(CopyDir)\bin
+copy $(BinDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).pdb $(CopyDir)\bin
+copy $(BinDir)\gdk-pixbuf-*.exe $(CopyDir)\bin
+copy $(BinDir)\gdk-pixbuf-*.pdb $(CopyDir)\bin
 
 mkdir $(CopyDir)\lib
-
-copy $(BinDir)\*-$(ApiVersion).lib $(CopyDir)\lib
-
+copy $(BinDir)\gdk_pixbuf-$(ApiVersion).lib $(CopyDir)\lib
 
 mkdir $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
-
 copy ..\..\..\gdk-pixbuf\gdk-pixbuf-animation.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
-
 copy ..\..\..\gdk-pixbuf\gdk-pixbuf-core.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
-
 copy ..\..\..\gdk-pixbuf\gdk-pixbuf-enum-types.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
-
 copy ..\..\..\gdk-pixbuf\gdk-pixbuf-features.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
-
 copy ..\..\..\gdk-pixbuf\gdk-pixbuf-io.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
-
 copy ..\..\..\gdk-pixbuf\gdk-pixbuf-loader.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
-
 copy ..\..\..\gdk-pixbuf\gdk-pixbuf-marshal.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
-
 copy ..\..\..\gdk-pixbuf\gdk-pixbuf-simple-anim.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
-
 copy ..\..\..\gdk-pixbuf\gdk-pixbuf-transform.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
-
 copy ..\..\..\gdk-pixbuf\gdk-pixbuf.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
-
 copy ..\..\..\gdk-pixbuf\gdk-pixdata.h $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
     </GdkPixbufDoInstall>
   </PropertyGroup>
