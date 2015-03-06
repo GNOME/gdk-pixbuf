@@ -5,7 +5,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk-pixbuf", "gdk-pixbuf.vc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk-pixbuf-csource", "gdk-pixbuf-csource.vcxproj", "{3689C772-49A9-4E32-8161-686E1381ADB4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "install", "install.vcxproj", "{FC5AADB5-95CD-4BF0-BA8B-0C16FE7073FB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk-pixbuf-install", "gdk-pixbuf-install.vcxproj", "{FC5AADB5-95CD-4BF0-BA8B-0C16FE7073FB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk-pixbuf-query-loaders", "gdk-pixbuf-query-loaders.vcxproj", "{7212330C-14DF-4815-9E3B-4BDB3D21F665}"
 EndProject

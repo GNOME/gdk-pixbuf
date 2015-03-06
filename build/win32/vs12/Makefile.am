@@ -13,7 +13,7 @@ EXTRA_DIST = \
 	gdk-pixbuf-query-loaders.vcxproj.filters	 \
 	gdk-pixbuf-pixdata.vcxproj      \
 	gdk-pixbuf-pixdata.vcxproj.filters      \
-	install.vcxproj
+	gdk-pixbuf-install.vcxproj
 
 DISTCLEANFILES = $(EXTRA_DIST)
 
