@@ -1,3 +1,20 @@
+2.31.3
+======
+
+* API changes:
+- Revert an annotation change that broke bindings
+
+* Build fixes:
+- Clean up configure
+- Fix Visual Studio build
+- Define MAP_ANONYMOUS when needed
+- Include gi18n-lib.h where needed
+
+* Translation updates:
+ Hungarian, German, Indonesian, Turkish, Serbian, Slovenian,
+ Basque, Russian, Icelandic, French, Chinese (Taiwan), Galician,
+ Slovak
+
 2.31.2
 ======
 
