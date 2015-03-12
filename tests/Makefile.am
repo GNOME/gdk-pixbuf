@@ -36,6 +36,7 @@ test_programs = 			\
 	pixbuf-short-gif-write		\
 	pixbuf-save			\
 	pixbuf-readonly-to-mutable	\
+	pixbuf-composite		\
 	$(NULL)
 
 dist_installed_test_data =		\
@@ -104,6 +105,12 @@ pixbuf_short_git_write_SOURCES =	\
 
 pixbuf_readonly_to_mutable_SOURCES =	\
 	pixbuf-readonly-to-mutable.c	\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_composite_SOURCES =		\
+	pixbuf-composite.c		\
 	test-common.c			\
 	test-common.h			\
 	$(NULL)
