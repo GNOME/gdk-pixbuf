@@ -50,6 +50,8 @@ dist_installed_test_data =		\
 	dpi.tiff			\
 	premature-end.png		\
 	premature-end.jpg		\
+	bug725582-testrotate.jpg	\
+	bug725582-testrotate.png	\
 	$(wildcard $(srcdir)/test-images/*)
 
 pixbuf_icc_SOURCES = 			\
