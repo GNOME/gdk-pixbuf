@@ -467,18 +467,23 @@ jpeg_parse_exif_app1 (JpegExifContext *context, jpeg_saved_marker_ptr marker)
 		guint tag   = de_get16(&marker->data[i + 0], endian);
 		guint type  = de_get16(&marker->data[i + 2], endian);
 		guint count = de_get32(&marker->data[i + 4], endian);
-		/* values of types small enough to fit are stored directly in the (first) bytes of the Value Offset field */
-		guint short_value = de_get16(&marker->data[i + 8], endian);
 
 		/* orientation tag? */
 		if (tag == 0x112){
 
-			/* The orientation field should consist of a single 2-byte integer */
-			if (type != 0x3 || count != 1)
-				continue;
+			/* The orientation field should consist of a single 2-byte integer,
+			 * but might be a signed long.
+			 * Values of types smaller than 4 bytes are stored directly in the
+			 * Value Offset field */
+			if (type == 0x3 && count == 1) {
+				guint short_value = de_get16(&marker->data[i + 8], endian);
 
-			/* get the orientation value */
-			context->orientation = short_value <= 8 ? short_value : 0;
+				context->orientation = short_value <= 8 ? short_value : 0;
+			} else if (type == 0x9 && count == 1) {
+				guint long_value = de_get32(&marker->data[i + 8], endian);
+
+				context->orientation = long_value <= 8 ? long_value : 0;
+			}
 		}
 		/* move the pointer to the next 12-byte tag field. */
 		i = i + 12;
