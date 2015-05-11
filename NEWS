@@ -1,3 +1,13 @@
+2.31.4
+======
+
+* Bug fixes:
+ 648815 SVGZ icons in notification GNOME3
+ 725582 gdk_pixbuf_apply_embedded_orientation is not working...
+
+* Translation updates:
+ Bosnian, Danish, Italian, Kazakh, Korean, Swedish
+
 2.31.3
 ======
 
