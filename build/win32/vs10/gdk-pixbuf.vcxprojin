@@ -338,7 +338,6 @@
 #include "libgdkpixbuf.vs10.sourcefiles"
     <ClCompile Include="..\..\..\gdk-pixbuf\io-ani-animation.c" />
     <ClCompile Include="..\..\..\gdk-pixbuf\io-ani.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gif-animation.c" />
     <ClCompile Include="..\..\..\gdk-pixbuf\io-icns.c" />
     <ClCompile Include="..\..\..\gdk-pixbuf\io-pcx.c" />
     <ClCompile Include="..\..\..\gdk-pixbuf\io-pixdata.c" />
@@ -412,6 +411,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_GDI+|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-gif.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_GDI+|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_GDI+|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_GDI+|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_GDI+|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gif-animation.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_GDI+|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_GDI+|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_GDI+|Win32'">true</ExcludedFromBuild>

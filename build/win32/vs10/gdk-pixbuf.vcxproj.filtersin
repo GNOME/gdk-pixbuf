@@ -24,7 +24,6 @@
 #include "libgdkpixbuf.vs10.sourcefiles.filters"
     <ClCompile Include="..\..\..\gdk-pixbuf\io-ani-animation.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-ani.c"><Filter>Source Files</Filter></ClCompile>
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-gif-animation.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-icns.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-pcx.c"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-pixdata.c"><Filter>Source Files</Filter></ClCompile>
@@ -48,6 +47,7 @@
     <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-wmf.c"><Filter>Source Files\GDI+</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-bmp.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-gif.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
+    <ClCompile Include="..\..\..\gdk-pixbuf\io-gif-animation.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-ico.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-jasper.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
     <ClCompile Include="..\..\..\gdk-pixbuf\io-jpeg.c"><Filter>Source Files\Opensource_Imaging</Filter></ClCompile>
