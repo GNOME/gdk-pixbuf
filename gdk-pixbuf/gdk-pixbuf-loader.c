@@ -330,7 +330,7 @@ gdk_pixbuf_loader_prepare (GdkPixbuf          *pixbuf,
         else
                 anim = gdk_pixbuf_non_anim_new (pixbuf);
   
-	if (priv->needs_scale) {
+	if (priv->needs_scale && width != 0 && height != 0) {
 		priv->animation  = GDK_PIXBUF_ANIMATION (_gdk_pixbuf_scaled_anim_new (anim,
                                          (double) priv->width / width,
                                          (double) priv->height / height,
