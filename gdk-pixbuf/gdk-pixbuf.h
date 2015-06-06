@@ -38,6 +38,8 @@
 #include <gdk-pixbuf/gdk-pixbuf-loader.h>
 #include <gdk-pixbuf/gdk-pixbuf-enum-types.h>
 
+#include <gdk-pixbuf/gdk-pixbuf-autocleanups.h>
+
 #undef GDK_PIXBUF_H_INSIDE
 
 #endif  /* GDK_PIXBUF_H */
