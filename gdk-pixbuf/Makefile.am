@@ -685,38 +685,35 @@ EXTRA_DIST =					\
 	gdk-pixbuf-enum-types.h.template	\
 	gen-color-table.pl			\
 	gdiplus.def
-	
-dist-hook: ../build/win32/vs9/gdk-pixbuf.vcproj ../build/win32/vs10/gdk-pixbuf.vcxproj ../build/win32/vs10/gdk-pixbuf.vcxproj.filters
 
-../build/win32/vs9/gdk-pixbuf.vcproj: ../build/win32/vs9/gdk-pixbuf.vcprojin
-	for F in $(libgdk_pixbuf_2_0_la_SOURCES); do \
-		case $$F in \
-		*.c) echo '   <File RelativePath="..\..\..\gdk-pixbuf\'$$F'" />' \
-		     ;; \
-		esac; \
-	done >libgdkpixbuf.sourcefiles
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs9/gdk-pixbuf.vcprojin >$@
-	rm libgdkpixbuf.sourcefiles
-	
-../build/win32/vs10/gdk-pixbuf.vcxproj: ../build/win32/vs10/gdk-pixbuf.vcxprojin
-	for F in $(libgdk_pixbuf_2_0_la_SOURCES); do \
-		case $$F in \
-		*.c) echo '    <ClCompile Include="..\..\..\gdk-pixbuf\'$$F'" />' \
-		     ;; \
-		esac; \
-	done >libgdkpixbuf.vs10.sourcefiles
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs10/gdk-pixbuf.vcxprojin >$@
-	rm libgdkpixbuf.vs10.sourcefiles
-	
-../build/win32/vs10/gdk-pixbuf.vcxproj.filters: ../build/win32/vs10/gdk-pixbuf.vcxproj.filtersin
-	for F in $(libgdk_pixbuf_2_0_la_SOURCES); do \
-		case $$F in \
-		*.c) echo '    <ClCompile Include="..\..\..\gdk-pixbuf\'$$F'"><Filter>Source Files</Filter></ClCompile>' \
-		     ;; \
-		esac; \
-	done >libgdkpixbuf.vs10.sourcefiles.filters
-	$(CPP) -P - <$(top_srcdir)/build/win32/vs10/gdk-pixbuf.vcxproj.filtersin >$@
-	rm libgdkpixbuf.vs10.sourcefiles.filters
+# ---------- MSVC Items ------------------
+
+MSVCPROJS = gdk-pixbuf
+
+gdk_pixbuf_FILES = \
+	$(libgdk_pixbuf_2_0_la_SOURCES)		\
+	$(libstatic_pixbufloader_ani_la_SOURCES)	\
+	$(libstatic_pixbufloader_icns_la_SOURCES)	\
+	$(libstatic_pixbufloader_pcx_la_SOURCES)	\
+	$(libstatic_pixbufloader_pixdata_la_SOURCES)	\
+	$(libstatic_pixbufloader_pnm_la_SOURCES)	\
+	$(libstatic_pixbufloader_png_la_SOURCES)	\
+	$(libstatic_pixbufloader_qtif_la_SOURCES)	\
+	$(libstatic_pixbufloader_ras_la_SOURCES)	\
+	$(libstatic_pixbufloader_tga_la_SOURCES)	\
+	$(libstatic_pixbufloader_xpm_la_SOURCES)	\
+	$(libstatic_pixbufloader_xbm_la_SOURCES)	\
+	$(libstatic_pixbufloader_wbmp_la_SOURCES)
+
+gdk_pixbuf_EXCLUDES = gdkpdummy
+
+gdk_pixbuf_HEADERS_DIR = $(libgdk_pixbufincludedir)
+gdk_pixbuf_HEADERS_INST = $(libgdk_pixbufinclude_HEADERS)
+gdk_pixbuf_HEADERS_EXCLUDES = gdkpdummy
+
+include $(top_srcdir)/build/Makefile.msvcproj
+
+dist-hook: $(top_builddir)/build/win32/vs9/gdk-pixbuf.vcproj $(top_builddir)/build/win32/vs9/gdk-pixbuf.headers
 
 if HAVE_INTROSPECTION
 

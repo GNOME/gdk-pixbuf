@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="gdk-pixbufinstallprops"
+	InheritedPropertySheets=".\gdk-pixbuf-build-defines.vsprops"
+	>
+	<UserMacro
+		Name="GdkPixbufDoInstall"
+		Value="
+mkdir $(CopyDir)\bin&#x0D;&#x0A;
+copy $(ConfigurationName)\$(PlatformName)\bin\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll $(CopyDir)\bin&#x0D;&#x0A;
+copy $(ConfigurationName)\$(PlatformName)\bin\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).pdb $(CopyDir)\bin&#x0D;&#x0A;
+copy $(ConfigurationName)\$(PlatformName)\bin\gdk-pixbuf-*.exe $(CopyDir)\bin&#x0D;&#x0A;
+copy $(ConfigurationName)\$(PlatformName)\bin\gdk-pixbuf-*.pdb $(CopyDir)\bin&#x0D;&#x0A;
+
+mkdir $(CopyDir)\lib&#x0D;&#x0A;
+copy $(ConfigurationName)\$(PlatformName)\bin\gdk_pixbuf-$(ApiVersion).lib $(CopyDir)\lib&#x0D;&#x0A;
+
+mkdir $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
+#include "gdk-pixbuf.headers"
+"
+	/>
+</VisualStudioPropertySheet>

@@ -309,20 +309,7 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
-#include "libgdkpixbuf.sourcefiles"
-			<File RelativePath="..\..\..\gdk-pixbuf\io-ani-animation.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-ani.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-icns.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-pcx.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-pixdata.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-png.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-pnm.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-qtif.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-ras.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-tga.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-wbmp.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-xbm.c" />
-			<File RelativePath="..\..\..\gdk-pixbuf\io-xpm.c" />
+#include "gdk-pixbuf.sourcefiles"
 			<File RelativePath="..\..\..\gdk-pixbuf\pixops\pixops.c" />
 			<Filter	Name="Native" >
 				<File RelativePath="..\..\..\gdk-pixbuf\io-gdip-animation.c" >

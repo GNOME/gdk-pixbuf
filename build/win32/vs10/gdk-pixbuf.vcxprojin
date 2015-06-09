@@ -335,20 +335,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-#include "libgdkpixbuf.vs10.sourcefiles"
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-ani-animation.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-ani.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-icns.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-pcx.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-pixdata.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-png.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-pnm.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-qtif.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-ras.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-tga.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-wbmp.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-xbm.c" />
-    <ClCompile Include="..\..\..\gdk-pixbuf\io-xpm.c" />
+#include "gdk-pixbuf.vs10.sourcefiles"
     <ClCompile Include="..\..\..\gdk-pixbuf\pixops\pixops.c" />
     <ClCompile Include="..\..\..\gdk-pixbuf\io-gdip-animation.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
