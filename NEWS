@@ -1,3 +1,12 @@
+2.31.5
+======
+
+* Add support for g_autoptr for all object types (#750497)
+* Avoid a possible divide-by-zero in the pixbuf loader (750440)
+* Remove gettext .pot file hack (#743574)
+* Be more careful about integer overflow (#752297)
+* Translation upates: Portuguese
+
 2.31.4
 ======
 
