@@ -24,6 +24,7 @@ noinst_PROGRAMS += 			\
 
 test_programs = 			\
 	animation			\
+	cve-2015-4491			\
 	pixbuf-icon-serialize 		\
 	pixbuf-randomly-modified	\
 	pixbuf-threads			\
@@ -53,6 +54,12 @@ dist_installed_test_data =		\
 	bug725582-testrotate.jpg	\
 	bug725582-testrotate.png	\
 	$(wildcard $(srcdir)/test-images/*)
+
+cve_2015_4491_SOURCES =			\
+	cve-2015-4491.c			\
+	resources.h			\
+	resources.c			\
+	$(NULL)
 
 pixbuf_icc_SOURCES = 			\
 	pixbuf-icc.c			\

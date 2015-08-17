@@ -1275,7 +1275,11 @@ make_filter_table (PixopsFilter *filter)
   gsize n_weights;
   int *weights;
 
-  n_weights = SUBSAMPLE * SUBSAMPLE * n_x * n_y;
+  n_weights = SUBSAMPLE * SUBSAMPLE * n_x;
+  if (n_weights / (SUBSAMPLE * SUBSAMPLE) != n_x)
+    return NULL; /* overflow, bail */
+
+  n_weights *= n_y;
   if (n_weights / (SUBSAMPLE * SUBSAMPLE * n_x) != n_y)
     return NULL; /* overflow, bail */
 
