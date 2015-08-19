@@ -1,3 +1,9 @@
+2.31.6
+======
+
+* Really fix bug 752297. This is CVE-2015-4491
+* Translation updates: Catalan
+
 2.31.5
 ======
 
