@@ -1272,7 +1272,7 @@ make_filter_table (PixopsFilter *filter)
   int i_offset, j_offset;
   int n_x = filter->x.n;
   int n_y = filter->y.n;
-  gsize n_weights;
+  int n_weights;
   int *weights;
 
   n_weights = SUBSAMPLE * SUBSAMPLE * n_x;
