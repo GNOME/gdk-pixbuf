@@ -1272,18 +1272,17 @@ make_filter_table (PixopsFilter *filter)
   int i_offset, j_offset;
   int n_x = filter->x.n;
   int n_y = filter->y.n;
-  int n_weights;
   int *weights;
 
-  n_weights = SUBSAMPLE * SUBSAMPLE * n_x;
-  if (n_weights / (SUBSAMPLE * SUBSAMPLE) != n_x)
-    return NULL; /* overflow, bail */
+  /* check n_x doesn't overflow */
+  if (G_MAXINT / (SUBSAMPLE * SUBSAMPLE) < n_x)
+    return NULL;
 
-  n_weights *= n_y;
-  if (n_weights / (SUBSAMPLE * SUBSAMPLE * n_x) != n_y)
-    return NULL; /* overflow, bail */
+  /* check n_y doesn't overflow */
+  if (G_MAXINT / (SUBSAMPLE * SUBSAMPLE * n_x) < n_y)
+    return NULL;
 
-  weights = g_try_new (int, n_weights);
+  weights = g_try_new (int, SUBSAMPLE * SUBSAMPLE * n_x * n_y);
   if (!weights)
     return NULL; /* overflow, bail */
 
