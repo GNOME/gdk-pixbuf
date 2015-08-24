@@ -67,6 +67,8 @@ gdk_pixbuf_add_alpha (const GdkPixbuf *pixbuf,
 	int x, y;
 	const guint8 *src_pixels;
 	guint8 *ret_pixels;
+	const guchar *src;
+	guchar *dest;
 
 	g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
 	g_return_val_if_fail (pixbuf->colorspace == GDK_COLORSPACE_RGB, NULL);
@@ -85,20 +87,18 @@ gdk_pixbuf_add_alpha (const GdkPixbuf *pixbuf,
 	} else {
                 new_pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, pixbuf->width, pixbuf->height);
         }
-        
+
 	if (!new_pixbuf)
 		return NULL;
 
 	ret_pixels = gdk_pixbuf_get_pixels (new_pixbuf);
 
-	for (y = 0; y < pixbuf->height; y++) {
-		const guchar *src;
-		guchar *dest;
+	for (y = 0; y < pixbuf->height; y++, src_pixels += pixbuf->rowstride, ret_pixels += new_pixbuf->rowstride) {
 		guchar tr, tg, tb;
 
-		src = src_pixels + y * pixbuf->rowstride;
-		dest = ret_pixels + y * new_pixbuf->rowstride;
-                
+                src = src_pixels;
+                dest = ret_pixels;
+
                 if (pixbuf->has_alpha) {
                         /* Just subst color, we already copied everything else */
                         for (x = 0; x < pixbuf->width; x++) {
@@ -107,12 +107,12 @@ gdk_pixbuf_add_alpha (const GdkPixbuf *pixbuf,
                                 src += 4;
                                 dest += 4;
                         }
-                } else {                        
+                } else {
                         for (x = 0; x < pixbuf->width; x++) {
                                 tr = *dest++ = *src++;
                                 tg = *dest++ = *src++;
                                 tb = *dest++ = *src++;
-                                
+
                                 if (substitute_color && tr == r && tg == g && tb == b)
                                         *dest++ = 0;
                                 else
