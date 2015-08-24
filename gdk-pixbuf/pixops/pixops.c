@@ -304,8 +304,8 @@ pixops_scale_nearest (guchar        *dest_buf,
       guchar       *dest;
       y_pos = ((i + render_y0) * y_step + y_step / 2) >> SCALE_SHIFT;
       y_pos = CLAMP (y_pos, 0, src_height - 1);
-      src  = src_buf + y_pos * src_rowstride;
-      dest = dest_buf + i * dest_rowstride;
+      src  = src_buf + (gsize)y_pos * src_rowstride;
+      dest = dest_buf + (gsize)i * dest_rowstride;
 
       x = render_x0 * x_step + x_step / 2;
 
@@ -368,8 +368,8 @@ pixops_composite_nearest (guchar        *dest_buf,
       guchar       *dest;
       y_pos = ((i + render_y0) * y_step + y_step / 2) >> SCALE_SHIFT;
       y_pos = CLAMP (y_pos, 0, src_height - 1);
-      src  = src_buf + y_pos * src_rowstride;
-      dest = dest_buf + i * dest_rowstride;
+      src  = src_buf + (gsize)y_pos * src_rowstride;
+      dest = dest_buf + (gsize)i * dest_rowstride;
 
       x = render_x0 * x_step + x_step / 2;
       
@@ -442,8 +442,8 @@ pixops_composite_nearest_noscale (guchar        *dest_buf,
 
   for (i = 0; i < (render_y1 - render_y0); i++)
     {
-      const guchar *src  = src_buf + (i + render_y0) * src_rowstride;
-      guchar       *dest = dest_buf + i * dest_rowstride;
+      const guchar *src  = src_buf + (gsize)(i + render_y0) * src_rowstride;
+      guchar       *dest = dest_buf + (gsize)i * dest_rowstride;
 
       x = render_x0 * src_channels;
 
@@ -540,8 +540,8 @@ pixops_composite_color_nearest (guchar        *dest_buf,
       guchar       *dest;
       y_pos = ((i + render_y0) * y_step + y_step / 2) >> SCALE_SHIFT;
       y_pos = CLAMP (y_pos, 0, src_height - 1);
-      src  = src_buf + y_pos * src_rowstride;
-      dest = dest_buf + i * dest_rowstride;
+      src  = src_buf + (gsize)y_pos * src_rowstride;
+      dest = dest_buf + (gsize)i * dest_rowstride;
 
       x = render_x0 * x_step + x_step / 2;
       
@@ -1398,7 +1398,7 @@ pixops_process (guchar         *dest_buf,
       guchar *new_outbuf;
       guint32 tcolor1, tcolor2;
 
-      guchar *outbuf = dest_buf + dest_rowstride * i;
+      guchar *outbuf = dest_buf + (gsize)dest_rowstride * i;
       guchar *outbuf_end = outbuf + dest_channels * (render_x1 - render_x0);
 
       if (((i + check_y) >> check_shift) & 1)
@@ -1417,9 +1417,9 @@ pixops_process (guchar         *dest_buf,
 	  if (y_start <  0)
 	    line_bufs[j] = (guchar *)src_buf;
 	  else if (y_start < src_height)
-	    line_bufs[j] = (guchar *)src_buf + src_rowstride * y_start;
+	    line_bufs[j] = (guchar *)src_buf + (gsize)src_rowstride * y_start;
 	  else
-	    line_bufs[j] = (guchar *)src_buf + src_rowstride * (src_height - 1);
+	    line_bufs[j] = (guchar *)src_buf + (gsize)src_rowstride * (src_height - 1);
 
 	  y_start++;
 	}
@@ -1443,7 +1443,7 @@ pixops_process (guchar         *dest_buf,
 	}
 
       new_outbuf = (*line_func) (run_weights, filter->x.n, filter->y.n,
-				 outbuf, dest_x, dest_buf + dest_rowstride *
+				 outbuf, dest_x, dest_buf + (gsize)dest_rowstride *
 				 i + run_end_index * dest_channels,
 				 dest_channels, dest_has_alpha,
 				 line_bufs, src_channels, src_has_alpha,
@@ -1966,7 +1966,7 @@ _pixops_composite (guchar          *dest_buf,
   return;
 #endif
 
-  new_dest_buf = dest_buf + dest_y * dest_rowstride + dest_x * dest_channels;
+  new_dest_buf = dest_buf + (gsize)dest_y * dest_rowstride + (gsize)dest_x * dest_channels;
   render_x0 = dest_x - offset_x;
   render_y0 = dest_y - offset_y;
   render_x1 = dest_x + dest_region_width  - offset_x;
@@ -2126,7 +2126,7 @@ pixops_medialib_composite (guchar          *dest_buf,
   if (!use_medialib)
     {
       /* Use non-mediaLib version */
-      _pixops_composite_real (dest_buf + dest_y * dest_rowstride + dest_x *
+      _pixops_composite_real (dest_buf + (gsize)dest_y * dest_rowstride + (gsize)dest_x *
 			      dest_channels, dest_x - offset_x, dest_y -
 			      offset_y, dest_x + dest_region_width - offset_x,
 			      dest_y + dest_region_height - offset_y,
@@ -2168,8 +2168,8 @@ pixops_medialib_composite (guchar          *dest_buf,
         }
       else
         {
-	  mlib_u8 *data = dest_buf + (dest_y * dest_rowstride) + 
-				     (dest_x * dest_channels);
+	  mlib_u8 *data = dest_buf + (gsize)dest_y * dest_rowstride +
+				     (gsize)dest_x * dest_channels;
 
           mlib_ImageSetStruct (&img_dest, MLIB_BYTE, dest_channels,
 			       dest_region_width, dest_region_height,
@@ -2236,8 +2236,8 @@ pixops_medialib_composite (guchar          *dest_buf,
               else
                 {
                   /* Should not happen - Use non-mediaLib version */
-                  _pixops_composite_real (dest_buf + dest_y * dest_rowstride +
-                                          dest_x * dest_channels,
+                  _pixops_composite_real (dest_buf + (gsize)dest_y * dest_rowstride +
+                                          (gsize)dest_x * dest_channels,
                                           dest_x - offset_x, dest_y - offset_y,
                                           dest_x + dest_region_width - offset_x,
                                           dest_y + dest_region_height - offset_y,
@@ -2360,7 +2360,7 @@ _pixops_scale (guchar          *dest_buf,
   return;
 #endif
 
-  new_dest_buf = dest_buf + dest_y * dest_rowstride + dest_x * dest_channels;
+  new_dest_buf = dest_buf + (gsize)dest_y * dest_rowstride + (gsize)dest_x * dest_channels;
   render_x0    = dest_x - offset_x;
   render_y0    = dest_y - offset_y;
   render_x1    = dest_x + dest_region_width  - offset_x;
@@ -2414,8 +2414,8 @@ pixops_medialib_scale     (guchar          *dest_buf,
    */
   if (!use_medialib)
     {
-      _pixops_scale_real (dest_buf + dest_y * dest_rowstride + dest_x *
-			  dest_channels, dest_x - offset_x, dest_y - offset_y, 
+      _pixops_scale_real (dest_buf + (gsize)dest_y * dest_rowstride + (gsize)dest_x *
+			  dest_channels, dest_x - offset_x, dest_y - offset_y,
 			  dest_x + dest_region_width - offset_x,
 			  dest_y + dest_region_height - offset_y,
 			  dest_rowstride, dest_channels, dest_has_alpha,
@@ -2443,8 +2443,8 @@ pixops_medialib_scale     (guchar          *dest_buf,
         }
       else
         {
-	  mlib_u8 *data = dest_buf + (dest_y * dest_rowstride) + 
-				     (dest_x * dest_channels);
+	  mlib_u8 *data = dest_buf + (gsize)dest_y * dest_rowstride +
+				     (gsize)dest_x * dest_channels;
 
           mlib_ImageSetStruct (&img_dest, MLIB_BYTE, dest_channels,
 			       dest_region_width, dest_region_height,
@@ -2479,7 +2479,7 @@ pixops_medialib_scale     (guchar          *dest_buf,
               int channels  = 3;
               int rowstride = (channels * src_width + 3) & ~3;
         
-              tmp_buf = g_malloc (src_rowstride * src_height);
+              tmp_buf = g_malloc_n (src_rowstride, src_height);
 
               if (src_buf != NULL)
                 {
