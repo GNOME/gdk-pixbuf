@@ -163,7 +163,8 @@ main (int argc, char **argv)
   g_test_add_data_func ("/pixbuf/scale/tga", "test-images/valid_tga_test", test_scale);
   g_test_add_data_func ("/pixbuf/scale/xpm", "test-images/valid_xpm_test", test_scale);
   g_test_add_data_func ("/pixbuf/scale/xbm", "test-images/valid.xbm", test_scale);
-  g_test_add_data_func ("/pixbuf/scale/large", "large.png", test_scale_down);
+  g_test_add_data_func ("/pixbuf/scale/png/large", "large.png", test_scale_down);
+  g_test_add_data_func ("/pixbuf/scale/jpeg/large", "large.jpg", test_scale_down);
   g_test_add_data_func ("/pixbuf/add-alpha/large", "large.png", test_add_alpha);
   g_test_add_data_func ("/pixbuf/rotate/large", "large.png", test_rotate);
 
