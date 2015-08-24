@@ -29,9 +29,13 @@
 
 
 static int current_allocation = 0;
-static int max_allocation = 0;
+static int max_allocation = PRETEND_MEM_SIZE;
 
-#define HEADER_SPACE sizeof(void*)
+#define HEADER_SPACE sizeof(gsize)
+
+extern void *__libc_malloc (size_t size);
+extern void *__libc_realloc (void *mem, size_t size);
+extern void *__libc_free (void *mem);
 
 static gpointer
 record_bytes (gpointer mem, gsize bytes)
@@ -40,8 +44,8 @@ record_bytes (gpointer mem, gsize bytes)
       (current_allocation + bytes) > max_allocation)
     {
       if (mem)
-        free (mem);
-      
+        __libc_free (mem);
+
       return NULL;
     }
   
@@ -57,89 +61,68 @@ record_bytes (gpointer mem, gsize bytes)
   return ((char*)mem) + HEADER_SPACE;
 }
 
-static gpointer
-limited_try_malloc (gsize n_bytes)
+void *malloc (size_t n_bytes)
 {
-  return record_bytes (malloc (n_bytes + HEADER_SPACE), n_bytes);
+  gpointer mem;
+
+  mem = __libc_malloc (n_bytes + HEADER_SPACE);
+  return record_bytes (mem, n_bytes);
 }
 
-static gpointer
-limited_malloc (gsize n_bytes)
+void *calloc (size_t n_blocks, size_t n_block_bytes)
 {
-  return limited_try_malloc (n_bytes);
-}
+  size_t bytes;
+  gpointer mem;
 
-static gpointer
-limited_calloc (gsize n_blocks,
-                gsize n_block_bytes)
-{
-  int bytes = n_blocks * n_block_bytes + HEADER_SPACE;
-  gpointer mem = malloc (bytes);
+  bytes = n_blocks * n_block_bytes + HEADER_SPACE;
+  mem = __libc_malloc (bytes);
   memset (mem, 0, bytes);
   return record_bytes (mem, n_blocks * n_block_bytes);
 }
 
-static void
-limited_free (gpointer mem)
+void free (void *mem)
 {
-  gpointer real = ((char*)mem) - HEADER_SPACE;
+  gpointer real;
+
+  if (mem == NULL)
+    return;
+
+  real = ((char*)mem) - HEADER_SPACE;
 
   g_assert (current_allocation >= 0);
   current_allocation -= GPOINTER_TO_INT (*(void**)real);
   g_assert (current_allocation >= 0);
-  
-  free (real);
+
+  __libc_free (real);
 }
 
-static gpointer
-limited_try_realloc (gpointer mem,
-                     gsize    n_bytes)
+void *realloc (void *mem, size_t n_bytes)
 {
   if (mem == NULL)
-    {
-      return limited_try_malloc (n_bytes);
-    }
+    return malloc (n_bytes);
   else
     {
       gpointer real;
 
-      g_assert (mem);
-
       real = ((char*)mem) - HEADER_SPACE;
-      
+
       g_assert (current_allocation >= 0);
       current_allocation -= GPOINTER_TO_INT (*(void**)real);
       g_assert (current_allocation >= 0);
 
-      return record_bytes (realloc (real, n_bytes + HEADER_SPACE), n_bytes);
+      return record_bytes (__libc_realloc (real, n_bytes + HEADER_SPACE), n_bytes);
     }
 }
-
-static gpointer
-limited_realloc (gpointer mem,
-                 gsize    n_bytes)
-{
-  return limited_try_realloc (mem, n_bytes);
-}
-
-static GMemVTable limited_table = {
-  limited_malloc,
-  limited_realloc,
-  limited_free,
-  limited_calloc,
-  limited_try_malloc,
-  limited_try_realloc
-};
 
 static void
 mem_test (const gchar *bytes, gsize len)
 {
   gboolean did_fail = FALSE;
   GError *err = NULL;
-  GdkPixbufLoader *loader; 
+  GdkPixbufLoader *loader;
   GList *loaders = NULL;
   GList *i;
-  
+
   do {
     loader = gdk_pixbuf_loader_new ();
     gdk_pixbuf_loader_write (loader, (guchar *) bytes, len, &err);
@@ -158,7 +141,7 @@ mem_test (const gchar *bytes, gsize len)
       }
     loaders = g_list_prepend (loaders, loader);
   } while (!did_fail);
-  
+
   for (i = loaders; i != NULL; i = i->next)
     g_object_unref (i->data);
   g_list_free (loaders);
@@ -188,26 +171,23 @@ main (int argc, char **argv)
 
   if (argc <= 2)
     usage();
-  
+
   max_allocation = strtol (argv[1], &endptr, 10);
   if (endptr == argv[1])
     usage();
 
-  /* Set a malloc which emulates low mem */
-  g_mem_set_vtable (&limited_table);
-  
   g_log_set_always_fatal (G_LOG_LEVEL_WARNING | G_LOG_LEVEL_ERROR | G_LOG_LEVEL_CRITICAL);
-  
+
   /* memory tests */
 
   /* How do the loaders behave when memory is low?
-     It depends on the state the above tests left the 
+     It depends on the state the above tests left the
      memory in.
 
-     - Sometimes the png loader tries to report an 
+     - Sometimes the png loader tries to report an
        "out of memory", but then g_strdup_printf() calls
        g_malloc(), which fails.
-       
+
      - There are unchecked realloc()s inside libtiff, which means it
        will never work with low memory, unless something drastic is
        done, like allocating a lot of memory upfront and release it
