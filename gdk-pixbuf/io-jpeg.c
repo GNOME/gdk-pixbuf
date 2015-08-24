@@ -886,7 +886,7 @@ gdk_pixbuf__jpeg_image_load_lines (JpegProgContext  *context,
                         return FALSE;
                 }
 
-                context->dptr += nlines * context->pixbuf->rowstride;
+                context->dptr += (gsize)nlines * context->pixbuf->rowstride;
 
                 /* send updated signal */
 		if (context->updated_func)
@@ -1494,7 +1494,7 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
        while (cinfo.next_scanline < cinfo.image_height) {
                /* convert scanline from ARGB to RGB packed */
                for (j = 0; j < w; j++)
-                       memcpy (&(buf[j*3]), &(ptr[i*rowstride + j*n_channels]), 3);
+                       memcpy (&(buf[j*3]), &(ptr[(gsize)i*rowstride + j*n_channels]), 3);
 
                /* write scanline */
                jbuf = (JSAMPROW *)(&buf);
