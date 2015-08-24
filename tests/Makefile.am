@@ -53,6 +53,9 @@ dist_installed_test_data =		\
 	premature-end.jpg		\
 	bug725582-testrotate.jpg	\
 	bug725582-testrotate.png	\
+	cve-2015-4491.bmp		\
+	large.png			\
+	large.jpg			\
 	$(wildcard $(srcdir)/test-images/*)
 
 cve_2015_4491_SOURCES =			\
