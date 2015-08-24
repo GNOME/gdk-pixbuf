@@ -94,6 +94,36 @@ test_scale_down (gconstpointer data)
   g_object_unref (ref);
 }
 
+static void
+test_add_alpha (gconstpointer data)
+{
+  const gchar *filename = data;
+  const gchar *path;
+  GError *error = NULL;
+  GdkPixbuf *ref;
+  GdkPixbuf *pixbuf;
+
+  if (!format_supported (filename))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
+
+  path = g_test_get_filename (G_TEST_DIST, filename, NULL);
+  ref = gdk_pixbuf_new_from_file (path, &error);
+  g_assert_no_error (error);
+
+  pixbuf = gdk_pixbuf_add_alpha (ref, FALSE, 0, 0, 0);
+  g_assert (pixbuf != NULL);
+  g_object_unref (pixbuf);
+
+  pixbuf = gdk_pixbuf_add_alpha (ref, TRUE, 0, 0, 255);
+  g_assert (pixbuf != NULL);
+  g_object_unref (pixbuf);
+
+  g_object_unref (ref);
+}
+
 int
 main (int argc, char **argv)
 {
@@ -108,6 +138,7 @@ main (int argc, char **argv)
   g_test_add_data_func ("/pixbuf/scale/xpm", "test-images/valid_xpm_test", test_scale);
   g_test_add_data_func ("/pixbuf/scale/xbm", "test-images/valid.xbm", test_scale);
   g_test_add_data_func ("/pixbuf/scale/large", "large.png", test_scale_down);
+  g_test_add_data_func ("/pixbuf/add-alpha/large", "large.png", test_add_alpha);
 
   return g_test_run ();
 }
