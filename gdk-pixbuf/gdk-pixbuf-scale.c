@@ -396,7 +396,7 @@ gdk_pixbuf_composite_color_simple (const GdkPixbuf *src,
   return dest;
 }
 
-#define OFFSET(pb, x, y) ((x) * (pb)->n_channels + (y) * (pb)->rowstride)
+#define OFFSET(pb, x, y) ((x) * (pb)->n_channels + (gsize)(y) * (pb)->rowstride)
 
 /**
  * gdk_pixbuf_rotate_simple:
