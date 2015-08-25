@@ -405,10 +405,12 @@ gdk_pixbuf_animation_new_from_stream  (GInputStream  *stream,
 }
 
 static void
-animation_new_from_stream_thread (GSimpleAsyncResult *result,
-                                  GInputStream       *stream,
-                                  GCancellable       *cancellable)
+animation_new_from_stream_thread (GTask        *task,
+                                  gpointer      source_object,
+                                  gpointer      task_data,
+                                  GCancellable *cancellable)
 {
+        GInputStream *stream = G_INPUT_STREAM (source_object);
 	GdkPixbufAnimation *animation;
 	GError *error = NULL;
 
@@ -416,10 +418,12 @@ animation_new_from_stream_thread (GSimpleAsyncResult *result,
 
 	/* Set the new pixbuf as the result, or error out */
 	if (animation == NULL) {
-		g_simple_async_result_take_error (result, error);
+                g_task_return_error (task, error);
 	} else {
-		g_simple_async_result_set_op_res_gpointer (result, g_object_ref (animation), g_object_unref);
+                g_task_return_pointer (task, animation, g_object_unref);
 	}
+
+        g_object_unref (task);
 }
 
 /**
@@ -446,15 +450,16 @@ gdk_pixbuf_animation_new_from_stream_async (GInputStream        *stream,
                                             GAsyncReadyCallback  callback,
                                             gpointer             user_data)
 {
-	GSimpleAsyncResult *result;
+	GTask *task;
 
 	g_return_if_fail (G_IS_INPUT_STREAM (stream));
 	g_return_if_fail (callback != NULL);
 	g_return_if_fail (!cancellable || G_IS_CANCELLABLE (cancellable));
 
-	result = g_simple_async_result_new (G_OBJECT (stream), callback, user_data, gdk_pixbuf_animation_new_from_stream_async);
-	g_simple_async_result_run_in_thread (result, (GSimpleAsyncThreadFunc) animation_new_from_stream_thread, G_PRIORITY_DEFAULT, cancellable);
-	g_object_unref (result);
+	task = g_task_new (G_OBJECT (stream), cancellable, callback, user_data);
+        g_task_set_source_tag (task, gdk_pixbuf_animation_new_from_stream_async);
+	g_task_run_in_thread (task, animation_new_from_stream_thread);
+	g_object_unref (task);
 }
 
 /**
@@ -474,16 +479,13 @@ GdkPixbufAnimation *
 gdk_pixbuf_animation_new_from_stream_finish (GAsyncResult  *async_result,
 			              	     GError       **error)
 {
-	GSimpleAsyncResult *result = G_SIMPLE_ASYNC_RESULT (async_result);
+        GTask *task = G_TASK (async_result);
 
-	g_return_val_if_fail (G_IS_ASYNC_RESULT (async_result), NULL);
+	g_return_val_if_fail (G_IS_TASK (async_result), NULL);
 	g_return_val_if_fail (!error || (error && !*error), NULL);
-	g_warn_if_fail (g_simple_async_result_get_source_tag (result) == gdk_pixbuf_animation_new_from_stream_async);
+	g_warn_if_fail (g_task_get_source_tag (task) == gdk_pixbuf_animation_new_from_stream_async);
 
-	if (g_simple_async_result_propagate_error (result, error))
-		return NULL;
-
-	return g_simple_async_result_get_op_res_gpointer (result);
+	return g_task_propagate_pointer (task, error);
 }
 
 /**
