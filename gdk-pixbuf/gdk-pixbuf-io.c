@@ -1690,8 +1690,10 @@ _gdk_pixbuf_new_from_resource_try_mmap (const char *resource_path)
 	gsize data_size;
 	GBytes *bytes;
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 	/* We specialize uncompressed GdkPixdata files, making these a reference to the
-	   compiled-in resource data */
+	 * compiled-in resource data
+         */
 	if (g_resources_get_info  (resource_path, 0, &data_size, &flags, NULL) &&
 	    (flags & G_RESOURCE_FLAGS_COMPRESSED) == 0 &&
 	    data_size >= GDK_PIXDATA_HEADER_LENGTH &&
@@ -1715,6 +1717,7 @@ _gdk_pixbuf_new_from_resource_try_mmap (const char *resource_path)
 			g_bytes_unref (bytes);
 		}
 	}
+G_GNUC_END_IGNORE_DEPRECATIONS
 
         return NULL;
 }
@@ -1737,8 +1740,8 @@ _gdk_pixbuf_new_from_resource_try_mmap (const char *resource_path)
  * Since: 2.26
  **/
 GdkPixbuf *
-gdk_pixbuf_new_from_resource (const char *resource_path,
-			      GError    **error)
+gdk_pixbuf_new_from_resource (const gchar  *resource_path,
+			      GError      **error)
 {
 	GInputStream *stream;
 	GdkPixbuf *pixbuf;
