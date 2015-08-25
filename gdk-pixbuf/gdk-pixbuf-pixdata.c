@@ -84,8 +84,10 @@ main (int   argc,
       return 1;
     }
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   free_me = gdk_pixdata_from_pixbuf (&pixdata, pixbuf, use_rle);
-  data = gdk_pixdata_serialize	(&pixdata, &data_len);
+  data = gdk_pixdata_serialize (&pixdata, &data_len);
+G_GNUC_END_IGNORE_DEPRECATIONS
 
   if (!g_file_set_contents (outfilename, (char *)data, data_len, &error))
     {

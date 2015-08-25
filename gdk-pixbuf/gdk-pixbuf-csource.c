@@ -52,6 +52,7 @@ static void
 print_csource (FILE *f_out,
 	       GdkPixbuf *pixbuf)
 {
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   GdkPixdata pixdata;
   gpointer free_me;
   GString *gstring;
@@ -64,6 +65,7 @@ print_csource (FILE *f_out,
   g_fprintf (f_out, "%s\n", gstring->str);
 
   g_free (free_me);
+G_GNUC_END_IGNORE_DEPRECATIONS
 }
 
 int

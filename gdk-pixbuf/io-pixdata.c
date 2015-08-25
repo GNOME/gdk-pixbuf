@@ -71,6 +71,8 @@ static gboolean try_load (struct pixdata_context *context, GError **error)
 {
   GdkPixbuf *pixbuf;
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
   if (context->got_pixbuf)
     return TRUE;
 
@@ -95,6 +97,7 @@ static gboolean try_load (struct pixdata_context *context, GError **error)
     (* context->updated_func) (pixbuf, 0, 0, pixbuf->width, pixbuf->height, context->user_data);
 
   return TRUE;
+G_GNUC_END_IGNORE_DEPRECATIONS
 }
 
 static gboolean
@@ -117,6 +120,7 @@ pixdata_image_load_increment (gpointer data, const guchar *buf, guint size, GErr
 {
   struct pixdata_context *context = (struct pixdata_context *) data;
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   g_string_append_len (context->data, (char *)buf, size);
 
   if (!context->got_header && context->data->len >= GDK_PIXDATA_HEADER_LENGTH)
@@ -152,6 +156,7 @@ pixdata_image_load_increment (gpointer data, const guchar *buf, guint size, GErr
   try_load (context, NULL);
 
   return TRUE;
+G_GNUC_END_IGNORE_DEPRECATIONS
 }
 
 /* Always included */
