@@ -1,3 +1,11 @@
+2.31.7
+======
+
+* Fix several integer overflows (#753908, #753569)
+* Fix build failure with --disable-modules (#740912)
+* Port animations to GTask
+* Translation updates: Chinese (Taiwan), Polish
+
 2.31.6
 ======
 
