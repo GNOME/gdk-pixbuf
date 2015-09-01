@@ -18,9 +18,14 @@ LDADD = \
 
 noinst_PROGRAMS += 			\
 	pixbuf-read			\
-	pixbuf-lowmem			\
 	pixbuf-random			\
 	$(NULL)
+
+if OS_LINUX
+noinst_PROGRAMS += 			\
+	pixbuf-lowmem			\
+	$(NULL)
+endif
 
 test_programs = 			\
 	animation			\
