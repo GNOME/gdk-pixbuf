@@ -282,7 +282,8 @@ gdk_pixbuf_saturate_and_pixelate(const GdkPixbuf *src,
  * appropriate transform will be performed so that the pixbuf
  * is oriented correctly.
  *
- * Return value: (transfer full): A newly-created pixbuf, or a reference to the
+ * Return value: (transfer full): A newly-created pixbuf, %NULL if
+ * not enough memory could be allocated for it, or a reference to the
  * input pixbuf (with an increased reference count).
  *
  * Since: 2.12

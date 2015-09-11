@@ -422,6 +422,7 @@ gdk_pixbuf_rotate_simple (const GdkPixbuf   *src,
   guchar *q;
   gint x, y;
 
+  g_return_val_if_fail (GDK_IS_PIXBUF (src), NULL);
   src_pixels = gdk_pixbuf_read_pixels (src);
 
   switch (angle % 360)
@@ -526,6 +527,7 @@ gdk_pixbuf_flip (const GdkPixbuf *src,
   guchar *q;
   gint x, y;
 
+  g_return_val_if_fail (GDK_IS_PIXBUF (src), NULL);
   dest = gdk_pixbuf_new (src->colorspace, 
 			 src->has_alpha, 
 			 src->bits_per_sample, 
