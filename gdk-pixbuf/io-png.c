@@ -327,7 +327,7 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
 
 	rows = g_new (png_bytep, h);
 
-        for (i = 0, ptr = pixbuf->pixels; i < h; i++, ptr += pixbuf->rowstride)
+        for (i = 0, ptr = pixbuf->pixels; i < h; i++, ptr = (guchar *) ptr + pixbuf->rowstride)
 		rows[i] = ptr;
 
 	png_read_image (png_ptr, rows);
