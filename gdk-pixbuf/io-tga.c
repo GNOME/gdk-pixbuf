@@ -356,9 +356,8 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 		 || (ctx->hdr->type == TGA_TYPE_RLE_TRUECOLOR)
 		 || (ctx->hdr->type == TGA_TYPE_RLE_GRAYSCALE));
 
-	if (ctx->hdr->has_cmap)
-		ctx->cmap_size = ((ctx->hdr->cmap_bpp + 7) >> 3) *
-			LE16(ctx->hdr->cmap_n_colors);
+        ctx->cmap_size = ((ctx->hdr->cmap_bpp + 7) >> 3) *
+                LE16(ctx->hdr->cmap_n_colors);
 
 	alpha = ((ctx->hdr->bpp == 16) || 
 		 (ctx->hdr->bpp == 32) ||
@@ -717,13 +716,6 @@ static gboolean try_colormap(TGAContext *ctx, GError **err)
 
 	g_return_val_if_fail(ctx != NULL, FALSE);
 
-        if (ctx->cmap_size == 0) {
-		g_set_error_literal(err, GDK_PIXBUF_ERROR,
-                                    GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                    _("Image is corrupted or truncated"));
-			return FALSE;
-        }
-
         n_colors = LE16(ctx->hdr->cmap_n_colors);
         ctx->cmap = colormap_new (n_colors);
 	if (!ctx->cmap) {
@@ -865,7 +857,7 @@ static gboolean try_preload(TGAContext *ctx, GError **err)
 			return TRUE;
 		}
 	}
-	if (ctx->hdr->has_cmap && !ctx->cmap) {
+	if (!ctx->cmap) {
 		if (ctx->in->size >= ctx->cmap_size) {
 			if (!try_colormap(ctx, err))
 				return FALSE;
