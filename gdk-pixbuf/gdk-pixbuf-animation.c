@@ -413,8 +413,6 @@ animation_new_from_stream_thread (GTask        *task,
 	} else {
                 g_task_return_pointer (task, animation, g_object_unref);
 	}
-
-        g_object_unref (task);
 }
 
 /**
