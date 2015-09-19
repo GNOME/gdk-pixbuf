@@ -1478,14 +1478,18 @@ pixops_process (guchar         *dest_buf,
 /* Compute weights for reconstruction by replication followed by
  * sampling with a box filter
  */
-static void
+static gboolean
 tile_make_weights (PixopsFilterDimension *dim,
 		   double                 scale)
 {
   int n = ceil (1 / scale + 1);
-  double *pixel_weights = g_malloc_n (sizeof (double) * SUBSAMPLE, n);
+  double *pixel_weights;
   int offset;
   int i;
+
+  pixel_weights = g_try_malloc_n (sizeof (double) * SUBSAMPLE, n);
+  if (pixel_weights == NULL)
+    return FALSE;
 
   dim->n = n;
   dim->offset = 0;
@@ -1514,13 +1518,15 @@ tile_make_weights (PixopsFilterDimension *dim,
             }
        }
     }
+
+  return TRUE;
 }
 
 /* Compute weights for a filter that, for minification
  * is the same as 'tiles', and for magnification, is bilinear
  * reconstruction followed by a sampling with a delta function.
  */
-static void
+static gboolean
 bilinear_magnify_make_weights (PixopsFilterDimension *dim,
 			       double                 scale)
 {
@@ -1541,7 +1547,9 @@ bilinear_magnify_make_weights (PixopsFilterDimension *dim,
     }
 
   dim->n = n;
-  dim->weights = g_malloc_n (sizeof (double) * SUBSAMPLE, n);
+  dim->weights = g_try_malloc_n (sizeof (double) * SUBSAMPLE, n);
+  if (dim->weights == NULL)
+    return FALSE;
 
   pixel_weights = dim->weights;
 
@@ -1581,6 +1589,8 @@ bilinear_magnify_make_weights (PixopsFilterDimension *dim,
             }
         }
     }
+
+  return TRUE;
 }
 
 /* Computes the integral from b0 to b1 of
@@ -1627,14 +1637,18 @@ linear_box_half (double b0, double b1)
 /* Compute weights for reconstructing with bilinear
  * interpolation, then sampling with a box filter
  */
-static void
+static gboolean
 bilinear_box_make_weights (PixopsFilterDimension *dim,
 			   double                 scale)
 {
   int n = ceil (1/scale + 3.0);
-  double *pixel_weights = g_malloc_n (sizeof (double) * SUBSAMPLE, n);
+  double *pixel_weights;
   double w;
   int offset, i;
+
+  pixel_weights = g_malloc_n (sizeof (double) * SUBSAMPLE, n);
+  if (pixel_weights == NULL)
+    return FALSE;
 
   dim->offset = -1.0;
   dim->n = n;
@@ -1653,9 +1667,11 @@ bilinear_box_make_weights (PixopsFilterDimension *dim,
           *(pixel_weights++) = w * scale;
         }
     }
+
+  return TRUE;
 }
 
-static void
+static gboolean
 make_weights (PixopsFilter     *filter,
 	      PixopsInterpType  interp_type,	      
 	      double            scale_x,
@@ -1664,23 +1680,39 @@ make_weights (PixopsFilter     *filter,
   switch (interp_type)
     {
     case PIXOPS_INTERP_NEAREST:
+    default:
       g_assert_not_reached ();
-      break;
+      return FALSE;
 
     case PIXOPS_INTERP_TILES:
-      tile_make_weights (&filter->x, scale_x);
-      tile_make_weights (&filter->y, scale_y);
-      break;
+      if (!tile_make_weights (&filter->x, scale_x))
+        return FALSE;
+      if (!tile_make_weights (&filter->y, scale_y))
+        {
+          g_free (filter->x.weights);
+          return FALSE;
+        }
+      return TRUE;
       
     case PIXOPS_INTERP_BILINEAR:
-      bilinear_magnify_make_weights (&filter->x, scale_x);
-      bilinear_magnify_make_weights (&filter->y, scale_y);
-      break;
+      if (!bilinear_magnify_make_weights (&filter->x, scale_x))
+        return FALSE;
+      if (!bilinear_magnify_make_weights (&filter->y, scale_y))
+        {
+          g_free (filter->x.weights);
+          return FALSE;
+        }
+      return TRUE;
       
     case PIXOPS_INTERP_HYPER:
-      bilinear_box_make_weights (&filter->x, scale_x);
-      bilinear_box_make_weights (&filter->y, scale_y);
-      break;
+      if (!bilinear_box_make_weights (&filter->x, scale_x))
+        return FALSE;
+      if (!bilinear_box_make_weights (&filter->y, scale_y))
+        {
+          g_free (filter->x.weights);
+          return FALSE;
+        }
+      return TRUE;
     }
 }
 
@@ -1735,7 +1767,8 @@ _pixops_composite_color_real (guchar          *dest_buf,
     }
   
   filter.overall_alpha = overall_alpha / 255.;
-  make_weights (&filter, interp_type, scale_x, scale_y);
+  if (!make_weights (&filter, interp_type, scale_x, scale_y))
+    return;
 
 #ifdef USE_MMX
   if (filter.x.n == 2 && filter.y.n == 2 &&
@@ -1890,7 +1923,8 @@ _pixops_composite_real (guchar          *dest_buf,
     }
   
   filter.overall_alpha = overall_alpha / 255.;
-  make_weights (&filter, interp_type, scale_x, scale_y);
+  if (!make_weights (&filter, interp_type, scale_x, scale_y))
+    return;
 
   if (filter.x.n == 2 && filter.y.n == 2 && dest_channels == 4 &&
       src_channels == 4 && src_has_alpha && !dest_has_alpha)
@@ -2297,7 +2331,8 @@ _pixops_scale_real (guchar        *dest_buf,
     }
   
   filter.overall_alpha = 1.0;
-  make_weights (&filter, interp_type, scale_x, scale_y);
+  if (!make_weights (&filter, interp_type, scale_x, scale_y))
+    return;
 
   if (filter.x.n == 2 && filter.y.n == 2 && dest_channels == 3 && src_channels == 3)
     {
