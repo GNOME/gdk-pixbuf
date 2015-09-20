@@ -109,6 +109,8 @@ struct _TGAColormap {
 	TGAColor colors[1];
 };
 
+typedef gboolean (* TGAProcessFunc) (TGAContext *ctx, GError **error);
+
 struct _TGAContext {
 	TGAHeader *hdr;
 	guint rowstride;
@@ -124,8 +126,8 @@ struct _TGAContext {
 
 	GdkPixbufBufferQueue *input;
 
-	gboolean skipped_info;
-	gboolean prepared;
+        TGAProcessFunc process;
+
 	gboolean done;
 
 	GdkPixbufModuleSizeFunc sfunc;
@@ -182,6 +184,15 @@ static void
 colormap_free (TGAColormap *cmap)
 {
   g_free (cmap);
+}
+
+static gboolean
+tga_skip_rest_of_image (TGAContext  *ctx,
+                        GError     **err)
+{
+  gdk_pixbuf_buffer_queue_flush (ctx->input, gdk_pixbuf_buffer_queue_get_size (ctx->input));
+
+  return TRUE;
 }
 
 static GdkPixbuf *get_contiguous_pixbuf (guint width, 
@@ -650,7 +661,31 @@ parse_rle_data (TGAContext *ctx)
 			       ctx->udata);
 }
 
-static gboolean try_colormap(TGAContext *ctx, GError **err)
+static gboolean
+tga_load_image (TGAContext  *ctx,
+                GError     **err)
+{
+  if (ctx->run_length_encoded)
+    {
+      parse_rle_data (ctx);
+    }
+  else
+    {
+      while (!ctx->done && gdk_pixbuf_buffer_queue_get_size (ctx->input) >= ctx->rowstride)
+        {
+	  parse_data_for_row (ctx);
+	}
+    }
+
+  if (ctx->done)
+    ctx->process = tga_skip_rest_of_image;
+
+  return TRUE;
+}
+
+static gboolean
+tga_load_colormap (TGAContext  *ctx,
+                   GError     **err)
 {
         GBytes *bytes;
         TGAColor color;
@@ -658,6 +693,10 @@ static gboolean try_colormap(TGAContext *ctx, GError **err)
 	guint i, n_colors;
 
 	g_return_val_if_fail(ctx != NULL, FALSE);
+
+        bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->cmap_size);
+        if (bytes == NULL)
+          return TRUE;
 
         n_colors = LE16(ctx->hdr->cmap_n_colors);
         ctx->cmap = colormap_new (n_colors);
@@ -667,8 +706,6 @@ static gboolean try_colormap(TGAContext *ctx, GError **err)
 		return FALSE;
 	}
 
-        bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->cmap_size);
-        g_assert (bytes);
 	p = g_bytes_get_data (bytes, NULL);
         color.a = 255;
 
@@ -695,123 +732,123 @@ static gboolean try_colormap(TGAContext *ctx, GError **err)
 		}
                 colormap_set_color (ctx->cmap, i, &color);
 	}
+        
+        ctx->process = tga_load_image;
 	return TRUE;
 }
 
-static gboolean try_preload(TGAContext *ctx, GError **err)
+static gboolean
+tga_read_info (TGAContext  *ctx,
+               GError     **err)
 {
-	if (!ctx->hdr) {
-                GBytes *bytes;
-                
-                bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, sizeof (TGAHeader));
-                if (bytes == NULL)
-                  return TRUE;
+  if (gdk_pixbuf_buffer_queue_get_size (ctx->input) < ctx->hdr->infolen)
+    return TRUE;
+  
+  gdk_pixbuf_buffer_queue_flush (ctx->input, ctx->hdr->infolen);
 
-                ctx->hdr = g_try_malloc(sizeof(TGAHeader));
-                if (!ctx->hdr) {
-                        g_set_error_literal(err, GDK_PIXBUF_ERROR,
-                                            GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                            _("Cannot allocate TGA header memory"));
-                        return FALSE;
-                }
-                g_memmove(ctx->hdr, g_bytes_get_data (bytes, NULL), sizeof(TGAHeader));
-                g_bytes_unref (bytes);
+  ctx->process = tga_load_colormap;
+  return TRUE;
+}
+
+static gboolean
+tga_load_header (TGAContext  *ctx,
+                 GError     **err)
+{
+  GBytes *bytes;
+  
+  bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, sizeof (TGAHeader));
+  if (bytes == NULL)
+    return TRUE;
+
+  ctx->hdr = g_try_malloc (sizeof (TGAHeader));
+  if (!ctx->hdr)
+    {
+      g_set_error_literal (err, GDK_PIXBUF_ERROR,
+                           GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
+                           _("Cannot allocate TGA header memory"));
+      return FALSE;
+  }
+  g_memmove(ctx->hdr, g_bytes_get_data (bytes, NULL), sizeof(TGAHeader));
+  g_bytes_unref (bytes);
 #ifdef DEBUG_TGA
-                g_print ("infolen %d "
-                         "has_cmap %d "
-                         "type %d "
-                         "cmap_start %d "
-                         "cmap_n_colors %d "
-                         "cmap_bpp %d "
-                         "x %d y %d width %d height %d bpp %d "
-                         "flags %#x",
-                         ctx->hdr->infolen,
-                         ctx->hdr->has_cmap,
-                         ctx->hdr->type,
-                         LE16(ctx->hdr->cmap_start),
-                         LE16(ctx->hdr->cmap_n_colors),
-                         ctx->hdr->cmap_bpp,
-                         LE16(ctx->hdr->x_origin),
-                         LE16(ctx->hdr->y_origin),
-                         LE16(ctx->hdr->width),
-                         LE16(ctx->hdr->height),
-                         ctx->hdr->bpp,
-                         ctx->hdr->flags);
+  g_print ("infolen %d "
+           "has_cmap %d "
+           "type %d "
+           "cmap_start %d "
+           "cmap_n_colors %d "
+           "cmap_bpp %d "
+           "x %d y %d width %d height %d bpp %d "
+           "flags %#x",
+           ctx->hdr->infolen,
+           ctx->hdr->has_cmap,
+           ctx->hdr->type,
+           LE16(ctx->hdr->cmap_start),
+           LE16(ctx->hdr->cmap_n_colors),
+           ctx->hdr->cmap_bpp,
+           LE16(ctx->hdr->x_origin),
+           LE16(ctx->hdr->y_origin),
+           LE16(ctx->hdr->width),
+           LE16(ctx->hdr->height),
+           ctx->hdr->bpp,
+           ctx->hdr->flags);
 #endif
-                if (LE16(ctx->hdr->width) == 0 || 
-                    LE16(ctx->hdr->height) == 0) {
-                        g_set_error_literal(err, GDK_PIXBUF_ERROR,
-                                            GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                            _("TGA image has invalid dimensions"));
-                        return FALSE;
-                }
-                if ((ctx->hdr->flags & TGA_INTERLEAVE_MASK) != TGA_INTERLEAVE_NONE) {
-                        g_set_error_literal(err, GDK_PIXBUF_ERROR, 
-                                            GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                                            _("TGA image type not supported"));
-                        return FALSE;
-                }
-                switch (ctx->hdr->type) {
-                    case TGA_TYPE_PSEUDOCOLOR:
-                    case TGA_TYPE_RLE_PSEUDOCOLOR:
-                            if (ctx->hdr->bpp != 8) {
-                                    g_set_error_literal(err, GDK_PIXBUF_ERROR, 
-                                                        GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                                                        _("TGA image type not supported"));
-                                    return FALSE;
-                            }
-                            break;
-                    case TGA_TYPE_TRUECOLOR:
-                    case TGA_TYPE_RLE_TRUECOLOR:
-                            if (ctx->hdr->bpp != 24 &&
-                                ctx->hdr->bpp != 32) {
-                                    g_set_error_literal(err, GDK_PIXBUF_ERROR, 
-                                                        GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                                                        _("TGA image type not supported"));
-                                    return FALSE;
-                            }			      
-                            break;
-                    case TGA_TYPE_GRAYSCALE:
-                    case TGA_TYPE_RLE_GRAYSCALE:
-                            if (ctx->hdr->bpp != 8 &&
-                                ctx->hdr->bpp != 16) {
-                                    g_set_error_literal(err, GDK_PIXBUF_ERROR, 
-                                                        GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                                                        _("TGA image type not supported"));
-                                    return FALSE;
-                            }
-                            break;
-                    default:
-                            g_set_error_literal(err, GDK_PIXBUF_ERROR, 
-                                                GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                                                _("TGA image type not supported"));
-                            return FALSE;    
-                }
-                if (!fill_in_context(ctx, err))
-                        return FALSE;
-	}
-	if (!ctx->skipped_info) {
-                if (gdk_pixbuf_buffer_queue_get_size (ctx->input) >= ctx->hdr->infolen) {
-                        gdk_pixbuf_buffer_queue_flush (ctx->input, ctx->hdr->infolen);
-		} else {
-			return TRUE;
-		}
-	}
-	if (!ctx->cmap) {
-		if (gdk_pixbuf_buffer_queue_get_size (ctx->input) >= ctx->cmap_size) {
-			if (!try_colormap(ctx, err))
-				return FALSE;
-		} else {
-			return TRUE;
-		}
-	}
-	if (!ctx->prepared) {
-		if (ctx->pfunc)
-			(*ctx->pfunc) (ctx->pbuf, NULL, ctx->udata);
-		ctx->prepared = TRUE;
-	}
-	/* We shouldn't get here anyway. */
-	return TRUE;
+  if (LE16(ctx->hdr->width) == 0 || 
+      LE16(ctx->hdr->height) == 0) {
+          g_set_error_literal(err, GDK_PIXBUF_ERROR,
+                              GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                              _("TGA image has invalid dimensions"));
+          return FALSE;
+  }
+  if ((ctx->hdr->flags & TGA_INTERLEAVE_MASK) != TGA_INTERLEAVE_NONE) {
+          g_set_error_literal(err, GDK_PIXBUF_ERROR, 
+                              GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+                              _("TGA image type not supported"));
+          return FALSE;
+  }
+  switch (ctx->hdr->type) {
+      case TGA_TYPE_PSEUDOCOLOR:
+      case TGA_TYPE_RLE_PSEUDOCOLOR:
+              if (ctx->hdr->bpp != 8) {
+                      g_set_error_literal(err, GDK_PIXBUF_ERROR, 
+                                          GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+                                          _("TGA image type not supported"));
+                      return FALSE;
+              }
+              break;
+      case TGA_TYPE_TRUECOLOR:
+      case TGA_TYPE_RLE_TRUECOLOR:
+              if (ctx->hdr->bpp != 24 &&
+                  ctx->hdr->bpp != 32) {
+                      g_set_error_literal(err, GDK_PIXBUF_ERROR, 
+                                          GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+                                          _("TGA image type not supported"));
+                      return FALSE;
+              }			      
+              break;
+      case TGA_TYPE_GRAYSCALE:
+      case TGA_TYPE_RLE_GRAYSCALE:
+              if (ctx->hdr->bpp != 8 &&
+                  ctx->hdr->bpp != 16) {
+                      g_set_error_literal(err, GDK_PIXBUF_ERROR, 
+                                          GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+                                          _("TGA image type not supported"));
+                      return FALSE;
+              }
+              break;
+      default:
+              g_set_error_literal(err, GDK_PIXBUF_ERROR, 
+                                  GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+                                  _("TGA image type not supported"));
+              return FALSE;    
+  }
+  if (!fill_in_context(ctx, err))
+          return FALSE;
+
+  if (ctx->pfunc)
+          (*ctx->pfunc) (ctx->pbuf, NULL, ctx->udata);
+
+  ctx->process = tga_read_info;
+  return TRUE;
 }
 
 static gpointer gdk_pixbuf__tga_begin_load(GdkPixbufModuleSizeFunc f0,
@@ -843,8 +880,8 @@ static gpointer gdk_pixbuf__tga_begin_load(GdkPixbufModuleSizeFunc f0,
 
 	ctx->input = gdk_pixbuf_buffer_queue_new ();
 
-	ctx->skipped_info = FALSE;
-	ctx->prepared = FALSE;
+        ctx->process = tga_load_header;
+
 	ctx->done = FALSE;
 
 	ctx->sfunc = f0;
@@ -861,7 +898,7 @@ static gboolean gdk_pixbuf__tga_load_increment(gpointer data,
 					       GError **err)
 {
 	TGAContext *ctx = (TGAContext*) data;
-	g_return_val_if_fail(ctx != NULL, FALSE);
+        TGAProcessFunc process;
 
 	if (ctx->done)
 		return TRUE;
@@ -869,20 +906,14 @@ static gboolean gdk_pixbuf__tga_load_increment(gpointer data,
 	g_return_val_if_fail(buffer != NULL, TRUE);
         gdk_pixbuf_buffer_queue_push (ctx->input, g_bytes_new (buffer, size));
 
-	if (!ctx->prepared) {
-		if (!try_preload(ctx, err))
-			return FALSE;
-		if (!ctx->prepared)
-			return TRUE;
-	}
+        do
+          {
+            process = ctx->process;
 
-	if (ctx->run_length_encoded) {
-		parse_rle_data (ctx);
-	} else {
-		while (!ctx->done && gdk_pixbuf_buffer_queue_get_size (ctx->input) >= ctx->rowstride) {
-			parse_data_for_row (ctx);
-		}
-	}
+            if (!process (ctx, err))
+              return FALSE;
+          }
+        while (process != ctx->process);
 
 	return TRUE;
 }
