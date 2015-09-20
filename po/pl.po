@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-26 17:45+0200\n"
-"PO-Revision-Date: 2015-08-26 17:47+0200\n"
+"POT-Creation-Date: 2015-09-20 12:17+0200\n"
+"PO-Revision-Date: 2015-09-20 12:20+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -923,49 +923,41 @@ msgstr "Nie można ponownie przydzielić danych IOBuffer"
 msgid "Cannot allocate temporary IOBuffer data"
 msgstr "Nie można przydzielić tymczasowych danych IOBuffer"
 
-#: ../gdk-pixbuf/io-tga.c:339
+#: ../gdk-pixbuf/io-tga.c:383
 msgid "Cannot allocate new pixbuf"
 msgstr "Nie można przydzielić nowego obiekt pixbuf"
 
-#: ../gdk-pixbuf/io-tga.c:678
-msgid "Image is corrupted or truncated"
-msgstr "Obraz jest uszkodzony lub obcięty"
+#: ../gdk-pixbuf/io-tga.c:723
+msgid "Cannot allocate colormap"
+msgstr "Nie można przydzielić palety kolorów"
 
-#: ../gdk-pixbuf/io-tga.c:685
-msgid "Cannot allocate colormap structure"
-msgstr "Nie można przydzielić struktury palety kolorów"
-
-#: ../gdk-pixbuf/io-tga.c:692
-msgid "Cannot allocate colormap entries"
-msgstr "Nie można przydzielić elementów palety kolorów"
-
-#: ../gdk-pixbuf/io-tga.c:714
+#: ../gdk-pixbuf/io-tga.c:747
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "Nieoczekiwana wartość głębi kolorów elementów palety kolorów"
 
-#: ../gdk-pixbuf/io-tga.c:732
+#: ../gdk-pixbuf/io-tga.c:766
 msgid "Cannot allocate TGA header memory"
 msgstr "Nie można przydzielić pamięci na nagłówek obrazu TGA"
 
-#: ../gdk-pixbuf/io-tga.c:765
+#: ../gdk-pixbuf/io-tga.c:799
 msgid "TGA image has invalid dimensions"
 msgstr "Obraz TGA ma nieprawidłowe wymiary"
 
-#: ../gdk-pixbuf/io-tga.c:771 ../gdk-pixbuf/io-tga.c:780
-#: ../gdk-pixbuf/io-tga.c:790 ../gdk-pixbuf/io-tga.c:800
-#: ../gdk-pixbuf/io-tga.c:807
+#: ../gdk-pixbuf/io-tga.c:805 ../gdk-pixbuf/io-tga.c:814
+#: ../gdk-pixbuf/io-tga.c:824 ../gdk-pixbuf/io-tga.c:834
+#: ../gdk-pixbuf/io-tga.c:841
 msgid "TGA image type not supported"
 msgstr "Nieobsługiwany typ obrazu TGA"
 
-#: ../gdk-pixbuf/io-tga.c:854
+#: ../gdk-pixbuf/io-tga.c:888
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Nie można przydzielić pamięci na strukturę kontekstu TGA"
 
-#: ../gdk-pixbuf/io-tga.c:919
+#: ../gdk-pixbuf/io-tga.c:953
 msgid "Excess data in file"
 msgstr "W pliku występują nadmiarowe dane"
 
-#: ../gdk-pixbuf/io-tga.c:1000
+#: ../gdk-pixbuf/io-tga.c:1032
 msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
