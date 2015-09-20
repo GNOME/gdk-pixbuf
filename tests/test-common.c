@@ -65,6 +65,20 @@ format_supported (const gchar *filename)
 }
 
 gboolean
+skip_if_insufficient_memory (GError **err)
+{
+  if (*err && g_error_matches (*err, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY))
+  {
+      g_test_skip ((*err)->message);
+      g_error_free (*err);
+      *err = NULL;
+      return TRUE;
+  }
+
+  return FALSE;
+}
+
+gboolean
 pixdata_equal (GdkPixbuf *p1, GdkPixbuf *p2, GError **error)
 {
   if (gdk_pixbuf_get_colorspace (p1) != gdk_pixbuf_get_colorspace (p2)) {

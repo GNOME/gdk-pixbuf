@@ -65,6 +65,8 @@ dist_installed_test_data =		\
 
 cve_2015_4491_SOURCES =			\
 	cve-2015-4491.c			\
+	test-common.c			\
+	test-common.h			\
 	resources.h			\
 	resources.c			\
 	$(NULL)

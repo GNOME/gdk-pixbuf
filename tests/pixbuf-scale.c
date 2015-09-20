@@ -83,6 +83,9 @@ test_scale_down (gconstpointer data)
 
   path = g_test_get_filename (G_TEST_DIST, filename, NULL);
   ref = gdk_pixbuf_new_from_file (path, &error);
+
+  if (skip_if_insufficient_memory (&error))
+    return;
   g_assert_no_error (error);
 
   width = gdk_pixbuf_get_width (ref);
@@ -111,10 +114,20 @@ test_add_alpha (gconstpointer data)
 
   path = g_test_get_filename (G_TEST_DIST, filename, NULL);
   ref = gdk_pixbuf_new_from_file (path, &error);
+
+  if (skip_if_insufficient_memory (&error))
+    return;
   g_assert_no_error (error);
 
   pixbuf = gdk_pixbuf_add_alpha (ref, FALSE, 0, 0, 0);
-  g_assert (pixbuf != NULL);
+
+  if (pixbuf == NULL)
+    {
+      g_test_skip ("Couldn't add alpha to the image - your system probably lacks sufficient memory.");
+      g_object_unref (ref);
+      return;
+    }
+
   g_object_unref (pixbuf);
 
   pixbuf = gdk_pixbuf_add_alpha (ref, TRUE, 0, 0, 255);
@@ -141,11 +154,17 @@ test_rotate (gconstpointer data)
 
   path = g_test_get_filename (G_TEST_DIST, filename, NULL);
   ref = gdk_pixbuf_new_from_file (path, &error);
+
+  if (skip_if_insufficient_memory (&error))
+    return;
   g_assert_no_error (error);
 
   pixbuf = gdk_pixbuf_rotate_simple (ref, GDK_PIXBUF_ROTATE_COUNTERCLOCKWISE);
-  g_assert (pixbuf != NULL);
-  g_object_unref (pixbuf);
+
+  if (pixbuf == NULL)
+    g_test_skip ("Couldn't rotate the image - your system probably lacks sufficient memory.");
+  else
+    g_object_unref (pixbuf);
 
   g_object_unref (ref);
 }
