@@ -150,7 +150,7 @@ libpixbufloader_xbm_la_LIBADD = $(module_libs)
 # The TGA loader
 #
 libstatic_pixbufloader_tga_la_SOURCES = io-tga.c
-libpixbufloader_tga_la_SOURCES = io-tga.c
+libpixbufloader_tga_la_SOURCES = io-tga.c gdk-pixbuf-buffer-queue.c
 libpixbufloader_tga_la_LDFLAGS = -avoid-version -module $(no_undefined)
 libpixbufloader_tga_la_LIBADD = $(module_libs)
 
@@ -549,6 +549,7 @@ libgdk_pixbufinclude_HEADERS =  	\
 
 noinst_HEADERS = 		\
 	gdk-pixbuf-private.h	\
+	gdk-pixbuf-buffer-queue-private.h \
 	gdk-pixbuf-scaled-anim.h \
 	xpm-color-table.h
 
