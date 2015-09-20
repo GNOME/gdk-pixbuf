@@ -119,9 +119,9 @@ struct _TGAContext {
 	guint cmap_size;
 
 	GdkPixbuf *pbuf;
-	guint pbuf_bytes;
-	guint pbuf_bytes_done;
-	guchar *pptr;
+	int pbuf_x;
+	int pbuf_y;
+	int pbuf_y_notified;
 
 	GdkPixbufBufferQueue *input;
 
@@ -218,43 +218,53 @@ static GdkPixbuf *get_contiguous_pixbuf (guint width,
 					 width, height, rowstride, free_buffer, NULL);
 }
 
-static void pixbuf_flip_row (GdkPixbuf *pixbuf, guchar *ph)
+static inline void
+tga_write_pixel (TGAContext     *ctx,
+                 const TGAColor *color)
 {
-	guchar *p, *s;
-	guchar tmp;
-	gint count;
+  guint x = (ctx->hdr->flags & TGA_ORIGIN_RIGHT) ? ctx->pbuf->width - ctx->pbuf_x - 1 : ctx->pbuf_x;
+  guint y = (ctx->hdr->flags & TGA_ORIGIN_UPPER) ? ctx->pbuf_y : ctx->pbuf->height - ctx->pbuf_y - 1;
 
-	p = ph;
-	s = p + pixbuf->n_channels * (pixbuf->width - 1);
-	while (p < s) {
-		for (count = pixbuf->n_channels; count > 0; count--, p++, s++) {
-			tmp = *p;
-			*p = *s;
-			*s = tmp;
-		}
-		s -= 2 * pixbuf->n_channels;
-	}		
+  memcpy (ctx->pbuf->pixels + y * ctx->pbuf->rowstride + x * ctx->pbuf->n_channels, color, ctx->pbuf->n_channels);
+
+  ctx->pbuf_x++;
+  if (ctx->pbuf_x >= ctx->pbuf->width)
+    {
+      ctx->pbuf_x = 0;
+      ctx->pbuf_y++;
+    }
 }
 
-static void pixbuf_flip_vertically (GdkPixbuf *pixbuf)
+static gboolean
+tga_all_pixels_written (TGAContext *ctx)
 {
-	guchar *ph, *sh, *p, *s;
-	guchar tmp;
-	gint count;
+  return ctx->pbuf_y >= ctx->pbuf->height;
+}
 
-	ph = pixbuf->pixels;
-	sh = pixbuf->pixels + pixbuf->height*pixbuf->rowstride;
-	while (ph < sh - pixbuf->rowstride) {
-		p = ph;
-		s = sh - pixbuf->rowstride;
-		for (count = pixbuf->n_channels * pixbuf->width; count > 0; count--, p++, s++) {
-			tmp = *p;
-			*p = *s;
-			*s = tmp;
-		}
-		sh -= pixbuf->rowstride;
-		ph += pixbuf->rowstride;
-	}
+static void
+tga_emit_update (TGAContext *ctx)
+{
+  if (!ctx->ufunc)
+    return;
+
+  /* We only notify row-by-row for now.
+   * I was too lazy to handle line-breaks.
+   */
+  if (ctx->pbuf_y_notified == ctx->pbuf_y)
+    return;
+
+  if (ctx->hdr->flags & TGA_ORIGIN_UPPER)
+    (*ctx->ufunc) (ctx->pbuf,
+                   0, ctx->pbuf_y_notified,
+                   ctx->pbuf->width, ctx->pbuf_y - ctx->pbuf_y_notified,
+                   ctx->udata);
+  else
+    (*ctx->ufunc) (ctx->pbuf,
+                   0, ctx->pbuf->height - ctx->pbuf_y,
+                   ctx->pbuf->width, ctx->pbuf_y - ctx->pbuf_y_notified,
+                   ctx->udata);
+
+  ctx->pbuf_y_notified = ctx->pbuf_y;
 }
 
 static gboolean fill_in_context(TGAContext *ctx, GError **err)
@@ -297,12 +307,6 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 		return FALSE;
 	}
 
-	ctx->pbuf_bytes = ctx->pbuf->rowstride * ctx->pbuf->height;
-	if ((ctx->hdr->flags & TGA_ORIGIN_UPPER) || ctx->run_length_encoded)
-		ctx->pptr = ctx->pbuf->pixels;
-	else
-		ctx->pptr = ctx->pbuf->pixels + (ctx->pbuf->height - 1)*ctx->pbuf->rowstride;
-
 	return TRUE;
 }
 
@@ -312,7 +316,6 @@ parse_data_pseudocolor (TGAContext *ctx)
   GBytes *bytes;
   gsize i;
   const guchar *data;
-  guchar *p = ctx->pptr;
 
   bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->pbuf->width);
   if (bytes == NULL)
@@ -322,12 +325,7 @@ parse_data_pseudocolor (TGAContext *ctx)
 
   for (i = 0; i < ctx->pbuf->width; i++)
     {
-      const TGAColor *color = colormap_get_color (ctx->cmap, data[i]);
-      *p++ = color->r;
-      *p++ = color->g;
-      *p++ = color->b;
-      if (ctx->hdr->cmap_bpp == 32)
-        *p++ = color->a;
+      tga_write_pixel (ctx, colormap_get_color (ctx->cmap, data[i]));
     }
 
   g_bytes_unref (bytes);
@@ -337,29 +335,29 @@ parse_data_pseudocolor (TGAContext *ctx)
 static gboolean
 parse_data_truecolor (TGAContext *ctx)
 {
+  TGAColor color;
   GBytes *bytes;
   const guchar *data;
-  guchar *p;
   gsize i;
   
   bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->pbuf->width * ctx->pbuf->n_channels);
   if (bytes == NULL)
     return FALSE;
 
+  color.a = 255;
   data = g_bytes_get_data (bytes, NULL);
-  p = ctx->pptr;
 
   for (i = 0; i < ctx->pbuf->width; i++)
     {
-      p[0] = data[2];
-      p[1] = data[1];
-      p[2] = data[0];
+      color.r = data[2];
+      color.g = data[1];
+      color.b = data[0];
       if (ctx->pbuf->n_channels == 4)
-        p[3] = data[3];
+        color.a = data[3];
 
-      p += ctx->pbuf->n_channels;
+      tga_write_pixel (ctx, &color);
       data += ctx->pbuf->n_channels;
-        }
+    }
 
   g_bytes_unref (bytes);
   return TRUE;
@@ -368,28 +366,28 @@ parse_data_truecolor (TGAContext *ctx)
 static gboolean
 parse_data_grayscale (TGAContext *ctx)
 {
+  TGAColor color;
   GBytes *bytes;
   gsize i, size;
   const guchar *s;
-  guchar *p;
   gboolean has_alpha;
 
   has_alpha = ctx->pbuf->n_channels == 4;
   size = ctx->pbuf->width * (has_alpha ? 2 : 1);
-  p = ctx->pptr;
  
   bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, size);
   if (bytes == NULL)
     return FALSE;
 
   s = g_bytes_get_data (bytes, &size);
+  color.a = 255;
 
   for (i = 0; i < ctx->pbuf->width; i++)
     {
-      p[0] = p[1] = p[2] = *s++;
+      color.r = color.g = color.b = *s++;
       if (has_alpha)
-        p[3] = *s++;
-      p += ctx->pbuf->n_channels;
+        color.a = *s++;
+      tga_write_pixel (ctx, &color);
     }
 
   g_bytes_unref (bytes);
@@ -399,7 +397,6 @@ parse_data_grayscale (TGAContext *ctx)
 static void
 parse_data (TGAContext *ctx)
 {
-  guint row;
   gboolean success;
 
   do
@@ -414,15 +411,7 @@ parse_data (TGAContext *ctx)
       if (!success)
         break;
 
-      if (ctx->hdr->flags & TGA_ORIGIN_RIGHT)
-        pixbuf_flip_row (ctx->pbuf, ctx->pptr);
-      if (ctx->hdr->flags & TGA_ORIGIN_UPPER)
-        ctx->pptr += ctx->pbuf->rowstride;
-      else
-        ctx->pptr -= ctx->pbuf->rowstride;
-
-      ctx->pbuf_bytes_done += ctx->pbuf->rowstride;
-      if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
+      if (tga_all_pixels_written (ctx))
         {
           ctx->process = tga_skip_rest_of_image;
           break;
@@ -430,20 +419,17 @@ parse_data (TGAContext *ctx)
     }
   while (TRUE);
   
-  row = (ctx->pptr - ctx->pbuf->pixels) / ctx->pbuf->rowstride - 1;
-  if (ctx->ufunc)
-    (*ctx->ufunc) (ctx->pbuf, 0, row, ctx->pbuf->width, 1, ctx->udata);
+  tga_emit_update (ctx);
 }
 
 static void write_rle_data(TGAContext *ctx, const TGAColor *color, guint *rle_count)
 {
-	for (; *rle_count; (*rle_count)--) {
-		g_memmove(ctx->pptr, (guchar *) color, ctx->pbuf->n_channels);
-		ctx->pptr += ctx->pbuf->n_channels;
-		ctx->pbuf_bytes_done += ctx->pbuf->n_channels;
-		if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
-			return;
-	}
+  for (; *rle_count; (*rle_count)--)
+    {
+      tga_write_pixel (ctx, color);
+      if (tga_all_pixels_written (ctx))
+        return;
+    }
 }
 
 static void
@@ -469,7 +455,7 @@ parse_rle_data_pseudocolor (TGAContext *ctx)
 				rle_num = (tag & 0x7f) + 1;
 				write_rle_data(ctx, colormap_get_color (ctx->cmap, *s), &rle_num);
 				s++, n++;
-				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
+				if (tga_all_pixels_written (ctx))
 					break;
 			}
 		} else {
@@ -479,22 +465,16 @@ parse_rle_data_pseudocolor (TGAContext *ctx)
                                 break;
 			} else {
 				for (; raw_num; raw_num--) {
-                                        const TGAColor *color = colormap_get_color (ctx->cmap, *s);
-					*ctx->pptr++ = color->r;
-					*ctx->pptr++ = color->g;
-					*ctx->pptr++ = color->b;
-					if (ctx->pbuf->n_channels == 4)
-						*ctx->pptr++ = color->a;
+                                        tga_write_pixel (ctx, colormap_get_color (ctx->cmap, *s));
 					s++, n++;
-					ctx->pbuf_bytes_done += ctx->pbuf->n_channels;
-					if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
+				        if (tga_all_pixels_written (ctx))
 						break;
 				}
 			}
 		}
 	}
 
-	if (ctx->pbuf_bytes_done == ctx->pbuf_bytes) 
+	if (tga_all_pixels_written (ctx))
                 ctx->process = tga_skip_rest_of_image;
 	
         g_bytes_unref (bytes);
@@ -513,6 +493,7 @@ parse_rle_data_truecolor (TGAContext *ctx)
 
         bytes = gdk_pixbuf_buffer_queue_peek (ctx->input, gdk_pixbuf_buffer_queue_get_size (ctx->input));
 	s = g_bytes_get_data (bytes, &size);
+        col.a = 255;
 
 	for (n = 0; n < size; ) {
 		tag = *s;
@@ -530,7 +511,7 @@ parse_rle_data_truecolor (TGAContext *ctx)
 					col.a = *s++;
 				n += ctx->pbuf->n_channels;
 				write_rle_data(ctx, &col, &rle_num);
-				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
+	                        if (tga_all_pixels_written (ctx))
                                         break;
 			}
 		} else {
@@ -540,25 +521,24 @@ parse_rle_data_truecolor (TGAContext *ctx)
                                 break;
 			} else {
 				for (; raw_num; raw_num--) {
-					ctx->pptr[2] = *s++;
-					ctx->pptr[1] = *s++;
-					ctx->pptr[0] = *s++;
+					col.b = *s++;
+					col.g = *s++;
+					col.r = *s++;
 					if (ctx->hdr->bpp == 32)
-						ctx->pptr[3] = *s++;
+						col.a = *s++;
 					n += ctx->pbuf->n_channels;
-					ctx->pptr += ctx->pbuf->n_channels;
-					ctx->pbuf_bytes_done += ctx->pbuf->n_channels;
-					if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
+                                        tga_write_pixel (ctx, &col);
+	                                if (tga_all_pixels_written (ctx))
                                                 break;
 				}
 				
-				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
+	                        if (tga_all_pixels_written (ctx))
                                         break;
 			}
 		}
 	}
 
-	if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
+	if (tga_all_pixels_written (ctx))
                 ctx->process = tga_skip_rest_of_image;
 
         g_bytes_unref (bytes);
@@ -594,7 +574,7 @@ parse_rle_data_grayscale (TGAContext *ctx)
 					n++;
 				}
 				write_rle_data(ctx, &tone, &rle_num);
-				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
+	                        if (tga_all_pixels_written (ctx))
 					break;
 			}
 		} else {
@@ -604,22 +584,21 @@ parse_rle_data_grayscale (TGAContext *ctx)
                                 break;
 			} else {
 				for (; raw_num; raw_num--) {
-					ctx->pptr[0] = ctx->pptr[1] = ctx->pptr[2] = *s;
+				        tone.r = tone.g = tone.b = *s;
 					s++, n++;
 					if (ctx->pbuf->n_channels == 4) {
-						ctx->pptr[3] = *s++;
+						tone.a = *s++;
 						n++;
 					}
-					ctx->pptr += ctx->pbuf->n_channels;
-					ctx->pbuf_bytes_done += ctx->pbuf->n_channels;
-					if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
+                                        tga_write_pixel (ctx, &tone);
+	                                if (tga_all_pixels_written (ctx))
 						break;
 				}
 			}
 		}
 	}
 
-	if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
+	if (tga_all_pixels_written (ctx))
                 ctx->process = tga_skip_rest_of_image;
 
         g_bytes_unref (bytes);
@@ -629,40 +608,12 @@ parse_rle_data_grayscale (TGAContext *ctx)
 static void
 parse_rle_data (TGAContext *ctx)
 {
-	guint rows = 0;
-	guint bytes_done_before = ctx->pbuf_bytes_done;
-
 	if (ctx->hdr->type == TGA_TYPE_RLE_PSEUDOCOLOR)
 		parse_rle_data_pseudocolor(ctx);
 	else if (ctx->hdr->type == TGA_TYPE_RLE_TRUECOLOR)
 		parse_rle_data_truecolor(ctx);
 	else if (ctx->hdr->type == TGA_TYPE_RLE_GRAYSCALE)
 		parse_rle_data_grayscale(ctx);
-
-	if (ctx->hdr->flags & TGA_ORIGIN_RIGHT) {
-		guchar *row = ctx->pbuf->pixels + (bytes_done_before / ctx->pbuf->rowstride) * ctx->pbuf->rowstride;
-		guchar *row_after = ctx->pbuf->pixels + (ctx->pbuf_bytes_done / ctx->pbuf->rowstride) * ctx->pbuf->rowstride;
-		for (; row < row_after; row += ctx->pbuf->rowstride)
-			pixbuf_flip_row (ctx->pbuf, row);
-	}
-
-	if (ctx->process == tga_skip_rest_of_image) {
-		/* FIXME doing the vertical flipping afterwards is not
-		 * perfect, but doing it during the rle decoding in place
-		 * is considerably more work. 
-		 */
-		if (!(ctx->hdr->flags & TGA_ORIGIN_UPPER)) {
-			pixbuf_flip_vertically (ctx->pbuf);
-			ctx->hdr->flags |= TGA_ORIGIN_UPPER;
-		}
-
-	}
-		
-	rows = ctx->pbuf_bytes_done / ctx->pbuf->rowstride - bytes_done_before / ctx->pbuf->rowstride;
-	if (ctx->ufunc)
-		(*ctx->ufunc) (ctx->pbuf, 0, bytes_done_before / ctx->pbuf->rowstride,
-			       ctx->pbuf->width, rows,
-			       ctx->udata);
 }
 
 static gboolean
@@ -871,9 +822,9 @@ static gpointer gdk_pixbuf__tga_begin_load(GdkPixbufModuleSizeFunc f0,
 	ctx->cmap_size = 0;
 
 	ctx->pbuf = NULL;
-	ctx->pbuf_bytes = 0;
-	ctx->pbuf_bytes_done = 0;
-	ctx->pptr = NULL;
+        ctx->pbuf_x = 0;
+        ctx->pbuf_y = 0;
+        ctx->pbuf_y_notified = 0;
 
 	ctx->input = gdk_pixbuf_buffer_queue_new ();
 
@@ -915,16 +866,6 @@ static gboolean gdk_pixbuf__tga_stop_load(gpointer data, GError **err)
 	TGAContext *ctx = (TGAContext *) data;
 	g_return_val_if_fail(ctx != NULL, FALSE);
 
-	if (ctx->hdr &&
-            (ctx->hdr->flags & TGA_ORIGIN_UPPER) == 0 && 
-            ctx->run_length_encoded && 
-            ctx->pbuf) {
-		pixbuf_flip_vertically (ctx->pbuf);
-		if (ctx->ufunc)
-			(*ctx->ufunc) (ctx->pbuf, 0, 0,
-				       ctx->pbuf->width, ctx->pbuf->height,
-			       	       ctx->udata);
-	}
 	g_free (ctx->hdr);
 	if (ctx->cmap)
           colormap_free (ctx->cmap);
