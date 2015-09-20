@@ -204,6 +204,12 @@ tga_write_pixel (TGAContext     *ctx,
     }
 }
 
+static gsize
+tga_pixels_remaining (TGAContext *ctx)
+{
+  return ctx->pbuf->width * (ctx->pbuf->height - ctx->pbuf_y) - ctx->pbuf_x;
+}
+
 static gboolean
 tga_all_pixels_written (TGAContext *ctx)
 {
@@ -341,22 +347,24 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 	return TRUE;
 }
 
-static gboolean
-parse_data_row (TGAContext *ctx)
+static void
+parse_data (TGAContext *ctx)
 {
   TGAColor color;
   GBytes *bytes;
-  gsize i, bytes_per_pixel;
+  gsize i, size, bytes_per_pixel;
   const guchar *data;
 
   bytes_per_pixel = (ctx->hdr->bpp + 7) / 8;
-  bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->pbuf->width * bytes_per_pixel);
-  if (bytes == NULL)
-    return FALSE;
+  size = gdk_pixbuf_buffer_queue_get_size (ctx->input) / bytes_per_pixel;
+  size = MIN (size, tga_pixels_remaining (ctx));
+
+  bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, size * bytes_per_pixel);
+  g_assert (bytes != NULL);
 
   data = g_bytes_get_data (bytes, NULL);
 
-  for (i = 0; i < ctx->pbuf->width; i++)
+  for (i = 0; i < size; i++)
     {
       tga_read_pixel (ctx, data, &color);
       tga_write_pixel (ctx, &color);
@@ -364,28 +372,9 @@ parse_data_row (TGAContext *ctx)
     }
 
   g_bytes_unref (bytes);
-  return TRUE;
-}
 
-static void
-parse_data (TGAContext *ctx)
-{
-  gboolean success;
-
-  do
-    {
-      success = parse_data_row (ctx);
-
-      if (!success)
-        break;
-
-      if (tga_all_pixels_written (ctx))
-        {
-          ctx->process = tga_skip_rest_of_image;
-          break;
-        }
-    }
-  while (TRUE);
+  if (tga_all_pixels_written (ctx))
+    ctx->process = tga_skip_rest_of_image;
   
   tga_emit_update (ctx);
 }
