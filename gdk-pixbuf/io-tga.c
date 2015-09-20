@@ -112,7 +112,6 @@ struct _TGAColormap {
 struct _TGAContext {
 	TGAHeader *hdr;
 	guint rowstride;
-	guint completed_lines;
 	gboolean run_length_encoded;
 
 	TGAColormap *cmap;
@@ -303,7 +302,6 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 	else if (ctx->hdr->type == TGA_TYPE_TRUECOLOR)
 		ctx->rowstride = ctx->pbuf->rowstride;
 
-	ctx->completed_lines = 0;
 	return TRUE;
 }
 
@@ -881,14 +879,8 @@ static gboolean gdk_pixbuf__tga_load_increment(gpointer data,
 	if (ctx->run_length_encoded) {
 		parse_rle_data (ctx);
 	} else {
-		while (gdk_pixbuf_buffer_queue_get_size (ctx->input) >= ctx->rowstride) {
-			if (ctx->completed_lines >= ctx->pbuf->height) {
-				g_set_error_literal(err, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_FAILED,
-                                                    _("Excess data in file"));
-				return FALSE;
-			}
+		while (!ctx->done && gdk_pixbuf_buffer_queue_get_size (ctx->input) >= ctx->rowstride) {
 			parse_data_for_row (ctx);
-			ctx->completed_lines++;
 		}
 	}
 
