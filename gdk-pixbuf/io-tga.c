@@ -113,7 +113,6 @@ typedef gboolean (* TGAProcessFunc) (TGAContext *ctx, GError **error);
 
 struct _TGAContext {
 	TGAHeader *hdr;
-	gboolean run_length_encoded;
 
 	TGAColormap *cmap;
 	guint cmap_size;
@@ -311,11 +310,6 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 
 	g_return_val_if_fail(ctx != NULL, FALSE);
 
-	ctx->run_length_encoded =
-		((ctx->hdr->type == TGA_TYPE_RLE_PSEUDOCOLOR)
-		 || (ctx->hdr->type == TGA_TYPE_RLE_TRUECOLOR)
-		 || (ctx->hdr->type == TGA_TYPE_RLE_GRAYSCALE));
-
         ctx->cmap_size = ((ctx->hdr->cmap_bpp + 7) >> 3) *
                 LE16(ctx->hdr->cmap_n_colors);
 
@@ -347,8 +341,9 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 	return TRUE;
 }
 
-static void
-parse_data (TGAContext *ctx)
+static gboolean
+tga_load_image (TGAContext  *ctx,
+                GError     **err)
 {
   TGAColor color;
   GBytes *bytes;
@@ -373,14 +368,16 @@ parse_data (TGAContext *ctx)
 
   g_bytes_unref (bytes);
 
+  tga_emit_update (ctx);
+  
   if (tga_all_pixels_written (ctx))
     ctx->process = tga_skip_rest_of_image;
-  
-  tga_emit_update (ctx);
+  return TRUE;
 }
 
-static void
-parse_rle_data (TGAContext *ctx)
+static gboolean
+tga_load_rle_image (TGAContext  *ctx,
+                    GError     **err)
 {
         GBytes *bytes;
 	TGAColor color;
@@ -435,29 +432,14 @@ parse_rle_data (TGAContext *ctx)
 		}
 	}
 
-	if (tga_all_pixels_written (ctx))
-                ctx->process = tga_skip_rest_of_image;
-
         g_bytes_unref (bytes);
         gdk_pixbuf_buffer_queue_flush (ctx->input, n);
 
         tga_emit_update (ctx);
-}
 
-static gboolean
-tga_load_image (TGAContext  *ctx,
-                GError     **err)
-{
-  if (ctx->run_length_encoded)
-    {
-      parse_rle_data (ctx);
-    }
-  else
-    {
-      parse_data (ctx);
-    }
-
-  return TRUE;
+	if (tga_all_pixels_written (ctx))
+                ctx->process = tga_skip_rest_of_image;
+        return TRUE;
 }
 
 static gboolean
@@ -510,7 +492,13 @@ tga_load_colormap (TGAContext  *ctx,
                 colormap_set_color (ctx->cmap, i, &color);
 	}
         
-        ctx->process = tga_load_image;
+        if ((ctx->hdr->type == TGA_TYPE_RLE_PSEUDOCOLOR)
+            || (ctx->hdr->type == TGA_TYPE_RLE_TRUECOLOR)
+            || (ctx->hdr->type == TGA_TYPE_RLE_GRAYSCALE))
+          ctx->process = tga_load_rle_image;
+        else
+          ctx->process = tga_load_image;
+
 	return TRUE;
 }
 
@@ -616,7 +604,6 @@ static gpointer gdk_pixbuf__tga_begin_load(GdkPixbufModuleSizeFunc f0,
 	}
 
 	ctx->hdr = NULL;
-	ctx->run_length_encoded = FALSE;
 
 	ctx->cmap = NULL;
 	ctx->cmap_size = 0;
