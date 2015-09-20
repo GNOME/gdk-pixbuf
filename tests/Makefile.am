@@ -40,6 +40,7 @@ test_programs = 			\
 	pixbuf-resource			\
 	pixbuf-scale			\
 	pixbuf-short-gif-write		\
+	pixbuf-slow-load		\
 	pixbuf-save			\
 	pixbuf-readonly-to-mutable	\
 	pixbuf-composite		\
@@ -61,7 +62,8 @@ dist_installed_test_data =		\
 	cve-2015-4491.bmp		\
 	large.png			\
 	large.jpg			\
-	$(wildcard $(srcdir)/test-images/*)
+	$(wildcard $(srcdir)/test-images/*) \
+	$(wildcard $(srcdir)/test-images/tga/*)
 
 cve_2015_4491_SOURCES =			\
 	cve-2015-4491.c			\
@@ -109,6 +111,12 @@ pixbuf_icon_serialize_SOURCES =		\
 
 pixbuf_save_SOURCES =			\
 	pixbuf-save.c			\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_slow_load_SOURCES =		\
+	pixbuf-slow-load.c		\
 	test-common.c			\
 	test-common.h			\
 	$(NULL)
