@@ -342,14 +342,15 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 }
 
 static gboolean
-parse_data_pseudocolor (TGAContext *ctx)
+parse_data_row (TGAContext *ctx)
 {
   TGAColor color;
   GBytes *bytes;
-  gsize i;
+  gsize i, bytes_per_pixel;
   const guchar *data;
 
-  bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->pbuf->width);
+  bytes_per_pixel = (ctx->hdr->bpp + 7) / 8;
+  bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->pbuf->width * bytes_per_pixel);
   if (bytes == NULL)
     return FALSE;
 
@@ -359,62 +360,7 @@ parse_data_pseudocolor (TGAContext *ctx)
     {
       tga_read_pixel (ctx, data, &color);
       tga_write_pixel (ctx, &color);
-      data++;
-    }
-
-  g_bytes_unref (bytes);
-  return TRUE;
-}
-
-static gboolean
-parse_data_truecolor (TGAContext *ctx)
-{
-  TGAColor color;
-  GBytes *bytes;
-  const guchar *data;
-  gsize i;
-  
-  bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->pbuf->width * ctx->pbuf->n_channels);
-  if (bytes == NULL)
-    return FALSE;
-
-  data = g_bytes_get_data (bytes, NULL);
-
-  for (i = 0; i < ctx->pbuf->width; i++)
-    {
-      tga_read_pixel (ctx, data, &color);
-      tga_write_pixel (ctx, &color);
-      data += ctx->pbuf->n_channels;
-    }
-
-  g_bytes_unref (bytes);
-  return TRUE;
-}
-
-static gboolean
-parse_data_grayscale (TGAContext *ctx)
-{
-  TGAColor color;
-  GBytes *bytes;
-  gsize i, size;
-  const guchar *s;
-  gboolean has_alpha;
-
-  has_alpha = ctx->pbuf->n_channels == 4;
-  size = ctx->pbuf->width * (has_alpha ? 2 : 1);
- 
-  bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, size);
-  if (bytes == NULL)
-    return FALSE;
-
-  s = g_bytes_get_data (bytes, &size);
-  color.a = 255;
-
-  for (i = 0; i < ctx->pbuf->width; i++)
-    {
-      tga_read_pixel (ctx, s, &color);
-      tga_write_pixel (ctx, &color);
-      s += has_alpha ? 2 : 1;
+      data += bytes_per_pixel;
     }
 
   g_bytes_unref (bytes);
@@ -428,12 +374,7 @@ parse_data (TGAContext *ctx)
 
   do
     {
-      if (ctx->hdr->type == TGA_TYPE_PSEUDOCOLOR)
-        success = parse_data_pseudocolor (ctx);
-      else if (ctx->hdr->type == TGA_TYPE_TRUECOLOR)
-        success = parse_data_truecolor (ctx);
-      else if (ctx->hdr->type == TGA_TYPE_GRAYSCALE)
-        success = parse_data_grayscale (ctx);
+      success = parse_data_row (ctx);
 
       if (!success)
         break;
@@ -449,26 +390,17 @@ parse_data (TGAContext *ctx)
   tga_emit_update (ctx);
 }
 
-static void write_rle_data(TGAContext *ctx, const TGAColor *color, guint *rle_count)
-{
-  for (; *rle_count; (*rle_count)--)
-    {
-      tga_write_pixel (ctx, color);
-      if (tga_all_pixels_written (ctx))
-        return;
-    }
-}
-
 static void
-parse_rle_data_pseudocolor (TGAContext *ctx)
+parse_rle_data (TGAContext *ctx)
 {
-        TGAColor color;
         GBytes *bytes;
+	TGAColor color;
 	guint rle_num, raw_num;
 	const guchar *s;
         guchar tag;
-	gsize n, size;
+	gsize n, size, bytes_per_pixel;
 
+        bytes_per_pixel = (ctx->hdr->bpp + 7) / 8;
         bytes = gdk_pixbuf_buffer_queue_peek (ctx->input, gdk_pixbuf_buffer_queue_get_size (ctx->input));
 	s = g_bytes_get_data (bytes, &size);
 
@@ -476,82 +408,34 @@ parse_rle_data_pseudocolor (TGAContext *ctx)
 		tag = *s;
 		s++, n++;
 		if (tag & 0x80) {
-			if (n == size) {
+			if (n + bytes_per_pixel >= size) {
 				--n;
                                 break;
 			} else {
 				rle_num = (tag & 0x7f) + 1;
                                 tga_read_pixel (ctx, s, &color);
-				write_rle_data(ctx, &color, &rle_num);
-				s++, n++;
-				if (tga_all_pixels_written (ctx))
-					break;
-			}
-		} else {
-			raw_num = tag + 1;
-			if (n + raw_num >= size) {
-				--n;
-                                break;
-			} else {
-				for (; raw_num; raw_num--) {
-                                        tga_read_pixel (ctx, s, &color);
-                                        tga_write_pixel (ctx, &color);
-					s++, n++;
-				        if (tga_all_pixels_written (ctx))
-						break;
-				}
-			}
-		}
-	}
-
-	if (tga_all_pixels_written (ctx))
-                ctx->process = tga_skip_rest_of_image;
-	
-        g_bytes_unref (bytes);
-        gdk_pixbuf_buffer_queue_flush (ctx->input, n);
-}
-
-static void
-parse_rle_data_truecolor (TGAContext *ctx)
-{
-        GBytes *bytes;
-	TGAColor col;
-	guint rle_num, raw_num;
-	const guchar *s;
-        guchar tag;
-	gsize n, size;
-
-        bytes = gdk_pixbuf_buffer_queue_peek (ctx->input, gdk_pixbuf_buffer_queue_get_size (ctx->input));
-	s = g_bytes_get_data (bytes, &size);
-        col.a = 255;
-
-	for (n = 0; n < size; ) {
-		tag = *s;
-		s++, n++;
-		if (tag & 0x80) {
-			if (n + ctx->pbuf->n_channels >= size) {
-				--n;
-                                break;
-			} else {
-				rle_num = (tag & 0x7f) + 1;
-                                tga_read_pixel (ctx, s, &col);
-				s += ctx->pbuf->n_channels;
-				n += ctx->pbuf->n_channels;
-				write_rle_data(ctx, &col, &rle_num);
+				s += bytes_per_pixel;
+				n += bytes_per_pixel;
+                                for (; rle_num; rle_num--)
+                                  {
+                                    tga_write_pixel (ctx, &color);
+                                    if (tga_all_pixels_written (ctx))
+                                      break;
+                                  }
 	                        if (tga_all_pixels_written (ctx))
                                         break;
 			}
 		} else {
 			raw_num = tag + 1;
-			if (n + (raw_num * ctx->pbuf->n_channels) >= size) {
+			if (n + (raw_num * bytes_per_pixel) >= size) {
 			        --n;
                                 break;
 			} else {
 				for (; raw_num; raw_num--) {
-                                        tga_read_pixel (ctx, s, &col);
-					s += ctx->pbuf->n_channels;
-					n += ctx->pbuf->n_channels;
-                                        tga_write_pixel (ctx, &col);
+                                        tga_read_pixel (ctx, s, &color);
+					s += bytes_per_pixel;
+					n += bytes_per_pixel;
+                                        tga_write_pixel (ctx, &color);
 	                                if (tga_all_pixels_written (ctx))
                                                 break;
 				}
@@ -567,77 +451,8 @@ parse_rle_data_truecolor (TGAContext *ctx)
 
         g_bytes_unref (bytes);
         gdk_pixbuf_buffer_queue_flush (ctx->input, n);
-}
 
-static void
-parse_rle_data_grayscale (TGAContext *ctx)
-{
-        GBytes *bytes;
-	TGAColor tone;
-	guint rle_num, raw_num;
-	const guchar *s;
-        guchar tag;
-	gsize n, size;
-
-        bytes = gdk_pixbuf_buffer_queue_peek (ctx->input, gdk_pixbuf_buffer_queue_get_size (ctx->input));
-	s = g_bytes_get_data (bytes, &size);
-
-	for (n = 0; n < size; ) {
-		tag = *s;
-		s++, n++;
-		if (tag & 0x80) {
-			if (n + (ctx->pbuf->n_channels == 4 ? 2 : 1) >= size) {
-				--n;
-                                break;
-			} else {
-				rle_num = (tag & 0x7f) + 1;
-                                tga_read_pixel (ctx, s, &tone);
-				s++, n++;
-				if (ctx->pbuf->n_channels == 4) {
-					s++;
-					n++;
-				}
-				write_rle_data(ctx, &tone, &rle_num);
-	                        if (tga_all_pixels_written (ctx))
-					break;
-			}
-		} else {
-			raw_num = tag + 1;
-			if (n + raw_num * (ctx->pbuf->n_channels == 4 ? 2 : 1) >= size) {
-				--n;
-                                break;
-			} else {
-				for (; raw_num; raw_num--) {
-                                        tga_read_pixel (ctx, s, &tone);
-					s++, n++;
-					if (ctx->pbuf->n_channels == 4) {
-						s++;
-						n++;
-					}
-                                        tga_write_pixel (ctx, &tone);
-	                                if (tga_all_pixels_written (ctx))
-						break;
-				}
-			}
-		}
-	}
-
-	if (tga_all_pixels_written (ctx))
-                ctx->process = tga_skip_rest_of_image;
-
-        g_bytes_unref (bytes);
-        gdk_pixbuf_buffer_queue_flush (ctx->input, n);
-}
-
-static void
-parse_rle_data (TGAContext *ctx)
-{
-	if (ctx->hdr->type == TGA_TYPE_RLE_PSEUDOCOLOR)
-		parse_rle_data_pseudocolor(ctx);
-	else if (ctx->hdr->type == TGA_TYPE_RLE_TRUECOLOR)
-		parse_rle_data_truecolor(ctx);
-	else if (ctx->hdr->type == TGA_TYPE_RLE_GRAYSCALE)
-		parse_rle_data_grayscale(ctx);
+        tga_emit_update (ctx);
 }
 
 static gboolean
