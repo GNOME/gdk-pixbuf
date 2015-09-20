@@ -133,11 +133,6 @@ struct _TGAContext {
 	gpointer udata;
 };
 
-static void free_buffer(guchar *pixels, gpointer data)
-{
-	g_free(pixels);
-}
-
 static TGAColormap *
 colormap_new (guint n_colors)
 {
@@ -190,32 +185,6 @@ tga_skip_rest_of_image (TGAContext  *ctx,
   gdk_pixbuf_buffer_queue_flush (ctx->input, gdk_pixbuf_buffer_queue_get_size (ctx->input));
 
   return TRUE;
-}
-
-static GdkPixbuf *get_contiguous_pixbuf (guint width, 
-					 guint height, 
-					 gboolean has_alpha)
-{
-	guchar *pixels;
-	guint channels, rowstride;
-	
-	if (has_alpha) 
-		channels = 4;
-	else 
-		channels = 3;
-	
-	rowstride = width * channels;
-	
-	if (rowstride / channels != width)
-                return NULL;                
-
-        pixels = g_try_malloc_n (height, rowstride);
-
-	if (!pixels)
-		return NULL;
-	
-	return gdk_pixbuf_new_from_data (pixels, GDK_COLORSPACE_RGB, has_alpha, 8,
-					 width, height, rowstride, free_buffer, NULL);
 }
 
 static inline void
@@ -324,7 +293,7 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 			return FALSE;
 	}
 
-	ctx->pbuf = get_contiguous_pixbuf (w, h, alpha);
+	ctx->pbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, alpha, 8, w, h);
 
 	if (!ctx->pbuf) {
 		g_set_error_literal(err, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
