@@ -261,6 +261,43 @@ tga_format_supported (guint type,
     }
 }
 
+static inline void
+tga_read_pixel (TGAContext   *ctx,
+                const guchar *data,
+                TGAColor     *color)
+{
+  switch (ctx->hdr->type)
+    {
+      case TGA_TYPE_PSEUDOCOLOR:
+      case TGA_TYPE_RLE_PSEUDOCOLOR:
+        *color = *colormap_get_color (ctx->cmap, data[0]);
+        break;
+
+      case TGA_TYPE_TRUECOLOR:
+      case TGA_TYPE_RLE_TRUECOLOR:
+        color->b = data[0];
+        color->g = data[1];
+        color->r = data[2];
+        if (ctx->hdr->bpp == 32)
+          color->a = data[3];
+        else
+          color->a = 255;
+        break;
+
+      case TGA_TYPE_GRAYSCALE:
+      case TGA_TYPE_RLE_GRAYSCALE:
+        color->r = color->g = color->b = data[0];
+        if (ctx->hdr->bpp == 16)
+          color->a = data[1];
+        else
+          color->a = 255;
+        break;
+
+      default:
+        g_assert_not_reached ();
+    }
+}
+
 static gboolean fill_in_context(TGAContext *ctx, GError **err)
 {
 	gboolean alpha;
@@ -307,6 +344,7 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 static gboolean
 parse_data_pseudocolor (TGAContext *ctx)
 {
+  TGAColor color;
   GBytes *bytes;
   gsize i;
   const guchar *data;
@@ -319,7 +357,9 @@ parse_data_pseudocolor (TGAContext *ctx)
 
   for (i = 0; i < ctx->pbuf->width; i++)
     {
-      tga_write_pixel (ctx, colormap_get_color (ctx->cmap, data[i]));
+      tga_read_pixel (ctx, data, &color);
+      tga_write_pixel (ctx, &color);
+      data++;
     }
 
   g_bytes_unref (bytes);
@@ -338,17 +378,11 @@ parse_data_truecolor (TGAContext *ctx)
   if (bytes == NULL)
     return FALSE;
 
-  color.a = 255;
   data = g_bytes_get_data (bytes, NULL);
 
   for (i = 0; i < ctx->pbuf->width; i++)
     {
-      color.r = data[2];
-      color.g = data[1];
-      color.b = data[0];
-      if (ctx->pbuf->n_channels == 4)
-        color.a = data[3];
-
+      tga_read_pixel (ctx, data, &color);
       tga_write_pixel (ctx, &color);
       data += ctx->pbuf->n_channels;
     }
@@ -378,10 +412,9 @@ parse_data_grayscale (TGAContext *ctx)
 
   for (i = 0; i < ctx->pbuf->width; i++)
     {
-      color.r = color.g = color.b = *s++;
-      if (has_alpha)
-        color.a = *s++;
+      tga_read_pixel (ctx, s, &color);
       tga_write_pixel (ctx, &color);
+      s += has_alpha ? 2 : 1;
     }
 
   g_bytes_unref (bytes);
@@ -429,6 +462,7 @@ static void write_rle_data(TGAContext *ctx, const TGAColor *color, guint *rle_co
 static void
 parse_rle_data_pseudocolor (TGAContext *ctx)
 {
+        TGAColor color;
         GBytes *bytes;
 	guint rle_num, raw_num;
 	const guchar *s;
@@ -447,7 +481,8 @@ parse_rle_data_pseudocolor (TGAContext *ctx)
                                 break;
 			} else {
 				rle_num = (tag & 0x7f) + 1;
-				write_rle_data(ctx, colormap_get_color (ctx->cmap, *s), &rle_num);
+                                tga_read_pixel (ctx, s, &color);
+				write_rle_data(ctx, &color, &rle_num);
 				s++, n++;
 				if (tga_all_pixels_written (ctx))
 					break;
@@ -459,7 +494,8 @@ parse_rle_data_pseudocolor (TGAContext *ctx)
                                 break;
 			} else {
 				for (; raw_num; raw_num--) {
-                                        tga_write_pixel (ctx, colormap_get_color (ctx->cmap, *s));
+                                        tga_read_pixel (ctx, s, &color);
+                                        tga_write_pixel (ctx, &color);
 					s++, n++;
 				        if (tga_all_pixels_written (ctx))
 						break;
@@ -498,11 +534,8 @@ parse_rle_data_truecolor (TGAContext *ctx)
                                 break;
 			} else {
 				rle_num = (tag & 0x7f) + 1;
-				col.b = *s++;
-				col.g = *s++;
-				col.r = *s++;
-				if (ctx->hdr->bpp == 32)
-					col.a = *s++;
+                                tga_read_pixel (ctx, s, &col);
+				s += ctx->pbuf->n_channels;
 				n += ctx->pbuf->n_channels;
 				write_rle_data(ctx, &col, &rle_num);
 	                        if (tga_all_pixels_written (ctx))
@@ -515,11 +548,8 @@ parse_rle_data_truecolor (TGAContext *ctx)
                                 break;
 			} else {
 				for (; raw_num; raw_num--) {
-					col.b = *s++;
-					col.g = *s++;
-					col.r = *s++;
-					if (ctx->hdr->bpp == 32)
-						col.a = *s++;
+                                        tga_read_pixel (ctx, s, &col);
+					s += ctx->pbuf->n_channels;
 					n += ctx->pbuf->n_channels;
                                         tga_write_pixel (ctx, &col);
 	                                if (tga_all_pixels_written (ctx))
@@ -561,10 +591,10 @@ parse_rle_data_grayscale (TGAContext *ctx)
                                 break;
 			} else {
 				rle_num = (tag & 0x7f) + 1;
-				tone.r = tone.g = tone.b = *s;
+                                tga_read_pixel (ctx, s, &tone);
 				s++, n++;
 				if (ctx->pbuf->n_channels == 4) {
-					tone.a = *s++;
+					s++;
 					n++;
 				}
 				write_rle_data(ctx, &tone, &rle_num);
@@ -578,10 +608,10 @@ parse_rle_data_grayscale (TGAContext *ctx)
                                 break;
 			} else {
 				for (; raw_num; raw_num--) {
-				        tone.r = tone.g = tone.b = *s;
+                                        tga_read_pixel (ctx, s, &tone);
 					s++, n++;
 					if (ctx->pbuf->n_channels == 4) {
-						tone.a = *s++;
+						s++;
 						n++;
 					}
                                         tga_write_pixel (ctx, &tone);
