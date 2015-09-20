@@ -267,6 +267,31 @@ tga_emit_update (TGAContext *ctx)
   ctx->pbuf_y_notified = ctx->pbuf_y;
 }
 
+static gboolean
+tga_format_supported (guint type,
+                      guint bits_per_pixel)
+{
+  switch (type)
+    {
+      case TGA_TYPE_PSEUDOCOLOR:
+      case TGA_TYPE_RLE_PSEUDOCOLOR:
+        return bits_per_pixel == 8;
+
+      case TGA_TYPE_TRUECOLOR:
+      case TGA_TYPE_RLE_TRUECOLOR:
+        return bits_per_pixel == 24
+            || bits_per_pixel == 32;
+
+      case TGA_TYPE_GRAYSCALE:
+      case TGA_TYPE_RLE_GRAYSCALE:
+        return bits_per_pixel == 8
+            || bits_per_pixel == 16;
+
+      default:
+        return FALSE;
+    }
+}
+
 static gboolean fill_in_context(TGAContext *ctx, GError **err)
 {
 	gboolean alpha;
@@ -754,42 +779,14 @@ tga_load_header (TGAContext  *ctx,
                               _("TGA image type not supported"));
           return FALSE;
   }
-  switch (ctx->hdr->type) {
-      case TGA_TYPE_PSEUDOCOLOR:
-      case TGA_TYPE_RLE_PSEUDOCOLOR:
-              if (ctx->hdr->bpp != 8) {
-                      g_set_error_literal(err, GDK_PIXBUF_ERROR, 
-                                          GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                                          _("TGA image type not supported"));
-                      return FALSE;
-              }
-              break;
-      case TGA_TYPE_TRUECOLOR:
-      case TGA_TYPE_RLE_TRUECOLOR:
-              if (ctx->hdr->bpp != 24 &&
-                  ctx->hdr->bpp != 32) {
-                      g_set_error_literal(err, GDK_PIXBUF_ERROR, 
-                                          GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                                          _("TGA image type not supported"));
-                      return FALSE;
-              }			      
-              break;
-      case TGA_TYPE_GRAYSCALE:
-      case TGA_TYPE_RLE_GRAYSCALE:
-              if (ctx->hdr->bpp != 8 &&
-                  ctx->hdr->bpp != 16) {
-                      g_set_error_literal(err, GDK_PIXBUF_ERROR, 
-                                          GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                                          _("TGA image type not supported"));
-                      return FALSE;
-              }
-              break;
-      default:
-              g_set_error_literal(err, GDK_PIXBUF_ERROR, 
-                                  GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                                  _("TGA image type not supported"));
-              return FALSE;    
-  }
+  if (!tga_format_supported (ctx->hdr->type, ctx->hdr->bpp))
+    {
+      g_set_error_literal(err, GDK_PIXBUF_ERROR,
+                          GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+                          _("TGA image type not supported"));
+      return FALSE;
+    }
+
   if (!fill_in_context(ctx, err))
           return FALSE;
 
