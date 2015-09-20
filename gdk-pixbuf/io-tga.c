@@ -327,6 +327,12 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 
         ctx->cmap_size = ((ctx->hdr->cmap_bpp + 7) >> 3) *
                 LE16(ctx->hdr->cmap_n_colors);
+        ctx->cmap = colormap_new (LE16(ctx->hdr->cmap_n_colors));
+	if (!ctx->cmap) {
+		g_set_error_literal(err, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
+                                    _("Cannot allocate colormap"));
+		return FALSE;
+	}
 
 	alpha = ((ctx->hdr->bpp == 16) || 
 		 (ctx->hdr->bpp == 32) ||
@@ -461,60 +467,62 @@ static gboolean
 tga_load_colormap (TGAContext  *ctx,
                    GError     **err)
 {
-        GBytes *bytes;
-        TGAColor color;
-	const guchar *p;
-	guint i, n_colors;
+  GBytes *bytes;
+  TGAColor color;
+  const guchar *p;
+  guint i, n_colors;
 
-	g_return_val_if_fail(ctx != NULL, FALSE);
+  if (ctx->hdr->has_cmap)
+    {
+      bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->cmap_size);
+      if (bytes == NULL)
+        return TRUE;
 
-        bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->cmap_size);
-        if (bytes == NULL)
-          return TRUE;
+      n_colors = LE16(ctx->hdr->cmap_n_colors);
 
-        n_colors = LE16(ctx->hdr->cmap_n_colors);
-        ctx->cmap = colormap_new (n_colors);
-	if (!ctx->cmap) {
-		g_set_error_literal(err, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                    _("Cannot allocate colormap"));
-		return FALSE;
-	}
+      p = g_bytes_get_data (bytes, NULL);
+      color.a = 255;
 
-	p = g_bytes_get_data (bytes, NULL);
-        color.a = 255;
+      for (i = 0; i < n_colors; i++)
+        {
+          if ((ctx->hdr->cmap_bpp == 15) || (ctx->hdr->cmap_bpp == 16))
+            {
+              guint16 col = p[0] + (p[1] << 8);
+              color.b = (col >> 7) & 0xf8;
+              color.g = (col >> 2) & 0xf8;
+              color.r = col << 3;
+              p += 2;
+            }
+          else if ((ctx->hdr->cmap_bpp == 24) || (ctx->hdr->cmap_bpp == 32))
+            {
+              color.b = *p++;
+              color.g = *p++;
+              color.r = *p++;
+              if (ctx->hdr->cmap_bpp == 32)
+                color.a = *p++;
+            }
+          else
+            {
+              g_set_error_literal (err, GDK_PIXBUF_ERROR, 
+                                   GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                   _("Unexpected bitdepth for colormap entries"));
+              g_bytes_unref (bytes);
+              return FALSE;
+            }
+          colormap_set_color (ctx->cmap, i, &color);
+        }
 
-	for (i = 0; i < n_colors; i++) {
-		if ((ctx->hdr->cmap_bpp == 15) || (ctx->hdr->cmap_bpp == 16)) {
-			guint16 col = p[0] + (p[1] << 8);
-			color.b = (col >> 7) & 0xf8;
-			color.g = (col >> 2) & 0xf8;
-			color.r = col << 3;
-			p += 2;
-		}
-		else if ((ctx->hdr->cmap_bpp == 24) || (ctx->hdr->cmap_bpp == 32)) {
-			color.b = *p++;
-			color.g = *p++;
-			color.r = *p++;
-			if (ctx->hdr->cmap_bpp == 32)
-				color.a = *p++;
-		} else {
-			g_set_error_literal(err, GDK_PIXBUF_ERROR, 
-                                            GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                            _("Unexpected bitdepth for colormap entries"));
-                        g_bytes_unref (bytes);
-			return FALSE;
-		}
-                colormap_set_color (ctx->cmap, i, &color);
-	}
-        
-        if ((ctx->hdr->type == TGA_TYPE_RLE_PSEUDOCOLOR)
-            || (ctx->hdr->type == TGA_TYPE_RLE_TRUECOLOR)
-            || (ctx->hdr->type == TGA_TYPE_RLE_GRAYSCALE))
-          ctx->process = tga_load_rle_image;
-        else
-          ctx->process = tga_load_image;
+      g_bytes_unref (bytes);
+    }
+  
+  if ((ctx->hdr->type == TGA_TYPE_RLE_PSEUDOCOLOR)
+      || (ctx->hdr->type == TGA_TYPE_RLE_TRUECOLOR)
+      || (ctx->hdr->type == TGA_TYPE_RLE_GRAYSCALE))
+    ctx->process = tga_load_rle_image;
+  else
+    ctx->process = tga_load_image;
 
-	return TRUE;
+  return TRUE;
 }
 
 static gboolean
