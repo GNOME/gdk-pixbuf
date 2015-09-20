@@ -113,7 +113,6 @@ typedef gboolean (* TGAProcessFunc) (TGAContext *ctx, GError **error);
 
 struct _TGAContext {
 	TGAHeader *hdr;
-	guint rowstride;
 	gboolean run_length_encoded;
 
 	TGAColormap *cmap;
@@ -306,27 +305,24 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 	else
 		ctx->pptr = ctx->pbuf->pixels + (ctx->pbuf->height - 1)*ctx->pbuf->rowstride;
 
-	if (ctx->hdr->type == TGA_TYPE_PSEUDOCOLOR)
-	  ctx->rowstride = ctx->pbuf->width;
-	else if (ctx->hdr->type == TGA_TYPE_GRAYSCALE)
-	  ctx->rowstride = (alpha ? ctx->pbuf->width * 2 : ctx->pbuf->width);
-	else if (ctx->hdr->type == TGA_TYPE_TRUECOLOR)
-		ctx->rowstride = ctx->pbuf->rowstride;
-
 	return TRUE;
 }
 
-static void
-parse_data_for_row_pseudocolor (TGAContext *ctx,
-                                GBytes     *bytes)
+static gboolean
+parse_data_pseudocolor (TGAContext *ctx)
 {
-  gsize size, i;
+  GBytes *bytes;
+  gsize i;
+  const guchar *data;
   guchar *p = ctx->pptr;
-  const guchar *data = g_bytes_get_data (bytes, &size);
 
-  g_assert (size == ctx->pbuf->width);
+  bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->pbuf->width);
+  if (bytes == NULL)
+    return FALSE;
 
-  for (i = 0; i < size; i++)
+  data = g_bytes_get_data (bytes, NULL);
+
+  for (i = 0; i < ctx->pbuf->width; i++)
     {
       const TGAColor *color = colormap_get_color (ctx->cmap, data[i]);
       *p++ = color->r;
@@ -335,20 +331,26 @@ parse_data_for_row_pseudocolor (TGAContext *ctx,
       if (ctx->hdr->cmap_bpp == 32)
         *p++ = color->a;
     }
+
+  g_bytes_unref (bytes);
+  return TRUE;
 }
 
-static void
-parse_data_for_row_truecolor (TGAContext *ctx,
-                              GBytes     *bytes)
+static gboolean
+parse_data_truecolor (TGAContext *ctx)
 {
+  GBytes *bytes;
   const guchar *data;
   guchar *p;
-  gsize i, size;
+  gsize i;
   
-  data = g_bytes_get_data (bytes, &size);
+  bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->pbuf->width * ctx->pbuf->n_channels);
+  if (bytes == NULL)
+    return FALSE;
+
+  data = g_bytes_get_data (bytes, NULL);
   p = ctx->pptr;
-  g_assert (size == ctx->pbuf->width * ctx->pbuf->n_channels);
-  
+
   for (i = 0; i < ctx->pbuf->width; i++)
     {
       p[0] = data[2];
@@ -359,62 +361,77 @@ parse_data_for_row_truecolor (TGAContext *ctx,
 
       p += ctx->pbuf->n_channels;
       data += ctx->pbuf->n_channels;
-    }
+        }
+
+  g_bytes_unref (bytes);
+  return TRUE;
 }
 
-static void
-parse_data_for_row_grayscale (TGAContext *ctx,
-                              GBytes     *bytes)
+static gboolean
+parse_data_grayscale (TGAContext *ctx)
 {
+  GBytes *bytes;
   gsize i, size;
   const guchar *s;
   guchar *p;
   gboolean has_alpha;
 
-  s = g_bytes_get_data (bytes, &size);
-  p = ctx->pptr;
   has_alpha = ctx->pbuf->n_channels == 4;
+  size = ctx->pbuf->width * (has_alpha ? 2 : 1);
+  p = ctx->pptr;
  
-  g_assert (size == ctx->pbuf->width * (has_alpha ? 2 : 1));
+  bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, size);
+  if (bytes == NULL)
+    return FALSE;
+
+  s = g_bytes_get_data (bytes, &size);
 
   for (i = 0; i < ctx->pbuf->width; i++)
     {
       p[0] = p[1] = p[2] = *s++;
       if (has_alpha)
-	p[3] = *s++;
+        p[3] = *s++;
       p += ctx->pbuf->n_channels;
     }
+
+  g_bytes_unref (bytes);
+  return TRUE;
 }
 
 static void
-parse_data_for_row (TGAContext *ctx)
+parse_data (TGAContext *ctx)
 {
-        GBytes *bytes;
-	guint row;
+  guint row;
+  gboolean success;
 
-        bytes = gdk_pixbuf_buffer_queue_pull (ctx->input, ctx->rowstride);
-        g_assert (bytes != NULL);
+  do
+    {
+      if (ctx->hdr->type == TGA_TYPE_PSEUDOCOLOR)
+        success = parse_data_pseudocolor (ctx);
+      else if (ctx->hdr->type == TGA_TYPE_TRUECOLOR)
+        success = parse_data_truecolor (ctx);
+      else if (ctx->hdr->type == TGA_TYPE_GRAYSCALE)
+        success = parse_data_grayscale (ctx);
 
-	if (ctx->hdr->type == TGA_TYPE_PSEUDOCOLOR)
-		parse_data_for_row_pseudocolor (ctx, bytes);
-	else if (ctx->hdr->type == TGA_TYPE_TRUECOLOR)
-		parse_data_for_row_truecolor (ctx, bytes);
-	else if (ctx->hdr->type == TGA_TYPE_GRAYSCALE)
-		parse_data_for_row_grayscale (ctx, bytes);
+      if (!success)
+        break;
 
-	if (ctx->hdr->flags & TGA_ORIGIN_RIGHT)
-		pixbuf_flip_row (ctx->pbuf, ctx->pptr);
-	if (ctx->hdr->flags & TGA_ORIGIN_UPPER)
-		ctx->pptr += ctx->pbuf->rowstride;
-	else
-		ctx->pptr -= ctx->pbuf->rowstride;
-	ctx->pbuf_bytes_done += ctx->pbuf->rowstride;
-	if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
-		ctx->done = TRUE;
-	
-	row = (ctx->pptr - ctx->pbuf->pixels) / ctx->pbuf->rowstride - 1;
-	if (ctx->ufunc)
-		(*ctx->ufunc) (ctx->pbuf, 0, row, ctx->pbuf->width, 1, ctx->udata);
+      if (ctx->hdr->flags & TGA_ORIGIN_RIGHT)
+        pixbuf_flip_row (ctx->pbuf, ctx->pptr);
+      if (ctx->hdr->flags & TGA_ORIGIN_UPPER)
+        ctx->pptr += ctx->pbuf->rowstride;
+      else
+        ctx->pptr -= ctx->pbuf->rowstride;
+
+      ctx->pbuf_bytes_done += ctx->pbuf->rowstride;
+      if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
+        ctx->done = TRUE;
+    }
+  while (!ctx->done);
+  
+  row = (ctx->pptr - ctx->pbuf->pixels) / ctx->pbuf->rowstride - 1;
+  if (ctx->ufunc)
+    (*ctx->ufunc) (ctx->pbuf, 0, row, ctx->pbuf->width, 1, ctx->udata);
 }
 
 static void write_rle_data(TGAContext *ctx, const TGAColor *color, guint *rle_count)
@@ -671,10 +688,7 @@ tga_load_image (TGAContext  *ctx,
     }
   else
     {
-      while (!ctx->done && gdk_pixbuf_buffer_queue_get_size (ctx->input) >= ctx->rowstride)
-        {
-	  parse_data_for_row (ctx);
-	}
+      parse_data (ctx);
     }
 
   if (ctx->done)
@@ -867,7 +881,6 @@ static gpointer gdk_pixbuf__tga_begin_load(GdkPixbufModuleSizeFunc f0,
 	}
 
 	ctx->hdr = NULL;
-	ctx->rowstride = 0;
 	ctx->run_length_encoded = FALSE;
 
 	ctx->cmap = NULL;
