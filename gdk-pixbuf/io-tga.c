@@ -253,7 +253,8 @@ tga_format_supported (guint type,
 
       case TGA_TYPE_TRUECOLOR:
       case TGA_TYPE_RLE_TRUECOLOR:
-        return bits_per_pixel == 24
+        return bits_per_pixel == 16
+            || bits_per_pixel == 24
             || bits_per_pixel == 32;
 
       case TGA_TYPE_GRAYSCALE:
@@ -280,13 +281,27 @@ tga_read_pixel (TGAContext   *ctx,
 
       case TGA_TYPE_TRUECOLOR:
       case TGA_TYPE_RLE_TRUECOLOR:
-        color->b = data[0];
-        color->g = data[1];
-        color->r = data[2];
-        if (ctx->hdr->bpp == 32)
-          color->a = data[3];
+        if (ctx->hdr->bpp == 16)
+          {
+            guint16 col = data[0] + (data[1] << 8);
+            color->r = (col >> 7) & 0xf8;
+            color->r |= color->r >> 5;
+            color->g = (col >> 2) & 0xf8;
+            color->g |= color->g >> 5;
+            color->b = col << 3;
+            color->b |= color->b >> 5;
+            color->a = 255;
+          }
         else
-          color->a = 255;
+          {
+            color->b = data[0];
+            color->g = data[1];
+            color->r = data[2];
+            if (ctx->hdr->bpp == 32)
+              color->a = data[3];
+            else
+              color->a = 255;
+          }
         break;
 
       case TGA_TYPE_GRAYSCALE:
