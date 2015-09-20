@@ -127,8 +127,6 @@ struct _TGAContext {
 
         TGAProcessFunc process;
 
-	gboolean done;
-
 	GdkPixbufModuleSizeFunc sfunc;
 	GdkPixbufModulePreparedFunc pfunc;
 	GdkPixbufModuleUpdatedFunc ufunc;
@@ -425,9 +423,12 @@ parse_data (TGAContext *ctx)
 
       ctx->pbuf_bytes_done += ctx->pbuf->rowstride;
       if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
-        ctx->done = TRUE;
+        {
+          ctx->process = tga_skip_rest_of_image;
+          break;
+        }
     }
-  while (!ctx->done);
+  while (TRUE);
   
   row = (ctx->pptr - ctx->pbuf->pixels) / ctx->pbuf->rowstride - 1;
   if (ctx->ufunc)
@@ -468,10 +469,8 @@ parse_rle_data_pseudocolor (TGAContext *ctx)
 				rle_num = (tag & 0x7f) + 1;
 				write_rle_data(ctx, colormap_get_color (ctx->cmap, *s), &rle_num);
 				s++, n++;
-				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes) {
-					ctx->done = TRUE;
+				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
 					break;
-				}
 			}
 		} else {
 			raw_num = tag + 1;
@@ -488,17 +487,15 @@ parse_rle_data_pseudocolor (TGAContext *ctx)
 						*ctx->pptr++ = color->a;
 					s++, n++;
 					ctx->pbuf_bytes_done += ctx->pbuf->n_channels;
-					if (ctx->pbuf_bytes_done == ctx->pbuf_bytes) {
-						ctx->done = TRUE;
+					if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
 						break;
-					}
 				}
 			}
 		}
 	}
 
 	if (ctx->pbuf_bytes_done == ctx->pbuf_bytes) 
-		ctx->done = TRUE;
+                ctx->process = tga_skip_rest_of_image;
 	
         g_bytes_unref (bytes);
         gdk_pixbuf_buffer_queue_flush (ctx->input, n);
@@ -533,10 +530,8 @@ parse_rle_data_truecolor (TGAContext *ctx)
 					col.a = *s++;
 				n += ctx->pbuf->n_channels;
 				write_rle_data(ctx, &col, &rle_num);
-				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes) {
-					ctx->done = TRUE;
+				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
                                         break;
-				}
 			}
 		} else {
 			raw_num = tag + 1;
@@ -553,22 +548,18 @@ parse_rle_data_truecolor (TGAContext *ctx)
 					n += ctx->pbuf->n_channels;
 					ctx->pptr += ctx->pbuf->n_channels;
 					ctx->pbuf_bytes_done += ctx->pbuf->n_channels;
-					if (ctx->pbuf_bytes_done == ctx->pbuf_bytes) {
-						ctx->done = TRUE;
+					if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
                                                 break;
-					}
 				}
 				
-				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes) {
-					ctx->done = TRUE;
+				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
                                         break;
-				}
 			}
 		}
 	}
 
 	if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
-		ctx->done = TRUE;
+                ctx->process = tga_skip_rest_of_image;
 
         g_bytes_unref (bytes);
         gdk_pixbuf_buffer_queue_flush (ctx->input, n);
@@ -603,10 +594,8 @@ parse_rle_data_grayscale (TGAContext *ctx)
 					n++;
 				}
 				write_rle_data(ctx, &tone, &rle_num);
-				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes) {
-					ctx->done = TRUE;
+				if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
 					break;
-				}
 			}
 		} else {
 			raw_num = tag + 1;
@@ -623,17 +612,15 @@ parse_rle_data_grayscale (TGAContext *ctx)
 					}
 					ctx->pptr += ctx->pbuf->n_channels;
 					ctx->pbuf_bytes_done += ctx->pbuf->n_channels;
-					if (ctx->pbuf_bytes_done == ctx->pbuf_bytes) {
-						ctx->done = TRUE;
+					if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
 						break;
-					}
 				}
 			}
 		}
 	}
 
 	if (ctx->pbuf_bytes_done == ctx->pbuf_bytes)
-		ctx->done = TRUE;
+                ctx->process = tga_skip_rest_of_image;
 
         g_bytes_unref (bytes);
         gdk_pixbuf_buffer_queue_flush (ctx->input, n);
@@ -659,7 +646,7 @@ parse_rle_data (TGAContext *ctx)
 			pixbuf_flip_row (ctx->pbuf, row);
 	}
 
-	if (ctx->done) {
+	if (ctx->process == tga_skip_rest_of_image) {
 		/* FIXME doing the vertical flipping afterwards is not
 		 * perfect, but doing it during the rle decoding in place
 		 * is considerably more work. 
@@ -690,9 +677,6 @@ tga_load_image (TGAContext  *ctx,
     {
       parse_data (ctx);
     }
-
-  if (ctx->done)
-    ctx->process = tga_skip_rest_of_image;
 
   return TRUE;
 }
@@ -895,8 +879,6 @@ static gpointer gdk_pixbuf__tga_begin_load(GdkPixbufModuleSizeFunc f0,
 
         ctx->process = tga_load_header;
 
-	ctx->done = FALSE;
-
 	ctx->sfunc = f0;
 	ctx->pfunc = f1;
 	ctx->ufunc = f2;
@@ -912,9 +894,6 @@ static gboolean gdk_pixbuf__tga_load_increment(gpointer data,
 {
 	TGAContext *ctx = (TGAContext*) data;
         TGAProcessFunc process;
-
-	if (ctx->done)
-		return TRUE;
 
 	g_return_val_if_fail(buffer != NULL, TRUE);
         gdk_pixbuf_buffer_queue_push (ctx->input, g_bytes_new (buffer, size));
