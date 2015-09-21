@@ -685,6 +685,17 @@ static gboolean gdk_pixbuf__tga_stop_load(gpointer data, GError **err)
 	TGAContext *ctx = (TGAContext *) data;
 	g_return_val_if_fail(ctx != NULL, FALSE);
 
+        if (ctx->pbuf)
+          {
+            TGAColor transparent_black = { 0, 0, 0, 0 };
+            gsize remaining;
+
+            for (remaining = tga_pixels_remaining (ctx); remaining; remaining--)
+              {
+                tga_write_pixel (ctx, &transparent_black);
+              }
+          }
+
 	g_free (ctx->hdr);
 	if (ctx->cmap)
           colormap_free (ctx->cmap);
