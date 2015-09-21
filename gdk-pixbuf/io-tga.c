@@ -423,11 +423,10 @@ tga_load_rle_image (TGAContext  *ctx,
                                 tga_read_pixel (ctx, s, &color);
 				s += bytes_per_pixel;
 				n += bytes_per_pixel;
+                                rle_num = MIN (rle_num, tga_pixels_remaining (ctx));
                                 for (; rle_num; rle_num--)
                                   {
                                     tga_write_pixel (ctx, &color);
-                                    if (tga_all_pixels_written (ctx))
-                                      break;
                                   }
 	                        if (tga_all_pixels_written (ctx))
                                         break;
@@ -438,13 +437,12 @@ tga_load_rle_image (TGAContext  *ctx,
 			        --n;
                                 break;
 			} else {
+                                raw_num = MIN (raw_num, tga_pixels_remaining (ctx));
 				for (; raw_num; raw_num--) {
                                         tga_read_pixel (ctx, s, &color);
 					s += bytes_per_pixel;
 					n += bytes_per_pixel;
                                         tga_write_pixel (ctx, &color);
-	                                if (tga_all_pixels_written (ctx))
-                                                break;
 				}
 				
 	                        if (tga_all_pixels_written (ctx))
