@@ -512,6 +512,17 @@ tga_load_colormap (TGAContext  *ctx,
 
       g_bytes_unref (bytes);
     }
+  else
+    {
+      if ((ctx->hdr->type == TGA_TYPE_PSEUDOCOLOR)
+          || (ctx->hdr->type == TGA_TYPE_RLE_PSEUDOCOLOR))
+        {
+          g_set_error_literal (err, GDK_PIXBUF_ERROR, 
+                               GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                               _("Pseudocolor image does not contain a colormap"));
+          return FALSE;
+        }
+    }
   
   if ((ctx->hdr->type == TGA_TYPE_RLE_PSEUDOCOLOR)
       || (ctx->hdr->type == TGA_TYPE_RLE_TRUECOLOR)
