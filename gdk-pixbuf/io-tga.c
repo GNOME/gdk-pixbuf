@@ -415,7 +415,7 @@ tga_load_rle_image (TGAContext  *ctx,
 		tag = *s;
 		s++, n++;
 		if (tag & 0x80) {
-			if (n + bytes_per_pixel >= size) {
+			if (n + bytes_per_pixel > size) {
 				--n;
                                 break;
 			} else {
@@ -433,7 +433,7 @@ tga_load_rle_image (TGAContext  *ctx,
 			}
 		} else {
 			raw_num = tag + 1;
-			if (n + (raw_num * bytes_per_pixel) >= size) {
+			if (n + (raw_num * bytes_per_pixel) > size) {
 			        --n;
                                 break;
 			} else {
