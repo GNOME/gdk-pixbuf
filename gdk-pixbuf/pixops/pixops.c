@@ -264,11 +264,11 @@ pixops_scale_nearest (guchar        *dest_buf,
 		      double         scale_x,
 		      double         scale_y)
 {
-  int i;
-  int x;
-  int x_step = (1 << SCALE_SHIFT) / scale_x;
-  int y_step = (1 << SCALE_SHIFT) / scale_y;
-  int xmax, xstart, xstop, x_pos, y_pos;
+  gint64 i;
+  gint64 x;
+  gint64 x_step = (1 << SCALE_SHIFT) / scale_x;
+  gint64 y_step = (1 << SCALE_SHIFT) / scale_y;
+  gint64 xmax, xstart, xstop, x_pos, y_pos;
   const guchar *p;
 
 #define INNER_LOOP(SRC_CHANNELS,DEST_CHANNELS,ASSIGN_PIXEL)     \
