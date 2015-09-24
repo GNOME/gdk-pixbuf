@@ -30,6 +30,10 @@ G_BEGIN_DECLS
 gboolean format_supported (const gchar *filename);
 gboolean skip_if_insufficient_memory (GError **err);
 gboolean pixdata_equal (GdkPixbuf *p1, GdkPixbuf *p2, GError **error);
+void add_test_for_all_images (const gchar   *prefix,
+                              const gchar   *dir,
+                              GTestDataFunc  test_func);
+
 
 G_END_DECLS
 
