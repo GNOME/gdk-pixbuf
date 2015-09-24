@@ -103,7 +103,7 @@ main (int argc, char **argv)
 
   g_test_init (&argc, &argv, NULL);
 
-  test_images_dir = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images", NULL);
+  test_images_dir = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images/randomly-modified", NULL);
   add_test_for_all_images ("/pixbuf/randomly-modified", test_images_dir, test_randomly_modified);
   g_free (test_images_dir);
 
