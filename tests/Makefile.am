@@ -62,8 +62,14 @@ dist_installed_test_data =		\
 	cve-2015-4491.bmp		\
 	large.png			\
 	large.jpg			\
-	$(wildcard $(srcdir)/test-images/*) \
+	$(filter-out tga,$(wildcard $(srcdir)/test-images/*)) \
 	$(wildcard $(srcdir)/test-images/tga/*)
+
+pixbuf_randomly_modified_SOURCES =	\
+	pixbuf-randomly-modified.c	\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
 
 cve_2015_4491_SOURCES =			\
 	cve-2015-4491.c			\
