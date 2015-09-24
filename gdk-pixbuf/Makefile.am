@@ -123,14 +123,6 @@ libpixbufloader_pnm_la_LDFLAGS = -avoid-version -module $(no_undefined)
 libpixbufloader_pnm_la_LIBADD = $(module_libs)
 
 #
-# The RAS loader
-#
-libstatic_pixbufloader_ras_la_SOURCES = io-ras.c
-libpixbufloader_ras_la_SOURCES = io-ras.c
-libpixbufloader_ras_la_LDFLAGS = -avoid-version -module $(no_undefined)
-libpixbufloader_ras_la_LIBADD = $(module_libs)
-
-#
 # The TIFF loader
 #
 libstatic_pixbufloader_tiff_la_SOURCES = io-tiff.c
@@ -397,12 +389,6 @@ else
 PNM_LIB = libpixbufloader-pnm.la
 endif
 
-if INCLUDE_RAS
-STATIC_RAS_LIB = libstatic-pixbufloader-ras.la
-else
-RAS_LIB = libpixbufloader-ras.la
-endif
-
 if INCLUDE_XPM
 STATIC_XPM_LIB = libstatic-pixbufloader-xpm.la
 else
@@ -460,7 +446,6 @@ loader_LTLIBRARIES = 	\
 	$(ANI_LIB)	\
 	$(JPEG_LIB)	\
 	$(PNM_LIB)	\
-	$(RAS_LIB)	\
 	$(TIFF_LIB)	\
 	$(XPM_LIB)	\
 	$(XBM_LIB)	\
@@ -483,7 +468,6 @@ noinst_LTLIBRARIES =		\
 	$(STATIC_ANI_LIB)	\
 	$(STATIC_JPEG_LIB)	\
 	$(STATIC_PNM_LIB)	\
-	$(STATIC_RAS_LIB)	\
 	$(STATIC_TIFF_LIB)	\
 	$(STATIC_XPM_LIB)	\
 	$(STATIC_XBM_LIB)	\
@@ -683,7 +667,6 @@ gdk_pixbuf_FILES = \
 	$(libstatic_pixbufloader_pnm_la_SOURCES)	\
 	$(libstatic_pixbufloader_png_la_SOURCES)	\
 	$(libstatic_pixbufloader_qtif_la_SOURCES)	\
-	$(libstatic_pixbufloader_ras_la_SOURCES)	\
 	$(libstatic_pixbufloader_tga_la_SOURCES)	\
 	$(libstatic_pixbufloader_xpm_la_SOURCES)	\
 	$(libstatic_pixbufloader_xbm_la_SOURCES)	\
