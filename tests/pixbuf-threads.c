@@ -34,7 +34,7 @@ load_image (gpointer data,
   GError *error = NULL;
 
   loader = gdk_pixbuf_loader_new ();
-  path = g_test_get_filename (G_TEST_DIST, "test-images", filename, NULL);
+  path = g_test_get_filename (G_TEST_DIST, "test-images/randomly-modified", filename, NULL);
 
   g_test_message ("reading %s", path); 
   file = fopen (path, "r");
