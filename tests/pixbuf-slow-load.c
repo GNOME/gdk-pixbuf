@@ -62,7 +62,7 @@ test_slow_load (gconstpointer file)
   guchar *contents;
   gsize i, contents_length;
 
-  filename = g_test_get_filename (G_TEST_DIST, file, NULL);
+  filename = file;
   reference = gdk_pixbuf_new_from_file (filename, &error);
   g_assert_no_error (error);
   g_assert (reference != NULL);
@@ -104,69 +104,16 @@ test_slow_load (gconstpointer file)
   g_object_unref (reference);
 }
 
-static void
-test_add (const char *filename)
-{
-  char *testname;
-  
-  testname = g_strconcat ("/pixbuf/slow-load/", filename, NULL);
-
-  g_test_add_data_func (testname,
-                        filename,
-                        test_slow_load);
-
-  g_free (testname);
-}
-
 int
 main (int argc, char **argv)
 {
+  gchar *tga_test_images;
+
   g_test_init (&argc, &argv, NULL);
 
-  test_add ("test-images/tga/gtk-logo-16bpp-bottom-left.tga");
-  test_add ("test-images/tga/gtk-logo-16bpp-bottom-right.tga");
-  test_add ("test-images/tga/gtk-logo-16bpp-top-left.tga");
-  test_add ("test-images/tga/gtk-logo-16bpp-top-right.tga");
-  test_add ("test-images/tga/gtk-logo-24bpp-bottom-left.tga");
-  test_add ("test-images/tga/gtk-logo-24bpp-bottom-right.tga");
-  test_add ("test-images/tga/gtk-logo-24bpp-top-left.tga");
-  test_add ("test-images/tga/gtk-logo-24bpp-top-right.tga");
-  test_add ("test-images/tga/gtk-logo-32bpp-bottom-left.tga");
-  test_add ("test-images/tga/gtk-logo-32bpp-bottom-right.tga");
-  test_add ("test-images/tga/gtk-logo-32bpp-top-left.tga");
-  test_add ("test-images/tga/gtk-logo-32bpp-top-right.tga");
-  test_add ("test-images/tga/gtk-logo-cmap-8bpp-bottom-left.tga");
-  test_add ("test-images/tga/gtk-logo-cmap-8bpp-bottom-right.tga");
-  test_add ("test-images/tga/gtk-logo-cmap-8bpp-top-left.tga");
-  test_add ("test-images/tga/gtk-logo-cmap-8bpp-top-right.tga");
-  test_add ("test-images/tga/gtk-logo-cmap-rle-8bpp-bottom-left.tga");
-  test_add ("test-images/tga/gtk-logo-cmap-rle-8bpp-bottom-right.tga");
-  test_add ("test-images/tga/gtk-logo-cmap-rle-8bpp-top-left.tga");
-  test_add ("test-images/tga/gtk-logo-cmap-rle-8bpp-top-right.tga");
-  test_add ("test-images/tga/gtk-logo-gray-16bpp-bottom-left.tga");
-  test_add ("test-images/tga/gtk-logo-gray-16bpp-bottom-right.tga");
-  test_add ("test-images/tga/gtk-logo-gray-16bpp-top-left.tga");
-  test_add ("test-images/tga/gtk-logo-gray-16bpp-top-right.tga");
-  test_add ("test-images/tga/gtk-logo-gray-8bpp-bottom-left.tga");
-  test_add ("test-images/tga/gtk-logo-gray-8bpp-bottom-right.tga");
-  test_add ("test-images/tga/gtk-logo-gray-8bpp-top-left.tga");
-  test_add ("test-images/tga/gtk-logo-gray-8bpp-top-right.tga");
-  test_add ("test-images/tga/gtk-logo-gray-rle-16bpp-bottom-left.tga");
-  test_add ("test-images/tga/gtk-logo-gray-rle-16bpp-bottom-right.tga");
-  test_add ("test-images/tga/gtk-logo-gray-rle-16bpp-top-left.tga");
-  test_add ("test-images/tga/gtk-logo-gray-rle-16bpp-top-right.tga");
-  test_add ("test-images/tga/gtk-logo-gray-rle-8bpp-bottom-left.tga");
-  test_add ("test-images/tga/gtk-logo-gray-rle-8bpp-bottom-right.tga");
-  test_add ("test-images/tga/gtk-logo-gray-rle-8bpp-top-left.tga");
-  test_add ("test-images/tga/gtk-logo-gray-rle-8bpp-top-right.tga");
-  test_add ("test-images/tga/gtk-logo-rle-24bpp-bottom-left.tga");
-  test_add ("test-images/tga/gtk-logo-rle-24bpp-bottom-right.tga");
-  test_add ("test-images/tga/gtk-logo-rle-24bpp-top-left.tga");
-  test_add ("test-images/tga/gtk-logo-rle-24bpp-top-right.tga");
-  test_add ("test-images/tga/gtk-logo-rle-32bpp-bottom-left.tga");
-  test_add ("test-images/tga/gtk-logo-rle-32bpp-bottom-right.tga");
-  test_add ("test-images/tga/gtk-logo-rle-32bpp-top-left.tga");
-  test_add ("test-images/tga/gtk-logo-rle-32bpp-top-right.tga");
+  tga_test_images = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images/tga", NULL);
+  add_test_for_all_images ("/pixbuf/slow-load", tga_test_images, test_slow_load);
+  g_free (tga_test_images);
 
   return g_test_run ();
 }
