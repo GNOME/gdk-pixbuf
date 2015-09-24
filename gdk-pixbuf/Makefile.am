@@ -163,14 +163,6 @@ libpixbufloader_icns_la_LDFLAGS = -avoid-version -module $(no_undefined)
 libpixbufloader_icns_la_LIBADD = $(module_libs)
 
 #
-# The PCX loader
-#
-libstatic_pixbufloader_pcx_la_SOURCES = io-pcx.c
-libpixbufloader_pcx_la_SOURCES = io-pcx.c
-libpixbufloader_pcx_la_LDFLAGS = -avoid-version -module $(no_undefined)
-libpixbufloader_pcx_la_LIBADD = $(module_libs)
-
-#
 # The JPEG2000 loader
 #
 libstatic_pixbufloader_jasper_la_SOURCES = io-jasper.c
@@ -407,12 +399,6 @@ else
 TGA_LIB = libpixbufloader-tga.la
 endif
 
-if INCLUDE_PCX
-STATIC_PCX_LIB = libstatic-pixbufloader-pcx.la
-else
-PCX_LIB = libpixbufloader-pcx.la
-endif
-
 if INCLUDE_ICNS
 STATIC_ICNS_LIB = libstatic-pixbufloader-icns.la
 else
@@ -451,7 +437,6 @@ loader_LTLIBRARIES = 	\
 	$(XBM_LIB)	\
 	$(TGA_LIB)	\
 	$(ICNS_LIB)	\
-	$(PCX_LIB)	\
 	$(JASPER_LIB)	\
 	$(QTIF_LIB)	\
 	$(GDIPLUS_LIBS)
@@ -473,7 +458,6 @@ noinst_LTLIBRARIES =		\
 	$(STATIC_XBM_LIB)	\
 	$(STATIC_TGA_LIB)	\
 	$(STATIC_ICNS_LIB)	\
-	$(STATIC_PCX_LIB)	\
 	$(STATIC_JASPER_LIB)	\
 	$(STATIC_QTIF_LIB)	\
 	$(STATIC_GDIPLUS_LIBS)
@@ -662,14 +646,13 @@ gdk_pixbuf_FILES = \
 	$(libgdk_pixbuf_2_0_la_SOURCES)		\
 	$(libstatic_pixbufloader_ani_la_SOURCES)	\
 	$(libstatic_pixbufloader_icns_la_SOURCES)	\
-	$(libstatic_pixbufloader_pcx_la_SOURCES)	\
 	$(libstatic_pixbufloader_pixdata_la_SOURCES)	\
 	$(libstatic_pixbufloader_pnm_la_SOURCES)	\
 	$(libstatic_pixbufloader_png_la_SOURCES)	\
 	$(libstatic_pixbufloader_qtif_la_SOURCES)	\
 	$(libstatic_pixbufloader_tga_la_SOURCES)	\
 	$(libstatic_pixbufloader_xpm_la_SOURCES)	\
-	$(libstatic_pixbufloader_xbm_la_SOURCES)	\
+	$(libstatic_pixbufloader_xbm_la_SOURCES)
 
 gdk_pixbuf_EXCLUDES = gdkpdummy
 
