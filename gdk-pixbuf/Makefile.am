@@ -78,14 +78,6 @@ libpixbufloader_bmp_la_LDFLAGS = -avoid-version -module $(no_undefined)
 libpixbufloader_bmp_la_LIBADD = $(module_libs)
 
 #
-# The WBMP loader
-#
-libstatic_pixbufloader_wbmp_la_SOURCES = io-wbmp.c
-libpixbufloader_wbmp_la_SOURCES = io-wbmp.c
-libpixbufloader_wbmp_la_LDFLAGS = -avoid-version -module $(no_undefined)
-libpixbufloader_wbmp_la_LIBADD = $(module_libs)
-
-#
 # The GdkPixdata loader, always built in
 #
 libstatic_pixbufloader_pixdata_la_SOURCES = io-pixdata.c
@@ -393,12 +385,6 @@ PNG_LIB = libpixbufloader-png.la
 endif
 endif
 
-if INCLUDE_WBMP
-STATIC_WBMP_LIB = libstatic-pixbufloader-wbmp.la
-else
-WBMP_LIB = libpixbufloader-wbmp.la
-endif
-
 if INCLUDE_ANI
 STATIC_ANI_LIB = libstatic-pixbufloader-ani.la
 else
@@ -469,7 +455,6 @@ if BUILD_DYNAMIC_MODULES
 loader_LTLIBRARIES = 	\
 	$(PNG_LIB)	\
 	$(BMP_LIB)	\
-	$(WBMP_LIB)	\
 	$(GIF_LIB)	\
 	$(ICO_LIB)	\
 	$(ANI_LIB)	\
@@ -493,7 +478,6 @@ noinst_LTLIBRARIES =		\
 	$(STATIC_PIXDATA_LIB)	\
 	$(STATIC_PNG_LIB)	\
 	$(STATIC_BMP_LIB)	\
-	$(STATIC_WBMP_LIB)	\
 	$(STATIC_GIF_LIB)	\
 	$(STATIC_ICO_LIB)	\
 	$(STATIC_ANI_LIB)	\
@@ -703,7 +687,6 @@ gdk_pixbuf_FILES = \
 	$(libstatic_pixbufloader_tga_la_SOURCES)	\
 	$(libstatic_pixbufloader_xpm_la_SOURCES)	\
 	$(libstatic_pixbufloader_xbm_la_SOURCES)	\
-	$(libstatic_pixbufloader_wbmp_la_SOURCES)
 
 gdk_pixbuf_EXCLUDES = gdkpdummy
 
