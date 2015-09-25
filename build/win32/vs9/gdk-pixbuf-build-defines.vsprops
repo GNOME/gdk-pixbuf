@@ -34,7 +34,7 @@
 	/>
 	<UserMacro
 		Name="MODULAR_MACROS"
-		Value="INCLUDE_ani;INCLUDE_pcx;INCLUDE_tga;INCLUDE_xbm;INCLUDE_png;INCLUDE_qtif;INCLUDE_pnm;INCLUDE_icns;INCLUDE_ras;INCLUDE_wbmp;INCLUDE_xpm"
+		Value="INCLUDE_ani;INCLUDE_tga;INCLUDE_xbm;INCLUDE_png;INCLUDE_qtif;INCLUDE_pnm;INCLUDE_icns;INCLUDE_xpm"
 	/>
 	<UserMacro
 		Name="GdkPixbufDummyPrefix"
