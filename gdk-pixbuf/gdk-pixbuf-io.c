@@ -1,4 +1,3 @@
-/* -*- mode: C; c-file-style: "linux" -*- */
 /* GdkPixbuf library - Main loading interface.
  *
  * Copyright (C) 1999 The Free Software Foundation
@@ -437,9 +436,6 @@ gdk_pixbuf_io_init (void)
 #ifdef INCLUDE_bmp
         load_one_builtin_module (bmp);
 #endif
-#ifdef INCLUDE_wbmp
-        load_one_builtin_module (wbmp);
-#endif
 #ifdef INCLUDE_gif
         load_one_builtin_module (gif);
 #endif
@@ -452,9 +448,6 @@ gdk_pixbuf_io_init (void)
 #ifdef INCLUDE_pnm
         load_one_builtin_module (pnm);
 #endif
-#ifdef INCLUDE_ras
-        load_one_builtin_module (ras);
-#endif
 #ifdef INCLUDE_tiff
         load_one_builtin_module (tiff);
 #endif
@@ -466,9 +459,6 @@ gdk_pixbuf_io_init (void)
 #endif
 #ifdef INCLUDE_tga
         load_one_builtin_module (tga);
-#endif
-#ifdef INCLUDE_pcx
-        load_one_builtin_module (pcx);
 #endif
 #ifdef INCLUDE_icns
         load_one_builtin_module (icns);
@@ -666,15 +656,12 @@ module (jpeg);
 module (gif);
 module (ico);
 module (ani);
-module (ras);
 module (xpm);
 module (tiff);
 module (pnm);
 module (bmp);
-module (wbmp);
 module (xbm);
 module (tga);
-module (pcx);
 module (icns);
 module (jasper);
 module (qtif);
@@ -723,14 +710,11 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
 #ifdef INCLUDE_gdip_png
         try_module (png,gdip_png);
 #endif
-#ifdef INCLUDE_png      
+#ifdef INCLUDE_png
         try_module (png,png);
 #endif
 #ifdef INCLUDE_bmp
         try_module (bmp,bmp);
-#endif
-#ifdef INCLUDE_wbmp
-        try_module (wbmp,wbmp);
 #endif
 #ifdef INCLUDE_gif
         try_module (gif,gif);
@@ -747,9 +731,6 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
 #ifdef INCLUDE_pnm
         try_module (pnm,pnm);
 #endif
-#ifdef INCLUDE_ras
-        try_module (ras,ras);
-#endif
 #ifdef INCLUDE_tiff
         try_module (tiff,tiff);
 #endif
@@ -761,9 +742,6 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
 #endif
 #ifdef INCLUDE_tga
         try_module (tga,tga);
-#endif
-#ifdef INCLUDE_pcx
-        try_module (pcx,pcx);
 #endif
 #ifdef INCLUDE_icns
         try_module (icns,icns);
