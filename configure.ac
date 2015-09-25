@@ -1055,18 +1055,17 @@ AC_SUBST(GENHTML)
 # Enable replacing the build-time prefix in the loaders
 # cache with the installation prefix on this machine
 # for relocatable packages such as Windows and OS X
-# applicationsapplications and linux bundles
+# applications and linux bundles
 #######################################################
 
-enable_relocations=no
-case $host in
-  *-*-mingw*)
-    enable_relocations=yes
-    ;;
-  *-*-darwin*)
-    enable_relocations=yes
-    ;;
-esac
+AC_MSG_CHECKING([whether to build with application bundle relocation support])
+AC_ARG_ENABLE([relocations],
+              AS_HELP_STRING([--enable-relocations],
+                             [Whether to build with application bundle relocation support]),
+              [],
+              [enable_relocations=no])
+
+AC_MSG_RESULT([$enable_relocations])
 
 if test "x$enable_relocations" = "xyes"; then
   AC_DEFINE(GDK_PIXBUF_RELOCATABLE, 1,
