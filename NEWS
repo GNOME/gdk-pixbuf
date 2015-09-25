@@ -1,3 +1,12 @@
+2.32.1
+======
+
+* Make relocations optional
+* Fix a crash due to overflow when scaling
+* Drop loaders for some rare image formats: wbmp, ras, pcx
+* Prevent testsuite failures due to lack of memory
+* Translation updates
+
 2.32.0
 ======
 
