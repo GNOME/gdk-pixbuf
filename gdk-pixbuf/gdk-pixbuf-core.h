@@ -192,6 +192,7 @@ typedef void (* GdkPixbufDestroyNotify) (guchar *pixels, gpointer data);
  * @GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION: Don't know how to perform the
  *  given operation on the type of image at hand.
  * @GDK_PIXBUF_ERROR_FAILED: Generic failure code, something went wrong.
+ * @GDK_PIXBUF_ERROR_INCOMPLETE_ANIMATION: Only part of the animation was loaded.
  * 
  * An error code in the #GDK_PIXBUF_ERROR domain. Many gdk-pixbuf
  * operations can cause errors in this domain, or in the #G_FILE_ERROR
@@ -208,7 +209,8 @@ typedef enum {
         GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
         /* unsupported operation (load, save) for image type */
         GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION,
-        GDK_PIXBUF_ERROR_FAILED
+        GDK_PIXBUF_ERROR_FAILED,
+        GDK_PIXBUF_ERROR_INCOMPLETE_ANIMATION
 } GdkPixbufError;
 
 GQuark gdk_pixbuf_error_quark (void);
