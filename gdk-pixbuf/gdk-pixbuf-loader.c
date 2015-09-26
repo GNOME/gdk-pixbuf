@@ -749,7 +749,7 @@ gdk_pixbuf_loader_get_pixbuf (GdkPixbufLoader *loader)
  * return %NULL.
  *
  * Return value: (transfer none): The #GdkPixbufAnimation that the loader is loading, or %NULL if
- not enough data has been read to determine the information.
+ * not enough data has been read to determine the information.
 **/
 GdkPixbufAnimation *
 gdk_pixbuf_loader_get_animation (GdkPixbufLoader *loader)
