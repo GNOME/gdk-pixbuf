@@ -48,6 +48,7 @@ test_programs = 			\
 dist_installed_test_data =		\
 	test-image.png			\
 	test-animation.gif		\
+	1_partyanimsm2.gif		\
 	test-animation.ani		\
 	icc-profile.jpeg		\
 	icc-profile.png			\
