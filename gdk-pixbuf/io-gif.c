@@ -26,7 +26,7 @@
 /* This loader is very hairy code.
  *
  * The main loop was not designed for incremental loading, so when it was hacked
- * in it got a bit messy.  Basicly, every function is written to expect a failed
+ * in it got a bit messy.  Basically, every function is written to expect a failed
  * read_gif, and lets you call it again assuming that the bytes are there.
  *
  * Return vals.
