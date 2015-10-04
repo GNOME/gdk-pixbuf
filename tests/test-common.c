@@ -79,58 +79,71 @@ skip_if_insufficient_memory (GError **err)
 }
 
 gboolean
-pixdata_equal (GdkPixbuf *p1, GdkPixbuf *p2, GError **error)
+pixdata_equal (GdkPixbuf  *test,
+               GdkPixbuf  *ref,
+               GError    **error)
 {
-  if (gdk_pixbuf_get_colorspace (p1) != gdk_pixbuf_get_colorspace (p2)) {
-    g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Colorspaces differ");
-    return FALSE;
-  }
-  if (gdk_pixbuf_get_n_channels (p1) != gdk_pixbuf_get_n_channels (p2)) {
-    g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Channels differ");
-    return FALSE;
-  }
-  if (gdk_pixbuf_get_bits_per_sample (p1) != gdk_pixbuf_get_bits_per_sample (p2)) {
-    g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "BPP differ");
-    return FALSE;
-  }
-  if (gdk_pixbuf_get_width (p1) != gdk_pixbuf_get_width (p2)) {
-    g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Widths differ");
-    return FALSE;
-  }
-  if (gdk_pixbuf_get_height (p1) != gdk_pixbuf_get_height (p2)) {
-    g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Heights differ");
-    return FALSE;
-  }
-  if (gdk_pixbuf_get_rowstride (p1) != gdk_pixbuf_get_rowstride (p2)) {
-    g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Rowstrides differ");
-    return FALSE;
-  }
+  if (gdk_pixbuf_get_colorspace (test) != gdk_pixbuf_get_colorspace (ref))
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Colorspaces differ");
+      return FALSE;
+    }
 
-  if (memcmp (gdk_pixbuf_get_pixels (p1), gdk_pixbuf_get_pixels (p2),
-          gdk_pixbuf_get_byte_length (p1)) != 0)
+  if (gdk_pixbuf_get_n_channels (test) != gdk_pixbuf_get_n_channels (ref))
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Channels differ");
+      return FALSE;
+    }
+
+  if (gdk_pixbuf_get_bits_per_sample (test) != gdk_pixbuf_get_bits_per_sample (ref))
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "BPP differ");
+      return FALSE;
+    }
+
+  if (gdk_pixbuf_get_width (test) != gdk_pixbuf_get_width (ref))
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Widths differ");
+      return FALSE;
+    }
+
+  if (gdk_pixbuf_get_height (test) != gdk_pixbuf_get_height (ref))
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Heights differ");
+      return FALSE;
+    }
+
+  if (gdk_pixbuf_get_rowstride (test) != gdk_pixbuf_get_rowstride (ref))
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Rowstrides differ");
+      return FALSE;
+    }
+
+  if (memcmp (gdk_pixbuf_get_pixels (test), gdk_pixbuf_get_pixels (ref),
+          gdk_pixbuf_get_byte_length (test)) != 0)
     {
       guint x, y, width, height, n_channels, rowstride;
-      const guchar *pixels1, *pixels2;
+      const guchar *test_pixels, *ref_pixels;
 
-      rowstride = gdk_pixbuf_get_rowstride (p1);
-      n_channels = gdk_pixbuf_get_n_channels (p1);
-      width = gdk_pixbuf_get_width (p1);
-      height = gdk_pixbuf_get_height (p1);
-      pixels1 = gdk_pixbuf_get_pixels (p1);
-      pixels2 = gdk_pixbuf_get_pixels (p2);
+      rowstride = gdk_pixbuf_get_rowstride (test);
+      n_channels = gdk_pixbuf_get_n_channels (test);
+      width = gdk_pixbuf_get_width (test);
+      height = gdk_pixbuf_get_height (test);
+      test_pixels = gdk_pixbuf_get_pixels (test);
+      ref_pixels = gdk_pixbuf_get_pixels (ref);
 
       for (y = 0; y < height; y++)
         {
           for (x = 0; x < width; x++)
             {
-              if (memcmp (&pixels1[x * n_channels], &pixels2[x * n_channels], n_channels) != 0)
+              if (memcmp (&test_pixels[x * n_channels], &ref_pixels[x * n_channels], n_channels) != 0)
                 {
                   g_set_error (error, GDK_PIXBUF_ERROR, 0, "Data differ at %ux%u", x, y);
                   return FALSE;
                 }
             }
-          pixels1 += rowstride;
-          pixels2 += rowstride;
+          test_pixels += rowstride;
+          ref_pixels += rowstride;
         }
     }
 
