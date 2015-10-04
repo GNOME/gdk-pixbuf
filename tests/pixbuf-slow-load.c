@@ -127,7 +127,7 @@ test_reftest_success (gconstpointer file)
 
   g_assert (loaded != NULL);
 
-  success = pixdata_equal (reference, loaded, &error);
+  success = pixdata_equal (loaded, reference, &error);
   g_assert_no_error (error);
   g_assert (success);
 
