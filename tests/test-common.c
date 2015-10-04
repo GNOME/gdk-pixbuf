@@ -105,11 +105,34 @@ pixdata_equal (GdkPixbuf *p1, GdkPixbuf *p2, GError **error)
     g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Rowstrides differ");
     return FALSE;
   }
+
   if (memcmp (gdk_pixbuf_get_pixels (p1), gdk_pixbuf_get_pixels (p2),
-          gdk_pixbuf_get_byte_length (p1)) != 0) {
-    g_set_error_literal (error, GDK_PIXBUF_ERROR, 0, "Data differ");
-    return FALSE;
-  }
+          gdk_pixbuf_get_byte_length (p1)) != 0)
+    {
+      guint x, y, width, height, n_channels, rowstride;
+      const guchar *pixels1, *pixels2;
+
+      rowstride = gdk_pixbuf_get_rowstride (p1);
+      n_channels = gdk_pixbuf_get_n_channels (p1);
+      width = gdk_pixbuf_get_width (p1);
+      height = gdk_pixbuf_get_height (p1);
+      pixels1 = gdk_pixbuf_get_pixels (p1);
+      pixels2 = gdk_pixbuf_get_pixels (p2);
+
+      for (y = 0; y < height; y++)
+        {
+          for (x = 0; x < width; x++)
+            {
+              if (memcmp (&pixels1[x * n_channels], &pixels2[x * n_channels], n_channels) != 0)
+                {
+                  g_set_error (error, GDK_PIXBUF_ERROR, 0, "Data differ at %ux%u", x, y);
+                  return FALSE;
+                }
+            }
+          pixels1 += rowstride;
+          pixels2 += rowstride;
+        }
+    }
 
   return TRUE;
 }
