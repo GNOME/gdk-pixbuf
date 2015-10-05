@@ -73,21 +73,21 @@ test_threads (void)
   for (i = 0; i < iterations; i++)
     {
       if (format_supported ("jpeg"))
-        g_thread_pool_push (pool, "valid_jpeg_test", NULL);
+        g_thread_pool_push (pool, "valid.1.jpeg", NULL);
       if (format_supported ("png"))
-        g_thread_pool_push (pool, "valid_png_test", NULL);
+        g_thread_pool_push (pool, "valid.1.png", NULL);
       if (format_supported ("gif"))
-        g_thread_pool_push (pool, "valid_gif_test", NULL);
+        g_thread_pool_push (pool, "valid.1.gif", NULL);
       if (format_supported ("bmp"))
-        g_thread_pool_push (pool, "valid_bmp_test", NULL);
+        g_thread_pool_push (pool, "valid.1.bmp", NULL);
       if (format_supported ("jpeg"))
-        g_thread_pool_push (pool, "valid_jpeg_progressive_test", NULL);
+        g_thread_pool_push (pool, "valid.2.jpeg", NULL);
       if (format_supported ("xpm"))
-        g_thread_pool_push (pool, "valid_xpm_test", NULL);
+        g_thread_pool_push (pool, "valid.1.xpm", NULL);
       if (format_supported ("tga"))
-        g_thread_pool_push (pool, "valid_tga_test", NULL);
+        g_thread_pool_push (pool, "valid.1.tga", NULL);
       if (format_supported ("tiff"))
-        g_thread_pool_push (pool, "valid_tiff1_test", NULL);
+        g_thread_pool_push (pool, "valid.1.tiff", NULL);
     }
 
   g_thread_pool_free (pool, FALSE, TRUE);
