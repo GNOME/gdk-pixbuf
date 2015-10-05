@@ -178,7 +178,6 @@ main (int argc, char **argv)
   g_test_add_data_func ("/pixbuf/scale/bmp", "test-images/randomly-modified/valid_bmp_test", test_scale);
   g_test_add_data_func ("/pixbuf/scale/gif", "test-images/randomly-modified/valid_gif_test", test_scale);
   g_test_add_data_func ("/pixbuf/scale/jpeg", "test-images/randomly-modified/valid_jpeg_test", test_scale);
-  g_test_add_data_func ("/pixbuf/scale/ras", "test-images/randomly-modified/valid_ras_test", test_scale);
   g_test_add_data_func ("/pixbuf/scale/tga", "test-images/randomly-modified/valid_tga_test", test_scale);
   g_test_add_data_func ("/pixbuf/scale/xpm", "test-images/randomly-modified/valid_xpm_test", test_scale);
   g_test_add_data_func ("/pixbuf/scale/xbm", "test-images/randomly-modified/valid.xbm", test_scale);
