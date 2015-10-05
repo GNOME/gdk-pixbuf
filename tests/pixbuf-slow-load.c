@@ -93,6 +93,7 @@ test_reftest_success (gconstpointer file)
   char *ref_filename;
   guchar *contents;
   gsize i, contents_length;
+  char *content_type, *mime_type;
   gboolean success;
 
   filename = file;
@@ -104,15 +105,20 @@ test_reftest_success (gconstpointer file)
   g_assert_no_error (error);
   g_assert (reference != NULL);
 
-  loader = gdk_pixbuf_loader_new ();
+  success = g_file_get_contents (filename, (gchar **) &contents, &contents_length, &error);
+  g_assert_no_error (error);
+  g_assert (success);
+
+  content_type = g_content_type_guess (filename, contents, contents_length, NULL);
+  mime_type = g_content_type_get_mime_type (content_type);
+  g_assert (mime_type);
+
+  loader = gdk_pixbuf_loader_new_with_mime_type (mime_type, &error);
+  g_assert_no_error (error);
   g_assert (loader != NULL);
   g_signal_connect (loader, "size-prepared", G_CALLBACK (loader_size_prepared), &loaded);
   g_signal_connect (loader, "area-prepared", G_CALLBACK (loader_area_prepared), &loaded);
   g_signal_connect (loader, "area-updated", G_CALLBACK (loader_area_updated), &loaded);
-
-  success = g_file_get_contents (filename, (gchar **) &contents, &contents_length, &error);
-  g_assert_no_error (error);
-  g_assert (success);
 
   for (i = 0; i < contents_length; i++)
     {
@@ -131,6 +137,8 @@ test_reftest_success (gconstpointer file)
   g_assert_no_error (error);
   g_assert (success);
 
+  g_free (mime_type);
+  g_free (content_type);
   g_free (contents);
   g_object_unref (loaded);
   g_object_unref (loader);
