@@ -84,8 +84,6 @@ test_threads (void)
         g_thread_pool_push (pool, "valid_jpeg_progressive_test", NULL);
       if (format_supported ("xpm"))
         g_thread_pool_push (pool, "valid_xpm_test", NULL);
-      if (format_supported ("ras"))
-        g_thread_pool_push (pool, "valid_ras_test", NULL);
       if (format_supported ("tga"))
         g_thread_pool_push (pool, "valid_tga_test", NULL);
       if (format_supported ("tiff"))
