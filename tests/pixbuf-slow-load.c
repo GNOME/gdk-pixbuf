@@ -78,9 +78,9 @@ make_ref_filename (const char *filename)
 }
 
 static gboolean
-is_ref_filename (const char *filename)
+is_not_ref_image (const char *filename)
 {
-  return g_str_has_suffix (filename, ".ref.png");
+  return !g_str_has_suffix (filename, ".ref.png");
 }
 
 static void
@@ -97,9 +97,6 @@ test_reftest_success (gconstpointer file)
   gboolean success;
 
   filename = file;
-  if (is_ref_filename (filename))
-    return;
-
   ref_filename = make_ref_filename (filename);
   reference = gdk_pixbuf_new_from_file (ref_filename, &error);
   g_assert_no_error (error);
@@ -154,7 +151,7 @@ main (int argc, char **argv)
   g_test_init (&argc, &argv, NULL);
 
   tga_test_images = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images/tga", NULL);
-  add_test_for_all_images ("/pixbuf/reftest/success", tga_test_images, test_reftest_success);
+  add_test_for_all_images ("/pixbuf/reftest/success", tga_test_images, test_reftest_success, is_not_ref_image);
   g_free (tga_test_images);
 
   return g_test_run ();
