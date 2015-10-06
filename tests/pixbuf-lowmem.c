@@ -24,6 +24,7 @@
 #include <time.h>
 #include <string.h>
 
+#ifdef __GLIBC__
 #define PRETEND_MEM_SIZE (16 * 1024 * 1024)
 #define REMAINING_MEM_SIZE 100000
 
@@ -225,3 +226,10 @@ main (int argc, char **argv)
   
   return 0;
 }
+#else
+int
+main (int argc, char **argv)
+{
+	return 0;
+}
+#endif
