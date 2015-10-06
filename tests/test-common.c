@@ -29,35 +29,29 @@
 gboolean
 format_supported (const gchar *filename)
 {
-  const gchar *name = NULL;
   GSList *formats, *l;
   gboolean retval;
-  const gchar *names[] = { "png", "jpeg", "bmp", "gif", "ras",
-    "tga", "xpm", "xbm", "ico", "tiff" };
-  gint i;
-
-  for (i = 0; i < G_N_ELEMENTS (names); i++)
-    {
-      if (strstr (filename, names[i]))
-        {
-          name = names[i];
-          break;
-        }
-    }
-  if (name == NULL)
-    return FALSE;
 
   retval = FALSE;
   formats = gdk_pixbuf_get_formats ();
   for (l = formats; l; l = l->next)
     {
       GdkPixbufFormat *format = l->data;
+      char **extensions = gdk_pixbuf_format_get_extensions (format);
+      gint i;
 
-      if (g_str_equal (gdk_pixbuf_format_get_name (format), name))
+      for (i = 0; extensions[i]; i++)
         {
-          retval = TRUE;
-          break;
+          if (g_str_has_suffix (filename, extensions[i]))
+            {
+              retval = TRUE;
+              break;
+            }
         }
+
+      g_free (extensions);
+      if (retval)
+        break;
     }
   g_slist_free (formats);
 
