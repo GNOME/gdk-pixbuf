@@ -175,7 +175,8 @@ pixdata_equal (GdkPixbuf  *test,
 void
 add_test_for_all_images (const gchar   *prefix,
                          const gchar   *path,
-                         GTestDataFunc  test_func)
+                         GTestDataFunc  test_func,
+                         AddTestFunc    add_test_func)
 {
   GDir *dir;
   const gchar *name;
@@ -188,10 +189,13 @@ add_test_for_all_images (const gchar   *prefix,
 
       test_path = g_strconcat (prefix, "/", name, NULL);
       dir_path = g_strconcat (path, "/", name, NULL);
-      if (g_file_test (dir_path, G_FILE_TEST_IS_DIR))
-        add_test_for_all_images (test_path, dir_path, test_func);
-      else
-        g_test_add_data_func_full (test_path, g_strdup (dir_path), test_func, g_free);
+      if (add_test_func == NULL || add_test_func (dir_path))
+        {
+          if (g_file_test (dir_path, G_FILE_TEST_IS_DIR))
+            add_test_for_all_images (test_path, dir_path, test_func, add_test_func);
+          else
+            g_test_add_data_func_full (test_path, g_strdup (dir_path), test_func, g_free);
+        }
       g_free (test_path);
       g_free (dir_path);
     }
