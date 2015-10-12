@@ -117,6 +117,12 @@ test_reftest (gconstpointer data)
   gboolean success;
 
   file = G_FILE (data);
+  if (!file_supported (file))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
+
   filename = g_file_get_path (file);
   ref_file = make_ref_file (file);
 

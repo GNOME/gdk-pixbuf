@@ -59,6 +59,21 @@ format_supported (const gchar *filename)
 }
 
 gboolean
+file_supported (GFile *file)
+{
+  char *uri;
+  gboolean result;
+
+  uri = g_file_get_uri (file);
+
+  result = format_supported (uri);
+
+  g_free (uri);
+
+  return result;
+}
+
+gboolean
 skip_if_insufficient_memory (GError **err)
 {
   if (*err && g_error_matches (*err, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY))
