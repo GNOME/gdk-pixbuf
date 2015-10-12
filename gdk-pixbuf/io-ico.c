@@ -579,11 +579,11 @@ OneLine32 (struct ico_progressive_state *context)
         X = 0;
         if (context->Header.Negative == 0)
                 Pixels = (context->pixbuf->pixels +
-                          context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
                           (context->Header.height - context->Lines - 1));
         else
                 Pixels = (context->pixbuf->pixels +
-                          context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
                           context->Lines);
         while (X < context->Header.width) {
                 Pixels[X * 4 + 0] = context->LineBuf[X * 4 + 2];
@@ -602,11 +602,11 @@ static void OneLine24(struct ico_progressive_state *context)
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (context->pixbuf->pixels +
-			  context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
 			  (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (context->pixbuf->pixels +
-			  context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
 			  context->Lines);
 	while (X < context->Header.width) {
 		Pixels[X * 4 + 0] = context->LineBuf[X * 3 + 2];
@@ -626,10 +626,12 @@ OneLine16 (struct ico_progressive_state *context)
 
         if (context->Header.Negative == 0)
                 pixels = (context->pixbuf->pixels +
-                          context->pixbuf->rowstride * (context->Header.height - context->Lines - 1));
+			  (gsize) context->pixbuf->rowstride *
+                          (context->Header.height - context->Lines - 1));
         else
                 pixels = (context->pixbuf->pixels +
-                          context->pixbuf->rowstride * context->Lines);
+			  (gsize) context->pixbuf->rowstride *
+                          context->Lines);
 
         src = context->LineBuf;
 
@@ -663,11 +665,11 @@ static void OneLine8(struct ico_progressive_state *context)
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (context->pixbuf->pixels +
-			  context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
 			  (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (context->pixbuf->pixels +
-			  context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
 			  context->Lines);
 	while (X < context->Header.width) {
 		/* The joys of having a BGR byteorder */
@@ -688,11 +690,11 @@ static void OneLine4(struct ico_progressive_state *context)
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (context->pixbuf->pixels +
-			  context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
 			  (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (context->pixbuf->pixels +
-			  context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
 			  context->Lines);
 	
 	while (X < context->Header.width) {
@@ -729,11 +731,11 @@ static void OneLine1(struct ico_progressive_state *context)
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (context->pixbuf->pixels +
-			  context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
 			  (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (context->pixbuf->pixels +
-			  context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
 			  context->Lines);
 	while (X < context->Header.width) {
 		int Bit;
@@ -760,11 +762,11 @@ static void OneLineTransp(struct ico_progressive_state *context)
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (context->pixbuf->pixels +
-			  context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
 			  (2*context->Header.height - context->Lines - 1));
 	else
 		Pixels = (context->pixbuf->pixels +
-			  context->pixbuf->rowstride *
+			  (gsize) context->pixbuf->rowstride *
 			  (context->Lines-context->Header.height));
 	while (X < context->Header.width) {
 		int Bit;
@@ -1040,7 +1042,7 @@ fill_entry (IconEntry *icon,
 	pixels = gdk_pixbuf_get_pixels (pixbuf);
 	n_channels = gdk_pixbuf_get_n_channels (pixbuf);
 	for (y = 0; y < icon->height; y++) {
-		p = pixels + gdk_pixbuf_get_rowstride (pixbuf) * (icon->height - 1 - y);
+		p = pixels + (gsize) gdk_pixbuf_get_rowstride (pixbuf) * (icon->height - 1 - y);
 		and = icon->and + icon->and_rowstride * y;
 		xor = icon->xor + icon->xor_rowstride * y;
 		for (x = 0; x < icon->width; x++) {
