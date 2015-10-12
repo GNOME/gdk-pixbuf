@@ -683,24 +683,25 @@ static gboolean gdk_pixbuf__tga_load_increment(gpointer data,
 static gboolean gdk_pixbuf__tga_stop_load(gpointer data, GError **err)
 {
 	TGAContext *ctx = (TGAContext *) data;
-	g_return_val_if_fail(ctx != NULL, FALSE);
+        gboolean retval = TRUE;
 
-        if (ctx->pbuf)
+	g_return_val_if_fail (ctx != NULL, FALSE);
+
+        if (ctx->pbuf == NULL || tga_pixels_remaining (ctx))
           {
-            TGAColor transparent_black = { 0, 0, 0, 0 };
-            gsize remaining;
+            g_set_error_literal (err,
+                                 GDK_PIXBUF_ERROR,
+                                 GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                 _("TGA image was truncated or incomplete."));
 
-            for (remaining = tga_pixels_remaining (ctx); remaining; remaining--)
-              {
-                tga_write_pixel (ctx, &transparent_black);
-              }
+            retval = FALSE;
           }
 
 	g_free (ctx->hdr);
 	if (ctx->cmap)
           colormap_free (ctx->cmap);
 	if (ctx->pbuf)
-		g_object_unref (ctx->pbuf);
+          g_object_unref (ctx->pbuf);
 	gdk_pixbuf_buffer_queue_unref (ctx->input);
 	g_free (ctx);
 	return TRUE;
