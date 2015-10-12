@@ -71,38 +71,64 @@ loader_area_updated (GdkPixbufLoader  *loader,
                         x, y);
 }
 
-static char *
-make_ref_filename (const char *filename)
+static GFile *
+make_ref_file (GFile *file)
 {
-  return g_strconcat (filename, ".ref.png", NULL);
+  char *uri, *ref_uri;
+  GFile *result;
+
+  uri = g_file_get_uri (file);
+  ref_uri = g_strconcat (uri, ".ref.png", NULL);
+
+  result = g_file_new_for_uri (ref_uri);
+
+  g_free (ref_uri);
+  g_free (uri);
+
+  return result;
 }
 
 static gboolean
-is_not_ref_image (const char *filename)
+is_not_ref_image (GFile *file)
 {
-  return !g_str_has_suffix (filename, ".ref.png");
+  char *uri;
+  gboolean result;
+
+  uri = g_file_get_uri (file);
+
+  result = !g_str_has_suffix (uri, ".ref.png");
+
+  g_free (uri);
+
+  return result;
 }
 
 static void
-test_reftest (gconstpointer file)
+test_reftest (gconstpointer data)
 {
   GdkPixbufLoader *loader;
   GdkPixbuf *reference, *loaded = NULL;
   GError *error = NULL;
-  const char *filename;
-  char *ref_filename;
+  GFile *file, *ref_file;
+  GInputStream *stream;
   guchar *contents;
   gsize i, contents_length;
-  char *content_type, *mime_type;
+  char *filename, *content_type, *mime_type;
   gboolean success;
 
-  filename = file;
-  ref_filename = make_ref_filename (filename);
-  reference = gdk_pixbuf_new_from_file (ref_filename, &error);
+  file = G_FILE (data);
+  filename = g_file_get_path (file);
+  ref_file = make_ref_file (file);
+
+  stream = G_INPUT_STREAM (g_file_read (ref_file, NULL, &error));
+  g_assert_no_error (error);
+  g_assert (stream != NULL);
+  reference = gdk_pixbuf_new_from_stream (stream, NULL, &error);
   g_assert_no_error (error);
   g_assert (reference != NULL);
+  g_object_unref (stream);
 
-  success = g_file_get_contents (filename, (gchar **) &contents, &contents_length, &error);
+  success = g_file_load_contents (file, NULL, (gchar **) &contents, &contents_length, NULL, &error);
   g_assert_no_error (error);
   g_assert (success);
 
@@ -140,19 +166,42 @@ test_reftest (gconstpointer file)
   g_object_unref (loaded);
   g_object_unref (loader);
   g_object_unref (reference);
-  g_free (ref_filename);
+  g_object_unref (ref_file);
+  g_free (filename);
 }
 
 int
 main (int argc, char **argv)
 {
-  gchar *tga_test_images;
 
   g_test_init (&argc, &argv, NULL);
 
-  tga_test_images = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images/reftests", NULL);
-  add_test_for_all_images ("/pixbuf/reftest", tga_test_images, test_reftest, is_not_ref_image);
-  g_free (tga_test_images);
+  if (argc < 2)
+    {
+      GFile *dir;
+      gchar *test_images;
+
+      test_images = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images/reftests", NULL);
+      dir = g_file_new_for_path (test_images);
+      
+      add_test_for_all_images ("/pixbuf/reftest", dir, dir, test_reftest, is_not_ref_image);
+
+      g_object_unref (dir);
+      g_free (test_images);
+    }
+  else
+    {
+      guint i;
+
+      for (i = 1; i < argc; i++)
+        {
+          GFile *file = g_file_new_for_commandline_arg (argv[i]);
+
+          add_test_for_all_images ("/pixbuf/reftest", NULL, file, test_reftest, is_not_ref_image);
+
+          g_object_unref (file);
+        }
+    }
 
   return g_test_run ();
 }
