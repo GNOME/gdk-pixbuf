@@ -44,8 +44,8 @@ randomly_modify (const gchar *image, guint size)
       FILE *f;
       GdkPixbufLoader *loader;
       
-      guint index = g_random_int_range (0, size);
-      guchar byte = g_random_int_range (0, 256);
+      guint index = g_test_rand_int_range (0, size);
+      guchar byte = g_test_rand_int_range (0, 256);
       
       img_copy[index] = byte;
       f = fopen ("pixbuf-randomly-modified-image", "w");
