@@ -84,7 +84,7 @@ is_not_ref_image (const char *filename)
 }
 
 static void
-test_reftest_success (gconstpointer file)
+test_reftest (gconstpointer file)
 {
   GdkPixbufLoader *loader;
   GdkPixbuf *reference, *loaded = NULL;
@@ -150,8 +150,8 @@ main (int argc, char **argv)
 
   g_test_init (&argc, &argv, NULL);
 
-  tga_test_images = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images/tga", NULL);
-  add_test_for_all_images ("/pixbuf/reftest/success", tga_test_images, test_reftest_success, is_not_ref_image);
+  tga_test_images = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images/reftests", NULL);
+  add_test_for_all_images ("/pixbuf/reftest", tga_test_images, test_reftest, is_not_ref_image);
   g_free (tga_test_images);
 
   return g_test_run ();

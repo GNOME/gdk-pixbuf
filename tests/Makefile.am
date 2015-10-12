@@ -37,10 +37,10 @@ test_programs = 			\
 	pixbuf-jpeg			\
 	pixbuf-dpi			\
 	pixbuf-stream			\
+	pixbuf-reftest			\
 	pixbuf-resource			\
 	pixbuf-scale			\
 	pixbuf-short-gif-write		\
-	pixbuf-slow-load		\
 	pixbuf-save			\
 	pixbuf-readonly-to-mutable	\
 	pixbuf-composite		\
@@ -63,7 +63,7 @@ dist_installed_test_data =		\
 	large.png			\
 	large.jpg			\
 	$(wildcard $(srcdir)/test-images/randomly-modified/*) \
-	$(wildcard $(srcdir)/test-images/tga/*) \
+	$(wildcard $(srcdir)/test-images/reftest/tga/*) \
 	$(NULL)
 
 pixbuf_randomly_modified_SOURCES =	\
@@ -122,8 +122,8 @@ pixbuf_save_SOURCES =			\
 	test-common.h			\
 	$(NULL)
 
-pixbuf_slow_load_SOURCES =		\
-	pixbuf-slow-load.c		\
+pixbuf_reftest_SOURCES =		\
+	pixbuf-reftest.c		\
 	test-common.c			\
 	test-common.h			\
 	$(NULL)
