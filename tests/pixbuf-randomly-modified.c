@@ -97,9 +97,6 @@ main (int argc, char **argv)
   max_mem_size.rlim_cur = 100 * 1024 * 1024; /* 100M */
   max_mem_size.rlim_max = max_mem_size.rlim_cur;
   setrlimit (RLIMIT_DATA, &max_mem_size);
-#ifdef RLIMIT_AS
-  setrlimit (RLIMIT_AS, &max_mem_size);
-#endif
 #endif
 
   g_test_init (&argc, &argv, NULL);
