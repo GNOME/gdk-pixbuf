@@ -34,12 +34,14 @@
 static void
 randomly_modify (const gchar *image, guint size)
 {
-  int i;
+  int i, n;
 
   guchar *img_copy = g_malloc (size);
   g_memmove (img_copy, image, size);
   
-  for (i = 0; i < size / 4; i++)
+  n = MIN (100, size / 4);
+
+  for (i = 0; i < n; i++)
     {
       FILE *f;
       GdkPixbufLoader *loader;
