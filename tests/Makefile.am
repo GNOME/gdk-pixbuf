@@ -65,7 +65,8 @@ dist_installed_test_data =		\
 	large.jpg			\
 	$(wildcard $(srcdir)/test-images/fail/*) \
 	$(wildcard $(srcdir)/test-images/randomly-modified/*) \
-	$(wildcard $(srcdir)/test-images/reftest/tga/*) \
+	$(wildcard $(srcdir)/test-images/reftests/*) \
+	$(wildcard $(srcdir)/test-images/reftests/tga/*) \
 	$(NULL)
 
 pixbuf_randomly_modified_SOURCES =	\
