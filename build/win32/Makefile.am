@@ -5,6 +5,4 @@ SUBDIRS =	\
 	vs12	\
 	vs14
 
-EXTRA_DIST = math-compat/math.h
-
 -include $(top_srcdir)/git.mk

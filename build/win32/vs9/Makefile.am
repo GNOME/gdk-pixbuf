@@ -14,7 +14,8 @@ EXTRA_DIST =	\
 	gdk-pixbuf-query-loaders.vcproj	\
 	gdk-pixbuf-pixdata.vcproj	\
 	gdk-pixbuf-install.vcproj	\
-	$(GENERATED_ITEMS)
+	$(GENERATED_ITEMS)		\
+	math.h
 
 gdk-pixbuf-install.vsprops: $(top_srcdir)/build/win32/vs9/gdk-pixbuf-install.vspropsin gdk-pixbuf.headers
 	$(CPP) -P - <$(top_srcdir)/build/win32/vs9/gdk-pixbuf-install.vspropsin >$@
