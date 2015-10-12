@@ -130,7 +130,7 @@ pixbuf_jpeg_SOURCES =			\
 	test-common.h			\
 	$(NULL)
 
-pixbuf_short_git_write_SOURCES =	\
+pixbuf_short_gif_write_SOURCES =	\
 	pixbuf-short-gif-write.c
 
 pixbuf_readonly_to_mutable_SOURCES =	\
