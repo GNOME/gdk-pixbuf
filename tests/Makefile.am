@@ -30,6 +30,7 @@ endif
 test_programs = 			\
 	animation			\
 	cve-2015-4491			\
+	pixbuf-fail			\
 	pixbuf-icon-serialize 		\
 	pixbuf-randomly-modified	\
 	pixbuf-threads			\
@@ -89,6 +90,12 @@ pixbuf_icc_SOURCES = 			\
 
 pixbuf_dpi_SOURCES = 			\
 	pixbuf-dpi.c			\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_fail_SOURCES =			\
+	pixbuf-fail.c			\
 	test-common.c			\
 	test-common.h			\
 	$(NULL)
