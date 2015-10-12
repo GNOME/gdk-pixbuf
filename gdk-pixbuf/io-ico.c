@@ -1257,6 +1257,11 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 		"image/x-icon",
 		"image/x-ico",
 		"image/x-win-bitmap",
+                "image/vnd.microsoft.icon",
+                "application/ico",
+                "image/ico",
+                "image/icon",
+                "text/ico",
 		NULL
 	};
 	static const gchar *extensions[] = {
