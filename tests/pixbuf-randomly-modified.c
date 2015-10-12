@@ -89,8 +89,8 @@ test_randomly_modified (gconstpointer data)
 int
 main (int argc, char **argv)
 {
-  gchar *test_images_dir;
-  GFile *test_images;
+  gchar *base_dir;
+  GFile *base, *test_images;
 #ifdef HAVE_SETRLIMIT
   struct rlimit max_mem_size;
 
@@ -101,11 +101,19 @@ main (int argc, char **argv)
 
   g_test_init (&argc, &argv, NULL);
 
-  test_images_dir = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images/randomly-modified", NULL);
-  test_images = g_file_new_for_path (test_images_dir);
-  add_test_for_all_images ("/pixbuf/randomly-modified", test_images, test_images, test_randomly_modified, NULL);
+  base_dir = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images", NULL);
+  base = g_file_new_for_path (base_dir);
+
+  test_images = g_file_get_child (base, "randomly-modified");
+  add_test_for_all_images ("/pixbuf", base, test_images, test_randomly_modified, NULL);
   g_object_unref (test_images);
-  g_free (test_images_dir);
+
+  test_images = g_file_get_child (base, "fail");
+  add_test_for_all_images ("/pixbuf/randomly-modified", base, test_images, test_randomly_modified, NULL);
+  g_object_unref (test_images);
+
+  g_object_unref (base);
+  g_free (base_dir);
 
   g_test_message ("Modified image is written to pixbuf-randomly-modified-image");
 
