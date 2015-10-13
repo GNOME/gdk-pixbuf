@@ -61,7 +61,7 @@ dist_installed_test_data =		\
 	large.jpg			\
 	$(wildcard $(srcdir)/test-images/fail/*) \
 	$(wildcard $(srcdir)/test-images/randomly-modified/*) \
-	$(wildcard $(srcdir)/test-images/reftests/*) \
+	$(wildcard $(srcdir)/test-images/reftests/*.*) \
 	$(wildcard $(srcdir)/test-images/reftests/tga/*) \
 	$(NULL)
 
