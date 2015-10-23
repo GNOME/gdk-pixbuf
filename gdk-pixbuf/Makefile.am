@@ -149,7 +149,7 @@ libpixbufloader_xbm_la_LIBADD = $(module_libs)
 #
 # The TGA loader
 #
-libstatic_pixbufloader_tga_la_SOURCES = io-tga.c
+libstatic_pixbufloader_tga_la_SOURCES = io-tga.c gdk-pixbuf-buffer-queue.c
 libpixbufloader_tga_la_SOURCES = io-tga.c gdk-pixbuf-buffer-queue.c
 libpixbufloader_tga_la_LDFLAGS = -avoid-version -module $(no_undefined)
 libpixbufloader_tga_la_LIBADD = $(module_libs)
