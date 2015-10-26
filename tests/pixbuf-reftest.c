@@ -39,8 +39,6 @@ loader_size_prepared (GdkPixbufLoader  *loader,
 
 static void
 loader_area_prepared (GdkPixbufLoader  *loader,
-                      int               w,
-                      int               h,
                       GdkPixbuf       **pixbuf)
 {
   g_assert (*pixbuf != NULL);
