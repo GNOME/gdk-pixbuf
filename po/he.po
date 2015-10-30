@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-27 11:26+0300\n"
-"PO-Revision-Date: 2015-09-27 11:26+0300\n"
+"POT-Creation-Date: 2015-10-30 12:46+0200\n"
+"PO-Revision-Date: 2015-10-30 12:48+0200\n"
 "Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
@@ -307,12 +307,12 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1719
+#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1726
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
 
-#: ../gdk-pixbuf/io-gdip-ico.c:60 ../gdk-pixbuf/io-ico.c:1268
+#: ../gdk-pixbuf/io-gdip-ico.c:60 ../gdk-pixbuf/io-ico.c:1275
 msgctxt "image format"
 msgid "Windows icon"
 msgstr "סמליל Windows"
@@ -388,7 +388,7 @@ msgid "Failure reading GIF: %s"
 msgstr "שגיאה בקריאת GIF:‏ %s"
 
 #: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1501
-#: ../gdk-pixbuf/io-gif.c:1668
+#: ../gdk-pixbuf/io-gif.c:1675
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "חסרים נתונים בקובץ ה־GIF (ייתכן שנקטע בדרך כלשהי?)"
 
@@ -414,7 +414,7 @@ msgid "Circular table entry in GIF file"
 msgstr "רישום טבלה מעגלי בקובץ ה־GIF"
 
 #: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1487
-#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1663
 msgid "Not enough memory to load GIF file"
 msgstr "אין מספיק זיכרון לטעינת קובץ GIF"
 
@@ -450,6 +450,10 @@ msgstr ""
 #: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "תמונת ה־GIF הייתה קטועה או לא מושלמת."
+
+#: ../gdk-pixbuf/io-gif.c:1570
+msgid "Not all frames of the GIF image were loaded."
+msgstr "Not all frames of the GIF image were loaded."
 
 #: ../gdk-pixbuf/io-icns.c:358
 #, c-format
@@ -489,15 +493,15 @@ msgstr "סוג הסמל לא נתמך"
 msgid "Not enough memory to load ICO file"
 msgstr "אין מספיק זיכרון לטעינת קובץ ICO"
 
-#: ../gdk-pixbuf/io-ico.c:993
+#: ../gdk-pixbuf/io-ico.c:995
 msgid "Image too large to be saved as ICO"
 msgstr "התמונה גדולה מכדי שמירה כ־ICO"
 
-#: ../gdk-pixbuf/io-ico.c:1004
+#: ../gdk-pixbuf/io-ico.c:1006
 msgid "Cursor hotspot outside image"
 msgstr "Cursor hotspot outside image"
 
-#: ../gdk-pixbuf/io-ico.c:1027
+#: ../gdk-pixbuf/io-ico.c:1029
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "עומק בלתי נתמך לקובץ ICO:‏ %d"
@@ -801,57 +805,43 @@ msgctxt "image format"
 msgid "QuickTime"
 msgstr "QuickTime"
 
-#: ../gdk-pixbuf/io-tga.c:151
-msgid "Cannot allocate memory for IOBuffer struct"
-msgstr "לא ניתן להקצות זיכרון למבנה IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:170
-msgid "Cannot allocate memory for IOBuffer data"
-msgstr "לא ניתן להקצות זיכרון לנתוני IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:181
-msgid "Cannot realloc IOBuffer data"
-msgstr "לא ניתן להקצות מחדש זיכרון לנתוני IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:211
-msgid "Cannot allocate temporary IOBuffer data"
-msgstr "לא ניתן להקצות נתוני IOBuffer זמניים"
-
-#: ../gdk-pixbuf/io-tga.c:383
-msgid "Cannot allocate new pixbuf"
-msgstr "לא ניתן להקצות pixbuf חדש"
-
-#: ../gdk-pixbuf/io-tga.c:723
+#: ../gdk-pixbuf/io-tga.c:333
 msgid "Cannot allocate colormap"
 msgstr "לא ניתן להקצות מפת צבעים"
 
-#: ../gdk-pixbuf/io-tga.c:747
+#: ../gdk-pixbuf/io-tga.c:358
+msgid "Cannot allocate new pixbuf"
+msgstr "לא ניתן להקצות pixbuf חדש"
+
+#: ../gdk-pixbuf/io-tga.c:506
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "עומק הסיביות אינו צפוי לרשומות מפת הצבעים"
 
-#: ../gdk-pixbuf/io-tga.c:766
+#: ../gdk-pixbuf/io-tga.c:522
+msgid "Pseudocolor image does not contain a colormap"
+msgstr "Pseudocolor image does not contain a colormap"
+
+#: ../gdk-pixbuf/io-tga.c:565
 msgid "Cannot allocate TGA header memory"
 msgstr "לא ניתן להקצות זיכרון לכותרת TGA"
 
-#: ../gdk-pixbuf/io-tga.c:799
+#: ../gdk-pixbuf/io-tga.c:596
 msgid "TGA image has invalid dimensions"
 msgstr "לתמונת ה־TGA יש ממדים לא תקניים"
 
-#: ../gdk-pixbuf/io-tga.c:805 ../gdk-pixbuf/io-tga.c:814
-#: ../gdk-pixbuf/io-tga.c:824 ../gdk-pixbuf/io-tga.c:834
-#: ../gdk-pixbuf/io-tga.c:841
+#: ../gdk-pixbuf/io-tga.c:602 ../gdk-pixbuf/io-tga.c:609
 msgid "TGA image type not supported"
 msgstr "סוג התמונות TGA אינו נתמך"
 
-#: ../gdk-pixbuf/io-tga.c:888
+#: ../gdk-pixbuf/io-tga.c:634
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "לא ניתן להקצות זיכרון למבנה הקשר TGA"
 
-#: ../gdk-pixbuf/io-tga.c:953
-msgid "Excess data in file"
-msgstr "מידע עודף בקובץ"
+#: ../gdk-pixbuf/io-tga.c:695
+msgid "TGA image was truncated or incomplete."
+msgstr "תמונת ה־ANI הייתה קטועה או לא שלמה."
 
-#: ../gdk-pixbuf/io-tga.c:1032
+#: ../gdk-pixbuf/io-tga.c:747
 msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
@@ -977,6 +967,21 @@ msgstr "כתיבה לקובץ זמני בזמן טעינת תמונת XPM נכש
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
+
+#~ msgid "Cannot allocate memory for IOBuffer struct"
+#~ msgstr "לא ניתן להקצות זיכרון למבנה IOBuffer"
+
+#~ msgid "Cannot allocate memory for IOBuffer data"
+#~ msgstr "לא ניתן להקצות זיכרון לנתוני IOBuffer"
+
+#~ msgid "Cannot realloc IOBuffer data"
+#~ msgstr "לא ניתן להקצות מחדש זיכרון לנתוני IOBuffer"
+
+#~ msgid "Cannot allocate temporary IOBuffer data"
+#~ msgstr "לא ניתן להקצות נתוני IOBuffer זמניים"
+
+#~ msgid "Excess data in file"
+#~ msgstr "מידע עודף בקובץ"
 
 #~ msgid "Couldn't allocate memory for header"
 #~ msgstr "לא ניתן להקצות זיכרון לכותרת"
