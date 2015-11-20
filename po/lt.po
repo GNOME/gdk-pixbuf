@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2015-09-26 05:21+0000\n"
-"PO-Revision-Date: 2015-09-26 19:31+0300\n"
+"POT-Creation-Date: 2015-11-13 18:32+0000\n"
+"PO-Revision-Date: 2015-11-13 21:13+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:156 ../gdk-pixbuf/gdk-pixbuf-io.c:1084
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1340
@@ -321,12 +321,12 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1719
+#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1726
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
 
-#: ../gdk-pixbuf/io-gdip-ico.c:60 ../gdk-pixbuf/io-ico.c:1268
+#: ../gdk-pixbuf/io-gdip-ico.c:60 ../gdk-pixbuf/io-ico.c:1275
 msgctxt "image format"
 msgid "Windows icon"
 msgstr "Windows piktograma"
@@ -405,7 +405,7 @@ msgid "Failure reading GIF: %s"
 msgstr "Klaida skaitant GIF: %s"
 
 #: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1501
-#: ../gdk-pixbuf/io-gif.c:1668
+#: ../gdk-pixbuf/io-gif.c:1675
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr ""
 "GIF failui trūksta dalies duomenų (galbūt ji buvo kaip nors sugadinta?)"
@@ -432,7 +432,7 @@ msgid "Circular table entry in GIF file"
 msgstr "Cikliškas lentelės įrašas GIF faile"
 
 #: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1487
-#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1663
 msgid "Not enough memory to load GIF file"
 msgstr "Nepakanka atminties įkelti GIF failui"
 
@@ -468,6 +468,10 @@ msgstr ""
 #: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF paveikslėlis buvo nukirstas arba nepilnas."
+
+#: ../gdk-pixbuf/io-gif.c:1570
+msgid "Not all frames of the GIF image were loaded."
+msgstr "Ne visi GIF paveikslėlio kadrai buvo įkelti."
 
 #: ../gdk-pixbuf/io-icns.c:358
 #, c-format
@@ -507,15 +511,15 @@ msgstr "Nepalaikomas piktogramos tipas"
 msgid "Not enough memory to load ICO file"
 msgstr "Nepakanka atminties įkelti ICO failui"
 
-#: ../gdk-pixbuf/io-ico.c:993
+#: ../gdk-pixbuf/io-ico.c:995
 msgid "Image too large to be saved as ICO"
 msgstr "Paveikslėlis yra per didelis ir negali būti išsaugotas ICO formatu"
 
-#: ../gdk-pixbuf/io-ico.c:1004
+#: ../gdk-pixbuf/io-ico.c:1006
 msgid "Cursor hotspot outside image"
 msgstr "Žymeklio aktyvus taškas yra už paveikslėlio ribų"
 
-#: ../gdk-pixbuf/io-ico.c:1027
+#: ../gdk-pixbuf/io-ico.c:1029
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Nepalaikomas ICO failo spalvų gylis: %d"
@@ -824,58 +828,43 @@ msgctxt "image format"
 msgid "QuickTime"
 msgstr "QuickTime"
 
-#: ../gdk-pixbuf/io-tga.c:151
-msgid "Cannot allocate memory for IOBuffer struct"
-msgstr "Nepavyko rezervuoti atminties IOBuffer struktūrai"
-
-#: ../gdk-pixbuf/io-tga.c:170
-msgid "Cannot allocate memory for IOBuffer data"
-msgstr "Nepavyko rezervuoti atminties IOBuffer duomenims"
-
-#: ../gdk-pixbuf/io-tga.c:181
-msgid "Cannot realloc IOBuffer data"
-msgstr "Nepavyko perkelti IOBuffer duomenų"
-
-#: ../gdk-pixbuf/io-tga.c:211
-msgid "Cannot allocate temporary IOBuffer data"
-msgstr "Nepavyko rezervuoti laikinų IOBuffer duomenų"
-
-#: ../gdk-pixbuf/io-tga.c:383
-msgid "Cannot allocate new pixbuf"
-msgstr "Nepavyko rezervuoti naujo pixbuf"
-
-#: ../gdk-pixbuf/io-tga.c:723
-#| msgid "Cannot allocate colormap entries"
+#: ../gdk-pixbuf/io-tga.c:333
 msgid "Cannot allocate colormap"
 msgstr "Nepavyko išskirti atminties spalvų lentelei"
 
-#: ../gdk-pixbuf/io-tga.c:747
+#: ../gdk-pixbuf/io-tga.c:358
+msgid "Cannot allocate new pixbuf"
+msgstr "Nepavyko rezervuoti naujo pixbuf"
+
+#: ../gdk-pixbuf/io-tga.c:506
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "Netikėtas bitdepth požymis spalvų lentelės įrašuose"
 
-#: ../gdk-pixbuf/io-tga.c:766
+#: ../gdk-pixbuf/io-tga.c:522
+msgid "Pseudocolor image does not contain a colormap"
+msgstr "Pseudospalvų paveikslėlyje nėra spalvų paletės"
+
+#: ../gdk-pixbuf/io-tga.c:565
 msgid "Cannot allocate TGA header memory"
 msgstr "Nepavyko rezervuoti atminties TGA antraštei"
 
-#: ../gdk-pixbuf/io-tga.c:799
+#: ../gdk-pixbuf/io-tga.c:596
 msgid "TGA image has invalid dimensions"
 msgstr "TGA paveikslėlis turi neteisingus išmatavimus"
 
-#: ../gdk-pixbuf/io-tga.c:805 ../gdk-pixbuf/io-tga.c:814
-#: ../gdk-pixbuf/io-tga.c:824 ../gdk-pixbuf/io-tga.c:834
-#: ../gdk-pixbuf/io-tga.c:841
+#: ../gdk-pixbuf/io-tga.c:602 ../gdk-pixbuf/io-tga.c:609
 msgid "TGA image type not supported"
 msgstr "TGA paveikslėlio tipas nepalaikomas"
 
-#: ../gdk-pixbuf/io-tga.c:888
+#: ../gdk-pixbuf/io-tga.c:634
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Nepavyko rezervuoti atminties TGA struktūrai"
 
-#: ../gdk-pixbuf/io-tga.c:953
-msgid "Excess data in file"
-msgstr "Faile duomenų perteklius"
+#: ../gdk-pixbuf/io-tga.c:695
+msgid "TGA image was truncated or incomplete."
+msgstr "TGA paveikslėlis buvo nukirstas arba nepilnas."
 
-#: ../gdk-pixbuf/io-tga.c:1032
+#: ../gdk-pixbuf/io-tga.c:747
 msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
@@ -1001,6 +990,21 @@ msgstr "Įkeliant XPM failą nepavyko įrašyti laikino failo"
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
+
+#~ msgid "Cannot allocate memory for IOBuffer struct"
+#~ msgstr "Nepavyko rezervuoti atminties IOBuffer struktūrai"
+
+#~ msgid "Cannot allocate memory for IOBuffer data"
+#~ msgstr "Nepavyko rezervuoti atminties IOBuffer duomenims"
+
+#~ msgid "Cannot realloc IOBuffer data"
+#~ msgstr "Nepavyko perkelti IOBuffer duomenų"
+
+#~ msgid "Cannot allocate temporary IOBuffer data"
+#~ msgstr "Nepavyko rezervuoti laikinų IOBuffer duomenų"
+
+#~ msgid "Excess data in file"
+#~ msgstr "Faile duomenų perteklius"
 
 #~ msgid "Couldn't allocate memory for header"
 #~ msgstr "Nepavyko rezervuoti atminties būtinos antraštei"
