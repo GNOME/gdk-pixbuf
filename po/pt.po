@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: 3.10\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2015-10-07 05:22+0000\n"
+"POT-Creation-Date: 2015-10-19 05:20+0000\n"
 "PO-Revision-Date: 2015-10-07 08:29+0100\n"
 "Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
 "Language-Team: Português <palbuquerque73@gmail.com>\n"
@@ -100,7 +100,7 @@ msgstr "O número de linhas do pixbuf"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:231
 msgid "Rowstride"
-msgstr "Quatidade da linha"
+msgstr "Quantidade da linha"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:232
 msgid ""
@@ -338,8 +338,7 @@ msgstr ""
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr ""
-"Qualidade JPEG tem de ser um valor entre 0 e 100; valor \"%d\" não é "
-"permitido."
+"Qualidade JPEG tem de ser um valor entre 0 e 100; valor '%d' não é permitido."
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:137 ../gdk-pixbuf/io-jpeg.c:1575
 msgctxt "image format"
@@ -599,7 +598,7 @@ msgstr "Pixbuf transformado tem largura ou altura zero."
 #: ../gdk-pixbuf/io-pixdata.c:189
 msgctxt "image format"
 msgid "GdkPixdata"
-msgstr "Formato GdkPixdata"
+msgstr "GdkPixdata"
 
 #: ../gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
@@ -842,7 +841,6 @@ msgid "Cannot allocate new pixbuf"
 msgstr "Impossível alocar novo pixbuf"
 
 #: ../gdk-pixbuf/io-tga.c:723
-#| msgid "Cannot allocate colormap entries"
 msgid "Cannot allocate colormap"
 msgstr "Impossível alocar mapa de cores"
 
