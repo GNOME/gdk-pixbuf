@@ -318,6 +318,15 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 		return FALSE;
 	}
 
+        if (State->Header.depth > 32)
+          {
+		g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                     _("BMP image has unsupported depth"));
+		State->read_state = READ_STATE_ERROR;
+          }
+
 	if (State->Header.size == 12)
 		clrUsed = 1 << State->Header.depth;
 	else
