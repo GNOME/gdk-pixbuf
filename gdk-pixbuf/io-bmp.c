@@ -325,12 +325,23 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
                                      GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
                                      _("BMP image has unsupported depth"));
 		State->read_state = READ_STATE_ERROR;
+		return FALSE;
           }
 
 	if (State->Header.size == 12)
 		clrUsed = 1 << State->Header.depth;
 	else
 		clrUsed = (int) (BIH[35] << 24) + (BIH[34] << 16) + (BIH[33] << 8) + (BIH[32]);
+
+        if (clrUsed > (1 << State->Header.depth))
+          {
+		g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                     _("BMP image has oversize palette"));
+		State->read_state = READ_STATE_ERROR;
+		return FALSE;
+          }
 
 	if (clrUsed != 0)
 		State->Header.n_colors = clrUsed;
