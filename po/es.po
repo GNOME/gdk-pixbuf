@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf.master.es\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2015-11-16 06:33+0000\n"
-"PO-Revision-Date: 2015-11-17 09:04+0100\n"
+"POT-Creation-Date: 2015-12-07 06:33+0000\n"
+"PO-Revision-Date: 2015-12-07 11:41+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -283,12 +283,12 @@ msgid "Windows animated cursor"
 msgstr "Cursor animado de la ventana"
 
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
-#: ../gdk-pixbuf/io-bmp.c:484
+#: ../gdk-pixbuf/io-bmp.c:378 ../gdk-pixbuf/io-bmp.c:401
+#: ../gdk-pixbuf/io-bmp.c:504
 msgid "BMP image has bogus header data"
 msgstr "La imagen BMP tiene datos de cabecera erróneos"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:441
 msgid "Not enough memory to load bitmap image"
 msgstr "No hay memoria suficiente para cargar el mapa de bits"
 
@@ -296,24 +296,34 @@ msgstr "No hay memoria suficiente para cargar el mapa de bits"
 msgid "BMP image has unsupported header size"
 msgstr "La imagen BMP tiene un tamaño de cabecera no soportado"
 
-#: ../gdk-pixbuf/io-bmp.c:345
+#: ../gdk-pixbuf/io-bmp.c:326
+#| msgid "BMP image has unsupported header size"
+msgid "BMP image has unsupported depth"
+msgstr "La imagen BMP tiene una profundidad no soportada"
+
+#: ../gdk-pixbuf/io-bmp.c:341
+#| msgid "BMP image has bogus header data"
+msgid "BMP image has oversize palette"
+msgstr "La imagen BMP tiene una paleta sobredimensionada"
+
+#: ../gdk-pixbuf/io-bmp.c:365
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Las imágenes BMP «Topdown» no se pueden comprimir"
 
-#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:531
+#: ../gdk-pixbuf/io-bmp.c:725 ../gdk-pixbuf/io-png.c:531
 #: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Se ha encontrado un final de archivo antes de lo esperado"
 
-#: ../gdk-pixbuf/io-bmp.c:1317
+#: ../gdk-pixbuf/io-bmp.c:1337
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "No se pudo asignar memoria para guardar el archivo BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1358
+#: ../gdk-pixbuf/io-bmp.c:1378
 msgid "Couldn't write to BMP file"
 msgstr "No se pudo escribir en el archivo BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:83
+#: ../gdk-pixbuf/io-bmp.c:1431 ../gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
@@ -873,7 +883,6 @@ msgid "Cannot allocate memory for TGA context struct"
 msgstr "No se puede asignar memoria para la estructura «context» de TGA"
 
 #: ../gdk-pixbuf/io-tga.c:695
-#| msgid "ANI image was truncated or incomplete."
 msgid "TGA image was truncated or incomplete."
 msgstr "La imagen TGA se ha truncado o está incompleta."
 
