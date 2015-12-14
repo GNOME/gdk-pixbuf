@@ -1,3 +1,10 @@
+2.32.3
+======
+
+* Fix two crashes in the bmp loader (#747605, #758991)
+* ico: integer overflow fixes
+* Translation updates
+
 2.32.2
 ======
 
