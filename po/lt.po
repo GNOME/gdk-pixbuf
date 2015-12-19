@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2015-09-26 05:21+0000\n"
-"PO-Revision-Date: 2015-09-26 19:31+0300\n"
+"POT-Creation-Date: 2015-12-19 18:35+0000\n"
+"PO-Revision-Date: 2015-12-19 21:43+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -281,12 +281,12 @@ msgid "Windows animated cursor"
 msgstr "Windows animuotas žymiklis"
 
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
-#: ../gdk-pixbuf/io-bmp.c:484
+#: ../gdk-pixbuf/io-bmp.c:378 ../gdk-pixbuf/io-bmp.c:401
+#: ../gdk-pixbuf/io-bmp.c:504
 msgid "BMP image has bogus header data"
 msgstr "BMP paveikslėlis turi klaidinančią antraštę"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:441
 msgid "Not enough memory to load bitmap image"
 msgstr "Nepakanka atminties įkelti rastrinį paveikslėlį"
 
@@ -294,24 +294,34 @@ msgstr "Nepakanka atminties įkelti rastrinį paveikslėlį"
 msgid "BMP image has unsupported header size"
 msgstr "BMP paveikslėlis turi nepalaikomą antraštės dydį"
 
-#: ../gdk-pixbuf/io-bmp.c:345
+#: ../gdk-pixbuf/io-bmp.c:326
+#| msgid "BMP image has unsupported header size"
+msgid "BMP image has unsupported depth"
+msgstr "BMP paveikslėlis turi nepalaikomą dydį"
+
+#: ../gdk-pixbuf/io-bmp.c:341
+#| msgid "BMP image has bogus header data"
+msgid "BMP image has oversize palette"
+msgstr "BMP paveikslėlis turi per didelę paletę"
+
+#: ../gdk-pixbuf/io-bmp.c:365
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Topdown BMP paveikslėliai negali būti suspausti"
 
-#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:531
+#: ../gdk-pixbuf/io-bmp.c:725 ../gdk-pixbuf/io-png.c:531
 #: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Per anksti aptiktas failo pabaigos simbolis"
 
-#: ../gdk-pixbuf/io-bmp.c:1317
+#: ../gdk-pixbuf/io-bmp.c:1337
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Nepavyko priskirti atminties BMP failui išsaugoti"
 
-#: ../gdk-pixbuf/io-bmp.c:1358
+#: ../gdk-pixbuf/io-bmp.c:1378
 msgid "Couldn't write to BMP file"
 msgstr "Nepavyko įrašyti į BMP failą"
 
-#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:83
+#: ../gdk-pixbuf/io-bmp.c:1431 ../gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
@@ -326,7 +336,7 @@ msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
 
-#: ../gdk-pixbuf/io-gdip-ico.c:60 ../gdk-pixbuf/io-ico.c:1268
+#: ../gdk-pixbuf/io-gdip-ico.c:60 ../gdk-pixbuf/io-ico.c:1275
 msgctxt "image format"
 msgid "Windows icon"
 msgstr "Windows piktograma"
@@ -507,15 +517,15 @@ msgstr "Nepalaikomas piktogramos tipas"
 msgid "Not enough memory to load ICO file"
 msgstr "Nepakanka atminties įkelti ICO failui"
 
-#: ../gdk-pixbuf/io-ico.c:993
+#: ../gdk-pixbuf/io-ico.c:995
 msgid "Image too large to be saved as ICO"
 msgstr "Paveikslėlis yra per didelis ir negali būti išsaugotas ICO formatu"
 
-#: ../gdk-pixbuf/io-ico.c:1004
+#: ../gdk-pixbuf/io-ico.c:1006
 msgid "Cursor hotspot outside image"
 msgstr "Žymeklio aktyvus taškas yra už paveikslėlio ribų"
 
-#: ../gdk-pixbuf/io-ico.c:1027
+#: ../gdk-pixbuf/io-ico.c:1029
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Nepalaikomas ICO failo spalvų gylis: %d"
@@ -845,7 +855,6 @@ msgid "Cannot allocate new pixbuf"
 msgstr "Nepavyko rezervuoti naujo pixbuf"
 
 #: ../gdk-pixbuf/io-tga.c:723
-#| msgid "Cannot allocate colormap entries"
 msgid "Cannot allocate colormap"
 msgstr "Nepavyko išskirti atminties spalvų lentelei"
 
