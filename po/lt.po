@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2015-11-13 18:32+0000\n"
-"PO-Revision-Date: 2015-11-13 21:13+0200\n"
+"POT-Creation-Date: 2015-12-17 18:35+0000\n"
+"PO-Revision-Date: 2015-12-18 00:35+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:156 ../gdk-pixbuf/gdk-pixbuf-io.c:1084
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1340
@@ -281,12 +281,12 @@ msgid "Windows animated cursor"
 msgstr "Windows animuotas žymiklis"
 
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
-#: ../gdk-pixbuf/io-bmp.c:484
+#: ../gdk-pixbuf/io-bmp.c:378 ../gdk-pixbuf/io-bmp.c:401
+#: ../gdk-pixbuf/io-bmp.c:504
 msgid "BMP image has bogus header data"
 msgstr "BMP paveikslėlis turi klaidinančią antraštę"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:441
 msgid "Not enough memory to load bitmap image"
 msgstr "Nepakanka atminties įkelti rastrinį paveikslėlį"
 
@@ -294,24 +294,32 @@ msgstr "Nepakanka atminties įkelti rastrinį paveikslėlį"
 msgid "BMP image has unsupported header size"
 msgstr "BMP paveikslėlis turi nepalaikomą antraštės dydį"
 
-#: ../gdk-pixbuf/io-bmp.c:345
+#: ../gdk-pixbuf/io-bmp.c:326
+msgid "BMP image has unsupported depth"
+msgstr "BMP paveikslėlis turi nepalaikomą intensyvumą"
+
+#: ../gdk-pixbuf/io-bmp.c:341
+msgid "BMP image has oversize palette"
+msgstr "BMP paveikslėlis turi pernelyg didelę paletę"
+
+#: ../gdk-pixbuf/io-bmp.c:365
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Topdown BMP paveikslėliai negali būti suspausti"
 
-#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:531
+#: ../gdk-pixbuf/io-bmp.c:725 ../gdk-pixbuf/io-png.c:531
 #: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Per anksti aptiktas failo pabaigos simbolis"
 
-#: ../gdk-pixbuf/io-bmp.c:1317
+#: ../gdk-pixbuf/io-bmp.c:1337
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Nepavyko priskirti atminties BMP failui išsaugoti"
 
-#: ../gdk-pixbuf/io-bmp.c:1358
+#: ../gdk-pixbuf/io-bmp.c:1378
 msgid "Couldn't write to BMP file"
 msgstr "Nepavyko įrašyti į BMP failą"
 
-#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:83
+#: ../gdk-pixbuf/io-bmp.c:1431 ../gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
