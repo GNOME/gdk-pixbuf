@@ -3,6 +3,7 @@
 # Copyright (C) 2003, 2004, 2005 Miloslav Trmac <mitr@volny.cz>.
 # Copyright (C) 2006 Lukas Novotny <lukasnov@cvs.gnome.org>.
 # This file is distributed under the same license as the gtk+ package.
+#
 # Stanislav Brabec <utx@k332.feld.cvut.cz>, 1998.
 # Jiří Pavlovský <pavlovsk@ff.cuni.cz>, 1998.
 # Jiří Lebl <jirka@5z.com>, 2002.
@@ -18,8 +19,8 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2015-10-24 17:29+0000\n"
-"PO-Revision-Date: 2015-10-25 00:03+0200\n"
+"POT-Creation-Date: 2015-12-23 18:34+0000\n"
+"PO-Revision-Date: 2015-12-23 23:42+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -281,12 +282,12 @@ msgid "Windows animated cursor"
 msgstr "Animovaný kurzor Windows"
 
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
-#: ../gdk-pixbuf/io-bmp.c:484
+#: ../gdk-pixbuf/io-bmp.c:378 ../gdk-pixbuf/io-bmp.c:401
+#: ../gdk-pixbuf/io-bmp.c:504
 msgid "BMP image has bogus header data"
 msgstr "Obrázek formátu BMP má neplatná data v záhlaví"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:441
 msgid "Not enough memory to load bitmap image"
 msgstr "Nedostatek paměti k načtení rastrového obrázku"
 
@@ -294,24 +295,32 @@ msgstr "Nedostatek paměti k načtení rastrového obrázku"
 msgid "BMP image has unsupported header size"
 msgstr "Obrázek BMP má nepodporovanou velikost záhlaví"
 
-#: ../gdk-pixbuf/io-bmp.c:345
+#: ../gdk-pixbuf/io-bmp.c:326
+msgid "BMP image has unsupported depth"
+msgstr "Obrázek BMP má nepodporovanou hloubku barev"
+
+#: ../gdk-pixbuf/io-bmp.c:341
+msgid "BMP image has oversize palette"
+msgstr "Obrázek BMP má příliš velkou paletu barev"
+
+#: ../gdk-pixbuf/io-bmp.c:365
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Obrázky BMP shora dolů nelze komprimovat"
 
-#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:531
+#: ../gdk-pixbuf/io-bmp.c:725 ../gdk-pixbuf/io-png.c:531
 #: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Nalezen předčasný konec souboru"
 
-#: ../gdk-pixbuf/io-bmp.c:1317
+#: ../gdk-pixbuf/io-bmp.c:1337
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Nelze alokovat paměť k uložení souboru BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1358
+#: ../gdk-pixbuf/io-bmp.c:1378
 msgid "Couldn't write to BMP file"
 msgstr "Nelze zapisovat do souboru BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:83
+#: ../gdk-pixbuf/io-bmp.c:1431 ../gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
