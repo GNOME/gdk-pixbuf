@@ -25,8 +25,8 @@ msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2016-01-02 06:33+0000\n"
-"PO-Revision-Date: 2016-01-02 04:50-0200\n"
+"POT-Creation-Date: 2016-01-02 06:50+0000\n"
+"PO-Revision-Date: 2016-01-02 04:52-0200\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -338,7 +338,7 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1719
+#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1726
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
@@ -423,7 +423,7 @@ msgid "Failure reading GIF: %s"
 msgstr "Falha ao ler o GIF: %s"
 
 #: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1501
-#: ../gdk-pixbuf/io-gif.c:1668
+#: ../gdk-pixbuf/io-gif.c:1675
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr ""
 "Havia dados faltando no arquivo GIF (talvez ele tenha sido truncado de "
@@ -451,7 +451,7 @@ msgid "Circular table entry in GIF file"
 msgstr "Entrada de tabela circular no arquivo GIF"
 
 #: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1487
-#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1663
 msgid "Not enough memory to load GIF file"
 msgstr "Memória insuficiente para carregar o arquivo GIF"
 
@@ -487,6 +487,10 @@ msgstr ""
 #: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "A imagem GIF estava truncada ou incompleta."
+
+#: ../gdk-pixbuf/io-gif.c:1570
+msgid "Not all frames of the GIF image were loaded."
+msgstr "Nem todos os quadros da imagem GIF foram carregados."
 
 #: ../gdk-pixbuf/io-icns.c:358
 #, c-format
@@ -851,57 +855,43 @@ msgctxt "image format"
 msgid "QuickTime"
 msgstr "QuickTime"
 
-#: ../gdk-pixbuf/io-tga.c:151
-msgid "Cannot allocate memory for IOBuffer struct"
-msgstr "Não foi possível alocar memória para a estrutura IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:170
-msgid "Cannot allocate memory for IOBuffer data"
-msgstr "Não foi possível alocar memória para os dados de IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:181
-msgid "Cannot realloc IOBuffer data"
-msgstr "Não foi possível realocar os dados de IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:211
-msgid "Cannot allocate temporary IOBuffer data"
-msgstr "Não foi possível alocar os dados temporários de IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:383
-msgid "Cannot allocate new pixbuf"
-msgstr "Não foi possível alocar um novo pixbuf"
-
-#: ../gdk-pixbuf/io-tga.c:723
+#: ../gdk-pixbuf/io-tga.c:333
 msgid "Cannot allocate colormap"
 msgstr "Não foi possível alocar mapa de cores"
 
-#: ../gdk-pixbuf/io-tga.c:747
+#: ../gdk-pixbuf/io-tga.c:358
+msgid "Cannot allocate new pixbuf"
+msgstr "Não foi possível alocar um novo pixbuf"
+
+#: ../gdk-pixbuf/io-tga.c:506
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "Profundidade de bits inesperada para as entradas do mapa de cores"
 
-#: ../gdk-pixbuf/io-tga.c:766
+#: ../gdk-pixbuf/io-tga.c:522
+msgid "Pseudocolor image does not contain a colormap"
+msgstr "Imagem pseudocolorida não contém um mapa de cores"
+
+#: ../gdk-pixbuf/io-tga.c:565
 msgid "Cannot allocate TGA header memory"
 msgstr "Não foi possível alocar a memória do cabeçalho TGA"
 
-#: ../gdk-pixbuf/io-tga.c:799
+#: ../gdk-pixbuf/io-tga.c:596
 msgid "TGA image has invalid dimensions"
 msgstr "A imagem TGA tem dimensões inválidas"
 
-#: ../gdk-pixbuf/io-tga.c:805 ../gdk-pixbuf/io-tga.c:814
-#: ../gdk-pixbuf/io-tga.c:824 ../gdk-pixbuf/io-tga.c:834
-#: ../gdk-pixbuf/io-tga.c:841
+#: ../gdk-pixbuf/io-tga.c:602 ../gdk-pixbuf/io-tga.c:609
 msgid "TGA image type not supported"
 msgstr "Não há suporte ao tipo de imagem TGA"
 
-#: ../gdk-pixbuf/io-tga.c:888
+#: ../gdk-pixbuf/io-tga.c:634
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Não foi possível alocar memória para a estrutura de contexto TGA"
 
-#: ../gdk-pixbuf/io-tga.c:953
-msgid "Excess data in file"
-msgstr "Excesso de dados no arquivo"
+#: ../gdk-pixbuf/io-tga.c:695
+msgid "TGA image was truncated or incomplete."
+msgstr "A imagem TGA estava truncada ou incompleta."
 
-#: ../gdk-pixbuf/io-tga.c:1032
+#: ../gdk-pixbuf/io-tga.c:747
 msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
@@ -1029,6 +1019,21 @@ msgstr "Falha ao gravar o arquivo temporário ao carregar a imagem XPM"
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
+
+#~ msgid "Cannot allocate memory for IOBuffer struct"
+#~ msgstr "Não foi possível alocar memória para a estrutura IOBuffer"
+
+#~ msgid "Cannot allocate memory for IOBuffer data"
+#~ msgstr "Não foi possível alocar memória para os dados de IOBuffer"
+
+#~ msgid "Cannot realloc IOBuffer data"
+#~ msgstr "Não foi possível realocar os dados de IOBuffer"
+
+#~ msgid "Cannot allocate temporary IOBuffer data"
+#~ msgstr "Não foi possível alocar os dados temporários de IOBuffer"
+
+#~ msgid "Excess data in file"
+#~ msgstr "Excesso de dados no arquivo"
 
 #~ msgid "Couldn't allocate memory for header"
 #~ msgstr "Não foi possível alocar memória para o cabeçalho"
