@@ -31,6 +31,7 @@ test_programs = 			\
 	pixbuf-threads			\
 	pixbuf-icc			\
 	pixbuf-jpeg			\
+	pixbuf-jp2			\
 	pixbuf-dpi			\
 	pixbuf-stream			\
 	pixbuf-reftest			\
@@ -135,6 +136,12 @@ pixbuf_reftest_SOURCES =		\
 
 pixbuf_jpeg_SOURCES =			\
 	pixbuf-jpeg.c			\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_jp2_SOURCES =			\
+	pixbuf-jp2.c			\
 	test-common.c			\
 	test-common.h			\
 	$(NULL)
