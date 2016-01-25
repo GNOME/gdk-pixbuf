@@ -10,9 +10,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2015-10-25 06:35+0000\n"
-"PO-Revision-Date: 2015-10-25 17:30+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
+"%2b&keywords=I18N+L10N&component=gdk\n"
+"POT-Creation-Date: 2016-01-25 06:34+0000\n"
+"PO-Revision-Date: 2016-01-25 09:51+0100\n"
 "Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -20,9 +21,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.6\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:156 ../gdk-pixbuf/gdk-pixbuf-io.c:1084 ../gdk-pixbuf/gdk-pixbuf-io.c:1340
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:156 ../gdk-pixbuf/gdk-pixbuf-io.c:1084
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1340
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Nem sikerült megnyitni a(z) „%s” fájlt: %s"
@@ -34,13 +36,21 @@ msgstr "A(z) „%s” képfájl nem tartalmaz adatokat"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:207
 #, c-format
-msgid "Failed to load animation '%s': reason not known, probably a corrupt animation file"
-msgstr "Nem sikerült betölteni a(z) „%s” animációt: ok ismeretlen, valószínűleg sérült az animációfájl"
+msgid ""
+"Failed to load animation '%s': reason not known, probably a corrupt "
+"animation file"
+msgstr ""
+"Nem sikerült betölteni a(z) „%s” animációt: ok ismeretlen, valószínűleg "
+"sérült az animációfájl"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:275 ../gdk-pixbuf/gdk-pixbuf-io.c:1120 ../gdk-pixbuf/gdk-pixbuf-io.c:1392
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:275 ../gdk-pixbuf/gdk-pixbuf-io.c:1120
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1392
 #, c-format
-msgid "Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr "Nem sikerült betölteni a(z) „%s” képet: ok ismeretlen, valószínűleg sérült a képfájl"
+msgid ""
+"Failed to load image '%s': reason not known, probably a corrupt image file"
+msgstr ""
+"Nem sikerült betölteni a(z) „%s” képet: ok ismeretlen, valószínűleg sérült a "
+"képfájl"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:161
 msgid "Number of Channels"
@@ -95,7 +105,8 @@ msgid "Rowstride"
 msgstr "Sorköz (rowstride)"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:232
-msgid "The number of bytes between the start of a row and the start of the next row"
+msgid ""
+"The number of bytes between the start of a row and the start of the next row"
 msgstr "Egy sor eleje és a következő sor eleje közötti bájtok száma"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:241
@@ -122,8 +133,11 @@ msgstr "Nem lehet betölteni a képbetöltő modult: %s: %s"
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:796
 #, c-format
 msgid ""
-"Image-loading module %s does not export the proper interface; perhaps it's from a different gdk-pixbuf version?"
-msgstr "A(z) %s képbetöltő-modul nem exportálja a megfelelő felületet, talán egy másik gdk-pixbuf verzióból van?"
+"Image-loading module %s does not export the proper interface; perhaps it's "
+"from a different gdk-pixbuf version?"
+msgstr ""
+"A(z) %s képbetöltő-modul nem exportálja a megfelelő felületet, talán egy "
+"másik gdk-pixbuf verzióból van?"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:805 ../gdk-pixbuf/gdk-pixbuf-io.c:856
 #, c-format
@@ -152,7 +166,9 @@ msgstr "Hiba képfájlba íráskor: %s"
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2203 ../gdk-pixbuf/gdk-pixbuf-io.c:2324
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
-msgstr "A gdk-pixbuf ezen változatába nincs befordítva a(z) %s képformátumba való mentés támogatása"
+msgstr ""
+"A gdk-pixbuf ezen változatába nincs befordítva a(z) %s képformátumba való "
+"mentés támogatása"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2234
 msgid "Insufficient memory to save image to callback"
@@ -173,8 +189,12 @@ msgstr "„%s” megnyitása írásra sikertelen: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2546
 #, c-format
-msgid "Failed to close '%s' while writing image, all data may not have been saved: %s"
-msgstr "A(z) „%s” nem zárható le a kép írása közben, lehet, hogy nem sikerült minden adatot elmenteni: %s"
+msgid ""
+"Failed to close '%s' while writing image, all data may not have been saved: "
+"%s"
+msgstr ""
+"A(z) „%s” nem zárható le a kép írása közben, lehet, hogy nem sikerült minden "
+"adatot elmenteni: %s"
 
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:2767 ../gdk-pixbuf/gdk-pixbuf-io.c:2819
 msgid "Insufficient memory to save image into a buffer"
@@ -187,8 +207,11 @@ msgstr "Hiba képfolyamba íráskor"
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:382
 #, c-format
 msgid ""
-"Internal error: Image loader module '%s' failed to complete an operation, but didn't give a reason for the failure"
-msgstr "Belső hiba: A(z) %s képbetöltő modul nem tudott befejezni egy műveletet, de nem adta meg a hiba okát"
+"Internal error: Image loader module '%s' failed to complete an operation, "
+"but didn't give a reason for the failure"
+msgstr ""
+"Belső hiba: A(z) %s képbetöltő modul nem tudott befejezni egy műveletet, de "
+"nem adta meg a hiba okát"
 
 #: ../gdk-pixbuf/gdk-pixbuf-loader.c:424
 #, c-format
@@ -226,17 +249,20 @@ msgstr[1] "nem sikerült %u bájtos képpuffert lefoglalni"
 msgid "Unexpected icon chunk in animation"
 msgstr "Váratlan ikondarab az animációban"
 
-#: ../gdk-pixbuf/io-ani.c:340 ../gdk-pixbuf/io-ani.c:398 ../gdk-pixbuf/io-ani.c:424 ../gdk-pixbuf/io-ani.c:447
+#: ../gdk-pixbuf/io-ani.c:340 ../gdk-pixbuf/io-ani.c:398
+#: ../gdk-pixbuf/io-ani.c:424 ../gdk-pixbuf/io-ani.c:447
 #: ../gdk-pixbuf/io-ani.c:474 ../gdk-pixbuf/io-ani.c:561
 msgid "Invalid header in animation"
 msgstr "Érvénytelen fejléc az animációban"
 
-#: ../gdk-pixbuf/io-ani.c:350 ../gdk-pixbuf/io-ani.c:372 ../gdk-pixbuf/io-ani.c:456 ../gdk-pixbuf/io-ani.c:483
+#: ../gdk-pixbuf/io-ani.c:350 ../gdk-pixbuf/io-ani.c:372
+#: ../gdk-pixbuf/io-ani.c:456 ../gdk-pixbuf/io-ani.c:483
 #: ../gdk-pixbuf/io-ani.c:534 ../gdk-pixbuf/io-ani.c:606
 msgid "Not enough memory to load animation"
 msgstr "Nincs elég memória az animáció betöltéséhez"
 
-#: ../gdk-pixbuf/io-ani.c:390 ../gdk-pixbuf/io-ani.c:416 ../gdk-pixbuf/io-ani.c:435
+#: ../gdk-pixbuf/io-ani.c:390 ../gdk-pixbuf/io-ani.c:416
+#: ../gdk-pixbuf/io-ani.c:435
 msgid "Malformed chunk in animation"
 msgstr "Hibás részlet az animációban"
 
@@ -249,12 +275,13 @@ msgctxt "image format"
 msgid "Windows animated cursor"
 msgstr "Animált Windows kurzor"
 
-#: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264 ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
-#: ../gdk-pixbuf/io-bmp.c:484
+#: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
+#: ../gdk-pixbuf/io-bmp.c:378 ../gdk-pixbuf/io-bmp.c:401
+#: ../gdk-pixbuf/io-bmp.c:504
 msgid "BMP image has bogus header data"
 msgstr "A BMP-kép fejlécadata hibás"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:441
 msgid "Not enough memory to load bitmap image"
 msgstr "Nincs elég memória a kép betöltéséhez"
 
@@ -262,23 +289,32 @@ msgstr "Nincs elég memória a kép betöltéséhez"
 msgid "BMP image has unsupported header size"
 msgstr "A BMP-kép fejlécmérete nem támogatott"
 
-#: ../gdk-pixbuf/io-bmp.c:345
+#: ../gdk-pixbuf/io-bmp.c:326
+msgid "BMP image has unsupported depth"
+msgstr "A BMP-kép színmélysége nem támogatott"
+
+#: ../gdk-pixbuf/io-bmp.c:341
+msgid "BMP image has oversize palette"
+msgstr "A BMP-kép palettája túlméretes"
+
+#: ../gdk-pixbuf/io-bmp.c:365
 msgid "Topdown BMP images cannot be compressed"
 msgstr "A fentről-lefelé BMP képek nem tömöríthetőek"
 
-#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:531 ../gdk-pixbuf/io-pnm.c:705
+#: ../gdk-pixbuf/io-bmp.c:725 ../gdk-pixbuf/io-png.c:531
+#: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "A fájl végét túl korán értem el"
 
-#: ../gdk-pixbuf/io-bmp.c:1317
+#: ../gdk-pixbuf/io-bmp.c:1337
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Nem lehet memóriát foglalni a BMP fájl mentéséhez"
 
-#: ../gdk-pixbuf/io-bmp.c:1358
+#: ../gdk-pixbuf/io-bmp.c:1378
 msgid "Couldn't write to BMP file"
 msgstr "Nem sikerült írni a BMP fájlba"
 
-#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:83
+#: ../gdk-pixbuf/io-bmp.c:1431 ../gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
@@ -300,13 +336,20 @@ msgstr "Windows ikon"
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:54 ../gdk-pixbuf/io-jpeg.c:1297
 #, c-format
-msgid "JPEG quality must be a value between 0 and 100; value '%s' could not be parsed."
-msgstr "A JPEG-minőség értékének 0 és 100 között kell lennie, a(z) „%s” értéket nem lehet feldolgozni."
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"parsed."
+msgstr ""
+"A JPEG-minőség értékének 0 és 100 között kell lennie, a(z) „%s” értéket nem "
+"lehet feldolgozni."
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:69 ../gdk-pixbuf/io-jpeg.c:1313
 #, c-format
-msgid "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgstr "A JPEG-minőség értékének 0 és 100 között kell lennie, a(z) „%d” érték nem megengedett."
+msgid ""
+"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgstr ""
+"A JPEG-minőség értékének 0 és 100 között kell lennie, a(z) „%d” érték nem "
+"megengedett."
 
 #: ../gdk-pixbuf/io-gdip-jpeg.c:137 ../gdk-pixbuf/io-jpeg.c:1575
 msgctxt "image format"
@@ -323,7 +366,8 @@ msgstr "TIFF"
 msgid "Could not allocate memory: %s"
 msgstr "Nem lehet memóriát foglalni: %s"
 
-#: ../gdk-pixbuf/io-gdip-utils.c:180 ../gdk-pixbuf/io-gdip-utils.c:294 ../gdk-pixbuf/io-gdip-utils.c:334
+#: ../gdk-pixbuf/io-gdip-utils.c:180 ../gdk-pixbuf/io-gdip-utils.c:294
+#: ../gdk-pixbuf/io-gdip-utils.c:334
 #, c-format
 msgid "Could not create stream: %s"
 msgstr "Nem hozható létre adatfolyam: %s"
@@ -364,7 +408,8 @@ msgstr "WMF"
 msgid "Failure reading GIF: %s"
 msgstr "Hiba a GIF olvasásánál: %s"
 
-#: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1501 ../gdk-pixbuf/io-gif.c:1675
+#: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1501
+#: ../gdk-pixbuf/io-gif.c:1675
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "A GIF fájl egyes adatai hiányoznak (lehet, hogy csonkolódott a fájl?)"
 
@@ -389,7 +434,8 @@ msgstr "Hibás kód érkezett"
 msgid "Circular table entry in GIF file"
 msgstr "Körkörös táblázat bejegyzés a GIF fájlban"
 
-#: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1487 ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1663
+#: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1487
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1663
 msgid "Not enough memory to load GIF file"
 msgstr "Nincs elég memória a GIF-fájl betöltéséhez"
 
@@ -415,8 +461,12 @@ msgid "Resulting GIF image has zero size"
 msgstr "A kapott GIF-kép mérete nulla"
 
 #: ../gdk-pixbuf/io-gif.c:1318
-msgid "GIF image has no global colormap, and a frame inside it has no local colormap."
-msgstr "A GIF-képnek nincs globális színtérképe, és a benne lévő keretnek sincs lokális színtérképe."
+msgid ""
+"GIF image has no global colormap, and a frame inside it has no local "
+"colormap."
+msgstr ""
+"A GIF-képnek nincs globális színtérképe, és a benne lévő keretnek sincs "
+"lokális színtérképe."
 
 #: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
@@ -440,12 +490,14 @@ msgctxt "image format"
 msgid "MacOS X icon"
 msgstr "MacOS X ikon"
 
-#: ../gdk-pixbuf/io-ico.c:226 ../gdk-pixbuf/io-ico.c:240 ../gdk-pixbuf/io-ico.c:291 ../gdk-pixbuf/io-ico.c:302
+#: ../gdk-pixbuf/io-ico.c:226 ../gdk-pixbuf/io-ico.c:240
+#: ../gdk-pixbuf/io-ico.c:291 ../gdk-pixbuf/io-ico.c:302
 #: ../gdk-pixbuf/io-ico.c:386
 msgid "Invalid header in icon"
 msgstr "Érvénytelen fejléc az ikonban"
 
-#: ../gdk-pixbuf/io-ico.c:255 ../gdk-pixbuf/io-ico.c:312 ../gdk-pixbuf/io-ico.c:396 ../gdk-pixbuf/io-ico.c:449
+#: ../gdk-pixbuf/io-ico.c:255 ../gdk-pixbuf/io-ico.c:312
+#: ../gdk-pixbuf/io-ico.c:396 ../gdk-pixbuf/io-ico.c:449
 #: ../gdk-pixbuf/io-ico.c:479
 msgid "Not enough memory to load icon"
 msgstr "Nincs elég memória az ikon betöltéséhez"
@@ -514,16 +566,20 @@ msgid "Error interpreting JPEG image file (%s)"
 msgstr "Hiba a JPEG-képfájl értelmezésekor (%s)"
 
 #: ../gdk-pixbuf/io-jpeg.c:600
-msgid "Insufficient memory to load image, try exiting some applications to free memory"
-msgstr "Nincs elég memória a kép betöltéséhez, memória felszabadításához próbáljon meg kilépni néhány alkalmazásból"
+msgid ""
+"Insufficient memory to load image, try exiting some applications to free "
+"memory"
+msgstr ""
+"Nincs elég memória a kép betöltéséhez, memória felszabadításához próbáljon "
+"meg kilépni néhány alkalmazásból"
 
 #: ../gdk-pixbuf/io-jpeg.c:669 ../gdk-pixbuf/io-jpeg.c:882
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Nem támogatott JPEG-színtér (%s)"
 
-#: ../gdk-pixbuf/io-jpeg.c:781 ../gdk-pixbuf/io-jpeg.c:1062 ../gdk-pixbuf/io-jpeg.c:1398
-#: ../gdk-pixbuf/io-jpeg.c:1408
+#: ../gdk-pixbuf/io-jpeg.c:781 ../gdk-pixbuf/io-jpeg.c:1062
+#: ../gdk-pixbuf/io-jpeg.c:1398 ../gdk-pixbuf/io-jpeg.c:1408
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Nem lehet memóriát kiosztani a JPEG-fájl betöltéséhez"
 
@@ -533,13 +589,19 @@ msgstr "Az átalakított JPEG szélessége vagy magassága nulla."
 
 #: ../gdk-pixbuf/io-jpeg.c:1334
 #, c-format
-msgid "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
-msgstr "A JPEG x-dpi értékének 1 és 65535 között kell lennie, a(z) „%s” érték nem megengedett."
+msgid ""
+"JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
+msgstr ""
+"A JPEG x-dpi értékének 1 és 65535 között kell lennie, a(z) „%s” érték nem "
+"megengedett."
 
 #: ../gdk-pixbuf/io-jpeg.c:1355
 #, c-format
-msgid "JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
-msgstr "A JPEG y-dpi értékének 1 és 65535 között kell lennie, a(z) „%s” érték nem megengedett."
+msgid ""
+"JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
+msgstr ""
+"A JPEG y-dpi értékének 1 és 65535 között kell lennie, a(z) „%s” érték nem "
+"megengedett."
 
 #: ../gdk-pixbuf/io-jpeg.c:1369
 #, c-format
@@ -573,7 +635,9 @@ msgstr "Az átalakított PNG nem RGB vagy RGBA módú."
 
 #: ../gdk-pixbuf/io-png.c:161
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
-msgstr "Az átalakított PNG csatornánkénti bitjeinek száma nem támogatott, 3-nak vagy 4-nek kell lennie."
+msgstr ""
+"Az átalakított PNG csatornánkénti bitjeinek száma nem támogatott, 3-nak vagy "
+"4-nek kell lennie."
 
 #: ../gdk-pixbuf/io-png.c:182
 #, c-format
@@ -586,10 +650,12 @@ msgstr "Nincs elég memória a PNG-fájl betöltéséhez"
 
 #: ../gdk-pixbuf/io-png.c:686
 #, c-format
-msgid "Insufficient memory to store a %lu by %lu image; try exiting some applications to reduce memory usage"
+msgid ""
+"Insufficient memory to store a %lu by %lu image; try exiting some "
+"applications to reduce memory usage"
 msgstr ""
-"Nincs elég memória egy %lu x %lu méretű kép betöltéséhez, próbáljon meg kilépni néhány alkalmazásból a "
-"memóriahasználat csökkentéséhez"
+"Nincs elég memória egy %lu x %lu méretű kép betöltéséhez, próbáljon meg "
+"kilépni néhány alkalmazásból a memóriahasználat csökkentéséhez"
 
 #: ../gdk-pixbuf/io-png.c:762
 msgid "Fatal error reading PNG image file"
@@ -601,8 +667,11 @@ msgid "Fatal error reading PNG image file: %s"
 msgstr "Végzetes hiba a PNG képfájl olvasásakor: %s"
 
 #: ../gdk-pixbuf/io-png.c:904
-msgid "Keys for PNG text chunks must have at least 1 and at most 79 characters."
-msgstr "A PNG szöveges darabok kulcsainak legalább 1 és legfeljebb 79 karakterből kell állniuk."
+msgid ""
+"Keys for PNG text chunks must have at least 1 and at most 79 characters."
+msgstr ""
+"A PNG szöveges darabok kulcsainak legalább 1 és legfeljebb 79 karakterből "
+"kell állniuk."
 
 #: ../gdk-pixbuf/io-png.c:913
 msgid "Keys for PNG text chunks must be ASCII characters."
@@ -615,23 +684,35 @@ msgstr "A színprofil hossza (%d) érvénytelen."
 
 #: ../gdk-pixbuf/io-png.c:940
 #, c-format
-msgid "PNG compression level must be a value between 0 and 9; value '%s' could not be parsed."
-msgstr "A PNG-tömörítés értékének 0 és 9 között kell lennie, a(z) „%s” értéket nem lehet feldolgozni."
+msgid ""
+"PNG compression level must be a value between 0 and 9; value '%s' could not "
+"be parsed."
+msgstr ""
+"A PNG-tömörítés értékének 0 és 9 között kell lennie, a(z) „%s” értéket nem "
+"lehet feldolgozni."
 
 #: ../gdk-pixbuf/io-png.c:953
 #, c-format
-msgid "PNG compression level must be a value between 0 and 9; value '%d' is not allowed."
-msgstr "A PNG-tömörítés értékének 0 és 9 között kell lennie, a(z) „%d” érték nem engedélyezett."
+msgid ""
+"PNG compression level must be a value between 0 and 9; value '%d' is not "
+"allowed."
+msgstr ""
+"A PNG-tömörítés értékének 0 és 9 között kell lennie, a(z) „%d” érték nem "
+"engedélyezett."
 
 #: ../gdk-pixbuf/io-png.c:972
 #, c-format
 msgid "PNG x-dpi must be greater than zero; value '%s' is not allowed."
-msgstr "A PNG x-dpi értékének nullánál nagyobbnak lennie, a(z) „%s” érték nem megengedett."
+msgstr ""
+"A PNG x-dpi értékének nullánál nagyobbnak lennie, a(z) „%s” érték nem "
+"megengedett."
 
 #: ../gdk-pixbuf/io-png.c:992
 #, c-format
 msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
-msgstr "A PNG y-dpi értékének nullánál nagyobbnak lennie, a(z) „%s” érték nem megengedett."
+msgstr ""
+"A PNG y-dpi értékének nullánál nagyobbnak lennie, a(z) „%s” érték nem "
+"megengedett."
 
 #: ../gdk-pixbuf/io-png.c:1041
 #, c-format
@@ -671,7 +752,8 @@ msgstr "A PNM-fájlban a maximális színérték 0"
 msgid "Maximum color value in PNM file is too large"
 msgstr "A PNM-fájlban a maximális színérték túl nagy"
 
-#: ../gdk-pixbuf/io-pnm.c:425 ../gdk-pixbuf/io-pnm.c:455 ../gdk-pixbuf/io-pnm.c:500
+#: ../gdk-pixbuf/io-pnm.c:425 ../gdk-pixbuf/io-pnm.c:455
+#: ../gdk-pixbuf/io-pnm.c:500
 msgid "Raw PNM image type is invalid"
 msgstr "A nyers PNM-képtípus érvénytelen"
 
@@ -681,7 +763,9 @@ msgstr "A PNM-képbetöltő nem támogatja ezt a PNM-alformátumot"
 
 #: ../gdk-pixbuf/io-pnm.c:737 ../gdk-pixbuf/io-pnm.c:964
 msgid "Raw PNM formats require exactly one whitespace before sample data"
-msgstr "A nyers PNM-formátumok pontosan egy üreshely-karaktert igényelnek a mintaadatok előtt"
+msgstr ""
+"A nyers PNM-formátumok pontosan egy üreshely-karaktert igényelnek a "
+"mintaadatok előtt"
 
 #: ../gdk-pixbuf/io-pnm.c:764
 msgid "Cannot allocate memory for loading PNM image"
@@ -712,7 +796,8 @@ msgstr "A bemeneti fájl leírója NULL."
 msgid "Failed to read QTIF header"
 msgstr "A QTIF fejléc olvasása meghiúsult"
 
-#: ../gdk-pixbuf/io-qtif.c:150 ../gdk-pixbuf/io-qtif.c:187 ../gdk-pixbuf/io-qtif.c:454
+#: ../gdk-pixbuf/io-qtif.c:150 ../gdk-pixbuf/io-qtif.c:187
+#: ../gdk-pixbuf/io-qtif.c:454
 #, c-format
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
@@ -812,7 +897,8 @@ msgstr "A TIFF-kép szélessége vagy magassága nulla"
 msgid "Dimensions of TIFF image too large"
 msgstr "A TGA-kép mérete túl nagy"
 
-#: ../gdk-pixbuf/io-tiff.c:165 ../gdk-pixbuf/io-tiff.c:177 ../gdk-pixbuf/io-tiff.c:535
+#: ../gdk-pixbuf/io-tiff.c:165 ../gdk-pixbuf/io-tiff.c:177
+#: ../gdk-pixbuf/io-tiff.c:535
 msgid "Insufficient memory to open TIFF file"
 msgstr "Nincs elég memória a TIFF-fájl megnyitásához"
 
@@ -847,12 +933,16 @@ msgstr "Nem sikerült kiírni a TIFF adatokat"
 #: ../gdk-pixbuf/io-tiff.c:910
 #, c-format
 msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
-msgstr "A TIFF x-dpi értékének nullánál nagyobbnak lennie, a(z) „%s” érték nem megengedett."
+msgstr ""
+"A TIFF x-dpi értékének nullánál nagyobbnak lennie, a(z) „%s” érték nem "
+"megengedett."
 
 #: ../gdk-pixbuf/io-tiff.c:922
 #, c-format
 msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
-msgstr "A TIFF y-dpi értékének nullánál nagyobbnak lennie, a(z) „%s” érték nem megengedett."
+msgstr ""
+"A TIFF y-dpi értékének nullánál nagyobbnak lennie, a(z) „%s” érték nem "
+"megengedett."
 
 #: ../gdk-pixbuf/io-tiff.c:963
 msgid "Couldn't write to TIFF file"
@@ -899,7 +989,8 @@ msgstr "Az XPM-fájl képpontonkénti karaktereinek száma érvénytelen"
 msgid "XPM file has invalid number of colors"
 msgstr "Az XPM-fájl színeinek száma érvénytelen"
 
-#: ../gdk-pixbuf/io-xpm.c:521 ../gdk-pixbuf/io-xpm.c:530 ../gdk-pixbuf/io-xpm.c:582
+#: ../gdk-pixbuf/io-xpm.c:521 ../gdk-pixbuf/io-xpm.c:530
+#: ../gdk-pixbuf/io-xpm.c:582
 msgid "Cannot allocate memory for loading XPM image"
 msgstr "Nem lehet memóriát kiosztani az XPM-kép betöltéséhez"
 
