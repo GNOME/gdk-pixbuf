@@ -181,10 +181,13 @@ main (int argc, char **argv)
   g_test_add_data_func ("/pixbuf/scale/tga", "test-images/randomly-modified/valid.1.tga", test_scale);
   g_test_add_data_func ("/pixbuf/scale/xpm", "test-images/randomly-modified/valid.1.xpm", test_scale);
   g_test_add_data_func ("/pixbuf/scale/xbm", "test-images/randomly-modified/valid.1.xbm", test_scale);
-  g_test_add_data_func ("/pixbuf/scale/png/large", "large.png", test_scale_down);
-  g_test_add_data_func ("/pixbuf/scale/jpeg/large", "large.jpg", test_scale_down);
-  g_test_add_data_func ("/pixbuf/add-alpha/large", "large.png", test_add_alpha);
-  g_test_add_data_func ("/pixbuf/rotate/large", "large.png", test_rotate);
+  if (g_test_slow ())
+    {
+      g_test_add_data_func ("/pixbuf/scale/png/large", "large.png", test_scale_down);
+      g_test_add_data_func ("/pixbuf/scale/jpeg/large", "large.jpg", test_scale_down);
+      g_test_add_data_func ("/pixbuf/add-alpha/large", "large.png", test_add_alpha);
+      g_test_add_data_func ("/pixbuf/rotate/large", "large.png", test_rotate);
+    }
 
   return g_test_run ();
 }
