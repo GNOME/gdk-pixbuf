@@ -5,15 +5,15 @@
 # Matic Žgur <mr.zgur@gmail.com>, 2006.
 # Martin Srebotnjak <miles@filmsi.net>, 2007.
 # Klemen Košir <klemen.kosir@gmx.com>, 2010-2011.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007-2015.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007-2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2015-12-13 18:34+0000\n"
-"PO-Revision-Date: 2015-12-13 19:56+0100\n"
+"POT-Creation-Date: 2016-02-01 21:14+0100\n"
+"PO-Revision-Date: 2016-02-01 21:14+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.4\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:156 ../gdk-pixbuf/gdk-pixbuf-io.c:1084
 #: ../gdk-pixbuf/gdk-pixbuf-io.c:1340
@@ -327,7 +327,7 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1726
+#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1719
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
@@ -412,7 +412,7 @@ msgid "Failure reading GIF: %s"
 msgstr "Napaka med branjem slike GIF: %s"
 
 #: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1501
-#: ../gdk-pixbuf/io-gif.c:1675
+#: ../gdk-pixbuf/io-gif.c:1668
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "V datoteki GIF manjkajo podatki (mogoče je bila datoteka prirezana)"
 
@@ -438,7 +438,7 @@ msgid "Circular table entry in GIF file"
 msgstr "Krožni vnos razpredelnice v datoteki GIF"
 
 #: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1487
-#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1663
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
 msgid "Not enough memory to load GIF file"
 msgstr "Za nalaganje slike GIF ni dovolj pomnilnika"
 
@@ -474,10 +474,6 @@ msgstr ""
 #: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "Slika GIF je prirezana ali nepopolna."
-
-#: ../gdk-pixbuf/io-gif.c:1570
-msgid "Not all frames of the GIF image were loaded."
-msgstr "Vseh sličic slike GIF ni mogoče naložiti."
 
 #: ../gdk-pixbuf/io-icns.c:358
 #, c-format
@@ -848,43 +844,57 @@ msgctxt "image format"
 msgid "QuickTime"
 msgstr "QuickTime"
 
-#: ../gdk-pixbuf/io-tga.c:333
-msgid "Cannot allocate colormap"
-msgstr "Ni mogoče dodeliti barvnega prostora"
+#: ../gdk-pixbuf/io-tga.c:151
+msgid "Cannot allocate memory for IOBuffer struct"
+msgstr "Pomnilnika zgradbi IOBuffer ni mogoče dodeliti"
 
-#: ../gdk-pixbuf/io-tga.c:358
+#: ../gdk-pixbuf/io-tga.c:170
+msgid "Cannot allocate memory for IOBuffer data"
+msgstr "Pomnilnika podatkom IOBuffer ni mogoče dodeliti"
+
+#: ../gdk-pixbuf/io-tga.c:181
+msgid "Cannot realloc IOBuffer data"
+msgstr "Podatkom IOBuffer ni mogoče znova dodeliti pomnilnika"
+
+#: ../gdk-pixbuf/io-tga.c:211
+msgid "Cannot allocate temporary IOBuffer data"
+msgstr "Pomnilnika začasnim podatkom IOBuffer ni mogoče dodeliti"
+
+#: ../gdk-pixbuf/io-tga.c:383
 msgid "Cannot allocate new pixbuf"
 msgstr "Pomnilnika novemu medpomnilniku sličic ni mogoče dodeliti"
 
-#: ../gdk-pixbuf/io-tga.c:506
+#: ../gdk-pixbuf/io-tga.c:723
+msgid "Cannot allocate colormap"
+msgstr "Ni mogoče dodeliti barvnega prostora"
+
+#: ../gdk-pixbuf/io-tga.c:747
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "Nepričakovana barvna globina za vnose kataloga barv"
 
-#: ../gdk-pixbuf/io-tga.c:522
-msgid "Pseudocolor image does not contain a colormap"
-msgstr "Slika ne vklučuje barvne ploskve"
-
-#: ../gdk-pixbuf/io-tga.c:565
+#: ../gdk-pixbuf/io-tga.c:766
 msgid "Cannot allocate TGA header memory"
 msgstr "Pomnilnika glave TGA ni mogoče dodeliti"
 
-#: ../gdk-pixbuf/io-tga.c:596
+#: ../gdk-pixbuf/io-tga.c:799
 msgid "TGA image has invalid dimensions"
 msgstr "Slika TGA ima neveljavne mere"
 
-#: ../gdk-pixbuf/io-tga.c:602 ../gdk-pixbuf/io-tga.c:609
+#: ../gdk-pixbuf/io-tga.c:805 ../gdk-pixbuf/io-tga.c:814
+#: ../gdk-pixbuf/io-tga.c:824 ../gdk-pixbuf/io-tga.c:834
+#: ../gdk-pixbuf/io-tga.c:841
 msgid "TGA image type not supported"
 msgstr "Vrsta zapisa slike TGA ni podprta"
 
-#: ../gdk-pixbuf/io-tga.c:634
+#: ../gdk-pixbuf/io-tga.c:888
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Pomnilnika zgradbi vsebine TGA ni mogoče dodeliti"
 
-#: ../gdk-pixbuf/io-tga.c:695
-msgid "TGA image was truncated or incomplete."
-msgstr "Slika TGA je prirezana ali nepopolna."
+#: ../gdk-pixbuf/io-tga.c:953
+msgid "Excess data in file"
+msgstr "Presežek podatkov v datoteki"
 
-#: ../gdk-pixbuf/io-tga.c:747
+#: ../gdk-pixbuf/io-tga.c:1032
 msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
@@ -1015,20 +1025,14 @@ msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
 
-#~ msgid "Cannot allocate memory for IOBuffer struct"
-#~ msgstr "Pomnilnika zgradbi IOBuffer ni mogoče dodeliti"
+#~ msgid "Not all frames of the GIF image were loaded."
+#~ msgstr "Vseh sličic slike GIF ni mogoče naložiti."
 
-#~ msgid "Cannot allocate memory for IOBuffer data"
-#~ msgstr "Pomnilnika podatkom IOBuffer ni mogoče dodeliti"
+#~ msgid "Pseudocolor image does not contain a colormap"
+#~ msgstr "Slika ne vklučuje barvne ploskve"
 
-#~ msgid "Cannot realloc IOBuffer data"
-#~ msgstr "Podatkom IOBuffer ni mogoče znova dodeliti pomnilnika"
-
-#~ msgid "Cannot allocate temporary IOBuffer data"
-#~ msgstr "Pomnilnika začasnim podatkom IOBuffer ni mogoče dodeliti"
-
-#~ msgid "Excess data in file"
-#~ msgstr "Presežek podatkov v datoteki"
+#~ msgid "TGA image was truncated or incomplete."
+#~ msgstr "Slika TGA je prirezana ali nepopolna."
 
 #~ msgid "Couldn't allocate memory for header"
 #~ msgstr "Pomnilnika za glavo ni mogoče dodeliti"
