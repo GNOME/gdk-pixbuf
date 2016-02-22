@@ -1,5 +1,5 @@
 # French translation of gdk-pixbuf.
-# Copyright (C) 1998-2012 Free Software Foundation, Inc.
+# Copyright (C) 1998-2016 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gdk-pixbuf package.
 #
 # Vincent Renardias <vincent@debian.org>, 1998-1999.
@@ -10,7 +10,7 @@
 # Jonathan Ernst <jonathan@ernstfamily.ch>, 2006-2007.
 # Robert-André Mauchin <zebob.m@pengzone.org>, 2006-2008.
 # Stéphane Raimbault <stephane.raimbault@gmail.com>, 2007-2008.
-# Claude Paroz <claude@2xlibre.net>, 2007-2010.
+# Claude Paroz <claude@2xlibre.net>, 2007-2016.
 # Yannick Tailliez <ytdispatch-libre@yahoo.com>, 2008.
 # Laurent Coudeur <laurentc@iol.ie>, 2009
 # Jérôme Sirgue <jsirgue@free.fr>, 2014
@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2016-02-02 06:34+0000\n"
-"PO-Revision-Date: 2016-02-02 17:27+0100\n"
+"POT-Creation-Date: 2016-02-22 06:36+0000\n"
+"PO-Revision-Date: 2016-02-22 14:23+0100\n"
 "Last-Translator: Jérôme Sirgue <jsirgue@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -336,7 +336,7 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1719
+#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1726
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
@@ -421,7 +421,7 @@ msgid "Failure reading GIF: %s"
 msgstr "La lecture du fichier GIF a échoué : %s"
 
 #: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1501
-#: ../gdk-pixbuf/io-gif.c:1668
+#: ../gdk-pixbuf/io-gif.c:1675
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr ""
 "Il manque au fichier GIF quelques données (peut-être a-t-il été tronqué ?)"
@@ -448,7 +448,7 @@ msgid "Circular table entry in GIF file"
 msgstr "Entrée de table circulaire dans le fichier GIF"
 
 #: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1487
-#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1663
 msgid "Not enough memory to load GIF file"
 msgstr "Mémoire insuffisante pour charger le fichier GIF"
 
@@ -484,6 +484,10 @@ msgstr ""
 #: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "L'image GIF est tronquée ou incomplète."
+
+#: ../gdk-pixbuf/io-gif.c:1570
+msgid "Not all frames of the GIF image were loaded."
+msgstr "Certaines images de l'image GIF n'ont pas été chargées."
 
 #: ../gdk-pixbuf/io-icns.c:358
 #, c-format
@@ -853,58 +857,44 @@ msgctxt "image format"
 msgid "QuickTime"
 msgstr "QuickTime"
 
-#: ../gdk-pixbuf/io-tga.c:151
-msgid "Cannot allocate memory for IOBuffer struct"
-msgstr "Impossible d'allouer de la mémoire pour la structure IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:170
-msgid "Cannot allocate memory for IOBuffer data"
-msgstr "Impossible d'allouer de la mémoire pour les données IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:181
-msgid "Cannot realloc IOBuffer data"
-msgstr "Impossible de réallouer les données IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:211
-msgid "Cannot allocate temporary IOBuffer data"
-msgstr "Impossible d'allouer les données IOBuffer temporaires"
-
-#: ../gdk-pixbuf/io-tga.c:383
-msgid "Cannot allocate new pixbuf"
-msgstr "Impossible d'allouer un nouveau pixbuf"
-
-#: ../gdk-pixbuf/io-tga.c:723
+#: ../gdk-pixbuf/io-tga.c:333
 msgid "Cannot allocate colormap"
 msgstr "Impossible d'allouer une palette de couleurs"
 
-#: ../gdk-pixbuf/io-tga.c:747
+#: ../gdk-pixbuf/io-tga.c:358
+msgid "Cannot allocate new pixbuf"
+msgstr "Impossible d'allouer un nouveau pixbuf"
+
+#: ../gdk-pixbuf/io-tga.c:506
 msgid "Unexpected bitdepth for colormap entries"
 msgstr ""
 "Profondeur de couleur inattendue pour les entrées de la palette de couleurs"
 
-#: ../gdk-pixbuf/io-tga.c:766
+#: ../gdk-pixbuf/io-tga.c:522
+msgid "Pseudocolor image does not contain a colormap"
+msgstr "L'image en pseudo-couleurs ne contient pas de carte de couleurs"
+
+#: ../gdk-pixbuf/io-tga.c:565
 msgid "Cannot allocate TGA header memory"
 msgstr "Impossible d'allouer la mémoire pour l'en-tête TGA"
 
-#: ../gdk-pixbuf/io-tga.c:799
+#: ../gdk-pixbuf/io-tga.c:596
 msgid "TGA image has invalid dimensions"
 msgstr "Les dimensions de l'image TGA ne sont pas valides"
 
-#: ../gdk-pixbuf/io-tga.c:805 ../gdk-pixbuf/io-tga.c:814
-#: ../gdk-pixbuf/io-tga.c:824 ../gdk-pixbuf/io-tga.c:834
-#: ../gdk-pixbuf/io-tga.c:841
+#: ../gdk-pixbuf/io-tga.c:602 ../gdk-pixbuf/io-tga.c:609
 msgid "TGA image type not supported"
 msgstr "Type d'image TGA non pris en charge"
 
-#: ../gdk-pixbuf/io-tga.c:888
+#: ../gdk-pixbuf/io-tga.c:634
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Impossible d'allouer de la mémoire pour la structure de contexte TGA"
 
-#: ../gdk-pixbuf/io-tga.c:953
-msgid "Excess data in file"
-msgstr "Trop de données dans le fichier"
+#: ../gdk-pixbuf/io-tga.c:695
+msgid "TGA image was truncated or incomplete."
+msgstr "L'image TGA est tronquée ou incomplète."
 
-#: ../gdk-pixbuf/io-tga.c:1032
+#: ../gdk-pixbuf/io-tga.c:747
 msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
