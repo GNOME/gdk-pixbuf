@@ -17,25 +17,26 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+-master-po-gl-77922___.merged\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-20 22:59+0200\n"
-"PO-Revision-Date: 2015-09-20 22:59+0200\n"
-"Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
+"%2b&keywords=I18N+L10N&component=gdk\n"
+"POT-Creation-Date: 2016-01-16 06:34+0000\n"
+"PO-Revision-Date: 2016-01-16 09:56+0100\n"
+"Last-Translator: marcos <marcoslansgarza@gmail.com>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:156 ../gdk-pixbuf/gdk-pixbuf-io.c:1106
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1362
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:156 ../gdk-pixbuf/gdk-pixbuf-io.c:1084
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1340
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Produciuse un erro ao abrir o ficheiro «%s»: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:169 ../gdk-pixbuf/gdk-pixbuf-io.c:991
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:169 ../gdk-pixbuf/gdk-pixbuf-io.c:969
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "O ficheiro de imaxe «%s» non contén datos"
@@ -49,8 +50,8 @@ msgstr ""
 "Produciuse un erro ao cargar a animación «%s»: o motivo é descoñecido, é "
 "probábel que o ficheiro da animación estea danado"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:275 ../gdk-pixbuf/gdk-pixbuf-io.c:1142
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1414
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:275 ../gdk-pixbuf/gdk-pixbuf-io.c:1120
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1392
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -131,12 +132,12 @@ msgstr "Bytes do pixel"
 msgid "Readonly pixel data"
 msgstr "Datos do pixel de só lectura"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:803
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:781
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Non foi posíbel cargar o módulo de carga de imaxes: %s: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:818
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:796
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -145,57 +146,57 @@ msgstr ""
 "O módulo de carga de imaxes %s non exporta a interface axeitada; é dunha "
 "versión do gdk-pixbuf diferente?"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:827 ../gdk-pixbuf/gdk-pixbuf-io.c:878
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:805 ../gdk-pixbuf/gdk-pixbuf-io.c:856
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "O tipo de imaxe «%s» non é compatíbel"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:963
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:941
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr ""
 "Non foi posíbel recoñecer o formato do ficheiro de imaxe no ficheiro «%s»"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:971
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:949
 msgid "Unrecognized image file format"
 msgstr "Formato do ficheiro de imaxe non recoñecido"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1153
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1131
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Produciuse un erro ao cargar a imaxe «%s»: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2183 ../gdk-pixbuf/io-gdip-utils.c:838
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2161 ../gdk-pixbuf/io-gdip-utils.c:838
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Produciuse un erro ao escribir no ficheiro de imaxe: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2225 ../gdk-pixbuf/gdk-pixbuf-io.c:2346
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2203 ../gdk-pixbuf/gdk-pixbuf-io.c:2324
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Esta construción de gdk-pixbuf non permite a gravación de imaxes co formato: "
 "%s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2256
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2234
 msgid "Insufficient memory to save image to callback"
 msgstr ""
 "Non hai suficiente memoria para gardar a imaxe para a chamada de retorno"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2269
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2247
 msgid "Failed to open temporary file"
 msgstr "Produciuse un erro ao abrir o ficheiro temporal"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2292
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2270
 msgid "Failed to read from temporary file"
 msgstr "Produciuse un erro ao ler desde o ficheiro temporal"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2542
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2520
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Produciuse un erro ao abrir «%s» para escritura: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2568
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2546
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -204,11 +205,11 @@ msgstr ""
 "Produciuse un erro ao pechar «%s» mentres se escribía a imaxe; é posíbel que "
 "non se gardaran todos os datos: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2789 ../gdk-pixbuf/gdk-pixbuf-io.c:2841
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2767 ../gdk-pixbuf/gdk-pixbuf-io.c:2819
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Non hai suficiente memoria para gardar a imaxe no búfer"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2887
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2865
 msgid "Error writing to image stream"
 msgstr "Produciuse un erro ao escribir no fluxo de imaxe"
 
@@ -284,12 +285,12 @@ msgid "Windows animated cursor"
 msgstr "Cursor animado da xanela"
 
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
-#: ../gdk-pixbuf/io-bmp.c:484
+#: ../gdk-pixbuf/io-bmp.c:378 ../gdk-pixbuf/io-bmp.c:401
+#: ../gdk-pixbuf/io-bmp.c:504
 msgid "BMP image has bogus header data"
 msgstr "A imaxe BMP ten datos de cabeceira falsos"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:441
 msgid "Not enough memory to load bitmap image"
 msgstr "Non hai suficiente memoria para cargar o mapa de bits"
 
@@ -297,24 +298,34 @@ msgstr "Non hai suficiente memoria para cargar o mapa de bits"
 msgid "BMP image has unsupported header size"
 msgstr "A imaxe BMP ten un tamaño de cabeceira non permitido"
 
-#: ../gdk-pixbuf/io-bmp.c:345
+#: ../gdk-pixbuf/io-bmp.c:326
+#| msgid "BMP image has unsupported header size"
+msgid "BMP image has unsupported depth"
+msgstr "A imaxe BMP ten unha profundidade incompatíbel"
+
+#: ../gdk-pixbuf/io-bmp.c:341
+#| msgid "BMP image has bogus header data"
+msgid "BMP image has oversize palette"
+msgstr "A imaxe BMP ten ten unha paleta grande de máis"
+
+#: ../gdk-pixbuf/io-bmp.c:365
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Non é posíbel comprimir as imaxes BMP Topdown"
 
-#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:531
+#: ../gdk-pixbuf/io-bmp.c:725 ../gdk-pixbuf/io-png.c:531
 #: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Encontrouse un final de ficheiro prematuro"
 
-#: ../gdk-pixbuf/io-bmp.c:1317
+#: ../gdk-pixbuf/io-bmp.c:1337
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Non é posíbel asignar memoria para gardar o ficheiro BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1358
+#: ../gdk-pixbuf/io-bmp.c:1378
 msgid "Couldn't write to BMP file"
 msgstr "Non foi posíbel escribir no ficheiro BMP"
 
-#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:83
+#: ../gdk-pixbuf/io-bmp.c:1431 ../gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
@@ -324,12 +335,12 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1719
+#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1726
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
 
-#: ../gdk-pixbuf/io-gdip-ico.c:60 ../gdk-pixbuf/io-ico.c:1268
+#: ../gdk-pixbuf/io-gdip-ico.c:60 ../gdk-pixbuf/io-ico.c:1275
 msgctxt "image format"
 msgid "Windows icon"
 msgstr "Iconas de xanela"
@@ -409,7 +420,7 @@ msgid "Failure reading GIF: %s"
 msgstr "Produciuse un erro ao ler o GIF: %s"
 
 #: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1501
-#: ../gdk-pixbuf/io-gif.c:1668
+#: ../gdk-pixbuf/io-gif.c:1675
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "Ao ficheiro GIF fáltanlle algúns datos (foron talvez truncados?)"
 
@@ -435,7 +446,7 @@ msgid "Circular table entry in GIF file"
 msgstr "Entrada de táboa circular no ficheiro GIF"
 
 #: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1487
-#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1663
 msgid "Not enough memory to load GIF file"
 msgstr "Non hai suficiente memoria para cargar o ficheiro GIF"
 
@@ -471,6 +482,10 @@ msgstr ""
 #: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "A imaxe GIF está truncada ou incompleta."
+
+#: ../gdk-pixbuf/io-gif.c:1570
+msgid "Not all frames of the GIF image were loaded."
+msgstr "Non se cargaron todos os marcos da imaxe GIF."
 
 #: ../gdk-pixbuf/io-icns.c:358
 #, c-format
@@ -510,15 +525,15 @@ msgstr "Tipo de icona non compatíbel"
 msgid "Not enough memory to load ICO file"
 msgstr "Non hai suficiente memoria para cargar o ficheiro ICO"
 
-#: ../gdk-pixbuf/io-ico.c:993
+#: ../gdk-pixbuf/io-ico.c:995
 msgid "Image too large to be saved as ICO"
 msgstr "A imaxe é demasiado grande para ser gardada como ICO"
 
-#: ../gdk-pixbuf/io-ico.c:1004
+#: ../gdk-pixbuf/io-ico.c:1006
 msgid "Cursor hotspot outside image"
 msgstr "Punto activo do cursor fóra da imaxe"
 
-#: ../gdk-pixbuf/io-ico.c:1027
+#: ../gdk-pixbuf/io-ico.c:1029
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Profundidade non compatíbel para o ficheiro ICO: %d"
@@ -603,52 +618,6 @@ msgstr ""
 #, c-format
 msgid "Color profile has invalid length '%u'."
 msgstr "O perfil de cor ten unha lonxitude «%u» non válida."
-
-#: ../gdk-pixbuf/io-pcx.c:184
-msgid "Couldn't allocate memory for header"
-msgstr "Non foi posíbel asignar memoria para a cabeceira"
-
-#: ../gdk-pixbuf/io-pcx.c:199 ../gdk-pixbuf/io-pcx.c:557
-msgid "Couldn't allocate memory for context buffer"
-msgstr "Non foi posíbel asignar memoria para o búfer"
-
-#: ../gdk-pixbuf/io-pcx.c:598
-msgid "Image has invalid width and/or height"
-msgstr "A imaxe ten unha largura ou unha altura non válida"
-
-#: ../gdk-pixbuf/io-pcx.c:610 ../gdk-pixbuf/io-pcx.c:671
-msgid "Image has unsupported bpp"
-msgstr "A imaxe ten un bpp non compatíbel"
-
-#: ../gdk-pixbuf/io-pcx.c:615 ../gdk-pixbuf/io-pcx.c:623
-#, c-format
-msgid "Image has unsupported number of %d-bit planes"
-msgstr "A imaxe ten un número non compatíbel de planos %d-bit"
-
-#: ../gdk-pixbuf/io-pcx.c:639
-msgid "Couldn't create new pixbuf"
-msgstr "Non foi posíbel crear un pixbuf novo"
-
-#: ../gdk-pixbuf/io-pcx.c:647
-msgid "Couldn't allocate memory for line data"
-msgstr "Non foi posíbel asignar memoria para os datos de liña"
-
-#: ../gdk-pixbuf/io-pcx.c:654
-msgid "Couldn't allocate memory for PCX image"
-msgstr "Non foi posíbel asignar memoria para a imaxe PCX"
-
-#: ../gdk-pixbuf/io-pcx.c:701
-msgid "Didn't get all lines of PCX image"
-msgstr "Non se obtiveron todas as liñas da imaxe PCX"
-
-#: ../gdk-pixbuf/io-pcx.c:708
-msgid "No palette found at end of PCX data"
-msgstr "Non se atopou ningunha paleta ao final dos datos PCX"
-
-#: ../gdk-pixbuf/io-pcx.c:753
-msgctxt "image format"
-msgid "PCX"
-msgstr "PCX"
 
 #: ../gdk-pixbuf/io-pixdata.c:150
 msgid "Transformed pixbuf has zero width or height."
@@ -884,78 +853,44 @@ msgctxt "image format"
 msgid "QuickTime"
 msgstr "QuickTime"
 
-#: ../gdk-pixbuf/io-ras.c:123
-msgid "RAS image has bogus header data"
-msgstr "A imaxe RAS posúe datos de cabeceira falsos"
-
-#: ../gdk-pixbuf/io-ras.c:145
-msgid "RAS image has unknown type"
-msgstr "A imaxe RAS posúe un tipo descoñecido"
-
-#: ../gdk-pixbuf/io-ras.c:153
-msgid "unsupported RAS image variation"
-msgstr "Variación de imaxe RAS non compatíbel"
-
-#: ../gdk-pixbuf/io-ras.c:168 ../gdk-pixbuf/io-ras.c:197
-msgid "Not enough memory to load RAS image"
-msgstr "Non hai suficiente memoria para cargar a imaxe RAS"
-
-#: ../gdk-pixbuf/io-ras.c:542
-msgctxt "image format"
-msgid "Sun raster"
-msgstr "Sun raster"
-
-#: ../gdk-pixbuf/io-tga.c:151
-msgid "Cannot allocate memory for IOBuffer struct"
-msgstr "Non é posíbel asignar memoria para a estrutura IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:170
-msgid "Cannot allocate memory for IOBuffer data"
-msgstr "Non é posíbel asignar memoria para datos IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:181
-msgid "Cannot realloc IOBuffer data"
-msgstr "Non é posíbel reasignar datos IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:211
-msgid "Cannot allocate temporary IOBuffer data"
-msgstr "Non é posíbel asignar datos temporais de IOBuffer"
-
-#: ../gdk-pixbuf/io-tga.c:383
-msgid "Cannot allocate new pixbuf"
-msgstr "Non é posíbel asignar un novo pixbuf"
-
-#: ../gdk-pixbuf/io-tga.c:723
+#: ../gdk-pixbuf/io-tga.c:333
 msgid "Cannot allocate colormap"
 msgstr "Non é posíbel asignar o mapa de cores"
 
-#: ../gdk-pixbuf/io-tga.c:747
+#: ../gdk-pixbuf/io-tga.c:358
+msgid "Cannot allocate new pixbuf"
+msgstr "Non é posíbel asignar un novo pixbuf"
+
+#: ../gdk-pixbuf/io-tga.c:506
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "Profundidade de cor inesperada para as entradas do mapa de cor"
 
-#: ../gdk-pixbuf/io-tga.c:766
+#: ../gdk-pixbuf/io-tga.c:522
+msgid "Pseudocolor image does not contain a colormap"
+msgstr "A imaxe en falsas cores non contén un mapa de cores"
+
+#: ../gdk-pixbuf/io-tga.c:565
 msgid "Cannot allocate TGA header memory"
 msgstr "Non é posíbel asignar memoria para a cabeceira TGA"
 
-#: ../gdk-pixbuf/io-tga.c:799
+#: ../gdk-pixbuf/io-tga.c:596
 msgid "TGA image has invalid dimensions"
 msgstr "A imaxe TGA ten dimensións incorrectas"
 
-#: ../gdk-pixbuf/io-tga.c:805 ../gdk-pixbuf/io-tga.c:814
-#: ../gdk-pixbuf/io-tga.c:824 ../gdk-pixbuf/io-tga.c:834
-#: ../gdk-pixbuf/io-tga.c:841
+#: ../gdk-pixbuf/io-tga.c:602 ../gdk-pixbuf/io-tga.c:609
 msgid "TGA image type not supported"
 msgstr "O tipo de imaxe TGA non é compatíbel"
 
-#: ../gdk-pixbuf/io-tga.c:888
+#: ../gdk-pixbuf/io-tga.c:634
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Non é posíbel asignar memoria para a estrutura de contexto de TGA"
 
-#: ../gdk-pixbuf/io-tga.c:953
-msgid "Excess data in file"
-msgstr "Datos en exceso no ficheiro"
+#: ../gdk-pixbuf/io-tga.c:695
+#| msgid "ANI image was truncated or incomplete."
+msgid "TGA image was truncated or incomplete."
+msgstr "A imaxe TGA está truncada ou incompleta."
 
-#: ../gdk-pixbuf/io-tga.c:1032
+#: ../gdk-pixbuf/io-tga.c:747
 msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
@@ -1025,27 +960,6 @@ msgstr ""
 msgid "Couldn't write to TIFF file"
 msgstr "Non foi posíbel escribir o ficheiro TIFF"
 
-#: ../gdk-pixbuf/io-wbmp.c:243
-msgid "Image has zero width"
-msgstr "A imaxe ten largura cero"
-
-#: ../gdk-pixbuf/io-wbmp.c:261
-msgid "Image has zero height"
-msgstr "A imaxe ten altura cero"
-
-#: ../gdk-pixbuf/io-wbmp.c:272
-msgid "Not enough memory to load image"
-msgstr "Non hai suficiente memoria para cargar a imaxe"
-
-#: ../gdk-pixbuf/io-wbmp.c:331
-msgid "Couldn't save the rest"
-msgstr "Non foi posíbel gardar o resto"
-
-#: ../gdk-pixbuf/io-wbmp.c:372
-msgctxt "image format"
-msgid "WBMP"
-msgstr "WBMP"
-
 #: ../gdk-pixbuf/io-xbm.c:302
 msgid "Invalid XBM file"
 msgstr "O ficheiro XBM é incorrecto"
@@ -1106,6 +1020,87 @@ msgstr ""
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
+
+#~ msgid "Couldn't allocate memory for header"
+#~ msgstr "Non foi posíbel asignar memoria para a cabeceira"
+
+#~ msgid "Couldn't allocate memory for context buffer"
+#~ msgstr "Non foi posíbel asignar memoria para o búfer"
+
+#~ msgid "Image has invalid width and/or height"
+#~ msgstr "A imaxe ten unha largura ou unha altura non válida"
+
+#~ msgid "Image has unsupported bpp"
+#~ msgstr "A imaxe ten un bpp non compatíbel"
+
+#~ msgid "Image has unsupported number of %d-bit planes"
+#~ msgstr "A imaxe ten un número non compatíbel de planos %d-bit"
+
+#~ msgid "Couldn't create new pixbuf"
+#~ msgstr "Non foi posíbel crear un pixbuf novo"
+
+#~ msgid "Couldn't allocate memory for line data"
+#~ msgstr "Non foi posíbel asignar memoria para os datos de liña"
+
+#~ msgid "Couldn't allocate memory for PCX image"
+#~ msgstr "Non foi posíbel asignar memoria para a imaxe PCX"
+
+#~ msgid "Didn't get all lines of PCX image"
+#~ msgstr "Non se obtiveron todas as liñas da imaxe PCX"
+
+#~ msgid "No palette found at end of PCX data"
+#~ msgstr "Non se atopou ningunha paleta ao final dos datos PCX"
+
+#~ msgctxt "image format"
+#~ msgid "PCX"
+#~ msgstr "PCX"
+
+#~ msgid "RAS image has bogus header data"
+#~ msgstr "A imaxe RAS posúe datos de cabeceira falsos"
+
+#~ msgid "RAS image has unknown type"
+#~ msgstr "A imaxe RAS posúe un tipo descoñecido"
+
+#~ msgid "unsupported RAS image variation"
+#~ msgstr "Variación de imaxe RAS non compatíbel"
+
+#~ msgid "Not enough memory to load RAS image"
+#~ msgstr "Non hai suficiente memoria para cargar a imaxe RAS"
+
+#~ msgctxt "image format"
+#~ msgid "Sun raster"
+#~ msgstr "Sun raster"
+
+#~ msgid "Cannot allocate memory for IOBuffer struct"
+#~ msgstr "Non é posíbel asignar memoria para a estrutura IOBuffer"
+
+#~ msgid "Cannot allocate memory for IOBuffer data"
+#~ msgstr "Non é posíbel asignar memoria para datos IOBuffer"
+
+#~ msgid "Cannot realloc IOBuffer data"
+#~ msgstr "Non é posíbel reasignar datos IOBuffer"
+
+#~ msgid "Cannot allocate temporary IOBuffer data"
+#~ msgstr "Non é posíbel asignar datos temporais de IOBuffer"
+
+#~ msgid "Excess data in file"
+#~ msgstr "Datos en exceso no ficheiro"
+
+#~ msgid "Image has zero width"
+#~ msgstr "A imaxe ten largura cero"
+
+#~ msgid "Image has zero height"
+#~ msgstr "A imaxe ten altura cero"
+
+#~ msgid "Not enough memory to load image"
+#~ msgstr "Non hai suficiente memoria para cargar a imaxe"
+
+#~ msgid "Couldn't save the rest"
+#~ msgstr "Non foi posíbel gardar o resto"
+
+#~ msgctxt "image format"
+#~ msgid "WBMP"
+#~ msgstr "WBMP"
 
 #~ msgid "Image is corrupted or truncated"
 #~ msgstr "A imaxe GIF está truncada ou incompleta"
