@@ -1,19 +1,19 @@
 # Danish translation of GTK+.
-# Copyright (C) 1999-2010, 2012, 2015 Free Software Foundation, Inc.
+# Copyright (C) 1999-2010, 2012, 2015-2016 Free Software Foundation, Inc.
 # Birger Langkjer <birger.langkjer@image.dk>, 1999.
 # Kenneth Christiansen, 1999-2000
 # Keld Simonsen <keld@dkuug.dk>, 2000.
 # Ole Laursen <olau@hardworking.dk>, 2001, 02, 03, 04.
 # Martin Willemoes Hansen <mwh@sysrq.dk>, 2005.
 # Marie Lund <marielund@post.cybercity.dk>, 2005.
-# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007, 08, 09, 10, 15.
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007, 08, 09, 10, 15, 16.
 # Kenneth Nielsen <k.nielsen81@gmail.com>, 2012.
 #
 # Konventioner:
 #
 #   attribute -> egenskab
 #   colormap -> farvetabel
-#   directory -> mappe 
+#   directory -> mappe
 #   entry -> indtastningsfelt
 #   frame (i animation) -> billede
 #   (column) header -> (kolonne)overskrift
@@ -37,8 +37,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-20 20:19+0200\n"
-"PO-Revision-Date: 2015-09-20 18:59+0200\n"
+"POT-Creation-Date: 2016-03-20 23:41+0100\n"
+"PO-Revision-Date: 2016-03-20 03:36+0100\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -47,13 +47,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:156 ../gdk-pixbuf/gdk-pixbuf-io.c:1106
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1362
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:156 ../gdk-pixbuf/gdk-pixbuf-io.c:1084
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1340
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Kunne ikke åbne filen \"%s\": %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:169 ../gdk-pixbuf/gdk-pixbuf-io.c:991
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:169 ../gdk-pixbuf/gdk-pixbuf-io.c:969
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Billedfilen \"%s\" indeholder ingen data"
@@ -67,8 +67,8 @@ msgstr ""
 "Kunne ikke indlæse animationen \"%s\": årsag ukendt, formentlig en ødelagt "
 "animationsfil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-animation.c:275 ../gdk-pixbuf/gdk-pixbuf-io.c:1142
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1414
+#: ../gdk-pixbuf/gdk-pixbuf-animation.c:275 ../gdk-pixbuf/gdk-pixbuf-io.c:1120
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1392
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -149,12 +149,12 @@ msgstr "Pixelbyte"
 msgid "Readonly pixel data"
 msgstr "Skrivebeskyttede pixeldata"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:803
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:781
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Kunne ikke indlæse billedindlæsningmodulet %s: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:818
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:796
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -163,54 +163,54 @@ msgstr ""
 "Billedindlæsningsmodulet %s eksporterer ikke den rigtige grænseflade; måske "
 "er det fra en anden gdk-pixbuf-version?"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:827 ../gdk-pixbuf/gdk-pixbuf-io.c:878
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:805 ../gdk-pixbuf/gdk-pixbuf-io.c:856
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Billedtypen \"%s\" er ikke understøttet"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:963
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:941
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Kunne ikke genkende billedfilformatet for filen \"%s\""
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:971
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:949
 msgid "Unrecognized image file format"
 msgstr "Ukendt billedfilformat"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:1153
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:1131
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Kunne ikke indlæse billedet \"%s\": %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2183 ../gdk-pixbuf/io-gdip-utils.c:838
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2161 ../gdk-pixbuf/io-gdip-utils.c:838
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Fejl ved skrivning af billedfil: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2225 ../gdk-pixbuf/gdk-pixbuf-io.c:2346
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2203 ../gdk-pixbuf/gdk-pixbuf-io.c:2324
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Denne bygning af gdk-pixbuf understøtter ikke gemning af billedformatet: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2256
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2234
 msgid "Insufficient memory to save image to callback"
 msgstr "Ikke tilstrækkelig hukommelse til at gemme billede til tilbagekald"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2269
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2247
 msgid "Failed to open temporary file"
 msgstr "Kunne ikke åbne midlertidig fil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2292
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2270
 msgid "Failed to read from temporary file"
 msgstr "Kunne ikke læse fra midlertidig fil"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2542
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2520
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Kunne ikke åbne \"%s\" til skrivning: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2568
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2546
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -219,11 +219,11 @@ msgstr ""
 "Kunne ikke lukke \"%s\" ved skrivning af billede, formentlig er ikke alle "
 "data blevet gemt: %s"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2789 ../gdk-pixbuf/gdk-pixbuf-io.c:2841
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2767 ../gdk-pixbuf/gdk-pixbuf-io.c:2819
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Ikke tilstrækkelig hukommelse til at gemme billede i et mellemlager"
 
-#: ../gdk-pixbuf/gdk-pixbuf-io.c:2887
+#: ../gdk-pixbuf/gdk-pixbuf-io.c:2865
 msgid "Error writing to image stream"
 msgstr "Fejl ved skrivning til billedstrøm"
 
@@ -299,12 +299,12 @@ msgid "Windows animated cursor"
 msgstr "Animeret Windows-markør"
 
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
-#: ../gdk-pixbuf/io-bmp.c:484
+#: ../gdk-pixbuf/io-bmp.c:378 ../gdk-pixbuf/io-bmp.c:401
+#: ../gdk-pixbuf/io-bmp.c:504
 msgid "BMP image has bogus header data"
 msgstr "BMP-billede har ugyldige data i filhoved"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:441
 msgid "Not enough memory to load bitmap image"
 msgstr "Ikke tilstrækkelig hukommelse til indlæsning af bitmap-billede"
 
@@ -312,24 +312,32 @@ msgstr "Ikke tilstrækkelig hukommelse til indlæsning af bitmap-billede"
 msgid "BMP image has unsupported header size"
 msgstr "BMP-billedets filhovedstørrelse er ikke understøttet"
 
-#: ../gdk-pixbuf/io-bmp.c:345
+#: ../gdk-pixbuf/io-bmp.c:326
+msgid "BMP image has unsupported depth"
+msgstr "BMP-billedet har en dybde som ikke understøttes"
+
+#: ../gdk-pixbuf/io-bmp.c:341
+msgid "BMP image has oversize palette"
+msgstr "BMP-billedet har en for stor palet"
+
+#: ../gdk-pixbuf/io-bmp.c:365
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Topdown-BMP-billeder kan ikke komprimeres"
 
-#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:531
+#: ../gdk-pixbuf/io-bmp.c:725 ../gdk-pixbuf/io-png.c:531
 #: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Fil sluttede for tidligt"
 
-#: ../gdk-pixbuf/io-bmp.c:1317
+#: ../gdk-pixbuf/io-bmp.c:1337
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Kunne ikke tildele hukommelse til gemning af BMP-fil"
 
-#: ../gdk-pixbuf/io-bmp.c:1358
+#: ../gdk-pixbuf/io-bmp.c:1378
 msgid "Couldn't write to BMP file"
 msgstr "Kunne ikke skrive til BMP-fil"
 
-#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:83
+#: ../gdk-pixbuf/io-bmp.c:1431 ../gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
@@ -339,12 +347,12 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1719
+#: ../gdk-pixbuf/io-gdip-gif.c:81 ../gdk-pixbuf/io-gif.c:1726
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
 
-#: ../gdk-pixbuf/io-gdip-ico.c:60 ../gdk-pixbuf/io-ico.c:1268
+#: ../gdk-pixbuf/io-gdip-ico.c:60 ../gdk-pixbuf/io-ico.c:1275
 msgctxt "image format"
 msgid "Windows icon"
 msgstr "Windows-ikon"
@@ -424,7 +432,7 @@ msgid "Failure reading GIF: %s"
 msgstr "Fejl under læsning af GIF: %s"
 
 #: ../gdk-pixbuf/io-gif.c:494 ../gdk-pixbuf/io-gif.c:1501
-#: ../gdk-pixbuf/io-gif.c:1668
+#: ../gdk-pixbuf/io-gif.c:1675
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF-fil manglede nogle data (måske er den blev afkortet?)"
 
@@ -450,7 +458,7 @@ msgid "Circular table entry in GIF file"
 msgstr "Cirkulær tabelindgang i GIF-fil"
 
 #: ../gdk-pixbuf/io-gif.c:864 ../gdk-pixbuf/io-gif.c:1487
-#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1656
+#: ../gdk-pixbuf/io-gif.c:1540 ../gdk-pixbuf/io-gif.c:1663
 msgid "Not enough memory to load GIF file"
 msgstr "Ikke nok hukommelse til indlæsning af GIF-fil"
 
@@ -486,6 +494,10 @@ msgstr ""
 #: ../gdk-pixbuf/io-gif.c:1563
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF-billedet er afkortet eller ikke komplet."
+
+#: ../gdk-pixbuf/io-gif.c:1570
+msgid "Not all frames of the GIF image were loaded."
+msgstr "Ikke alle billeder fra GIFfen blev indlæst."
 
 #: ../gdk-pixbuf/io-icns.c:358
 #, c-format
@@ -525,15 +537,15 @@ msgstr "Ikontypen understøttes ikke"
 msgid "Not enough memory to load ICO file"
 msgstr "Ikke tilstrækkelig hukommelse til indlæsning af ICO-fil"
 
-#: ../gdk-pixbuf/io-ico.c:993
+#: ../gdk-pixbuf/io-ico.c:995
 msgid "Image too large to be saved as ICO"
 msgstr "Billede for stort til at blive gemt som ICO"
 
-#: ../gdk-pixbuf/io-ico.c:1004
+#: ../gdk-pixbuf/io-ico.c:1006
 msgid "Cursor hotspot outside image"
 msgstr "Markørpunkt uden for billede"
 
-#: ../gdk-pixbuf/io-ico.c:1027
+#: ../gdk-pixbuf/io-ico.c:1029
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Dybden for ICO-filen understøttes ikke: %d"
@@ -619,52 +631,6 @@ msgstr ""
 #, c-format
 msgid "Color profile has invalid length '%u'."
 msgstr "Farveprofil har ugyldig længde \"%u\"."
-
-#: ../gdk-pixbuf/io-pcx.c:184
-msgid "Couldn't allocate memory for header"
-msgstr "Kunne ikke tildele hukommelse til hoved"
-
-#: ../gdk-pixbuf/io-pcx.c:199 ../gdk-pixbuf/io-pcx.c:557
-msgid "Couldn't allocate memory for context buffer"
-msgstr "Kunne ikke tildele hukommelse til kontekststruktur"
-
-#: ../gdk-pixbuf/io-pcx.c:598
-msgid "Image has invalid width and/or height"
-msgstr "Billede har ugyldig bredde og/eller højde"
-
-#: ../gdk-pixbuf/io-pcx.c:610 ../gdk-pixbuf/io-pcx.c:671
-msgid "Image has unsupported bpp"
-msgstr "Billedets bpp understøttes ikke"
-
-#: ../gdk-pixbuf/io-pcx.c:615 ../gdk-pixbuf/io-pcx.c:623
-#, c-format
-msgid "Image has unsupported number of %d-bit planes"
-msgstr "Antallet af %d-bit planer i billedet understøttes ikke"
-
-#: ../gdk-pixbuf/io-pcx.c:639
-msgid "Couldn't create new pixbuf"
-msgstr "Kan ikke oprette ny pixbuf"
-
-#: ../gdk-pixbuf/io-pcx.c:647
-msgid "Couldn't allocate memory for line data"
-msgstr "Kan ikke tildele hukommelse til linjedata"
-
-#: ../gdk-pixbuf/io-pcx.c:654
-msgid "Couldn't allocate memory for PCX image"
-msgstr "Kunne ikke tildele hukommelse til PCX-billede"
-
-#: ../gdk-pixbuf/io-pcx.c:701
-msgid "Didn't get all lines of PCX image"
-msgstr "Fik ikke alle linjerne af PCX-billede"
-
-#: ../gdk-pixbuf/io-pcx.c:708
-msgid "No palette found at end of PCX data"
-msgstr "Ingen palet fundet i slutningen af PCX-data"
-
-#: ../gdk-pixbuf/io-pcx.c:753
-msgctxt "image format"
-msgid "PCX"
-msgstr "PCX"
 
 #: ../gdk-pixbuf/io-pixdata.c:150
 msgid "Transformed pixbuf has zero width or height."
@@ -894,78 +860,43 @@ msgctxt "image format"
 msgid "QuickTime"
 msgstr "QuickTime"
 
-#: ../gdk-pixbuf/io-ras.c:123
-msgid "RAS image has bogus header data"
-msgstr "RAS-billede har ugyldige data i filhoved"
-
-#: ../gdk-pixbuf/io-ras.c:145
-msgid "RAS image has unknown type"
-msgstr "RAS-billede er af en ukendt type"
-
-#: ../gdk-pixbuf/io-ras.c:153
-msgid "unsupported RAS image variation"
-msgstr "RAS-billedvarianten understøttes ikke"
-
-#: ../gdk-pixbuf/io-ras.c:168 ../gdk-pixbuf/io-ras.c:197
-msgid "Not enough memory to load RAS image"
-msgstr "Ikke tilstrækkelig hukommelse til indlæsning af RAS-billede"
-
-#: ../gdk-pixbuf/io-ras.c:542
-msgctxt "image format"
-msgid "Sun raster"
-msgstr "Sun-rasterformat"
-
-#: ../gdk-pixbuf/io-tga.c:151
-msgid "Cannot allocate memory for IOBuffer struct"
-msgstr "Kan ikke tildele hukommelse til IOBuffer-struktur"
-
-#: ../gdk-pixbuf/io-tga.c:170
-msgid "Cannot allocate memory for IOBuffer data"
-msgstr "Kan ikke tildele hukommelse til IOBuffer-data"
-
-#: ../gdk-pixbuf/io-tga.c:181
-msgid "Cannot realloc IOBuffer data"
-msgstr "Kan ikke omallokere IOBuffer-data"
-
-#: ../gdk-pixbuf/io-tga.c:211
-msgid "Cannot allocate temporary IOBuffer data"
-msgstr "Kan ikke allokere midlertidige IOBuffer-data"
-
-#: ../gdk-pixbuf/io-tga.c:383
-msgid "Cannot allocate new pixbuf"
-msgstr "Kan ikke allokere ny pixbuf"
-
-#: ../gdk-pixbuf/io-tga.c:723
+#: ../gdk-pixbuf/io-tga.c:333
 msgid "Cannot allocate colormap"
 msgstr "Kan ikke allokere farvetabel"
 
-#: ../gdk-pixbuf/io-tga.c:747
+#: ../gdk-pixbuf/io-tga.c:358
+msgid "Cannot allocate new pixbuf"
+msgstr "Kan ikke allokere ny pixbuf"
+
+#: ../gdk-pixbuf/io-tga.c:506
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "Uventet bitdybde for farvetabelselementer"
 
-#: ../gdk-pixbuf/io-tga.c:766
+#: ../gdk-pixbuf/io-tga.c:522
+msgid "Pseudocolor image does not contain a colormap"
+msgstr "Pseudofarvebillede indeholder intet farvekort"
+
+#: ../gdk-pixbuf/io-tga.c:565
 msgid "Cannot allocate TGA header memory"
 msgstr "Kan ikke tildele hukommelse til TGA-hoved"
 
-#: ../gdk-pixbuf/io-tga.c:799
+#: ../gdk-pixbuf/io-tga.c:596
 msgid "TGA image has invalid dimensions"
 msgstr "TGA-billede har ugyldige dimensioner"
 
-#: ../gdk-pixbuf/io-tga.c:805 ../gdk-pixbuf/io-tga.c:814
-#: ../gdk-pixbuf/io-tga.c:824 ../gdk-pixbuf/io-tga.c:834
-#: ../gdk-pixbuf/io-tga.c:841
+#: ../gdk-pixbuf/io-tga.c:602 ../gdk-pixbuf/io-tga.c:609
 msgid "TGA image type not supported"
 msgstr "TGA-billedtype ikke understøttet"
 
-#: ../gdk-pixbuf/io-tga.c:888
+#: ../gdk-pixbuf/io-tga.c:634
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Kan ikke tildele hukommelse til TGA-kontekststruktur"
 
-#: ../gdk-pixbuf/io-tga.c:953
-msgid "Excess data in file"
-msgstr "For mange data i fil"
+#: ../gdk-pixbuf/io-tga.c:695
+msgid "TGA image was truncated or incomplete."
+msgstr "TGA-billedet er afkortet eller ufuldstændigt."
 
-#: ../gdk-pixbuf/io-tga.c:1032
+#: ../gdk-pixbuf/io-tga.c:747
 msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
@@ -1037,27 +968,6 @@ msgstr ""
 msgid "Couldn't write to TIFF file"
 msgstr "Kunne ikke skrive til TIFF-filen"
 
-#: ../gdk-pixbuf/io-wbmp.c:243
-msgid "Image has zero width"
-msgstr "Ikon har bredden nul"
-
-#: ../gdk-pixbuf/io-wbmp.c:261
-msgid "Image has zero height"
-msgstr "Ikon har højden nul"
-
-#: ../gdk-pixbuf/io-wbmp.c:272
-msgid "Not enough memory to load image"
-msgstr "Ikke tilstrækkelig hukommelse til indlæsning af billede"
-
-#: ../gdk-pixbuf/io-wbmp.c:331
-msgid "Couldn't save the rest"
-msgstr "Kunne ikke gemme resten"
-
-#: ../gdk-pixbuf/io-wbmp.c:372
-msgctxt "image format"
-msgid "WBMP"
-msgstr "WBMP"
-
 #: ../gdk-pixbuf/io-xbm.c:302
 msgid "Invalid XBM file"
 msgstr "Ugyldig XBM-fil"
@@ -1116,6 +1026,87 @@ msgstr "Fejl ved skrivning til midlertidig fil under indlæsning af XPM-billede"
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
+
+#~ msgid "Couldn't allocate memory for header"
+#~ msgstr "Kunne ikke tildele hukommelse til hoved"
+
+#~ msgid "Couldn't allocate memory for context buffer"
+#~ msgstr "Kunne ikke tildele hukommelse til kontekststruktur"
+
+#~ msgid "Image has invalid width and/or height"
+#~ msgstr "Billede har ugyldig bredde og/eller højde"
+
+#~ msgid "Image has unsupported bpp"
+#~ msgstr "Billedets bpp understøttes ikke"
+
+#~ msgid "Image has unsupported number of %d-bit planes"
+#~ msgstr "Antallet af %d-bit planer i billedet understøttes ikke"
+
+#~ msgid "Couldn't create new pixbuf"
+#~ msgstr "Kan ikke oprette ny pixbuf"
+
+#~ msgid "Couldn't allocate memory for line data"
+#~ msgstr "Kan ikke tildele hukommelse til linjedata"
+
+#~ msgid "Couldn't allocate memory for PCX image"
+#~ msgstr "Kunne ikke tildele hukommelse til PCX-billede"
+
+#~ msgid "Didn't get all lines of PCX image"
+#~ msgstr "Fik ikke alle linjerne af PCX-billede"
+
+#~ msgid "No palette found at end of PCX data"
+#~ msgstr "Ingen palet fundet i slutningen af PCX-data"
+
+#~ msgctxt "image format"
+#~ msgid "PCX"
+#~ msgstr "PCX"
+
+#~ msgid "RAS image has bogus header data"
+#~ msgstr "RAS-billede har ugyldige data i filhoved"
+
+#~ msgid "RAS image has unknown type"
+#~ msgstr "RAS-billede er af en ukendt type"
+
+#~ msgid "unsupported RAS image variation"
+#~ msgstr "RAS-billedvarianten understøttes ikke"
+
+#~ msgid "Not enough memory to load RAS image"
+#~ msgstr "Ikke tilstrækkelig hukommelse til indlæsning af RAS-billede"
+
+#~ msgctxt "image format"
+#~ msgid "Sun raster"
+#~ msgstr "Sun-rasterformat"
+
+#~ msgid "Cannot allocate memory for IOBuffer struct"
+#~ msgstr "Kan ikke tildele hukommelse til IOBuffer-struktur"
+
+#~ msgid "Cannot allocate memory for IOBuffer data"
+#~ msgstr "Kan ikke tildele hukommelse til IOBuffer-data"
+
+#~ msgid "Cannot realloc IOBuffer data"
+#~ msgstr "Kan ikke omallokere IOBuffer-data"
+
+#~ msgid "Cannot allocate temporary IOBuffer data"
+#~ msgstr "Kan ikke allokere midlertidige IOBuffer-data"
+
+#~ msgid "Excess data in file"
+#~ msgstr "For mange data i fil"
+
+#~ msgid "Image has zero width"
+#~ msgstr "Ikon har bredden nul"
+
+#~ msgid "Image has zero height"
+#~ msgstr "Ikon har højden nul"
+
+#~ msgid "Not enough memory to load image"
+#~ msgstr "Ikke tilstrækkelig hukommelse til indlæsning af billede"
+
+#~ msgid "Couldn't save the rest"
+#~ msgstr "Kunne ikke gemme resten"
+
+#~ msgctxt "image format"
+#~ msgid "WBMP"
+#~ msgstr "WBMP"
 
 #~ msgid "Image is corrupted or truncated"
 #~ msgstr "Billedet er beskadiget eller ufuldstændigt"
