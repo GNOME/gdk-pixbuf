@@ -5,20 +5,20 @@
 # Joseba Bidaurrazaga van Dierdonck <gcpbivaj@lg.ehu.es>, 1999-2000.
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2004.
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2011, 2012, 2013, 2014, 2015.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2011, 2012, 2013, 2014, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-14 10:53+0200\n"
-"PO-Revision-Date: 2015-09-28 23:47+0200\n"
-"Last-Translator: Inaki Larranaga Murgoitio <dooteo@zundan.com>\n"
+"POT-Creation-Date: 2016-03-23 17:12+0100\n"
+"PO-Revision-Date: 2016-03-23 17:14+0100\n"
+"Last-Translator: dooteo <dooteo@zundan.com>\n"
 "Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../gdk-pixbuf/gdk-pixbuf-animation.c:156 ../gdk-pixbuf/gdk-pixbuf-io.c:1084
@@ -275,12 +275,12 @@ msgid "Windows animated cursor"
 msgstr "Leihoaren kurtsore animatua"
 
 #: ../gdk-pixbuf/io-bmp.c:227 ../gdk-pixbuf/io-bmp.c:264
-#: ../gdk-pixbuf/io-bmp.c:358 ../gdk-pixbuf/io-bmp.c:381
-#: ../gdk-pixbuf/io-bmp.c:484
+#: ../gdk-pixbuf/io-bmp.c:378 ../gdk-pixbuf/io-bmp.c:401
+#: ../gdk-pixbuf/io-bmp.c:504
 msgid "BMP image has bogus header data"
 msgstr "BMP irudiak goiburu-datu akastunak ditu"
 
-#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:421
+#: ../gdk-pixbuf/io-bmp.c:238 ../gdk-pixbuf/io-bmp.c:441
 msgid "Not enough memory to load bitmap image"
 msgstr "Ez dago bit-mapen irudia kargatzeko adina memoria"
 
@@ -288,24 +288,32 @@ msgstr "Ez dago bit-mapen irudia kargatzeko adina memoria"
 msgid "BMP image has unsupported header size"
 msgstr "BMP irudiaren goiburu-tamaina ez da onartzen"
 
-#: ../gdk-pixbuf/io-bmp.c:345
+#: ../gdk-pixbuf/io-bmp.c:326
+msgid "BMP image has unsupported depth"
+msgstr "BMP irudiaren onartu gabeko sakonera du"
+
+#: ../gdk-pixbuf/io-bmp.c:341
+msgid "BMP image has oversize palette"
+msgstr "BMP irudiak gehiegizko tamainako paleta du"
+
+#: ../gdk-pixbuf/io-bmp.c:365
 msgid "Topdown BMP images cannot be compressed"
 msgstr "BMP 'Topdown' irudiak ezin dira konprimatu"
 
-#: ../gdk-pixbuf/io-bmp.c:705 ../gdk-pixbuf/io-png.c:531
+#: ../gdk-pixbuf/io-bmp.c:725 ../gdk-pixbuf/io-png.c:531
 #: ../gdk-pixbuf/io-pnm.c:705
 msgid "Premature end-of-file encountered"
 msgstr "Fitxategiaren amaiera uste baino lehen aurkitu da"
 
-#: ../gdk-pixbuf/io-bmp.c:1317
+#: ../gdk-pixbuf/io-bmp.c:1337
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Ezin izan da BMP fitxategia gordetzeko memoriarik esleitu"
 
-#: ../gdk-pixbuf/io-bmp.c:1358
+#: ../gdk-pixbuf/io-bmp.c:1378
 msgid "Couldn't write to BMP file"
 msgstr "Ezin izan da BMP fitxategia idatzi"
 
-#: ../gdk-pixbuf/io-bmp.c:1411 ../gdk-pixbuf/io-gdip-bmp.c:83
+#: ../gdk-pixbuf/io-bmp.c:1431 ../gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
@@ -466,7 +474,7 @@ msgstr "GIF irudia trunkatuta edo osatu gabe zegoen."
 
 #: ../gdk-pixbuf/io-gif.c:1570
 msgid "Not all frames of the GIF image were loaded."
-msgstr ""
+msgstr "Ez dira GIF irudiaren fotograma guztiak kargatu."
 
 #: ../gdk-pixbuf/io-icns.c:358
 #, c-format
@@ -846,7 +854,7 @@ msgstr "Kolore-maparen sarreren ustekabeko bit-sakonera"
 
 #: ../gdk-pixbuf/io-tga.c:522
 msgid "Pseudocolor image does not contain a colormap"
-msgstr ""
+msgstr "Irudiaren sasikoloreak ez dauka kolore-maparik"
 
 #: ../gdk-pixbuf/io-tga.c:565
 msgid "Cannot allocate TGA header memory"
@@ -865,9 +873,8 @@ msgid "Cannot allocate memory for TGA context struct"
 msgstr "Ezin da TGAren testuinguru-egiturarako memoriarik esleitu"
 
 #: ../gdk-pixbuf/io-tga.c:695
-#, fuzzy
 msgid "TGA image was truncated or incomplete."
-msgstr "ANI irudia trunkatuta edo osatu gabe zegoen."
+msgstr "TGA irudia trunkatuta edo osatu gabe zegoen."
 
 #: ../gdk-pixbuf/io-tga.c:747
 msgctxt "image format"
