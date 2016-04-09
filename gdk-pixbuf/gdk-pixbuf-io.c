@@ -466,6 +466,9 @@ gdk_pixbuf_io_init (void)
 #ifdef INCLUDE_jasper
         load_one_builtin_module (jasper);
 #endif
+#ifdef INCLUDE_bpg
+        load_one_builtin_module (bpg);
+#endif
 #ifdef INCLUDE_qtif
         load_one_builtin_module (qtif);
 #endif
@@ -664,6 +667,7 @@ module (xbm);
 module (tga);
 module (icns);
 module (jasper);
+module (bpg);
 module (qtif);
 module (gdip_ico);
 module (gdip_wmf);
@@ -748,6 +752,9 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
 #endif
 #ifdef INCLUDE_jasper
         try_module (jasper,jasper);
+#endif
+#ifdef INCLUDE_bpg
+        try_module (bpg,bpg);
 #endif
 #ifdef INCLUDE_qtif
         try_module (qtif,qtif);
