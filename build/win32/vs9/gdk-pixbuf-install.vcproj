@@ -77,6 +77,42 @@
 	<References>
 	</References>
 	<Files>
+		<Filter
+			Name="Resource Files"
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+			>
+			<File RelativePath="..\..\..\gdk-pixbuf-2.0.pc.in">
+				<FileConfiguration Name="Debug|Win32">
+					<Tool Name="VCCustomBuildTool"
+						Description="Generating .pc files..."
+						CommandLine="$(GenGdkPixbufPC)"
+						Outputs="..\gdk-pixbuf-2.0.pc"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Release|Win32">
+					<Tool Name="VCCustomBuildTool"
+						Description="Generating .pc files..."
+						CommandLine="$(GenGdkPixbufPC)"
+						Outputs="..\gdk-pixbuf-2.0.pc"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Debug|x64">
+					<Tool Name="VCCustomBuildTool"
+						Description="Generating .pc files..."
+						CommandLine="$(GenGdkPixbufPCX64)"
+						Outputs="..\gdk-pixbuf-2.0.pc"
+					/>
+				</FileConfiguration>
+				<FileConfiguration Name="Release|x64">
+					<Tool Name="VCCustomBuildTool"
+						Description="Generating .pc files..."
+						CommandLine="$(GenGdkPixbufPCX64)"
+						Outputs="..\gdk-pixbuf-2.0.pc"
+					/>
+				</FileConfiguration>
+			</File>
+		</Filter>
 	</Files>
 	<Globals>
 	</Globals>

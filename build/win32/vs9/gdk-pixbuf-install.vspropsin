@@ -19,6 +19,16 @@ copy $(ConfigurationName)\$(PlatformName)\bin\gdk_pixbuf-$(ApiVersion).lib $(Cop
 
 mkdir $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf&#x0D;&#x0A;
 #include "gdk-pixbuf.headers"
+
+if exist ..\gdk-pixbuf-$(ApiVersion).pc (mkdir $(CopyDir)\lib\pkgconfig &amp; copy ..\gdk-pixbuf-$(ApiVersion).pc $(CopyDir)\lib\pkgconfig)&#x0D;&#x0A;
 "
+	/>
+	<UserMacro
+		Name="GenGdkPixbufPC"
+		Value="if exist $(PythonPath)\python.exe $(PythonPath)\python.exe ..\gdkpixbuf-pc.py --version=$(GdkPixbufMajorVersion).$(GdkPixbufMinorVersion).$(GdkPixbufMicroVersion) --prefix=$(CopyDir)"
+	/>
+	<UserMacro
+		Name="GenGdkPixbufPCX64"
+		Value="if exist $(PythonPathX64)\python.exe $(PythonPathX64)\python.exe ..\gdkpixbuf-pc.py --version=$(GdkPixbufMajorVersion).$(GdkPixbufMinorVersion).$(GdkPixbufMicroVersion) --prefix=$(CopyDir)"
 	/>
 </VisualStudioPropertySheet>

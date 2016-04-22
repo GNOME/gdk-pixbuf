@@ -28,8 +28,11 @@ SUBDIRS =	\
 
 EXTRA_DIST =	\
 	detectenv-msvc.mak			\
-	introspection-msvc.mak		\
+	introspection-msvc.mak			\
 	gdk-pixbuf-introspection-msvc.mak	\
+	gdkpixbuf-pc.py				\
+	pc_base.py				\
+	replace.py				\
 	$(GENERATED_ITEMS)
 
 -include $(top_srcdir)/git.mk
