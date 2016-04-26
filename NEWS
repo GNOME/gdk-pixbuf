@@ -1,3 +1,10 @@
+2.35.1
+======
+
+* Add non-varargs variant to save to stream (#683063)
+* Add a common autotools module (#765034)
+* Translation updates
+
 2.34.0
 ======
 
