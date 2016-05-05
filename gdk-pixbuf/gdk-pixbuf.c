@@ -134,6 +134,10 @@ G_DEFINE_TYPE_WITH_CODE (GdkPixbuf, gdk_pixbuf, G_TYPE_OBJECT,
 static void 
 gdk_pixbuf_init (GdkPixbuf *pixbuf)
 {
+  pixbuf->colorspace = GDK_COLORSPACE_RGB;
+  pixbuf->n_channels = 3;
+  pixbuf->bits_per_sample = 8;
+  pixbuf->has_alpha = FALSE;
 }
 
 static void
@@ -148,6 +152,7 @@ gdk_pixbuf_class_init (GdkPixbufClass *klass)
         object_class->get_property = gdk_pixbuf_get_property;
 
 #define PIXBUF_PARAM_FLAGS G_PARAM_READWRITE|G_PARAM_CONSTRUCT_ONLY|\
+                           G_PARAM_EXPLICIT_NOTIFY|\
                            G_PARAM_STATIC_NAME|G_PARAM_STATIC_NICK|G_PARAM_STATIC_BLURB
         /**
          * GdkPixbuf:n-channels:
@@ -1024,40 +1029,53 @@ gdk_pixbuf_set_property (GObject         *object,
 			 GParamSpec      *pspec)
 {
   GdkPixbuf *pixbuf = GDK_PIXBUF (object);
+  gboolean notify = TRUE;
 
   switch (prop_id)
           {
           case PROP_COLORSPACE:
+                  notify = pixbuf->colorspace != g_value_get_enum (value);
                   pixbuf->colorspace = g_value_get_enum (value);
                   break;
           case PROP_N_CHANNELS:
+                  notify = pixbuf->n_channels != g_value_get_int (value);
                   pixbuf->n_channels = g_value_get_int (value);
                   break;
           case PROP_HAS_ALPHA:
+                  notify = pixbuf->has_alpha != g_value_get_boolean (value);
                   pixbuf->has_alpha = g_value_get_boolean (value);
                   break;
           case PROP_BITS_PER_SAMPLE:
+                  notify = pixbuf->bits_per_sample != g_value_get_int (value);
                   pixbuf->bits_per_sample = g_value_get_int (value);
                   break;
           case PROP_WIDTH:
+                  notify = pixbuf->width != g_value_get_int (value);
                   pixbuf->width = g_value_get_int (value);
                   break;
           case PROP_HEIGHT:
+                  notify = pixbuf->height != g_value_get_int (value);
                   pixbuf->height = g_value_get_int (value);
                   break;
           case PROP_ROWSTRIDE:
+                  notify = pixbuf->rowstride != g_value_get_int (value);
                   pixbuf->rowstride = g_value_get_int (value);
                   break;
           case PROP_PIXELS:
+                  notify = pixbuf->pixels != (guchar *) g_value_get_pointer (value);
                   pixbuf->pixels = (guchar *) g_value_get_pointer (value);
                   break;
           case PROP_PIXEL_BYTES:
+                  notify = pixbuf->bytes != g_value_get_boxed (value);
                   pixbuf->bytes = g_value_dup_boxed (value);
                   break;
           default:
                   G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
                   break;
           }
+
+        if (notify)
+                g_object_notify_by_pspec (G_OBJECT (object), pspec);
 }
 
 static void
