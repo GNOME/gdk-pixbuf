@@ -298,6 +298,18 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 		State->Header.height = lsb_32 (&BIH[8]);
 		State->Header.depth = lsb_16 (&BIH[14]);
 		State->Compressed = lsb_32 (&BIH[16]);
+	} else if (State->Header.size == 56) {
+                /* BMP v3 with RGBA bitmasks */
+		State->Header.width = lsb_32 (&BIH[4]);
+		State->Header.height = lsb_32 (&BIH[8]);
+		State->Header.depth = lsb_16 (&BIH[14]);
+		State->Compressed = lsb_32 (&BIH[16]);
+	} else if (State->Header.size == 52) {
+                /* BMP v3 with RGB bitmasks */
+		State->Header.width = lsb_32 (&BIH[4]);
+		State->Header.height = lsb_32 (&BIH[8]);
+		State->Header.depth = lsb_16 (&BIH[14]);
+		State->Compressed = lsb_32 (&BIH[16]);
 	} else if (State->Header.size == 40) {
                 /* BMP v3 */ 
 		State->Header.width = lsb_32 (&BIH[4]);
@@ -495,9 +507,10 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 			State->BufferSize = State->LineWidth;
 		}
 	} else if (State->Compressed == BI_BITFIELDS) {
-               if (State->Header.size == 108 || State->Header.size == 124) 
+               if (State->Header.size == 52  || State->Header.size == 56 ||
+                   State->Header.size == 108 || State->Header.size == 124)
                {
-			/* v4 and v5 have the bitmasks in the header */
+			/* extended v3, v4 and v5 have the bitmasks in the header */
 			if (!decode_bitmasks (&BIH[40], State, error)) {
 			       State->read_state = READ_STATE_ERROR;
 			       return FALSE;
@@ -607,8 +620,8 @@ decode_bitmasks (guchar *buf,
 	find_bits (State->g_mask, &State->g_shift, &State->g_bits);
 	find_bits (State->b_mask, &State->b_shift, &State->b_bits);
 
-        /* v4 and v5 have an alpha mask */
-        if (State->Header.size == 108 || State->Header.size == 124) {
+        /* extended v3, v4 and v5 have an alpha mask */
+        if (State->Header.size == 56 || State->Header.size == 108 || State->Header.size == 124) {
 	      buf += 4;
 	      State->a_mask = buf[0] | (buf[1] << 8) | (buf[2] << 16) | (buf[3] << 24);
 	      find_bits (State->a_mask, &State->a_shift, &State->a_bits);
