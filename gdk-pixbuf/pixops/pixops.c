@@ -437,21 +437,51 @@ pixops_composite_nearest_noscale (guchar        *dest_buf,
 				  gboolean       src_has_alpha,
 				  int            overall_alpha)
 {
-  int i, j;
-  int x;
+  gint64 i;
+  gint64 x;
+  gint64 xmax, xstart, xstop, y_pos;
+  const guchar *p;
+  unsigned int  a0;
+
+#define INNER_LOOP_NOSCALE(SRC_CHANNELS,DEST_CHANNELS,ASSIGN_PIXEL) \
+      xmax = x + (render_x1 - render_x0);                       \
+      xstart = MIN (0, xmax);                                   \
+      xstop = MIN (src_width, xmax);                            \
+      p = src + CLAMP (x, xstart, xstop) * SRC_CHANNELS;        \
+      while (x < xstart)                                        \
+        {                                                       \
+          ASSIGN_PIXEL;                                         \
+          dest += DEST_CHANNELS;                                \
+          x++;                                                  \
+        }                                                       \
+      p = src + x * SRC_CHANNELS;                               \
+      while (x < xstop)                                         \
+        {                                                       \
+          ASSIGN_PIXEL;                                         \
+          dest += DEST_CHANNELS;                                \
+          x++;                                                  \
+          p += SRC_CHANNELS;                                    \
+        }                                                       \
+      p = src + CLAMP (x, 0, src_width - 1) * SRC_CHANNELS;     \
+      while (x < xmax)                                          \
+        {                                                       \
+          ASSIGN_PIXEL;                                         \
+          dest += DEST_CHANNELS;                                \
+          x++;                                                  \
+        }
 
   for (i = 0; i < (render_y1 - render_y0); i++)
     {
-      const guchar *src  = src_buf + (gsize)(i + render_y0) * src_rowstride;
-      guchar       *dest = dest_buf + (gsize)i * dest_rowstride;
+      const guchar *src;
+      guchar       *dest;
+      y_pos = i + render_y0;
+      y_pos = CLAMP (y_pos, 0, src_height - 1);
+      src  = src_buf + (gsize)y_pos * src_rowstride;
+      dest = dest_buf + (gsize)i * dest_rowstride;
 
-      x = render_x0 * src_channels;
+      x = render_x0;
 
-      for (j=0; j < (render_x1 - render_x0); j++)
-	{
-	  const guchar *p = src + x;
-	  unsigned int  a0;
-
+      INNER_LOOP_NOSCALE(src_channels, dest_channels,
 	  if (src_has_alpha)
 	    a0 = (p[3] * overall_alpha) / 0xff;
 	  else
@@ -494,11 +524,10 @@ pixops_composite_nearest_noscale (guchar        *dest_buf,
 	        }
 	      break;
 	    }
-	  dest += dest_channels;
-	  x += src_channels;
-	}
+	);
     }
 }
+#undef INNER_LOOP_NOSCALE
 
 static void
 pixops_composite_color_nearest (guchar        *dest_buf,
