@@ -8,9 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: oc\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk%2b&"
-"keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2016-04-18 17:50+0000\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
+"%2b&keywords=I18N+L10N&component=gdk\n"
+"POT-Creation-Date: 2016-05-19 05:46+0000\n"
 "PO-Revision-Date: 2016-05-08 18:37+0200\n"
 "Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
 "Language-Team: Tot En Òc\n"
@@ -52,76 +52,76 @@ msgstr ""
 "Impossible de cargar l'imatge '%s' : rason desconeguda, probable qu'es "
 "corromput"
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:161
+#: ../gdk-pixbuf/gdk-pixbuf.c:166
 msgid "Number of Channels"
 msgstr "Nombre de canals"
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:162
+#: ../gdk-pixbuf/gdk-pixbuf.c:167
 msgid "The number of samples per pixel"
 msgstr ""
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:171
+#: ../gdk-pixbuf/gdk-pixbuf.c:176
 msgid "Colorspace"
 msgstr "Espaci de colors"
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:172
+#: ../gdk-pixbuf/gdk-pixbuf.c:177
 msgid "The colorspace in which the samples are interpreted"
 msgstr ""
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:180
+#: ../gdk-pixbuf/gdk-pixbuf.c:185
 msgid "Has Alpha"
 msgstr ""
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:181
+#: ../gdk-pixbuf/gdk-pixbuf.c:186
 msgid "Whether the pixbuf has an alpha channel"
 msgstr ""
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:194
+#: ../gdk-pixbuf/gdk-pixbuf.c:199
 msgid "Bits per Sample"
 msgstr ""
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:195
+#: ../gdk-pixbuf/gdk-pixbuf.c:200
 msgid "The number of bits per sample"
 msgstr ""
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:204
+#: ../gdk-pixbuf/gdk-pixbuf.c:209
 msgid "Width"
 msgstr "Largor"
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:205
+#: ../gdk-pixbuf/gdk-pixbuf.c:210
 msgid "The number of columns of the pixbuf"
 msgstr "Lo nombre de colomnas del pixbuf"
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:214
+#: ../gdk-pixbuf/gdk-pixbuf.c:219
 msgid "Height"
 msgstr "Nautor"
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:215
+#: ../gdk-pixbuf/gdk-pixbuf.c:220
 msgid "The number of rows of the pixbuf"
 msgstr "Lo nombre de linhas del pixbuf"
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:231
+#: ../gdk-pixbuf/gdk-pixbuf.c:236
 msgid "Rowstride"
 msgstr ""
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:232
+#: ../gdk-pixbuf/gdk-pixbuf.c:237
 msgid ""
 "The number of bytes between the start of a row and the start of the next row"
 msgstr ""
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:241
+#: ../gdk-pixbuf/gdk-pixbuf.c:246
 msgid "Pixels"
 msgstr "Pixèls"
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:242
+#: ../gdk-pixbuf/gdk-pixbuf.c:247
 msgid "A pointer to the pixel data of the pixbuf"
 msgstr ""
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:256
+#: ../gdk-pixbuf/gdk-pixbuf.c:261
 msgid "Pixel Bytes"
 msgstr ""
 
-#: ../gdk-pixbuf/gdk-pixbuf.c:257
+#: ../gdk-pixbuf/gdk-pixbuf.c:262
 msgid "Readonly pixel data"
 msgstr ""
 
@@ -290,12 +290,10 @@ msgid "BMP image has unsupported header size"
 msgstr "La talha de l'entèsta de pagina de l'imatge BMP es tròp importanta."
 
 #: ../gdk-pixbuf/io-bmp.c:326
-#| msgid "BMP image has unsupported header size"
 msgid "BMP image has unsupported depth"
 msgstr ""
 
 #: ../gdk-pixbuf/io-bmp.c:341
-#| msgid "BMP image has bogus header data"
 msgid "BMP image has oversize palette"
 msgstr ""
 
