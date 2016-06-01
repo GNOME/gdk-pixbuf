@@ -64,7 +64,7 @@ test_composite2 (void)
   GdkPixbuf *src, *dest;
   guchar *pixels, *p;
 
-  src = gdk_pixbuf_new_from_file ("test-image.png", NULL);
+  src = gdk_pixbuf_new_from_file (g_test_get_filename (G_TEST_DIST, "test-image.png"), NULL);
 
   {
     GdkPixbuf *tmp = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
