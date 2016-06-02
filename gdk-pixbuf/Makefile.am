@@ -545,7 +545,8 @@ libgdk_pixbufinclude_HEADERS =  	\
 	gdk-pixbuf-enum-types.h		\
 	gdk-pixbuf-marshal.h		\
 	gdk-pixbuf-features.h		\
-	gdk-pixdata.h
+	gdk-pixdata.h			\
+	gdk-pixbuf-macros.h
 
 noinst_HEADERS = 		\
 	gdk-pixbuf-private.h	\

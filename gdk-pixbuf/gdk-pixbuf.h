@@ -27,6 +27,7 @@
 #define GDK_PIXBUF_H_INSIDE
 
 #include <glib.h>
+#include <gdk-pixbuf/gdk-pixbuf-macros.h>
 #include <gdk-pixbuf/gdk-pixbuf-features.h>
 #include <glib-object.h>
 

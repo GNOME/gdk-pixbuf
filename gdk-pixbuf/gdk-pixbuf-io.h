@@ -40,34 +40,50 @@
 G_BEGIN_DECLS
 
 typedef struct _GdkPixbufFormat GdkPixbufFormat;
- 
+
+GDK_PIXBUF_AVAILABLE_IN_ALL
 GType gdk_pixbuf_format_get_type (void) G_GNUC_CONST;
 
+GDK_PIXBUF_AVAILABLE_IN_ALL
 GSList    *gdk_pixbuf_get_formats            (void);
+GDK_PIXBUF_AVAILABLE_IN_2_2
 gchar     *gdk_pixbuf_format_get_name        (GdkPixbufFormat *format);
+GDK_PIXBUF_AVAILABLE_IN_2_2
 gchar     *gdk_pixbuf_format_get_description (GdkPixbufFormat *format);
+GDK_PIXBUF_AVAILABLE_IN_2_2
 gchar    **gdk_pixbuf_format_get_mime_types  (GdkPixbufFormat *format);
+GDK_PIXBUF_AVAILABLE_IN_2_2
 gchar    **gdk_pixbuf_format_get_extensions  (GdkPixbufFormat *format);
+GDK_PIXBUF_AVAILABLE_IN_2_2
 gboolean   gdk_pixbuf_format_is_writable     (GdkPixbufFormat *format);
+GDK_PIXBUF_AVAILABLE_IN_2_6
 gboolean   gdk_pixbuf_format_is_scalable     (GdkPixbufFormat *format);
+GDK_PIXBUF_AVAILABLE_IN_2_6
 gboolean   gdk_pixbuf_format_is_disabled     (GdkPixbufFormat *format);
+GDK_PIXBUF_AVAILABLE_IN_2_6
 void       gdk_pixbuf_format_set_disabled    (GdkPixbufFormat *format,
 					      gboolean         disabled);
+GDK_PIXBUF_AVAILABLE_IN_2_6
 gchar     *gdk_pixbuf_format_get_license     (GdkPixbufFormat *format);
 
+GDK_PIXBUF_AVAILABLE_IN_2_4
 GdkPixbufFormat *gdk_pixbuf_get_file_info    (const gchar     *filename,
 					      gint            *width, 
 					      gint            *height);
+GDK_PIXBUF_AVAILABLE_IN_2_32
 void             gdk_pixbuf_get_file_info_async  (const gchar          *filename,
 						  GCancellable         *cancellable,
 						  GAsyncReadyCallback   callback,
 						  gpointer              user_data);
+GDK_PIXBUF_AVAILABLE_IN_2_32
 GdkPixbufFormat *gdk_pixbuf_get_file_info_finish (GAsyncResult         *async_result,
 						  gint                 *width,
 						  gint                 *height,
 						  GError              **error);
 
+GDK_PIXBUF_AVAILABLE_IN_ALL
 GdkPixbufFormat *gdk_pixbuf_format_copy (const GdkPixbufFormat *format);
+GDK_PIXBUF_AVAILABLE_IN_ALL
 void             gdk_pixbuf_format_free (GdkPixbufFormat       *format);
 
 #ifdef GDK_PIXBUF_ENABLE_BACKEND
@@ -289,6 +305,7 @@ typedef void (* GdkPixbufModuleFillInfoFunc) (GdkPixbufFormat *info);
 
 /*  key/value pairs that can be attached by the pixbuf loader  */
 
+GDK_PIXBUF_AVAILABLE_IN_2_2
 gboolean gdk_pixbuf_set_option  (GdkPixbuf   *pixbuf,
                                  const gchar *key,
                                  const gchar *value);
