@@ -9,8 +9,4 @@
 		Name="GenConfigH"
 		Value="copy ..\..\..\config.h.win32 ..\..\..\config.h"
 	/>
-	<UserMacro
-		Name="GenerateGdkPixbufDef"
-		Value="echo EXPORTS &gt; $(DefDir)\gdk-pixbuf.def &amp;&amp; cl /EP -DG_OS_WIN32 -DINCLUDE_VARIABLES -DALL_FILES -DG_GNUC_CONST= -DG_GNUC_NULL_TERMINATED= ..\..\..\gdk-pixbuf\gdk-pixbuf.symbols &gt;&gt;$(DefDir)\gdk-pixbuf.def"
-	/>
 </VisualStudioPropertySheet>

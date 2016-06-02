@@ -47,7 +47,6 @@
 				AdditionalDependencies="$(GdipLibs)"
 				OutputFile="$(OutDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
 				LinkIncremental="2"
-				ModuleDefinitionFile="$(IntDir)\gdk-pixbuf.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
@@ -82,7 +81,6 @@
 				AdditionalDependencies="$(GdipLibs)"
 				OutputFile="$(OutDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
 				LinkIncremental="1"
-				ModuleDefinitionFile="$(IntDir)\gdk-pixbuf.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -120,7 +118,6 @@
 				AdditionalDependencies="$(GdipLibs)"
 				OutputFile="$(OutDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
 				LinkIncremental="2"
-				ModuleDefinitionFile="$(IntDir)\gdk-pixbuf.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				ImportLibrary="$(OutDir)\gdk_pixbuf-$(ApiVersion).lib"
@@ -150,7 +147,6 @@
 				AdditionalDependencies="$(GdipLibs)"
 				OutputFile="$(OutDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
 				LinkIncremental="2"
-				ModuleDefinitionFile="$(IntDir)\gdk-pixbuf.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -188,7 +184,6 @@
 				AdditionalDependencies="$(ImagingLibs)"
 				OutputFile="$(OutDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
 				LinkIncremental="2"
-				ModuleDefinitionFile="$(IntDir)\gdk-pixbuf.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
@@ -223,7 +218,6 @@
 				AdditionalDependencies="$(ImagingLibs)"
 				OutputFile="$(OutDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
 				LinkIncremental="1"
-				ModuleDefinitionFile="$(IntDir)\gdk-pixbuf.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -261,7 +255,6 @@
 				AdditionalDependencies="$(ImagingLibs)"
 				OutputFile="$(OutDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
 				LinkIncremental="2"
-				ModuleDefinitionFile="$(IntDir)\gdk-pixbuf.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				ImportLibrary="$(OutDir)\gdk_pixbuf-$(ApiVersion).lib"
@@ -291,7 +284,6 @@
 				AdditionalDependencies="$(ImagingLibs)"
 				OutputFile="$(OutDir)\$(GdkPixbufDllPrefix)gdk_pixbuf$(GdkPixbufDllSuffix).dll"
 				LinkIncremental="2"
-				ModuleDefinitionFile="$(IntDir)\gdk-pixbuf.def"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -478,64 +470,6 @@
 						Description="Copying config.h from config.h.win32..."
 						CommandLine="$(GenConfigH)"
 						Outputs="..\..\..\config.h"
-					/>
-				</FileConfiguration>
-			</File>
-			<File RelativePath="..\..\..\gdk-pixbuf\gdk-pixbuf.symbols">
-				<FileConfiguration Name="Debug_GDI+|Win32">
-					<Tool Name="VCCustomBuildTool"
-						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GenerateGdkPixbufDef)"
-						Outputs="$(IntDir)\gdk-pixbuf.def"
-					/>
-				</FileConfiguration>
-				<FileConfiguration Name="Debug|Win32">
-					<Tool Name="VCCustomBuildTool"
-						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GenerateGdkPixbufDef)"
-						Outputs="$(IntDir)\gdk-pixbuf.def"
-					/>
-				</FileConfiguration>
-				<FileConfiguration Name="Release_GDI+|Win32">
-					<Tool Name="VCCustomBuildTool"
-						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GenerateGdkPixbufDef)"
-						Outputs="$(IntDir)\gdk-pixbuf.def"
-					/>
-				</FileConfiguration>
-				<FileConfiguration Name="Release|Win32">
-					<Tool Name="VCCustomBuildTool"
-						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GenerateGdkPixbufDef)"
-						Outputs="$(IntDir)\gdk-pixbuf.def"
-					/>
-				</FileConfiguration>
-				<FileConfiguration Name="Debug_GDI+|x64">
-					<Tool Name="VCCustomBuildTool"
-						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GenerateGdkPixbufDef)"
-						Outputs="$(IntDir)\gdk-pixbuf.def"
-					/>
-				</FileConfiguration>
-				<FileConfiguration Name="Debug|x64">
-					<Tool Name="VCCustomBuildTool"
-						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GenerateGdkPixbufDef)"
-						Outputs="$(IntDir)\gdk-pixbuf.def"
-					/>
-				</FileConfiguration>
-				<FileConfiguration Name="Release_GDI+|x64">
-					<Tool Name="VCCustomBuildTool"
-						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GenerateGdkPixbufDef)"
-						Outputs="$(IntDir)\gdk-pixbuf.def"
-					/>
-				</FileConfiguration>
-				<FileConfiguration Name="Release|x64">
-					<Tool Name="VCCustomBuildTool"
-						Description="Generating gdk-pixbuf.def..."
-						CommandLine="$(GenerateGdkPixbufDef)"
-						Outputs="$(IntDir)\gdk-pixbuf.def"
 					/>
 				</FileConfiguration>
 			</File>

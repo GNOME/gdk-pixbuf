@@ -10,8 +10,6 @@ no_undefined = -no-undefined
 endif
 
 if OS_WIN32
-gdk_pixbuf_def = gdk_pixbuf.def
-gdk_pixbuf_symbols = -export-symbols $(srcdir)/gdk_pixbuf.def
 
 gdk_pixbuf_win32_res = gdk_pixbuf-win32-res.o
 gdk_pixbuf_win32_res_ldflag = -Wl,gdk_pixbuf-win32-res.o
@@ -20,39 +18,6 @@ libole32 = -lole32
 
 gdk_pixbuf-win32-res.o : gdk_pixbuf.rc
 	$(AM_V_GEN)$(WINDRES) gdk_pixbuf.rc $@
-
-install-def-file:
-	$(INSTALL) $(srcdir)/gdk_pixbuf.def $(DESTDIR)$(libdir)/gdk_pixbuf-$(GDK_PIXBUF_API_VERSION).def
-uninstall-def-file:
-	-rm $(DESTDIR)$(libdir)/gdk_pixbuf-$(GDK_PIXBUF_API_VERSION).def
-else
-install-def-file:
-uninstall-def-file:
-endif
-
-if MS_LIB_AVAILABLE
-noinst_DATA = gdk_pixbuf-$(GDK_PIXBUF_API_VERSION).lib
-
-gdk_pixbuf-$(GDK_PIXBUF_API_VERSION).lib: libgdk_pixbuf-$(GDK_PIXBUF_API_VERSION).la gdk_pixbuf.def
-	lib -machine:@LIB_EXE_MACHINE_FLAG@ -name:libgdk_pixbuf-$(GDK_PIXBUF_API_VERSION)-@LT_CURRENT_MINUS_AGE@.dll -def:gdk_pixbuf.def -out:$@
-
-install-ms-lib:
-	$(INSTALL) gdk_pixbuf-$(GDK_PIXBUF_API_VERSION).lib $(DESTDIR)$(libdir)
-
-uninstall-ms-lib:
-	-rm $(DESTDIR)$(libdir)/gdk_pixbuf-$(GDK_PIXBUF_API_VERSION).lib
-else
-install-ms-lib:
-uninstall-ms-lib:
-endif
-
-# This places the generated .def file in srcdir, since it is expected to be there.
-# (The one from a tarball is)
-gdk_pixbuf.def: gdk-pixbuf.symbols
-	$(AM_V_GEN)(echo -e EXPORTS; $(CPP) -P -DINCLUDE_VARIABLES -DG_OS_WIN32 -DALL_FILES - <$(srcdir)/gdk-pixbuf.symbols | sed -e '/^$$/d' -e 's/^/	/' -e 's/G_GNUC_[^ ]*//g') > $(srcdir)/gdk_pixbuf.def
-
-if OS_LINUX
-TESTS = abicheck.sh
 endif
 
 lib_LTLIBRARIES = libgdk_pixbuf-2.0.la
@@ -517,13 +482,16 @@ libgdk_pixbuf_2_0_la_SOURCES =   \
 	gdk-pixdata.c		 \
 	gdk-pixbuf-enum-types.c
 
+libgdk_pixbuf_2_0_la_CFLAGS =			\
+	$(AM_CPPFLAGS)				\
+	$(GDK_PIXBUF_HIDDEN_VISIBILITY_CFLAGS)
+
 libgdk_pixbuf_2_0_la_LDFLAGS = \
 	$(GDK_PIXBUF_LINK_FLAGS)		\
 	$(gdk_pixbuf_win32_res_ldflag)		\
 	-version-info $(LT_VERSION_INFO)	\
 	$(LIBTOOL_EXPORT_OPTIONS)		\
 	$(no_undefined)				\
-	$(gdk_pixbuf_symbols)			\
 	$(gdiplus_ldflag)
 
 
@@ -629,9 +597,6 @@ distclean-local:
 EXTRA_DIST =					\
         gdk-pixbuf-csource.1			\
 	makefile.msc				\
-	gdk-pixbuf.symbols			\
-	abicheck.sh				\
-	gdk_pixbuf.def				\
 	gdk_pixbuf.rc				\
 	gdk-pixbuf-marshal.c			\
 	gdk-pixbuf-marshal.list			\
@@ -732,7 +697,7 @@ endif
 # that makes the install target for the loader libraries a dependency on
 # install-data-am, and not install-exec-am. We need to ensure this gets run
 # after the libraries are installed in their final locations.
-install-data-hook: install-ms-lib install-def-file
+install-data-hook:
 	@if $(RUN_QUERY_LOADER_TEST) ; then \
 	  $(mkinstalldirs) $(DESTDIR)$(libdir)/gdk-pixbuf-2.0/$(GDK_PIXBUF_BINARY_VERSION) ; \
 	  $(top_builddir)/gdk-pixbuf/gdk-pixbuf-query-loaders$(EXEEXT) > $(DESTDIR)$(libdir)/gdk-pixbuf-2.0/$(GDK_PIXBUF_BINARY_VERSION)/loaders.cache ; \
@@ -745,7 +710,7 @@ install-data-hook: install-ms-lib install-def-file
 	  echo "***" ; \
 	fi
 
-uninstall-local: uninstall-ms-lib uninstall-def-file
+uninstall-local:
 	rm -f $(DESTDIR)$(libdir)/gdk-pixbuf-2.0/$(GDK_PIXBUF_BINARY_VERSION)/loaders.cache
 
 if CROSS_COMPILING

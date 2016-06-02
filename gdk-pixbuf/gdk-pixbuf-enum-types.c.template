@@ -1,4 +1,6 @@
 /*** BEGIN file-header ***/
+#include "config.h"
+
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
 /*** END file-header ***/
