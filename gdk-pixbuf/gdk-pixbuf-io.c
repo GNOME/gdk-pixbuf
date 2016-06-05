@@ -1036,7 +1036,8 @@ _gdk_pixbuf_generic_image_load (GdkPixbufModule *module, FILE *f, GError **error
 
 /**
  * gdk_pixbuf_new_from_file:
- * @filename: Name of file to load, in the GLib file name encoding
+ * @filename: (type filename): Name of file to load, in the GLib file
+ *     name encoding
  * @error: Return location for an error
  *
  * Creates a new pixbuf by loading an image from a file.  The file format is
@@ -1128,7 +1129,7 @@ gdk_pixbuf_new_from_file (const char *filename,
 
 /**
  * gdk_pixbuf_new_from_file_utf8:
- * @filename: Name of file to load, in the GLib file name encoding
+ * @filename: (type filename): Name of file to load, in the GLib file name encoding
  * @error: Return location for an error
  *
  * Same as gdk_pixbuf_new_from_file()
@@ -1150,7 +1151,8 @@ gdk_pixbuf_new_from_file_utf8 (const char *filename,
 
 /**
  * gdk_pixbuf_new_from_file_at_size:
- * @filename: Name of file to load, in the GLib file name encoding
+ * @filename: (type filename): Name of file to load, in the GLib file
+ *     name encoding
  * @width: The width the image should have or -1 to not constrain the width
  * @height: The height the image should have or -1 to not constrain the height
  * @error: Return location for an error
@@ -1189,7 +1191,7 @@ gdk_pixbuf_new_from_file_at_size (const char *filename,
 
 /**
  * gdk_pixbuf_new_from_file_at_size_utf8:
- * @filename: Name of file to load, in the GLib file name encoding
+ * @filename: (type filename): Name of file to load, in the GLib file name encoding
  * @width: The width the image should have or -1 to not constrain the width
  * @height: The height the image should have or -1 to not constrain the height
  * @error: Return location for an error
@@ -1272,7 +1274,8 @@ at_scale_size_prepared_cb (GdkPixbufLoader *loader,
 
 /**
  * gdk_pixbuf_new_from_file_at_scale:
- * @filename: Name of file to load, in the GLib file name encoding
+ * @filename: (type filename): Name of file to load, in the GLib file
+ *     name encoding
  * @width: The width the image should have or -1 to not constrain the width
  * @height: The height the image should have or -1 to not constrain the height
  * @preserve_aspect_ratio: %TRUE to preserve the image's aspect ratio
@@ -1396,7 +1399,7 @@ gdk_pixbuf_new_from_file_at_scale (const char *filename,
 
 /**
  * gdk_pixbuf_new_from_file_at_scale_utf8:
- * @filename: Name of file to load, in the GLib file name encoding
+ * @filename: (type filename): Name of file to load, in the GLib file name encoding
  * @width: The width the image should have or -1 to not constrain the width
  * @height: The height the image should have or -1 to not constrain the height
  * @preserve_aspect_ratio: %TRUE to preserve the image's aspect ratio
@@ -1900,7 +1903,7 @@ info_cb (GdkPixbufLoader *loader,
 
 /**
  * gdk_pixbuf_get_file_info:
- * @filename: The name of the file to identify.
+ * @filename: (type filename): The name of the file to identify.
  * @width: (optional) (out): Return location for the width of the
  *     image, or %NULL
  * @height: (optional) (out): Return location for the height of the
@@ -2002,7 +2005,7 @@ get_file_info_thread (GTask                *task,
 
 /**
  * gdk_pixbuf_get_file_info_async:
- * @filename: The name of the file to identify
+ * @filename: (type filename): The name of the file to identify
  * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
  * @callback: a #GAsyncReadyCallback to call when the file info is available
  * @user_data: the data to pass to the callback function
@@ -2357,7 +2360,7 @@ gdk_pixbuf_real_save_to_callback (GdkPixbuf         *pixbuf,
 /**
  * gdk_pixbuf_save:
  * @pixbuf: a #GdkPixbuf.
- * @filename: name of file to save.
+ * @filename: (type filename): name of file to save.
  * @type: name of file format.
  * @error: (allow-none): return location for error, or %NULL
  * @...: list of key-value save options, followed by %NULL
@@ -2461,7 +2464,7 @@ gdk_pixbuf_save (GdkPixbuf  *pixbuf,
 /**
  * gdk_pixbuf_savev:
  * @pixbuf: a #GdkPixbuf.
- * @filename: name of file to save.
+ * @filename: (type filename): name of file to save.
  * @type: name of file format.
  * @option_keys: (array zero-terminated=1): name of options to set, %NULL-terminated
  * @option_values: (array zero-terminated=1): values for named options

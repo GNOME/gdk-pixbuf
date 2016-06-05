@@ -119,7 +119,8 @@ prepared_notify (GdkPixbuf          *pixbuf,
 
 /**
  * gdk_pixbuf_animation_new_from_file:
- * @filename: Name of file to load, in the GLib file name encoding
+ * @filename: (type filename): Name of file to load, in the GLib file
+ *     name encoding
  * @error: return location for error
  *
  * Creates a new animation by loading it from a file. The file format is
@@ -296,7 +297,7 @@ fail_begin_load:
 #ifdef G_OS_WIN32
 /**
  * gdk_pixbuf_animation_new_from_file_utf8:
- * @filename: Name of file to load, in the GLib file name encoding
+ * @filename: (type filename): Name of file to load, in the GLib file name encoding
  * @error: return location for error
  *
  * Same as gdk_pixbuf_animation_new_from_file()
