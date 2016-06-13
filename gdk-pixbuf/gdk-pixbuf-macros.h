@@ -48,10 +48,6 @@
 	(GDK_PIXBUF_MAJOR == (major) && GDK_PIXBUF_MINOR == (minor) && \
 	 GDK_PIXBUF_MICRO >= (micro)))
 
-#ifndef _GDK_PIXBUF_EXTERN
-#define _GDK_PIXBUF_EXTERN extern
-#endif
-
 /**
  * GDK_PIXBUF_VERSION_2_0:
  *
