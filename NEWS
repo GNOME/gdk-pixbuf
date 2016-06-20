@@ -1,3 +1,11 @@
+2.35.2
+======
+
+* Use compiler directives for exporting symbols (#767164)
+* Fix a problem with nearest scaling (#766842)
+* Avoid redundant property notification
+* Translation updates
+
 2.35.1
 ======
 
