@@ -1,4 +1,4 @@
-SUBDIRS = gdk-pixbuf po docs tests contrib build
+SUBDIRS = gdk-pixbuf po docs thumbnailer tests contrib build
 
 EXTRA_DIST = 			\
 	config.h.win32 		\

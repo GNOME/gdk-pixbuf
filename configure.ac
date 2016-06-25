@@ -1121,6 +1121,7 @@ docs/reference/gdk-pixbuf/Makefile
 docs/reference/gdk-pixbuf/version.xml
 po/Makefile.in
 tests/Makefile
+thumbnailer/Makefile
 contrib/Makefile
 contrib/gdk-pixbuf-xlib/Makefile
 contrib/gdk-pixbuf-xlib/gdk-pixbuf-xlib-2.0.pc
