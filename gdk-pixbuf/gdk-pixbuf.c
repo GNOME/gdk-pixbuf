@@ -474,7 +474,8 @@ gdk_pixbuf_new (GdkColorspace colorspace,
  * @pixbuf: A pixbuf.
  * 
  * Creates a new #GdkPixbuf with a copy of the information in the specified
- * @pixbuf.
+ * @pixbuf. Note that this does not copy the options set on the original #GdkPixbuf,
+ * use gdk_pixbuf_copy_options() for this.
  * 
  * Return value: (transfer full): A newly-created pixbuf with a reference count of 1, or %NULL if
  * not enough memory could be allocated.
