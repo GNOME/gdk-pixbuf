@@ -970,6 +970,72 @@ gdk_pixbuf_get_options (GdkPixbuf *pixbuf)
 }
 
 /**
+ * gdk_pixbuf_remove_option:
+ * @pixbuf: a #GdkPixbuf
+ * @key: a nul-terminated string representing the key to remove.
+ *
+ * Remove the key/value pair option attached to a #GdkPixbuf.
+ *
+ * Return value: %TRUE if an option was removed, %FALSE if not.
+ *
+ * Since: 2.36
+ **/
+gboolean
+gdk_pixbuf_remove_option (GdkPixbuf   *pixbuf,
+                          const gchar *key)
+{
+        GQuark  quark;
+        gchar **options;
+        guint n;
+        GPtrArray *array;
+        gboolean found;
+
+        g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), FALSE);
+        g_return_val_if_fail (key != NULL, FALSE);
+
+        quark = g_quark_from_static_string ("gdk_pixbuf_options");
+
+        options = g_object_get_qdata (G_OBJECT (pixbuf), quark);
+        if (!options)
+                return FALSE;
+
+        g_object_steal_qdata (G_OBJECT (pixbuf), quark);
+
+        /* There's at least a nul-terminator */
+        array = g_ptr_array_new_full (1, g_free);
+
+        found = FALSE;
+        for (n = 0; options[2*n]; n++) {
+                if (strcmp (options[2*n], key) != 0) {
+                        g_ptr_array_add (array, g_strdup (options[2*n]));   /* key */
+                        g_ptr_array_add (array, g_strdup (options[2*n+1])); /* value */
+                } else {
+                        found = TRUE;
+                }
+        }
+
+        if (array->len == 0) {
+                g_ptr_array_unref (array);
+                g_strfreev (options);
+                return found;
+        }
+
+        if (!found) {
+                g_ptr_array_free (array, TRUE);
+                g_object_set_qdata_full (G_OBJECT (pixbuf), quark,
+                                         options, (GDestroyNotify) g_strfreev);
+                return FALSE;
+        }
+
+        g_ptr_array_add (array, NULL);
+        g_object_set_qdata_full (G_OBJECT (pixbuf), quark,
+                                 g_ptr_array_free (array, FALSE), (GDestroyNotify) g_strfreev);
+        g_strfreev (options);
+
+        return TRUE;
+}
+
+/**
  * gdk_pixbuf_set_option:
  * @pixbuf: a #GdkPixbuf
  * @key: a nul-terminated string.
