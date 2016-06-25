@@ -111,7 +111,7 @@ static void
 test_save_options (void)
 {
   GdkPixbuf *ref;
-  GdkPixbuf *pixbuf;
+  GdkPixbuf *pixbuf, *pixbuf2;
   GError *error = NULL;
 
   if (!format_supported ("png"))
@@ -141,6 +141,20 @@ test_save_options (void)
   g_assert_cmpstr (gdk_pixbuf_get_option (pixbuf, "tEXt::3"), ==, "αβγδ");
 #endif
 
+  pixbuf2 = gdk_pixbuf_copy (pixbuf);
+  g_assert_null (gdk_pixbuf_get_option (pixbuf2, "tEXt::option1"));
+  gdk_pixbuf_copy_options (pixbuf, pixbuf2);
+  g_assert_cmpstr (gdk_pixbuf_get_option (pixbuf2, "tEXt::option1"), ==, "Some text to transport via option");
+  g_assert_true (gdk_pixbuf_remove_option (pixbuf2, "tEXt::option1"));
+  g_assert_null (gdk_pixbuf_get_option (pixbuf2, "tEXt::option1"));
+  g_assert_false (gdk_pixbuf_remove_option (pixbuf2, "tEXt::option1"));
+#ifdef PNG_iTXt_SUPPORTED
+  gdk_pixbuf_remove_option (pixbuf2, "tEXt::3");
+#endif
+  gdk_pixbuf_remove_option (pixbuf2, "tEXt::long-option-name123456789123456789123456789");
+  g_assert_false (gdk_pixbuf_remove_option (pixbuf2, "tEXt::option1"));
+
+  g_object_unref (pixbuf2);
   g_object_unref (pixbuf);
   g_object_unref (ref);
 }
