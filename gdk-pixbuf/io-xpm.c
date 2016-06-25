@@ -178,7 +178,6 @@ parse_color (const char *spec,
 	     XPMColor   *colorPtr)
 {
 	if (spec[0] == '#') {
-		char fmt[16];
 		int i, red, green, blue;
 
 		if ((i = strlen (spec + 1)) % 3) {
@@ -186,25 +185,27 @@ parse_color (const char *spec,
 		}
 		i /= 3;
 
-		g_snprintf (fmt, 16, "%%%dx%%%dx%%%dx", i, i, i);
-
-		if (sscanf (spec + 1, fmt, &red, &green, &blue) != 3) {
-			return FALSE;
-		}
 		if (i == 4) {
+			if (sscanf (spec + 1, "%4x%4x%4x", &red, &green, &blue) != 3)
+				return FALSE;
 			colorPtr->red = red;
 			colorPtr->green = green;
 			colorPtr->blue = blue;
 		} else if (i == 1) {
+			if (sscanf (spec + 1, "%1x%1x%1x", &red, &green, &blue) != 3)
+				return FALSE;
 			colorPtr->red = (red * 65535) / 15;
 			colorPtr->green = (green * 65535) / 15;
 			colorPtr->blue = (blue * 65535) / 15;
-		} else if (i == 2)
-		{
+		} else if (i == 2) {
+			if (sscanf (spec + 1, "%2x%2x%2x", &red, &green, &blue) != 3)
+				return FALSE;
 			colorPtr->red = (red * 65535) / 255;
 			colorPtr->green = (green * 65535) / 255;
 			colorPtr->blue = (blue * 65535) / 255;
 		} else /* if (i == 3) */ {
+			if (sscanf (spec + 1, "%3x%3x%3x", &red, &green, &blue) != 3)
+				return FALSE;
 			colorPtr->red = (red * 65535) / 4095;
 			colorPtr->green = (green * 65535) / 4095;
 			colorPtr->blue = (blue * 65535) / 4095;
