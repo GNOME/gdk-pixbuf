@@ -1022,6 +1022,46 @@ gdk_pixbuf_set_option (GdkPixbuf   *pixbuf,
         return TRUE;
 }
 
+/**
+ * gdk_pixbuf_copy_options:
+ * @src_pixbuf: a #GdkPixbuf to copy options from
+ * @dest_pixbuf: the #GdkPixbuf to copy options to
+ *
+ * Copy the key/value pair options attached to a #GdkPixbuf to another.
+ * This is useful to keep original metadata after having manipulated
+ * a file. However be careful to remove metadata which you've already
+ * applied, such as the "orientation" option after rotating the image.
+ *
+ * Return value: %TRUE on success.
+ *
+ * Since: 2.36
+ **/
+gboolean
+gdk_pixbuf_copy_options (GdkPixbuf *src_pixbuf,
+                         GdkPixbuf *dest_pixbuf)
+{
+        GQuark  quark;
+        gchar **options;
+
+        g_return_val_if_fail (GDK_IS_PIXBUF (src_pixbuf), FALSE);
+        g_return_val_if_fail (GDK_IS_PIXBUF (dest_pixbuf), FALSE);
+
+        quark = g_quark_from_static_string ("gdk_pixbuf_options");
+
+        options = g_object_dup_qdata (G_OBJECT (src_pixbuf),
+                                      quark,
+                                      (GDuplicateFunc) g_strdupv,
+                                      NULL);
+
+        if (options == NULL)
+                return TRUE;
+
+        g_object_set_qdata_full (G_OBJECT (dest_pixbuf), quark,
+                                 options, (GDestroyNotify) g_strfreev);
+
+        return TRUE;
+}
+
 static void
 gdk_pixbuf_set_property (GObject         *object,
 			 guint            prop_id,

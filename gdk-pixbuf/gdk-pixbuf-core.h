@@ -539,6 +539,9 @@ const gchar * gdk_pixbuf_get_option (GdkPixbuf   *pixbuf,
                                               const gchar *key);
 GDK_PIXBUF_AVAILABLE_IN_2_32
 GHashTable * gdk_pixbuf_get_options (GdkPixbuf   *pixbuf);
+GDK_PIXBUF_AVAILABLE_IN_2_36
+gboolean gdk_pixbuf_copy_options (GdkPixbuf *src_pixbuf,
+                                  GdkPixbuf *dest_pixbuf);
 
 
 G_END_DECLS
