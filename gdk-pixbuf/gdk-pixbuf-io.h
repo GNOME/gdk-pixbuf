@@ -303,13 +303,6 @@ typedef void (* GdkPixbufModuleFillVtableFunc) (GdkPixbufModule *module);
  */
 typedef void (* GdkPixbufModuleFillInfoFunc) (GdkPixbufFormat *info);
 
-/*  key/value pairs that can be attached by the pixbuf loader  */
-
-GDK_PIXBUF_AVAILABLE_IN_2_2
-gboolean gdk_pixbuf_set_option  (GdkPixbuf   *pixbuf,
-                                 const gchar *key,
-                                 const gchar *value);
-
 /**
  * GdkPixbufFormatFlags:
  * @GDK_PIXBUF_FORMAT_WRITABLE: the module can write out images in the format.

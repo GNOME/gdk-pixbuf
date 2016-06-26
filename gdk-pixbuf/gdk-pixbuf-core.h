@@ -534,6 +534,11 @@ void gdk_pixbuf_saturate_and_pixelate (const GdkPixbuf *src,
 GDK_PIXBUF_AVAILABLE_IN_2_12
 GdkPixbuf *gdk_pixbuf_apply_embedded_orientation (GdkPixbuf *src);
 
+/*  key/value pairs that can be attached by the pixbuf loader  */
+GDK_PIXBUF_AVAILABLE_IN_ALL
+gboolean gdk_pixbuf_set_option  (GdkPixbuf   *pixbuf,
+                                 const gchar *key,
+                                 const gchar *value);
 GDK_PIXBUF_AVAILABLE_IN_ALL
 const gchar * gdk_pixbuf_get_option (GdkPixbuf   *pixbuf,
                                               const gchar *key);
