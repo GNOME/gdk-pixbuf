@@ -25,11 +25,9 @@
 #include "gnome-thumbnailer-skeleton.h"
 
 typedef struct {
-    gint width;
-    gint height;
+    gint size;
     gint input_width;
     gint input_height;
-    gboolean preserve_aspect_ratio;
 } SizePrepareContext;
 
 #define LOAD_BUFFER_SIZE 4096
@@ -47,33 +45,32 @@ size_prepared_cb (GdkPixbufLoader *loader,
   info->input_width = width;
   info->input_height = height;
   
-  if (width < info->width && height < info->height) return;
+  if (width < info->size && height < info->size) return;
   
-  if (info->preserve_aspect_ratio && 
-      (info->width > 0 || info->height > 0)) {
-    if (info->width < 0)
+  if ((info->size > 0 || info->size > 0)) {
+    if (info->size < 0)
       {
-	width = width * (double)info->height/(double)height;
-	height = info->height;
+	width = width * (double)info->size/(double)height;
+	height = info->size;
       }
-    else if (info->height < 0)
+    else if (info->size < 0)
       {
-	height = height * (double)info->width/(double)width;
-	width = info->width;
+	height = height * (double)info->size/(double)width;
+	width = info->size;
       }
-    else if ((double)height * (double)info->width >
-	     (double)width * (double)info->height) {
-      width = 0.5 + (double)width * (double)info->height / (double)height;
-      height = info->height;
+    else if ((double)height * (double)info->size >
+	     (double)width * (double)info->size) {
+      width = 0.5 + (double)width * (double)info->size / (double)height;
+      height = info->size;
     } else {
-      height = 0.5 + (double)height * (double)info->width / (double)width;
-      width = info->width;
+      height = 0.5 + (double)height * (double)info->size / (double)width;
+      width = info->size;
     }
   } else {
-    if (info->width > 0)
-      width = info->width;
-    if (info->height > 0)
-      height = info->height;
+    if (info->size > 0)
+      width = info->size;
+    if (info->size > 0)
+      height = info->size;
   }
   
   gdk_pixbuf_loader_set_size (loader, width, height);
@@ -113,10 +110,9 @@ create_loader (GFile        *file,
 }
 
 static GdkPixbuf *
-_gdk_pixbuf_new_from_uri_at_scale (const char *uri,
-				   gint        width,
-				   gint        height,
-				   gboolean    preserve_aspect_ratio)
+_gdk_pixbuf_new_from_uri_at_scale (const char  *uri,
+				   gint         size,
+				   GError     **error)
 {
     gboolean result;
     guchar buffer[LOAD_BUFFER_SIZE];
@@ -130,7 +126,6 @@ _gdk_pixbuf_new_from_uri_at_scale (const char *uri,
     GFile *file;
     GFileInfo *file_info;
     GInputStream *input_stream;
-    GError *error = NULL;
 
     g_return_val_if_fail (uri != NULL, NULL);
 
@@ -160,10 +155,8 @@ _gdk_pixbuf_new_from_uri_at_scale (const char *uri,
     }
 
     if (input_stream == NULL) {
-	    input_stream = G_INPUT_STREAM (g_file_read (file, NULL, &error));
+	    input_stream = G_INPUT_STREAM (g_file_read (file, NULL, error));
 	    if (input_stream == NULL) {
-		    g_warning ("Unable to create an input stream for %s: %s", uri, error->message);
-		    g_clear_error (&error);
 		    g_object_unref (file);
 		    return NULL;
 	    }
@@ -178,10 +171,8 @@ _gdk_pixbuf_new_from_uri_at_scale (const char *uri,
 					  buffer,
 					  sizeof (buffer),
 					  NULL,
-					  &error);
+					  error);
         if (bytes_read == -1) {
-            g_warning ("Error reading from %s: %s", uri, error->message);
-            g_clear_error (&error);
             break;
         }
 	result = TRUE;
@@ -191,11 +182,9 @@ _gdk_pixbuf_new_from_uri_at_scale (const char *uri,
 
         if (loader == NULL) {
             loader = create_loader (file, buffer, bytes_read);
-            if (1 <= width || 1 <= height) {
-              info.width = width;
-              info.height = height;
+            if (1 <= size) {
+              info.size = size;
               info.input_width = info.input_height = 0;
-              info.preserve_aspect_ratio = preserve_aspect_ratio;
               g_signal_connect (loader, "size-prepared", G_CALLBACK (size_prepared_cb), &info);
             }
             g_assert (loader != NULL);
@@ -204,9 +193,7 @@ _gdk_pixbuf_new_from_uri_at_scale (const char *uri,
 	if (!gdk_pixbuf_loader_write (loader,
 				      (unsigned char *)buffer,
 				      bytes_read,
-				      &error)) {
-            g_warning ("Error creating thumbnail for %s: %s", uri, error->message);
-            g_clear_error (&error);
+				      error)) {
 	    result = FALSE;
 	    break;
 	}
@@ -225,12 +212,12 @@ _gdk_pixbuf_new_from_uri_at_scale (const char *uri,
         /* This can happen if the above loop was exited due to the
          * g_input_stream_read() call failing. */
         result = FALSE;
-    } else if (gdk_pixbuf_loader_close (loader, &error) == FALSE &&
-               !g_error_matches (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INCOMPLETE_ANIMATION)) {
-        g_warning ("Error creating thumbnail for %s: %s", uri, error->message);
-        result = FALSE;
+    } else if (gdk_pixbuf_loader_close (loader, error) == FALSE) {
+        if (!g_error_matches (*error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INCOMPLETE_ANIMATION))
+          result = FALSE;
+        else
+          g_clear_error (error);
     }
-    g_clear_error (&error);
 
     if (!result) {
         g_clear_object (&loader);
@@ -269,7 +256,7 @@ file_to_pixbuf (const char  *path,
 
 	file = g_file_new_for_path (path);
 	uri = g_file_get_uri (file);
-	pixbuf = _gdk_pixbuf_new_from_uri_at_scale (uri, destination_size, destination_size, TRUE);
+	pixbuf = _gdk_pixbuf_new_from_uri_at_scale (uri, destination_size, error);
 	if (pixbuf == NULL) {
 		g_set_error_literal (error, G_IO_ERROR, G_IO_ERROR_FAILED,
 				     "Generic error");
