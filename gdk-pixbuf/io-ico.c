@@ -258,8 +258,13 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 		State->HeaderBuf = tmp;
  		State->BytesInHeaderBuf = State->HeaderSize;
  	}
- 	if (Bytes < State->HeaderSize)
+ 	if (Bytes < State->HeaderSize) {
+		g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                     _("Not enough bytes for header"));
  		return;
+	}
 
 	/* Now iterate through the ICONDIRENTRY structures, and sort them by
 	 * which one we think is "best" (essentially the largest) */
@@ -399,8 +404,13 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 		State->HeaderBuf = tmp;
  		State->BytesInHeaderBuf = State->HeaderSize;
  	}
- 	if (Bytes < State->HeaderSize)
+ 	if (Bytes < State->HeaderSize) {
+		g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                     _("Not enough bytes for header"));
  		return;
+	}
 
 	/* Negative heights mean top-down pixel-order */
 	if (State->Header.height < 0) {
