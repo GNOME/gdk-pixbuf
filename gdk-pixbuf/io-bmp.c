@@ -518,12 +518,16 @@ static gboolean DecodeColormap (guchar *buff,
 {
 	gint i;
 	gint samples;
+	guint newbuffersize;
 
 	g_assert (State->read_state == READ_STATE_PALETTE);
 
 	samples = (State->Header.size == 12 ? 3 : 4);
-	if (State->BufferSize < State->Header.n_colors * samples) {
-		State->BufferSize = State->Header.n_colors * samples;
+	newbuffersize = State->Header.n_colors * samples;
+	if (newbuffersize / samples != State->Header.n_colors) /* Integer overflow check */
+		return FALSE;
+	if (State->BufferSize < newbuffersize) {
+		State->BufferSize = newbuffersize;
 		if (!grow_buffer (State, error))
 			return FALSE;
 		return TRUE;
@@ -1247,8 +1251,13 @@ gdk_pixbuf__bmp_image_load_increment(gpointer data,
 			break;
 
 		case READ_STATE_PALETTE:
-			if (!DecodeColormap (context->buff, context, error))
+			if (!DecodeColormap (context->buff, context, error)) {
+				g_set_error (error,
+					     GDK_PIXBUF_ERROR,
+					     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+					     _("Error while decoding colormap"));
 				return FALSE;
+			}
 			break;
 
 		case READ_STATE_BITMASKS:
