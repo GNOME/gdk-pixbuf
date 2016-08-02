@@ -1171,6 +1171,19 @@ gdk_pixbuf__png_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                               TRUE, NULL, save_func, user_data);
 }
 
+static gboolean
+gdk_pixbuf__png_is_save_option_supported (const gchar *option_key)
+{
+        if (g_strcmp0 (option_key, "compression") == 0 ||
+            g_strcmp0 (option_key, "icc-profile") == 0 ||
+            g_strcmp0 (option_key, "x-dpi") == 0 ||
+            g_strcmp0 (option_key, "y-dpi") == 0 ||
+            strncmp (option_key, "tEXt::", 6) == 0)
+                return TRUE;
+
+        return FALSE;
+}
+
 #ifndef INCLUDE_png
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
 #else
@@ -1185,6 +1198,7 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
         module->load_increment = gdk_pixbuf__png_image_load_increment;
         module->save = gdk_pixbuf__png_image_save;
         module->save_to_callback = gdk_pixbuf__png_image_save_to_callback;
+        module->is_save_option_supported = gdk_pixbuf__png_is_save_option_supported;
 }
 
 MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)

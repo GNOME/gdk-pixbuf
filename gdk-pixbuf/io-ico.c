@@ -1242,6 +1242,17 @@ gdk_pixbuf__ico_image_save (FILE          *f,
 	return TRUE;
 }
 
+static gboolean
+gdk_pixbuf__ico_is_save_option_supported (const gchar *option_key)
+{
+        if (g_strcmp0 (option_key, "depth") == 0 ||
+            g_strcmp0 (option_key, "x_hot") == 0 ||
+            g_strcmp0 (option_key, "y_hot") == 0)
+                return TRUE;
+
+        return FALSE;
+}
+
 #ifndef INCLUDE_ico
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
 #else
@@ -1254,6 +1265,7 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 	module->stop_load = gdk_pixbuf__ico_image_stop_load;
 	module->load_increment = gdk_pixbuf__ico_image_load_increment;
         module->save = gdk_pixbuf__ico_image_save;
+        module->is_save_option_supported = gdk_pixbuf__ico_is_save_option_supported;
 }
 
 MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
