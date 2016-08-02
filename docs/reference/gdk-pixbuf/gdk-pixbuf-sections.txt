@@ -118,7 +118,9 @@ gdk_pixbuf_get_rowstride
 gdk_pixbuf_get_byte_length
 gdk_pixbuf_get_option
 gdk_pixbuf_set_option
+gdk_pixbuf_remove_option
 gdk_pixbuf_get_options
+gdk_pixbuf_copy_options
 gdk_pixbuf_read_pixels
 
 <SUBSECTION Standard>
