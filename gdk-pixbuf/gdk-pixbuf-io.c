@@ -814,20 +814,12 @@ _gdk_pixbuf_load_module (GdkPixbufModule *image_module,
                          GError         **error)
 {
         gboolean ret;
-        gboolean locked = FALSE;
 
-        /* be extra careful, maybe the module initializes
-         * the thread system
-         */
-        if (g_threads_got_initialized) {
-                G_LOCK (init_lock);
-                locked = TRUE;
-        }
+        G_LOCK (init_lock);
 
         ret = gdk_pixbuf_load_module_unlocked (image_module, error);
 
-        if (locked)
-                G_UNLOCK (init_lock);
+        G_UNLOCK (init_lock);
 
         return ret;
 }
