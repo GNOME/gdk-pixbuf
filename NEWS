@@ -1,3 +1,14 @@
+2.35.3
+======
+
+* Add API to determine supported save options (#683371)
+* Add helper API for pixbuf options (#768043)
+* Fix invalid gettext use (#758552)
+* Fix a compiler warning in the xpm loader (#768042)
+* Fix integer overflows in the bmp loader (#768688, #768738)
+* Fix a crash in the ico loader (#769170)
+* Translation updates
+
 2.35.2
 ======
 
