@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf.master.es\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
 "%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2016-08-02 18:57+0000\n"
-"PO-Revision-Date: 2016-08-03 13:55+0200\n"
+"POT-Creation-Date: 2016-08-03 16:48+0000\n"
+"PO-Revision-Date: 2016-08-09 13:03+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -340,7 +340,7 @@ msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
 
-#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1285
+#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1317
 msgctxt "image format"
 msgid "Windows icon"
 msgstr "Icono de Windows"
@@ -362,12 +362,12 @@ msgstr ""
 "La calidad JPEG debe ser un valor entre 0 y 100; el valor «%d» no está "
 "permitido."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:137 gdk-pixbuf/io-jpeg.c:1575
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1586
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
 
-#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1018
+#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1032
 msgctxt "image format"
 msgid "TIFF"
 msgstr "TIFF"
@@ -502,42 +502,39 @@ msgctxt "image format"
 msgid "MacOS X icon"
 msgstr "Icono de MacOS X"
 
-#: gdk-pixbuf/io-ico.c:226 gdk-pixbuf/io-ico.c:240 gdk-pixbuf/io-ico.c:296
-#: gdk-pixbuf/io-ico.c:307 gdk-pixbuf/io-ico.c:391
-msgid "Invalid header in icon"
-msgstr "La cabecera del icono no es válida"
+#: gdk-pixbuf/io-ico.c:230 gdk-pixbuf/io-ico.c:244 gdk-pixbuf/io-ico.c:317
+#: gdk-pixbuf/io-ico.c:328 gdk-pixbuf/io-ico.c:403 gdk-pixbuf/io-ico.c:428
+#, c-format
+#| msgid "Invalid header in icon"
+msgid "Invalid header in icon (%s)"
+msgstr "Cabecera del icono no válida (%s)"
 
-#: gdk-pixbuf/io-ico.c:255 gdk-pixbuf/io-ico.c:317 gdk-pixbuf/io-ico.c:401
-#: gdk-pixbuf/io-ico.c:459 gdk-pixbuf/io-ico.c:489
+#: gdk-pixbuf/io-ico.c:260 gdk-pixbuf/io-ico.c:338 gdk-pixbuf/io-ico.c:438
+#: gdk-pixbuf/io-ico.c:481 gdk-pixbuf/io-ico.c:509
 msgid "Not enough memory to load icon"
 msgstr "No hay memoria suficiente para cargar el icono"
 
-#: gdk-pixbuf/io-ico.c:265 gdk-pixbuf/io-ico.c:411
-#| msgid "Not enough memory to load image"
-msgid "Not enough bytes for header"
-msgstr "No hay bytes suficiente para la cabecera"
-
-#: gdk-pixbuf/io-ico.c:343
+#: gdk-pixbuf/io-ico.c:364
 msgid "Compressed icons are not supported"
 msgstr "Los iconos comprimidos no están soportados"
 
-#: gdk-pixbuf/io-ico.c:444
+#: gdk-pixbuf/io-ico.c:466
 msgid "Unsupported icon type"
 msgstr "Tipo de icono no soportado"
 
-#: gdk-pixbuf/io-ico.c:538
+#: gdk-pixbuf/io-ico.c:558
 msgid "Not enough memory to load ICO file"
 msgstr "No hay memoria suficiente para cargar el archivo ICO"
 
-#: gdk-pixbuf/io-ico.c:1005
+#: gdk-pixbuf/io-ico.c:1025
 msgid "Image too large to be saved as ICO"
 msgstr "Imagen demasiado grande para guardarse como ICO"
 
-#: gdk-pixbuf/io-ico.c:1016
+#: gdk-pixbuf/io-ico.c:1036
 msgid "Cursor hotspot outside image"
 msgstr "El punto caliente del cursor está fuera de la imagen"
 
-#: gdk-pixbuf/io-ico.c:1039
+#: gdk-pixbuf/io-ico.c:1059
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Profundidad no soportada para el archivo ICO: %d"
@@ -732,7 +729,7 @@ msgstr ""
 "El valor la porción de texto PNG %s no puede convertirse a la codificación "
 "ISO-8859-1."
 
-#: gdk-pixbuf/io-png.c:1207
+#: gdk-pixbuf/io-png.c:1221
 msgctxt "image format"
 msgid "PNG"
 msgstr "PNG"
@@ -1016,6 +1013,10 @@ msgstr ""
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
+
+#~| msgid "Not enough memory to load image"
+#~ msgid "Not enough bytes for header"
+#~ msgstr "No hay bytes suficiente para la cabecera"
 
 #~ msgid "Couldn't allocate memory for header"
 #~ msgstr "No se pudo asignar memoria para la cabecera"
