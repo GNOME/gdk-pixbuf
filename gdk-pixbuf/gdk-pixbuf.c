@@ -444,8 +444,8 @@ gdk_pixbuf_new (GdkColorspace colorspace,
                 int           height)
 {
 	guchar *buf;
-	int channels;
-	int rowstride;
+	unsigned int channels;
+	unsigned int rowstride;
 
 	g_return_val_if_fail (colorspace == GDK_COLORSPACE_RGB, NULL);
 	g_return_val_if_fail (bits_per_sample == 8, NULL);
@@ -453,7 +453,7 @@ gdk_pixbuf_new (GdkColorspace colorspace,
 	g_return_val_if_fail (height > 0, NULL);
 
 	channels = has_alpha ? 4 : 3;
-        rowstride = width * channels;
+        rowstride = (unsigned) width * channels;
         if (rowstride / channels != width || rowstride + 3 < 0) /* overflow */
                 return NULL;
         
