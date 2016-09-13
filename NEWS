@@ -1,3 +1,11 @@
+2.35.5
+======
+
+* Fix undefined behavior in overflow checks (#770986)
+* Fix a typo (#770756)
+* Avoid segfault in some tests (#771026)
+* Translation updates
+
 2.35.4
 ======
 
