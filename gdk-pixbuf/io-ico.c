@@ -286,7 +286,7 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 		y_hot = (Ptr[7] << 8) + Ptr[6];
                 data_size = (Ptr[11] << 24) + (Ptr[10] << 16) + (Ptr[9] << 8) + (Ptr[8]);
 		data_offset = (Ptr[15] << 24) + (Ptr[14] << 16) + (Ptr[13] << 8) + (Ptr[12]);
-                DEBUG(g_print ("Image %d: %d x %d\n\tPalette: %d\n", I, width, height, {tr[2]);
+                DEBUG(g_print ("Image %d: %d x %d\n\tPalette: %d\n", I, width, height, Ptr[2]);
                 if (imgtype == 2)
                   g_print ("\tHotspot: %d x %d\n", x_hot, y_hot);
                 else
