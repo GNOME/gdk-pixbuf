@@ -70,7 +70,7 @@ jasper_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 	stream = jas_stream_memopen (NULL, -1);
 	if (!stream) {
 		g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                     _("Couldn't allocate memory for stream"));
+                                     _("Couldn’t allocate memory for stream"));
 		return NULL;
 	}
 
@@ -121,7 +121,7 @@ jasper_image_try_load (struct jasper_context *context, GError **error)
 	raw_image = jas_image_decode (context->stream, -1, 0);
 	if (!raw_image) {
 		g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                     _("Couldn't decode image"));
+                                     _("Couldn’t decode image"));
 		return FALSE;
 	}
 
@@ -167,7 +167,7 @@ jasper_image_try_load (struct jasper_context *context, GError **error)
 		if (!profile) {
 			jas_image_destroy (raw_image);
 			g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                             _("Couldn't allocate memory for color profile"));
+                                             _("Couldn’t allocate memory for color profile"));
 			return FALSE;
 		}
 
@@ -175,7 +175,7 @@ jasper_image_try_load (struct jasper_context *context, GError **error)
 		if (!image) {
 			jas_image_destroy (raw_image);
 			g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                             _("Couldn't allocate memory for color profile"));
+                                             _("Couldn’t allocate memory for color profile"));
 			return FALSE;
 		}
 	} else {
@@ -280,7 +280,7 @@ jasper_image_load_increment (gpointer data, const guchar *buf, guint size, GErro
 
 	if (jas_stream_write (context->stream, buf, size) < 0) {
 		g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                     _("Couldn't allocate memory to buffer image data"));
+                                     _("Couldn’t allocate memory to buffer image data"));
 		return FALSE;
 	}
 

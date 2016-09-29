@@ -929,7 +929,7 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
                                        g_set_error (error,
                                                     GDK_PIXBUF_ERROR,
                                                     GDK_PIXBUF_ERROR_BAD_OPTION,
-                                                    _("PNG compression level must be a value between 0 and 9; value '%s' could not be parsed."),
+                                                    _("PNG compression level must be a value between 0 and 9; value “%s” could not be parsed."),
                                                     *viter);
                                        success = FALSE;
                                        goto cleanup;
@@ -942,7 +942,7 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
                                        g_set_error (error,
                                                     GDK_PIXBUF_ERROR,
                                                     GDK_PIXBUF_ERROR_BAD_OPTION,
-                                                    _("PNG compression level must be a value between 0 and 9; value '%d' is not allowed."),
+                                                    _("PNG compression level must be a value between 0 and 9; value “%d” is not allowed."),
                                                     compression);
                                        success = FALSE;
                                        goto cleanup;
@@ -961,7 +961,7 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
                                        g_set_error (error,
                                                     GDK_PIXBUF_ERROR,
                                                     GDK_PIXBUF_ERROR_BAD_OPTION,
-                                                    _("PNG x-dpi must be greater than zero; value '%s' is not allowed."),
+                                                    _("PNG x-dpi must be greater than zero; value “%s” is not allowed."),
                                                     *viter);
 
                                        success = FALSE;
@@ -981,7 +981,7 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
                                        g_set_error (error,
                                                     GDK_PIXBUF_ERROR,
                                                     GDK_PIXBUF_ERROR_BAD_OPTION,
-                                                    _("PNG y-dpi must be greater than zero; value '%s' is not allowed."),
+                                                    _("PNG y-dpi must be greater than zero; value “%s” is not allowed."),
                                                     *viter);
 
                                        success = FALSE;

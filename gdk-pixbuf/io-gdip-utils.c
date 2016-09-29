@@ -615,7 +615,7 @@ gdip_bitmap_to_pixbuf (GpBitmap *bitmap, GError **error)
   pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, has_alpha, 8, width, height);
 
   if (!pixbuf) {
-    g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY, _("Couldn't load bitmap"));
+    g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY, _("Couldn’t load bitmap"));
     return NULL;
   }
 
@@ -771,7 +771,7 @@ gdk_pixbuf__gdip_image_stop_vector_load (gpointer data, GError **error)
   metafile = gdip_buffer_to_image (context, error);
   if (!metafile) {
     destroy_gdipcontext (context);
-    g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE, _("Couldn't load metafile"));
+    g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE, _("Couldn’t load metafile"));
     return FALSE;
   }
 
@@ -883,7 +883,7 @@ gdip_save_pixbuf (GdkPixbuf *pixbuf,
   image = gdip_pixbuf_to_bitmap (pixbuf);
 
   if (image == NULL) {
-    g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_FAILED, _("Couldn't save"));
+    g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_FAILED, _("Couldn’t save"));
     return FALSE;
   }
   

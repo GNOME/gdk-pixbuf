@@ -800,7 +800,7 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                 g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_FAILED,
-                                     _("TIFF compression doesn't refer to a valid codec."));
+                                     _("TIFF compression doesn’t refer to a valid codec."));
                 retval = FALSE;
                 goto cleanup;
         }
@@ -845,7 +845,7 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                 g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_FAILED,
-                                     _("TIFF bits-per-sample doesn't contain a supported value."));
+                                     _("TIFF bits-per-sample doesn’t contain a supported value."));
                 retval = FALSE;
                 goto cleanup;
          }
@@ -944,7 +944,7 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                     g_set_error (error,
                                  GDK_PIXBUF_ERROR,
                                  GDK_PIXBUF_ERROR_BAD_OPTION,
-                                 _("TIFF x-dpi must be greater than zero; value '%s' is not allowed."),
+                                 _("TIFF x-dpi must be greater than zero; value “%s” is not allowed."),
                                  x_dpi);
                     retval = FALSE;
                     goto cleanup;
@@ -956,7 +956,7 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                     g_set_error (error,
                                  GDK_PIXBUF_ERROR,
                                  GDK_PIXBUF_ERROR_BAD_OPTION,
-                                 _("TIFF y-dpi must be greater than zero; value '%s' is not allowed."),
+                                 _("TIFF y-dpi must be greater than zero; value “%s” is not allowed."),
                                  y_dpi);
                     retval = FALSE;
                     goto cleanup;
@@ -997,7 +997,7 @@ save_to_file_cb (const gchar *buf,
 		g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_FAILED,
-                                     _("Couldn't write to TIFF file"));
+                                     _("Couldn’t write to TIFF file"));
 		return FALSE;
 	}
 	

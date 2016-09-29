@@ -1415,7 +1415,7 @@ gdk_pixbuf__bmp_image_save_to_callback (GdkPixbufSaveFunc   save_func,
 		g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                     _("Couldn't allocate memory for saving BMP file"));
+                                     _("Couldn’t allocate memory for saving BMP file"));
 		return FALSE;
 	}
 
@@ -1456,7 +1456,7 @@ save_to_file_cb (const gchar *buf,
 		g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_FAILED,
-                                     _("Couldn't write to BMP file"));
+                                     _("Couldn’t write to BMP file"));
 		return FALSE;
 	}
 	

@@ -51,7 +51,7 @@ gdk_pixbuf__gdip_image_save_JPEG_to_callback (GdkPixbufSaveFunc   save_func,
           g_set_error (error,
                        GDK_PIXBUF_ERROR,
                        GDK_PIXBUF_ERROR_BAD_OPTION,
-                       _("JPEG quality must be a value between 0 and 100; value '%s' could not be parsed."),
+                       _("JPEG quality must be a value between 0 and 100; value “%s” could not be parsed."),
                        *viter);
           
           return FALSE;
@@ -66,7 +66,7 @@ gdk_pixbuf__gdip_image_save_JPEG_to_callback (GdkPixbufSaveFunc   save_func,
           g_set_error (error,
                        GDK_PIXBUF_ERROR,
                        GDK_PIXBUF_ERROR_BAD_OPTION,
-                       _("JPEG quality must be a value between 0 and 100; value '%d' is not allowed."),
+                       _("JPEG quality must be a value between 0 and 100; value “%d” is not allowed."),
                        (int)quality);
           
           return FALSE;

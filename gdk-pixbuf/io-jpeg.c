@@ -815,7 +815,7 @@ gdk_pixbuf__jpeg_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 		g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                     _("Couldn't allocate memory for loading JPEG file"));
+                                     _("Couldn’t allocate memory for loading JPEG file"));
 		return NULL;
 	}
 	memset (context->cinfo.src, 0, sizeof (my_source_mgr));
@@ -1136,7 +1136,7 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
                                 g_set_error_literal (error,
                                                      GDK_PIXBUF_ERROR,
                                                      GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                                     _("Couldn't allocate memory for loading JPEG file"));
+                                                     _("Couldn’t allocate memory for loading JPEG file"));
                                 retval = FALSE;
 				goto out;
 			}
@@ -1377,7 +1377,7 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                                        g_set_error (error,
                                                     GDK_PIXBUF_ERROR,
                                                     GDK_PIXBUF_ERROR_BAD_OPTION,
-                                                    _("JPEG quality must be a value between 0 and 100; value '%s' could not be parsed."),
+                                                    _("JPEG quality must be a value between 0 and 100; value “%s” could not be parsed."),
                                                     *viter);
 
                                        retval = FALSE;
@@ -1393,7 +1393,7 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                                        g_set_error (error,
                                                     GDK_PIXBUF_ERROR,
                                                     GDK_PIXBUF_ERROR_BAD_OPTION,
-                                                    _("JPEG quality must be a value between 0 and 100; value '%d' is not allowed."),
+                                                    _("JPEG quality must be a value between 0 and 100; value “%d” is not allowed."),
                                                     quality);
 
                                        retval = FALSE;
@@ -1414,7 +1414,7 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                                        g_set_error (error,
                                                     GDK_PIXBUF_ERROR,
                                                     GDK_PIXBUF_ERROR_BAD_OPTION,
-                                                    _("JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."),
+                                                    _("JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."),
                                                     *viter);
 
                                        retval = FALSE;
@@ -1435,7 +1435,7 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                                        g_set_error (error,
                                                     GDK_PIXBUF_ERROR,
                                                     GDK_PIXBUF_ERROR_BAD_OPTION,
-                                                    _("JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."),
+                                                    _("JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."),
                                                     *viter);
 
                                        retval = FALSE;
@@ -1449,7 +1449,7 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                                        g_set_error (error,
                                                     GDK_PIXBUF_ERROR,
                                                     GDK_PIXBUF_ERROR_BAD_OPTION,
-                                                    _("Color profile has invalid length '%u'."),
+                                                    _("Color profile has invalid length “%u”."),
                                                     (guint) icc_profile_size);
                                        retval = FALSE;
                                        goto cleanup;
@@ -1484,7 +1484,7 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
 	       g_set_error_literal (error,
                                     GDK_PIXBUF_ERROR,
                                     GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                    _("Couldn't allocate memory for loading JPEG file"));
+                                    _("Couldn’t allocate memory for loading JPEG file"));
 	       retval = FALSE;
 	       goto cleanup;
        }
@@ -1494,7 +1494,7 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
 		       g_set_error_literal (error,
                                             GDK_PIXBUF_ERROR,
                                             GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                            _("Couldn't allocate memory for loading JPEG file"));
+                                            _("Couldn’t allocate memory for loading JPEG file"));
 		       retval = FALSE;
 		       goto cleanup;
 	       }

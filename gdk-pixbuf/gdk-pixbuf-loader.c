@@ -379,8 +379,8 @@ gdk_pixbuf_loader_ensure_error (GdkPixbufLoader *loader,
         g_set_error (error,
                      GDK_PIXBUF_ERROR,
                      GDK_PIXBUF_ERROR_FAILED,
-                     _("Internal error: Image loader module '%s' failed to"
-                       " complete an operation, but didn't give a reason for"
+                     _("Internal error: Image loader module “%s” failed to"
+                       " complete an operation, but didn’t give a reason for"
                        " the failure"),
                      priv->image_module->module_name);
 }
@@ -421,7 +421,7 @@ gdk_pixbuf_loader_load_module (GdkPixbufLoader *loader,
                         g_set_error (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION,
-                                     _("Incremental loading of image type '%s' is not supported"),
+                                     _("Incremental loading of image type “%s” is not supported"),
                                      priv->image_module->module_name);
 
                         return 0;

@@ -787,7 +787,7 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
                         g_set_error (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_FAILED,
-                                     _("Image-loading module %s does not export the proper interface; perhaps it's from a different gdk-pixbuf version?"),
+                                     _("Image-loading module %s does not export the proper interface; perhaps it’s from a different gdk-pixbuf version?"),
                                      path);
                         return FALSE;
                 }
@@ -796,7 +796,7 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
         g_set_error (error,
                      GDK_PIXBUF_ERROR,
                      GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                     _("Image type '%s' is not supported"),
+                     _("Image type “%s” is not supported"),
                      image_module->module_name);
         return FALSE;
 #endif  /* !USE_GMODULE */
@@ -839,7 +839,7 @@ _gdk_pixbuf_get_named_module (const char *name,
         g_set_error (error,
                      GDK_PIXBUF_ERROR,
                      GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                     _("Image type '%s' is not supported"),
+                     _("Image type “%s” is not supported"),
                      name);
         
         return NULL;
@@ -924,7 +924,7 @@ _gdk_pixbuf_get_module (guchar *buffer, guint size,
                 g_set_error (error,
                              GDK_PIXBUF_ERROR,
                              GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                             _("Couldn't recognize the image file format for file '%s'"),
+                             _("Couldn’t recognize the image file format for file “%s”"),
                              display_name);
                 g_free (display_name);
         }
@@ -952,7 +952,7 @@ _gdk_pixbuf_get_module_for_file (FILE *f, const gchar *filename, GError **error)
                 g_set_error (error,
                              GDK_PIXBUF_ERROR,
                              GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                             _("Image file '%s' contains no data"),
+                             _("Image file “%s” contains no data"),
                              display_name);
                 g_free (display_name);
                 return NULL;
@@ -1067,7 +1067,7 @@ gdk_pixbuf_new_from_file (const char *filename,
                 g_set_error (error,
                              G_FILE_ERROR,
                              g_file_error_from_errno (save_errno),
-                             _("Failed to open file '%s': %s"),
+                             _("Failed to open file “%s”: %s"),
                              display_name,
                              g_strerror (save_errno));
                 g_free (display_name);
@@ -1103,7 +1103,7 @@ gdk_pixbuf_new_from_file (const char *filename,
                 g_set_error (error,
                              GDK_PIXBUF_ERROR,
                              GDK_PIXBUF_ERROR_FAILED,
-                             _("Failed to load image '%s': reason not known, probably a corrupt image file"),
+                             _("Failed to load image “%s”: reason not known, probably a corrupt image file"),
                              display_name);
 		g_free (display_name);
         } else if (error != NULL && *error != NULL) {
@@ -1114,7 +1114,7 @@ gdk_pixbuf_new_from_file (const char *filename,
 
         	display_name = g_filename_display_name (filename);      
 		old = e->message;
-		e->message = g_strdup_printf (_("Failed to load image '%s': %s"),
+		e->message = g_strdup_printf (_("Failed to load image “%s”: %s"),
 					      display_name,
 					      old);
 		g_free (old);
@@ -1327,7 +1327,7 @@ gdk_pixbuf_new_from_file_at_scale (const char *filename,
                 g_set_error (error,
                              G_FILE_ERROR,
                              g_file_error_from_errno (save_errno),
-                             _("Failed to open file '%s': %s"),
+                             _("Failed to open file “%s”: %s"),
                              display_name,
                              g_strerror (save_errno));
                 g_free (display_name);
@@ -1379,7 +1379,7 @@ gdk_pixbuf_new_from_file_at_scale (const char *filename,
                 g_set_error (error,
                              GDK_PIXBUF_ERROR,
                              GDK_PIXBUF_ERROR_FAILED,
-                             _("Failed to load image '%s': reason not known, probably a corrupt image file"),
+                             _("Failed to load image “%s”: reason not known, probably a corrupt image file"),
                              display_name);
                 g_free (display_name);
                 return NULL;
@@ -2506,7 +2506,7 @@ gdk_pixbuf_savev (GdkPixbuf  *pixbuf,
                 g_set_error (error,
                              G_FILE_ERROR,
                              g_file_error_from_errno (save_errno),
-                             _("Failed to open '%s' for writing: %s"),
+                             _("Failed to open “%s” for writing: %s"),
                              display_name,
                              g_strerror (save_errno));
                 g_free (display_name);
@@ -2532,7 +2532,7 @@ gdk_pixbuf_savev (GdkPixbuf  *pixbuf,
                g_set_error (error,
                             G_FILE_ERROR,
                             g_file_error_from_errno (save_errno),
-                            _("Failed to close '%s' while writing image, all data may not have been saved: %s"),
+                            _("Failed to close “%s” while writing image, all data may not have been saved: %s"),
                             display_name,
                             g_strerror (save_errno));
                g_free (display_name);
