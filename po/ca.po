@@ -76,7 +76,7 @@ msgstr "Nombre de canals"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:162
 msgid "The number of samples per pixel"
-msgstr "El nombre de mostres per pixel"
+msgstr "El nombre de mostres per píxel"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:171
 msgid "Colorspace"
@@ -131,11 +131,11 @@ msgstr ""
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:241
 msgid "Pixels"
-msgstr "Pixels"
+msgstr "Píxels"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:242
 msgid "A pointer to the pixel data of the pixbuf"
-msgstr "Un punter a les dades del pixel de pixbuf"
+msgstr "Un punter a les dades del píxel de pixbuf"
 
 #: ../gdk-pixbuf/gdk-pixbuf.c:256
 msgid "Pixel Bytes"
