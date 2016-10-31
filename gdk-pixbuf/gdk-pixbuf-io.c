@@ -1132,24 +1132,25 @@ gdk_pixbuf_new_from_file (const char *filename,
 
 #ifdef G_OS_WIN32
 
-#undef gdk_pixbuf_new_from_file
+/**
+ * gdk_pixbuf_new_from_file_utf8:
+ * @filename: Name of file to load, in the GLib file name encoding
+ * @error: Return location for an error
+ *
+ * Same as gdk_pixbuf_new_from_file()
+ *
+ * Return value: A newly-created pixbuf with a reference count of 1, or %NULL if
+ * any of several error conditions occurred:  the file could not be opened,
+ * there was no loader for the file's format, there was not enough memory to
+ * allocate the image buffer, or the image file contained invalid data.
+ **/
 GdkPixbuf *
-gdk_pixbuf_new_from_file (const char *filename,
-                          GError    **error)
+gdk_pixbuf_new_from_file_utf8 (const char *filename,
+                                GError    **error)
 {
-        gchar *utf8_filename =
-                g_locale_to_utf8 (filename, -1, NULL, NULL, error);
-        GdkPixbuf *retval;
-
-        if (utf8_filename == NULL)
-                return NULL;
-
-        retval = gdk_pixbuf_new_from_file_utf8 (utf8_filename, error);
-
-        g_free (utf8_filename);
-
-        return retval;
+    return gdk_pixbuf_new_from_file (filename, error);
 }
+
 #endif
 
 
@@ -1192,29 +1193,32 @@ gdk_pixbuf_new_from_file_at_size (const char *filename,
 
 #ifdef G_OS_WIN32
 
-#undef gdk_pixbuf_new_from_file_at_size
-
+/**
+ * gdk_pixbuf_new_from_file_at_size_utf8:
+ * @filename: Name of file to load, in the GLib file name encoding
+ * @width: The width the image should have or -1 to not constrain the width
+ * @height: The height the image should have or -1 to not constrain the height
+ * @error: Return location for an error
+ *
+ * Same as gdk_pixbuf_new_from_file_at_size()
+ *
+ * Return value: A newly-created pixbuf with a reference count of 1, or
+ * %NULL if any of several error conditions occurred:  the file could not
+ * be opened, there was no loader for the file's format, there was not
+ * enough memory to allocate the image buffer, or the image file contained
+ * invalid data.
+ *
+ * Since: 2.4
+ **/
 GdkPixbuf *
-gdk_pixbuf_new_from_file_at_size (const char *filename,
-                                  int         width, 
-                                  int         height,
-                                  GError    **error)
+gdk_pixbuf_new_from_file_at_size_utf8 (const char *filename,
+                                       int         width,
+                                       int         height,
+                                       GError    **error)
 {
-        gchar *utf8_filename =
-                g_locale_to_utf8 (filename, -1, NULL, NULL, error);
-        GdkPixbuf *retval;
-
-        if (utf8_filename == NULL)
-                return NULL;
-
-        retval = gdk_pixbuf_new_from_file_at_size_utf8 (utf8_filename,
-                                                        width, height,
-                                                        error);
-
-        g_free (utf8_filename);
-
-        return retval;
+    return gdk_pixbuf_new_from_file_at_size (filename, width, height, error);
 }
+
 #endif
 
 typedef struct {
@@ -1396,30 +1400,32 @@ gdk_pixbuf_new_from_file_at_scale (const char *filename,
 
 #ifdef G_OS_WIN32
 
-#undef gdk_pixbuf_new_from_file_at_scale
-
+/**
+ * gdk_pixbuf_new_from_file_at_scale_utf8:
+ * @filename: Name of file to load, in the GLib file name encoding
+ * @width: The width the image should have or -1 to not constrain the width
+ * @height: The height the image should have or -1 to not constrain the height
+ * @preserve_aspect_ratio: %TRUE to preserve the image's aspect ratio
+ * @error: Return location for an error
+ *
+ * Same as gdk_pixbuf_new_from_file_at_scale().
+ *
+ * Return value: A newly-created pixbuf with a reference count of 1, or %NULL
+ * if any of several error conditions occurred:  the file could not be opened,
+ * there was no loader for the file's format, there was not enough memory to
+ * allocate the image buffer, or the image file contained invalid data.
+ *
+ * Since: 2.6
+ **/
 GdkPixbuf *
-gdk_pixbuf_new_from_file_at_scale (const char *filename,
-                                   int         width, 
-                                   int         height,
-                                   gboolean    preserve_aspect_ratio,
-                                   GError    **error)
+gdk_pixbuf_new_from_file_at_scale_utf8 (const char *filename,
+                                        int         width,
+                                        int         height,
+                                        gboolean    preserve_aspect_ratio,
+                                        GError    **error)
 {
-        gchar *utf8_filename =
-                g_locale_to_utf8 (filename, -1, NULL, NULL, error);
-        GdkPixbuf *retval;
-
-        if (utf8_filename == NULL)
-                return NULL;
-
-        retval = gdk_pixbuf_new_from_file_at_scale_utf8 (utf8_filename,
-                                                         width, height,
-                                                         preserve_aspect_ratio,
-                                                         error);
-
-        g_free (utf8_filename);
-
-        return retval;
+    return gdk_pixbuf_new_from_file_at_scale (filename, width, height,
+                                              preserve_aspect_ratio, error);
 }
 #endif
 
@@ -2426,50 +2432,6 @@ gdk_pixbuf_save (GdkPixbuf  *pixbuf,
         return result;
 }
 
-#ifdef G_OS_WIN32
-
-#undef gdk_pixbuf_save
-
-gboolean
-gdk_pixbuf_save (GdkPixbuf  *pixbuf, 
-                 const char *filename, 
-                 const char *type, 
-                 GError    **error,
-                 ...)
-{
-        char *utf8_filename;
-        gchar **keys = NULL;
-        gchar **values = NULL;
-        va_list args;
-        gboolean result;
-
-        g_return_val_if_fail (error == NULL || *error == NULL, FALSE);
-        
-        utf8_filename = g_locale_to_utf8 (filename, -1, NULL, NULL, error);
-
-        if (utf8_filename == NULL)
-                return FALSE;
-
-        va_start (args, error);
-        
-        collect_save_options (args, &keys, &values);
-        
-        va_end (args);
-
-        result = gdk_pixbuf_savev_utf8 (pixbuf, utf8_filename, type,
-                                        keys, values,
-                                        error);
-
-        g_free (utf8_filename);
-
-        g_strfreev (keys);
-        g_strfreev (values);
-
-        return result;
-}
-
-#endif
-
 /**
  * gdk_pixbuf_savev:
  * @pixbuf: a #GdkPixbuf.
@@ -2547,32 +2509,29 @@ gdk_pixbuf_savev (GdkPixbuf  *pixbuf,
 
 #ifdef G_OS_WIN32
 
-#undef gdk_pixbuf_savev
-
+/**
+ * gdk_pixbuf_savev_utf8:
+ * @pixbuf: a #GdkPixbuf.
+ * @filename: name of file to save.
+ * @type: name of file format.
+ * @option_keys: (array zero-terminated=1): name of options to set, %NULL-terminated
+ * @option_values: (array zero-terminated=1): values for named options
+ * @error: (allow-none): return location for error, or %NULL
+ *
+ * Same as gdk_pixbuf_savev()
+ *
+ * Return value: whether an error was set
+ **/
 gboolean
-gdk_pixbuf_savev (GdkPixbuf  *pixbuf, 
-                  const char *filename, 
-                  const char *type,
-                  char      **option_keys,
-                  char      **option_values,
-                  GError    **error)
+gdk_pixbuf_savev_utf8 (GdkPixbuf  *pixbuf,
+                       const char *filename,
+                       const char *type,
+                       char      **option_keys,
+                       char      **option_values,
+                       GError    **error)
 {
-        char *utf8_filename;
-        gboolean retval;
-
-        g_return_val_if_fail (filename != NULL, FALSE);
-       
-        utf8_filename = g_locale_to_utf8 (filename, -1, NULL, NULL, error);
-
-        if (utf8_filename == NULL)
-                return FALSE;
-
-        retval = gdk_pixbuf_savev_utf8 (pixbuf, utf8_filename, type,
-                                        option_keys, option_values, error);
-
-        g_free (utf8_filename);
-
-        return retval;
+    return gdk_pixbuf_savev (pixbuf, filename, type, option_keys,
+                             option_values, error);
 }
 
 #endif

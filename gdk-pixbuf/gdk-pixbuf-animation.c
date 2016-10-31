@@ -294,28 +294,24 @@ fail_begin_load:
 }
 
 #ifdef G_OS_WIN32
-
-#undef gdk_pixbuf_animation_new_from_file
-
+/**
+ * gdk_pixbuf_animation_new_from_file_utf8:
+ * @filename: Name of file to load, in the GLib file name encoding
+ * @error: return location for error
+ *
+ * Same as gdk_pixbuf_animation_new_from_file()
+ *
+ * Return value: A newly-created animation with a reference count of 1, or %NULL
+ * if any of several error conditions ocurred:  the file could not be opened,
+ * there was no loader for the file's format, there was not enough memory to
+ * allocate the image buffer, or the image file contained invalid data.
+ */
 GdkPixbufAnimation *
-gdk_pixbuf_animation_new_from_file (const gchar  *filename,
-                                    GError      **error)
+gdk_pixbuf_animation_new_from_file_utf8 (const gchar  *filename,
+                                         GError      **error)
 {
-	gchar *utf8_filename;
-	GdkPixbufAnimation *retval;
-
-	utf8_filename = g_locale_to_utf8 (filename, -1, NULL, NULL, error);
-
-	if (utf8_filename == NULL)
-		return NULL;
-
-	retval = gdk_pixbuf_animation_new_from_file_utf8 (utf8_filename, error);
-
-	g_free (utf8_filename);
-
-	return retval;
+    return gdk_pixbuf_animation_new_from_file (filename, error);
 }
-
 #endif
 
 /**
