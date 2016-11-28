@@ -353,6 +353,14 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 
 	/* Negative heights indicates bottom-down pixelorder */
 	if (State->Header.height < 0) {
+		if (State->Header.height == INT_MIN) {
+			g_set_error_literal (error,
+					     GDK_PIXBUF_ERROR,
+					     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+					     _("BMP image has bogus header data"));
+			State->read_state = READ_STATE_ERROR;
+			return FALSE;
+		}
 		State->Header.height = -State->Header.height;
 		State->Header.Negative = 1;
 	}
