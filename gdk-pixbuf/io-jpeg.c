@@ -444,26 +444,36 @@ jpeg_parse_exif_app1 (JpegExifContext *context, jpeg_saved_marker_ptr marker)
 	i = i + offset;
 
 	/* check that we still are within the buffer and can read the tag count */
-	if ((i + 2) > marker->data_length) {
-		ret = FALSE;
-		goto out;
-	}
+	{
+	    const size_t new_i = i + 2;
+	    if (new_i < i || new_i > marker->data_length) {
+		    ret = FALSE;
+		    goto out;
+	    }
 
-	/* find out how many tags we have in IFD0. As per the TIFF spec, the first
-	   two bytes of the IFD contain a count of the number of tags. */
-	tags = de_get16(&marker->data[i], endian);
-	i = i + 2;
+	    /* find out how many tags we have in IFD0. As per the TIFF spec, the first
+	       two bytes of the IFD contain a count of the number of tags. */
+	    tags = de_get16(&marker->data[i], endian);
+	    i = new_i;
+	}
 
 	/* check that we still have enough data for all tags to check. The tags
 	   are listed in consecutive 12-byte blocks. The tag ID, type, size, and
 	   a pointer to the actual value, are packed into these 12 byte entries. */
-	if ((i + tags * 12) > marker->data_length) {
+	{
+	    const size_t new_i = i + tags * 12;
+	    if (new_i < i || new_i > marker->data_length) {
 		ret = FALSE;
 		goto out;
+	    }
 	}
 
 	/* check through IFD0 for tags */
-	while (tags--){
+	while (tags--) {
+		size_t new_i;
+
+		/* We check for integer overflow before the loop and
+		 * at the end of each iteration */
 		guint tag   = de_get16(&marker->data[i + 0], endian);
 		guint type  = de_get16(&marker->data[i + 2], endian);
 		guint count = de_get32(&marker->data[i + 4], endian);
@@ -486,7 +496,12 @@ jpeg_parse_exif_app1 (JpegExifContext *context, jpeg_saved_marker_ptr marker)
 			}
 		}
 		/* move the pointer to the next 12-byte tag field. */
-		i = i + 12;
+		new_i = i + 12;
+		if (new_i < i || new_i > marker->data_length) {
+			ret = FALSE;
+			goto out;
+		}
+		i = new_i;
 	}
 
 out:
