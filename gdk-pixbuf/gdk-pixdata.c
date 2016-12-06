@@ -430,6 +430,7 @@ gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
 {
   guint encoding, bpp;
   guint8 *data = NULL;
+  guint8 *data_limit = NULL;
 
   g_return_val_if_fail (pixdata != NULL, NULL);
   g_return_val_if_fail (pixdata->width > 0, NULL);
@@ -449,6 +450,9 @@ gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
   if (copy_pixels)
     {
       data = g_try_malloc_n (pixdata->height, pixdata->rowstride);
+      /* If this calculation overflows, data is NULL */
+      const size_t data_size = pixdata->height * pixdata->rowstride;
+      data_limit = data + data_size;
       if (!data)
 	{
 	  g_set_error (error, GDK_PIXBUF_ERROR,
@@ -515,7 +519,20 @@ gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
 	}
     }
   else if (copy_pixels)
-    memcpy (data, pixdata->pixel_data, pixdata->rowstride * pixdata->height);
+    {
+      if (data + (pixdata->rowstride * pixdata->height) < data_limit)
+        {
+          memcpy (data, pixdata->pixel_data, pixdata->rowstride * pixdata->height);
+        }
+      else
+        {
+          g_free (data);
+          g_set_error_literal (error, GDK_PIXBUF_ERROR,
+                               GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                               _("Image pixel data corrupt"));
+          return NULL;
+        }
+    }
   else
     data = pixdata->pixel_data;
 
