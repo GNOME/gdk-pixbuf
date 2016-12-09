@@ -915,13 +915,8 @@ rgb888amsb (XImage *image, guchar *pixels, int rowstride, xlib_colormap *colorma
 	int bpl;
 
 	guint8 *srow = (guint8 *)image->data, *orow = pixels;
-#ifdef LITTLE
-	guint32 *o;
-	guint32 *s;
-#else
 	guint8 *s;	/* for byte order swapping */
 	guint8 *o;
-#endif
 
 	d (printf ("32 bit, msb, with alpha\n"));
 
@@ -931,24 +926,14 @@ rgb888amsb (XImage *image, guchar *pixels, int rowstride, xlib_colormap *colorma
 
 	/* msb data */
 	for (yy = 0; yy < height; yy++) {
-#ifdef LITTLE
-		s = (guint32 *) srow;
-		o = (guint32 *) orow;
-#else
 		s = srow;
 		o = orow;
-#endif
 		for (xx = 0; xx < width; xx++) {
-#ifdef LITTLE
 			*o++ = s[1];
 			*o++ = s[2];
 			*o++ = s[3];
 			*o++ = 0xff;
 			s += 4;
-#else
-			*o++ = (*s << 8) | 0xff; /* untested */
-			s++;
-#endif
 		}
 		srow += bpl;
 		orow += rowstride;
