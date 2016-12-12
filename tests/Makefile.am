@@ -59,6 +59,7 @@ dist_installed_test_data =		\
 	cve-2015-4491.bmp		\
 	large.png			\
 	large.jpg			\
+	bug775218.jpg			\
 	$(wildcard $(srcdir)/test-images/fail/*) \
 	$(wildcard $(srcdir)/test-images/randomly-modified/*) \
 	$(wildcard $(srcdir)/test-images/reftests/*.*) \

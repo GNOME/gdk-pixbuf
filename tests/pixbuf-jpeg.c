@@ -79,6 +79,23 @@ test_type9_rotation_exif_tag (void)
   g_object_unref (ref);
 }
 
+static void
+test_bug_775218 (void)
+{
+  GError *error = NULL;
+  GdkPixbuf *ref;
+
+  if (!format_supported ("jpeg"))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
+
+  ref = gdk_pixbuf_new_from_file (g_test_get_filename (G_TEST_DIST, "bug775218.jpg", NULL), &error);
+  g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE);
+  g_clear_object (&ref);
+}
+
 int
 main (int argc, char **argv)
 {
@@ -86,6 +103,7 @@ main (int argc, char **argv)
 
   g_test_add_func ("/pixbuf/jpeg/inverted_cmyk_jpeg", test_inverted_cmyk_jpeg);
   g_test_add_func ("/pixbuf/jpeg/type9_rotation_exif_tag", test_type9_rotation_exif_tag);
+  g_test_add_func ("/pixbuf/jpeg/bug775218", test_bug_775218);
 
   return g_test_run ();
 }
