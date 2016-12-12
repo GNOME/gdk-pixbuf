@@ -1513,7 +1513,12 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
 
                /* write scanline */
                jbuf = (JSAMPROW *)(&buf);
-               jpeg_write_scanlines (&cinfo, jbuf, 1);
+               if (jpeg_write_scanlines (&cinfo, jbuf, 1) == 0) {
+                      jpeg_destroy_compress (&cinfo);
+                      retval = FALSE;
+                      goto cleanup;
+               }
+
                i++;
                y++;
 
