@@ -100,7 +100,8 @@ create_loader (GFile        *file,
   }
 
   if (loader == NULL) {
-    g_debug ("Unable to create loader for mime type %s: %s", mime_type, error->message);
+    g_debug ("Unable to create loader for mime type %s: %s", mime_type,
+             (error != NULL) ? error->message : "(null)");
     g_clear_error (&error);
     loader = gdk_pixbuf_loader_new ();
   }
