@@ -30,7 +30,7 @@ typedef struct {
     gint input_height;
 } SizePrepareContext;
 
-#define LOAD_BUFFER_SIZE 4096
+#define LOAD_BUFFER_SIZE 65536
 
 static void
 size_prepared_cb (GdkPixbufLoader *loader, 
