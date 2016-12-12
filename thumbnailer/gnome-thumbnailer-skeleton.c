@@ -225,7 +225,7 @@ int main (int argc, char **argv)
 	const char *output;
 
 #ifdef THUMBNAILER_RETURNS_PIXBUF
-	int width, height;
+	/* Nothing */
 #elif THUMBNAILER_RETURNS_DATA
 	char *data = NULL;
 	gsize length;
@@ -270,24 +270,27 @@ int main (int argc, char **argv)
 
 #ifdef THUMBNAILER_RETURNS_PIXBUF
 	pixbuf = file_to_pixbuf (input_filename, output_size, &error);
+	if (pixbuf != NULL) {
+		int width, height;
 
-	width = gdk_pixbuf_get_width (pixbuf);
-	height = gdk_pixbuf_get_height (pixbuf);
+		width = gdk_pixbuf_get_width (pixbuf);
+		height = gdk_pixbuf_get_height (pixbuf);
 
-	/* Handle naive thumbnailers that don't resize */
-	if (output_size != 0 &&
-	    (height > output_size || width > output_size)) {
-		GdkPixbuf *scaled;
-		double scale;
+		/* Handle naive thumbnailers that don't resize */
+		if (output_size != 0 &&
+		    (height > output_size || width > output_size)) {
+			GdkPixbuf *scaled;
+			double scale;
 
-		scale = (double)output_size / MAX (width, height);
+			scale = (double)output_size / MAX (width, height);
 
-		scaled = gnome_desktop_thumbnail_scale_down_pixbuf (pixbuf,
-								    floor (width * scale + 0.5),
-								    floor (height * scale + 0.5));
-		gdk_pixbuf_copy_options (pixbuf, scaled);
-		g_object_unref (pixbuf);
-		pixbuf = scaled;
+			scaled = gnome_desktop_thumbnail_scale_down_pixbuf (pixbuf,
+									    floor (width * scale + 0.5),
+									    floor (height * scale + 0.5));
+			gdk_pixbuf_copy_options (pixbuf, scaled);
+			g_object_unref (pixbuf);
+			pixbuf = scaled;
+		}
 	}
 #elif THUMBNAILER_RETURNS_DATA
 	data = file_to_data (input_filename, &length, &error);
