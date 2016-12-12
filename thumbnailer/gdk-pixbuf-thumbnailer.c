@@ -124,7 +124,6 @@ _gdk_pixbuf_new_from_uri_at_scale (const char  *uri,
     gboolean has_frame;
     SizePrepareContext info;
     GFile *file;
-    GFileInfo *file_info;
     GInputStream *input_stream;
 
     g_return_val_if_fail (uri != NULL, NULL);
