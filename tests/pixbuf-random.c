@@ -51,6 +51,8 @@ assault (const guchar *header, gsize header_size, int n_images)
       if (err)
 	{
 	  g_error_free (err);
+	  g_object_unref (loader);
+	  fclose (f);
 	  continue;
 	}
       
