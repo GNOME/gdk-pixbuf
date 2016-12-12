@@ -186,6 +186,9 @@ _gdk_pixbuf_new_from_uri_at_scale (const char  *uri,
         /* This can happen if the above loop was exited due to the
          * g_input_stream_read() call failing. */
         result = FALSE;
+    } else if (*error != NULL) {
+        gdk_pixbuf_loader_close (loader, NULL);
+        result = FALSE;
     } else if (gdk_pixbuf_loader_close (loader, error) == FALSE) {
         if (!g_error_matches (*error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INCOMPLETE_ANIMATION))
           result = FALSE;
@@ -231,11 +234,8 @@ file_to_pixbuf (const char  *path,
 	file = g_file_new_for_path (path);
 	uri = g_file_get_uri (file);
 	pixbuf = _gdk_pixbuf_new_from_uri_at_scale (uri, destination_size, error);
-	if (pixbuf == NULL) {
-		g_set_error_literal (error, G_IO_ERROR, G_IO_ERROR_FAILED,
-				     "Generic error");
-		return pixbuf;
-	}
+	if (pixbuf == NULL)
+		return NULL;
 
 	tmp_pixbuf = gdk_pixbuf_apply_embedded_orientation (pixbuf);
 	gdk_pixbuf_copy_options (pixbuf, tmp_pixbuf);
