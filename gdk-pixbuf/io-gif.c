@@ -188,6 +188,7 @@ struct _GifContext
         GError **error;
 };
 
+/* The buffer must be at least 255 bytes long. */
 static int GetDataBlock (GifContext *, unsigned char *);
 
 
@@ -451,6 +452,7 @@ gif_get_extension (GifContext *context)
 
 static int ZeroDataBlock = FALSE;
 
+/* @buf must be at least 255 bytes long. */
 static int
 GetDataBlock (GifContext *context,
 	      unsigned char *buf)
