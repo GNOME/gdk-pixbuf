@@ -133,7 +133,7 @@ mem_test (const gchar *bytes, gsize len)
 	err = NULL;
 	did_fail = TRUE;
       }
-    gdk_pixbuf_loader_close (loader, NULL);
+    gdk_pixbuf_loader_close (loader, &err);
     if (err)
       {
 	g_error_free (err);
