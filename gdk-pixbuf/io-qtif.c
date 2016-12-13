@@ -432,7 +432,7 @@ static gboolean gdk_pixbuf__qtif_image_load_increment (gpointer data,
             context->atom_count--;
 
             /* Copy to header buffer in context, in case supplied data is not enough. */
-            while(context->run_length < sizeof(QtHeader))
+            while (context->run_length < sizeof(QtHeader) && size > 0u)
             {
                 context->header_buffer[context->run_length] = *buf;
                 context->run_length++;
