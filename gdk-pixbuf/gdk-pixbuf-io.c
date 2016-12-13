@@ -347,33 +347,23 @@ get_libdir (void)
 #undef GDK_PIXBUF_LIBDIR
 #define GDK_PIXBUF_LIBDIR get_libdir()
 
-static void
-correct_prefix (gchar **path)
-{
-  if (strncmp (*path, GDK_PIXBUF_PREFIX "/", strlen (GDK_PIXBUF_PREFIX "/")) == 0 ||
-      strncmp (*path, GDK_PIXBUF_PREFIX "\\", strlen (GDK_PIXBUF_PREFIX "\\")) == 0)
-    {
-          gchar *tem = NULL;
-      if (g_str_has_suffix (*path, ".libs"))
-        {
-          /* We are being run from inside the build tree, and shouldn't mess about. */
-          return;
-        }
-
-      /* This is an entry put there by gdk-pixbuf-query-loaders on the
-       * packager's system. On Windows a prebuilt gdk-pixbuf package can be
-       * installed in a random location. The loaders.cache file
-       * distributed in such a package contains paths from the package
-       * builder's machine. Replace the build-time prefix with the
-       * installation prefix on this machine.
-       */
-      tem = *path;
-      *path = g_strconcat (gdk_pixbuf_get_toplevel (), tem + strlen (GDK_PIXBUF_PREFIX), NULL);
-      g_free (tem);
-    }
-}
-
 #endif  /* GDK_PIXBUF_RELOCATABLE */
+
+/* In case we have a relative module path in the loaders cache
+ * prepend the toplevel dir */
+static gchar *
+build_module_path (const gchar *path)
+{
+#ifdef GDK_PIXBUF_RELOCATABLE
+        if (g_path_is_absolute (path)) {
+                return g_strdup (path);
+        } else {
+                return g_build_filename (gdk_pixbuf_get_toplevel (), path, NULL);
+        }
+#else
+        return g_strdup (path);
+#endif
+}
 
 static gchar *
 gdk_pixbuf_get_module_file (void)
@@ -512,9 +502,6 @@ gdk_pixbuf_io_init (void)
                                 /* Blank line marking the end of a module
                                  */
                         if (module && *p != '#') {
-#ifdef GDK_PIXBUF_RELOCATABLE
-                                correct_prefix (&module->module_path);
-#endif
                                 file_formats = g_slist_prepend (file_formats, module);
                                 module = NULL;
                         }
@@ -536,7 +523,7 @@ gdk_pixbuf_io_init (void)
                                            filename, line_buf);
                                 have_error = TRUE;
                         }
-                        module->module_path = g_strdup (tmp_buf->str);
+                        module->module_path = build_module_path (tmp_buf->str);
                 }
                 else if (!module->module_name) {
                         module->info = g_new0 (GdkPixbufFormat, 1);

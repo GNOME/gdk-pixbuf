@@ -116,14 +116,80 @@ loader_sanity_check (const char *path, GdkPixbufFormat *info, GdkPixbufModule *v
         return 0;
 }
 
+#ifdef GDK_PIXBUF_RELOCATABLE
+
+/* Based on gdk_pixbuf_get_toplevel () */
+static gchar *
+get_toplevel (void)
+{
+        static gchar *toplevel = NULL;
+
+        if (toplevel == NULL) {
+#if defined (G_OS_WIN32)
+                toplevel = g_win32_get_package_installation_directory_of_module (NULL);
+#elif defined(OS_DARWIN)
+                char pathbuf[PATH_MAX + 1];
+                uint32_t  bufsize = sizeof (pathbuf);
+                gchar *bin_dir;
+
+                _NSGetExecutablePath (pathbuf, &bufsize);
+                bin_dir = g_dirname (pathbuf);
+                toplevel = g_build_path (G_DIR_SEPARATOR_S, bin_dir, "..", NULL);
+                g_free (bin_dir);
+#elif defined (OS_LINUX) || defined (__MINGW32__)
+                gchar *exe_path, *bin_dir;
+
+                exe_path = g_file_read_link ("/proc/self/exe", NULL);
+                bin_dir = g_dirname (exe_path);
+                toplevel = g_build_path (G_DIR_SEPARATOR_S, bin_dir, "..", NULL);
+                g_free (exe_path);
+                g_free (bin_dir);
+#else
+#error "Relocations not supported for this platform"
+#endif
+        }
+        return toplevel;
+}
+
+/* Returns the relative path or NULL; transfer full */
+static gchar *
+get_relative_path (const gchar *parent, const gchar *descendant)
+{
+        GFile *parent_file, *descendant_file;
+        char *relative_path;
+
+        parent_file = g_file_new_for_path (parent);
+        descendant_file = g_file_new_for_path (descendant);
+        relative_path = g_file_get_relative_path (parent_file, descendant_file);
+        g_object_unref (parent_file);
+        g_object_unref (descendant_file);
+
+        return relative_path;
+}
+
+#endif  /* GDK_PIXBUF_RELOCATABLE */
+
 static void
 write_loader_info (GString *contents, const char *path, GdkPixbufFormat *info)
 {
         const GdkPixbufModulePattern *pattern;
         char **mime;
         char **ext;
+        gchar *module_path = NULL, *escaped_path;
 
-        g_string_append_printf (contents, "\"%s\"\n", path);
+#ifdef GDK_PIXBUF_RELOCATABLE
+        module_path = get_relative_path (get_toplevel (), path);
+#endif
+
+        if (module_path == NULL) {
+                module_path = g_strdup (path);
+        }
+
+        escaped_path = g_strescape (module_path, "");
+        g_string_append_printf (contents, "\"%s\"\n", escaped_path);
+        g_free (module_path);
+        g_free (escaped_path);
+
         g_string_append_printf (contents, "\"%s\" %u \"%s\" \"%s\" \"%s\"\n",
                   info->name,
                   info->flags,
@@ -211,17 +277,6 @@ query_module (GString *contents, const char *dir, const char *file)
 }
 
 #ifdef G_OS_WIN32
-
-static char *
-get_toplevel (void)
-{
-  static char *toplevel = NULL;
-
-  if (toplevel == NULL)
-          toplevel = g_win32_get_package_installation_directory_of_module (NULL);
-
-  return toplevel;
-}
 
 static char *
 get_libdir (void)
