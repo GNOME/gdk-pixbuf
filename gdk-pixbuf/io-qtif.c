@@ -421,7 +421,7 @@ static gboolean gdk_pixbuf__qtif_image_load_increment (gpointer data,
         switch(context->state)
         {
         case STATE_READY:
-            /* Abort if we have seen too mant atoms. */
+            /* Abort if we have seen too many atoms. */
             if(context->atom_count == 0u)
             {
                 g_set_error_literal (error, GDK_PIXBUF_ERROR,
