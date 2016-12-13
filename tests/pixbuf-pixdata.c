@@ -21,8 +21,35 @@
 
 #include "config.h"
 #include "gdk-pixbuf/gdk-pixbuf.h"
+#include "gdk-pixbuf/gdk-pixdata.h"
 #include "test-common.h"
 #include <string.h>
+
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+static void
+test_pixdata_deserialize (gconstpointer data)
+{
+  const gchar *filename = data;
+  GdkPixbuf *pixbuf;
+  GdkPixdata pixdata;
+  GError *error = NULL;
+  gchar *contents;
+  gsize size;
+
+  g_file_get_contents (g_test_get_filename (G_TEST_DIST, filename, NULL), &contents, &size, &error);
+  g_assert_no_error (error);
+
+  gdk_pixdata_deserialize (&pixdata, size, (const guint8 *) contents, &error);
+  g_assert_no_error (error);
+  g_free (contents);
+
+  pixbuf = gdk_pixbuf_from_pixdata (&pixdata, TRUE, &error);
+  g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE);
+  g_clear_error (&error);
+
+  g_clear_object (&pixbuf);
+}
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 static void
 test_pixdata (void)
@@ -48,6 +75,7 @@ main (int argc, char **argv)
   g_test_init (&argc, &argv, NULL);
 
   g_test_add_func ("/pixbuf/pixdata", test_pixdata);
+  g_test_add_data_func ("/pixbuf/pixdata/bug775693", "bug775693.pixdata", test_pixdata_deserialize);
 
   return g_test_run ();
 }

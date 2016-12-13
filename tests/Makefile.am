@@ -62,6 +62,7 @@ dist_installed_test_data =		\
 	large.jpg			\
 	bug775218.jpg			\
 	test-image.pixdata		\
+	bug775693.pixdata		\
 	$(wildcard $(srcdir)/test-images/fail/*) \
 	$(wildcard $(srcdir)/test-images/randomly-modified/*) \
 	$(wildcard $(srcdir)/test-images/reftests/*.*) \
