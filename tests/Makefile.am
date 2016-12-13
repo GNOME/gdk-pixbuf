@@ -32,6 +32,7 @@ test_programs = 			\
 	pixbuf-icc			\
 	pixbuf-jpeg			\
 	pixbuf-dpi			\
+	pixbuf-pixdata			\
 	pixbuf-stream			\
 	pixbuf-reftest			\
 	pixbuf-resource			\
@@ -60,6 +61,7 @@ dist_installed_test_data =		\
 	large.png			\
 	large.jpg			\
 	bug775218.jpg			\
+	test-image.pixdata		\
 	$(wildcard $(srcdir)/test-images/fail/*) \
 	$(wildcard $(srcdir)/test-images/randomly-modified/*) \
 	$(wildcard $(srcdir)/test-images/reftests/*.*) \
@@ -157,6 +159,14 @@ pixbuf_composite_SOURCES =		\
 
 pixbuf_resource_SOURCES = 		\
 	pixbuf-resource.c		\
+	test-common.c			\
+	test-common.h			\
+	resources.h			\
+	resources.c			\
+	$(NULL)
+
+pixbuf_pixdata_SOURCES =		\
+	pixbuf-pixdata.c		\
 	test-common.c			\
 	test-common.h			\
 	resources.h			\
