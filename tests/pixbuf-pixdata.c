@@ -126,6 +126,7 @@ main (int argc, char **argv)
   g_test_add_func ("/pixbuf/pixdata", test_pixdata);
   g_test_add_func ("/pixbuf/pixdata/success", test_pixdata_success);
   g_test_add_data_func ("/pixbuf/pixdata/bug775693", "bug775693.pixdata", test_pixdata_deserialize);
+  g_test_add_data_func ("/pixbuf/pixdata/bug775229", "bug775229.pixdata", test_pixdata_deserialize);
 
   return g_test_run ();
 }

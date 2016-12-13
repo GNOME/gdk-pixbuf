@@ -92,6 +92,7 @@ test_data = [
   'test-image.pixdata',
   'test-image-rle.pixdata',
   'bug775693.pixdata',
+  'bug775229.pixdata',
   'aero.gif',
 ]
 
