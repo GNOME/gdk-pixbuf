@@ -1,3 +1,11 @@
+2.36.1
+======
+
+* Remove the pixdata loader (#776004)
+* Fix integer overflows in the jpeg loader (#775218)
+* Add an external thumbnailer for images
+* Translation updates
+
 2.36.0
 ======
 
