@@ -424,9 +424,6 @@ gdk_pixbuf_io_init (void)
         else                                                            \
                 g_free (builtin_module)
 
-	/* Always include GdkPixdata format */
-        load_one_builtin_module (pixdata);
-
 #ifdef INCLUDE_ani
         load_one_builtin_module (ani);
 #endif
@@ -650,7 +647,6 @@ gdk_pixbuf_io_init (void)
   extern void _gdk_pixbuf__##type##_fill_info   (GdkPixbufFormat *info);   \
   extern void _gdk_pixbuf__##type##_fill_vtable (GdkPixbufModule *module)
 
-module (pixdata);
 module (png);
 module (jpeg);
 module (gif);
@@ -695,8 +691,6 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
                 fill_info = _gdk_pixbuf__##id##_fill_info;              \
                 fill_vtable = _gdk_pixbuf__##id##_fill_vtable;  \
         }
-
-        try_module (pixdata,pixdata);
 
 #ifdef INCLUDE_gdiplus
         try_module (ico,gdip_ico);

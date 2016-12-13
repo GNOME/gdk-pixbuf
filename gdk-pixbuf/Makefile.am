@@ -43,11 +43,6 @@ libpixbufloader_bmp_la_LDFLAGS = -avoid-version -module $(no_undefined)
 libpixbufloader_bmp_la_LIBADD = $(module_libs)
 
 #
-# The GdkPixdata loader, always built in
-#
-libstatic_pixbufloader_pixdata_la_SOURCES = io-pixdata.c
-
-#
 # The GIF loader
 #
 libstatic_pixbufloader_gif_la_SOURCES = io-gif.c io-gif-animation.c io-gif-animation.h
@@ -384,9 +379,6 @@ else
 QTIF_LIB = libpixbufloader-qtif.la
 endif
 
-# Always included
-STATIC_PIXDATA_LIB = libstatic-pixbufloader-pixdata.la
-
 if BUILD_DYNAMIC_MODULES
 
 loader_LTLIBRARIES = 	\
@@ -613,7 +605,6 @@ gdk_pixbuf_FILES = \
 	$(libgdk_pixbuf_2_0_la_SOURCES)		\
 	$(libstatic_pixbufloader_ani_la_SOURCES)	\
 	$(libstatic_pixbufloader_icns_la_SOURCES)	\
-	$(libstatic_pixbufloader_pixdata_la_SOURCES)	\
 	$(libstatic_pixbufloader_pnm_la_SOURCES)	\
 	$(libstatic_pixbufloader_png_la_SOURCES)	\
 	$(libstatic_pixbufloader_qtif_la_SOURCES)	\

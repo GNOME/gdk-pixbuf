@@ -37,9 +37,9 @@ test_pixdata (void)
 
   path = g_test_get_filename (G_TEST_DIST, "test-image.pixdata", NULL);
   ref = gdk_pixbuf_new_from_file (path, &error);
-  g_assert_no_error (error);
-
-  g_object_unref (ref);
+  g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_UNKNOWN_TYPE);
+  g_clear_error (&error);
+  g_clear_object (&ref);
 }
 
 int
