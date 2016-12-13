@@ -21,7 +21,6 @@ gdk-pixbuf/io-icns.c
 gdk-pixbuf/io-ico.c
 gdk-pixbuf/io-jasper.c
 gdk-pixbuf/io-jpeg.c
-gdk-pixbuf/io-pixdata.c
 gdk-pixbuf/io-png.c
 gdk-pixbuf/io-pnm.c
 gdk-pixbuf/io-qtif.c
