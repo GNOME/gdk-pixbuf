@@ -25,6 +25,8 @@
 #undef DUMPBIH
 #define DEBUG(s)
 
+#define INFOHEADER_SIZE 40
+
 /*
 
 Icons are just like BMP's, except for the header.
@@ -329,7 +331,7 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 		}
 
 		/* We know how many bytes are in the "header" part. */
-		State->HeaderSize = entry->DIBoffset + 40; /* 40 = sizeof(InfoHeader) */
+		State->HeaderSize = entry->DIBoffset + INFOHEADER_SIZE;
 
 		if (State->HeaderSize < 0) {
 			g_set_error (error,
@@ -563,7 +565,7 @@ gdk_pixbuf__ico_image_begin_load(GdkPixbufModuleSizeFunc size_func,
 	context->user_data = user_data;
 
 	context->HeaderSize = 54;
-	context->HeaderBuf = g_try_malloc(14 + 40 + 4*256 + 512);
+	context->HeaderBuf = g_try_malloc(14 + INFOHEADER_SIZE + 4*256 + 512);
 	if (!context->HeaderBuf) {
 		g_free (context);
 		g_set_error_literal (error,
@@ -573,7 +575,7 @@ gdk_pixbuf__ico_image_begin_load(GdkPixbufModuleSizeFunc size_func,
 		return NULL;
 	}
 	/* 4*256 for the colormap */
-	context->BytesInHeaderBuf = 14 + 40 + 4*256 + 512 ;
+	context->BytesInHeaderBuf = 14 + INFOHEADER_SIZE + 4*256 + 512 ;
 	context->HeaderDone = 0;
 
 	context->LineWidth = 0;
@@ -719,11 +721,11 @@ static void OneLine8(struct ico_progressive_state *context)
 	while (X < context->Header.width) {
 		/* The joys of having a BGR byteorder */
 		Pixels[X * 4 + 0] =
-		    context->HeaderBuf[4 * context->LineBuf[X] + 42+context->DIBoffset];
+		    context->HeaderBuf[4 * context->LineBuf[X] + INFOHEADER_SIZE + 2 + context->DIBoffset];
 		Pixels[X * 4 + 1] =
-		    context->HeaderBuf[4 * context->LineBuf[X] + 41+context->DIBoffset];
+		    context->HeaderBuf[4 * context->LineBuf[X] + INFOHEADER_SIZE + 1 +context->DIBoffset];
 		Pixels[X * 4 + 2] =
-		    context->HeaderBuf[4 * context->LineBuf[X] + 40+context->DIBoffset];
+		    context->HeaderBuf[4 * context->LineBuf[X] + INFOHEADER_SIZE +context->DIBoffset];
 		X++;
 	}
 }
@@ -748,20 +750,20 @@ static void OneLine4(struct ico_progressive_state *context)
 		Pix = context->LineBuf[X/2];
 
 		Pixels[X * 4 + 0] =
-		    context->HeaderBuf[4 * (Pix>>4) + 42+context->DIBoffset];
+		    context->HeaderBuf[4 * (Pix>>4) + INFOHEADER_SIZE + 2 + context->DIBoffset];
 		Pixels[X * 4 + 1] =
-		    context->HeaderBuf[4 * (Pix>>4) + 41+context->DIBoffset];
+		    context->HeaderBuf[4 * (Pix>>4) + INFOHEADER_SIZE + 1 +context->DIBoffset];
 		Pixels[X * 4 + 2] =
-		    context->HeaderBuf[4 * (Pix>>4) + 40+context->DIBoffset];
+		    context->HeaderBuf[4 * (Pix>>4) + INFOHEADER_SIZE + context->DIBoffset];
 		X++;
 		if (X<context->Header.width) { 
 			/* Handle the other 4 bit pixel only when there is one */
 			Pixels[X * 4 + 0] =
-			    context->HeaderBuf[4 * (Pix&15) + 42+context->DIBoffset];
+			    context->HeaderBuf[4 * (Pix&15) + INFOHEADER_SIZE + 2 + context->DIBoffset];
 			Pixels[X * 4 + 1] =
-			    context->HeaderBuf[4 * (Pix&15) + 41+context->DIBoffset];
+			    context->HeaderBuf[4 * (Pix&15) + INFOHEADER_SIZE + 1 + context->DIBoffset];
 			Pixels[X * 4 + 2] =
-			    context->HeaderBuf[4 * (Pix&15) + 40+context->DIBoffset];
+			    context->HeaderBuf[4 * (Pix&15) + INFOHEADER_SIZE + context->DIBoffset];
 			X++;
 		}
 	}
@@ -1169,7 +1171,7 @@ write_icon (FILE *f, GSList *entries)
 
 	for (entry = entries; entry; entry = entry->next) {
 		icon = (IconEntry *)entry->data;
-		size = 40 + icon->height * (icon->and_rowstride + icon->xor_rowstride);
+		size = INFOHEADER_SIZE + icon->height * (icon->and_rowstride + icon->xor_rowstride);
 		
 		/* directory entry */
 		if (icon->width == 256)
@@ -1203,7 +1205,7 @@ write_icon (FILE *f, GSList *entries)
 		icon = (IconEntry *)entry->data;
 
 		/* bitmap header */
-		dwords[0] = 40;
+		dwords[0] = INFOHEADER_SIZE;
 		dwords[1] = icon->width;
 		dwords[2] = icon->height * 2;
 		write32 (f, dwords, 3);
