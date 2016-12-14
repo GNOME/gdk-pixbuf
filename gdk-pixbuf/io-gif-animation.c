@@ -419,7 +419,7 @@ gdk_pixbuf_gif_anim_frame_composite (GdkPixbufGifAnim *gif_anim,
                                 /* alpha gets dumped if f->composited has no alpha */
 
                                 gdk_pixbuf_fill (f->composited,
-                                                 (gif_anim->bg_red << 24) |
+                                                 ((unsigned) gif_anim->bg_red << 24) |
                                                  (gif_anim->bg_green << 16) |
                                                  (gif_anim->bg_blue << 8));
 
