@@ -348,8 +348,12 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 
 		/* A compressed icon, try the next one */
 		if ((BIH[16] != 0) || (BIH[17] != 0) || (BIH[18] != 0)
-		    || (BIH[19] != 0))
+		    || (BIH[19] != 0)) {
+			DEBUG(g_print("Skipping icon with score %d, as it is compressed\n", entry->ImageScore));
 			continue;
+		}
+
+		DEBUG(g_print("Selecting icon with score %d\n", entry->ImageScore));
 
 		/* If we made it to here then we have selected a BIH structure
 		 * in a format that we can parse */
