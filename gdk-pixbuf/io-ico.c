@@ -620,6 +620,7 @@ OneLine32 (struct ico_progressive_state *context)
 			  (gsize) context->pixbuf->rowstride *
                           context->Lines);
         while (X < context->Header.width) {
+                /* BGRA */
                 Pixels[X * 4 + 0] = context->LineBuf[X * 4 + 2];
                 Pixels[X * 4 + 1] = context->LineBuf[X * 4 + 1];
                 Pixels[X * 4 + 2] = context->LineBuf[X * 4 + 0];
