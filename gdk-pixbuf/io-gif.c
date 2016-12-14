@@ -508,6 +508,14 @@ gif_lzw_fill_buffer (GifContext *context)
 		return -2;
 	}
 
+	if (context->code_last_byte < 2) {
+		g_set_error_literal (context->error,
+				     GDK_PIXBUF_ERROR,
+				     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+				     _("Bad code encountered"));
+		return -2;
+	}
+
 	context->block_buf[0] = context->block_buf[context->code_last_byte - 2];
 	context->block_buf[1] = context->block_buf[context->code_last_byte - 1];
 
