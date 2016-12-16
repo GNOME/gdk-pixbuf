@@ -412,6 +412,8 @@ gdk_pixdata_from_pixbuf (GdkPixdata      *pixdata,
 /* From glib's gmem.c */
 #define SIZE_OVERFLOWS(a,b) (G_UNLIKELY ((b) > 0 && (a) > G_MAXSIZE / (b)))
 
+#define RLE_OVERRUN(offset) (rle_buffer_limit == NULL ? FALSE : rle_buffer + (offset) > rle_buffer_limit)
+
 /**
  * gdk_pixbuf_from_pixdata:
  * @pixdata: a #GdkPixdata to convert into a #GdkPixbuf.
@@ -494,13 +496,26 @@ gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
   if (encoding == GDK_PIXDATA_ENCODING_RLE)
     {
       const guint8 *rle_buffer = pixdata->pixel_data;
+      guint8 *rle_buffer_limit = NULL;
       guint8 *image_buffer = data;
       guint8 *image_limit = data + pixdata->rowstride * pixdata->height;
       gboolean check_overrun = FALSE;
 
-      while (image_buffer < image_limit)
+      if (pixdata->length >= 1)
+        rle_buffer_limit = pixdata->pixel_data + pixdata->length - GDK_PIXDATA_HEADER_LENGTH;
+
+      while (image_buffer < image_limit &&
+             (rle_buffer_limit != NULL || rle_buffer > rle_buffer_limit))
 	{
-	  guint length = *(rle_buffer++);
+	  guint length;
+
+	  if (RLE_OVERRUN(1))
+	    {
+	      check_overrun = TRUE;
+	      break;
+	    }
+
+	  length = *(rle_buffer++);
 
 	  if (length & 128)
 	    {
@@ -508,6 +523,11 @@ gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
 	      check_overrun = image_buffer + length * bpp > image_limit;
 	      if (check_overrun)
 		length = (image_limit - image_buffer) / bpp;
+	      if (RLE_OVERRUN(bpp < 4 ? 3 : 4))
+	        {
+	          check_overrun = TRUE;
+	          break;
+	        }
 	      if (bpp < 4)	/* RGB */
 		do
 		  {
@@ -522,6 +542,11 @@ gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
 		    image_buffer += 4;
 		  }
 		while (--length);
+	      if (RLE_OVERRUN(bpp))
+	        {
+	          check_overrun = TRUE;
+	          break;
+		}
 	      rle_buffer += bpp;
 	    }
 	  else
@@ -530,6 +555,11 @@ gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
 	      check_overrun = image_buffer + length > image_limit;
 	      if (check_overrun)
 		length = image_limit - image_buffer;
+	      if (RLE_OVERRUN(length))
+	        {
+	          check_overrun = TRUE;
+	          break;
+		}
 	      memcpy (image_buffer, rle_buffer, length);
 	      image_buffer += length;
 	      rle_buffer += length;
