@@ -115,7 +115,8 @@ parse_args (gint    *argc_p,
 
   for (i = 1; i < argc; i++)
     {
-      if (strcmp ("--rle", argv[i]) == 0)
+      if (strcmp ("-r", argv[i]) == 0 ||
+	  strcmp ("--rle", argv[i]) == 0)
 	{
 	  use_rle = TRUE;
 	  argv[i] = NULL;
