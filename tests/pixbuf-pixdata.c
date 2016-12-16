@@ -41,11 +41,11 @@ test_pixdata_deserialize (gconstpointer data)
 
   gdk_pixdata_deserialize (&pixdata, size, (const guint8 *) contents, &error);
   g_assert_no_error (error);
-  g_free (contents);
 
   pixbuf = gdk_pixbuf_from_pixdata (&pixdata, TRUE, &error);
   g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE);
   g_clear_error (&error);
+  g_free (contents);
 
   pixbuf = gdk_pixbuf_from_pixdata (&pixdata, FALSE, &error);
   g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE);
