@@ -47,6 +47,10 @@ test_pixdata_deserialize (gconstpointer data)
   g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE);
   g_clear_error (&error);
 
+  pixbuf = gdk_pixbuf_from_pixdata (&pixdata, FALSE, &error);
+  g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE);
+  g_clear_error (&error);
+
   g_clear_object (&pixbuf);
 }
 G_GNUC_END_IGNORE_DEPRECATIONS
