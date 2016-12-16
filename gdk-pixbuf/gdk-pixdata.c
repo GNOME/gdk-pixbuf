@@ -409,6 +409,9 @@ gdk_pixdata_from_pixbuf (GdkPixdata      *pixdata,
   return free_me;
 }
 
+/* From glib's gmem.c */
+#define SIZE_OVERFLOWS(a,b) (G_UNLIKELY ((b) > 0 && (a) > G_MAXSIZE / (b)))
+
 /**
  * gdk_pixbuf_from_pixdata:
  * @pixdata: a #GdkPixdata to convert into a #GdkPixbuf.
@@ -453,6 +456,26 @@ gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
 
   if (encoding == GDK_PIXDATA_ENCODING_RLE)
     copy_pixels = TRUE;
+
+  /* Sanity check the length and dimensions */
+  if (SIZE_OVERFLOWS (pixdata->height, pixdata->rowstride))
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR,
+                           GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                           _("Image pixel data corrupt"));
+      return NULL;
+    }
+
+  if (encoding == GDK_PIXDATA_ENCODING_RAW &&
+      pixdata->length >= 1 &&
+      pixdata->length < pixdata->height * pixdata->rowstride - GDK_PIXDATA_HEADER_LENGTH)
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR,
+                           GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                           _("Image pixel data corrupt"));
+      return NULL;
+    }
+
   if (copy_pixels)
     {
       data = g_try_malloc_n (pixdata->height, pixdata->rowstride);
