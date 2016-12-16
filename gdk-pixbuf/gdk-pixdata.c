@@ -445,6 +445,13 @@ gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
 
   bpp = (pixdata->pixdata_type & GDK_PIXDATA_COLOR_TYPE_MASK) == GDK_PIXDATA_COLOR_TYPE_RGB ? 3 : 4;
   encoding = pixdata->pixdata_type & GDK_PIXDATA_ENCODING_MASK;
+
+  g_debug ("gdk_pixbuf_from_pixdata() called on:");
+  g_debug ("\tEncoding %s", encoding == GDK_PIXDATA_ENCODING_RAW ? "raw" : "rle");
+  g_debug ("\tDimensions: %d x %d", pixdata->width, pixdata->height);
+  g_debug ("\tRowstride: %d, Length: %d", pixdata->rowstride, pixdata->length);
+  g_debug ("\tCopy pixels == %s", copy_pixels ? "true" : "false");
+
   if (encoding == GDK_PIXDATA_ENCODING_RLE)
     copy_pixels = TRUE;
   if (copy_pixels)
