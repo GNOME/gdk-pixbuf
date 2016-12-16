@@ -53,6 +53,47 @@ test_pixdata_deserialize (gconstpointer data)
 
   g_clear_object (&pixbuf);
 }
+
+static void
+test_pixdata_success (void)
+{
+  const gchar *path;
+  GdkPixbuf *pixbuf;
+  GdkPixdata pixdata1, pixdata2;
+  GError *error = NULL;
+  GdkPixbuf *ref;
+  gchar *contents;
+  gsize size;
+
+  path = g_test_get_filename (G_TEST_DIST, "test-image.png", NULL);
+  ref = gdk_pixbuf_new_from_file (path, &error);
+  g_assert_no_error (error);
+
+  g_file_get_contents (g_test_get_filename (G_TEST_DIST, "test-image.pixdata", NULL), &contents, &size, &error);
+  g_assert_no_error (error);
+  gdk_pixdata_deserialize (&pixdata1, size, (const guint8 *) contents, &error);
+  g_assert_no_error (error);
+  pixbuf = gdk_pixbuf_from_pixdata (&pixdata1, FALSE, &error);
+  g_assert_no_error (error);
+
+  pixdata_equal (ref, pixbuf, &error);
+  g_assert_no_error (error);
+  g_free (contents);
+  g_object_unref (pixbuf);
+
+  g_file_get_contents (g_test_get_filename (G_TEST_DIST, "test-image-rle.pixdata", NULL), &contents, &size, &error);
+  g_assert_no_error (error);
+  gdk_pixdata_deserialize (&pixdata2, size, (const guint8 *) contents, &error);
+  g_assert_no_error (error);
+  pixbuf = gdk_pixbuf_from_pixdata (&pixdata2, FALSE, &error);
+  g_assert_no_error (error);
+
+  pixdata_equal (ref, pixbuf, &error);
+  g_assert_no_error (error);
+  g_free (contents);
+  g_object_unref (pixbuf);
+  g_object_unref (ref);
+}
 G_GNUC_END_IGNORE_DEPRECATIONS
 
 static void
@@ -79,6 +120,7 @@ main (int argc, char **argv)
   g_test_init (&argc, &argv, NULL);
 
   g_test_add_func ("/pixbuf/pixdata", test_pixdata);
+  g_test_add_func ("/pixbuf/pixdata/success", test_pixdata_success);
   g_test_add_data_func ("/pixbuf/pixdata/bug775693", "bug775693.pixdata", test_pixdata_deserialize);
 
   return g_test_run ();
