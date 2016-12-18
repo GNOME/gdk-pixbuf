@@ -107,6 +107,10 @@ test_pixdata (void)
   g_assert_no_error (error);
   g_object_unref (ref);
 
+  ref = gdk_pixbuf_new_from_resource ("/test/resource/icc-profile-compressed.pixdata", &error);
+  g_assert_no_error (error);
+  g_object_unref (ref);
+
   path = g_test_get_filename (G_TEST_DIST, "test-image.pixdata", NULL);
   ref = gdk_pixbuf_new_from_file (path, &error);
   g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_UNKNOWN_TYPE);
