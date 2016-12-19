@@ -498,7 +498,7 @@ gdk_pixbuf_animation_new_from_resource (const gchar  *resource_path,
 	GdkPixbufAnimation *anim;
 	GdkPixbuf *pixbuf;
 
-        pixbuf = _gdk_pixbuf_new_from_resource_try_mmap (resource_path);
+        pixbuf = _gdk_pixbuf_new_from_resource_try_pixdata (resource_path);
         if (pixbuf) {
                 anim = gdk_pixbuf_non_anim_new (pixbuf);
                 g_object_unref (pixbuf);
