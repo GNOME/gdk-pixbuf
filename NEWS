@@ -1,3 +1,17 @@
+2.36.2
+======
+
+* Fix a NULL pointer dereference (#776026)
+* Fix a memory leak (#776020)
+* Support bmp headers with bitmask (#766890)
+* Add tests for scaling (#80925)
+* Handle compressed pixdata in resources (#776105)
+* Avoid a buffer overrun in the qtif loader ($#775648)
+* Fix a crash in the bmp loader (#775242)
+* Fix crash opening pnm images with large dimensions (#775232)
+* Prevent buffer overflow in the pixdata loader (#775693)
+* Translation updates
+
 2.36.1
 ======
 
