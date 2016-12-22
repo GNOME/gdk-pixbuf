@@ -15,12 +15,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf.master.es\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
-"%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2016-08-03 16:48+0000\n"
-"PO-Revision-Date: 2016-08-09 13:03+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
+"pixbuf&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-12-13 17:12+0000\n"
+"PO-Revision-Date: 2016-12-20 15:33+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,13 +28,13 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:156 gdk-pixbuf/gdk-pixbuf-io.c:1076
-#: gdk-pixbuf/gdk-pixbuf-io.c:1332
+#: gdk-pixbuf/gdk-pixbuf-animation.c:156 gdk-pixbuf/gdk-pixbuf-io.c:1070
+#: gdk-pixbuf/gdk-pixbuf-io.c:1330
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Falló al abrir el archivo «%s»: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:169 gdk-pixbuf/gdk-pixbuf-io.c:961
+#: gdk-pixbuf/gdk-pixbuf-animation.c:169 gdk-pixbuf/gdk-pixbuf-io.c:955
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "El archivo de imagen «%s» no contiene datos"
@@ -48,8 +48,8 @@ msgstr ""
 "No se ha podido cargar la animación «%s»: el motivo es desconocido, "
 "probablemente el archivo de la animación esté corrupto"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:275 gdk-pixbuf/gdk-pixbuf-io.c:1112
-#: gdk-pixbuf/gdk-pixbuf-io.c:1384
+#: gdk-pixbuf/gdk-pixbuf-animation.c:275 gdk-pixbuf/gdk-pixbuf-io.c:1106
+#: gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -132,12 +132,12 @@ msgstr "Bytes del píxel"
 msgid "Readonly pixel data"
 msgstr "Datos del píxel de sólo lectura"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:781
+#: gdk-pixbuf/gdk-pixbuf-io.c:775
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "No se ha podido cargar el módulo de carga de imágenes: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:796
+#: gdk-pixbuf/gdk-pixbuf-io.c:790
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -146,21 +146,21 @@ msgstr ""
 "El módulo de carga de imágenes %s no exporta la interfaz adecuada; ¿puede "
 "que sea de una versión de gdk-pixbuf diferente?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:805 gdk-pixbuf/gdk-pixbuf-io.c:848
+#: gdk-pixbuf/gdk-pixbuf-io.c:799 gdk-pixbuf/gdk-pixbuf-io.c:842
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "El tipo de imagen «%s» no está soportado"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:933
+#: gdk-pixbuf/gdk-pixbuf-io.c:927
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "No se pudo reconocer el formato de imagen del archivo «%s»"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:941
+#: gdk-pixbuf/gdk-pixbuf-io.c:935
 msgid "Unrecognized image file format"
 msgstr "No se ha reconocido el formato de imagen del archivo"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1123
+#: gdk-pixbuf/gdk-pixbuf-io.c:1117
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "No se ha podido cargar la imagen «%s»: %s"
@@ -189,12 +189,12 @@ msgstr "No se ha podido abrir el archivo temporal"
 msgid "Failed to read from temporary file"
 msgstr "No se ha podido leer del archivo temporal"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2512
+#: gdk-pixbuf/gdk-pixbuf-io.c:2468
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "No se ha podido abrir «%s» para escritura: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2538
+#: gdk-pixbuf/gdk-pixbuf-io.c:2494
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -203,11 +203,11 @@ msgstr ""
 "No se ha podido cerrar «%s» mientras se escribía la imagen, puede que no se "
 "hayan guardado todos los datos: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2759 gdk-pixbuf/gdk-pixbuf-io.c:2811
+#: gdk-pixbuf/gdk-pixbuf-io.c:2712 gdk-pixbuf/gdk-pixbuf-io.c:2764
 msgid "Insufficient memory to save image into a buffer"
 msgstr "No hay memoria suficiente para guardar la imagen en un búfer"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2857
+#: gdk-pixbuf/gdk-pixbuf-io.c:2810
 msgid "Error writing to image stream"
 msgstr "Error al escribir en el flujo de la imagen"
 
@@ -241,11 +241,12 @@ msgstr "La cabecera de la imagen está corrupta"
 msgid "Image format unknown"
 msgstr "El formato de la imagen es desconocido"
 
-#: gdk-pixbuf/gdk-pixdata.c:175 gdk-pixbuf/gdk-pixdata.c:513
+#: gdk-pixbuf/gdk-pixdata.c:175 gdk-pixbuf/gdk-pixdata.c:517
+#: gdk-pixbuf/gdk-pixdata.c:532
 msgid "Image pixel data corrupt"
 msgstr "Los datos del píxel de la imagen están corrompidos"
 
-#: gdk-pixbuf/gdk-pixdata.c:457
+#: gdk-pixbuf/gdk-pixdata.c:461
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -308,7 +309,7 @@ msgstr "Las imágenes BMP «Topdown» no se pueden comprimir"
 msgid "BMP image width too large"
 msgstr "Anchura de imagen BMP demasiado grande"
 
-#: gdk-pixbuf/io-bmp.c:732 gdk-pixbuf/io-png.c:531 gdk-pixbuf/io-pnm.c:705
+#: gdk-pixbuf/io-bmp.c:732 gdk-pixbuf/io-png.c:531 gdk-pixbuf/io-pnm.c:721
 msgid "Premature end-of-file encountered"
 msgstr "Se ha encontrado un final de archivo antes de lo esperado"
 
@@ -345,7 +346,7 @@ msgctxt "image format"
 msgid "Windows icon"
 msgstr "Icono de Windows"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1297
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1312
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -354,7 +355,7 @@ msgstr ""
 "La calidad de un JPEG debe ser un valor entre 0 y 100; el valor «%s» no se "
 "puede interpretar."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1313
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1328
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
@@ -362,7 +363,7 @@ msgstr ""
 "La calidad JPEG debe ser un valor entre 0 y 100; el valor «%d» no está "
 "permitido."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1586
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1601
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
@@ -505,7 +506,6 @@ msgstr "Icono de MacOS X"
 #: gdk-pixbuf/io-ico.c:230 gdk-pixbuf/io-ico.c:244 gdk-pixbuf/io-ico.c:317
 #: gdk-pixbuf/io-ico.c:328 gdk-pixbuf/io-ico.c:403 gdk-pixbuf/io-ico.c:428
 #, c-format
-#| msgid "Invalid header in icon"
 msgid "Invalid header in icon (%s)"
 msgstr "Cabecera del icono no válida (%s)"
 
@@ -577,7 +577,7 @@ msgstr "JPEG 2000"
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Error al interpretar el archivo gráfico JPEG (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:600
+#: gdk-pixbuf/io-jpeg.c:615
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -585,21 +585,21 @@ msgstr ""
 "No hay memoria suficiente para cargar la imagen, intente salir de algunas "
 "aplicaciones para liberar memoria"
 
-#: gdk-pixbuf/io-jpeg.c:669 gdk-pixbuf/io-jpeg.c:882
+#: gdk-pixbuf/io-jpeg.c:684 gdk-pixbuf/io-jpeg.c:897
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Espacio de color JPEG no soportado (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:781 gdk-pixbuf/io-jpeg.c:1062
-#: gdk-pixbuf/io-jpeg.c:1398 gdk-pixbuf/io-jpeg.c:1408
+#: gdk-pixbuf/io-jpeg.c:796 gdk-pixbuf/io-jpeg.c:1077
+#: gdk-pixbuf/io-jpeg.c:1413 gdk-pixbuf/io-jpeg.c:1423
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "No se pudo asignar memoria para cargar el archivo JPG"
 
-#: gdk-pixbuf/io-jpeg.c:1036
+#: gdk-pixbuf/io-jpeg.c:1051
 msgid "Transformed JPEG has zero width or height."
 msgstr "El JPEG transformado tiene anchura o altura cero."
 
-#: gdk-pixbuf/io-jpeg.c:1334
+#: gdk-pixbuf/io-jpeg.c:1349
 #, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
@@ -607,7 +607,7 @@ msgstr ""
 "JPEG x-dpi debe ser un valor entre 1 y 65535; el valor «%s» no está "
 "permitido."
 
-#: gdk-pixbuf/io-jpeg.c:1355
+#: gdk-pixbuf/io-jpeg.c:1370
 #, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
@@ -615,19 +615,10 @@ msgstr ""
 "JPEG y-dpi debe ser un valor entre 1 y 65535; el valor «%s» no está "
 "permitido."
 
-#: gdk-pixbuf/io-jpeg.c:1369
+#: gdk-pixbuf/io-jpeg.c:1384
 #, c-format
 msgid "Color profile has invalid length '%u'."
 msgstr "El perfil de color tiene una longitud «%u» no válida."
-
-#: gdk-pixbuf/io-pixdata.c:150
-msgid "Transformed pixbuf has zero width or height."
-msgstr "El búfer de píxeles transformado tiene anchura o altura cero."
-
-#: gdk-pixbuf/io-pixdata.c:189
-msgctxt "image format"
-msgid "GdkPixdata"
-msgstr "GdkPixdata"
 
 #: gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
@@ -747,53 +738,63 @@ msgid "PNM file is not in a recognized PNM subformat"
 msgstr "El archivo PNM no está en un subformato PNM reconocido"
 
 #: gdk-pixbuf/io-pnm.c:333
+#| msgid "PNM file has an image width of 0"
+msgid "PNM file has an invalid width"
+msgstr "El archivo PNM tiene una anchura no válida"
+
+#: gdk-pixbuf/io-pnm.c:341
 msgid "PNM file has an image width of 0"
 msgstr "El archivo PNM tiene un ancho de imagen de 0"
 
-#: gdk-pixbuf/io-pnm.c:354
+#: gdk-pixbuf/io-pnm.c:362
+#| msgid "PNM file has an image height of 0"
+msgid "PNM file has an invalid height"
+msgstr "El archivo PNM tiene una altura no válida"
+
+#: gdk-pixbuf/io-pnm.c:370
 msgid "PNM file has an image height of 0"
 msgstr "El archivo PNM tiene un alto de imagen de 0"
 
-#: gdk-pixbuf/io-pnm.c:377
+#: gdk-pixbuf/io-pnm.c:393
 msgid "Maximum color value in PNM file is 0"
 msgstr "El valor máximo de color en el archivo PNM es 0"
 
-#: gdk-pixbuf/io-pnm.c:385
+#: gdk-pixbuf/io-pnm.c:401
 msgid "Maximum color value in PNM file is too large"
 msgstr "El valor máximo de color en el archivo PNM es demasiado grande"
 
-#: gdk-pixbuf/io-pnm.c:425 gdk-pixbuf/io-pnm.c:455 gdk-pixbuf/io-pnm.c:500
+#: gdk-pixbuf/io-pnm.c:441 gdk-pixbuf/io-pnm.c:471 gdk-pixbuf/io-pnm.c:516
 msgid "Raw PNM image type is invalid"
 msgstr "El tipo de imagen PNM en bruto no es válido"
 
-#: gdk-pixbuf/io-pnm.c:650
+#: gdk-pixbuf/io-pnm.c:666
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "El cargador de imágenes PNM no permite este subformato PNM"
 
-#: gdk-pixbuf/io-pnm.c:737 gdk-pixbuf/io-pnm.c:964
+#: gdk-pixbuf/io-pnm.c:753 gdk-pixbuf/io-pnm.c:980
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr ""
 "Los formatos PNM en bruto requieren exactamente un espacio en blanco antes "
 "de los datos"
 
-#: gdk-pixbuf/io-pnm.c:764
+#: gdk-pixbuf/io-pnm.c:780
 msgid "Cannot allocate memory for loading PNM image"
 msgstr "No se puede asignar memoria para cargar la imagen PNM"
 
-#: gdk-pixbuf/io-pnm.c:814
+#: gdk-pixbuf/io-pnm.c:830
 msgid "Insufficient memory to load PNM context struct"
 msgstr ""
 "No hay memoria suficiente para cargar la estructura de contexto del PNM"
 
-#: gdk-pixbuf/io-pnm.c:865
+#: gdk-pixbuf/io-pnm.c:881
 msgid "Unexpected end of PNM image data"
 msgstr "Final no esperado de los datos de la imagen PNM"
 
-#: gdk-pixbuf/io-pnm.c:993
+#: gdk-pixbuf/io-pnm.c:1009
 msgid "Insufficient memory to load PNM file"
 msgstr "No hay memoria suficiente para cargar el archivo PNM"
 
-#: gdk-pixbuf/io-pnm.c:1077
+#: gdk-pixbuf/io-pnm.c:1093
 msgctxt "image format"
 msgid "PNM/PBM/PGM/PPM"
 msgstr "PNM/PBM/PGM/PPM"
@@ -1013,6 +1014,13 @@ msgstr ""
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
+
+#~ msgid "Transformed pixbuf has zero width or height."
+#~ msgstr "El búfer de píxeles transformado tiene anchura o altura cero."
+
+#~ msgctxt "image format"
+#~ msgid "GdkPixdata"
+#~ msgstr "GdkPixdata"
 
 #~| msgid "Not enough memory to load image"
 #~ msgid "Not enough bytes for header"
