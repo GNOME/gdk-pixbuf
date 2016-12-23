@@ -1971,7 +1971,7 @@ get_file_info_thread (GTask                *task,
  * gdk_pixbuf_get_file_info_async:
  * @filename: The name of the file to identify
  * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
- * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
+ * @callback: a #GAsyncReadyCallback to call when the the file info is available
  * @user_data: the data to pass to the callback function
  *
  * Asynchronously parses an image file far enough to determine its
@@ -2962,7 +2962,7 @@ save_to_stream_thread (GTask                 *task,
  * @option_keys: (array zero-terminated=1): name of options to set, %NULL-terminated
  * @option_values: (array zero-terminated=1): values for named options
  * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
- * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
+ * @callback: a #GAsyncReadyCallback to call when the the pixbuf is saved
  * @user_data: the data to pass to the callback function
  *
  * Saves @pixbuf to an output stream asynchronously.
@@ -3013,7 +3013,7 @@ gdk_pixbuf_save_to_streamv_async (GdkPixbuf           *pixbuf,
  * @stream: a #GOutputStream to which to save the pixbuf
  * @type: name of file format
  * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
- * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
+ * @callback: a #GAsyncReadyCallback to call when the the pixbuf is saved
  * @user_data: the data to pass to the callback function
  * @...: list of key-value save options
  *
