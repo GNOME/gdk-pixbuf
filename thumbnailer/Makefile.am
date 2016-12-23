@@ -25,7 +25,7 @@ gdk_pixbuf_print_mime_types_LDADD =			\
 
 thumbnailerdir = $(datadir)/thumbnailers/
 thumbnailer_DATA = gdk-pixbuf-thumbnailer.thumbnailer
-gdk-pixbuf-thumbnailer.thumbnailer: gdk-pixbuf-thumbnailer.thumbnailer.in Makefile gdk-pixbuf-print-mime-types
+gdk-pixbuf-thumbnailer.thumbnailer: gdk-pixbuf-thumbnailer.thumbnailer.in Makefile gdk-pixbuf-print-mime-types$(EXEEXT)
 	$(AM_V_GEN) GDK_PIXBUF_MODULE_FILE=$(top_builddir)/gdk-pixbuf/loaders.cache	\
 	GDK_PIXBUF_PIXDATA=$(top_builddir)/gdk-pixbuf/gdk-pixbuf-pixdata		\
 	$(SED) -e "s|\@bindir\@|$(bindir)|"						\
