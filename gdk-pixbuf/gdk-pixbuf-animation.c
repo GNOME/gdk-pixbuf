@@ -415,7 +415,7 @@ animation_new_from_stream_thread (GTask        *task,
  * gdk_pixbuf_animation_new_from_stream_async:
  * @stream: a #GInputStream from which to load the animation
  * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
- * @callback: a #GAsyncReadyCallback to call when the the pixbuf is loaded
+ * @callback: a #GAsyncReadyCallback to call when the pixbuf is loaded
  * @user_data: the data to pass to the callback function
  *
  * Creates a new animation by asynchronously loading an image from an input stream.
