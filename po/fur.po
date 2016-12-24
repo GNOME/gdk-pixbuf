@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2016-12-15 15:10+0000\n"
-"PO-Revision-Date: 2016-12-23 05:54+0100\n"
+"PO-Revision-Date: 2016-12-24 04:21+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <f.t.public@gmail.com>\n"
 "Language: fur\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: gdk-pixbuf/gdk-pixbuf-animation.c:156 gdk-pixbuf/gdk-pixbuf-io.c:1070
 #: gdk-pixbuf/gdk-pixbuf-io.c:1330
@@ -239,8 +239,8 @@ msgstr "Dâts pixel de imagin ruvinâts"
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "no si è rivât a assegnâ %u byte pal buffer de imagjin "
+msgstr[1] "no si è rivât a assegnâ %u byte pal buffer de imagjin"
 
 #: gdk-pixbuf/io-ani.c:242
 msgid "Unexpected icon chunk in animation"
@@ -309,7 +309,7 @@ msgstr "Erôr tal decodificâ la mape di colôrs"
 
 #: gdk-pixbuf/io-bmp.c:1357
 msgid "Couldn't allocate memory for saving BMP file"
-msgstr ""
+msgstr "Impussibil assegnâ memorie par salvâ il file BMP"
 
 #: gdk-pixbuf/io-bmp.c:1398
 msgid "Couldn't write to BMP file"
@@ -365,7 +365,7 @@ msgstr "TIFF"
 #: gdk-pixbuf/io-gdip-utils.c:155
 #, c-format
 msgid "Could not allocate memory: %s"
-msgstr ""
+msgstr "Impussibil assegnâ memorie: %s"
 
 #: gdk-pixbuf/io-gdip-utils.c:180 gdk-pixbuf/io-gdip-utils.c:294
 #: gdk-pixbuf/io-gdip-utils.c:334
@@ -460,7 +460,7 @@ msgstr "La version %s dal formât file GIF no je supuartade"
 
 #: gdk-pixbuf/io-gif.c:1239
 msgid "Resulting GIF image has zero size"
-msgstr "La imagjin GIF risultant e à dimension pari a zero"
+msgstr "La imagjin GIF risultant e à dimension zero"
 
 #: gdk-pixbuf/io-gif.c:1318
 msgid ""
@@ -530,7 +530,7 @@ msgstr "Profonditât no supuartade pal file ICO: %d"
 
 #: gdk-pixbuf/io-jasper.c:73
 msgid "Couldn't allocate memory for stream"
-msgstr ""
+msgstr "Impussibil assegnâ memorie pal flus"
 
 #: gdk-pixbuf/io-jasper.c:103
 msgid "Couldn't decode image"
@@ -538,7 +538,7 @@ msgstr "Impussibil decodificâ la imagjin"
 
 #: gdk-pixbuf/io-jasper.c:121
 msgid "Transformed JPEG2000 has zero width or height"
-msgstr "Il JPEG2000 trasformât al à largjece o altece pari a zero"
+msgstr "Il JPEG2000 trasformât al à largjece o altece zero"
 
 #: gdk-pixbuf/io-jasper.c:135
 msgid "Image type currently not supported"
@@ -546,7 +546,7 @@ msgstr "Il gjenar di imagjin par cumò nol è supuartât"
 
 #: gdk-pixbuf/io-jasper.c:147 gdk-pixbuf/io-jasper.c:155
 msgid "Couldn't allocate memory for color profile"
-msgstr ""
+msgstr "Impussibil assegnâ memorie pal profîl colôr"
 
 #: gdk-pixbuf/io-jasper.c:181
 msgid "Insufficient memory to open JPEG 2000 file"
@@ -555,6 +555,7 @@ msgstr "No vonde memorie par vierzi il file JPEG2000"
 #: gdk-pixbuf/io-jasper.c:260
 msgid "Couldn't allocate memory to buffer image data"
 msgstr ""
+"Impussibil assegnâ memorie par archiviâ in memorie temporanie i dâts imagjin"
 
 #: gdk-pixbuf/io-jasper.c:304
 msgctxt "image format"
@@ -582,11 +583,11 @@ msgstr "Spazi colôr JPEG no supuartât (%s)"
 #: gdk-pixbuf/io-jpeg.c:796 gdk-pixbuf/io-jpeg.c:1077 gdk-pixbuf/io-jpeg.c:1413
 #: gdk-pixbuf/io-jpeg.c:1423
 msgid "Couldn't allocate memory for loading JPEG file"
-msgstr ""
+msgstr "Impussibil assegnâ memorie pal cjariament dal file JPEG"
 
 #: gdk-pixbuf/io-jpeg.c:1051
 msgid "Transformed JPEG has zero width or height."
-msgstr "Il JPEG trasformât al à largjece o altece pari a zero."
+msgstr "Il JPEG trasformât al à largjece o altece zero."
 
 #: gdk-pixbuf/io-jpeg.c:1349
 #, c-format
@@ -615,7 +616,7 @@ msgstr "\"Bit par canâl\" de imagjin PNG nol è valit."
 
 #: gdk-pixbuf/io-png.c:135 gdk-pixbuf/io-png.c:671
 msgid "Transformed PNG has zero width or height."
-msgstr "Il PNG trasformât al à largjece o altece pari a zero."
+msgstr "Il PNG trasformât al à largjece o altece zero."
 
 #: gdk-pixbuf/io-png.c:143
 msgid "Bits per channel of transformed PNG is not 8."
@@ -720,38 +721,39 @@ msgstr "PNG"
 #: gdk-pixbuf/io-pnm.c:246
 msgid "PNM loader expected to find an integer, but didn't"
 msgstr ""
+"Il modul di cjariament PNM si spietave di cjatâ un intîr, ma no lu à vût"
 
 #: gdk-pixbuf/io-pnm.c:278
 msgid "PNM file has an incorrect initial byte"
-msgstr ""
+msgstr "Il file PNM al à un byte iniziâl no just"
 
 #: gdk-pixbuf/io-pnm.c:308
 msgid "PNM file is not in a recognized PNM subformat"
-msgstr ""
+msgstr "Il file PNM nol è intun sot-formât PNM ricognossût"
 
 #: gdk-pixbuf/io-pnm.c:333
 msgid "PNM file has an invalid width"
-msgstr ""
+msgstr "Il file PNM al à une largjece no valide"
 
 #: gdk-pixbuf/io-pnm.c:341
 msgid "PNM file has an image width of 0"
-msgstr ""
+msgstr "Il file PNM al à une largjece de imagjin di 0"
 
 #: gdk-pixbuf/io-pnm.c:362
 msgid "PNM file has an invalid height"
-msgstr ""
+msgstr "Il file PNM al à une altece no valide"
 
 #: gdk-pixbuf/io-pnm.c:370
 msgid "PNM file has an image height of 0"
-msgstr ""
+msgstr "Il file PNM al à une altece imagjin di 0"
 
 #: gdk-pixbuf/io-pnm.c:393
 msgid "Maximum color value in PNM file is 0"
-msgstr ""
+msgstr "Il valôr di colôr massim tal file PNM al è 0"
 
 #: gdk-pixbuf/io-pnm.c:401
 msgid "Maximum color value in PNM file is too large"
-msgstr ""
+msgstr "Il valôr di colôr massim tal file PNM al è masse grant"
 
 #: gdk-pixbuf/io-pnm.c:441 gdk-pixbuf/io-pnm.c:471 gdk-pixbuf/io-pnm.c:516
 msgid "Raw PNM image type is invalid"
@@ -759,7 +761,7 @@ msgstr ""
 
 #: gdk-pixbuf/io-pnm.c:666
 msgid "PNM image loader does not support this PNM subformat"
-msgstr ""
+msgstr "Il modul di cjariament imagjin PNM nol supuarte chest sot-formât PNM"
 
 #: gdk-pixbuf/io-pnm.c:753 gdk-pixbuf/io-pnm.c:980
 msgid "Raw PNM formats require exactly one whitespace before sample data"
@@ -767,19 +769,19 @@ msgstr ""
 
 #: gdk-pixbuf/io-pnm.c:780
 msgid "Cannot allocate memory for loading PNM image"
-msgstr ""
+msgstr "Impussibil assegnâ memorie pal cjariament de imagjin PNM"
 
 #: gdk-pixbuf/io-pnm.c:830
 msgid "Insufficient memory to load PNM context struct"
-msgstr ""
+msgstr "No vonde memorie par cjariâ la struture dal contest PNM"
 
 #: gdk-pixbuf/io-pnm.c:881
 msgid "Unexpected end of PNM image data"
-msgstr ""
+msgstr "Fin inspietade dai dâts imagjin PNM"
 
 #: gdk-pixbuf/io-pnm.c:1009
 msgid "Insufficient memory to load PNM file"
-msgstr ""
+msgstr "No vonde memorie par cjariâ il file PNM"
 
 #: gdk-pixbuf/io-pnm.c:1093
 msgctxt "image format"
@@ -792,45 +794,45 @@ msgstr ""
 
 #: gdk-pixbuf/io-qtif.c:141
 msgid "Failed to read QTIF header"
-msgstr ""
+msgstr "No si è rivâts a lei la intestazion QTIF"
 
 #: gdk-pixbuf/io-qtif.c:150 gdk-pixbuf/io-qtif.c:187 gdk-pixbuf/io-qtif.c:454
 #, c-format
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "La dimension dal atom QTIF e je masse largje (%d byte)"
+msgstr[1] "La dimension dal atom QTIF e je masse largje (%d byte)"
 
 #: gdk-pixbuf/io-qtif.c:173
 #, c-format
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "No si è rivâts a assegnâ %d byte pal buffer di leture dal file"
+msgstr[1] "No si è rivâts a assegnâ %d byte pal buffer di leture dal file"
 
 #: gdk-pixbuf/io-qtif.c:201
 #, c-format
 msgid "File error when reading QTIF atom: %s"
-msgstr ""
+msgstr "Erôr di file tal lei l'atom QTIF: %s"
 
 #: gdk-pixbuf/io-qtif.c:238
 #, c-format
 msgid "Failed to skip the next %d byte with seek()."
 msgid_plural "Failed to skip the next %d bytes with seek()."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "No si è rivâts a ometi il sucessîf %d byte cun seek()."
+msgstr[1] "No si è rivâts a ometi i sucessîfs %d byte cun seek()."
 
 #: gdk-pixbuf/io-qtif.c:265
 msgid "Failed to allocate QTIF context structure."
-msgstr ""
+msgstr "No si è rivâts a assegnâ la struture dal contest QTIF."
 
 #: gdk-pixbuf/io-qtif.c:325
 msgid "Failed to create GdkPixbufLoader object."
-msgstr ""
+msgstr "No si è rivâts a creâ l'ogjet GdkPixbufLoader."
 
 #: gdk-pixbuf/io-qtif.c:429
 msgid "Failed to find an image data atom."
-msgstr ""
+msgstr "No si è rivâts a cjatâ un atom di dâts imagjin."
 
 #: gdk-pixbuf/io-qtif.c:613
 msgctxt "image format"
@@ -839,39 +841,39 @@ msgstr "QuickTime"
 
 #: gdk-pixbuf/io-tga.c:333
 msgid "Cannot allocate colormap"
-msgstr ""
+msgstr "Impussibil assegnâ mape di colôrs"
 
 #: gdk-pixbuf/io-tga.c:358
 msgid "Cannot allocate new pixbuf"
-msgstr ""
+msgstr "Impussibil assegnâ un gnûf pixbuf"
 
 #: gdk-pixbuf/io-tga.c:506
 msgid "Unexpected bitdepth for colormap entries"
-msgstr ""
+msgstr "Profonditât di colôr inspietade pai elements de mape di colôrs"
 
 #: gdk-pixbuf/io-tga.c:522
 msgid "Pseudocolor image does not contain a colormap"
-msgstr ""
+msgstr "La imagjin in fals colôrs no conten une mape di colôrs"
 
 #: gdk-pixbuf/io-tga.c:565
 msgid "Cannot allocate TGA header memory"
-msgstr ""
+msgstr "Impussibil assegnâ memorie pe intestazion TGA"
 
 #: gdk-pixbuf/io-tga.c:596
 msgid "TGA image has invalid dimensions"
-msgstr ""
+msgstr "La imagjin TGA e à dimension no validis"
 
 #: gdk-pixbuf/io-tga.c:602 gdk-pixbuf/io-tga.c:609
 msgid "TGA image type not supported"
-msgstr ""
+msgstr "Il gjenar de imagjin TGA nol è supuartât"
 
 #: gdk-pixbuf/io-tga.c:634
 msgid "Cannot allocate memory for TGA context struct"
-msgstr ""
+msgstr "Impussibil assegnâ memorie pe struture dal contest TGA"
 
 #: gdk-pixbuf/io-tga.c:695
 msgid "TGA image was truncated or incomplete."
-msgstr ""
+msgstr "La imagjin TGA e jere cjonçade o incomplete."
 
 #: gdk-pixbuf/io-tga.c:747
 msgctxt "image format"
@@ -880,77 +882,83 @@ msgstr "Targa"
 
 #: gdk-pixbuf/io-tiff.c:107
 msgid "Could not get image width (bad TIFF file)"
-msgstr ""
+msgstr "Impussibil otignî la largjece de imagjin (file TIFF difetôs)"
 
 #: gdk-pixbuf/io-tiff.c:115
 msgid "Could not get image height (bad TIFF file)"
-msgstr ""
+msgstr "Impussibil otignî la altege de imagjin (file TIFF difetôs)"
 
 #: gdk-pixbuf/io-tiff.c:123
 msgid "Width or height of TIFF image is zero"
-msgstr ""
+msgstr "Largjece o altece de imagjin TIFF e je zero"
 
 #: gdk-pixbuf/io-tiff.c:132 gdk-pixbuf/io-tiff.c:141
 msgid "Dimensions of TIFF image too large"
-msgstr ""
+msgstr "Dimensions de imagjin TIFF masse grandis"
 
 #: gdk-pixbuf/io-tiff.c:165 gdk-pixbuf/io-tiff.c:177 gdk-pixbuf/io-tiff.c:535
 msgid "Insufficient memory to open TIFF file"
-msgstr ""
+msgstr "No vonde memorie par vierzi il file TIFF"
 
 #: gdk-pixbuf/io-tiff.c:275
 msgid "Failed to load RGB data from TIFF file"
-msgstr ""
+msgstr "No si è rivâts a cjariâ i dâts RGB dal file TIFF"
 
 #: gdk-pixbuf/io-tiff.c:337
 msgid "Failed to open TIFF image"
-msgstr ""
+msgstr "No si è rivâts a vierzi la imagjin TIFF"
 
 #: gdk-pixbuf/io-tiff.c:471 gdk-pixbuf/io-tiff.c:484
 msgid "Failed to load TIFF image"
-msgstr ""
+msgstr "No si è rivâts a cjariâ la imagjin TIFF"
 
 #: gdk-pixbuf/io-tiff.c:710
 msgid "Failed to save TIFF image"
-msgstr ""
+msgstr "No si è rivâts a salvâ la imagjin TIFF"
 
 #: gdk-pixbuf/io-tiff.c:766
 msgid "TIFF compression doesn't refer to a valid codec."
-msgstr ""
+msgstr "La compression TIFF no fâs riferiment a un codec valit."
 
 #: gdk-pixbuf/io-tiff.c:811
 msgid "TIFF bits-per-sample doesn't contain a supported value."
-msgstr ""
+msgstr "Il bit-par-campion TIFF nol conten un valôr supuartât."
 
 #: gdk-pixbuf/io-tiff.c:892
 msgid "Failed to write TIFF data"
-msgstr ""
+msgstr "No si è rivâts a scrivi dâts TIFF"
 
 #: gdk-pixbuf/io-tiff.c:910
 #, c-format
 msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
 msgstr ""
+"Il x-dpi TIFF al scugne jessi plui grant di zero; il valôr '%s' nol è "
+"permetût."
 
 #: gdk-pixbuf/io-tiff.c:922
 #, c-format
 msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
 msgstr ""
+"Il y-dpi TIFF al scugne jessi plui grant di zero; il valôr '%s' nol è "
+"permetût."
 
 #: gdk-pixbuf/io-tiff.c:963
 msgid "Couldn't write to TIFF file"
-msgstr ""
+msgstr "Impussibil scrivi tal file TIFF"
 
 #: gdk-pixbuf/io-xbm.c:302
 msgid "Invalid XBM file"
-msgstr ""
+msgstr "File XBM no valit"
 
 #: gdk-pixbuf/io-xbm.c:312
 msgid "Insufficient memory to load XBM image file"
-msgstr ""
+msgstr "No vonde memorie par cjariâ il file imagjin XBM"
 
 #: gdk-pixbuf/io-xbm.c:460
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr ""
+"No si è rivâts a scrivi sul file temporani cuant che si cjariave la imagjin "
+"XBM"
 
 #: gdk-pixbuf/io-xbm.c:499
 msgctxt "image format"
@@ -959,39 +967,41 @@ msgstr "XBM"
 
 #: gdk-pixbuf/io-xpm.c:468
 msgid "No XPM header found"
-msgstr ""
+msgstr "Nissune intestazion XPM cjatade"
 
 #: gdk-pixbuf/io-xpm.c:477
 msgid "Invalid XPM header"
-msgstr ""
+msgstr "Intestazion XPM no valide"
 
 #: gdk-pixbuf/io-xpm.c:485
 msgid "XPM file has image width <= 0"
-msgstr ""
+msgstr "Il file XPM al à largjece di imagjin <= 0"
 
 #: gdk-pixbuf/io-xpm.c:493
 msgid "XPM file has image height <= 0"
-msgstr ""
+msgstr "Il file XPM al à altece imagjin <= 0"
 
 #: gdk-pixbuf/io-xpm.c:501
 msgid "XPM has invalid number of chars per pixel"
-msgstr ""
+msgstr "XPM al à un numar di caratars par pixel no valit"
 
 #: gdk-pixbuf/io-xpm.c:510
 msgid "XPM file has invalid number of colors"
-msgstr ""
+msgstr "Il file XPM al à un numar di colôrs no valit"
 
 #: gdk-pixbuf/io-xpm.c:522 gdk-pixbuf/io-xpm.c:531 gdk-pixbuf/io-xpm.c:583
 msgid "Cannot allocate memory for loading XPM image"
-msgstr ""
+msgstr "Impussibil assegnâ memorie pal cjariament de imagjin XPM"
 
 #: gdk-pixbuf/io-xpm.c:545
 msgid "Cannot read XPM colormap"
-msgstr ""
+msgstr "Impussibil lei la mape di colôrs XPM"
 
 #: gdk-pixbuf/io-xpm.c:777
 msgid "Failed to write to temporary file when loading XPM image"
 msgstr ""
+"No si è rivâts a scrivi sul file temporani cuant che si cjariave la imagjin "
+"XPM"
 
 #: gdk-pixbuf/io-xpm.c:816
 msgctxt "image format"
