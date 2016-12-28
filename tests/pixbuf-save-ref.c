@@ -25,7 +25,7 @@
 static gboolean
 load_and_save (const char *filename, GError **error)
 {
-  GdkPixbuf *pixbuf;
+  GdkPixbuf *pixbuf = NULL;
   GdkPixbufLoader *loader;
   guchar *contents;
   char *new_filename = NULL;
@@ -42,15 +42,20 @@ load_and_save (const char *filename, GError **error)
       goto out;
     }
 
+  if (!gdk_pixbuf_loader_close (loader, error))
+    {
+      if (!g_error_matches (*error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INCOMPLETE_ANIMATION))
+        {
+          ret = FALSE;
+          goto out;
+        }
+      g_clear_error (error);
+    }
+
   pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
   g_assert (pixbuf);
   g_object_ref (pixbuf);
 
-  if (!gdk_pixbuf_loader_close (loader, error))
-    {
-      ret = FALSE;
-      goto out;
-    }
   g_object_unref (loader);
 
   new_filename = g_strdup_printf ("%s.ref.png", filename);
@@ -59,7 +64,7 @@ load_and_save (const char *filename, GError **error)
 out:
   g_free (contents);
   g_free (new_filename);
-  g_object_unref (pixbuf);
+  g_clear_object (&pixbuf);
 
   return ret;
 }
