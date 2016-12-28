@@ -89,6 +89,27 @@ jasper_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 	return context;
 }
 
+static const char *
+colourspace_to_str (int c)
+{
+	switch (c) {
+	case JAS_CLRSPC_FAM_UNKNOWN:
+		return "Unknown";
+	case JAS_CLRSPC_FAM_XYZ:
+		return "XYZ";
+	case JAS_CLRSPC_FAM_LAB:
+		return "LAB";
+	case JAS_CLRSPC_FAM_GRAY:
+		return "GRAY";
+	case JAS_CLRSPC_FAM_RGB:
+		return "RGB";
+	case JAS_CLRSPC_FAM_YCBCR:
+		return "YCbCr";
+	default:
+		return "Invalid";
+	}
+}
+
 static gboolean
 jasper_image_try_load (struct jasper_context *context, GError **error)
 {
@@ -130,7 +151,9 @@ jasper_image_try_load (struct jasper_context *context, GError **error)
 
 	if ((num_components != 3 && num_components != 4 && num_components != 1) ||
 	    (colourspace_family != JAS_CLRSPC_FAM_RGB  && colourspace_family != JAS_CLRSPC_FAM_GRAY)) {
-	    	jas_image_destroy (raw_image);
+		jas_image_destroy (raw_image);
+		g_debug ("Unsupported colourspace %s (num components: %d)",
+			 colourspace_to_str (colourspace_family), num_components);
 		g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
                                      _("Image type currently not supported"));
 		return FALSE;
