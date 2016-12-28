@@ -20,6 +20,7 @@ noinst_PROGRAMS += 			\
 	pixbuf-read			\
 	pixbuf-random			\
 	pixbuf-lowmem			\
+	pixbuf-save-ref			\
 	$(NULL)
 
 test_programs = 			\
