@@ -25,6 +25,9 @@
 
 #include "test-common.h"
 
+/* As defined in gdk-pixbuf-private.h */
+#define DEFAULT_FILL_COLOR 0x979899ff
+
 static void
 loader_size_prepared (GdkPixbufLoader  *loader,
                       int               w,
@@ -35,6 +38,8 @@ loader_size_prepared (GdkPixbufLoader  *loader,
 
   *pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8, w, h);
   g_assert (*pixbuf != NULL);
+  /* likely!! */
+  gdk_pixbuf_fill (*pixbuf, DEFAULT_FILL_COLOR);
 }
 
 static void
