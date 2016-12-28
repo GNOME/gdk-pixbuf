@@ -52,6 +52,9 @@ typedef struct _GdkPixbufClass GdkPixbufClass;
 #define DPM_TO_DPI(value) ((int) round ((value) * 25.4 / 1000))
 #define DPCM_TO_DPI(value) ((int) round ((value) * 2.54))
 
+/* Default fill color */
+#define DEFAULT_FILL_COLOR 0x979899ff
+
 /* Private part of the GdkPixbuf structure */
 struct _GdkPixbuf {
         GObject parent_instance;
