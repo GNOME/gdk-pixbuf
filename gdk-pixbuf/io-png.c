@@ -325,6 +325,8 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
 		return NULL;
 	}
 
+        gdk_pixbuf_fill (pixbuf, DEFAULT_FILL_COLOR);
+
 	rows = g_new (png_bytep, h);
 
         for (i = 0, ptr = pixbuf->pixels; i < h; i++, ptr = (guchar *) ptr + pixbuf->rowstride)
@@ -688,6 +690,8 @@ png_info_callback   (png_structp png_read_ptr,
                 }
                 return;
         }
+
+        gdk_pixbuf_fill (lc->pixbuf, DEFAULT_FILL_COLOR);
 
         /* Extract text chunks and attach them as pixbuf options */
         
