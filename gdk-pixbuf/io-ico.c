@@ -869,16 +869,14 @@ static void OneLine(struct ico_progressive_state *context)
 	
 	context->Lines++;
 	if (context->Lines>=context->Header.height) {
-	 	context->Type = 1;
+		context->Type = 1;
 		context->LineWidth = context->Header.width / 8;
 		if ((context->Header.width & 7) != 0)
 			context->LineWidth++;
 		/* Pad to a 32 bit boundary */
 		if (((context->LineWidth % 4) > 0))
 			context->LineWidth = (context->LineWidth / 4) * 4 + 4;
-			
 	}
-	  
 
 	if (context->updated_func != NULL) {
 		int y;
