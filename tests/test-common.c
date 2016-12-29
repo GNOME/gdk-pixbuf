@@ -156,15 +156,15 @@ pixdata_equal (GdkPixbuf  *test,
                     {
                       g_set_error (error, GDK_PIXBUF_ERROR, 0, "Image data at %ux%u is #%02X%02X%02X%02X, but should be #%02X%02X%02X%02X",
                                    x, y,
-                                   test_pixels[0], test_pixels[1], test_pixels[2], test_pixels[3],
-                                   ref_pixels[0], ref_pixels[1], ref_pixels[2], ref_pixels[3]);
+                                   test_pixels[x * n_channels + 0], test_pixels[x * n_channels + 1], test_pixels[x * n_channels + 2], test_pixels[x * n_channels + 3],
+                                   ref_pixels[x * n_channels + 0], ref_pixels[x * n_channels + 1], ref_pixels[x * n_channels + 2], ref_pixels[x * n_channels + 3]);
                     }
                   else if (n_channels == 3)
                     {
                       g_set_error (error, GDK_PIXBUF_ERROR, 0, "Image data at %ux%u is #%02X%02X%02X, but should be #%02X%02X%02X",
                                    x, y,
-                                   test_pixels[0], test_pixels[1], test_pixels[2],
-                                   ref_pixels[0], ref_pixels[1], ref_pixels[2]);
+                                   test_pixels[x * n_channels + 0], test_pixels[x * n_channels + 1], test_pixels[x * n_channels + 2],
+                                   ref_pixels[x * n_channels + 0], ref_pixels[x * n_channels + 1], ref_pixels[x * n_channels + 2]);
                     }
                   else
                     {
