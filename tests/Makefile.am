@@ -42,6 +42,7 @@ test_programs = 			\
 	pixbuf-save			\
 	pixbuf-readonly-to-mutable	\
 	pixbuf-composite		\
+	pixbuf-area-updated		\
 	$(NULL)
 
 dist_installed_test_data =		\
@@ -69,6 +70,12 @@ dist_installed_test_data =		\
 	$(wildcard $(srcdir)/test-images/randomly-modified/*) \
 	$(wildcard $(srcdir)/test-images/reftests/*.*) \
 	$(wildcard $(srcdir)/test-images/reftests/tga/*) \
+	$(NULL)
+
+pixbuf_area_updated_SOURCES =		\
+	pixbuf-area-updated.c		\
+	test-common.c			\
+	test-common.h			\
 	$(NULL)
 
 pixbuf_randomly_modified_SOURCES =	\
