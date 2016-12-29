@@ -659,6 +659,7 @@ static void OneLine24(struct ico_progressive_state *context)
 		Pixels[X * 4 + 0] = context->LineBuf[X * 3 + 2];
 		Pixels[X * 4 + 1] = context->LineBuf[X * 3 + 1];
 		Pixels[X * 4 + 2] = context->LineBuf[X * 3 + 0];
+		Pixels[X * 4 + 3] = 0xff;
 		X++;
 	}
 
@@ -699,7 +700,7 @@ OneLine16 (struct ico_progressive_state *context)
                 *pixels++ = (r << 3) | (r >> 2);
                 *pixels++ = (g << 3) | (g >> 2);
                 *pixels++ = (b << 3) | (b >> 2);
-                pixels++; /* skip alpha channel */
+                *pixels++ = 0xff;
         }
 }
 
@@ -726,6 +727,7 @@ static void OneLine8(struct ico_progressive_state *context)
 		    context->HeaderBuf[4 * context->LineBuf[X] + INFOHEADER_SIZE + 1 +context->DIBoffset];
 		Pixels[X * 4 + 2] =
 		    context->HeaderBuf[4 * context->LineBuf[X] + INFOHEADER_SIZE +context->DIBoffset];
+		Pixels[X * 4 + 3] = 0xff;
 		X++;
 	}
 }
@@ -755,6 +757,7 @@ static void OneLine4(struct ico_progressive_state *context)
 		    context->HeaderBuf[4 * (Pix>>4) + INFOHEADER_SIZE + 1 +context->DIBoffset];
 		Pixels[X * 4 + 2] =
 		    context->HeaderBuf[4 * (Pix>>4) + INFOHEADER_SIZE + context->DIBoffset];
+		Pixels[X * 4 + 3] = 0xff;
 		X++;
 		if (X<context->Header.width) { 
 			/* Handle the other 4 bit pixel only when there is one */
@@ -764,6 +767,7 @@ static void OneLine4(struct ico_progressive_state *context)
 			    context->HeaderBuf[4 * (Pix&15) + INFOHEADER_SIZE + 1 + context->DIBoffset];
 			Pixels[X * 4 + 2] =
 			    context->HeaderBuf[4 * (Pix&15) + INFOHEADER_SIZE + context->DIBoffset];
+			Pixels[X * 4 + 3] = 0xff;
 			X++;
 		}
 	}
@@ -793,6 +797,7 @@ static void OneLine1(struct ico_progressive_state *context)
 		Pixels[X * 4 + 0] = Bit*255;
 		Pixels[X * 4 + 1] = Bit*255;
 		Pixels[X * 4 + 2] = Bit*255;
+		Pixels[X * 4 + 3] = 0xff;
 		X++;
 	}
 }
