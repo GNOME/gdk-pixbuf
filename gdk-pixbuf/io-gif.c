@@ -1068,11 +1068,11 @@ gif_get_lzw (GifContext *context)
         
 	if (bound_flag && context->update_func) {
 		if (lower_bound <= upper_bound && first_pass == context->draw_pass) {
-                        maybe_update (context, 
+                        maybe_update (context,
                                       context->frame->x_offset,
                                       context->frame->y_offset + lower_bound,
                                       gdk_pixbuf_get_width (context->frame->pixbuf),
-                                      upper_bound - lower_bound);
+                                      upper_bound - lower_bound + 1);
 		} else {
 			if (lower_bound <= upper_bound) {
                                 maybe_update (context,
