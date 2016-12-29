@@ -328,6 +328,8 @@ int main(int argc, char **argv)
 
   g_test_add_data_func ("/pixbuf/area-updated/ico", (gconstpointer) "test-images/reftests/squares.ico", test_area_updated_ico);
   g_test_add_data_func ("/pixbuf/area-updated/gif", (gconstpointer) "aero.gif", test_area_updated_anim);
+  g_test_add_data_func ("/pixbuf/area-updated/gif2", (gconstpointer) "1_partyanimsm2.gif", test_area_updated_anim);
+  g_test_add_data_func ("/pixbuf/area-updated/gif3", (gconstpointer) "test-animation.gif", test_area_updated_anim);
 
   return g_test_run ();
 }
