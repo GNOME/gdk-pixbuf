@@ -881,9 +881,15 @@ static void OneLine(struct ico_progressive_state *context)
 	  
 
 	if (context->updated_func != NULL) {
+		int y;
+
+		y = context->Lines % context->Header.height;
+		if (context->Header.Negative == 0 &&
+		    context->Lines < context->Header.height)
+			y = context->Header.height - y;
 		(*context->updated_func) (context->pixbuf,
 					  0,
-					  context->Lines % context->Header.height,
+					  y,
 					  context->Header.width,
 					  1,
 					  context->user_data);
