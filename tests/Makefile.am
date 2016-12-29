@@ -66,6 +66,7 @@ dist_installed_test_data =		\
 	test-image.pixdata		\
 	test-image-rle.pixdata		\
 	bug775693.pixdata		\
+	aero.gif			\
 	$(wildcard $(srcdir)/test-images/fail/*) \
 	$(wildcard $(srcdir)/test-images/randomly-modified/*) \
 	$(wildcard $(srcdir)/test-images/reftests/*.*) \
