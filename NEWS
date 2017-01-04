@@ -1,3 +1,13 @@
+2.36.3
+======
+
+* gif, ico: Fix area-updated coordinates (#581484)
+* tga: Improve error handling (#575217)
+* jasper: Improve error handling (#685543)
+* Test suite improvements (#696331)
+* Minor documentation fixes (#776457)
+* Translation updates
+
 2.36.2
 ======
 
