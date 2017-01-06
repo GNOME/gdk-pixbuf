@@ -38,6 +38,7 @@ test_programs = 			\
 	pixbuf-reftest			\
 	pixbuf-resource			\
 	pixbuf-scale			\
+	pixbuf-scale-two-step		\
 	pixbuf-short-gif-write		\
 	pixbuf-save			\
 	pixbuf-readonly-to-mutable	\
@@ -113,6 +114,12 @@ pixbuf_fail_SOURCES =			\
 
 pixbuf_scale_SOURCES = 			\
 	pixbuf-scale.c			\
+	test-common.c			\
+	test-common.h			\
+	$(NULL)
+
+pixbuf_scale_two_step_SOURCES =		\
+	pixbuf-scale-two-step.c		\
 	test-common.c			\
 	test-common.h			\
 	$(NULL)
