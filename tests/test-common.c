@@ -26,6 +26,64 @@
 
 #include <string.h>
 
+/* Checkerboard of black and white pxels (actually (1,1,1) and (255,255,255)
+ * so they average to (128,128,128)) */
+GdkPixbuf *
+make_checkerboard (int width, int height)
+{
+  GdkPixbuf *checkerboard;
+  guint x, y;
+  guchar *row;   /* Pointer to start of row of pixels within the image */
+  guchar *pixel; /* Pointer to current pixel data in row */
+
+  checkerboard = gdk_pixbuf_new (GDK_COLORSPACE_RGB, 0, 8, width, height);
+  g_assert_nonnull (checkerboard);
+
+  for (y = 0, row = gdk_pixbuf_get_pixels (checkerboard);
+       y < height;
+       y++, row += gdk_pixbuf_get_rowstride (checkerboard))
+    {
+      for (x = 0, pixel = row;
+           x < width;
+           x++, pixel += gdk_pixbuf_get_n_channels (checkerboard))
+        {
+          pixel[0] = pixel[1] = pixel[2] = (x ^ y) & 1 ? 1 : 255;
+        }
+    }
+
+  return checkerboard;
+}
+
+/* Image where all the pixels have different colours */
+GdkPixbuf *
+make_rg (int width, int height)
+{
+  GdkPixbuf *pixbuf;
+  guint x, y;
+  guchar *row;   /* Pointer to start of row of pixels within the image */
+  guchar *pixel; /* Pointer to current pixel data in row */
+
+  /* Make a source image whose pixels are all of different colors */
+  pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, 0, 8, width, height);
+  g_assert_nonnull (pixbuf);
+
+  for (y = 0, row = gdk_pixbuf_get_pixels (pixbuf);
+       y < height;
+       y++, row += gdk_pixbuf_get_rowstride (pixbuf))
+    {
+      for (x = 0, pixel = row;
+           x < width;
+           x++, pixel += gdk_pixbuf_get_n_channels (pixbuf))
+        {
+          pixel[0] = x & 255; pixel[1] = y & 255;
+          /* If image > 256 pixels wide/high put the extra bits in the last pixel */
+          pixel[2] = ((x >> 8) & 15) | ((( y >> 8) & 15) << 4);
+        }
+    }
+
+  return pixbuf;
+}
+
 gboolean
 format_supported (const gchar *filename)
 {
