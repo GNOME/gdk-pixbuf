@@ -237,6 +237,7 @@ test_halve_checkerboard (gconstpointer data)
   GdkInterpType interp_type = *(GdkInterpType *) data;
   const GdkPixbuf *source;              /* Source image */
   gint width = 256, height = 256;       /* Size of source image */
+  gint scaled_width, scaled_height;     /* Size of scaled image */
   GdkPixbuf *scaled;                    /* Scaled version */
   guchar *row;                          /* Pointer to start of row of pixels within the image */
   guchar *pixel;                        /* Pointer to current pixel data in row */
@@ -248,14 +249,18 @@ test_halve_checkerboard (gconstpointer data)
   source = make_checkerboard (width, height);
 
   scaled = gdk_pixbuf_scale_simple (source, width / 2, height / 2, interp_type);
+  scaled_width = gdk_pixbuf_get_width (scaled);
+  scaled_height = gdk_pixbuf_get_height (scaled);
+  g_assert_cmpint (scaled_width, >, 0);
+  g_assert_cmpint (scaled_height, >, 0);
 
   /* Check that the result is all gray (or all white in the case of NEAREST) */
   for (y = 0, row = gdk_pixbuf_get_pixels (scaled);
-       y < gdk_pixbuf_get_height (scaled);
+       y < (guint) scaled_height;
        y++, row += gdk_pixbuf_get_rowstride (scaled))
     {
       for (x = 0, pixel = row;
-           x < gdk_pixbuf_get_width (scaled);
+           x < (guint) scaled_width;
            x++, pixel += gdk_pixbuf_get_n_channels (scaled))
         {
           if (!(pixel[0] == expected && pixel[1] == expected && pixel[2] == expected))
@@ -263,8 +268,8 @@ test_halve_checkerboard (gconstpointer data)
               /* Expected failure: HYPER has a different opinion about the color
                * of the corner pixels: (126,126,126) and (130,130,130) */
               if (interp_type == GDK_INTERP_HYPER &&
-                  (x == 0 || x == gdk_pixbuf_get_width (scaled) - 1) &&
-                  (y == 0 || y == gdk_pixbuf_get_height (scaled) - 1))
+                  (x == 0 || x == scaled_width - 1) &&
+                  (y == 0 || y == scaled_height - 1))
                 {
                   continue;
                 }
@@ -288,9 +293,10 @@ crop_n_compare (const GdkPixbuf *source,
                 GdkInterpType    interp_type)
 {
   GdkPixbuf *cropped, *scaled;
-  guchar *crow, *srow;          /* Pointer to current row in image data */
-  guchar *cpixel, *spixel;      /* Pointer to current pixel in row */
+  guchar *crow, *srow;                  /* Pointer to current row in image data */
+  guchar *cpixel, *spixel;              /* Pointer to current pixel in row */
   guint x, y;
+  gint scaled_width, scaled_height;     /* Size of scaled image */
 
   cropped = gdk_pixbuf_new_subpixbuf ((GdkPixbuf *)source, offset_x, offset_y, width, height);
   g_assert_nonnull (cropped);
@@ -304,14 +310,19 @@ crop_n_compare (const GdkPixbuf *source,
                     1.0, 1.0,                         /* scale_[xy] */
                     interp_type);
 
+  scaled_width = gdk_pixbuf_get_width (scaled);
+  scaled_height = gdk_pixbuf_get_height (scaled);
+  g_assert_cmpint (scaled_width, >, 0);
+  g_assert_cmpint (scaled_height, >, 0);
+
   for (y = 0, crow = gdk_pixbuf_get_pixels (cropped),
               srow = gdk_pixbuf_get_pixels (scaled);
-       y < gdk_pixbuf_get_height (scaled);
+       y < scaled_height;
        y++, crow += gdk_pixbuf_get_rowstride (cropped),
             srow += gdk_pixbuf_get_rowstride (scaled))
     {
       for (x = 0, cpixel = crow, spixel = srow;
-           x < gdk_pixbuf_get_width (scaled);
+           x < scaled_width;
            x++, cpixel += gdk_pixbuf_get_n_channels (cropped),
                 spixel += gdk_pixbuf_get_n_channels (scaled))
         {
@@ -322,8 +333,8 @@ crop_n_compare (const GdkPixbuf *source,
               /* Expected failure: HYPER has a different opinion about the
                * colors of the edge pixels */
               if (interp_type == GDK_INTERP_HYPER &&
-                  ((x == 0 || x == gdk_pixbuf_get_width (scaled) - 1) ||
-                   (y == 0 || y == gdk_pixbuf_get_height (scaled) - 1)))
+                  ((x == 0 || x == scaled_width - 1) ||
+                   (y == 0 || y == scaled_height - 1)))
                 {
                   continue;
                 }
