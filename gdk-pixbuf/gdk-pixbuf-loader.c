@@ -516,7 +516,10 @@ gdk_pixbuf_loader_write (GdkPixbufLoader *loader,
                         buf += eaten;
                 }
   
-        if (count > 0 && priv->image_module->load_increment)
+        /* By this point, we expect the image_module to have been loaded. */
+        g_assert (priv->image_module != NULL);
+
+        if (count > 0 && priv->image_module->load_increment != NULL)
                 {
                         if (!priv->image_module->load_increment (priv->context, buf, count,
                                                                  error))
