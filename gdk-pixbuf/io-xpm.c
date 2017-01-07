@@ -401,7 +401,8 @@ file_buffer (enum buf_op op, gpointer handle)
 
 	case op_cmap:
 		xpm_seek_char (h->infile, '"');
-		fseek (h->infile, -1, SEEK_CUR);
+		if (fseek (h->infile, -1, SEEK_CUR) != 0)
+			return NULL;
 		/* Fall through to the xpm_read_string. */
 
 	case op_body:
