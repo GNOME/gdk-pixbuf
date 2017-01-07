@@ -58,6 +58,12 @@
  * and Sparc chipsets.  If desired, mediaLib support can be turned off by
  * setting the `GDK_DISABLE_MEDIALIB` environment variable.  
  * 
+ * The alpha blending function used is:
+ * |[
+ * Cd = Cs·As + Cd(1-As)
+ * ]|
+ * where `Cd` is the destination pixel color, `Cs` is the source pixel color,
+ * and `As` is the source pixel alpha.
  * 
  * The following example demonstrates handling an expose event by
  * rendering the appropriate area of a source image (which is scaled
