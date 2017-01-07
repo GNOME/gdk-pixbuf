@@ -7,15 +7,15 @@
 # Gintautas Miliauskas <gintas@akl.lt>, 2007.
 # Rimas Kudelis <rq@akl.lt>, 2008, 2010.
 # Gintautas Miliauskas <gintautas@miliauskas.lt>, 2009.
-# Aurimas Černius <aurisc4@gmail.com>, 2013, 2014, 2015, 2016.
+# Aurimas Černius <aurisc4@gmail.com>, 2013, 2014, 2015, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtk"
-"%2b&keywords=I18N+L10N&component=gdk\n"
-"POT-Creation-Date: 2016-08-03 16:48+0000\n"
-"PO-Revision-Date: 2016-08-03 21:59+0300\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
+"pixbuf&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-12-13 17:12+0000\n"
+"PO-Revision-Date: 2017-01-07 15:14+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -26,13 +26,13 @@ msgstr ""
 "%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Gtranslator 2.91.7\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:156 gdk-pixbuf/gdk-pixbuf-io.c:1076
-#: gdk-pixbuf/gdk-pixbuf-io.c:1332
+#: gdk-pixbuf/gdk-pixbuf-animation.c:156 gdk-pixbuf/gdk-pixbuf-io.c:1070
+#: gdk-pixbuf/gdk-pixbuf-io.c:1330
 #, c-format
 msgid "Failed to open file '%s': %s"
 msgstr "Nepavyko atverti failo „%s“: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:169 gdk-pixbuf/gdk-pixbuf-io.c:961
+#: gdk-pixbuf/gdk-pixbuf-animation.c:169 gdk-pixbuf/gdk-pixbuf-io.c:955
 #, c-format
 msgid "Image file '%s' contains no data"
 msgstr "Paveikslėlio faile „%s“ nėra duomenų"
@@ -46,8 +46,8 @@ msgstr ""
 "Nepavyko įkelti animacijos „%s“: nežinoma priežastis, tikriausiai sugadintas "
 "failas"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:275 gdk-pixbuf/gdk-pixbuf-io.c:1112
-#: gdk-pixbuf/gdk-pixbuf-io.c:1384
+#: gdk-pixbuf/gdk-pixbuf-animation.c:275 gdk-pixbuf/gdk-pixbuf-io.c:1106
+#: gdk-pixbuf/gdk-pixbuf-io.c:1382
 #, c-format
 msgid ""
 "Failed to load image '%s': reason not known, probably a corrupt image file"
@@ -128,12 +128,12 @@ msgstr "Pikselių baitai"
 msgid "Readonly pixel data"
 msgstr "Pikselių duomenys tik skaitymui"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:781
+#: gdk-pixbuf/gdk-pixbuf-io.c:775
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Nepavyko įkelti paveikslėlių kelties modulio: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:796
+#: gdk-pixbuf/gdk-pixbuf-io.c:790
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it's "
@@ -142,21 +142,21 @@ msgstr ""
 "Paveikslėlių kelties modulis „%s“ neeksportuoja teisingos sąsajos; galbūt "
 "jis yra iš kitos „gdk-pixbuf“ versijos?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:805 gdk-pixbuf/gdk-pixbuf-io.c:848
+#: gdk-pixbuf/gdk-pixbuf-io.c:799 gdk-pixbuf/gdk-pixbuf-io.c:842
 #, c-format
 msgid "Image type '%s' is not supported"
 msgstr "Paveikslėlio tipas „%s“ nepalaikomas"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:933
+#: gdk-pixbuf/gdk-pixbuf-io.c:927
 #, c-format
 msgid "Couldn't recognize the image file format for file '%s'"
 msgstr "Nepavyko atpažinti paveikslėlio failo „%s“ formato"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:941
+#: gdk-pixbuf/gdk-pixbuf-io.c:935
 msgid "Unrecognized image file format"
 msgstr "Neatpažintas paveikslėlio failo formatas"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1123
+#: gdk-pixbuf/gdk-pixbuf-io.c:1117
 #, c-format
 msgid "Failed to load image '%s': %s"
 msgstr "Nepavyko įkelti paveikslėlio „%s“: %s"
@@ -185,12 +185,12 @@ msgstr "Nepavyko atverti laikino failo"
 msgid "Failed to read from temporary file"
 msgstr "Nepavyko perskaityti laikino failo"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2512
+#: gdk-pixbuf/gdk-pixbuf-io.c:2468
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Nepavyko atverti „%s“ įrašymui: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2538
+#: gdk-pixbuf/gdk-pixbuf-io.c:2494
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -199,11 +199,11 @@ msgstr ""
 "Saugant paveikslėlį nepavyko uždaryti „%s“, duomenys gali būti neišsaugoti: "
 "%s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2759 gdk-pixbuf/gdk-pixbuf-io.c:2811
+#: gdk-pixbuf/gdk-pixbuf-io.c:2712 gdk-pixbuf/gdk-pixbuf-io.c:2764
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Nepakanka atminties įšsaugoti paveikslėlį į buferį"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2857
+#: gdk-pixbuf/gdk-pixbuf-io.c:2810
 msgid "Error writing to image stream"
 msgstr "Klaida rašant į paveikslėlio srautą"
 
@@ -238,11 +238,12 @@ msgstr "Paveikslėlio antraštė sugadinta"
 msgid "Image format unknown"
 msgstr "Paveikslėlio formatas nežinomas"
 
-#: gdk-pixbuf/gdk-pixdata.c:175 gdk-pixbuf/gdk-pixdata.c:513
+#: gdk-pixbuf/gdk-pixdata.c:175 gdk-pixbuf/gdk-pixdata.c:517
+#: gdk-pixbuf/gdk-pixdata.c:532
 msgid "Image pixel data corrupt"
 msgstr "Paveikslėlio taškiniai duomenys apgadinti"
 
-#: gdk-pixbuf/gdk-pixdata.c:457
+#: gdk-pixbuf/gdk-pixdata.c:461
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -306,7 +307,7 @@ msgstr "Topdown BMP paveikslėliai negali būti suspausti"
 msgid "BMP image width too large"
 msgstr "BMP paveikslėlis yra per platus"
 
-#: gdk-pixbuf/io-bmp.c:732 gdk-pixbuf/io-png.c:531 gdk-pixbuf/io-pnm.c:705
+#: gdk-pixbuf/io-bmp.c:732 gdk-pixbuf/io-png.c:531 gdk-pixbuf/io-pnm.c:721
 msgid "Premature end-of-file encountered"
 msgstr "Per anksti aptiktas failo pabaigos simbolis"
 
@@ -343,7 +344,7 @@ msgctxt "image format"
 msgid "Windows icon"
 msgstr "Windows piktograma"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1297
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1312
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -352,14 +353,14 @@ msgstr ""
 "JPEG kokybės reikšmė turi būti tarp 0 ir 100, reikšmės „%s“ nepavyko "
 "apdoroti."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1313
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1328
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr ""
 "JPEG kokybės reikšmė turi būti tarp 0 ir 100; reikšmė „%d“ yra neleistina."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1586
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1601
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
@@ -501,7 +502,6 @@ msgstr "MacOS X piktograma"
 #: gdk-pixbuf/io-ico.c:230 gdk-pixbuf/io-ico.c:244 gdk-pixbuf/io-ico.c:317
 #: gdk-pixbuf/io-ico.c:328 gdk-pixbuf/io-ico.c:403 gdk-pixbuf/io-ico.c:428
 #, c-format
-#| msgid "Invalid header in icon"
 msgid "Invalid header in icon (%s)"
 msgstr "Netinkama antraštė piktogramoje (%s)"
 
@@ -573,7 +573,7 @@ msgstr "JPEG 2000"
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Klaida interpretuojant JPEG paveikslėlio failą (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:600
+#: gdk-pixbuf/io-jpeg.c:615
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -581,45 +581,36 @@ msgstr ""
 "Nepakanka atminties pakrauti paveikslėlį, uždarykite dalį programų, kad "
 "atlaisvinti atmintį"
 
-#: gdk-pixbuf/io-jpeg.c:669 gdk-pixbuf/io-jpeg.c:882
+#: gdk-pixbuf/io-jpeg.c:684 gdk-pixbuf/io-jpeg.c:897
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Nepalaikoma JPEG spalvų gama (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:781 gdk-pixbuf/io-jpeg.c:1062 gdk-pixbuf/io-jpeg.c:1398
-#: gdk-pixbuf/io-jpeg.c:1408
+#: gdk-pixbuf/io-jpeg.c:796 gdk-pixbuf/io-jpeg.c:1077 gdk-pixbuf/io-jpeg.c:1413
+#: gdk-pixbuf/io-jpeg.c:1423
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Nepakako atminties įkelti JPEG failą"
 
-#: gdk-pixbuf/io-jpeg.c:1036
+#: gdk-pixbuf/io-jpeg.c:1051
 msgid "Transformed JPEG has zero width or height."
 msgstr "Pakeistas JPEG turi nulinį plotį arba aukštį."
 
-#: gdk-pixbuf/io-jpeg.c:1334
+#: gdk-pixbuf/io-jpeg.c:1349
 #, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 msgstr "JPEG x-dpi turi būti nuo 1 iki 65535; vertė „%s“ neleidžiama."
 
-#: gdk-pixbuf/io-jpeg.c:1355
+#: gdk-pixbuf/io-jpeg.c:1370
 #, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 msgstr "JPEG y-dpi turi būti nuo 1 iki 65535; vertė „%s“ neleidžiama."
 
-#: gdk-pixbuf/io-jpeg.c:1369
+#: gdk-pixbuf/io-jpeg.c:1384
 #, c-format
 msgid "Color profile has invalid length '%u'."
 msgstr "Spalvų profilio ilgis „%u“ netinkamas."
-
-#: gdk-pixbuf/io-pixdata.c:150
-msgid "Transformed pixbuf has zero width or height."
-msgstr "Transformuotas pikselių žemėlapis turi nulinį plotį arba aukštį."
-
-#: gdk-pixbuf/io-pixdata.c:189
-msgctxt "image format"
-msgid "GdkPixdata"
-msgstr "GdkPixdata"
 
 #: gdk-pixbuf/io-png.c:54
 msgid "Bits per channel of PNG image is invalid."
@@ -733,52 +724,62 @@ msgid "PNM file is not in a recognized PNM subformat"
 msgstr "PNM failas naudoja neatpažįstamą PNM antrinį formatą"
 
 #: gdk-pixbuf/io-pnm.c:333
+#| msgid "PNM file has an image width of 0"
+msgid "PNM file has an invalid width"
+msgstr "PNM failas yra netinkamo pločio"
+
+#: gdk-pixbuf/io-pnm.c:341
 msgid "PNM file has an image width of 0"
 msgstr "PNM faile yra paveikslėlis, kurio plotis lygus nuliui"
 
-#: gdk-pixbuf/io-pnm.c:354
+#: gdk-pixbuf/io-pnm.c:362
+#| msgid "PNM file has an image height of 0"
+msgid "PNM file has an invalid height"
+msgstr "PNM failas yra netinkamo aukščio"
+
+#: gdk-pixbuf/io-pnm.c:370
 msgid "PNM file has an image height of 0"
 msgstr "PNM faile yra paveikslėlis, kurio aukštis lygus nuliui"
 
-#: gdk-pixbuf/io-pnm.c:377
+#: gdk-pixbuf/io-pnm.c:393
 msgid "Maximum color value in PNM file is 0"
 msgstr "Didžiausia PNM spalvos reikšmė yra 0"
 
-#: gdk-pixbuf/io-pnm.c:385
+#: gdk-pixbuf/io-pnm.c:401
 msgid "Maximum color value in PNM file is too large"
 msgstr "Didžiausia spalvos reikšmė PNM faile yra per didelė"
 
-#: gdk-pixbuf/io-pnm.c:425 gdk-pixbuf/io-pnm.c:455 gdk-pixbuf/io-pnm.c:500
+#: gdk-pixbuf/io-pnm.c:441 gdk-pixbuf/io-pnm.c:471 gdk-pixbuf/io-pnm.c:516
 msgid "Raw PNM image type is invalid"
 msgstr "Netinkamas neapdoroto PNM paveikslėlio tipas"
 
-#: gdk-pixbuf/io-pnm.c:650
+#: gdk-pixbuf/io-pnm.c:666
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "PNM apdorojimo posistemė nepalaiko šio PNM antrinio formato"
 
-#: gdk-pixbuf/io-pnm.c:737 gdk-pixbuf/io-pnm.c:964
+#: gdk-pixbuf/io-pnm.c:753 gdk-pixbuf/io-pnm.c:980
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr ""
 "Neapdorotuose PNM formato paveikslėliose turi būti lygiai vienas tarpas "
 "prieš pavyzdžio duomenis"
 
-#: gdk-pixbuf/io-pnm.c:764
+#: gdk-pixbuf/io-pnm.c:780
 msgid "Cannot allocate memory for loading PNM image"
 msgstr "Nepavyko rezervuoti atminties kiekio būtino PNM failo atvaizdavimui"
 
-#: gdk-pixbuf/io-pnm.c:814
+#: gdk-pixbuf/io-pnm.c:830
 msgid "Insufficient memory to load PNM context struct"
 msgstr "Nepakanka atminties apdoroti PNM struktūrą"
 
-#: gdk-pixbuf/io-pnm.c:865
+#: gdk-pixbuf/io-pnm.c:881
 msgid "Unexpected end of PNM image data"
 msgstr "Netikėta PNM paveikslėlio duomenų pabaiga"
 
-#: gdk-pixbuf/io-pnm.c:993
+#: gdk-pixbuf/io-pnm.c:1009
 msgid "Insufficient memory to load PNM file"
 msgstr "Nepakanka atminties apdoroti PNM failą"
 
-#: gdk-pixbuf/io-pnm.c:1077
+#: gdk-pixbuf/io-pnm.c:1093
 msgctxt "image format"
 msgid "PNM/PBM/PGM/PPM"
 msgstr "PNM/PBM/PGM/PPM"
@@ -997,6 +998,13 @@ msgstr "Įkeliant XPM failą nepavyko įrašyti laikino failo"
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
+
+#~ msgid "Transformed pixbuf has zero width or height."
+#~ msgstr "Transformuotas pikselių žemėlapis turi nulinį plotį arba aukštį."
+
+#~ msgctxt "image format"
+#~ msgid "GdkPixdata"
+#~ msgstr "GdkPixdata"
 
 #~ msgid "Cannot allocate memory for IOBuffer struct"
 #~ msgstr "Nepavyko rezervuoti atminties IOBuffer struktūrai"
