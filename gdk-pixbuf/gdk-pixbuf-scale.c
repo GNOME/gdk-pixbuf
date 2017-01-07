@@ -261,6 +261,9 @@ gdk_pixbuf_composite (const GdkPixbuf *src,
  * colors @color1 and @color2 and renders it onto the destination
  * image.
  *
+ * If the source image has no alpha channel, and @overall_alpha is 255, a fast
+ * path is used which omits the alpha blending and just performs the scaling.
+ *
  * See gdk_pixbuf_composite_color_simple() for a simpler variant of this
  * function suitable for many tasks.
  * 
@@ -413,6 +416,8 @@ gdk_pixbuf_composite_color_simple (const GdkPixbuf *src,
  *
  * Rotates a pixbuf by a multiple of 90 degrees, and returns the
  * result in a new pixbuf.
+ *
+ * If @angle is 0, a copy of @src is returned, avoiding any rotation.
  *
  * Returns: (nullable) (transfer full): the new #GdkPixbuf, or %NULL
  * if not enough memory could be allocated for it.
