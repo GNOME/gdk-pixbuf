@@ -330,6 +330,9 @@ gdk_pixbuf_composite_color (const GdkPixbuf *src,
  * You can scale a sub-portion of @src by creating a sub-pixbuf
  * pointing into @src; see gdk_pixbuf_new_subpixbuf().
  *
+ * If @dest_width and @dest_height are equal to the @src width and height, a
+ * copy of @src is returned, avoiding any scaling.
+ *
  * For more complicated scaling/alpha blending see gdk_pixbuf_scale()
  * and gdk_pixbuf_composite().
  * 
@@ -347,6 +350,10 @@ gdk_pixbuf_scale_simple (const GdkPixbuf *src,
   g_return_val_if_fail (GDK_IS_PIXBUF (src), NULL);
   g_return_val_if_fail (dest_width > 0, NULL);
   g_return_val_if_fail (dest_height > 0, NULL);
+
+  /* Fast path. */
+  if (dest_width == src->width && dest_height == src->height)
+    return gdk_pixbuf_copy (src);
 
   dest = gdk_pixbuf_new (GDK_COLORSPACE_RGB, src->has_alpha, 8, dest_width, dest_height);
   if (!dest)
