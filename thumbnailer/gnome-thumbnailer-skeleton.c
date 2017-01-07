@@ -88,6 +88,9 @@ gnome_desktop_thumbnail_scale_down_pixbuf (GdkPixbuf *pixbuf,
 	dy = ddy.quot;
 	dy_frac = ddy.rem;
 
+	g_assert (dx >= 1);
+	g_assert (dy >= 1);
+
 	has_alpha = gdk_pixbuf_get_has_alpha (pixbuf);
 	source_rowstride = gdk_pixbuf_get_rowstride (pixbuf);
 	src_pixels = gdk_pixbuf_get_pixels (pixbuf);
@@ -146,7 +149,9 @@ gnome_desktop_thumbnail_scale_down_pixbuf (GdkPixbuf *pixbuf,
 				}
 				src += source_rowstride;
 			}
-			
+
+			g_assert (n_pixels > 0);
+
 			if (has_alpha) {
 				if (a != 0) {
 					*dest++ = r / a;
