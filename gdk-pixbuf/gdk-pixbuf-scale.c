@@ -27,16 +27,18 @@
 
 /**
  * SECTION:scaling
- * @Short_description: Scaling pixbufs and scaling and compositing pixbufs
+ * @Short_description: Scaling pixbufs and scaling and alpha blending pixbufs
  * @Title: Scaling
  * @See_also:    <link linkend="gdk-GdkRGB">GdkRGB</link>.
  * 
  * The GdkPixBuf contains functions to scale pixbufs, to scale
- * pixbufs and composite against an existing image, and to scale
- * pixbufs and composite against a solid color or checkerboard.
- * Compositing a checkerboard is a common way to show an image with
+ * pixbufs and alpha blend against an existing image, and to scale
+ * pixbufs and alpha blend against a solid color or checkerboard.
+ * Alpha blending a checkerboard is a common way to show an image with
  * an alpha channel in image-viewing and editing software.
  * 
+ * Note that in these functions, the terms ‘alpha blending’ and ‘compositing’
+ * are used synonymously.
  * 
  * Since the full-featured functions (gdk_pixbuf_scale(),
  * gdk_pixbuf_composite(), and gdk_pixbuf_composite_color()) are
@@ -49,7 +51,7 @@
  * If the destination pixbuf was created from a readonly source, these
  * operations will force a copy into a mutable buffer.
  * 
- * Scaling and compositing functions take advantage of MMX hardware
+ * Scaling and alpha blending functions take advantage of MMX hardware
  * acceleration on systems where MMX is supported.  If gdk-pixbuf is built
  * with the Sun mediaLib library, these functions are instead accelerated
  * using mediaLib, which provides hardware acceleration on Intel, AMD,
@@ -179,7 +181,7 @@ gdk_pixbuf_scale (const GdkPixbuf *src,
  * @scale_x and @scale_y then translating by @offset_x and @offset_y.
  * This gives an image in the coordinates of the destination pixbuf.
  * The rectangle (@dest_x, @dest_y, @dest_width, @dest_height)
- * is then composited onto the corresponding rectangle of the
+ * is then alpha blended onto the corresponding rectangle of the
  * original destination image.
  * 
  * When the destination rectangle contains parts not in the source 
@@ -248,7 +250,7 @@ gdk_pixbuf_composite (const GdkPixbuf *src,
  * 
  * Creates a transformation of the source image @src by scaling by
  * @scale_x and @scale_y then translating by @offset_x and @offset_y,
- * then composites the rectangle (@dest_x ,@dest_y, @dest_width,
+ * then alpha blends the rectangle (@dest_x ,@dest_y, @dest_width,
  * @dest_height) of the resulting image with a checkboard of the
  * colors @color1 and @color2 and renders it onto the destination
  * image.
@@ -319,7 +321,7 @@ gdk_pixbuf_composite_color (const GdkPixbuf *src,
  * You can scale a sub-portion of @src by creating a sub-pixbuf
  * pointing into @src; see gdk_pixbuf_new_subpixbuf().
  *
- * For more complicated scaling/compositing see gdk_pixbuf_scale()
+ * For more complicated scaling/alpha blending see gdk_pixbuf_scale()
  * and gdk_pixbuf_composite().
  * 
  * Return value: (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
@@ -359,9 +361,9 @@ gdk_pixbuf_scale_simple (const GdkPixbuf *src,
  * @check_size: the size of checks in the checkboard (must be a power of two)
  * @color1: the color of check at upper left
  * @color2: the color of the other check
- * 
+ *
  * Creates a new #GdkPixbuf by scaling @src to @dest_width x
- * @dest_height and compositing the result with a checkboard of colors
+ * @dest_height and alpha blending the result with a checkboard of colors
  * @color1 and @color2.
  * 
  * Return value: (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
