@@ -46,31 +46,14 @@ size_prepared_cb (GdkPixbufLoader *loader,
   info->input_height = height;
   
   if (width < info->size && height < info->size) return;
+  if (info->size <= 0) return;
   
-  if ((info->size > 0 || info->size > 0)) {
-    if (info->size < 0)
-      {
-	width = width * (double)info->size/(double)height;
-	height = info->size;
-      }
-    else if (info->size < 0)
-      {
-	height = height * (double)info->size/(double)width;
-	width = info->size;
-      }
-    else if ((double)height * (double)info->size >
-	     (double)width * (double)info->size) {
-      width = 0.5 + (double)width * (double)info->size / (double)height;
-      height = info->size;
-    } else {
-      height = 0.5 + (double)height * (double)info->size / (double)width;
-      width = info->size;
-    }
+  if (height > width) {
+    width = 0.5 + (double)width * (double)info->size / (double)height;
+    height = info->size;
   } else {
-    if (info->size > 0)
-      width = info->size;
-    if (info->size > 0)
-      height = info->size;
+    height = 0.5 + (double)height * (double)info->size / (double)width;
+    width = info->size;
   }
   
   gdk_pixbuf_loader_set_size (loader, width, height);
