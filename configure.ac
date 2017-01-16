@@ -26,7 +26,7 @@ m4_define([gdk_pixbuf_binary_version], [2.10.0])
 
 
 # required versions of other packages
-m4_define([glib_required_version], [2.37.6])
+m4_define([glib_required_version], [2.48.0])
 
 AC_INIT([gdk-pixbuf], [gdk_pixbuf_version],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-pixbuf],

@@ -1327,6 +1327,7 @@ gdk_pixbuf__bmp_image_save_to_callback (GdkPixbufSaveFunc   save_func,
 					GError            **error)
 {
 	guint width, height, channel, size, stride, src_stride, x, y;
+	guint bf_size;
 	guchar BFH_BIH[54], *pixels, *buf, *src, *dst, *dst_line;
 	gboolean ret;
 
@@ -1335,14 +1336,33 @@ gdk_pixbuf__bmp_image_save_to_callback (GdkPixbufSaveFunc   save_func,
 	channel = gdk_pixbuf_get_n_channels (pixbuf);
 	pixels = gdk_pixbuf_get_pixels (pixbuf);
 	src_stride = gdk_pixbuf_get_rowstride (pixbuf);
-	stride = (width * 3 + 3) & ~3;
-	size = stride * height;
+
+	/* stride = (width * 3 + 3) & ~3 */
+	if (!g_uint_checked_mul (&stride, width, 3) ||
+	    !g_uint_checked_add (&stride, stride, 3)) {
+		g_set_error_literal (error, GDK_PIXBUF_ERROR,
+		                     GDK_PIXBUF_ERROR_FAILED,
+		                     _("Image is too wide for BMP format."));
+		return FALSE;
+	}
+
+	stride &= ~3;
+
+	/* size = stride * height
+	 * bf_size = size + 14 + 40 */
+	if (!g_uint_checked_mul (&size, stride, height) ||
+	    !g_uint_checked_add (&bf_size, size, 14 + 40)) {
+		g_set_error_literal (error, GDK_PIXBUF_ERROR,
+		                     GDK_PIXBUF_ERROR_FAILED,
+		                     _("Image is too wide for BMP format."));
+		return FALSE;
+	}
 
 	/* filling BFH */
 	dst = BFH_BIH;
 	*dst++ = 'B';			/* bfType */
 	*dst++ = 'M';
-	put32 (dst, size + 14 + 40);	/* bfSize */
+	put32 (dst, bf_size);	/* bfSize */
 	put32 (dst, 0);			/* bfReserved1 + bfReserved2 */
 	put32 (dst, 14 + 40);		/* bfOffBits */
 
