@@ -453,12 +453,13 @@ gdk_pixbuf_new (GdkColorspace colorspace,
 	g_return_val_if_fail (height > 0, NULL);
 
 	channels = has_alpha ? 4 : 3;
-        rowstride = (unsigned) width * channels;
-        if (rowstride / channels != width || rowstride + 3 < 0) /* overflow */
-                return NULL;
-        
+
+	/* Overflow? */
+	if (width > (G_MAXUINT - 3) / channels)
+		return NULL;
+
 	/* Always align rows to 32-bit boundaries */
-	rowstride = (rowstride + 3) & ~3;
+	rowstride = (width * channels + 3) & ~3;
 
 	buf = g_try_malloc_n (height, rowstride);
 	if (!buf)
