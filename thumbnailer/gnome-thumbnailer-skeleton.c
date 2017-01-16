@@ -231,7 +231,9 @@ int main (int argc, char **argv)
 	gsize length;
 #endif
 
+#if !GLIB_CHECK_VERSION(2, 36, 0)
 	g_type_init ();
+#endif
 
 	/* Options parsing */
 	context = g_option_context_new (THUMBNAILER_USAGE);
