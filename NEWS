@@ -1,3 +1,11 @@
+2.36.4
+======
+
+* Add a fastpath for no-op scales
+* Documentation improvements (#442452)
+* Fix some coverity warnings (#776945, #768062)
+* Translation updates
+
 2.36.3
 ======
 
