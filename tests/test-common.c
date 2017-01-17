@@ -194,7 +194,7 @@ pixdata_equal (GdkPixbuf  *test,
   if (memcmp (gdk_pixbuf_get_pixels (test), gdk_pixbuf_get_pixels (ref),
           gdk_pixbuf_get_byte_length (test)) != 0)
     {
-      guint x, y, width, height, n_channels, rowstride;
+      gint x, y, width, height, n_channels, rowstride;
       const guchar *test_pixels, *ref_pixels;
 
       rowstride = gdk_pixbuf_get_rowstride (test);
@@ -203,6 +203,10 @@ pixdata_equal (GdkPixbuf  *test,
       height = gdk_pixbuf_get_height (test);
       test_pixels = gdk_pixbuf_get_pixels (test);
       ref_pixels = gdk_pixbuf_get_pixels (ref);
+
+      g_assert_cmpint (width, >=, 0);
+      g_assert_cmpint (height, >=, 0);
+      g_assert_cmpint (n_channels, >=, 0);
 
       for (y = 0; y < height; y++)
         {
