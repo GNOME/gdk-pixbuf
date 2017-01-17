@@ -151,7 +151,7 @@ read_bitmap_file_data (FILE    *fstream,
 {
 	guchar *bits = NULL;		/* working variable */
 	char line[MAX_SIZE];		/* input line from file */
-	int size;			/* number of bytes of data */
+	guint size;			/* number of bytes of data */
 	char name_and_type[MAX_SIZE];	/* an input line */
 	char *type;			/* for parsing */
 	int value;			/* from an input line */
@@ -227,21 +227,37 @@ read_bitmap_file_data (FILE    *fstream,
 		if (!ww || !hh)
 			RETURN (FALSE);
 
+		/* Choose @padding so @size is even if @version10p is %TRUE.
+		 * If @version10p is %FALSE, @size could be even or odd. */
 		if ((ww % 16) && ((ww % 16) < 9) && version10p)
 			padding = 1;
 		else
 			padding = 0;
 
-		bytes_per_line = (ww+7)/8 + padding;
+		/* Check for overflow for the bytes_per_line calculation. */
+		if (ww > G_MAXUINT - 7)
+			RETURN (FALSE);
 
-		size = bytes_per_line * hh;
-                if (size / bytes_per_line != hh) /* overflow */
-                        RETURN (FALSE);
+		bytes_per_line = (ww+7)/8 + padding;
+		g_assert (!version10p || (bytes_per_line % 2) == 0);
+
+		/* size = bytes_per_line * hh */
+		if (!g_uint_checked_mul (&size, bytes_per_line, hh))
+			RETURN (FALSE);
+
 		bits = g_malloc (size);
 
 		if (version10p) {
 			unsigned char *ptr;
-			int bytes;
+			guint bytes;
+
+			/* @bytes is guaranteed not to overflow (which could
+			 * happen if @size is the odd-valued %G_MAXUINT: @bytes would reach
+			 * %G_MAXUINT-1 in the loop, then be incremented to %G_MAXUINT+1 on the
+			 * next iteration) because @bytes_per_line is guaranteed to be even if
+			 * @version10p is %TRUE (due to the selection of
+			 * @padding in that case), so @size must be even too. */
+			g_assert ((size % 2) == 0);
 
 			for (bytes = 0, ptr = bits; bytes < size; (bytes += 2)) {
 				if ((value = next_int (fstream)) < 0)
@@ -252,7 +268,7 @@ read_bitmap_file_data (FILE    *fstream,
 			}
 		} else {
 			unsigned char *ptr;
-			int bytes;
+			guint bytes;
 
 			for (bytes = 0, ptr = bits; bytes < size; bytes++, ptr++) {
 				if ((value = next_int (fstream)) < 0) 
