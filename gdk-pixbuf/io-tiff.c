@@ -720,6 +720,11 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
         height = gdk_pixbuf_get_height (pixbuf);
         width = gdk_pixbuf_get_width (pixbuf);
 
+        /* Guaranteed by the caller. */
+        g_assert (width >= 0);
+        g_assert (height >= 0);
+        g_assert (rowstride >= 0);
+
         TIFFSetField (tiff, TIFFTAG_IMAGEWIDTH, width);
         TIFFSetField (tiff, TIFFTAG_IMAGELENGTH, height);
 

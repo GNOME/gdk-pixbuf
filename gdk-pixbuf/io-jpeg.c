@@ -1402,6 +1402,12 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
        h = gdk_pixbuf_get_height (pixbuf);
        pixels = gdk_pixbuf_get_pixels (pixbuf);
 
+       /* Guaranteed by the caller. */
+       g_assert (w >= 0);
+       g_assert (h >= 0);
+       g_assert (rowstride >= 0);
+       g_assert (n_channels >= 0);
+
        /* Allocate a small buffer to convert image data,
 	* and a larger buffer if doing to_callback save.
 	*/

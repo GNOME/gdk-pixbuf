@@ -2452,6 +2452,10 @@ gdk_pixbuf_savev (GdkPixbuf  *pixbuf,
         FILE *f = NULL;
         gboolean result;
        
+        g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), FALSE);
+        g_return_val_if_fail (gdk_pixbuf_get_width (pixbuf) >= 0, FALSE);
+        g_return_val_if_fail (gdk_pixbuf_get_height (pixbuf) >= 0, FALSE);
+        g_return_val_if_fail (gdk_pixbuf_get_n_channels (pixbuf) >= 0, FALSE);
         g_return_val_if_fail (filename != NULL, FALSE);
         g_return_val_if_fail (type != NULL, FALSE);
         g_return_val_if_fail (error == NULL || *error == NULL, FALSE);
@@ -2613,7 +2617,10 @@ gdk_pixbuf_save_to_callbackv   (GdkPixbuf  *pixbuf,
 {
         gboolean result;
         
-       
+        g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), FALSE);
+        g_return_val_if_fail (gdk_pixbuf_get_width (pixbuf) >= 0, FALSE);
+        g_return_val_if_fail (gdk_pixbuf_get_height (pixbuf) >= 0, FALSE);
+        g_return_val_if_fail (gdk_pixbuf_get_n_channels (pixbuf) >= 0, FALSE);
         g_return_val_if_fail (save_func != NULL, FALSE);
         g_return_val_if_fail (type != NULL, FALSE);
         g_return_val_if_fail (error == NULL || *error == NULL, FALSE);
@@ -2989,6 +2996,9 @@ gdk_pixbuf_save_to_streamv_async (GdkPixbuf           *pixbuf,
         SaveToStreamAsyncData *data;
 
         g_return_if_fail (GDK_IS_PIXBUF (pixbuf));
+        g_return_if_fail (gdk_pixbuf_get_width (pixbuf) >= 0);
+        g_return_if_fail (gdk_pixbuf_get_height (pixbuf) >= 0);
+        g_return_if_fail (gdk_pixbuf_get_n_channels (pixbuf) >= 0);
         g_return_if_fail (G_IS_OUTPUT_STREAM (stream));
         g_return_if_fail (type != NULL);
         g_return_if_fail (callback != NULL);
@@ -3041,6 +3051,9 @@ gdk_pixbuf_save_to_stream_async (GdkPixbuf           *pixbuf,
         va_list args;
 
         g_return_if_fail (GDK_IS_PIXBUF (pixbuf));
+        g_return_if_fail (gdk_pixbuf_get_width (pixbuf) >= 0);
+        g_return_if_fail (gdk_pixbuf_get_height (pixbuf) >= 0);
+        g_return_if_fail (gdk_pixbuf_get_n_channels (pixbuf) >= 0);
         g_return_if_fail (G_IS_OUTPUT_STREAM (stream));
         g_return_if_fail (type != NULL);
         g_return_if_fail (callback != NULL);

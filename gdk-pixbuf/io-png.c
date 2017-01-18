@@ -1061,6 +1061,11 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
        has_alpha = gdk_pixbuf_get_has_alpha (pixbuf);
        pixels = gdk_pixbuf_get_pixels (pixbuf);
 
+       /* Guaranteed by the caller. */
+       g_assert (w >= 0);
+       g_assert (h >= 0);
+       g_assert (rowstride >= 0);
+
        png_ptr = png_create_write_struct (PNG_LIBPNG_VER_STRING,
                                           error,
                                           png_simple_error_callback,
