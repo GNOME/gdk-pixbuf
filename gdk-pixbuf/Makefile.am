@@ -618,7 +618,7 @@ gdk_pixbuf_HEADERS_DIR = $(libgdk_pixbufincludedir)
 gdk_pixbuf_HEADERS_INST = $(libgdk_pixbufinclude_HEADERS)
 gdk_pixbuf_HEADERS_EXCLUDES = gdkpdummy
 
-include $(top_srcdir)/build/Makefile.msvcproj
+include $(top_srcdir)/win32/Makefile.msvcproj
 
 if HAVE_INTROSPECTION
 
@@ -651,8 +651,8 @@ CLEANFILES += $(gir_DATA) $(typelibs_DATA)
 MSVC_INTROSPECT_GIRS = GdkPixbuf-2.0.gir
 
 MSVC_INTROSPECTION_INTERMEDIATE_ITEMS = \
-	$(top_builddir)/build/win32/GdkPixbuf-2.0.gir.msvc.introspect	\
-	$(top_builddir)/build/win32/GdkPixbuf_2_0_gir_list
+	$(top_builddir)/win32/GdkPixbuf-2.0.gir.msvc.introspect	\
+	$(top_builddir)/win32/GdkPixbuf_2_0_gir_list
 
 GdkPixbuf_2_0_gir_MSVC_INCLUDE_GIRS = $(GdkPixbuf_2_0_gir_INCLUDES)
 GdkPixbuf_2_0_gir_MSVC_EXPORT_PACKAGES = $(GdkPixbuf_2_0_gir_EXPORT_PACKAGES)
@@ -661,19 +661,19 @@ GdkPixbuf_2_0_gir_MSVC_FILES = $(GdkPixbuf_2_0_gir_FILES)
 
 GdkPixbuf_2_0_gir_MSVC_CFLAGS =		\
 	-DGDK_PIXBUF_COMPILATION	\
-	-I../..				\
-	-I../../gdk-pixbuf
+	-I..				\
+	-I../gdk-pixbuf
 
 GdkPixbuf_2_0_gir_MSVC_SCANNERFLAGS = $(GdkPixbuf_2_0_gir_SCANNERFLAGS)
 
-include $(top_srcdir)/build/Makefile.msvc-introspection
+include $(top_srcdir)/win32/Makefile.msvc-introspection
 else
 MSVC_INTROSPECTION_INTERMEDIATE_ITEMS =
 endif
 
 dist-hook:	\
-	$(top_builddir)/build/win32/vs9/gdk-pixbuf.vcproj	\
-	$(top_builddir)/build/win32/vs9/gdk-pixbuf.headers	\
+	$(top_builddir)/win32/vs9/gdk-pixbuf.vcproj	\
+	$(top_builddir)/win32/vs9/gdk-pixbuf.headers	\
 	$(MSVC_INTROSPECTION_INTERMEDIATE_ITEMS)
 
 if CROSS_COMPILING

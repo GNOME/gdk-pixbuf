@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="gdk-pixbufversionpathsprops"
+	>
+	<UserMacro
+		Name="VSVer"
+		Value="9"
+	/>
+	<UserMacro
+		Name="GdkPixbufMajorVersion"
+		Value="@GDK_PIXBUF_MAJOR@"
+	/>
+	<UserMacro
+		Name="GdkPixbufMinorVersion"
+		Value="@GDK_PIXBUF_MINOR@"
+	/>
+	<UserMacro
+		Name="GdkPixbufMicroVersion"
+		Value="@GDK_PIXBUF_MICRO@"
+	/>
+	<UserMacro
+		Name="ApiVersion"
+		Value="2.0"
+	/>
+	<UserMacro
+		Name="GlibEtcInstallRoot"
+		Value="$(SolutionDir)\..\..\..\vs$(VSVer)\$(PlatformName)"
+	/>
+	<UserMacro
+		Name="DefDir"
+		Value="$(SolutionDir)\$(ConfigurationName)\$(PlatformName)\obj\$(ProjectName)"
+	/>
+	<UserMacro
+		Name="CopyDir"
+		Value="$(GlibEtcInstallRoot)"
+	/>
+	<UserMacro
+		Name="GdkPixbufLibtoolCompatibleDllPrefix"
+		Value="lib"
+	/>
+	<UserMacro
+		Name="GdkPixbufLibtoolCompatibleDllSuffix"
+		Value="-$(ApiVersion)-0"
+	/>
+	<UserMacro
+		Name="GdkPixbufSeparateVSDllPrefix"
+		Value=""
+	/>
+	<UserMacro
+		Name="GdkPixbufSeparateVSDllSuffix"
+		Value="-2-vs$(VSVer)"
+	/>
+	<!-- Change these two to GdkPixbufLibtoolCompatibleDllPrefix and
+	GdkPixbufLibtoolCompatibleDllSuffix if that is what you want -->
+	<UserMacro
+		Name="GdkPixbufDllPrefix"
+		Value="$(GdkPixbufSeparateVSDllPrefix)"
+	/>
+	<UserMacro
+		Name="GdkPixbufDllSuffix"
+		Value="$(GdkPixbufSeparateVSDllSuffix)"
+	/>
+	<UserMacro
+		Name="PythonPath"
+		Value="c:\python27"
+	/>
+	<UserMacro
+		Name="PythonPathX64"
+		Value="$(PythonPath).x64"
+	/>
+</VisualStudioPropertySheet>
