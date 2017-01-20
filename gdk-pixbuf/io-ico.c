@@ -944,9 +944,14 @@ gdk_pixbuf__ico_image_load_increment(gpointer data,
 				buf += BytesToCopy;
 				context->LineDone += BytesToCopy;
 			}
-			if ((context->LineDone >= context->LineWidth) &&
-			    (context->LineWidth > 0))
+			if ((context->LineDone >= context->LineWidth) && (context->LineWidth > 0)) {
+				/* By this point, DecodeHeader() will have been called, and should have returned successfully
+				 * or set a #GError, as its only return-FALSE-without-setting-a-GError paths are when
+				 * (context->HeaderDone < context->HeaderSize) or (context->LineWidth == 0).
+				 * If it’s returned a #GError, we will have bailed already; otherwise, pixbuf will be set. */
+				g_assert (context->pixbuf != NULL);
 				OneLine(context);
+			}
 
 
 		}
