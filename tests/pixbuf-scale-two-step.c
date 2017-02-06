@@ -63,6 +63,11 @@ pixdata_almost_equal (GdkPixbuf *one, GdkPixbuf *two)
   guchar *two_pixel;    /* Pointer to current pixel data in two */
   guint x, y;
 
+  g_assert_cmpint (gdk_pixbuf_get_height (one), >=, 0);
+  g_assert_cmpint (gdk_pixbuf_get_width (one), >=, 0);
+  g_assert_cmpint (gdk_pixbuf_get_height (two), >=, 0);
+  g_assert_cmpint (gdk_pixbuf_get_width (two), >=, 0);
+
   if (gdk_pixbuf_get_width (one) != gdk_pixbuf_get_width (two) ||
       gdk_pixbuf_get_height (one) != gdk_pixbuf_get_height (two))
     {
