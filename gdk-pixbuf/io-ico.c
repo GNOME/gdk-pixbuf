@@ -950,6 +950,9 @@ gdk_pixbuf__ico_image_load_increment(gpointer data,
 				BytesToCopy = size;
 
 			if (BytesToCopy > 0) {
+				/* Should be non-NULL once the header is decoded, as below. */
+				g_assert (context->LineBuf != NULL);
+
 				memmove(context->LineBuf +
 				       context->LineDone, buf,
 				       BytesToCopy);
