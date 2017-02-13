@@ -1,3 +1,13 @@
+2.36.5
+======
+
+* Fix mimetypes for thumbnailer (#778451)
+* Handle fseek failure (#776990)
+* Fix signed/unsigned handling (#777374)
+* Fix an overflow check (#777315)
+* Handle extreme scaling better (#80925)
+* Translation updates
+
 2.36.4
 ======
 
