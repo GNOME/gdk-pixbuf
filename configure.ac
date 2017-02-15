@@ -1094,6 +1094,12 @@ if test "x$enable_relocations" = "xyes"; then
                   [Define to 1 to replace the build-time prefix in modules])
 fi
 
+##############################################
+# Check whether MSVC toolset is explicitly set
+##############################################
+AM_CONDITIONAL(MSVC_BASE_NO_TOOLSET_SET, [test x$MSVC_BASE_TOOLSET = x])
+AM_CONDITIONAL(MSVC_NO_TOOLSET_SET, [test x$MSVC_TOOLSET = x])
+
 ##################################################
 # Output commands
 ##################################################
@@ -1114,6 +1120,7 @@ win32/vs10/gdk-pixbuf-version-paths.props
 win32/vs11/Makefile
 win32/vs12/Makefile
 win32/vs14/Makefile
+win32/vs15/Makefile
 docs/Makefile
 docs/reference/Makefile
 docs/reference/gdk-pixbuf/Makefile
