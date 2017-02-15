@@ -27,6 +27,7 @@ gdk-pixbuf-install.props: $(top_srcdir)/win32/vs10/gdk-pixbuf-install.propsin gd
 	-$(RM) $(top_builddir)/win32/vs11/gdk-pixbuf-install.props
 	-$(RM) $(top_builddir)/win32/vs12/gdk-pixbuf-install.props
 	-$(RM) $(top_builddir)/win32/vs14/gdk-pixbuf-install.props
+	-$(RM) $(top_builddir)/win32/vs15/gdk-pixbuf-install.props
 	$(CPP) -P - <$(top_srcdir)/win32/vs10/gdk-pixbuf-install.propsin >$@
 	rm gdk-pixbuf.vs10.headers
 
