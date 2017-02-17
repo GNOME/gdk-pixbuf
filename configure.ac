@@ -424,6 +424,9 @@ AC_CHECK_FUNCS(setrlimit)
 saved_cflags="$CFLAGS"
 saved_ldflags="$LDFLAGS"
 
+AC_CHECK_LIB(m,round,)
+AC_CHECK_LIB(m,lrint,)
+AC_CHECK_FUNCS(round lrint)
 
 # Checks for header files.
 AC_HEADER_STDC

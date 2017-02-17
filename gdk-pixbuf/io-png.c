@@ -28,8 +28,7 @@
 #include <png.h>
 #include <math.h>
 #include "gdk-pixbuf-private.h"
-
-
+#include "fallback-c89.c"
 
 static gboolean
 setup_png_transformations(png_structp png_read_ptr, png_infop png_info_ptr,

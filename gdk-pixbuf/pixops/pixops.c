@@ -21,6 +21,7 @@
 #include <math.h>
 #include <glib.h>
 
+#include "../fallback-c89.c"
 #include "pixops.h"
 #include "pixops-internal.h"
 

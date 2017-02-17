@@ -595,7 +595,8 @@ EXTRA_DIST =					\
 	gdk-pixbuf-enum-types.c.template	\
 	gdk-pixbuf-enum-types.h.template	\
 	gen-color-table.pl			\
-	gdiplus.def
+	gdiplus.def				\
+	fallback-c89.c
 
 # ---------- MSVC Items ------------------
 

@@ -36,6 +36,7 @@
 #include <tiffio.h>
 #include <errno.h>
 #include "gdk-pixbuf-private.h"
+#include "fallback-c89.c"
 
 #ifdef G_OS_WIN32
 #include <fcntl.h>

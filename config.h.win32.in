@@ -41,11 +41,21 @@
 /*#define HAVE_INTTYPES_H*/
 #endif
 
+/* Define to 1 if lrint() is available */
+#if !defined (_MSC_VER) || (_MSC_VER >= 1800)
+#define HAVE_LRINT 1
+#endif
+
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
 
 /* Define to 1 is libjpeg supports progressive JPEG */
 #define HAVE_PROGRESSIVE_JPEG 1
+
+/* Define to 1 if round() is available */
+#if !defined (_MSC_VER) || (_MSC_VER >= 1800)
+#define HAVE_ROUND 1
+#endif
 
 /* Define to 1 if sigsetjmp is available */
 /*#undef HAVE_SIGSETJMP*/

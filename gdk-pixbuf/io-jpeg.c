@@ -35,6 +35,7 @@
 #include <math.h>
 
 #include "gdk-pixbuf-private.h"
+#include "fallback-c89.c"
 
 #ifndef HAVE_SIGSETJMP
 #define sigjmp_buf jmp_buf
