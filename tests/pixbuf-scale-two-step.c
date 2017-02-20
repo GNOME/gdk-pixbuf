@@ -62,26 +62,30 @@ pixdata_almost_equal (GdkPixbuf *one, GdkPixbuf *two)
   guchar *two_row;      /* Pointer to start of row of pixels in two */
   guchar *two_pixel;    /* Pointer to current pixel data in two */
   guint x, y;
+  gint width_one, height_one;
 
-  g_assert_cmpint (gdk_pixbuf_get_height (one), >=, 0);
-  g_assert_cmpint (gdk_pixbuf_get_width (one), >=, 0);
+  width_one = gdk_pixbuf_get_width (one);
+  height_one = gdk_pixbuf_get_height (one);
+
+  g_assert_cmpint (height_one, >=, 0);
+  g_assert_cmpint (width_one, >=, 0);
   g_assert_cmpint (gdk_pixbuf_get_height (two), >=, 0);
   g_assert_cmpint (gdk_pixbuf_get_width (two), >=, 0);
 
-  if (gdk_pixbuf_get_width (one) != gdk_pixbuf_get_width (two) ||
-      gdk_pixbuf_get_height (one) != gdk_pixbuf_get_height (two))
+  if (width_one != gdk_pixbuf_get_width (two) ||
+      height_one != gdk_pixbuf_get_height (two))
     {
       g_test_fail();
     }
 
   for (y = 0, one_row = gdk_pixbuf_get_pixels (one),
               two_row = gdk_pixbuf_get_pixels (two);
-       y < gdk_pixbuf_get_height (one);
+       y < height_one;
        y++, one_row += gdk_pixbuf_get_rowstride (one),
             two_row += gdk_pixbuf_get_rowstride (two))
     {
       for (x = 0, one_pixel = one_row, two_pixel = two_row;
-	   x < gdk_pixbuf_get_width(one);
+	   x < width_one;
 	   x++, one_pixel += gdk_pixbuf_get_n_channels (one),
 	        two_pixel += gdk_pixbuf_get_n_channels (two))
         {
@@ -188,21 +192,28 @@ crop_n_compare(const GdkPixbuf *source,	/* The source image */
     guchar *cropped_row;    /* Pointer to start of row of pixels in cropped */
     guchar *cropped_pixel;  /* Pointer to current pixel data in cropped */
     guint x, y;
+    gint scaled_width, scaled_height;
 
-    if (gdk_pixbuf_get_width (scaled) != gdk_pixbuf_get_width (cropped) ||
-	gdk_pixbuf_get_height (scaled) != gdk_pixbuf_get_height (cropped))
+    scaled_width = gdk_pixbuf_get_width (scaled);
+    scaled_height = gdk_pixbuf_get_height (scaled);
+
+    g_assert (scaled_width > 0);
+    g_assert (scaled_height > 0);
+
+    if (scaled_width != gdk_pixbuf_get_width (cropped) ||
+	scaled_height != gdk_pixbuf_get_height (cropped))
       {
         g_test_fail();
       }
 
     for (y = 0, scaled_row = gdk_pixbuf_get_pixels (scaled),
 	       cropped_row = gdk_pixbuf_get_pixels (cropped);
-	 y < gdk_pixbuf_get_height (scaled);
+	 y < scaled_height;
 	 y++, scaled_row += gdk_pixbuf_get_rowstride (scaled),
 	      cropped_row += gdk_pixbuf_get_rowstride (cropped))
       {
         for (x = 0, scaled_pixel = scaled_row, cropped_pixel = cropped_row;
-	    x < gdk_pixbuf_get_width(scaled);
+	    x < scaled_width;
 	    x++, scaled_pixel += gdk_pixbuf_get_n_channels (scaled),
 	         cropped_pixel += gdk_pixbuf_get_n_channels (cropped))
 	  {
