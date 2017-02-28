@@ -520,8 +520,22 @@ jpeg_parse_exif (JpegExifContext *context, j_decompress_ptr cinfo)
 			jpeg_parse_exif_app1 (context, cmarker);
 		else if (cmarker->marker == JPEG_APP0+2)
 			jpeg_parse_exif_app2_segment (context, cmarker);
+
 		cmarker = cmarker->next;
 	}
+}
+
+static gchar*
+jpeg_get_comment ( j_decompress_ptr cinfo ) {
+	jpeg_saved_marker_ptr cmarker;
+	for ( cmarker = cinfo->marker_list;
+	      cmarker != NULL;
+	      cmarker = cmarker->next )
+	{
+		if (cmarker->marker == JPEG_COM)
+			return g_strndup( (const gchar*) cmarker->data, cmarker->data_length );
+	}
+	return NULL;
 }
 
 static void
@@ -591,6 +605,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 
 	jpeg_save_markers (&cinfo, JPEG_APP0+1, 0xffff);
 	jpeg_save_markers (&cinfo, JPEG_APP0+2, 0xffff);
+	jpeg_save_markers (&cinfo, JPEG_COM, 0xffff);
 	jpeg_read_header (&cinfo, TRUE);
 
 	/* parse exif data */
@@ -616,6 +631,12 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
                 }
                
 		goto out; 
+	}
+
+	gchar* comment = jpeg_get_comment( &cinfo );
+	if ( comment != NULL ) {
+		gdk_pixbuf_set_option (pixbuf, "comment", comment);
+		g_free(comment);
 	}
 
 	switch (cinfo.density_unit) {
@@ -1029,6 +1050,7 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 		
 			jpeg_save_markers (cinfo, JPEG_APP0+1, 0xffff);
 			jpeg_save_markers (cinfo, JPEG_APP0+2, 0xffff);
+			jpeg_save_markers (cinfo, JPEG_COM, 0xffff);
 			rc = jpeg_read_header (cinfo, TRUE);
 			context->src_initialized = TRUE;
 			
@@ -1039,7 +1061,7 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 
 			/* parse exif data */
 			jpeg_parse_exif (&exif_context, cinfo);
-		
+
 			width = cinfo->image_width;
 			height = cinfo->image_height;
 			if (context->size_func) {
@@ -1077,6 +1099,12 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
                                                      _("Couldn't allocate memory for loading JPEG file"));
                                 retval = FALSE;
 				goto out;
+			}
+
+			gchar* comment = jpeg_get_comment( cinfo );
+			if ( comment != NULL ) {
+				gdk_pixbuf_set_option (context->pixbuf, "comment", comment);
+				g_free(comment);
 			}
 
 			switch (cinfo->density_unit) {
