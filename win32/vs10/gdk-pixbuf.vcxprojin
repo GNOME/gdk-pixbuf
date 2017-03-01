@@ -360,45 +360,45 @@
       <ExcludedFromBuild Condition="'$(Configuration)'=='Release'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\gdk-pixbuf\io-bmp.c">
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI+'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI+'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\gdk-pixbuf\io-gif.c">
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI+'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI+'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\gdk-pixbuf\io-gif-animation.c">
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI+'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI+'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\gdk-pixbuf\io-ico.c">
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI+'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI+'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\gdk-pixbuf\io-jasper.c">
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI+'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI+'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\gdk-pixbuf\io-jpeg.c">
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI+'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI+'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\gdk-pixbuf\io-tiff.c">
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug_GDI+'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Release_GDI+'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\config.h.win32">
-      <Message Condition="'$(Configuration)'=='Debug_GDI'">Copying config.h from config.h.win32...</Message>
-      <Command Condition="'$(Configuration)'=='Debug_GDI'">$(GenConfigH)</Command>
-      <Outputs Condition="'$(Configuration)'=='Debug_GDI'">..\..\config.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)'=='Debug_GDI+'">Copying config.h from config.h.win32...</Message>
+      <Command Condition="'$(Configuration)'=='Debug_GDI+'">$(GenConfigH)</Command>
+      <Outputs Condition="'$(Configuration)'=='Debug_GDI+'">..\..\config.h;%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)'=='Debug'">Copying config.h from config.h.win32...</Message>
       <Command Condition="'$(Configuration)'=='Debug'">$(GenConfigH)</Command>
       <Outputs Condition="'$(Configuration)'=='Debug'">..\..\config.h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)'=='Release_GDI'">Copying config.h from config.h.win32...</Message>
-      <Command Condition="'$(Configuration)'=='Release_GDI'">$(GenConfigH)</Command>
-      <Outputs Condition="'$(Configuration)'=='Release_GDI'">..\..\config.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)'=='Release_GDI+'">Copying config.h from config.h.win32...</Message>
+      <Command Condition="'$(Configuration)'=='Release_GDI+'">$(GenConfigH)</Command>
+      <Outputs Condition="'$(Configuration)'=='Release_GDI+'">..\..\config.h;%(Outputs)</Outputs>
       <Message Condition="'$(Configuration)'=='Release'">Copying config.h from config.h.win32...</Message>
       <Command Condition="'$(Configuration)'=='Release'">$(GenConfigH)</Command>
       <Outputs Condition="'$(Configuration)'=='Release'">..\..\config.h;%(Outputs)</Outputs>
