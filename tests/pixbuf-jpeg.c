@@ -96,6 +96,25 @@ test_bug_775218 (void)
   g_clear_object (&ref);
 }
 
+static void
+test_comment(void)
+{
+  GError *error = NULL;
+  GdkPixbuf *ref;
+
+  if (!format_supported ("jpeg") || !format_supported ("png"))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
+
+  ref = gdk_pixbuf_new_from_file (g_test_get_filename (G_TEST_DIST, "bug143608-comment.jpg", NULL), &error);
+  g_assert_no_error (error);
+
+  g_assert_cmpstr (gdk_pixbuf_get_option (ref, "comment"), ==, "COMMENT HERE");
+  g_object_unref (ref);
+}
+
 int
 main (int argc, char **argv)
 {
@@ -104,6 +123,7 @@ main (int argc, char **argv)
   g_test_add_func ("/pixbuf/jpeg/inverted_cmyk_jpeg", test_inverted_cmyk_jpeg);
   g_test_add_func ("/pixbuf/jpeg/type9_rotation_exif_tag", test_type9_rotation_exif_tag);
   g_test_add_func ("/pixbuf/jpeg/bug775218", test_bug_775218);
+  g_test_add_func ("/pixbuf/jpeg/comment", test_comment);
 
   return g_test_run ();
 }

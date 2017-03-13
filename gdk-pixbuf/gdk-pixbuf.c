@@ -909,6 +909,8 @@ gdk_pixbuf_fill (GdkPixbuf *pixbuf,
  * the "multipage" option string to "yes" when a multi-page TIFF is loaded.
  * Since 2.32 the JPEG and PNG loaders set "x-dpi" and "y-dpi" if the file
  * contains image density information in dots per inch.
+ * Since 2.36.6, the JPEG loader sets the "comment" option with the comment
+ * EXIF tag.
  * 
  * Return value: the value associated with @key. This is a nul-terminated 
  * string that should not be freed or %NULL if @key was not found.
