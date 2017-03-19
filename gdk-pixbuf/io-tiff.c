@@ -124,24 +124,26 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
                                      _("Width or height of TIFF image is zero"));
                 return NULL;                
         }
-        
+
+        if (width > G_MAXINT / 4) { /* overflow */
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                     _("Dimensions of TIFF image too large"));
+                return NULL;                
+        }
+
         rowstride = width * 4;
-        if (rowstride / 4 != width) { /* overflow */
+
+        if (height > G_MAXINT / rowstride) { /* overflow */
                 g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
                                      _("Dimensions of TIFF image too large"));
                 return NULL;                
         }
-        
+
         bytes = height * rowstride;
-        if (bytes / rowstride != height) { /* overflow */
-                g_set_error_literal (error,
-                                     GDK_PIXBUF_ERROR,
-                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                     _("Dimensions of TIFF image too large"));
-                return NULL;                
-        }
 
 	if (context && context->size_func) {
                 gint w = width;
