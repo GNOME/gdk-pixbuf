@@ -131,6 +131,14 @@ libpixbufloader_jasper_la_LDFLAGS = -avoid-version -module $(no_undefined)
 libpixbufloader_jasper_la_LIBADD = $(LIBJASPER) $(module_libs)
 
 #
+# The BPG loader
+#
+libstatic_pixbufloader_bpg_la_SOURCES = io-bpg.c
+libpixbufloader_bpg_la_SOURCES = io-bpg.c
+libpixbufloader_bpg_la_LDFLAGS = -avoid-version -module $(no_undefined)
+libpixbufloader_bpg_la_LIBADD = $(LIBBPG) $(module_libs)
+
+#
 # The QTIF loader
 #
 libstatic_pixbufloader_qtif_la_SOURCES = io-qtif.c
@@ -373,6 +381,14 @@ JASPER_LIB = libpixbufloader-jasper.la
 endif
 endif
 
+if HAVE_BPG
+if INCLUDE_BPG
+STATIC_BPG_LIB = libstatic-pixbufloader-bpg.la
+else
+BPG_LIB = libpixbufloader-bpg.la
+endif
+endif
+
 if INCLUDE_QTIF
 STATIC_QTIF_LIB = libstatic-pixbufloader-qtif.la
 else
@@ -395,6 +411,7 @@ loader_LTLIBRARIES = 	\
 	$(TGA_LIB)	\
 	$(ICNS_LIB)	\
 	$(JASPER_LIB)	\
+	$(BPG_LIB)	\
 	$(QTIF_LIB)	\
 	$(GDIPLUS_LIBS)
 
@@ -416,6 +433,7 @@ noinst_LTLIBRARIES =		\
 	$(STATIC_TGA_LIB)	\
 	$(STATIC_ICNS_LIB)	\
 	$(STATIC_JASPER_LIB)	\
+	$(STATIC_BPG_LIB)	\
 	$(STATIC_QTIF_LIB)	\
 	$(STATIC_GDIPLUS_LIBS)
 

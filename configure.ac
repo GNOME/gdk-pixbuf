@@ -510,6 +510,9 @@ AC_ARG_WITH(libtiff,
 AC_ARG_WITH(libjasper,
             [AC_HELP_STRING([--with-libjasper],
                             [enable JPEG2000 loader for gdk-pixbuf])])
+AC_ARG_WITH(libbpg,
+            [AC_HELP_STRING([--with-libbpg],
+                            [enable BPG loader for gdk-pixbuf])])
 AC_ARG_WITH(gdiplus,
             [AC_HELP_STRING([--without-gdiplus],
                             [disable GDI+ loaders for gdk-pixbuf on Windows])])
@@ -638,10 +641,22 @@ dnl Test for libjasper
 *** --without-libjasper to configure])
   fi
 
+dnl Test for libbpg
+  if test x$with_libbpg = xyes && test -z "$LIBBPG"; then
+    AC_CHECK_LIB(bpg, bpg_decoder_open, LIBBPG=-lbpg, [], -lm)
+  fi
+
+  if test x$with_libbpg = xyes && test -z "$LIBBPG"; then
+     AC_MSG_ERROR([
+*** Checks for BPG loader failed. You can build without it by passing
+*** --without-libbpg to configure])
+  fi
+
 AC_SUBST(LIBTIFF)
 AC_SUBST(LIBJPEG)
 AC_SUBST(LIBPNG)
 AC_SUBST(LIBJASPER)
+AC_SUBST(LIBBPG)
 
 AM_CONDITIONAL(BUILD_DYNAMIC_MODULES, $dynworks)
 
@@ -674,6 +689,9 @@ fi
 all_loaders="ani,icns,tga,png,pnm,xbm,xpm,qtif"
 if test x$with_libjasper = xyes; then
   all_loaders="$all_loaders,jasper"
+fi
+if test x$with_libbpg = xyes; then
+  all_loaders="$all_loaders,bpg"
 fi
 if test x$os_win32 = xyes && test x$with_gdiplus != xno; then
   # Skip PNG, see comment above
@@ -739,6 +757,7 @@ AM_CONDITIONAL(INCLUDE_XBM, [test x"$INCLUDE_xbm" = xyes])
 AM_CONDITIONAL(INCLUDE_TGA, [test x"$INCLUDE_tga" = xyes])
 AM_CONDITIONAL(INCLUDE_ICNS, [test x"$INCLUDE_icns" = xyes])
 AM_CONDITIONAL(INCLUDE_JASPER, [test x"$INCLUDE_jasper" = xyes])
+AM_CONDITIONAL(INCLUDE_BPG, [test x"$INCLUDE_bpg" = xyes])
 AM_CONDITIONAL(INCLUDE_QTIF, [test x"$INCLUDE_qtif" = xyes])
 # As all GDI+ loaders are either built-in or not, arbitrarily just
 # check one of the variables here
@@ -799,6 +818,7 @@ AM_CONDITIONAL(HAVE_TIFF, test "x$LIBTIFF" != x)
 AM_CONDITIONAL(HAVE_PNG, test "x$LIBPNG" != x)
 AM_CONDITIONAL(HAVE_JPEG, test "x$LIBJPEG" != x)
 AM_CONDITIONAL(HAVE_JASPER, test "x$LIBJASPER" != x)
+AM_CONDITIONAL(HAVE_BPG, test "x$LIBBPG" != x)
 
 if $dynworks ; then
   STATIC_LIB_DEPS=
@@ -816,8 +836,11 @@ if $dynworks ; then
   if echo "$included_loaders" | egrep '(^|,)jasper($|,)' > /dev/null; then
     STATIC_LIB_DEPS="$STATIC_LIB_DEPS $LIBJASPER"
   fi
+  if echo "$included_loaders" | egrep '(^|,)bpg($|,)' > /dev/null; then
+    STATIC_LIB_DEPS="$STATIC_LIB_DEPS $LIBBPG"
+  fi
 else
-  STATIC_LIB_DEPS="$LIBTIFF $LIBJPEG $LIBPNG $LIBJASPER"
+  STATIC_LIB_DEPS="$LIBTIFF $LIBJPEG $LIBPNG $LIBJASPER $LIBBPG"
 fi
 
 # Checks to see whether we should include mediaLib
