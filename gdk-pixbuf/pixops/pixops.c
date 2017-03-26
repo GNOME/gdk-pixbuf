@@ -1794,6 +1794,8 @@ need_to_prescale (double           scale_x,
   case PIXOPS_INTERP_NEAREST:
     /* Doesn't need the optimization */
     return FALSE;
+  default:
+    g_assert_not_reached ();
   }
 
   /* Limit the number of filters created by make_filter_table(). */
