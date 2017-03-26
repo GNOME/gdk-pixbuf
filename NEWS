@@ -1,3 +1,11 @@
+2.36.6
+======
+
+* jpeg: Support the EXIF tag (#143608)
+* ico: Make option parsing locale-independent (#776990)
+* Fix build on Windows
+* Translation updates
+
 2.36.5
 ======
 
