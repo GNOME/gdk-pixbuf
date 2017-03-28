@@ -60,6 +60,7 @@ dist_installed_test_data =		\
 	dpi.tiff			\
 	premature-end.png		\
 	premature-end.jpg		\
+	bug143608-comment.jpg		\
 	bug725582-testrotate.jpg	\
 	bug725582-testrotate.png	\
 	cve-2015-4491.bmp		\
