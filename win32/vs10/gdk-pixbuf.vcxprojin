@@ -118,10 +118,10 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <LinkIncremental Condition="'$(Configuration)'=='Debug'">true</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)'=='Debug_GDI'">true</LinkIncremental>
-    <OutDir Condition="'$(Configuration)'=='Debug_GDI'">Debug\$(Platform)\bin\</OutDir>
-    <LinkIncremental Condition="'$(Configuration)'=='Release_GDI'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)'=='Release_GDI'">Release\$(Platform)\bin\</OutDir>
+    <LinkIncremental Condition="'$(Configuration)'=='Debug_GDI+'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)'=='Debug_GDI+'">Debug\$(Platform)\bin\</OutDir>
+    <LinkIncremental Condition="'$(Configuration)'=='Release_GDI+'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)'=='Release_GDI+'">Release\$(Platform)\bin\</OutDir>
     <LinkIncremental Condition="'$(Configuration)'=='Release'">false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_GDI+|Win32'">
@@ -390,18 +390,9 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\..\config.h.win32">
-      <Message Condition="'$(Configuration)'=='Debug_GDI+'">Copying config.h from config.h.win32...</Message>
-      <Command Condition="'$(Configuration)'=='Debug_GDI+'">$(GenConfigH)</Command>
-      <Outputs Condition="'$(Configuration)'=='Debug_GDI+'">..\..\config.h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)'=='Debug'">Copying config.h from config.h.win32...</Message>
-      <Command Condition="'$(Configuration)'=='Debug'">$(GenConfigH)</Command>
-      <Outputs Condition="'$(Configuration)'=='Debug'">..\..\config.h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)'=='Release_GDI+'">Copying config.h from config.h.win32...</Message>
-      <Command Condition="'$(Configuration)'=='Release_GDI+'">$(GenConfigH)</Command>
-      <Outputs Condition="'$(Configuration)'=='Release_GDI+'">..\..\config.h;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)'=='Release'">Copying config.h from config.h.win32...</Message>
-      <Command Condition="'$(Configuration)'=='Release'">$(GenConfigH)</Command>
-      <Outputs Condition="'$(Configuration)'=='Release'">..\..\config.h;%(Outputs)</Outputs>
+      <Message>Copying config.h from config.h.win32...</Message>
+      <Command>$(GenConfigH)</Command>
+      <Outputs>..\..\config.h;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
