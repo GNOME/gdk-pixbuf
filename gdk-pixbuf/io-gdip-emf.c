@@ -45,6 +45,7 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
   static const gchar *mime_types[] = {
     "application/emf",
     "application/x-emf",
+    "image/emf",
     "image/x-emf",
     "image/x-mgx-emf",
     NULL
