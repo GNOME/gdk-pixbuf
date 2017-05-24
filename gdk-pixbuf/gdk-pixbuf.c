@@ -35,7 +35,7 @@
 /* Include the marshallers */
 #include <glib-object.h>
 #include <gio/gio.h>
-#include "gdk-pixbuf-marshal.c"
+#include "gdk-pixbuf-marshal.h"
 
 /**
  * SECTION:creating
