@@ -1,0 +1,177 @@
+subdir('pixops')
+
+# Loader libs
+#  - name
+#  - sources
+#  - conditional, otherwise always built
+loaders = [
+  [ 'png', [ 'io-png.c' ], enabled_loaders.contains('png') ],
+  [ 'bmp', [ 'io-bmp.c' ] ],
+  [ 'gif', [ 'io-gif.c', 'io-gif-animation.c' ] ],
+  [ 'ico', [ 'io-ico.c' ] ],
+  [ 'ani', [ 'io-ani.c', 'io-ani-animation.c' ] ],
+  [ 'jpeg', [ 'io-jpeg.c' ], enabled_loaders.contains('jpeg') ],
+  [ 'pnm', [ 'io-pnm.c' ] ],
+  [ 'tiff', [ 'io-tiff.c' ], enabled_loaders.contains('tiff') ],
+  [ 'xpm', [ 'io-xpm.c' ] ],
+  [ 'xbm', [ 'io-xbm.c' ] ],
+  [ 'tga', [ 'io-tga.c', 'gdk-pixbuf-buffer-queue.c' ] ],
+  [ 'icns', [ 'io-icns.c' ] ],
+  [ 'jasper', [ 'io-jasper.c' ], enabled_loaders.contains('jasper') ],
+  [ 'qtif', [ 'io-qtif.c' ] ]
+]
+
+gdk_pixbuf_cflags = [
+  '-DG_LOG_STRUCTURED=1',
+  '-DG_LOG_DOMAIN="GdkPixbuf"',
+  '-DGDK_PIXBUF_COMPILATION',
+  '-DGDK_PIXBUF_PREFIX="@0@"'.format(gdk_pixbuf_prefix),
+  '-DGDK_PIXBUF_LOCALEDIR="@0@"'.format(gdk_pixbuf_localedir),
+  '-DGDK_PIXBUF_LIBDIR="@0@"'.format(gdk_pixbuf_libdir),
+  '-DGDK_PIXBUF_BINARY_VERSION="@0@"'.format(gdk_pixbuf_binary_version),
+  '-DGDK_PIXBUF_ENABLE_BACKEND',
+  '-DPIXBUF_LIBDIR="@0@"'.format(gdk_pixbuf_loaderdir),
+  '-DBUILT_MODULES_DIR="@0@"'.format(meson.current_build_dir()),
+]
+
+gdk_pixbuf_api_path = 'gdk-pixbuf-@0@/gdk-pixbuf'.format(gdk_pixbuf_api_version)
+
+gdkpixbuf_features_conf = configuration_data()
+gdkpixbuf_features_conf.set('GDK_PIXBUF_MAJOR', gdk_pixbuf_version_major)
+gdkpixbuf_features_conf.set('GDK_PIXBUF_MINOR', gdk_pixbuf_version_minor)
+gdkpixbuf_features_conf.set('GDK_PIXBUF_MICRO', gdk_pixbuf_version_micro)
+gdkpixbuf_features_conf.set('GDK_PIXBUF_VERSION', meson.project_version())
+configure_file(input: 'gdk-pixbuf-features.h.in',
+               output: 'gdk-pixbuf-features.h',
+               configuration: gdkpixbuf_features_conf,
+               install: true,
+               install_dir: join_paths(gdk_pixbuf_includedir, gdk_pixbuf_api_path))
+
+gdkpixbuf_headers = [
+  'gdk-pixbuf.h',
+  'gdk-pixbuf-autocleanups.h',
+  'gdk-pixbuf-core.h',
+  'gdk-pixbuf-transform.h',
+  'gdk-pixbuf-io.h',
+  'gdk-pixbuf-animation.h',
+  'gdk-pixbuf-simple-anim.h',
+  'gdk-pixbuf-loader.h',
+]
+
+install_headers(gdkpixbuf_headers, subdir: gdk_pixbuf_api_path)
+
+gdkpixbuf_sources = [
+  'gdk-pixbuf.c',
+  'gdk-pixbuf-animation.c',
+  'gdk-pixbuf-data.c',
+  'gdk-pixbuf-io.c',
+  'gdk-pixbuf-loader.c',
+  'gdk-pixbuf-scale.c',
+  'gdk-pixbuf-simple-anim.c',
+  'gdk-pixbuf-scaled-anim.c',
+  'gdk-pixbuf-util.c',
+  'gdk-pixdata.c',
+]
+
+gdkpixbuf_marshals = gnome.genmarshal('gdk-pixbuf-marshal',
+                                      sources: 'gdk-pixbuf-marshal.list',
+                                      prefix: '_gdk_pixbuf_marshal')
+
+gdkpixbuf_enums = gnome.mkenums('gdk-pixbuf-enum-types',
+                                sources: gdkpixbuf_headers,
+                                c_template: 'gdk-pixbuf-enum-types.c.template',
+                                h_template: 'gdk-pixbuf-enum-types.h.template',
+                                install_header: true)
+gdkpixbuf_enum_h = gdkpixbuf_enums[1]
+
+# Check if we need to build loaders as built-in functionality
+included_loaders_cflags = []
+included_loaders_deps = []
+
+foreach l: loaders
+  name = l[0]
+  sources = l[1]
+  cond = l.get(2, true)
+
+  if cond and builtin_loaders.contains(name)
+    included_loaders_cflags += '-DINCLUDED_@0@'.format(name)
+
+    mod = static_library('staticpixbufloader-@0@'.format(name),
+                         sources,
+                         dependencies: loaders_deps + gdk_pixbuf_deps,
+                         include_directories: [ root_inc, include_directories('.') ],
+                         c_args: common_cflags + gdk_pixbuf_cflags)
+
+    included_loaders_deps += declare_dependency(link_with: mod)
+  endif
+endforeach
+
+# The main gdk-pixbuf shared library
+gdkpixbuf = shared_library('gdk-pixbuf-2.0',
+                           gdkpixbuf_sources + gdkpixbuf_enums + gdkpixbuf_marshals,
+                           soversion: soversion,
+                           version: libversion,
+                           c_args: common_cflags + gdk_pixbuf_cflags + included_loaders_cflags,
+                           link_args: common_ldflags,
+                           include_directories: root_inc,
+                           dependencies: gdk_pixbuf_deps + included_loaders_deps + [ pixops_dep ],
+                           install: true)
+
+gdkpixbuf_dep = declare_dependency(link_with: gdkpixbuf,
+                                   include_directories: root_inc,
+                                   dependencies: gdk_pixbuf_deps,
+                                   sources: gdkpixbuf_enum_h)
+
+# Now check if we are building loaders as installed shared modules
+# We do this here because shared modules depend on libgdk-pixbuf
+dynamic_loaders = []
+
+foreach l: loaders
+  name = l[0]
+  sources = l[1]
+  cond = l.get(2, true)
+
+  if cond and not builtin_loaders.contains(name)
+    mod = shared_module('pixbufloader-@0@'.format(name),
+                        sources,
+                        dependencies: loaders_deps + gdk_pixbuf_deps + [ gdkpixbuf_dep ],
+                        include_directories: [ root_inc, include_directories('.') ],
+                        c_args: common_cflags + gdk_pixbuf_cflags,
+                        install: true,
+                        install_dir: gdk_pixbuf_loaderdir)
+
+    # We need the path to build loaders.cache for tests
+    dynamic_loaders += mod.full_path()
+  endif
+endforeach
+
+gdkpixbuf_bin = [
+  [ 'gdk-pixbuf-csource' ],
+  [ 'gdk-pixbuf-pixdata' ],
+  [ 'gdk-pixbuf-query-loaders', [ 'queryloaders.c' ] ],
+]
+
+foreach bin: gdkpixbuf_bin
+  bin_name = bin[0]
+  bin_source = bin.get(1, bin_name + '.c')
+
+  bin = executable(bin_name, bin_source,
+                   dependencies: gdk_pixbuf_deps + [ gdkpixbuf_dep ],
+                   include_directories: [ root_inc, include_directories('.') ],
+                   c_args: common_cflags + gdk_pixbuf_cflags,
+                   install: true)
+
+  # Used in tests
+  set_variable(bin_name.underscorify(), bin)
+endforeach
+
+# The 'loaders.cache' used for testing, so we don't accidentally
+# load the installed cache; we always build it by default
+loaders_cache = custom_target('loaders.cache',
+                              output: 'loaders.cache',
+                              capture: true,
+                              command: [
+                                gdk_pixbuf_query_loaders,
+                                dynamic_loaders,
+                              ],
+                              build_by_default: true)

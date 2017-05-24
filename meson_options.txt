@@ -1,0 +1,20 @@
+option('enable_png',
+       description: 'Enable PNG loader (requires libpng)',
+       type: 'boolean',
+       value: true)
+option('enable_tiff',
+       description: 'Enable TIFF loader (requires libtiff)',
+       type: 'boolean',
+       value: true)
+option('enable_jpeg',
+       description: 'Enable JPEG loader (requires libjpeg)',
+       type: 'boolean',
+       value: true)
+option('enable_jasper',
+       description: 'Enable JPEG2000 loader (requires libjasper)',
+       type: 'boolean',
+       value: true)
+option('builtin_loaders',
+       description: 'Comma-separated list of loaders to build into gdk-pixbuf',
+       type: 'string',
+       value: 'none')
