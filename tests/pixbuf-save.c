@@ -22,6 +22,7 @@
 #include "gdk-pixbuf/gdk-pixbuf.h"
 #include "test-common.h"
 #include <string.h>
+#include <glib/gstdio.h>
 
 #define compare_option(p1, p2, key) \
   g_strcmp0 (gdk_pixbuf_get_option (p1, key), gdk_pixbuf_get_option (p2, key))
@@ -73,6 +74,8 @@ test_save_roundtrip (void)
 
   g_object_unref (pixbuf);
   g_object_unref (ref);
+
+  g_unlink ("pixbuf-save-roundtrip");
 }
 
 static void
@@ -105,6 +108,8 @@ test_save_ico (void)
 
   g_object_unref (pixbuf);
   g_object_unref (ref);
+
+  g_unlink ("pixbuf-save-roundtrip");
 }
 
 static void
