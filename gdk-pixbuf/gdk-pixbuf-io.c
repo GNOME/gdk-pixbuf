@@ -1433,9 +1433,7 @@ load_from_stream (GdkPixbufLoader  *loader,
         GdkPixbuf *pixbuf;
         gssize n_read;
         guchar buffer[LOAD_BUFFER_SIZE];
-        gboolean res;
 
-        res = TRUE;
         while (1) { 
                 n_read = g_input_stream_read (stream, 
                                               buffer, 
@@ -1443,9 +1441,8 @@ load_from_stream (GdkPixbufLoader  *loader,
                                               cancellable, 
                                               error);
                 if (n_read < 0) {
-                        res = FALSE;
-                        error = NULL; /* Ignore further errors */
-                        break;
+                        gdk_pixbuf_loader_close (loader, NULL);
+                        return NULL;
                 }
 
                 if (n_read == 0)
@@ -1455,25 +1452,19 @@ load_from_stream (GdkPixbufLoader  *loader,
                                               buffer, 
                                               n_read, 
                                               error)) {
-                        res = FALSE;
-                        error = NULL;
-                        break;
+                        gdk_pixbuf_loader_close (loader, NULL);
+                        return NULL;
                 }
         }
 
-        if (!gdk_pixbuf_loader_close (loader, error)) {
-                res = FALSE;
-                error = NULL;
-        }
+        if (!gdk_pixbuf_loader_close (loader, error))
+                return NULL;
 
-        pixbuf = NULL;
-        if (res) {
-                pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
-                if (pixbuf)
-                        g_object_ref (pixbuf);
-        }
+        pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+        if (pixbuf == NULL)
+                return NULL;
 
-        return pixbuf;
+        return g_object_ref (pixbuf);
 }
 
 
