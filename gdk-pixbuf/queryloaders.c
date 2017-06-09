@@ -341,6 +341,7 @@ int main (int argc, char **argv)
 #ifdef USE_GMODULE
                 const char *path;
                 GDir *dir;
+                GList *l, *modules;
 
                 path = g_getenv ("GDK_PIXBUF_MODULEDIR");
 #ifdef G_OS_WIN32
@@ -352,6 +353,7 @@ int main (int argc, char **argv)
 
                 g_string_append_printf (contents, "# LoaderDir = %s\n#\n", path);
 
+                modules = NULL;
                 dir = g_dir_open (path, 0, NULL);
                 if (dir) {
                         const char *dent;
@@ -360,11 +362,16 @@ int main (int argc, char **argv)
                                 gint len = strlen (dent);
                                 if (len > SOEXT_LEN &&
                                     strcmp (dent + len - SOEXT_LEN, SOEXT) == 0) {
-                                        query_module (contents, path, dent);
+                                        modules = g_list_prepend (modules,
+                                                                  g_strdup (dent));
                                 }
                         }
                         g_dir_close (dir);
                 }
+                modules = g_list_sort (modules, (GCompareFunc)strcmp);
+                for (l = modules; l != NULL; l = l->next)
+                        query_module (contents, path, l->data);
+                g_list_free_full (modules, g_free);
 #else
                 g_string_append_printf (contents, "# dynamic loading of modules not supported\n");
 #endif
