@@ -1665,6 +1665,7 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 	 * compressed, and uncompressed on-the-fly.
          */
 	if (g_resources_get_info  (resource_path, 0, &data_size, NULL, NULL) &&
+	    data_size > sizeof(guint32) &&
 	    (bytes = g_resources_lookup_data (resource_path, 0, NULL)) != NULL) {
 		GdkPixbuf*pixbuf = NULL;
 		const guint8 *stream = g_bytes_get_data (bytes, NULL);
