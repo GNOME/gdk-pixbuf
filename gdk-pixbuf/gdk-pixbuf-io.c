@@ -1656,7 +1656,6 @@ gdk_pixbuf_new_from_stream (GInputStream  *stream,
 GdkPixbuf *
 _gdk_pixbuf_new_from_resource_try_pixdata (const char *resource_path)
 {
-	guint32 flags;
 	gsize data_size;
 	GBytes *bytes;
 
@@ -1665,7 +1664,7 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 	 * compiled-in resource data, whether uncompressed and mmap'ed, or
 	 * compressed, and uncompressed on-the-fly.
          */
-	if (g_resources_get_info  (resource_path, 0, &data_size, &flags, NULL) &&
+	if (g_resources_get_info  (resource_path, 0, &data_size, NULL, NULL) &&
 	    (bytes = g_resources_lookup_data (resource_path, 0, NULL)) != NULL) {
 		GdkPixbuf*pixbuf = NULL;
 		const guint8 *stream = g_bytes_get_data (bytes, NULL);
