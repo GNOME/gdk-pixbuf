@@ -454,7 +454,7 @@ gdk_pixbuf__tiff_image_stop_load (gpointer data,
 {
         TiffContext *context = data;
         TIFF *tiff;
-        gboolean retval;
+        gboolean retval = FALSE;
         
         g_return_val_if_fail (data != NULL, FALSE);
 
@@ -470,20 +470,18 @@ gdk_pixbuf__tiff_image_stop_load (gpointer data,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_FAILED,
                                      _("Failed to load TIFF image"));
-                retval = FALSE;
         } else {
                 GdkPixbuf *pixbuf;
                 
                 pixbuf = tiff_image_parse (tiff, context, error);
-                if (pixbuf)
-                        g_object_unref (pixbuf);
-                retval = pixbuf != NULL;
+                retval = (pixbuf != NULL);
+                g_clear_object (&pixbuf);
+                /* tiff_image_parse() can return NULL on success in a particular case */
                 if (!retval && error && !*error) {
                         g_set_error_literal (error,
                                              GDK_PIXBUF_ERROR,
                                              GDK_PIXBUF_ERROR_FAILED,
                                              _("Failed to load TIFF image"));
-                                retval = FALSE;
                 }
         }
 
