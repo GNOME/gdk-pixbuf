@@ -1,5 +1,7 @@
 include $(top_srcdir)/glib-tap.mk
 
+.NOTPARALLEL:
+
 AM_CPPFLAGS =				\
 	-I$(top_srcdir)			\
 	-I$(top_srcdir)/gdk-pixbuf	\
