@@ -225,6 +225,7 @@ static void DecodeHeader(guchar *Data, gint Bytes,
  	gint I;
 	guint16 imgtype; /* 1 = icon, 2 = cursor */
 	GList *l;
+	gboolean got_broken_header = FALSE;
 
  	/* Step 1: The ICO header */
 
@@ -310,6 +311,12 @@ static void DecodeHeader(guchar *Data, gint Bytes,
                 else if (depth <= 256)
                         depth = 8;
 
+		/* We check whether the HeaderSize (int) would overflow */
+                if (data_offset > INT_MAX - INFOHEADER_SIZE) {
+			got_broken_header = TRUE;
+			continue;
+		}
+
 		entry = g_new0 (struct ico_direntry_data, 1);
                 entry->width = width ? width : 256;
                 entry->height = height ? height : 256;
@@ -325,16 +332,6 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 	entry = NULL;
 	for (l = State->entries; l != NULL; l = g_list_next (l)) {
 		entry = l->data;
-
-		/* We check whether the HeaderSize (int) would overflow */
-		if (entry->DIBoffset > INT_MAX - INFOHEADER_SIZE)
-		  {
-			g_set_error (error,
-			             GDK_PIXBUF_ERROR,
-			             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-			             _("Invalid header in icon (%s)"), "dib offset");
-			return;
-		}
 
 		/* We know how many bytes are in the "header" part. */
 		State->HeaderSize = entry->DIBoffset + INFOHEADER_SIZE;
@@ -381,9 +378,11 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 	/* No valid icon found, because all are compressed? */
 	if (l == NULL) {
 		g_set_error_literal (error,
-		                     GDK_PIXBUF_ERROR,
-		                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-		                     _("Compressed icons are not supported"));
+				     GDK_PIXBUF_ERROR,
+				     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+				     got_broken_header ?
+					_("Invalid header in icon") :
+					_("Compressed icons are not supported"));
 		return;
 	}
 
