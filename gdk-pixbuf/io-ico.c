@@ -203,7 +203,11 @@ compare_direntry_scores (gconstpointer a,
 	const struct ico_direntry_data *ib = b;
 
 	/* Backwards, so largest first */
-	return ib->ImageScore - ia->ImageScore;
+	if (ib->ImageScore > ia->ImageScore)
+		return -1;
+	else if (ib->ImageScore < ia->ImageScore)
+		return 1;
+	return 0;
 }
 
 static void DecodeHeader(guchar *Data, gint Bytes,
