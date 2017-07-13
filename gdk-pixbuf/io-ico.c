@@ -131,7 +131,7 @@ struct ico_direntry_data {
 	gint ImageScore;
         gint width;
         gint height;
-	gint DIBoffset;
+	guint DIBoffset;
 	gint x_hot;
 	gint y_hot;
 };
@@ -166,7 +166,7 @@ struct ico_progressive_state {
 
 	struct headerpair Header;	/* Decoded (BE->CPU) header */
 	GList *entries;
-	gint			DIBoffset;
+	guint			DIBoffset;
 
 	GdkPixbuf *pixbuf;	/* Our "target" */
 };
@@ -284,16 +284,16 @@ static void DecodeHeader(guchar *Data, gint Bytes,
                 int depth;
                 int x_hot;
                 int y_hot;
-                int data_size G_GNUC_UNUSED;
-                int data_offset;
+                guint data_size G_GNUC_UNUSED;
+                guint data_offset;
 
                 width = Ptr[0];
                 height = Ptr[1];
                 depth = Ptr[2];
 		x_hot = (Ptr[5] << 8) + Ptr[4];
 		y_hot = (Ptr[7] << 8) + Ptr[6];
-                data_size = (Ptr[11] << 24) + (Ptr[10] << 16) + (Ptr[9] << 8) + (Ptr[8]);
-		data_offset = (Ptr[15] << 24) + (Ptr[14] << 16) + (Ptr[13] << 8) + (Ptr[12]);
+                data_size = ((guint) (Ptr[11]) << 24) + (Ptr[10] << 16) + (Ptr[9] << 8) + (Ptr[8]);
+		data_offset = ((guint) (Ptr[15]) << 24) + (Ptr[14] << 16) + (Ptr[13] << 8) + (Ptr[12]);
                 DEBUG(g_print ("Image %d: %d x %d\n\tDepth: %d\n", I, width, height, depth);
                 if (imgtype == 2)
                   g_print ("\tHotspot: %d x %d\n", x_hot, y_hot);
