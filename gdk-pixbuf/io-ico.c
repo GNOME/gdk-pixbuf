@@ -326,7 +326,9 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 	for (l = State->entries; l != NULL; l = g_list_next (l)) {
 		entry = l->data;
 
-		if (entry->DIBoffset < 0) {
+		/* We check whether the HeaderSize (int) would overflow */
+		if (entry->DIBoffset > INT_MAX - INFOHEADER_SIZE)
+		  {
 			g_set_error (error,
 			             GDK_PIXBUF_ERROR,
 			             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
