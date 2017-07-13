@@ -746,12 +746,10 @@ static gboolean gdk_pixbuf__bmp_image_stop_load(gpointer data, GError **error)
 		g_object_unref(context->pixbuf);
 
 	if (context->read_state == READ_STATE_HEADERS) {
-                if (error && *error == NULL) {
-                        g_set_error_literal (error,
-                                             GDK_PIXBUF_ERROR,
-                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                             _("Premature end-of-file encountered"));
-                }
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                     _("Premature end-of-file encountered"));
 		retval = FALSE;
 	}
 	

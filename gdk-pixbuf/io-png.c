@@ -312,13 +312,10 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
         pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, ctype & PNG_COLOR_MASK_ALPHA, 8, w, h);
 
 	if (!pixbuf) {
-                if (error && *error == NULL) {
-                        g_set_error_literal (error,
-                                             GDK_PIXBUF_ERROR,
-                                             GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                             _("Insufficient memory to load PNG file"));
-                }
-                
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
+                                     _("Insufficient memory to load PNG file"));
 
 		png_destroy_read_struct (&png_ptr, &info_ptr, NULL);
 		return NULL;
@@ -526,11 +523,9 @@ gdk_pixbuf__png_image_stop_load (gpointer context, GError **error)
         if (lc->pixbuf)
                 g_object_unref (lc->pixbuf);
         else {
-                if (error && *error == NULL) {
-                        g_set_error_literal (error, GDK_PIXBUF_ERROR,
-                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                             _("Premature end-of-file encountered"));
-                }
+                g_set_error_literal (error, GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                     _("Premature end-of-file encountered"));
                 retval = FALSE;
 	}
         
@@ -665,12 +660,10 @@ png_info_callback   (png_structp png_read_ptr,
                 
                 if (w == 0 || h == 0) {
                         lc->fatal_error_occurred = TRUE;
-                        if (lc->error && *lc->error == NULL) {
-                                g_set_error_literal (lc->error,
-                                                     GDK_PIXBUF_ERROR,
-                                                     GDK_PIXBUF_ERROR_FAILED,
-                                                     _("Transformed PNG has zero width or height."));
-                        }
+                        g_set_error_literal (lc->error,
+                                             GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_FAILED,
+                                             _("Transformed PNG has zero width or height."));
                         return;
                 }
         }
@@ -680,13 +673,11 @@ png_info_callback   (png_structp png_read_ptr,
         if (lc->pixbuf == NULL) {
                 /* Failed to allocate memory */
                 lc->fatal_error_occurred = TRUE;
-                if (lc->error && *lc->error == NULL) {
-                        g_set_error (lc->error,
-                                     GDK_PIXBUF_ERROR,
-                                     GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                     _("Insufficient memory to store a %lu by %lu image; try exiting some applications to reduce memory usage"),
-                                     (gulong) width, (gulong) height);
-                }
+                g_set_error (lc->error,
+                             GDK_PIXBUF_ERROR,
+                             GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
+                             _("Insufficient memory to store a %lu by %lu image; try exiting some applications to reduce memory usage"),
+                             (gulong) width, (gulong) height);
                 return;
         }
 
@@ -758,12 +749,10 @@ png_row_callback   (png_structp png_read_ptr,
 
         if (row_num >= lc->pixbuf->height) {
                 lc->fatal_error_occurred = TRUE;
-                if (lc->error && *lc->error == NULL) {
-                        g_set_error_literal (lc->error,
-                                             GDK_PIXBUF_ERROR,
-                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                             _("Fatal error reading PNG image file"));
-                }
+                g_set_error_literal (lc->error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                     _("Fatal error reading PNG image file"));
                 return;
         }
 

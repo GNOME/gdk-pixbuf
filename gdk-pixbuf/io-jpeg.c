@@ -701,14 +701,12 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 		    default:
 		      g_object_unref (pixbuf);
 		      pixbuf = NULL;
-		      if (error && *error == NULL) {
-                        g_set_error (error,
-                                     GDK_PIXBUF_ERROR,
-				     GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-				     _("Unsupported JPEG color space (%s)"),
-				     colorspace_name (cinfo.out_color_space)); 
-		      }
-               	      goto out; 
+                      g_set_error (error,
+                                   GDK_PIXBUF_ERROR,
+				   GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+				   _("Unsupported JPEG color space (%s)"),
+				   colorspace_name (cinfo.out_color_space));
+		      goto out;
 		}
 	}
 
@@ -914,13 +912,11 @@ gdk_pixbuf__jpeg_image_load_lines (JpegProgContext  *context,
                         convert_cmyk_to_rgb (cinfo, lines);
                         break;
                 default:
-                        if (error && *error == NULL) {
-                                g_set_error (error,
-                                             GDK_PIXBUF_ERROR,
-                                             GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                                             _("Unsupported JPEG color space (%s)"),
-                                             colorspace_name (cinfo->out_color_space));
-                        }
+                        g_set_error (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+                                     _("Unsupported JPEG color space (%s)"),
+                                     colorspace_name (cinfo->out_color_space));
 
                         return FALSE;
                 }
