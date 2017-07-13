@@ -699,8 +699,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 		      convert_cmyk_to_rgb (&cinfo, lines);
 		      break;
 		    default:
-		      g_object_unref (pixbuf);
-		      pixbuf = NULL;
+		      g_clear_object (&pixbuf);
                       g_set_error (error,
                                    GDK_PIXBUF_ERROR,
 				   GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
