@@ -1,3 +1,13 @@
+2.36.7
+======
+
+* Add tests for recent bug fixes
+* ico, bmp, tiff: avoid integer overflows (#776040, #776694, #780269)
+* jpeg: error out if wrong # of channels (#784866)
+* Misc.bugfixes (#784583)
+* Support mimetypes: image/wmf, image/emf
+* Translation updates
+
 2.36.6
 ======
 
