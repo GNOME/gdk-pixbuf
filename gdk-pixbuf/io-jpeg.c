@@ -1090,6 +1090,9 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 				has_alpha = FALSE;
 			} else if (cinfo->output_components == 4) {
 				has_alpha = TRUE;
+			} else if (cinfo->output_components == 1 &&
+				   cinfo->out_color_space == JCS_GRAYSCALE) {
+				has_alpha = FALSE;
 			} else {
 				g_set_error (error,
 					     GDK_PIXBUF_ERROR,
