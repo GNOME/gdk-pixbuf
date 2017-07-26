@@ -434,6 +434,7 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 	if (State->pixbuf == NULL) {
 		guint64 len;
 		int rowstride;
+		gboolean has_alpha;
 
 		if (State->size_func) {
 			gint width = State->Header.width;
@@ -460,20 +461,17 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 			return FALSE;
 		}
 
-		if (State->Type == 32 || 
-		    State->Compressed == BI_RLE4 || 
+		if (State->Type == 32 ||
+		    State->Compressed == BI_RLE4 ||
 		    State->Compressed == BI_RLE8)
-			State->pixbuf =
-				gdk_pixbuf_new(GDK_COLORSPACE_RGB, TRUE, 8,
-					       (gint) State->Header.width,
-					       (gint) State->Header.height);
+			has_alpha = TRUE;
 		else
-			State->pixbuf =
-				gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8,
-					       (gint) State->Header.width,
-					       (gint) State->Header.height);
+			has_alpha = FALSE;
 
-		rowstride = gdk_pixbuf_get_rowstride (State->pixbuf);
+		rowstride = gdk_pixbuf_calculate_rowstride (GDK_COLORSPACE_RGB, has_alpha, 8,
+							    (gint) State->Header.width,
+							    (gint) State->Header.height);
+
 		if (rowstride <= 0 ||
 		    !g_uint64_checked_mul (&len, rowstride, State->Header.height) ||
 		    len > G_MAXINT) {
@@ -485,6 +483,10 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 			return FALSE;
 		}
 
+		State->pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, has_alpha, 8,
+						(gint) State->Header.width,
+						(gint) State->Header.height);
+
 		if (State->pixbuf == NULL) {
 			g_set_error_literal (error,
                                              GDK_PIXBUF_ERROR,
@@ -492,8 +494,8 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
                                              _("Not enough memory to load bitmap image"));
 			State->read_state = READ_STATE_ERROR;
 			return FALSE;
-			}
-		
+		}
+
 		if (State->prepared_func != NULL)
 			/* Notify the client that we are ready to go */
 			(*State->prepared_func) (State->pixbuf, NULL, State->user_data);
