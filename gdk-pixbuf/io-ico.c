@@ -203,9 +203,9 @@ compare_direntry_scores (gconstpointer a,
 	const struct ico_direntry_data *ib = b;
 
 	/* Backwards, so largest first */
-	if (ib->ImageScore > ia->ImageScore)
+	if (ib->ImageScore < ia->ImageScore)
 		return -1;
-	else if (ib->ImageScore < ia->ImageScore)
+	else if (ib->ImageScore > ia->ImageScore)
 		return 1;
 	return 0;
 }
