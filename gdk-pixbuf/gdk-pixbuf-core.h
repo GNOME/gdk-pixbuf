@@ -270,6 +270,13 @@ GDK_PIXBUF_AVAILABLE_IN_ALL
 GdkPixbuf *gdk_pixbuf_new (GdkColorspace colorspace, gboolean has_alpha, int bits_per_sample,
 			   int width, int height);
 
+GDK_PIXBUF_AVAILABLE_IN_2_36
+gint gdk_pixbuf_calculate_rowstride (GdkColorspace colorspace,
+				     gboolean      has_alpha,
+				     int           bits_per_sample,
+				     int           width,
+				     int           height);
+
 /* Copy a pixbuf */
 GDK_PIXBUF_AVAILABLE_IN_ALL
 GdkPixbuf *gdk_pixbuf_copy (const GdkPixbuf *pixbuf);

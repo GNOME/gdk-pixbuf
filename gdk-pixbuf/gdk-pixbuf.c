@@ -422,6 +422,46 @@ free_buffer (guchar *pixels, gpointer data)
 }
 
 /**
+ * gdk_pixbuf_calculate_rowstride:
+ * @colorspace: Color space for image
+ * @has_alpha: Whether the image should have transparency information
+ * @bits_per_sample: Number of bits per color sample
+ * @width: Width of image in pixels, must be > 0
+ * @height: Height of image in pixels, must be > 0
+ *
+ * Calculates the rowstride that an image created with those values would
+ * have. This is useful for front-ends and backends that want to sanity
+ * check image values without needing to create them.
+ *
+ * Return value: the rowstride for the given values, or -1 in case of error.
+ *
+ * Since: 2.36.8
+ */
+gint
+gdk_pixbuf_calculate_rowstride (GdkColorspace colorspace,
+				gboolean      has_alpha,
+				int           bits_per_sample,
+				int           width,
+				int           height)
+{
+	unsigned int channels;
+
+	g_return_val_if_fail (colorspace == GDK_COLORSPACE_RGB, -1);
+	g_return_val_if_fail (bits_per_sample == 8, -1);
+	g_return_val_if_fail (width > 0, -1);
+	g_return_val_if_fail (height > 0, -1);
+
+	channels = has_alpha ? 4 : 3;
+
+	/* Overflow? */
+	if (width > (G_MAXINT - 3) / channels)
+		return -1;
+
+	/* Always align rows to 32-bit boundaries */
+	return (width * channels + 3) & ~3;
+}
+
+/**
  * gdk_pixbuf_new:
  * @colorspace: Color space for image
  * @has_alpha: Whether the image should have transparency information
@@ -444,22 +484,15 @@ gdk_pixbuf_new (GdkColorspace colorspace,
                 int           height)
 {
 	guchar *buf;
-	unsigned int channels;
 	int rowstride;
 
-	g_return_val_if_fail (colorspace == GDK_COLORSPACE_RGB, NULL);
-	g_return_val_if_fail (bits_per_sample == 8, NULL);
-	g_return_val_if_fail (width > 0, NULL);
-	g_return_val_if_fail (height > 0, NULL);
-
-	channels = has_alpha ? 4 : 3;
-
-	/* Overflow? */
-	if (width > (G_MAXINT - 3) / channels)
+	rowstride = gdk_pixbuf_calculate_rowstride (colorspace,
+						    has_alpha,
+						    bits_per_sample,
+						    width,
+						    height);
+	if (rowstride <= 0)
 		return NULL;
-
-	/* Always align rows to 32-bit boundaries */
-	rowstride = (width * channels + 3) & ~3;
 
 	buf = g_try_malloc_n (height, rowstride);
 	if (!buf)
