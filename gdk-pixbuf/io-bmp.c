@@ -433,6 +433,7 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 
 	if (State->pixbuf == NULL) {
 		guint64 len;
+		int rowstride;
 
 		if (State->size_func) {
 			gint width = State->Header.width;
@@ -472,7 +473,9 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 					       (gint) State->Header.width,
 					       (gint) State->Header.height);
 
-		if (!g_uint64_checked_mul (&len, State->pixbuf->rowstride, State->Header.height) ||
+		rowstride = gdk_pixbuf_get_rowstride (State->pixbuf);
+		if (rowstride <= 0 ||
+		    !g_uint64_checked_mul (&len, rowstride, State->Header.height) ||
 		    len > G_MAXINT) {
 			g_set_error_literal (error,
                                              GDK_PIXBUF_ERROR,
