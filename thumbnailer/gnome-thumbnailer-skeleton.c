@@ -37,6 +37,7 @@ static int output_size = 256;
 static gboolean g_fatal_warnings = FALSE;
 static char **filenames = NULL;
 
+#if !GDK_PIXBUF_CHECK_VERSION(2,36,5)
 /**
  * gnome_desktop_thumbnail_scale_down_pixbuf:
  * @pixbuf: a #GdkPixbuf
@@ -178,6 +179,7 @@ gnome_desktop_thumbnail_scale_down_pixbuf (GdkPixbuf *pixbuf,
 	
 	return dest_pixbuf;
 }
+#endif
 
 static char *
 get_target_uri (GFile *file)
@@ -291,9 +293,16 @@ int main (int argc, char **argv)
 
 			scale = (double)output_size / MAX (width, height);
 
+#if !GDK_PIXBUF_CHECK_VERSION(2,36,5)
 			scaled = gnome_desktop_thumbnail_scale_down_pixbuf (pixbuf,
 									    floor (width * scale + 0.5),
 									    floor (height * scale + 0.5));
+#else
+			scaled = gdk_pixbuf_scale_simple (pixbuf,
+							  floor (width * scale + 0.5),
+							  floor (height * scale + 0.5),
+							  GDK_INTERP_HYPER);
+#endif
 			gdk_pixbuf_copy_options (pixbuf, scaled);
 			g_object_unref (pixbuf);
 			pixbuf = scaled;
@@ -316,8 +325,9 @@ int main (int argc, char **argv)
 	g_free (input_filename);
 
 	if (!pixbuf) {
-		g_warning ("Could not thumbnail '%s': %s", filenames[0], error->message);
-		g_error_free (error);
+		g_warning ("Could not thumbnail '%s': %s", filenames[0],
+			   error ? error->message : "Thumbnailer failed without returning an error");
+		g_clear_error (&error);
 		g_strfreev (filenames);
 		return 1;
 	}
