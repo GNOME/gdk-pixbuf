@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-07-18 13:34+0000\n"
-"PO-Revision-Date: 2017-07-18 18:18+0200\n"
+"POT-Creation-Date: 2017-07-27 12:35+0000\n"
+"PO-Revision-Date: 2017-07-27 15:15+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -162,36 +162,36 @@ msgstr "Nierozpoznany format pliku obrazu"
 msgid "Failed to load image '%s': %s"
 msgstr "Wczytanie obrazu „%s” się nie powiodło: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2152 gdk-pixbuf/io-gdip-utils.c:838
+#: gdk-pixbuf/gdk-pixbuf-io.c:2143 gdk-pixbuf/io-gdip-utils.c:838
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Błąd podczas zapisywania do pliku obrazu: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2194 gdk-pixbuf/gdk-pixbuf-io.c:2315
+#: gdk-pixbuf/gdk-pixbuf-io.c:2185 gdk-pixbuf/gdk-pixbuf-io.c:2306
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Ta kopia biblioteki gdk-pixbuf nie obsługuje zapisywania obrazu w formacie: "
 "%s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2225
+#: gdk-pixbuf/gdk-pixbuf-io.c:2216
 msgid "Insufficient memory to save image to callback"
 msgstr "Brak pamięci do zapisu obrazu do funkcji zwrotnej"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2238
+#: gdk-pixbuf/gdk-pixbuf-io.c:2229
 msgid "Failed to open temporary file"
 msgstr "Otwarcie pliku tymczasowego się nie powiodło"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2261
+#: gdk-pixbuf/gdk-pixbuf-io.c:2252
 msgid "Failed to read from temporary file"
 msgstr "Odczytanie pliku tymczasowego się nie powiodło"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2471
+#: gdk-pixbuf/gdk-pixbuf-io.c:2462
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Otwarcie „%s” do zapisania się nie powiodło: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2497
+#: gdk-pixbuf/gdk-pixbuf-io.c:2488
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -200,11 +200,11 @@ msgstr ""
 "Zamknięcie pliku „%s” po zapisaniu w nim obrazu się nie powiodło. Część "
 "danych mogła nie zostać zapisana: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2718 gdk-pixbuf/gdk-pixbuf-io.c:2770
+#: gdk-pixbuf/gdk-pixbuf-io.c:2709 gdk-pixbuf/gdk-pixbuf-io.c:2761
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Brak pamięci do zapisu obrazu do bufora"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2816
+#: gdk-pixbuf/gdk-pixbuf-io.c:2807
 msgid "Error writing to image stream"
 msgstr "Błąd podczas zapisywania do strumienia obrazu"
 
@@ -280,12 +280,12 @@ msgid "Windows animated cursor"
 msgstr "Animowany kursor systemu Windows"
 
 #: gdk-pixbuf/io-bmp.c:227 gdk-pixbuf/io-bmp.c:265 gdk-pixbuf/io-bmp.c:372
-#: gdk-pixbuf/io-bmp.c:399 gdk-pixbuf/io-bmp.c:424 gdk-pixbuf/io-bmp.c:457
-#: gdk-pixbuf/io-bmp.c:480 gdk-pixbuf/io-bmp.c:553
+#: gdk-pixbuf/io-bmp.c:399 gdk-pixbuf/io-bmp.c:424 gdk-pixbuf/io-bmp.c:458
+#: gdk-pixbuf/io-bmp.c:483 gdk-pixbuf/io-bmp.c:556
 msgid "BMP image has bogus header data"
 msgstr "Błędny nagłówek obrazu BMP"
 
-#: gdk-pixbuf/io-bmp.c:238 gdk-pixbuf/io-bmp.c:489
+#: gdk-pixbuf/io-bmp.c:238 gdk-pixbuf/io-bmp.c:492
 msgid "Not enough memory to load bitmap image"
 msgstr "Brak pamięci na wczytanie bitmapy z pliku"
 
@@ -309,28 +309,28 @@ msgstr "Zstępujące (top-down) obrazy BMP nie mogą być skompresowane"
 msgid "BMP image width too large"
 msgstr "Szerokość obrazu BMP jest za duża"
 
-#: gdk-pixbuf/io-bmp.c:777 gdk-pixbuf/io-png.c:528 gdk-pixbuf/io-pnm.c:721
+#: gdk-pixbuf/io-bmp.c:780 gdk-pixbuf/io-png.c:528 gdk-pixbuf/io-pnm.c:721
 msgid "Premature end-of-file encountered"
 msgstr "Przedwcześnie wystąpił koniec pliku"
 
-#: gdk-pixbuf/io-bmp.c:1305
+#: gdk-pixbuf/io-bmp.c:1308
 #, c-format
 msgid "Error while decoding colormap"
 msgstr "Błąd podczas dekodowania palety kolorów"
 
-#: gdk-pixbuf/io-bmp.c:1368 gdk-pixbuf/io-bmp.c:1380
+#: gdk-pixbuf/io-bmp.c:1371 gdk-pixbuf/io-bmp.c:1383
 msgid "Image is too wide for BMP format."
 msgstr "Obraz jest za szeroki dla formatu BMP."
 
-#: gdk-pixbuf/io-bmp.c:1413
+#: gdk-pixbuf/io-bmp.c:1416
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Nie można przydzielić pamięci do zapisu pliku BMP"
 
-#: gdk-pixbuf/io-bmp.c:1454
+#: gdk-pixbuf/io-bmp.c:1457
 msgid "Couldn't write to BMP file"
 msgstr "Nie można zapisać do pliku BMP"
 
-#: gdk-pixbuf/io-bmp.c:1507 gdk-pixbuf/io-gdip-bmp.c:83
+#: gdk-pixbuf/io-bmp.c:1510 gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
@@ -345,12 +345,12 @@ msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
 
-#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1403
+#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1412
 msgctxt "image format"
 msgid "Windows icon"
 msgstr "Ikona systemu Windows"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1354
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1357
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -359,7 +359,7 @@ msgstr ""
 "Jakość obrazu JPEG musi być wartością między 0 a 100. Wartość „%s” nie jest "
 "poprawna."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1370
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1373
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
@@ -367,7 +367,7 @@ msgstr ""
 "Jakość obrazu JPEG musi być wartością między 0 a 100. Wartość „%d” nie jest "
 "dozwolona."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1654
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1657
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
@@ -533,15 +533,19 @@ msgstr "Nieobsługiwany typ ikony"
 msgid "Not enough memory to load ICO file"
 msgstr "Brak pamięci na wczytanie pliku ICO"
 
-#: gdk-pixbuf/io-ico.c:1061
+#: gdk-pixbuf/io-ico.c:625
+msgid "ICO image was truncated or incomplete."
+msgstr "Plik ICO został obcięty lub jest niekompletny."
+
+#: gdk-pixbuf/io-ico.c:1070
 msgid "Image too large to be saved as ICO"
 msgstr "Obraz jest za duży, aby mógł zostać zapisany jako ICO"
 
-#: gdk-pixbuf/io-ico.c:1072
+#: gdk-pixbuf/io-ico.c:1081
 msgid "Cursor hotspot outside image"
 msgstr "Gorący punkt poza obrazem"
 
-#: gdk-pixbuf/io-ico.c:1095
+#: gdk-pixbuf/io-ico.c:1104
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Nieobsługiwana głębia dla pliku ICO: %d"
@@ -568,7 +572,7 @@ msgstr "Nie można przydzielić pamięci dla profilu kolorów"
 
 #: gdk-pixbuf/io-jasper.c:204
 msgid "Insufficient memory to open JPEG 2000 file"
-msgstr "Brak wystarczającej ilości pamięci do otwarcia pliku JPEG 2000"
+msgstr "Brak pamięci do otwarcia pliku JPEG 2000"
 
 #: gdk-pixbuf/io-jasper.c:283
 msgid "Couldn't allocate memory to buffer image data"
@@ -589,16 +593,16 @@ msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
 msgstr ""
-"Brak pamięci na wczytanie pliku. Proszę spróbować zakończyć pracę niektórych "
-"programów, aby zwolnić pamięć"
+"Brak pamięci na wczytanie obrazu. Proszę spróbować zakończyć działanie "
+"części programów, aby zwolnić pamięć"
 
 #: gdk-pixbuf/io-jpeg.c:706 gdk-pixbuf/io-jpeg.c:917
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Nieobsługiwana przestrzeń kolorów w pliku JPEG (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:817 gdk-pixbuf/io-jpeg.c:1113 gdk-pixbuf/io-jpeg.c:1461
-#: gdk-pixbuf/io-jpeg.c:1471
+#: gdk-pixbuf/io-jpeg.c:817 gdk-pixbuf/io-jpeg.c:1116 gdk-pixbuf/io-jpeg.c:1464
+#: gdk-pixbuf/io-jpeg.c:1474
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Brak pamięci na wczytanie pliku JPEG"
 
@@ -606,12 +610,12 @@ msgstr "Brak pamięci na wczytanie pliku JPEG"
 msgid "Transformed JPEG has zero width or height."
 msgstr "Przekształcony JPEG ma zerową szerokość lub wysokość."
 
-#: gdk-pixbuf/io-jpeg.c:1097
+#: gdk-pixbuf/io-jpeg.c:1100
 #, c-format
 msgid "Unsupported number of color components (%d)"
 msgstr "Nieobsługiwana liczba składowych kolorów (%d)"
 
-#: gdk-pixbuf/io-jpeg.c:1391
+#: gdk-pixbuf/io-jpeg.c:1394
 #, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
@@ -619,7 +623,7 @@ msgstr ""
 "x-dpi obrazu JPEG musi być wartością między 1 a 65535. Wartość „%s” nie jest "
 "dozwolona."
 
-#: gdk-pixbuf/io-jpeg.c:1412
+#: gdk-pixbuf/io-jpeg.c:1415
 #, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
@@ -627,7 +631,7 @@ msgstr ""
 "y-dpi obrazu JPEG musi być wartością między 1 a 65535. Wartość „%s” nie jest "
 "dozwolona."
 
-#: gdk-pixbuf/io-jpeg.c:1426
+#: gdk-pixbuf/io-jpeg.c:1429
 #, c-format
 msgid "Color profile has invalid length '%u'."
 msgstr "Profil kolorów ma nieprawidłową długość „%u”."
@@ -670,7 +674,7 @@ msgid ""
 "applications to reduce memory usage"
 msgstr ""
 "Brak pamięci na przechowanie obrazu o wymiarach %lu na %lu punktów. Proszę "
-"spróbować zakończyć pracę niektórych programów, aby zmniejszyć "
+"spróbować zakończyć działanie części programów, aby zmniejszyć "
 "zapotrzebowanie na pamięć"
 
 #: gdk-pixbuf/io-png.c:755
@@ -742,7 +746,7 @@ msgstr "PNG"
 
 #: gdk-pixbuf/io-pnm.c:246
 msgid "PNM loader expected to find an integer, but didn't"
-msgstr "Moduł wczytujący PNM oczekiwał wartości całkowitej, lecz otrzymał inną"
+msgstr "Moduł wczytujący PNM oczekiwał wartości całkowitej, ale otrzymał inną"
 
 #: gdk-pixbuf/io-pnm.c:278
 msgid "PNM file has an incorrect initial byte"
