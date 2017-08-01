@@ -16,6 +16,8 @@ loader_write_from_channel (GdkPixbufLoader *loader,
     gsize bytes_read = 0;
     GIOStatus read_status;
     GError* error = NULL;
+    gboolean ret;
+    
     if(count_bytes < G_MAXSIZE) {
         //read no more than 'count_bytes' bytes
         buffer = g_malloc (count_bytes);
@@ -26,8 +28,9 @@ loader_write_from_channel (GdkPixbufLoader *loader,
     }
     g_assert (read_status == G_IO_STATUS_NORMAL || read_status == G_IO_STATUS_EOF);
 
-    g_assert (gdk_pixbuf_loader_write(loader, buffer, bytes_read, &error));
+    ret = gdk_pixbuf_loader_write(loader, buffer, bytes_read, &error);
     g_assert_no_error (error);
+    g_assert (ret);
     g_free(buffer);
     return bytes_read;
 }
