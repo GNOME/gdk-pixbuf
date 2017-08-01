@@ -759,7 +759,7 @@ if test $use_x86_asm = yes; then
     ac_ext=$save_ac_ext
     if test $use_mmx_asm = yes; then
       AC_DEFINE(USE_MMX, 1,
-                [Define to 1 if XXM is available and should be used])
+                [Define to 1 if MMX is available and should be used])
       AC_MSG_RESULT(yes)
     else
       AC_MSG_RESULT(no)
