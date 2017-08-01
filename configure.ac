@@ -985,7 +985,6 @@ AM_CONDITIONAL(MSVC_NO_TOOLSET_SET, [test x$MSVC_TOOLSET = x])
 AC_CONFIG_FILES([
 Makefile
 gdk-pixbuf-2.0.pc
-gdk-pixbuf-2.0-uninstalled.pc
 gdk-pixbuf/Makefile
 gdk-pixbuf/gdk_pixbuf.rc
 gdk-pixbuf/gdk-pixbuf-features.h
