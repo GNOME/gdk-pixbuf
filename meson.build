@@ -216,7 +216,7 @@ loaders_deps = []
 
 if get_option('enable_png')
   # We have a vast selection of libpng versions to choose from
-  foreach png: [ 'libpng16', 'libpng15', 'libpng14', 'libpng12', 'libpng13', 'libpng10' ]
+  foreach png: [ 'libpng16', 'libpng15', 'libpng14', 'libpng13', 'libpng12', 'libpng10' ]
     if not enabled_loaders.contains('png')
       png_dep = dependency(png, required: false)
       if png_dep.found()
