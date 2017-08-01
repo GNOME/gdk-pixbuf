@@ -337,20 +337,6 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
                    [The prefix for our gettext translation domains.])
 
-#
-# see bug 162979
-#
-AC_MSG_CHECKING(for HP-UX)
-case $host_os in
-  hpux9* | hpux10* | hpux11*)
-    AC_MSG_RESULT(yes)
-    CFLAGS="$CFLAGS -DHPPEX -DSHMLINK"
-  ;;
-  *)
-    AC_MSG_RESULT(no)
-  ;;
-esac
-
 dnl NeXTStep cc seems to need this
 AC_MSG_CHECKING([for extra flags for POSIX compliance])
 AC_TRY_COMPILE([#include <dirent.h>], [DIR *dir;],
