@@ -472,7 +472,8 @@ libgdk_pixbuf_2_0_la_SOURCES =   \
 	gdk-pixbuf-scaled-anim.c \
 	gdk-pixbuf-util.c	 \
 	gdk-pixdata.c		 \
-	gdk-pixbuf-enum-types.c
+	gdk-pixbuf-enum-types.c  \
+	gdk-pixbuf-marshal.c
 
 libgdk_pixbuf_2_0_la_CFLAGS =			\
 	$(AM_CPPFLAGS)				\
