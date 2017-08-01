@@ -96,12 +96,14 @@ PKG_PROG_PKG_CONFIG
 
 AC_CANONICAL_HOST
 
+AC_CHECK_LIBM
+AC_SUBST(LIBM)
+
 AC_ARG_ENABLE(gio-sniffing,
               [AC_HELP_STRING([--enable-gio-sniffing=@<:@no/yes/auto@:>@],
                               [enable or disable gio sniffing [default=auto]])],,
               [enable_gio_sniffing=auto])
 
-MATH_LIB=-lm
 AC_MSG_CHECKING([for native Win32])
 LIB_EXE_MACHINE_FLAG=X86
 EXE_MANIFEST_ARCHITECTURE=X86
@@ -109,7 +111,6 @@ case "$host" in
   *-*-mingw*)
     os_win32=yes
     gio_can_sniff=no
-    MATH_LIB=
     case "$host" in
     x86_64-*-*)
       LIB_EXE_MACHINE_FLAG=X64
@@ -336,18 +337,6 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
                    [The prefix for our gettext translation domains.])
 
-AC_MSG_CHECKING(for the BeOS)
-case $host in
-  *-*-beos*)
-    AC_MSG_RESULT(yes)
-    MATH_LIB=
-  ;;
-  *)
-    AC_MSG_RESULT(no)
-  ;;
-esac
-
-AC_SUBST(MATH_LIB)
 #
 # see bug 162979
 #
@@ -399,10 +388,6 @@ AC_CHECK_FUNCS(setrlimit)
 
 saved_cflags="$CFLAGS"
 saved_ldflags="$LDFLAGS"
-
-AC_CHECK_LIB(m,round,)
-AC_CHECK_LIB(m,lrint,)
-AC_CHECK_FUNCS(round lrint)
 
 # Checks for header files.
 AC_HEADER_STDC
@@ -872,7 +857,7 @@ AM_CONDITIONAL(USE_MMX, test x$use_mmx_asm = xyes)
 AM_CONDITIONAL(CROSS_COMPILING, test $cross_compiling = yes)
 
 GDK_PIXBUF_PACKAGES="gmodule-no-export-2.0 gobject-2.0 gio-2.0"
-GDK_PIXBUF_EXTRA_LIBS="$STATIC_LIB_DEPS $MATH_LIB $MEDIA_LIB"
+GDK_PIXBUF_EXTRA_LIBS="$STATIC_LIB_DEPS $LIBM $MEDIA_LIB"
 GDK_PIXBUF_EXTRA_CFLAGS=
 GDK_PIXBUF_DEP_LIBS="`$PKG_CONFIG --libs $GDK_PIXBUF_PACKAGES $PNG_DEP_CFLAGS_PACKAGES` $GDK_PIXBUF_EXTRA_LIBS"
 GDK_PIXBUF_DEP_CFLAGS="`$PKG_CONFIG --cflags  gthread-2.0 $GDK_PIXBUF_PACKAGES $PNG_DEP_CFLAGS_PACKAGES` $GDK_PIXBUF_EXTRA_CFLAGS"
