@@ -96,8 +96,11 @@ PKG_PROG_PKG_CONFIG
 
 AC_CANONICAL_HOST
 
+# Check for libm and look for these C99 functions
 AC_CHECK_LIBM
 AC_SUBST(LIBM)
+AC_CHECK_LIB(m, round, AC_DEFINE(HAVE_ROUND, [1], [Define to 1 if libm has round]))
+AC_CHECK_LIB(m, lrint, AC_DEFINE(HAVE_LRINT, [1], [Define to 1 if libm has lrint]))
 
 AC_MSG_CHECKING([for native Win32])
 LIB_EXE_MACHINE_FLAG=X86
