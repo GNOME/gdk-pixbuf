@@ -452,24 +452,14 @@ AC_ARG_WITH(gdiplus,
 AM_CONDITIONAL(BUILD_GDIPLUS_LOADERS, [ test x$os_win32 = xyes && test x$with_gdiplus != xno ])
 
 dnl Test for libtiff
+libtiff_found=no
 if test x$os_win32 = xno || test x$with_gdiplus = xno; then
-  if test x$with_libtiff != xno && test -z "$LIBTIFF"; then
-    AC_CHECK_LIB(tiff, TIFFReadRGBAImageOriented,
-      [AC_CHECK_HEADER(tiffio.h,
-        TIFF='tiff'; LIBTIFF='-ltiff',
-        AC_MSG_WARN(*** TIFF loader will not be built (TIFF header files not found) ***))],
-      [AC_CHECK_LIB(tiff, TIFFWriteScanline,
-        [AC_CHECK_HEADER(tiffio.h,
-          TIFF='tiff'; LIBTIFF='-ltiff -ljpeg -lz',
-          AC_MSG_WARN(*** TIFF loader will not be built (TIFF header files not found) ***))],
-        [AC_CHECK_LIB(tiff34, TIFFFlushData,
-          [AC_CHECK_HEADER(tiffio.h,
-            TIFF='tiff'; LIBTIFF='-ltiff34 -ljpeg -lz',
-            AC_MSG_WARN(*** TIFF loader will not be built (TIFF header files not found) ***))],
-        AC_MSG_WARN(*** TIFF loader will not be built (TIFF library not found) ***), -ljpeg -lz -lm)], -ljpeg -lz -lm)], -lm)
+  if test x$with_libtiff != xno; then
+    PKG_CHECK_MODULES(TIFF, libtiff-4)
+    libtiff_found=yes
   fi
 
-  if test x$with_libtiff != xno && test -z "$LIBTIFF"; then
+  if test x$with_libtiff != xno && test x$libtiff_found = xno; then
      AC_MSG_ERROR([
 *** Checks for TIFF loader failed. You can build without it by passing
 *** --without-libtiff to configure but some programs using GTK+ may
