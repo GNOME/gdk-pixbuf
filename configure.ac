@@ -337,18 +337,6 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
                    [The prefix for our gettext translation domains.])
 
-dnl NeXTStep cc seems to need this
-AC_MSG_CHECKING([for extra flags for POSIX compliance])
-AC_TRY_COMPILE([#include <dirent.h>], [DIR *dir;],
-  AC_MSG_RESULT(none needed),
-  gtk_save_CFLAGS="$CFLAGS"
-  CFLAGS="$CFLAGS -posix"
-  AC_TRY_COMPILE([#include <dirent.h>], [DIR *dir;],
-    AC_MSG_RESULT(-posix),
-    AC_MSG_RESULT()
-    CFLAGS="$gtk_save_CFLAGS"
-    AC_MSG_WARN([Could not determine POSIX flag. (-posix didn't work.)])))
-
 #
 # Run AM_PATH_GLIB_2_0 to make sure that GLib is installed and working
 #
