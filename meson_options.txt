@@ -26,3 +26,7 @@ option('with_gir',
        description: 'Whether to generate the API introspection data (requires GObject-Introspection)',
        type: 'boolean',
        value: true)
+option('with_man',
+       description: 'Whether to generate man pages (requires xlstproc)',
+       type: 'boolean',
+       value: true)

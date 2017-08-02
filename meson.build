@@ -290,6 +290,4 @@ subdir('po')
 subdir('tests')
 
 # Documentation
-#if get_option('with_docs')
-#  subdir('docs/reference/gdk-pixbuf')
-#endif
+subdir('docs/reference/gdk-pixbuf')
