@@ -555,6 +555,40 @@ gdk_pixbuf_io_init_modules (const char  *filename,
         return TRUE;
 }
 
+/**
+ * gdk_pixbuf_init_modules:
+ * @path: Path to directory where the loaders.cache is installed
+ *
+ * Initalizes the gdk-pixbuf loader modules referenced by the loaders.cache
+ * file present inside that directory.
+ *
+ * This is to be used by applications that want to ship certain loaders
+ * in a different location from the system ones.
+ *
+ * This is needed when the OS or runtime ships a minimal number of loaders
+ * so as to reduce the potential attack surface of carefully crafted image
+ * files, especially for uncommon file types. Applications that require
+ * broader image file types coverage, such as image viewers, would be
+ * expected to ship the gdk-pixbuf modules in a separate location, bundled
+ * with the application in a separate directory from the OS or runtime-
+ * provided modules.
+ *
+ * Since: 2.40
+ */
+gboolean
+gdk_pixbuf_init_modules (const char  *path,
+			 GError     **error)
+{
+	char *filename;
+	gboolean ret;
+
+	g_return_val_if_fail (path != NULL, FALSE);
+	filename = g_build_filename (path, "loaders.cache", NULL);
+	ret = gdk_pixbuf_io_init_modules (filename, error);
+	g_free (filename);
+	return ret;
+}
+
 static void
 gdk_pixbuf_io_init_builtin (void)
 {
