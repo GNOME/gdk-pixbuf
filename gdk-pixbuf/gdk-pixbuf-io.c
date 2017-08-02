@@ -384,7 +384,7 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
                                  GError         **error);
 
 static void
-gdk_pixbuf_io_init_modules (void)
+gdk_pixbuf_io_init_modules (const char *filename)
 {
 #ifdef USE_GMODULE
         GIOChannel *channel;
@@ -393,7 +393,6 @@ gdk_pixbuf_io_init_modules (void)
         GString *tmp_buf = g_string_new (NULL);
         gboolean have_error = FALSE;
         GdkPixbufModule *module = NULL;
-        gchar *filename = gdk_pixbuf_get_module_file ();
         int flags;
         int n_patterns = 0;
         GdkPixbufModulePattern *pattern;
@@ -412,7 +411,6 @@ gdk_pixbuf_io_init_modules (void)
                                    "to make things work again for the time being.",
                                    filename, error->message, filename);
                 g_string_free (tmp_buf, TRUE);
-                g_free (filename);
                 return;
         }
         
@@ -550,7 +548,6 @@ gdk_pixbuf_io_init_modules (void)
         }
         g_string_free (tmp_buf, TRUE);
         g_io_channel_unref (channel);
-        g_free (filename);
 #endif
 }
 
@@ -630,8 +627,11 @@ gdk_pixbuf_io_init_builtin (void)
 static void
 gdk_pixbuf_io_init (void)
 {
+	g_autofree char *module_file = NULL;
+
 	gdk_pixbuf_io_init_builtin ();
-	gdk_pixbuf_io_init_modules ();
+	module_file = gdk_pixbuf_get_module_file ();
+	gdk_pixbuf_io_init_modules (module_file);
 }
 
 #define module(type) \
