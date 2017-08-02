@@ -49,13 +49,14 @@ configure_file(input: 'gdk-pixbuf-features.h.in',
 
 gdkpixbuf_headers = [
   'gdk-pixbuf.h',
+  'gdk-pixbuf-animation.h',
   'gdk-pixbuf-autocleanups.h',
   'gdk-pixbuf-core.h',
-  'gdk-pixbuf-transform.h',
   'gdk-pixbuf-io.h',
-  'gdk-pixbuf-animation.h',
-  'gdk-pixbuf-simple-anim.h',
   'gdk-pixbuf-loader.h',
+  'gdk-pixbuf-macros.h',
+  'gdk-pixbuf-simple-anim.h',
+  'gdk-pixbuf-transform.h',
 ]
 
 install_headers(gdkpixbuf_headers, subdir: gdk_pixbuf_api_path)
