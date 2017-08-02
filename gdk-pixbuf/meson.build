@@ -108,7 +108,7 @@ foreach l: loaders
 endforeach
 
 # The main gdk-pixbuf shared library
-gdkpixbuf = library('gdk-pixbuf-2.0',
+gdkpixbuf = library('gdk_pixbuf-2.0',
                     gdkpixbuf_sources + gdkpixbuf_enums + gdkpixbuf_marshals,
                     soversion: soversion,
                     version: libversion,
