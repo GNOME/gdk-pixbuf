@@ -42,6 +42,7 @@ libversion = '@0@.@1@.@2@'.format(soversion, current, revision)
 # Paths
 gdk_pixbuf_prefix = get_option('prefix')
 gdk_pixbuf_libdir = join_paths(gdk_pixbuf_prefix, get_option('libdir'))
+gdk_pixbuf_bindir = join_paths(gdk_pixbuf_prefix, get_option('bindir'))
 gdk_pixbuf_includedir = join_paths(gdk_pixbuf_prefix, get_option('includedir'))
 gdk_pixbuf_datadir = join_paths(gdk_pixbuf_prefix, get_option('datadir'))
 gdk_pixbuf_mandir = join_paths(gdk_pixbuf_prefix, get_option('mandir'))
@@ -294,6 +295,7 @@ endif
 subdir('po')
 
 subdir('tests')
+subdir('thumbnailer')
 
 # Documentation
 subdir('docs/reference/gdk-pixbuf')
