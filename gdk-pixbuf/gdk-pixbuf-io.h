@@ -41,6 +41,9 @@ G_BEGIN_DECLS
 
 typedef struct _GdkPixbufFormat GdkPixbufFormat;
 
+GDK_PIXBUF_AVAILABLE_IN_2_40
+void gdk_pixbuf_init_modules (const char *path);
+
 GDK_PIXBUF_AVAILABLE_IN_ALL
 GType gdk_pixbuf_format_get_type (void) G_GNUC_CONST;
 
