@@ -58,7 +58,40 @@ installed_tests = [
   [ 'pixbuf-area-updated' ],
 ]
 
+test_data = [
+  'test-image.png',
+  'test-animation.gif',
+  '1_partyanimsm2.gif',
+  'test-animation.ani',
+  'icc-profile.jpeg',
+  'icc-profile.png',
+  'dpi.jpeg',
+  'dpi.png',
+  'dpi.tiff',
+  'premature-end.png',
+  'premature-end.jpg',
+  'bug143608-comment.jpg',
+  'bug725582-testrotate.jpg',
+  'bug725582-testrotate.png',
+  'cve-2015-4491.bmp',
+  'large.png',
+  'large.jpg',
+  'bug775218.jpg',
+  'test-image.pixdata',
+  'test-image-rle.pixdata',
+  'bug775693.pixdata',
+  'aero.gif',
+]
+
+gen_installed_test = find_program('gen-installed-test.py')
+
+installed_test_bindir = join_paths(gdk_pixbuf_libexecdir, 'installed-tests', gdk_pixbuf_api_name)
+installed_test_datadir = join_paths(gdk_pixbuf_datadir, 'installed-tests', gdk_pixbuf_api_name)
+
+install_data(test_data, install_dir: installed_test_bindir)
+
 test_deps = gdk_pixbuf_deps + [ gdkpixbuf_dep ]
+
 foreach t: installed_tests
   test_name = t[0]
   test_sources = [ test_name + '.c', 'test-common.c' ]
@@ -67,9 +100,23 @@ foreach t: installed_tests
     test_sources += [ resources_c, resources_h ]
   endif
 
+  custom_target(test_name + '.test',
+                output: test_name + '.test',
+                command: [
+                  gen_installed_test,
+                  '--testbindir=@0@'.format(installed_test_bindir),
+                  '--testbin=@0@'.format(test_name),
+                  '@OUTPUT@',
+                ],
+                install: true,
+                install_dir: installed_test_datadir)
+
   test_bin = executable(test_name, test_sources,
                         dependencies: test_deps,
-                        include_directories: [ root_inc, include_directories('../gdk-pixbuf') ],
+                        include_directories: [
+                          root_inc,
+                          include_directories('../gdk-pixbuf')
+                        ],
                         c_args: common_cflags)
 
   test(test_name, test_bin,

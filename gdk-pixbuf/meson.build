@@ -34,7 +34,7 @@ gdk_pixbuf_cflags = [
   '-DBUILT_MODULES_DIR="@0@"'.format(meson.current_build_dir()),
 ]
 
-gdk_pixbuf_api_path = join_paths('gdk-pixbuf-@0@'.format(gdk_pixbuf_api_version), 'gdk-pixbuf')
+gdk_pixbuf_api_path = join_paths(gdk_pixbuf_api_name, 'gdk-pixbuf')
 
 gdkpixbuf_features_conf = configuration_data()
 gdkpixbuf_features_conf.set('GDK_PIXBUF_MAJOR', gdk_pixbuf_version_major)

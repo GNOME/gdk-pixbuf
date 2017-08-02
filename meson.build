@@ -23,6 +23,8 @@ gdk_pixbuf_version_micro = version_arr[2].to_int()
 gdk_pixbuf_api_version = '2.0'
 gdk_pixbuf_binary_version = '2.10.0'
 
+gdk_pixbuf_api_name = '@0@-@1@'.format(meson.project_name(), gdk_pixbuf_api_version)
+
 if gdk_pixbuf_version_minor.is_odd()
   gdk_pixbuf_interface_age = 0
 else
