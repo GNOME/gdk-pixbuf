@@ -284,6 +284,12 @@ gnome = import('gnome')
 
 subdir('gdk-pixbuf')
 
+# X11
+x11_dep = dependency('x11', required: false)
+if x11_dep.found()
+  subdir('contrib/gdk-pixbuf-xlib')
+endif
+
 # i18n
 subdir('po')
 

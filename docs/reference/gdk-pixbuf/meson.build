@@ -26,6 +26,7 @@ if get_option('with_docs')
                src_dir: [
                  join_paths(meson.source_root(), 'gdk-pixbuf'),
                  join_paths(meson.build_root(), 'gdk-pixbuf'),
+                 join_paths(meson.source_root(), 'contrib', 'gdk-pixbuf-xlib'),
                ],
                dependencies: gdk_pixbuf_deps,
                gobject_typesfile: 'gdk-pixbuf.types',
