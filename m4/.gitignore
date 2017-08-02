@@ -1,4 +1,0 @@
-*.m4
-# We maintain these files in our tree
-!introspection.m4
-!glibtests.m4
