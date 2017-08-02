@@ -41,11 +41,12 @@ gdkpixbuf_features_conf.set('GDK_PIXBUF_MAJOR', gdk_pixbuf_version_major)
 gdkpixbuf_features_conf.set('GDK_PIXBUF_MINOR', gdk_pixbuf_version_minor)
 gdkpixbuf_features_conf.set('GDK_PIXBUF_MICRO', gdk_pixbuf_version_micro)
 gdkpixbuf_features_conf.set('GDK_PIXBUF_VERSION', meson.project_version())
-configure_file(input: 'gdk-pixbuf-features.h.in',
-               output: 'gdk-pixbuf-features.h',
-               configuration: gdkpixbuf_features_conf,
-               install: true,
-               install_dir: join_paths(gdk_pixbuf_includedir, gdk_pixbuf_api_path))
+
+gdk_pixbuf_features_h = configure_file(input: 'gdk-pixbuf-features.h.in',
+                                       output: 'gdk-pixbuf-features.h',
+                                       configuration: gdkpixbuf_features_conf,
+                                       install: true,
+                                       install_dir: join_paths(gdk_pixbuf_includedir, gdk_pixbuf_api_path))
 
 gdkpixbuf_headers = [
   'gdk-pixbuf.h',
@@ -59,7 +60,7 @@ gdkpixbuf_headers = [
   'gdk-pixbuf-transform.h',
 ]
 
-install_headers(gdkpixbuf_headers, subdir: gdk_pixbuf_api_path)
+install_headers(gdkpixbuf_headers + [ 'gdk-pixdata.h' ], subdir: gdk_pixbuf_api_path)
 
 gdkpixbuf_sources = [
   'gdk-pixbuf.c',
@@ -177,3 +178,26 @@ loaders_cache = custom_target('loaders.cache',
                               ],
                               build_by_default: true)
 loaders_dep = declare_dependency(source: loaders_cache)
+
+build_gir = get_option('with_gir') and not meson.is_cross_build()
+if build_gir
+  gir_args = [
+    '--quiet',
+    '--c-include=gdk-pixbuf/gdk-pixbuf.h',
+    '-DGDK_PIXBUF_COMPILATION',
+  ]
+
+  gnome.generate_gir(gdkpixbuf,
+                     sources: gdkpixbuf_sources + gdkpixbuf_headers + gdkpixbuf_enums + [
+                       gdk_pixbuf_features_h,
+                       'gdk-pixdata.h',
+                     ],
+                     namespace: 'GdkPixbuf',
+                     nsversion: gdk_pixbuf_api_version,
+                     identifier_prefix: 'Gdk',
+                     symbol_prefix: 'gdk',
+                     export_packages: 'gdk-pixbuf-2.0',
+                     includes: [ 'GModule-2.0', 'Gio-2.0', ],
+                     install: true,
+                     extra_args: gir_args)
+endif
