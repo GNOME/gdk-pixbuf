@@ -83,7 +83,8 @@ gdkpixbuf_enums = gnome.mkenums('gdk-pixbuf-enum-types',
                                 sources: gdkpixbuf_headers,
                                 c_template: 'gdk-pixbuf-enum-types.c.template',
                                 h_template: 'gdk-pixbuf-enum-types.h.template',
-                                install_header: true)
+                                install_header: true,
+                                install_dir: join_paths(gdk_pixbuf_includedir, gdk_pixbuf_api_path))
 gdkpixbuf_enum_h = gdkpixbuf_enums[1]
 
 # Check if we need to build loaders as built-in functionality
