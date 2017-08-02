@@ -383,8 +383,9 @@ static gboolean
 gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
                                  GError         **error);
 
-static void
-gdk_pixbuf_io_init_modules (void)
+static gboolean
+gdk_pixbuf_io_init_modules (const char  *filename,
+                            GError     **error)
 {
 #ifdef USE_GMODULE
         GIOChannel *channel;
@@ -393,27 +394,27 @@ gdk_pixbuf_io_init_modules (void)
         GString *tmp_buf = g_string_new (NULL);
         gboolean have_error = FALSE;
         GdkPixbufModule *module = NULL;
-        gchar *filename = gdk_pixbuf_get_module_file ();
         int flags;
         int n_patterns = 0;
         GdkPixbufModulePattern *pattern;
-        GError *error = NULL;
+        GError *local_error = NULL;
 #endif
 
 #ifdef USE_GMODULE
-        channel = g_io_channel_new_file (filename, "r",  &error);
+        channel = g_io_channel_new_file (filename, "r",  &local_error);
         if (!channel) {
-                /* Don't bother warning if we have some built-in loaders */
-                if (file_formats == NULL || file_formats->next == NULL)
-                        g_warning ("Cannot open pixbuf loader module file '%s': %s\n\n"
-                                   "This likely means that your installation is broken.\n"
-                                   "Try running the command\n"
-                                   "  gdk-pixbuf-query-loaders > %s\n"
-                                   "to make things work again for the time being.",
-                                   filename, error->message, filename);
+                g_set_error (error,
+                             G_IO_ERROR,
+                             G_IO_ERROR_INVALID_ARGUMENT,
+                             "Cannot open pixbuf loader module file '%s': %s\n\n"
+                             "This likely means that your installation is broken.\n"
+                             "Try running the command\n"
+                             "  gdk-pixbuf-query-loaders > %s\n"
+                             "to make things work again for the time being.",
+                             filename, local_error->message, filename);
+                g_clear_error (&local_error);
                 g_string_free (tmp_buf, TRUE);
-                g_free (filename);
-                return;
+                return FALSE;
         }
         
         while (!have_error && g_io_channel_read_line (channel, &line_buf, NULL, &term, NULL) == G_IO_STATUS_NORMAL) {
@@ -550,8 +551,8 @@ gdk_pixbuf_io_init_modules (void)
         }
         g_string_free (tmp_buf, TRUE);
         g_io_channel_unref (channel);
-        g_free (filename);
 #endif
+        return TRUE;
 }
 
 static void
@@ -630,8 +631,12 @@ gdk_pixbuf_io_init_builtin (void)
 static void
 gdk_pixbuf_io_init (void)
 {
+	char *module_file;
+
 	gdk_pixbuf_io_init_builtin ();
-	gdk_pixbuf_io_init_modules ();
+	module_file = gdk_pixbuf_get_module_file ();
+	gdk_pixbuf_io_init_modules (module_file, NULL);
+	g_free (module_file);
 }
 
 #define module(type) \
