@@ -383,8 +383,8 @@ static gboolean
 gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
                                  GError         **error);
 
-static void 
-gdk_pixbuf_io_init (void)
+static void
+gdk_pixbuf_io_init_modules (void)
 {
 #ifdef USE_GMODULE
         GIOChannel *channel;
@@ -399,75 +399,6 @@ gdk_pixbuf_io_init (void)
         GdkPixbufModulePattern *pattern;
         GError *error = NULL;
 #endif
-
-#define load_one_builtin_module(format)                                 G_STMT_START { \
-        GdkPixbufModule *__builtin_module = g_new0 (GdkPixbufModule, 1);               \
-        __builtin_module->module_name = #format;                                       \
-        if (gdk_pixbuf_load_module_unlocked (__builtin_module, NULL))                  \
-                file_formats = g_slist_prepend (file_formats, __builtin_module);       \
-        else                                                                           \
-                g_free (__builtin_module);                              } G_STMT_END
-
-#ifdef INCLUDE_ani
-        load_one_builtin_module (ani);
-#endif
-#ifdef INCLUDE_png
-        load_one_builtin_module (png);
-#endif
-#ifdef INCLUDE_bmp
-        load_one_builtin_module (bmp);
-#endif
-#ifdef INCLUDE_gif
-        load_one_builtin_module (gif);
-#endif
-#ifdef INCLUDE_ico
-        load_one_builtin_module (ico);
-#endif
-#ifdef INCLUDE_jpeg
-        load_one_builtin_module (jpeg);
-#endif
-#ifdef INCLUDE_pnm
-        load_one_builtin_module (pnm);
-#endif
-#ifdef INCLUDE_tiff
-        load_one_builtin_module (tiff);
-#endif
-#ifdef INCLUDE_xpm
-        load_one_builtin_module (xpm);
-#endif
-#ifdef INCLUDE_xbm
-        load_one_builtin_module (xbm);
-#endif
-#ifdef INCLUDE_tga
-        load_one_builtin_module (tga);
-#endif
-#ifdef INCLUDE_icns
-        load_one_builtin_module (icns);
-#endif
-#ifdef INCLUDE_jasper
-        load_one_builtin_module (jasper);
-#endif
-#ifdef INCLUDE_qtif
-        load_one_builtin_module (qtif);
-#endif
-#ifdef INCLUDE_gdiplus
-        /* We don't bother having the GDI+ loaders individually selectable
-         * for building in or not.
-         */
-        load_one_builtin_module (ico);
-        load_one_builtin_module (wmf);
-        load_one_builtin_module (emf);
-        load_one_builtin_module (bmp);
-        load_one_builtin_module (gif);
-        load_one_builtin_module (jpeg);
-        load_one_builtin_module (tiff);
-#endif
-#ifdef INCLUDE_gdip_png
-        /* Except the gdip-png loader which normally isn't built at all even */
-        load_one_builtin_module (png);
-#endif
-
-#undef load_one_builtin_module
 
 #ifdef USE_GMODULE
         channel = g_io_channel_new_file (filename, "r",  &error);
@@ -623,6 +554,92 @@ gdk_pixbuf_io_init (void)
 #endif
 }
 
+static void
+gdk_pixbuf_io_init_builtin (void)
+{
+        GdkPixbufModule *builtin_module ;
+
+        /*  initialize on separate line to avoid compiler warnings in the
+         *  common case of no compiled-in modules.
+         */
+        builtin_module = NULL;
+
+#define load_one_builtin_module(format)                                 G_STMT_START { \
+        GdkPixbufModule *__builtin_module = g_new0 (GdkPixbufModule, 1);               \
+        __builtin_module->module_name = #format;                                       \
+        if (gdk_pixbuf_load_module_unlocked (__builtin_module, NULL))                  \
+                file_formats = g_slist_prepend (file_formats, __builtin_module);       \
+        else                                                                           \
+                g_free (__builtin_module);                              } G_STMT_END
+
+#ifdef INCLUDE_ani
+        load_one_builtin_module (ani);
+#endif
+#ifdef INCLUDE_png
+        load_one_builtin_module (png);
+#endif
+#ifdef INCLUDE_bmp
+        load_one_builtin_module (bmp);
+#endif
+#ifdef INCLUDE_gif
+        load_one_builtin_module (gif);
+#endif
+#ifdef INCLUDE_ico
+        load_one_builtin_module (ico);
+#endif
+#ifdef INCLUDE_jpeg
+        load_one_builtin_module (jpeg);
+#endif
+#ifdef INCLUDE_pnm
+        load_one_builtin_module (pnm);
+#endif
+#ifdef INCLUDE_tiff
+        load_one_builtin_module (tiff);
+#endif
+#ifdef INCLUDE_xpm
+        load_one_builtin_module (xpm);
+#endif
+#ifdef INCLUDE_xbm
+        load_one_builtin_module (xbm);
+#endif
+#ifdef INCLUDE_tga
+        load_one_builtin_module (tga);
+#endif
+#ifdef INCLUDE_icns
+        load_one_builtin_module (icns);
+#endif
+#ifdef INCLUDE_jasper
+        load_one_builtin_module (jasper);
+#endif
+#ifdef INCLUDE_qtif
+        load_one_builtin_module (qtif);
+#endif
+#ifdef INCLUDE_gdiplus
+        /* We don't bother having the GDI+ loaders individually selectable
+         * for building in or not.
+         */
+        load_one_builtin_module (ico);
+        load_one_builtin_module (wmf);
+        load_one_builtin_module (emf);
+        load_one_builtin_module (bmp);
+        load_one_builtin_module (gif);
+        load_one_builtin_module (jpeg);
+        load_one_builtin_module (tiff);
+#endif
+#ifdef INCLUDE_gdip_png
+        /* Except the gdip-png loader which normally isn't built at all even */
+        load_one_builtin_module (png);
+#endif
+
+#undef load_one_builtin_module
+}
+
+static void
+gdk_pixbuf_io_init (void)
+{
+	gdk_pixbuf_io_init_builtin ();
+	gdk_pixbuf_io_init_modules ();
+}
 
 #define module(type) \
   extern void _gdk_pixbuf__##type##_fill_info   (GdkPixbufFormat *info);   \
