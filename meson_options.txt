@@ -30,3 +30,7 @@ option('with_man',
        description: 'Whether to generate man pages (requires xlstproc)',
        type: 'boolean',
        value: true)
+option('enable_relocatable',
+       description: 'Whether to enable application bundle relocation support',
+       type: 'boolean',
+       value: false)

@@ -251,6 +251,18 @@ if get_option('enable_jasper')
   endif
 endif
 
+# Determine whether we enable application bundle relocation support, and we use
+# this always on Windows
+if host_system == 'windows'
+  relocatable = true
+else
+  relocatable = get_option('enable_relocatable')
+endif
+
+if relocatable
+  add_project_arguments([ '-DGDK_PIXBUF_RELOCATABLE' ], language: 'c')
+endif
+
 gdk_pixbuf_conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 
 configure_file(output: 'config.h', configuration: gdk_pixbuf_conf)
