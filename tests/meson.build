@@ -1,7 +1,6 @@
 # Resources; we cannot use gnome.compile_resources() here, because we need to
 # override the environment in order to use the utilities we just built instead
 # of the system ones
-gen_resources = find_program('gen-resources.py')
 resources_c = custom_target('resources.c',
                             input: 'resources.gresource.xml',
                             output: 'resources.c',
@@ -82,8 +81,6 @@ test_data = [
   'bug775693.pixdata',
   'aero.gif',
 ]
-
-gen_installed_test = find_program('gen-installed-test.py')
 
 installed_test_bindir = join_paths(gdk_pixbuf_libexecdir, 'installed-tests', gdk_pixbuf_api_name)
 installed_test_datadir = join_paths(gdk_pixbuf_datadir, 'installed-tests', gdk_pixbuf_api_name)

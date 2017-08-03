@@ -283,6 +283,11 @@ configure_file(input: 'gdk-pixbuf-2.0.pc.in',
 
 root_inc = include_directories('.')
 
+# Auxiliary scripts
+gen_resources = find_program('build-aux/gen-resources.py')
+gen_installed_test = find_program('build-aux/gen-installed-test.py')
+gen_thumbnailer = find_program('build-aux/gen-thumbnailer.py')
+
 gnome = import('gnome')
 
 subdir('gdk-pixbuf')

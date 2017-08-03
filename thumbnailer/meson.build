@@ -12,7 +12,6 @@ gdk_pixbuf_print_mime_types = executable('gdk-pixbuf-print-mime-types',
                                          c_args: common_cflags,
                                          dependencies: gdk_pixbuf_deps + [ gdkpixbuf_dep ])
 
-gen_thumbnailer = find_program('gen-thumbnailer.py')
 custom_target('thumbnailer',
               input: 'gdk-pixbuf-thumbnailer.thumbnailer.in',
               output: 'gdk-pixbuf-thumbnailer.thumbnailer',

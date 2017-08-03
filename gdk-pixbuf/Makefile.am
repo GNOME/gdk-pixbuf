@@ -595,7 +595,6 @@ EXTRA_DIST =					\
 	gdk-pixbuf-marshal.list			\
 	gdk-pixbuf-enum-types.c.template	\
 	gdk-pixbuf-enum-types.h.template	\
-	gen-color-table.pl			\
 	gdiplus.def				\
 	fallback-c89.c
 

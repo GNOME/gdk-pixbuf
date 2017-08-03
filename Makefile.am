@@ -9,10 +9,11 @@ meson_files = \
 	contrib/gdk-pixbuf-xlib/meson.build \
 	po/meson.build \
 	tests/meson.build \
-	tests/gen-installed-test.py \
-	tests/gen-resources.py \
 	thumbnailer/meson.build \
-	thumbnailer/gen-thumbnailer.py \
+	build-aux/gen-color-table.pl \
+	build-aux/gen-installed-test.py \
+	build-aux/gen-resources.py \
+	build-aux/gen-thumbnailer.py \
 	$()
 
 EXTRA_DIST = 			\
