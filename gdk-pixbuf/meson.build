@@ -99,13 +99,14 @@ foreach l: loaders
   cond = l.get(2, true)
 
   if cond and builtin_loaders.contains(name)
-    included_loaders_cflags += '-DINCLUDED_@0@'.format(name)
+    cflag_for_included_loader = ['-DINCLUDE_@0@'.format(name)]
+    included_loaders_cflags += cflag_for_included_loader
 
     mod = static_library('staticpixbufloader-@0@'.format(name),
                          sources,
                          dependencies: loaders_deps + gdk_pixbuf_deps,
                          include_directories: [ root_inc, gdk_pixbuf_inc ],
-                         c_args: common_cflags + gdk_pixbuf_cflags)
+                         c_args: common_cflags + gdk_pixbuf_cflags + cflag_for_included_loader)
 
     included_loaders_deps += declare_dependency(link_with: mod)
   endif
