@@ -15,7 +15,7 @@ option('enable_jasper',
        type: 'boolean',
        value: false)
 option('builtin_loaders',
-       description: 'Comma-separated list of loaders to build into gdk-pixbuf, or "none"',
+       description: 'Comma-separated list of loaders to build into gdk-pixbuf, or "none", or "all" to build all buildable loaders into gdk-pixbuf',
        type: 'string',
        value: 'none')
 option('with_docs',

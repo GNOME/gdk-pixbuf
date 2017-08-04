@@ -203,6 +203,13 @@ gdk_pixbuf_conf.set10('USE_GMODULE', build_modules)
 # Check which loaders should be built into gdk-pixbuf
 builtin_loaders = get_option('builtin_loaders').split(',')
 
+# If 'all' is specified for builtin_loaders, build all
+# buildable loaders into gdk-pixbuf
+builtin_all_loaders = false
+if builtin_loaders == [ 'all' ]
+  builtin_all_loaders = true
+endif
+
 # Loader dependencies
 enabled_loaders = []
 loaders_deps = []

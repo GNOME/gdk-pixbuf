@@ -110,7 +110,7 @@ foreach l: loaders
   sources = l[1]
   cond = l.get(2, true)
 
-  if cond and builtin_loaders.contains(name)
+  if cond and (builtin_loaders.contains(name) or builtin_all_loaders)
     cflag_for_included_loader = ['-DINCLUDE_@0@'.format(name)]
     included_loaders_cflags += cflag_for_included_loader
 
@@ -149,7 +149,7 @@ foreach l: loaders
   sources = l[1]
   cond = l.get(2, true)
 
-  if cond and not builtin_loaders.contains(name)
+  if cond and not (builtin_loaders.contains(name) or builtin_all_loaders)
     mod = shared_module('pixbufloader-@0@'.format(name),
                         sources,
                         dependencies: loaders_deps + gdk_pixbuf_deps + [ gdkpixbuf_dep ],
