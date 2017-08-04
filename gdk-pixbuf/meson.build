@@ -43,6 +43,8 @@ gdkpixbuf_features_conf.set('GDK_PIXBUF_MAJOR', gdk_pixbuf_version_major)
 gdkpixbuf_features_conf.set('GDK_PIXBUF_MINOR', gdk_pixbuf_version_minor)
 gdkpixbuf_features_conf.set('GDK_PIXBUF_MICRO', gdk_pixbuf_version_micro)
 gdkpixbuf_features_conf.set('GDK_PIXBUF_VERSION', meson.project_version())
+gdkpixbuf_features_conf.set('GDK_PIXBUF_API_VERSION', gdk_pixbuf_api_version)
+gdkpixbuf_features_conf.set('LT_CURRENT_MINUS_AGE', current_minus_age)
 
 gdk_pixbuf_features_h = configure_file(input: 'gdk-pixbuf-features.h.in',
                                        output: 'gdk-pixbuf-features.h',
@@ -88,6 +90,16 @@ gdkpixbuf_enums = gnome.mkenums('gdk-pixbuf-enum-types',
                                 install_header: true,
                                 install_dir: join_paths(gdk_pixbuf_includedir, gdk_pixbuf_api_path))
 gdkpixbuf_enum_h = gdkpixbuf_enums[1]
+
+if host_system == 'windows'
+  gdk_pixbuf_win_rc = configure_file(
+    input: 'gdk_pixbuf.rc.in',
+    output: 'gdk_pixbuf.rc',
+    configuration: gdkpixbuf_features_conf,
+  )
+  gdk_pixbuf_win_res = import('windows').compile_resources(gdk_pixbuf_win_rc)
+  gdkpixbuf_sources += gdk_pixbuf_win_res
+endif
 
 # Check if we need to build loaders as built-in functionality
 included_loaders_cflags = []

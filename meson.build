@@ -40,6 +40,8 @@ soversion = 0
 current = gdk_pixbuf_binary_age - gdk_pixbuf_interface_age
 revision = gdk_pixbuf_interface_age
 libversion = '@0@.@1@.@2@'.format(soversion, current, revision)
+age = gdk_pixbuf_binary_age - gdk_pixbuf_interface_age
+current_minus_age = current - age
 
 # Paths
 gdk_pixbuf_prefix = get_option('prefix')
