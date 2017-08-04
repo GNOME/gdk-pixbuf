@@ -71,6 +71,19 @@ foreach h: check_headers
   endif
 endforeach
 
+# Look for the math library first, since we use it to test for round() and lrint()
+mathlib_dep = cc.find_library('m', required: false)
+
+# XXX: Remove the checks for round() and lrint() once GDK-Pixbuf is declared C99
+if cc.has_function('round', dependencies: mathlib_dep)
+  gdk_pixbuf_conf.set('HAVE_ROUND', 1)
+endif
+
+if cc.has_function('lrint', dependencies: mathlib_dep)
+  gdk_pixbuf_conf.set('HAVE_LRINT', 1)
+endif
+
+
 # We use links() because sigsetjmp() is often a macro hidden behind other macros
 gdk_pixbuf_conf.set('HAVE_SIGSETJMP',
                     cc.links('''#define _POSIX_SOURCE
@@ -80,12 +93,6 @@ gdk_pixbuf_conf.set('HAVE_SIGSETJMP',
                                   sigsetjmp (env, 0);
                                   return 0;
                                 }''', name: 'sigsetjmp'))
-
-# XXX: Remove once we declare gdk-pixbuf C99-only
-if cc.get_id() != 'msvc'
-  gdk_pixbuf_conf.set('HAVE_ROUND', 1)
-  gdk_pixbuf_conf.set('HAVE_LRINT', 1)
-endif
 
 # Common compiler and linker flags
 common_cflags = []
@@ -173,7 +180,6 @@ if host_machine.system() == 'darwin'
 endif
 
 # Dependencies
-mathlib_dep = cc.find_library('m', required: false)
 gobject_dep = dependency('gobject-2.0', version: glib_req_version)
 gmodule_dep = dependency('gmodule-no-export-2.0')
 gio_dep = dependency('gio-2.0')
