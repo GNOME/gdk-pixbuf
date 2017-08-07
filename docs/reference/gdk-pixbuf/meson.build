@@ -33,7 +33,7 @@ if get_option('with_docs')
                  gdk_pixbuf_inc,
                  gdkpixbuf_xlib_inc,
                ],
-               dependencies: gdk_pixbuf_deps,
+               dependencies: gdkpixbuf_dep,
                gobject_typesfile: 'gdk-pixbuf.types',
                scan_args: [
                  '--deprecated-guards="GDK_PIXBUF_ENABLE_BROKEN|GDK_PIXBUF_DISABLE_DEPRECATED"',
