@@ -1,3 +1,13 @@
+2.36.8
+======
+* jpeg: restore grayscale image support (#785171)
+* bmp: Tighten image dimension checks (#776694)
+* ico: Fixo icon quality sorting (#785447)
+* Various other leak and overflow fixes (#765094, #783538, #778204)
+* Add some assertion to help static analysis (#778943)
+* Remove support for building on various obsolete platforms
+* Translation updates
+
 2.36.7
 ======
 
