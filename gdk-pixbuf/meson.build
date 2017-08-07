@@ -21,6 +21,8 @@ loaders = [
   [ 'qtif', [ 'io-qtif.c' ] ]
 ]
 
+gdk_pixbuf_inc = include_directories('.')
+
 gdk_pixbuf_cflags = [
   '-DG_LOG_STRUCTURED=1',
   '-DG_LOG_DOMAIN="GdkPixbuf"',
@@ -102,7 +104,7 @@ foreach l: loaders
     mod = static_library('staticpixbufloader-@0@'.format(name),
                          sources,
                          dependencies: loaders_deps + gdk_pixbuf_deps,
-                         include_directories: [ root_inc, include_directories('.') ],
+                         include_directories: [ root_inc, gdk_pixbuf_inc ],
                          c_args: common_cflags + gdk_pixbuf_cflags)
 
     included_loaders_deps += declare_dependency(link_with: mod)
@@ -138,7 +140,7 @@ foreach l: loaders
     mod = shared_module('pixbufloader-@0@'.format(name),
                         sources,
                         dependencies: loaders_deps + gdk_pixbuf_deps + [ gdkpixbuf_dep ],
-                        include_directories: [ root_inc, include_directories('.') ],
+                        include_directories: [ root_inc, gdk_pixbuf_inc ],
                         c_args: common_cflags + gdk_pixbuf_cflags,
                         install: true,
                         install_dir: gdk_pixbuf_loaderdir)
@@ -160,7 +162,7 @@ foreach bin: gdkpixbuf_bin
 
   bin = executable(bin_name, bin_source,
                    dependencies: gdk_pixbuf_deps + [ gdkpixbuf_dep ],
-                   include_directories: [ root_inc, include_directories('.') ],
+                   include_directories: [ root_inc, gdk_pixbuf_inc ],
                    c_args: common_cflags + gdk_pixbuf_cflags,
                    install: true)
 

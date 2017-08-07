@@ -30,9 +30,8 @@ if get_option('with_docs')
   gnome.gtkdoc('gdk-pixbuf',
                main_xml: 'gdk-pixbuf.xml',
                src_dir: [
-                 join_paths(meson.source_root(), 'gdk-pixbuf'),
-                 join_paths(meson.build_root(), 'gdk-pixbuf'),
-                 join_paths(meson.source_root(), 'contrib', 'gdk-pixbuf-xlib'),
+                 gdk_pixbuf_inc,
+                 gdkpixbuf_xlib_inc,
                ],
                dependencies: gdk_pixbuf_deps,
                gobject_typesfile: 'gdk-pixbuf.types',

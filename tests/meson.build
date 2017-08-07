@@ -112,7 +112,7 @@ foreach t: installed_tests
                         dependencies: test_deps,
                         include_directories: [
                           root_inc,
-                          include_directories('../gdk-pixbuf')
+                          gdk_pixbuf_inc,
                         ],
                         c_args: common_cflags)
 
