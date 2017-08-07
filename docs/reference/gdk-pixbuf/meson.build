@@ -21,6 +21,12 @@ private_headers = [
 ]
 
 if get_option('with_docs')
+  # This should not be needed, but gnome.gtkdoc() does not copy the
+  # .types file into the builddir, if one is found
+  configure_file(input: 'gdk-pixbuf.types',
+                 output: 'gdk-pixbuf.types',
+                 configuration: configuration_data())
+
   gnome.gtkdoc('gdk-pixbuf',
                main_xml: 'gdk-pixbuf.xml',
                src_dir: [
