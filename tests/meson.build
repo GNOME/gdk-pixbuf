@@ -124,3 +124,12 @@ foreach t: installed_tests
          'GDK_PIXBUF_MODULE_FILE=@0@'.format(loaders_cache.full_path()),
        ])
 endforeach
+
+executable('pixbuf-read',
+           'pixbuf-read.c',
+           dependencies: test_deps,
+           include_directories: [
+             root_inc,
+             include_directories('../gdk-pixbuf')
+           ],
+           c_args: common_cflags)
