@@ -193,8 +193,8 @@ gobject_dep = dependency('gobject-2.0', version: glib_req_version)
 gmodule_dep = dependency('gmodule-no-export-2.0')
 gio_dep = dependency('gio-2.0')
 
-# On non-Windows systems we always required shared-mime-info and GIO
-if host_machine.system() != 'windows'
+# On non-Windows/macOS systems we always required shared-mime-info and GIO
+if host_system != 'windows' and host_system != 'darwin'
   shared_mime_dep = dependency('shared-mime-info')
   gdk_pixbuf_conf.set('GDK_PIXBUF_USE_GIO_MIME', 1)
 else
