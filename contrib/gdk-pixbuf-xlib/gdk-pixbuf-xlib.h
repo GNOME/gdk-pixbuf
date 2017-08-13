@@ -30,8 +30,10 @@ G_BEGIN_DECLS
 
 /* init */
 
+_GDK_PIXBUF_EXTERN
 void gdk_pixbuf_xlib_init (Display *display, int screen_num);
 
+_GDK_PIXBUF_EXTERN
 void gdk_pixbuf_xlib_init_with_depth (Display *display, int screen_num,
 				      int prefDepth);
 
@@ -39,12 +41,14 @@ void gdk_pixbuf_xlib_init_with_depth (Display *display, int screen_num,
 
 /* render */
 
+_GDK_PIXBUF_EXTERN
 void gdk_pixbuf_xlib_render_threshold_alpha (GdkPixbuf *pixbuf, Pixmap bitmap,
 					     int src_x, int src_y,
 					     int dest_x, int dest_y,
 					     int width, int height,
 					     int alpha_threshold);
 
+_GDK_PIXBUF_EXTERN
 void gdk_pixbuf_xlib_render_to_drawable (GdkPixbuf *pixbuf,
 					 Drawable drawable, GC gc,
 					 int src_x, int src_y,
@@ -54,6 +58,7 @@ void gdk_pixbuf_xlib_render_to_drawable (GdkPixbuf *pixbuf,
 					 int x_dither, int y_dither);
 
 
+_GDK_PIXBUF_EXTERN
 void gdk_pixbuf_xlib_render_to_drawable_alpha (GdkPixbuf *pixbuf,
 					       Drawable drawable,
 					       int src_x, int src_y,
@@ -64,6 +69,7 @@ void gdk_pixbuf_xlib_render_to_drawable_alpha (GdkPixbuf *pixbuf,
 					       XlibRgbDither dither,
 					       int x_dither, int y_dither);
 
+_GDK_PIXBUF_EXTERN
 void gdk_pixbuf_xlib_render_pixmap_and_mask (GdkPixbuf *pixbuf,
 					     Pixmap *pixmap_return,
 					     Pixmap *mask_return,
@@ -73,6 +79,7 @@ void gdk_pixbuf_xlib_render_pixmap_and_mask (GdkPixbuf *pixbuf,
 
 /* drawable */
 
+_GDK_PIXBUF_EXTERN
 GdkPixbuf *gdk_pixbuf_xlib_get_from_drawable (GdkPixbuf *dest,
 					      Drawable src,
 					      Colormap cmap, Visual *visual,

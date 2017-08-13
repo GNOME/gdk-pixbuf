@@ -51,7 +51,7 @@
 #ifndef __XLIB_RGB_H__
 #define __XLIB_RGB_H__
 
-#include <glib.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 G_BEGIN_DECLS
 
@@ -71,17 +71,22 @@ struct _XlibRgbCmap {
   unsigned char lut[256]; /* for 8-bit modes */
 };
 
+_GDK_PIXBUF_EXTERN
 void
 xlib_rgb_init (Display *display, Screen *screen);
+_GDK_PIXBUF_EXTERN
 void
 xlib_rgb_init_with_depth (Display *display, Screen *screen, int prefDepth);
 
+_GDK_PIXBUF_EXTERN
 unsigned long
 xlib_rgb_xpixel_from_rgb (guint32 rgb);
 
+_GDK_PIXBUF_EXTERN
 void
 xlib_rgb_gc_set_foreground (GC gc, guint32 rgb);
 
+_GDK_PIXBUF_EXTERN
 void
 xlib_rgb_gc_set_background (GC gc, guint32 rgb);
 
@@ -109,6 +114,7 @@ typedef enum
   XLIB_RGB_DITHER_MAX
 } XlibRgbDither;
 
+_GDK_PIXBUF_EXTERN
 void
 xlib_draw_rgb_image (Drawable drawable,
 		     GC gc,
@@ -120,6 +126,7 @@ xlib_draw_rgb_image (Drawable drawable,
 		     unsigned char *rgb_buf,
 		     int rowstride);
 
+_GDK_PIXBUF_EXTERN
 void
 xlib_draw_rgb_image_dithalign (Drawable drawable,
 			       GC gc,
@@ -133,6 +140,7 @@ xlib_draw_rgb_image_dithalign (Drawable drawable,
 			       int xdith,
 			       int ydith);
 
+_GDK_PIXBUF_EXTERN
 void
 xlib_draw_rgb_32_image (Drawable drawable,
 			GC gc,
@@ -144,6 +152,7 @@ xlib_draw_rgb_32_image (Drawable drawable,
 			unsigned char *buf,
 			int rowstride);
 
+_GDK_PIXBUF_EXTERN
 void
 xlib_draw_gray_image (Drawable drawable,
 		      GC gc,
@@ -155,12 +164,15 @@ xlib_draw_gray_image (Drawable drawable,
 		      unsigned char *buf,
 		      int rowstride);
 
+_GDK_PIXBUF_EXTERN
 XlibRgbCmap *
 xlib_rgb_cmap_new (guint32 *colors, int n_colors);
 
+_GDK_PIXBUF_EXTERN
 void
 xlib_rgb_cmap_free (XlibRgbCmap *cmap);
 
+_GDK_PIXBUF_EXTERN
 void
 xlib_draw_indexed_image (Drawable drawable,
                          GC gc,
@@ -175,34 +187,44 @@ xlib_draw_indexed_image (Drawable drawable,
 
 /* Below are some functions which are primarily useful for debugging
    and experimentation. */
+_GDK_PIXBUF_EXTERN
 Bool
 xlib_rgb_ditherable (void);
 
+_GDK_PIXBUF_EXTERN
 void
 xlib_rgb_set_verbose (Bool verbose);
 
 /* experimental colormap stuff */
+_GDK_PIXBUF_EXTERN
 void
 xlib_rgb_set_install (Bool install);
 
+_GDK_PIXBUF_EXTERN
 void
 xlib_rgb_set_min_colors (int min_colors);
 
+_GDK_PIXBUF_EXTERN
 Colormap
 xlib_rgb_get_cmap (void);
 
+_GDK_PIXBUF_EXTERN
 Visual *
 xlib_rgb_get_visual (void);
 
+_GDK_PIXBUF_EXTERN
 XVisualInfo *
 xlib_rgb_get_visual_info (void);
 
+_GDK_PIXBUF_EXTERN
 int
 xlib_rgb_get_depth (void);
 
+_GDK_PIXBUF_EXTERN
 Display *
 xlib_rgb_get_display (void);
 
+_GDK_PIXBUF_EXTERN
 Screen *
 xlib_rgb_get_screen (void);
 
