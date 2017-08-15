@@ -61,7 +61,8 @@ gdk_pixbuf_conf = configuration_data()
 
 check_headers = [
   'unistd.h',
-  'sys/resource.h'
+  'sys/resource.h',
+  'sys/time.h'
 ]
 
 foreach h: check_headers

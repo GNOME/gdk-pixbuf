@@ -358,7 +358,7 @@ LIBS="$LIBS $GLIB_LIBS"
 AC_CHECK_FUNCS(bind_textdomain_codeset)
 LIBS=$gtk_save_LIBS
 
-AC_CHECK_HEADERS(unistd.h sys/resource.h)
+AC_CHECK_HEADERS(unistd.h sys/resource.h sys/time.h)
 AC_CHECK_FUNCS(setrlimit)
 
 saved_cflags="$CFLAGS"
