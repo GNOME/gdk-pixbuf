@@ -60,7 +60,8 @@ gio_dep = dependency('gio-2.0', version: glib_req_version)
 gdk_pixbuf_conf = configuration_data()
 
 check_headers = [
-  'unistd.h'
+  'unistd.h',
+  'sys/resource.h'
 ]
 
 foreach h: check_headers
