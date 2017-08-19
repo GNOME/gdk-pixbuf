@@ -1,3 +1,11 @@
+2.36.9
+======
+* build: meson build improvements
+* OS X: don't require shared-mime-info (#786167)
+* gif: fix a coverity warning (#785696)
+* build: make queryloaders output reproducible (#7835920
+* Translation updates
+
 2.36.8
 ======
 * jpeg: restore grayscale image support (#785171)
