@@ -225,6 +225,34 @@ if get_option('enable_png')
       endif
     endif
   endforeach
+
+  if not enabled_loaders.contains('png')
+    if cc.get_id() == 'msvc' and cc.has_header('png.h')
+      # MSVC: First look for the DLL + import .lib build of libpng,
+      # which is normally libpngxx.lib, when libpng's pkg-config can't
+      # be found, which is quite normal on MSVC.
+      foreach png: [ 'libpng16', 'libpng15', 'libpng14', 'libpng12', 'libpng13', 'libpng10' ]
+        if not enabled_loaders.contains('png')
+          png_dep = cc.find_library(png, required: false)
+          if png_dep.found()
+            enabled_loaders += 'png'
+            loaders_deps += png_dep
+          endif
+        endif
+      endforeach
+
+      # If we still can't find libpng, try looking for the static libpng.lib,
+      # which means we need to ensure we have the static zlib .lib as well
+      if not enabled_loaders.contains('png')
+        png_dep = cc.find_library('libpng', required: false)
+        zlib_dep = cc.find_library('zlib', required: false)
+        if png_dep.found() and zlib_dep.found()
+          enabled_loaders += 'png'
+          loaders_deps += [ png_dep, zlib_dep ]
+        endif
+      endif
+    endif
+  endif
 endif
 
 # On Windows, check whether we are building the native Windows loaders
@@ -265,6 +293,19 @@ endif
 # Don't check and build the tiff loader if enable_native_windows_loaders is true
 if get_option('enable_tiff') and not enable_native_windows_loaders
   tiff_dep = dependency('libtiff-4', required: false)
+  if not tiff_dep.found()
+    # Fallback when no pkg-config file is found for libtiff on MSVC, which is quite normal
+    if cc.get_id() == 'msvc' and cc.has_header('tiff.h')
+      # First look for the DLL builds of libtiff, then the static builds
+      tiff_dep = cc.find_library('libtiff_i', required: false)
+
+      if not tiff_dep.found()
+        # For the static lib, zlib and libjpeg .lib's have been looked for first, and
+        # they are optional for libtiff
+        tiff_dep = cc.find_library('libtiff', required: false)
+      endif
+    endif
+  endif
   if tiff_dep.found()
     enabled_loaders += 'tiff'
     loaders_deps += tiff_dep
