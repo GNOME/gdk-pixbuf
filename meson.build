@@ -238,6 +238,11 @@ endif
 if get_option('enable_jpeg')
   if cc.has_header('jpeglib.h')
     jpeg_dep = cc.find_library('jpeg', required: false)
+    if cc.get_id() == 'msvc' and not jpeg_dep.found()
+      # The IJG JPEG library builds the .lib file as libjpeg.lib in its MSVC build system,
+      # so look for it as well when jpeg.lib cannot be found
+      jpeg_dep = cc.find_library('libjpeg', required: false)
+    endif
     if jpeg_dep.found() and cc.has_function('jpeg_destroy_decompress', dependencies: jpeg_dep)
       enabled_loaders += 'jpeg'
       loaders_deps += jpeg_dep
