@@ -17,7 +17,7 @@ loaders = [
   [ 'xbm', [ 'io-xbm.c' ] ],
   [ 'tga', [ 'io-tga.c', 'gdk-pixbuf-buffer-queue.c' ] ],
   [ 'icns', [ 'io-icns.c' ] ],
-  [ 'jasper', [ 'io-jasper.c' ], enabled_loaders.contains('jasper') ],
+  [ 'jasper', [ 'io-jasper.c' ], enabled_loaders.contains('jasper'), jasper_extra_cflags ],
   [ 'qtif', [ 'io-qtif.c' ] ]
 ]
 
@@ -109,6 +109,7 @@ foreach l: loaders
   name = l[0]
   sources = l[1]
   cond = l.get(2, true)
+  cflags = l.get(3, [])
 
   if cond and (builtin_loaders.contains(name) or builtin_all_loaders)
     cflag_for_included_loader = ['-DINCLUDE_@0@'.format(name)]
@@ -118,7 +119,7 @@ foreach l: loaders
                          sources,
                          dependencies: loaders_deps + gdk_pixbuf_deps,
                          include_directories: [ root_inc, gdk_pixbuf_inc ],
-                         c_args: common_cflags + gdk_pixbuf_cflags + cflag_for_included_loader)
+                         c_args: common_cflags + gdk_pixbuf_cflags + cflags + cflag_for_included_loader)
 
     included_loaders_deps += declare_dependency(link_with: mod)
   endif
@@ -148,13 +149,14 @@ foreach l: loaders
   name = l[0]
   sources = l[1]
   cond = l.get(2, true)
+  cflags = l.get(3, [])
 
   if cond and not (builtin_loaders.contains(name) or builtin_all_loaders)
     mod = shared_module('pixbufloader-@0@'.format(name),
                         sources,
                         dependencies: loaders_deps + gdk_pixbuf_deps + [ gdkpixbuf_dep ],
                         include_directories: [ root_inc, gdk_pixbuf_inc ],
-                        c_args: common_cflags + gdk_pixbuf_cflags,
+                        c_args: common_cflags + gdk_pixbuf_cflags + cflags,
                         install: true,
                         install_dir: gdk_pixbuf_loaderdir)
 
