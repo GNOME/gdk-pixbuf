@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gtk 2.2\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-26 06:51+0000\n"
-"PO-Revision-Date: 2017-03-01 08:43+0000\n"
+"POT-Creation-Date: 2017-07-27 12:35+0000\n"
+"PO-Revision-Date: 2017-08-23 10:22+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
@@ -155,34 +155,34 @@ msgstr "Óþekkt myndsnið"
 msgid "Failed to load image '%s': %s"
 msgstr "Gat ekki lesið myndina '%s': %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2152 gdk-pixbuf/io-gdip-utils.c:838
+#: gdk-pixbuf/gdk-pixbuf-io.c:2143 gdk-pixbuf/io-gdip-utils.c:838
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Villa við ritun í myndskrána: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2194 gdk-pixbuf/gdk-pixbuf-io.c:2315
+#: gdk-pixbuf/gdk-pixbuf-io.c:2185 gdk-pixbuf/gdk-pixbuf-io.c:2306
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "Þessi útgáfa af gdk-pixbuf styður ekki að vista myndum á sniðinu: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2225
+#: gdk-pixbuf/gdk-pixbuf-io.c:2216
 msgid "Insufficient memory to save image to callback"
 msgstr "Ekki er nægt minni til að vista mynd fyrir hringsvörun (callback)"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2238
+#: gdk-pixbuf/gdk-pixbuf-io.c:2229
 msgid "Failed to open temporary file"
 msgstr "Gat ekki opnað bráðabirgðaskrá"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2261
+#: gdk-pixbuf/gdk-pixbuf-io.c:2252
 msgid "Failed to read from temporary file"
 msgstr "Gat ekki lesið úr bráðabirgðaskrá"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2471
+#: gdk-pixbuf/gdk-pixbuf-io.c:2462
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "Gat ekki opnað '%s' til skriftar: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2497
+#: gdk-pixbuf/gdk-pixbuf-io.c:2488
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
@@ -191,11 +191,11 @@ msgstr ""
 "Gat ekki lokað '%s' meðan á skrift stóð. Vera mað að öllum gögnum hafi ekki "
 "verið vistað: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2718 gdk-pixbuf/gdk-pixbuf-io.c:2770
+#: gdk-pixbuf/gdk-pixbuf-io.c:2709 gdk-pixbuf/gdk-pixbuf-io.c:2761
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Get ekki frátekið biðminni fyrir myndina"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2816
+#: gdk-pixbuf/gdk-pixbuf-io.c:2807
 msgid "Error writing to image stream"
 msgstr "Villa við að skrifa í myndastreymi"
 
@@ -260,7 +260,6 @@ msgid "Malformed chunk in animation"
 msgstr "Skemmdur bútur í hreyfimyndinni"
 
 #: gdk-pixbuf/io-ani.c:628
-#| msgid "GIF image was truncated or incomplete."
 msgid "ANI image was truncated or incomplete."
 msgstr "ANI-myndin endar óvænt eða er ókláruð."
 
@@ -270,11 +269,12 @@ msgid "Windows animated cursor"
 msgstr "Windows hreyfibendill"
 
 #: gdk-pixbuf/io-bmp.c:227 gdk-pixbuf/io-bmp.c:265 gdk-pixbuf/io-bmp.c:372
-#: gdk-pixbuf/io-bmp.c:399 gdk-pixbuf/io-bmp.c:424 gdk-pixbuf/io-bmp.c:528
+#: gdk-pixbuf/io-bmp.c:399 gdk-pixbuf/io-bmp.c:424 gdk-pixbuf/io-bmp.c:458
+#: gdk-pixbuf/io-bmp.c:483 gdk-pixbuf/io-bmp.c:556
 msgid "BMP image has bogus header data"
 msgstr "BMP-myndin er með gölluð gögn í hausnum"
 
-#: gdk-pixbuf/io-bmp.c:238 gdk-pixbuf/io-bmp.c:464
+#: gdk-pixbuf/io-bmp.c:238 gdk-pixbuf/io-bmp.c:492
 msgid "Not enough memory to load bitmap image"
 msgstr "Ekki nægjanlegt minni til að lesa bitamyndina"
 
@@ -283,12 +283,10 @@ msgid "BMP image has unsupported header size"
 msgstr "BMP-myndin er með óstudda stærð hausa"
 
 #: gdk-pixbuf/io-bmp.c:339
-#| msgid "BMP image has unsupported header size"
 msgid "BMP image has unsupported depth"
 msgstr "BMP-myndin er með óstudda litadýpt"
 
 #: gdk-pixbuf/io-bmp.c:354
-#| msgid "BMP image has bogus header data"
 msgid "BMP image has oversize palette"
 msgstr "BMP-myndin er með of stórt litaspjald"
 
@@ -300,33 +298,33 @@ msgstr "Ekki er hægt að þjappa BMP myndum sem byrja efst"
 msgid "BMP image width too large"
 msgstr "Breidd BMP-myndar er of mikil"
 
-#: gdk-pixbuf/io-bmp.c:753 gdk-pixbuf/io-png.c:533 gdk-pixbuf/io-pnm.c:721
+#: gdk-pixbuf/io-bmp.c:780 gdk-pixbuf/io-png.c:528 gdk-pixbuf/io-pnm.c:721
 msgid "Premature end-of-file encountered"
 msgstr "Óvæntur endi skráar"
 
-#: gdk-pixbuf/io-bmp.c:1282
+#: gdk-pixbuf/io-bmp.c:1308
 #, c-format
 msgid "Error while decoding colormap"
 msgstr "Villa við afkóðun litakorts"
 
-#: gdk-pixbuf/io-bmp.c:1345 gdk-pixbuf/io-bmp.c:1357
+#: gdk-pixbuf/io-bmp.c:1371 gdk-pixbuf/io-bmp.c:1383
 msgid "Image is too wide for BMP format."
 msgstr "Myndin er of breið fyrir BMP-skráasnið."
 
-#: gdk-pixbuf/io-bmp.c:1390
+#: gdk-pixbuf/io-bmp.c:1416
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "Gat ekki tekið frá minni til að vista BMP skrána"
 
-#: gdk-pixbuf/io-bmp.c:1431
+#: gdk-pixbuf/io-bmp.c:1457
 msgid "Couldn't write to BMP file"
 msgstr "Gat ekki skrifað í BMP skrána"
 
-#: gdk-pixbuf/io-bmp.c:1484 gdk-pixbuf/io-gdip-bmp.c:83
+#: gdk-pixbuf/io-bmp.c:1510 gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
 
-#: gdk-pixbuf/io-gdip-emf.c:60
+#: gdk-pixbuf/io-gdip-emf.c:61
 msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
@@ -336,12 +334,12 @@ msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
 
-#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1398
+#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1412
 msgctxt "image format"
 msgid "Windows icon"
 msgstr "Windows táknmynd"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1312
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1357
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
@@ -349,19 +347,19 @@ msgid ""
 msgstr ""
 "Gæði JPEG-mynda verður að vera á milli 0 og 100. Gildið '%s' er óþekkt."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1328
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1373
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr ""
 "Gæði JPEG-mynda verður að vera á milli 0 og 100. Gildið '%d' er óleyfilegt."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1612
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1657
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
 
-#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1037
+#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1038
 msgctxt "image format"
 msgid "TIFF"
 msgstr "TIFF"
@@ -403,7 +401,7 @@ msgstr "Óstutt myndasnið fyrir GDI+"
 msgid "Couldn't save"
 msgstr "Gat ekki vistað"
 
-#: gdk-pixbuf/io-gdip-wmf.c:59
+#: gdk-pixbuf/io-gdip-wmf.c:60
 msgctxt "image format"
 msgid "WMF"
 msgstr "WMF"
@@ -461,7 +459,6 @@ msgid "Version %s of the GIF file format is not supported"
 msgstr "Útgáfa %s af GIF sniðinu er ekki studd"
 
 #: gdk-pixbuf/io-gif.c:1241
-#| msgid "Image has zero width"
 msgid "Resulting GIF image has zero size"
 msgstr "GIF-myndin er með breidd sem er núll"
 
@@ -495,39 +492,48 @@ msgctxt "image format"
 msgid "MacOS X icon"
 msgstr "MacOS X táknmynd"
 
-#: gdk-pixbuf/io-ico.c:232 gdk-pixbuf/io-ico.c:246 gdk-pixbuf/io-ico.c:329
-#: gdk-pixbuf/io-ico.c:340 gdk-pixbuf/io-ico.c:419 gdk-pixbuf/io-ico.c:444
+#: gdk-pixbuf/io-ico.c:237 gdk-pixbuf/io-ico.c:251 gdk-pixbuf/io-ico.c:343
+#: gdk-pixbuf/io-ico.c:424 gdk-pixbuf/io-ico.c:449
 #, c-format
-#| msgid "Invalid header in icon"
 msgid "Invalid header in icon (%s)"
 msgstr "Ógildur haus í táknmynd (%s)"
 
-#: gdk-pixbuf/io-ico.c:262 gdk-pixbuf/io-ico.c:350 gdk-pixbuf/io-ico.c:454
-#: gdk-pixbuf/io-ico.c:497 gdk-pixbuf/io-ico.c:525
+#: gdk-pixbuf/io-ico.c:267 gdk-pixbuf/io-ico.c:353 gdk-pixbuf/io-ico.c:459
+#: gdk-pixbuf/io-ico.c:502 gdk-pixbuf/io-ico.c:530
 msgid "Not enough memory to load icon"
 msgstr "Ekki nægilegt vinnsluminni til að lesa táknmynd"
 
-#: gdk-pixbuf/io-ico.c:380
+#: gdk-pixbuf/io-ico.c:384
+#| msgid "Invalid header in icon (%s)"
+msgid "Invalid header in icon"
+msgstr "Ógildur haus í táknmynd"
+
+#: gdk-pixbuf/io-ico.c:385
 msgid "Compressed icons are not supported"
 msgstr "Þjappaðar táknmyndir eru ekki studdar"
 
-#: gdk-pixbuf/io-ico.c:482
+#: gdk-pixbuf/io-ico.c:487
 msgid "Unsupported icon type"
 msgstr "Óþekkt gerð táknmyndar"
 
-#: gdk-pixbuf/io-ico.c:574
+#: gdk-pixbuf/io-ico.c:579
 msgid "Not enough memory to load ICO file"
 msgstr "Ekki nægjanlegt minni til að lesa ICO skrá"
 
-#: gdk-pixbuf/io-ico.c:1056
+#: gdk-pixbuf/io-ico.c:625
+#| msgid "ANI image was truncated or incomplete."
+msgid "ICO image was truncated or incomplete."
+msgstr "ICO-táknmyndin endar óvænt eða er ókláruð."
+
+#: gdk-pixbuf/io-ico.c:1070
 msgid "Image too large to be saved as ICO"
 msgstr "Myndin er of stór til að geta verið vistuð sem ICO"
 
-#: gdk-pixbuf/io-ico.c:1067
+#: gdk-pixbuf/io-ico.c:1081
 msgid "Cursor hotspot outside image"
 msgstr "Myndreiturinn er utan myndarinnar"
 
-#: gdk-pixbuf/io-ico.c:1090
+#: gdk-pixbuf/io-ico.c:1104
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Þessi dýpt ICO skráa er ekki studd: %d"
@@ -565,12 +571,12 @@ msgctxt "image format"
 msgid "JPEG 2000"
 msgstr "JPEG 2000"
 
-#: gdk-pixbuf/io-jpeg.c:124
+#: gdk-pixbuf/io-jpeg.c:125
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Villa við lestur JPEG skráar (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:615
+#: gdk-pixbuf/io-jpeg.c:633
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -578,113 +584,111 @@ msgstr ""
 "Ekki nægjanlegt minni til að lesa inn myndina. Þú getur reynt að loka öðrum "
 "forritum til að losa minni"
 
-#: gdk-pixbuf/io-jpeg.c:684 gdk-pixbuf/io-jpeg.c:897
+#: gdk-pixbuf/io-jpeg.c:706 gdk-pixbuf/io-jpeg.c:917
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Óþekkt JPEG litabil (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:796 gdk-pixbuf/io-jpeg.c:1077 gdk-pixbuf/io-jpeg.c:1419
-#: gdk-pixbuf/io-jpeg.c:1429
+#: gdk-pixbuf/io-jpeg.c:817 gdk-pixbuf/io-jpeg.c:1116 gdk-pixbuf/io-jpeg.c:1464
+#: gdk-pixbuf/io-jpeg.c:1474
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "Gat ekki tekið frá minni fyrir JPEG skrána"
 
-#: gdk-pixbuf/io-jpeg.c:1051
+#: gdk-pixbuf/io-jpeg.c:1073
 msgid "Transformed JPEG has zero width or height."
 msgstr "Umbreytt JPEG-mynd hefur núll breidd eða hæð."
 
-#: gdk-pixbuf/io-jpeg.c:1349
+#: gdk-pixbuf/io-jpeg.c:1100
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#| msgid "Unsupported JPEG color space (%s)"
+msgid "Unsupported number of color components (%d)"
+msgstr "Óstuddur fjöldi litaeininga (%d)"
+
+#: gdk-pixbuf/io-jpeg.c:1394
+#, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 msgstr ""
 "X-upplausn JPEG-mynda verður að vera á milli 0 og 65535. Gildið '%s' er "
 "óleyfilegt."
 
-#: gdk-pixbuf/io-jpeg.c:1370
+#: gdk-pixbuf/io-jpeg.c:1415
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 msgstr ""
 "Y-upplausn JPEG-mynda verður að vera á milli 0 og 65535. Gildið '%s' er "
 "óleyfilegt."
 
-#: gdk-pixbuf/io-jpeg.c:1384
+#: gdk-pixbuf/io-jpeg.c:1429
 #, c-format
 msgid "Color profile has invalid length '%u'."
 msgstr "Litasnið er með ógilda lengd '%u'."
 
-#: gdk-pixbuf/io-png.c:54
+#: gdk-pixbuf/io-png.c:53
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Bitar í rás í PNG-myndinni er ógilt."
 
-#: gdk-pixbuf/io-png.c:135 gdk-pixbuf/io-png.c:673
+#: gdk-pixbuf/io-png.c:134 gdk-pixbuf/io-png.c:666
 msgid "Transformed PNG has zero width or height."
 msgstr "Umbreytt PNG-mynd hefur núll breidd eða hæð."
 
-#: gdk-pixbuf/io-png.c:143
+#: gdk-pixbuf/io-png.c:142
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Bitar í rás í umbreyttu PNG-myndinni eru ekki 8."
 
-#: gdk-pixbuf/io-png.c:152
+#: gdk-pixbuf/io-png.c:151
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Umbreytt PNG-mynd er ekki á RGB eða RGBA sniði."
 
-#: gdk-pixbuf/io-png.c:161
+#: gdk-pixbuf/io-png.c:160
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "Umbreytta PNG-myndin hefur ógildan fjölda rása, verður að vera 3 eða 4."
 
-#: gdk-pixbuf/io-png.c:182
+#: gdk-pixbuf/io-png.c:181
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Banvæn villa í PNG skrá: %s"
 
-#: gdk-pixbuf/io-png.c:320
+#: gdk-pixbuf/io-png.c:318
 msgid "Insufficient memory to load PNG file"
 msgstr "Ekki nægjanlegt minni til að lesa PNG skrá"
 
-#: gdk-pixbuf/io-png.c:688
+#: gdk-pixbuf/io-png.c:679
 #, c-format
-#| msgid ""
-#| "Insufficient memory to store a %ld by %ld image; try exiting some "
-#| "applications to reduce memory usage"
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
 "Ekki nægjanlegt minni til að geyma mynd sem er %lu sinnum %lu mynddílar. Þú "
-"getur reynt að "
-"loka öðrum forritum til að losa minni"
+"getur reynt að loka öðrum forritum til að losa minni"
 
-#: gdk-pixbuf/io-png.c:766
+#: gdk-pixbuf/io-png.c:755
 msgid "Fatal error reading PNG image file"
 msgstr "Banvæn villa við lestur PNG skráar"
 
-#: gdk-pixbuf/io-png.c:816
+#: gdk-pixbuf/io-png.c:804
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Banvæn villa við lestur PNG skráar: %s"
 
-#: gdk-pixbuf/io-png.c:908
+#: gdk-pixbuf/io-png.c:896
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "Lyklar í PNG textablokkum verða að hafa að minnsta kosti 1 og mest 79 stafi."
 
-#: gdk-pixbuf/io-png.c:917
+#: gdk-pixbuf/io-png.c:905
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Lyklar í PNG textablokkum verða að vera ASCII tákn."
 
-#: gdk-pixbuf/io-png.c:931 gdk-pixbuf/io-tiff.c:801
+#: gdk-pixbuf/io-png.c:919 gdk-pixbuf/io-tiff.c:802
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Litasnið er með ógilda lengd %d."
 
-#: gdk-pixbuf/io-png.c:944
+#: gdk-pixbuf/io-png.c:932
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
@@ -693,7 +697,7 @@ msgstr ""
 "Þjöppunarstuðull PNG verður að vera gildi á milli 0 og 9. Gildið '%s' var "
 "ekki hægt að þátta."
 
-#: gdk-pixbuf/io-png.c:957
+#: gdk-pixbuf/io-png.c:945
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
@@ -702,30 +706,26 @@ msgstr ""
 "Þjöppunarstuðull PNG verður að vera gildi á milli 0 og 9. Gildið '%d' er "
 "ekki leyft."
 
-#: gdk-pixbuf/io-png.c:976
+#: gdk-pixbuf/io-png.c:964
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgid "PNG x-dpi must be greater than zero; value '%s' is not allowed."
 msgstr ""
 "X-upplausn PNG-mynda verður að vera hærri en núll. Gildið '%s' er óleyfilegt."
 
-#: gdk-pixbuf/io-png.c:996
+#: gdk-pixbuf/io-png.c:984
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
 msgstr ""
 "Y-upplausn PNG-mynda verður að vera hærri en núll. Gildið '%s' er óleyfilegt."
 
-#: gdk-pixbuf/io-png.c:1045
+#: gdk-pixbuf/io-png.c:1033
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Gildi í PNG-textablokkinni %s er ekki hægt að umbreyta í ISO-8859-1 "
 "stafatöflu."
 
-#: gdk-pixbuf/io-png.c:1230
+#: gdk-pixbuf/io-png.c:1218
 msgctxt "image format"
 msgid "PNG"
 msgstr "PNG"
@@ -743,7 +743,6 @@ msgid "PNM file is not in a recognized PNM subformat"
 msgstr "PNM skráin er ekki gild PNM undirgerð"
 
 #: gdk-pixbuf/io-pnm.c:333
-#| msgid "PNM file has an image width of 0"
 msgid "PNM file has an invalid width"
 msgstr "PNM-skráin er með ógilda breidd"
 
@@ -752,7 +751,6 @@ msgid "PNM file has an image width of 0"
 msgstr "PNM skráin er með mynd sem hefur breiddina 0"
 
 #: gdk-pixbuf/io-pnm.c:362
-#| msgid "PNM file has an image height of 0"
 msgid "PNM file has an invalid height"
 msgstr "PNM-skráin er með ógilda hæð"
 
@@ -885,7 +883,6 @@ msgid "Cannot allocate memory for TGA context struct"
 msgstr "Mistókst að úthluta TAG-samhengisskipan"
 
 #: gdk-pixbuf/io-tga.c:695
-#| msgid "GIF image was truncated or incomplete."
 msgid "TGA image was truncated or incomplete."
 msgstr "TGA-myndin endar óvænt eða er ókláruð."
 
@@ -894,71 +891,69 @@ msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
 
-#: gdk-pixbuf/io-tiff.c:107
+#: gdk-pixbuf/io-tiff.c:108
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Gat ekki lesið breidd myndarinnar (skemmd TIFF-skrá)"
 
-#: gdk-pixbuf/io-tiff.c:115
+#: gdk-pixbuf/io-tiff.c:116
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Gat ekki lesið hæð myndarinnar (skemmd TIFF-skrá)"
 
-#: gdk-pixbuf/io-tiff.c:123
+#: gdk-pixbuf/io-tiff.c:124
 msgid "Width or height of TIFF image is zero"
 msgstr "Hæð eða breidd TIFF-myndar er núll"
 
-#: gdk-pixbuf/io-tiff.c:132 gdk-pixbuf/io-tiff.c:141
+#: gdk-pixbuf/io-tiff.c:132 gdk-pixbuf/io-tiff.c:142
 msgid "Dimensions of TIFF image too large"
 msgstr "Stærð TIFF myndarinnar er of mikil"
 
-#: gdk-pixbuf/io-tiff.c:165 gdk-pixbuf/io-tiff.c:177 gdk-pixbuf/io-tiff.c:535
+#: gdk-pixbuf/io-tiff.c:168 gdk-pixbuf/io-tiff.c:180 gdk-pixbuf/io-tiff.c:536
 msgid "Insufficient memory to open TIFF file"
 msgstr "Ekki nægjanlegt minni til þess að opna TIFF skrá"
 
-#: gdk-pixbuf/io-tiff.c:275
+#: gdk-pixbuf/io-tiff.c:278
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Gat ekki lesið RGB gögn úr TIFF skrá"
 
-#: gdk-pixbuf/io-tiff.c:337
+#: gdk-pixbuf/io-tiff.c:340
 msgid "Failed to open TIFF image"
 msgstr "Gat ekki opnað TIFF-mynd"
 
-#: gdk-pixbuf/io-tiff.c:471 gdk-pixbuf/io-tiff.c:484
+#: gdk-pixbuf/io-tiff.c:474 gdk-pixbuf/io-tiff.c:486
 msgid "Failed to load TIFF image"
 msgstr "Gat ekki lesið TIFF-mynd"
 
-#: gdk-pixbuf/io-tiff.c:710
+#: gdk-pixbuf/io-tiff.c:711
 msgid "Failed to save TIFF image"
 msgstr "Gat ekki vistað TIFF-mynd"
 
-#: gdk-pixbuf/io-tiff.c:771
+#: gdk-pixbuf/io-tiff.c:772
 msgid "TIFF compression doesn't refer to a valid codec."
 msgstr "TIFF-þjöppun vísar ekki til gilds kóðunarlykils (codec)."
 
-#: gdk-pixbuf/io-tiff.c:816
+#: gdk-pixbuf/io-tiff.c:817
 msgid "TIFF bits-per-sample doesn't contain a supported value."
 msgstr "Bitar-í-sýni TIFF-myndar innihalda ekki leyfilegt gildi."
 
-#: gdk-pixbuf/io-tiff.c:897
+#: gdk-pixbuf/io-tiff.c:898
 msgid "Failed to write TIFF data"
 msgstr "Gat ekki skrifað TIFF-gögn"
 
-#: gdk-pixbuf/io-tiff.c:915
+#: gdk-pixbuf/io-tiff.c:916
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
 msgstr ""
-"X-upplausn TIFF-mynda verður að vera hærri en núll. Gildið '%s' er óleyfilegt."
+"X-upplausn TIFF-mynda verður að vera hærri en núll. Gildið '%s' er "
+"óleyfilegt."
 
-#: gdk-pixbuf/io-tiff.c:927
+#: gdk-pixbuf/io-tiff.c:928
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
 msgstr ""
-"Y-upplausn TIFF-mynda verður að vera hærri en núll. Gildið '%s' er óleyfilegt."
+"Y-upplausn TIFF-mynda verður að vera hærri en núll. Gildið '%s' er "
+"óleyfilegt."
 
-#: gdk-pixbuf/io-tiff.c:968
+#: gdk-pixbuf/io-tiff.c:969
 msgid "Couldn't write to TIFF file"
 msgstr "Gat ekki skrifað í TIFF-skrá"
 
