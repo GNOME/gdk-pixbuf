@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9.00"
+	Name="gdk-pixbuf-introspect"
+	ProjectGUID="{4CB26FCC-45A3-4389-9474-258B5648B89D}"
+	Keyword="MakeFileProj"
+	TargetFrameworkVersion="196613"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+		<Platform
+			Name="x64"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			ConfigurationType="0"
+			InheritedPropertySheets=".\gdk-pixbuf-build-defines.vsprops"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParam) install-introspection"
+				ReBuildCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParam) clean install-introspection"
+				CleanCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParam) clean"
+				Output="$(GdkPixbufIntrospectBuiltFiles)"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug|x64"
+			ConfigurationType="0"
+			InheritedPropertySheets=".\gdk-pixbuf-build-defines.vsprops"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParamX64) install-introspection"
+				ReBuildCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParamX64) clean install-introspection"
+				CleanCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParamX64) clean"
+				Output="$(GdkPixbufIntrospectBuiltFiles)"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			ConfigurationType="0"
+			InheritedPropertySheets=".\gdk-pixbuf-build-defines.vsprops"
+			CharacterSet="2"
+			DeleteExtensionsOnClean=""
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParam) install-introspection"
+				ReBuildCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParam) clean install-introspection"
+				CleanCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParam) clean"
+				Output="$(GdkPixbufIntrospectBuiltFiles)"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|x64"
+			ConfigurationType="0"
+			InheritedPropertySheets=".\gdk-pixbuf-build-defines.vsprops"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParamX64) install-introspection"
+				ReBuildCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParamX64) clean install-introspection"
+				CleanCommandLine="$(GdkPixbufIntrospectNMakeCmd) $(IntrospectPythonParamX64) clean"
+				Output="$(GdkPixbufIntrospectBuiltFiles)"
+			/>
+		</Configuration>
+	</Configurations>
+</VisualStudioProject>

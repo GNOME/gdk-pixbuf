@@ -53,7 +53,7 @@ a) look for all of the dependencies (except GLib*, libjasper) under
    these are packaged by Tor Lillqvist, which are built with MinGW/GCC.
    Please see b) below regarding the build of libjasper and GLib*
 
-   Note for LibPNG, version 1.5.x is needed.
+   Note for LibPNG, version 1.6.x is needed.
 
 -OR-
 
@@ -65,7 +65,7 @@ b) Build them yourself with VS9 (but you may most probably wish to get
    GLib*:   Grab the latest sources from http://www.gtk.org under "Download"
             (stable only-please make a search for the latest unstable versions)
    IJG JPEG: http://www.ijg.org/
-   LibPNG: http://www.libpng.org/pub/png/libpng.html (1.5.x is needed here)
+   LibPNG: http://www.libpng.org/pub/png/libpng.html (1.6.x is needed here)
    LibTIFF: http://www.remotesensing.org/libtiff/
    LibJasper: http://www.ece.uvic.ca/~mdadams/jasper/
    ZLib:   http://www.zlib.net
@@ -122,6 +122,20 @@ For instance, built DLLs go into <root>\vs9\<PlatformName>\bin, built LIBs into
 <root>\vs9\<PlatformName>\include\GDKPixbuf-2.0. This is then from where
 project files higher in the stack are supposed to look for them, not
 from a specific GDK-Pixbuf source tree.
+
+There is now a "gdk-pixbuf-introspect" project that is used to build the
+introspection files.  In order for this to work, check that the paths for
+PythonDir (32-bit builds) and PythonDirX64 (x64 builds) are correct for your
+system.  Note that it must be the same Python installation that was used to
+build GObject-Introspection (G-I), and a complete G-I build/installation
+needs to be found in <root>\vs9\<PlatformName>\.  Note also that this is not
+built by default, so you will need to right-click on the project to build it,
+which will build and "install" the other projects that are normally built, if
+those were not yet built.  The introspection files that are built will be
+"installed" to <root>\vs9\<PlatformName>\share\gir-1.0 (the .gir file(s)) and
+<root>\vs9\<PlatformName>\lib\girepository-1.0 (the .typelib files(s)) upon
+successful build.  for building this in a different configuration, therefore,
+you will need to clean this project specifically and then rebuild.
 
 --Chun-wei Fan <fanc999@yahoo.com.tw>
 --(adapted from the GLib VS9 README.txt file originally written by Tor Lillqvist)

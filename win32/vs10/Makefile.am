@@ -20,6 +20,7 @@ EXTRA_DIST = \
 	gdk-pixbuf-pixdata.vcxproj.filters	\
 	gdk-pixbuf-install.vcxproj	\
 	gdk-pixbuf-install.vcxproj.filters	\
+	gdk-pixbuf-introspect.vcxproj	\
 	$(GENERATED_ITEMS)
 
 gdk-pixbuf-install.props: $(top_srcdir)/win32/vs10/gdk-pixbuf-install.propsin gdk-pixbuf.vs10.headers

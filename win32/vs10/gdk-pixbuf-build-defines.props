@@ -15,6 +15,10 @@
     <GdkPixbufDefines>HAVE_CONFIG_H;GDK_PIXBUF_COMPILATION;GDK_PIXBUF_ENABLE_BACKEND;DLL_EXPORT;GDK_PIXBUF_RELOCATABLE;$(GdkPixbufPrefixDefine);$(GdkPixbufBinVerDefine);$(MODULAR_MACROS)</GdkPixbufDefines>
     <GdipLibs>gdiplus.lib</GdipLibs>
     <ImagingLibs>jpeg.lib;libjasper.lib;libtiff_i.lib</ImagingLibs>
+    <GdkPixbufIntrospectNMakeCmd>cd ..
+set VCInstallDir=$(VCInstallDir)
+nmake -f gdk-pixbuf-introspection-msvc.mak CFG=$(Configuration) PREFIX=$(GlibEtcInstallRoot)</GdkPixbufIntrospectNMakeCmd>
+    <GdkPixbufIntrospectBuiltFiles>$(SolutionDir)\..\GdkPixbuf-2.0.gir;$(SolutionDir)\..\GdkPixbuf-2.0.typelib</GdkPixbufIntrospectBuiltFiles>
   </PropertyGroup>
   <PropertyGroup>
     <_PropertySheetDisplayName>gdk-pixbufbuilddefinesprops</_PropertySheetDisplayName>
@@ -68,6 +72,12 @@
     </BuildMacro>
     <BuildMacro Include="ImagingLibs">
       <Value>$(ImagingLibs)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GdkPixbufIntrospectNMakeCmd">
+      <Value>$(GdkPixbufIntrospectNMakeCmd)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GdkPixbufIntrospectBuiltFiles">
+      <Value>$(GdkPixbufIntrospectBuiltFiles)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk-pixbuf-query-loaders", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk-pixbuf-pixdata", "gdk-pixbuf-pixdata.vcxproj", "{2AD2FF07-0514-41A8-8A32-920C744EA1A6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gdk-pixbuf-introspect", "gdk-pixbuf-introspect.vcxproj", "{4CB26FCC-45A3-4389-9474-258B5648B89D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -103,6 +105,14 @@ Global
 		{2AD2FF07-0514-41A8-8A32-920C744EA1A6}.Release_GDI+|Win32.Build.0 = Release|Win32
 		{2AD2FF07-0514-41A8-8A32-920C744EA1A6}.Release_GDI+|x64.ActiveCfg = Release|x64
 		{2AD2FF07-0514-41A8-8A32-920C744EA1A6}.Release_GDI+|x64.Build.0 = Release|x64
+		{4CB26FCC-45A3-4389-9474-258B5648B89D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4CB26FCC-45A3-4389-9474-258B5648B89D}.Debug|x64.ActiveCfg = Debug|x64
+		{4CB26FCC-45A3-4389-9474-258B5648B89D}.Debug_GDI+|Win32.ActiveCfg = Debug|Win32
+		{4CB26FCC-45A3-4389-9474-258B5648B89D}.Debug_GDI+|x64.ActiveCfg = Debug|x64
+		{4CB26FCC-45A3-4389-9474-258B5648B89D}.Release|Win32.ActiveCfg = Release|Win32
+		{4CB26FCC-45A3-4389-9474-258B5648B89D}.Release|x64.ActiveCfg = Release|x64
+		{4CB26FCC-45A3-4389-9474-258B5648B89D}.Release_GDI+|Win32.ActiveCfg = Release|Win32
+		{4CB26FCC-45A3-4389-9474-258B5648B89D}.Release_GDI+|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

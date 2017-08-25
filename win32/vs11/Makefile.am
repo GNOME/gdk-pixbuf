@@ -14,7 +14,8 @@ EXTRA_DIST = \
 	gdk-pixbuf-pixdata.vcxproj	\
 	gdk-pixbuf-pixdata.vcxproj.filters	\
 	gdk-pixbuf-install.vcxproj	\
-	gdk-pixbuf-install.vcxproj.filters
+	gdk-pixbuf-install.vcxproj.filters	\
+	gdk-pixbuf-introspect.vcxproj
 
 DISTCLEANFILES = $(EXTRA_DIST)
 
