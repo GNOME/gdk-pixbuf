@@ -128,14 +128,14 @@ introspection files.  In order for this to work, check that the paths for
 PythonDir (32-bit builds) and PythonDirX64 (x64 builds) are correct for your
 system.  Note that it must be the same Python installation that was used to
 build GObject-Introspection (G-I), and a complete G-I build/installation
-needs to be found in <root>\vs9\<PlatformName>\.  Note also that this is not
+needs to be found in <root>\vs10\<PlatformName>\.  Note also that this is not
 built by default, so you will need to right-click on the project to build it,
 which will build and "install" the other projects that are normally built, if
 those were not yet built.  The introspection files that are built will be
-"installed" to <root>\vs9\<PlatformName>\share\gir-1.0 (the .gir file(s)) and
-<root>\vs9\<PlatformName>\lib\girepository-1.0 (the .typelib files(s)) upon
+"installed" to <root>\vs10\<PlatformName>\share\gir-1.0 (the .gir file(s)) and
+<root>\vs10\<PlatformName>\lib\girepository-1.0 (the .typelib files(s)) upon
 successful build.  for building this in a different configuration, therefore,
 you will need to clean this project specifically and then rebuild.
 
 --Chun-wei Fan <fanc999@yahoo.com.tw>
---(adapted from the GLib VS9 README.txt file originally written by Tor Lillqvist)
+--(adapted from the GLib VS10 README.txt file originally written by Tor Lillqvist)
