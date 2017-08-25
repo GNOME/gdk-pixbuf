@@ -15,8 +15,8 @@
     <GdkPixbufSeparateVSDllSuffix>-2-vs$(VSVer)</GdkPixbufSeparateVSDllSuffix>
     <GdkPixbufDllPrefix>$(GdkPixbufSeparateVSDllPrefix)</GdkPixbufDllPrefix>
     <GdkPixbufDllSuffix>$(GdkPixbufSeparateVSDllSuffix)</GdkPixbufDllSuffix>
-    <PythonPath>c:\python34</PythonPath>
-    <PythonPathX64>$(PythonPath).x64</PythonPathX64>
+    <PythonDir>c:\python34</PythonDir>
+    <PythonDirX64>$(PythonDir).x64</PythonDirX64>
   </PropertyGroup>
   <PropertyGroup>
     <_PropertySheetDisplayName>gdk-versionpathsprops</_PropertySheetDisplayName>
@@ -64,11 +64,11 @@
     <BuildMacro Include="GdkPixbufDllSuffix">
       <Value>$(GdkPixbufDllSuffix)</Value>
     </BuildMacro>
-    <BuildMacro Include="PythonPath">
-      <Value>$(PythonPath)</Value>
+    <BuildMacro Include="PythonDir">
+      <Value>$(PythonDir)</Value>
     </BuildMacro>
-    <BuildMacro Include="PythonPathX64">
-      <Value>$(PythonPathX64)</Value>
+    <BuildMacro Include="PythonDirX64">
+      <Value>$(PythonDirX64)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

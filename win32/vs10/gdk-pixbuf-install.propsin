@@ -22,8 +22,8 @@ mkdir $(CopyDir)\include\gdk-pixbuf-$(ApiVersion)\gdk-pixbuf
 
 if exist ..\gdk-pixbuf-2.0.pc (mkdir $(CopyDir)\lib\pkgconfig &amp; copy ..\gdk-pixbuf-2.0.pc $(CopyDir)\lib\pkgconfig)
     </GdkPixbufDoInstall>
-    <GenGdkPixbufPC>if exist $(PythonPath)\python.exe $(PythonPath)\python.exe ..\gdkpixbuf-pc.py --version=$(GdkPixbufMajorVersion).$(GdkPixbufMinorVersion).$(GdkPixbufMicroVersion) --prefix=$(CopyDir)</GenGdkPixbufPC>
-    <GenGdkPixbufPCX64>if exist $(PythonPathX64)\python.exe $(PythonPathX64)\python.exe ..\gdkpixbuf-pc.py --version=$(GdkPixbufMajorVersion).$(GdkPixbufMinorVersion).$(GdkPixbufMicroVersion) --prefix=$(CopyDir)</GenGdkPixbufPCX64>
+    <GenGdkPixbufPC>if exist $(PythonDir)\python.exe $(PythonDir)\python.exe ..\gdkpixbuf-pc.py --version=$(GdkPixbufMajorVersion).$(GdkPixbufMinorVersion).$(GdkPixbufMicroVersion) --prefix=$(CopyDir)</GenGdkPixbufPC>
+    <GenGdkPixbufPCX64>if exist $(PythonDirX64)\python.exe $(PythonDirX64)\python.exe ..\gdkpixbuf-pc.py --version=$(GdkPixbufMajorVersion).$(GdkPixbufMinorVersion).$(GdkPixbufMicroVersion) --prefix=$(CopyDir)</GenGdkPixbufPCX64>
     <GdkPixbufPCFiles>..\gdk-pixbuf-2.0.pc</GdkPixbufPCFiles>
   </PropertyGroup>
   <PropertyGroup>

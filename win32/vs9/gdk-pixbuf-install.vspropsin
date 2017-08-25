@@ -25,10 +25,10 @@ if exist ..\gdk-pixbuf-$(ApiVersion).pc (mkdir $(CopyDir)\lib\pkgconfig &amp; co
 	/>
 	<UserMacro
 		Name="GenGdkPixbufPC"
-		Value="if exist $(PythonPath)\python.exe $(PythonPath)\python.exe ..\gdkpixbuf-pc.py --version=$(GdkPixbufMajorVersion).$(GdkPixbufMinorVersion).$(GdkPixbufMicroVersion) --prefix=$(CopyDir)"
+		Value="if exist $(PythonDir)\python.exe $(PythonDir)\python.exe ..\gdkpixbuf-pc.py --version=$(GdkPixbufMajorVersion).$(GdkPixbufMinorVersion).$(GdkPixbufMicroVersion) --prefix=$(CopyDir)"
 	/>
 	<UserMacro
 		Name="GenGdkPixbufPCX64"
-		Value="if exist $(PythonPathX64)\python.exe $(PythonPathX64)\python.exe ..\gdkpixbuf-pc.py --version=$(GdkPixbufMajorVersion).$(GdkPixbufMinorVersion).$(GdkPixbufMicroVersion) --prefix=$(CopyDir)"
+		Value="if exist $(PythonDirX64)\python.exe $(PythonDirX64)\python.exe ..\gdkpixbuf-pc.py --version=$(GdkPixbufMajorVersion).$(GdkPixbufMinorVersion).$(GdkPixbufMicroVersion) --prefix=$(CopyDir)"
 	/>
 </VisualStudioPropertySheet>
