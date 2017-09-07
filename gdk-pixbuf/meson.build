@@ -4,11 +4,14 @@ subdir('pixops')
 #  - name
 #  - sources
 #  - conditional, otherwise always built
+
+# We need to disable the in-house loaders for BMP, GIF and ICO
+# when enable_native_windows_loaders is true
 loaders = [
   [ 'png', [ 'io-png.c' ], enabled_loaders.contains('png') ],
-  [ 'bmp', [ 'io-bmp.c' ] ],
-  [ 'gif', [ 'io-gif.c', 'io-gif-animation.c' ] ],
-  [ 'ico', [ 'io-ico.c' ] ],
+  [ 'bmp', [ 'io-bmp.c' ], not enable_native_windows_loaders ],
+  [ 'gif', [ 'io-gif.c', 'io-gif-animation.c' ], not enable_native_windows_loaders ],
+  [ 'ico', [ 'io-ico.c' ], not enable_native_windows_loaders ],
   [ 'ani', [ 'io-ani.c', 'io-ani-animation.c' ] ],
   [ 'jpeg', [ 'io-jpeg.c' ], enabled_loaders.contains('jpeg') ],
   [ 'pnm', [ 'io-pnm.c' ] ],
@@ -125,6 +128,30 @@ foreach l: loaders
   endif
 endforeach
 
+# List of formats supported by the native Windows components-based loader(s)
+windows_native_loader_formats = [ 'bmp', 'emf', 'gif', 'ico', 'jpeg', 'tiff', 'wmf' ]
+windows_base_loader_sources = [ 'io-gdip-utils.c', 'io-gdip-animation.c' ]
+
+# Build the loaders using native Windows components as static modules, if requested
+if enable_native_windows_loaders
+  if builtin_loaders.contains('windows') or builtin_all_loaders
+    cflag_for_included_loader = ['-DINCLUDE_gdiplus']
+    included_loaders_cflags += cflag_for_included_loader
+    win_loader_sources = windows_base_loader_sources
+    foreach loader: windows_native_loader_formats
+      win_loader_sources += 'io-gdip-@0@.c'.format(loader)
+    endforeach
+
+    mod = static_library('staticpixbufloader-gdiplus',
+                         win_loader_sources,
+                         dependencies: loaders_deps + gdk_pixbuf_deps,
+                         include_directories: [ root_inc, gdk_pixbuf_inc ],
+                         c_args: common_cflags + gdk_pixbuf_cflags + cflag_for_included_loader)
+
+    included_loaders_deps += declare_dependency(link_with: mod)
+  endif
+endif
+
 # The main gdk-pixbuf shared library
 gdkpixbuf = library('gdk_pixbuf-2.0',
                     gdkpixbuf_sources + gdkpixbuf_enums + gdkpixbuf_marshals,
@@ -164,6 +191,24 @@ foreach l: loaders
     dynamic_loaders += mod.full_path()
   endif
 endforeach
+
+# Build the loaders using native Windows components as dynamic modules, if requested
+if enable_native_windows_loaders
+  if not (builtin_loaders.contains('windows') or builtin_all_loaders)
+    foreach loader: windows_native_loader_formats
+      loader_sources = windows_base_loader_sources + [ 'io-gdip-@0@.c'.format(loader) ]
+
+      mod = shared_module('pixbufloader-gdip-@0@'.format(loader),
+                          loader_sources,
+                          dependencies: loaders_deps + gdk_pixbuf_deps + [ gdkpixbuf_dep ],
+                          include_directories: [ root_inc, gdk_pixbuf_inc ],
+                          c_args: common_cflags + gdk_pixbuf_cflags + cflags,
+                          install: true,
+                          install_dir: gdk_pixbuf_loaderdir)
+      dynamic_loaders += mod.full_path()
+    endforeach
+  endif
+endif
 
 gdkpixbuf_bin = [
   [ 'gdk-pixbuf-csource' ],

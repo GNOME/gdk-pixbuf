@@ -3,11 +3,11 @@ option('enable_png',
        type: 'boolean',
        value: true)
 option('enable_tiff',
-       description: 'Enable TIFF loader (requires libtiff)',
+       description: 'Enable TIFF loader (requires libtiff), disabled on Windows if "enable_native_windows_loaders" is used',
        type: 'boolean',
        value: true)
 option('enable_jpeg',
-       description: 'Enable JPEG loader (requires libjpeg)',
+       description: 'Enable JPEG loader (requires libjpeg), disabled on Windows if "enable_native_windows_loaders" is used',
        type: 'boolean',
        value: true)
 option('enable_jasper',
@@ -32,5 +32,9 @@ option('with_man',
        value: true)
 option('enable_relocatable',
        description: 'Whether to enable application bundle relocation support',
+       type: 'boolean',
+       value: false)
+option('enable_native_windows_loaders',
+       description: 'Use Windows system components to handle BMP, EMF, GIF, ICO, JPEG, TIFF and WMF images, overriding enable_jpeg and enable_tiff.  To build this into gdk-pixbuf, pass in windows" with the other loaders to build in or use "all" with the builtin_loaders option',
        type: 'boolean',
        value: false)

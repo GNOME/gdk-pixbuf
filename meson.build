@@ -227,15 +227,24 @@ if get_option('enable_png')
   endforeach
 endif
 
-if get_option('enable_tiff')
-  tiff_dep = dependency('libtiff-4', required: false)
-  if tiff_dep.found()
-    enabled_loaders += 'tiff'
-    loaders_deps += tiff_dep
-  endif
+# On Windows, check whether we are building the native Windows loaders
+# (it is an "all-or-nothing" option for BMP, EMF, GIF, ICO, JPEG, TIFF and WMF)
+# Note that we currently do not use the native Windows loaders to handle PNG and
+# JPEG2000 images
+if host_system == 'windows'
+  enable_native_windows_loaders = get_option('enable_native_windows_loaders')
+else
+  enable_native_windows_loaders = false
 endif
 
-if get_option('enable_jpeg')
+if enable_native_windows_loaders
+  loaders_deps += cc.find_library('gdiplus')
+  loaders_deps += cc.find_library('ole32')
+  enabled_loaders += 'gdiplus'
+endif
+
+# Don't check and build the jpeg loader if enable_native_windows_loaders is true
+if get_option('enable_jpeg') and not enable_native_windows_loaders
   if cc.has_header('jpeglib.h')
     jpeg_dep = cc.find_library('jpeg', required: false)
     if cc.get_id() == 'msvc' and not jpeg_dep.found()
@@ -250,6 +259,15 @@ if get_option('enable_jpeg')
       gdk_pixbuf_conf.set('HAVE_PROGRESSIVE_JPEG',
                           cc.has_function('jpeg_simple_progression', dependencies: jpeg_dep))
     endif
+  endif
+endif
+
+# Don't check and build the tiff loader if enable_native_windows_loaders is true
+if get_option('enable_tiff') and not enable_native_windows_loaders
+  tiff_dep = dependency('libtiff-4', required: false)
+  if tiff_dep.found()
+    enabled_loaders += 'tiff'
+    loaders_deps += tiff_dep
   endif
 endif
 
