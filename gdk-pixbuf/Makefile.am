@@ -88,7 +88,7 @@ libpixbufloader_pnm_la_LIBADD = $(module_libs)
 libstatic_pixbufloader_tiff_la_SOURCES = io-tiff.c
 libpixbufloader_tiff_la_SOURCES = io-tiff.c
 libpixbufloader_tiff_la_LDFLAGS = -avoid-version -module $(no_undefined)
-libpixbufloader_tiff_la_LIBADD = $(LIBTIFF) $(module_libs)
+libpixbufloader_tiff_la_LIBADD = $(TIFF_LIBS) $(module_libs)
 
 #
 # The XPM loader
