@@ -1,3 +1,10 @@
+2.36.10
+=======
+* build: meson build improvements
+* build: win32 build fixes
+* tests: show error before failing (#786259)
+* Translation updates
+
 2.36.9
 ======
 * build: meson build improvements
