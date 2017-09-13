@@ -715,6 +715,8 @@ gdk_pixbuf_get_pixels_with_length (const GdkPixbuf *pixbuf,
                 gsize len;
                 mut_pixbuf->pixels = g_bytes_unref_to_data (pixbuf->bytes, &len);
                 mut_pixbuf->bytes = NULL;
+                mut_pixbuf->destroy_fn = free_buffer;
+                mut_pixbuf->destroy_fn_data = NULL;
         }
 
         if (length)
