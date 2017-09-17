@@ -117,6 +117,7 @@ case "$host" in
     esac
     ;;
   *-*-darwin*)
+    os_win32=no
     gio_can_sniff=no
     ;;
   *)
