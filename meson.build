@@ -8,7 +8,7 @@ project('gdk-pixbuf', 'c',
         ],
         meson_version: '>= 0.40.1')
 
-add_project_arguments([ '-D_POSIX_C_SOURCE', '-D_DEFAULT_SOURCE' ], language: 'c')
+add_project_arguments([ '-D_POSIX_C_SOURCE=200809L', '-D_DEFAULT_SOURCE', '-D_XOPEN_SOURCE' ], language: 'c')
 
 cc = meson.get_compiler('c')
 host_system = host_machine.system()
