@@ -41,6 +41,7 @@
 #ifdef G_OS_WIN32
 #include <fcntl.h>
 #include <io.h>
+#include <Windows.h>
 #define lseek(a,b,c) _lseek(a,b,c)
 #define O_RDWR _O_RDWR
 #endif
@@ -315,7 +316,7 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
 static GdkPixbuf *
 gdk_pixbuf__tiff_image_load (FILE *f, GError **error)
 {
-        TIFF *tiff;
+        TIFF *tiff = NULL;
         int fd;
         GdkPixbuf *pixbuf;
         
@@ -331,7 +332,30 @@ gdk_pixbuf__tiff_image_load (FILE *f, GError **error)
          * before using it. (#60840)
          */
         lseek (fd, 0, SEEK_SET);
+#ifndef G_OS_WIN32
         tiff = TIFFFdOpen (fd, "libpixbuf-tiff", "r");
+#else
+        /* W32 version of this function takes HANDLE.
+         * What's worse, the caller will close the file,
+         * but TIFFClose() will *also* close it, so we
+         * need to make a duplicate.
+         */
+        {
+                HANDLE h;
+
+                if (DuplicateHandle (GetCurrentProcess (),
+                                     (HANDLE) _get_osfhandle (fd),
+                                     GetCurrentProcess (),
+                                     &h,
+                                     0,
+                                     FALSE,
+                                     DUPLICATE_SAME_ACCESS)) {
+                        tiff = TIFFFdOpen ((intptr_t) h, "libpixbuf-tiff", "r");
+                        if (tiff == NULL)
+                                CloseHandle (h);
+                }
+        }
+#endif
 
         if (!tiff) {
                 g_set_error_literal (error,
