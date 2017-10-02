@@ -1,3 +1,13 @@
+2.36.11
+=======
+* build: Fix tiff loader build (#786342)
+* build: Fix the build on OS X (#786167)
+* build: Prefer newer libpng (#786035)
+* Use a free reference images for tests (#787050)
+* gif: fail quickly if image dimensions are too big (#785973)
+* xlib: Avoid an out-of-bounds error on bigendian (#775896)
+* Translation updates
+
 2.36.10
 =======
 * build: meson build improvements
