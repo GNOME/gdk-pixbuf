@@ -676,7 +676,7 @@ if test x$gio_can_sniff = x; then
   AC_DEFINE(GDK_PIXBUF_USE_GIO_MIME, 1, [Define if gio can sniff image data])
 fi
 
-AM_CONDITIONAL(HAVE_TIFF, test "x$libtiff_found" != x)
+AM_CONDITIONAL(HAVE_TIFF, test "x$libtiff_found" != xno)
 AM_CONDITIONAL(HAVE_PNG, test "x$LIBPNG" != x)
 AM_CONDITIONAL(HAVE_JPEG, test "x$LIBJPEG" != x)
 AM_CONDITIONAL(HAVE_JASPER, test "x$LIBJASPER" != x)
