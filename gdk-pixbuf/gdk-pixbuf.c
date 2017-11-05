@@ -473,7 +473,7 @@ gdk_pixbuf_calculate_rowstride (GdkColorspace colorspace,
  * buffer has an optimal rowstride.  Note that the buffer is not cleared;
  * you will have to fill it completely yourself.
  *
- * Return value: A newly-created #GdkPixbuf with a reference count of 1, or 
+ * Return value: (nullable): A newly-created #GdkPixbuf with a reference count of 1, or
  * %NULL if not enough memory could be allocated for the image buffer.
  **/
 GdkPixbuf *
@@ -511,7 +511,7 @@ gdk_pixbuf_new (GdkColorspace colorspace,
  * @pixbuf. Note that this does not copy the options set on the original #GdkPixbuf,
  * use gdk_pixbuf_copy_options() for this.
  * 
- * Return value: (transfer full): A newly-created pixbuf with a reference count of 1, or %NULL if
+ * Return value: (nullable) (transfer full): A newly-created pixbuf with a reference count of 1, or %NULL if
  * not enough memory could be allocated.
  **/
 GdkPixbuf *

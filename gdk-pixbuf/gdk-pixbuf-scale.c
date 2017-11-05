@@ -382,7 +382,7 @@ gdk_pixbuf_scale_simple (const GdkPixbuf *src,
  * @dest_height and alpha blending the result with a checkboard of colors
  * @color1 and @color2.
  * 
- * Return value: (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
+ * Return value: (nullable) (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
  * allocated for it.
  **/
 GdkPixbuf *
