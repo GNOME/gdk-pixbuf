@@ -336,7 +336,7 @@ gdk_pixbuf_composite_color (const GdkPixbuf *src,
  * For more complicated scaling/alpha blending see gdk_pixbuf_scale()
  * and gdk_pixbuf_composite().
  * 
- * Return value: (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
+ * Return value: (nullable) (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
  * allocated for it.
  **/
 GdkPixbuf *
