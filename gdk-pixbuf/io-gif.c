@@ -1165,7 +1165,12 @@ gif_prepare_lzw (GifContext *context)
 	context->lzw_fresh = TRUE;
 	context->code_curbit = 0;
 	context->code_lastbit = 0;
-	context->code_last_byte = 0;
+	/* During initialistion (in gif_lzw_fill_buffer) we substract 2 from
+	 * this value to peek into a buffer.
+	 * In order to not get a negative array index later, we set the value
+	 * to that magic 2 now.
+	 */
+	context->code_last_byte = 2;
 	context->code_done = FALSE;
 
         g_assert (context->lzw_clear_code <= 
