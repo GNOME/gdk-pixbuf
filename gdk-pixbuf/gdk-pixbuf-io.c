@@ -1866,6 +1866,7 @@ gdk_pixbuf_new_from_stream_finish (GAsyncResult  *async_result,
 				   GError       **error)
 {
 	GTask *task;
+        GdkPixbuf *result;
 
 	g_return_val_if_fail (g_task_is_valid (async_result, NULL), NULL);
 	g_return_val_if_fail (!error || (error && !*error), NULL);
@@ -1875,7 +1876,10 @@ gdk_pixbuf_new_from_stream_finish (GAsyncResult  *async_result,
 	g_warn_if_fail (g_task_get_source_tag (task) == gdk_pixbuf_new_from_stream_async ||
 			g_task_get_source_tag (task) == gdk_pixbuf_new_from_stream_at_scale_async);
 
-	return g_object_ref (g_task_propagate_pointer (task, error));
+	result = g_task_propagate_pointer (task, error);
+        if (result)
+          g_object_ref (result);
+        return result;
 }
 
 static void
