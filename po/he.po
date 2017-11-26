@@ -10,10 +10,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+.HEAD.he\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
-"pixbuf\n"
-"POT-Creation-Date: 2017-03-30 18:17+0300\n"
-"PO-Revision-Date: 2017-03-30 18:21+0300\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
+"pixbuf&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-11-26 15:48+0200\n"
+"PO-Revision-Date: 2017-11-26 15:53+0200\n"
 "Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
@@ -154,45 +154,45 @@ msgstr "תבנית קובץ התמונה לא מזוהה"
 msgid "Failed to load image '%s': %s"
 msgstr "טעינת התמונה '%s' נכשלה:‏ %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2152 gdk-pixbuf/io-gdip-utils.c:838
+#: gdk-pixbuf/gdk-pixbuf-io.c:2190 gdk-pixbuf/io-gdip-utils.c:838
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "שגיאה בכתיבה לקובץ תמונה: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2194 gdk-pixbuf/gdk-pixbuf-io.c:2315
+#: gdk-pixbuf/gdk-pixbuf-io.c:2232 gdk-pixbuf/gdk-pixbuf-io.c:2353
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "מהדורה זו של gdk-pixbuf לא תומכת בשמירת התמונה בתבנית: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2225
+#: gdk-pixbuf/gdk-pixbuf-io.c:2263
 msgid "Insufficient memory to save image to callback"
 msgstr "Insufficient memory to save image to callback"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2238
+#: gdk-pixbuf/gdk-pixbuf-io.c:2276
 msgid "Failed to open temporary file"
 msgstr "פתיחת קובץ זמני נכשלה"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2261
+#: gdk-pixbuf/gdk-pixbuf-io.c:2299
 msgid "Failed to read from temporary file"
 msgstr "קריאה מקובץ זמני נכשלה"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2471
+#: gdk-pixbuf/gdk-pixbuf-io.c:2509
 #, c-format
 msgid "Failed to open '%s' for writing: %s"
 msgstr "פתיחת '%s' לכתיבה נכשלה: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2497
+#: gdk-pixbuf/gdk-pixbuf-io.c:2535
 #, c-format
 msgid ""
 "Failed to close '%s' while writing image, all data may not have been saved: "
 "%s"
 msgstr "סגירת '%s' בזמן כתיבת תמונה נכשלה, ייתכן וכל המידע לא נשמר: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2718 gdk-pixbuf/gdk-pixbuf-io.c:2770
+#: gdk-pixbuf/gdk-pixbuf-io.c:2756 gdk-pixbuf/gdk-pixbuf-io.c:2808
 msgid "Insufficient memory to save image into a buffer"
 msgstr "אין מספיק זיכרון לשמירת התמונה למאגר"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2816
+#: gdk-pixbuf/gdk-pixbuf-io.c:2854
 msgid "Error writing to image stream"
 msgstr "שגיאה בכתיבה לזרימת תמונה"
 
@@ -266,11 +266,12 @@ msgid "Windows animated cursor"
 msgstr "סמן מונפש של Windows"
 
 #: gdk-pixbuf/io-bmp.c:227 gdk-pixbuf/io-bmp.c:265 gdk-pixbuf/io-bmp.c:372
-#: gdk-pixbuf/io-bmp.c:399 gdk-pixbuf/io-bmp.c:424 gdk-pixbuf/io-bmp.c:528
+#: gdk-pixbuf/io-bmp.c:399 gdk-pixbuf/io-bmp.c:424 gdk-pixbuf/io-bmp.c:459
+#: gdk-pixbuf/io-bmp.c:481 gdk-pixbuf/io-bmp.c:558
 msgid "BMP image has bogus header data"
 msgstr "לתמונת ה־BMP יש נתוני כותרת מזויפים"
 
-#: gdk-pixbuf/io-bmp.c:238 gdk-pixbuf/io-bmp.c:464
+#: gdk-pixbuf/io-bmp.c:238 gdk-pixbuf/io-bmp.c:494
 msgid "Not enough memory to load bitmap image"
 msgstr "אין מספיק זיכרון לטעינת תמונת מפת סיביות"
 
@@ -294,61 +295,61 @@ msgstr "Topdown BMP images cannot be compressed"
 msgid "BMP image width too large"
 msgstr "BMP image width too large"
 
-#: gdk-pixbuf/io-bmp.c:753 gdk-pixbuf/io-png.c:532 gdk-pixbuf/io-pnm.c:721
+#: gdk-pixbuf/io-bmp.c:782 gdk-pixbuf/io-png.c:528 gdk-pixbuf/io-pnm.c:721
 msgid "Premature end-of-file encountered"
 msgstr "סוף הקובץ התגלה במיקום מוקדם מדי"
 
-#: gdk-pixbuf/io-bmp.c:1282
+#: gdk-pixbuf/io-bmp.c:1310
 #, c-format
 msgid "Error while decoding colormap"
 msgstr "Error while decoding colormap"
 
-#: gdk-pixbuf/io-bmp.c:1345 gdk-pixbuf/io-bmp.c:1357
+#: gdk-pixbuf/io-bmp.c:1373 gdk-pixbuf/io-bmp.c:1385
 msgid "Image is too wide for BMP format."
 msgstr "התמונה רחבה מדי לתבנית BMP."
 
-#: gdk-pixbuf/io-bmp.c:1390
+#: gdk-pixbuf/io-bmp.c:1418
 msgid "Couldn't allocate memory for saving BMP file"
 msgstr "לא ניתן להקצות זכרון לטעינת קובץ BMP"
 
-#: gdk-pixbuf/io-bmp.c:1431
+#: gdk-pixbuf/io-bmp.c:1459
 msgid "Couldn't write to BMP file"
 msgstr "לא ניתן לכתוב לקובץ ה־BMP"
 
-#: gdk-pixbuf/io-bmp.c:1484 gdk-pixbuf/io-gdip-bmp.c:83
+#: gdk-pixbuf/io-bmp.c:1512 gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
 msgstr "BMP"
 
-#: gdk-pixbuf/io-gdip-emf.c:60
+#: gdk-pixbuf/io-gdip-emf.c:61
 msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1728
+#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1744
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
 
-#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1398
+#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1415
 msgctxt "image format"
 msgid "Windows icon"
 msgstr "סמליל Windows"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1344
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1357
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%s' could not be "
 "parsed."
 msgstr "איכות קובץ JPEG חייבת להיות בין 0 ל־100, הערך '%s' לא ניתן לפענוח."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1360
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1373
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgstr "איכות קובץ JPEG חייבת להיות בין 0 ל־100, הערך '%d' אינו מורשה."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1644
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1657
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
@@ -395,7 +396,7 @@ msgstr "תבנית הקובץ אינה נתמכת עבור GDI+‎"
 msgid "Couldn't save"
 msgstr "לא ניתן לשמור"
 
-#: gdk-pixbuf/io-gdip-wmf.c:59
+#: gdk-pixbuf/io-gdip-wmf.c:60
 msgctxt "image format"
 msgid "WMF"
 msgstr "WMF"
@@ -405,7 +406,7 @@ msgstr "WMF"
 msgid "Failure reading GIF: %s"
 msgstr "שגיאה בקריאת GIF:‏ %s"
 
-#: gdk-pixbuf/io-gif.c:496 gdk-pixbuf/io-gif.c:1503 gdk-pixbuf/io-gif.c:1677
+#: gdk-pixbuf/io-gif.c:496 gdk-pixbuf/io-gif.c:1519 gdk-pixbuf/io-gif.c:1693
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "חסרים נתונים בקובץ ה־GIF (ייתכן שנקטע בדרך כלשהי?)"
 
@@ -430,33 +431,33 @@ msgstr "המפענח נתקל בקוד פגום"
 msgid "Circular table entry in GIF file"
 msgstr "רישום טבלה מעגלי בקובץ ה־GIF"
 
-#: gdk-pixbuf/io-gif.c:866 gdk-pixbuf/io-gif.c:1489 gdk-pixbuf/io-gif.c:1542
-#: gdk-pixbuf/io-gif.c:1665
+#: gdk-pixbuf/io-gif.c:882 gdk-pixbuf/io-gif.c:1505 gdk-pixbuf/io-gif.c:1558
+#: gdk-pixbuf/io-gif.c:1681
 msgid "Not enough memory to load GIF file"
 msgstr "אין מספיק זיכרון לטעינת קובץ GIF"
 
-#: gdk-pixbuf/io-gif.c:960
+#: gdk-pixbuf/io-gif.c:976
 msgid "Not enough memory to composite a frame in GIF file"
 msgstr "אין מספיק זיכרון להרכיב מסגרת נוספת בקובץ ה־GIF"
 
-#: gdk-pixbuf/io-gif.c:1132
+#: gdk-pixbuf/io-gif.c:1148
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "תמונת ה־GIF פגומה (כיווץ LZW שגוי)"
 
-#: gdk-pixbuf/io-gif.c:1182
+#: gdk-pixbuf/io-gif.c:1198
 msgid "File does not appear to be a GIF file"
 msgstr "הקובץ לא נראה כקובץ GIF"
 
-#: gdk-pixbuf/io-gif.c:1194
+#: gdk-pixbuf/io-gif.c:1210
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "גרסה %s של תבנית קובץ ה־GIF אינה נתמכת"
 
-#: gdk-pixbuf/io-gif.c:1241
+#: gdk-pixbuf/io-gif.c:1257
 msgid "Resulting GIF image has zero size"
 msgstr "ה־GIF שנוצר הוא בגודל אפס"
 
-#: gdk-pixbuf/io-gif.c:1320
+#: gdk-pixbuf/io-gif.c:1336
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -464,11 +465,11 @@ msgstr ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
 
-#: gdk-pixbuf/io-gif.c:1565
+#: gdk-pixbuf/io-gif.c:1581
 msgid "GIF image was truncated or incomplete."
 msgstr "תמונת ה־GIF הייתה קטועה או לא מושלמת."
 
-#: gdk-pixbuf/io-gif.c:1572
+#: gdk-pixbuf/io-gif.c:1588
 msgid "Not all frames of the GIF image were loaded."
 msgstr "Not all frames of the GIF image were loaded."
 
@@ -486,38 +487,46 @@ msgctxt "image format"
 msgid "MacOS X icon"
 msgstr "סמליל MacOS X"
 
-#: gdk-pixbuf/io-ico.c:232 gdk-pixbuf/io-ico.c:246 gdk-pixbuf/io-ico.c:329
-#: gdk-pixbuf/io-ico.c:340 gdk-pixbuf/io-ico.c:419 gdk-pixbuf/io-ico.c:444
+#: gdk-pixbuf/io-ico.c:237 gdk-pixbuf/io-ico.c:251 gdk-pixbuf/io-ico.c:343
+#: gdk-pixbuf/io-ico.c:424 gdk-pixbuf/io-ico.c:449
 #, c-format
 msgid "Invalid header in icon (%s)"
 msgstr "כותרת לא תקנית בסמל (%s)"
 
-#: gdk-pixbuf/io-ico.c:262 gdk-pixbuf/io-ico.c:350 gdk-pixbuf/io-ico.c:454
-#: gdk-pixbuf/io-ico.c:497 gdk-pixbuf/io-ico.c:525
+#: gdk-pixbuf/io-ico.c:267 gdk-pixbuf/io-ico.c:353 gdk-pixbuf/io-ico.c:459
+#: gdk-pixbuf/io-ico.c:502 gdk-pixbuf/io-ico.c:530
 msgid "Not enough memory to load icon"
 msgstr "אין מספיק זיכרון לטעינת סמל"
 
-#: gdk-pixbuf/io-ico.c:380
+#: gdk-pixbuf/io-ico.c:384
+msgid "Invalid header in icon"
+msgstr "כותרת לא תקנית בסמל "
+
+#: gdk-pixbuf/io-ico.c:385
 msgid "Compressed icons are not supported"
 msgstr "סמלים מכווצים אינם נתמכים"
 
-#: gdk-pixbuf/io-ico.c:482
+#: gdk-pixbuf/io-ico.c:487
 msgid "Unsupported icon type"
 msgstr "סוג הסמל לא נתמך"
 
-#: gdk-pixbuf/io-ico.c:574
+#: gdk-pixbuf/io-ico.c:579
 msgid "Not enough memory to load ICO file"
 msgstr "אין מספיק זיכרון לטעינת קובץ ICO"
 
-#: gdk-pixbuf/io-ico.c:1056
+#: gdk-pixbuf/io-ico.c:625
+msgid "ICO image was truncated or incomplete."
+msgstr "תמונת ICO הייתה קטועה או לא מושלמת."
+
+#: gdk-pixbuf/io-ico.c:1073
 msgid "Image too large to be saved as ICO"
 msgstr "התמונה גדולה מכדי שמירה כ־ICO"
 
-#: gdk-pixbuf/io-ico.c:1067
+#: gdk-pixbuf/io-ico.c:1084
 msgid "Cursor hotspot outside image"
 msgstr "Cursor hotspot outside image"
 
-#: gdk-pixbuf/io-ico.c:1090
+#: gdk-pixbuf/io-ico.c:1107
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "עומק בלתי נתמך לקובץ ICO:‏ %d"
@@ -568,35 +577,40 @@ msgstr ""
 "אין מספיק זיכרון לטעינת התמונה, כדאי לנסות לסגור מספר יישומים כדי לפנות "
 "זיכרון"
 
-#: gdk-pixbuf/io-jpeg.c:708 gdk-pixbuf/io-jpeg.c:921
+#: gdk-pixbuf/io-jpeg.c:706 gdk-pixbuf/io-jpeg.c:917
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "מרחב הצבעים של ה־JPEG אינו נתמך (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:820 gdk-pixbuf/io-jpeg.c:1103 gdk-pixbuf/io-jpeg.c:1451
-#: gdk-pixbuf/io-jpeg.c:1461
+#: gdk-pixbuf/io-jpeg.c:817 gdk-pixbuf/io-jpeg.c:1116 gdk-pixbuf/io-jpeg.c:1464
+#: gdk-pixbuf/io-jpeg.c:1474
 msgid "Couldn't allocate memory for loading JPEG file"
 msgstr "לא ניתן להקצות זיכרון לטעינת קובץ JPEG"
 
-#: gdk-pixbuf/io-jpeg.c:1077
+#: gdk-pixbuf/io-jpeg.c:1073
 msgid "Transformed JPEG has zero width or height."
 msgstr "Transformed JPEG has zero width or height."
 
-#: gdk-pixbuf/io-jpeg.c:1381
+#: gdk-pixbuf/io-jpeg.c:1100
+#, c-format
+msgid "Unsupported number of color components (%d)"
+msgstr "מרחב צבעים אינו נתמך ‏(%d)"
+
+#: gdk-pixbuf/io-jpeg.c:1394
 #, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 msgstr ""
 "JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 
-#: gdk-pixbuf/io-jpeg.c:1402
+#: gdk-pixbuf/io-jpeg.c:1415
 #, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 msgstr ""
 "JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
 
-#: gdk-pixbuf/io-jpeg.c:1416
+#: gdk-pixbuf/io-jpeg.c:1429
 #, c-format
 msgid "Color profile has invalid length '%u'."
 msgstr "אורך פרופיל הצבע '%u' אינו תקני."
@@ -605,7 +619,7 @@ msgstr "אורך פרופיל הצבע '%u' אינו תקני."
 msgid "Bits per channel of PNG image is invalid."
 msgstr "הסיביות לערוץ של תמונת ה־PNG אינן תקינות."
 
-#: gdk-pixbuf/io-png.c:134 gdk-pixbuf/io-png.c:672
+#: gdk-pixbuf/io-png.c:134 gdk-pixbuf/io-png.c:666
 msgid "Transformed PNG has zero width or height."
 msgstr "Transformed PNG has zero width or height."
 
@@ -626,11 +640,11 @@ msgstr "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgid "Fatal error in PNG image file: %s"
 msgstr "שגיאה חמורה בקובץ תמונת PNG:‏ %s"
 
-#: gdk-pixbuf/io-png.c:319
+#: gdk-pixbuf/io-png.c:318
 msgid "Insufficient memory to load PNG file"
 msgstr "אין מספיק זיכרון לטעינת קובץ PNG"
 
-#: gdk-pixbuf/io-png.c:687
+#: gdk-pixbuf/io-png.c:679
 #, c-format
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
@@ -639,61 +653,61 @@ msgstr ""
 "אין מספיק זיכרון לשמירת תמונה בגודל %lu על %lu; כדאי לנסות לצאת ממספר "
 "יישומים כדי להקטין את השימוש בזיכרון"
 
-#: gdk-pixbuf/io-png.c:765
+#: gdk-pixbuf/io-png.c:755
 msgid "Fatal error reading PNG image file"
 msgstr "שגיאה חמורה בקריאת קובץ PNG"
 
-#: gdk-pixbuf/io-png.c:815
+#: gdk-pixbuf/io-png.c:804
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "שגיאה חמורה בקריאת קובץ PNG:‏ %s"
 
-#: gdk-pixbuf/io-png.c:907
+#: gdk-pixbuf/io-png.c:896
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 
-#: gdk-pixbuf/io-png.c:916
+#: gdk-pixbuf/io-png.c:905
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Keys for PNG text chunks must be ASCII characters."
 
-#: gdk-pixbuf/io-png.c:930 gdk-pixbuf/io-tiff.c:802
+#: gdk-pixbuf/io-png.c:919 gdk-pixbuf/io-tiff.c:802
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "לפרופיל הצבע יש אורך בלתי תקני %d."
 
-#: gdk-pixbuf/io-png.c:943
+#: gdk-pixbuf/io-png.c:932
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%s' could not "
 "be parsed."
 msgstr "איכות קובץ PNG חייבת להיות בין 0 ל־100, לא ניתן לפענח את הערך '%s'."
 
-#: gdk-pixbuf/io-png.c:956
+#: gdk-pixbuf/io-png.c:945
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value '%d' is not "
 "allowed."
 msgstr "איכות קובץ PNG חייבת להיות בין 0 ל־100, הערך '%d' אינו מורשה."
 
-#: gdk-pixbuf/io-png.c:975
+#: gdk-pixbuf/io-png.c:964
 #, c-format
 msgid "PNG x-dpi must be greater than zero; value '%s' is not allowed."
 msgstr "PNG x-dpi must be greater than zero; value '%s' is not allowed."
 
-#: gdk-pixbuf/io-png.c:995
+#: gdk-pixbuf/io-png.c:984
 #, c-format
 msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
 msgstr "PNG y-dpi must be greater than zero; value '%s' is not allowed."
 
-#: gdk-pixbuf/io-png.c:1044
+#: gdk-pixbuf/io-png.c:1033
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 
-#: gdk-pixbuf/io-png.c:1229
+#: gdk-pixbuf/io-png.c:1218
 msgctxt "image format"
 msgid "PNG"
 msgstr "PNG"
@@ -871,23 +885,23 @@ msgstr "לא ניתן לזהות את גובה התמונה (קובץ TIFF שג�
 msgid "Width or height of TIFF image is zero"
 msgstr "גובה או רוחב תמונת ה־TIFF הוא אפס"
 
-#: gdk-pixbuf/io-tiff.c:133 gdk-pixbuf/io-tiff.c:142
+#: gdk-pixbuf/io-tiff.c:132 gdk-pixbuf/io-tiff.c:142
 msgid "Dimensions of TIFF image too large"
 msgstr "ממדי תמונת ה־TIFF גדולים מידי"
 
-#: gdk-pixbuf/io-tiff.c:166 gdk-pixbuf/io-tiff.c:178 gdk-pixbuf/io-tiff.c:536
+#: gdk-pixbuf/io-tiff.c:168 gdk-pixbuf/io-tiff.c:180 gdk-pixbuf/io-tiff.c:536
 msgid "Insufficient memory to open TIFF file"
 msgstr "אין מספיק זיכרון לפתיחת תמונת TIFF"
 
-#: gdk-pixbuf/io-tiff.c:276
+#: gdk-pixbuf/io-tiff.c:278
 msgid "Failed to load RGB data from TIFF file"
 msgstr "טעינת נתוני RGB מקובץ TIFF נכשלה"
 
-#: gdk-pixbuf/io-tiff.c:338
+#: gdk-pixbuf/io-tiff.c:340
 msgid "Failed to open TIFF image"
 msgstr "פתיחת תמונת TIFF נכשלה"
 
-#: gdk-pixbuf/io-tiff.c:472 gdk-pixbuf/io-tiff.c:485
+#: gdk-pixbuf/io-tiff.c:474 gdk-pixbuf/io-tiff.c:486
 msgid "Failed to load TIFF image"
 msgstr "טעינת תמונת TIFF נכשלה"
 
