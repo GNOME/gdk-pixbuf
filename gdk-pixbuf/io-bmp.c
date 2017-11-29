@@ -440,7 +440,7 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 		int rowstride;
 		gboolean has_alpha;
 
-		if (State->size_func) {
+		{
 			gint width = State->Header.width;
 			gint height = State->Header.height;
 
@@ -500,9 +500,8 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 			return FALSE;
 		}
 
-		if (State->prepared_func != NULL)
-			/* Notify the client that we are ready to go */
-			(*State->prepared_func) (State->pixbuf, NULL, State->user_data);
+		/* Notify the client that we are ready to go */
+		(*State->prepared_func) (State->pixbuf, NULL, State->user_data);
 		
 		/* make all pixels initially transparent */
 		if (State->Compressed == BI_RLE4 || State->Compressed == BI_RLE8) {
@@ -728,6 +727,10 @@ gdk_pixbuf__bmp_image_begin_load(GdkPixbufModuleSizeFunc size_func,
 {
 	struct bmp_progressive_state *context;
 	
+	g_assert (size_func != NULL);
+	g_assert (prepared_func != NULL);
+	g_assert (updated_func != NULL);
+
 	context = g_new0(struct bmp_progressive_state, 1);
 	context->size_func = size_func;
 	context->prepared_func = prepared_func;
@@ -1059,17 +1062,15 @@ static void OneLine(struct bmp_progressive_state *context)
 
 	context->Lines++;
 
-	if (context->updated_func != NULL) {
-		(*context->updated_func) (context->pixbuf,
-					  0,
-					  (context->Header.Negative ?
-					   (context->Lines - 1) :
-					   (context->Header.height - context->Lines)),
-					  context->Header.width,
-					  1,
-					  context->user_data);
+	(*context->updated_func) (context->pixbuf,
+				  0,
+				  (context->Header.Negative ?
+				   (context->Lines - 1) :
+				   (context->Header.height - context->Lines)),
+				  context->Header.width,
+				  1,
+				  context->user_data);
 
-	}
 }
 
 #define NEUTRAL       0
@@ -1222,18 +1223,15 @@ DoCompressed(struct bmp_progressive_state *context, GError **error)
 			    break;
 		}
 	}
-	if (context->updated_func != NULL) {
-		if (context->compr.y > y)
-		{
-			gint new_y = MIN (context->compr.y, context->Header.height);
-			(*context->updated_func) (context->pixbuf,
-						  0,
-						  context->Header.height - new_y,
-						  context->Header.width,
-						  new_y - y,
-						  context->user_data);
-		}
 
+	if (context->compr.y > y) {
+		gint new_y = MIN (context->compr.y, context->Header.height);
+		(*context->updated_func) (context->pixbuf,
+					  0,
+					  context->Header.height - new_y,
+					  context->Header.width,
+					  new_y - y,
+					  context->user_data);
 	}
 
 	context->BufferDone = 0;
