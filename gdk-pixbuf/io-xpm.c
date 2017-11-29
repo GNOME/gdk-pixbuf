@@ -723,6 +723,10 @@ gdk_pixbuf__xpm_image_begin_load (GdkPixbufModuleSizeFunc size_func,
        XPMContext *context;
        gint fd;
 
+       g_assert (size_func != NULL);
+       g_assert (prepare_func != NULL);
+       g_assert (update_func != NULL);
+
        context = g_new (XPMContext, 1);
        context->prepare_func = prepare_func;
        context->update_func = update_func;
@@ -761,16 +765,14 @@ gdk_pixbuf__xpm_image_stop_load (gpointer data,
                pixbuf = gdk_pixbuf__xpm_image_load (context->file, error);
 
                if (pixbuf != NULL) {
-		       if (context->prepare_func)
-			       (* context->prepare_func) (pixbuf,
-							  NULL,
-							  context->user_data);
-		       if (context->update_func)
-			       (* context->update_func) (pixbuf,
-							 0, 0,
-							 gdk_pixbuf_get_width (pixbuf),
-							 gdk_pixbuf_get_height (pixbuf),
-							 context->user_data);
+		       (* context->prepare_func) (pixbuf,
+						  NULL,
+						  context->user_data);
+		       (* context->update_func) (pixbuf,
+						 0, 0,
+						 gdk_pixbuf_get_width (pixbuf),
+						 gdk_pixbuf_get_height (pixbuf),
+						 context->user_data);
                        g_object_unref (pixbuf);
 
                        retval = TRUE;
