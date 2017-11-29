@@ -20,7 +20,7 @@ private_headers = [
   'test-images.h',
 ]
 
-if get_option('with_docs')
+if get_option('docs')
   # This should not be needed, but gnome.gtkdoc() does not copy the
   # .types file into the builddir, if one is found
   configure_file(input: 'gdk-pixbuf.types',
@@ -59,7 +59,7 @@ if get_option('with_docs')
 endif
 
 xsltproc = find_program('xsltproc', required: false)
-if get_option('with_man') and xsltproc.found()
+if get_option('man') and xsltproc.found()
   xlstproc_flags = [
     '--nonet',
     '--stringparam', 'man.output.quietly', '1',

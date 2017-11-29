@@ -22,15 +22,15 @@ option('builtin_loaders',
        description: 'Comma-separated list of loaders to build into gdk-pixbuf, or "none", or "all" to build all buildable loaders into gdk-pixbuf',
        type: 'string',
        value: 'none')
-option('with_docs',
+option('docs',
        description: 'Whether to generate the API reference (requires GTK-Doc)',
        type: 'boolean',
        value: false)
-option('with_gir',
+option('gir',
        description: 'Whether to generate the API introspection data (requires GObject-Introspection)',
        type: 'boolean',
        value: true)
-option('with_man',
+option('man',
        description: 'Whether to generate man pages (requires xlstproc)',
        type: 'boolean',
        value: true)

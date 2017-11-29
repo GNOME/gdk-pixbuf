@@ -242,7 +242,7 @@ loaders_cache = custom_target('loaders.cache',
                               build_by_default: true)
 loaders_dep = declare_dependency(sources: [ loaders_cache ])
 
-build_gir = get_option('with_gir') and not meson.is_cross_build()
+build_gir = get_option('gir') and not meson.is_cross_build()
 if build_gir
   gir_args = [
     '--quiet',
