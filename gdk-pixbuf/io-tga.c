@@ -129,10 +129,10 @@ struct _TGAContext {
 
         TGAProcessFunc process;
 
-	GdkPixbufModuleSizeFunc sfunc;
-	GdkPixbufModulePreparedFunc pfunc;
-	GdkPixbufModuleUpdatedFunc ufunc;
-	gpointer udata;
+	GdkPixbufModuleSizeFunc size_func;
+	GdkPixbufModulePreparedFunc prepared_func;
+	GdkPixbufModuleUpdatedFunc updated_func;
+	gpointer user_data;
 };
 
 static TGAColormap *
@@ -234,7 +234,7 @@ tga_emit_update (TGAContext *ctx)
   gint width = gdk_pixbuf_get_width (ctx->pbuf);
   gint height = gdk_pixbuf_get_height (ctx->pbuf);
 
-  if (!ctx->ufunc)
+  if (!ctx->updated_func)
     return;
 
   /* We only notify row-by-row for now.
@@ -244,15 +244,15 @@ tga_emit_update (TGAContext *ctx)
     return;
 
   if (ctx->hdr->flags & TGA_ORIGIN_UPPER)
-    (*ctx->ufunc) (ctx->pbuf,
+    (*ctx->updated_func) (ctx->pbuf,
                    0, ctx->pbuf_y_notified,
                    width, ctx->pbuf_y - ctx->pbuf_y_notified,
-                   ctx->udata);
+                   ctx->user_data);
   else
-    (*ctx->ufunc) (ctx->pbuf,
+    (*ctx->updated_func) (ctx->pbuf,
                    0, height - ctx->pbuf_y,
                    width, ctx->pbuf_y - ctx->pbuf_y_notified,
-                   ctx->udata);
+                   ctx->user_data);
 
   ctx->pbuf_y_notified = ctx->pbuf_y;
 }
@@ -357,11 +357,11 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 	w = LE16(ctx->hdr->width);
 	h = LE16(ctx->hdr->height);
 
-	if (ctx->sfunc) {
+	if (ctx->size_func) {
 		gint wi = w;
 		gint hi = h;
 		
-		(*ctx->sfunc) (&wi, &hi, ctx->udata);
+		(*ctx->size_func) (&wi, &hi, ctx->user_data);
 		
 		if (wi == 0 || hi == 0) 
 			return FALSE;
@@ -629,17 +629,17 @@ tga_load_header (TGAContext  *ctx,
   if (!fill_in_context(ctx, err))
           return FALSE;
 
-  if (ctx->pfunc)
-          (*ctx->pfunc) (ctx->pbuf, NULL, ctx->udata);
+  if (ctx->prepared_func)
+          (*ctx->prepared_func) (ctx->pbuf, NULL, ctx->user_data);
 
   ctx->process = tga_read_info;
   return TRUE;
 }
 
-static gpointer gdk_pixbuf__tga_begin_load(GdkPixbufModuleSizeFunc f0,
-                                           GdkPixbufModulePreparedFunc f1,
-					   GdkPixbufModuleUpdatedFunc f2,
-					   gpointer udata, GError **err)
+static gpointer gdk_pixbuf__tga_begin_load(GdkPixbufModuleSizeFunc size_func,
+                                           GdkPixbufModulePreparedFunc prepared_func,
+					   GdkPixbufModuleUpdatedFunc updated_func,
+					   gpointer user_data, GError **err)
 {
 	TGAContext *ctx;
 
@@ -665,10 +665,11 @@ static gpointer gdk_pixbuf__tga_begin_load(GdkPixbufModuleSizeFunc f0,
 
         ctx->process = tga_load_header;
 
-	ctx->sfunc = f0;
-	ctx->pfunc = f1;
-	ctx->ufunc = f2;
-	ctx->udata = udata;
+	ctx->size_func     = size_func;
+	ctx->prepared_func = prepared_func;
+	ctx->updated_func  = updated_func;
+
+	ctx->user_data = user_data;
 
 	return ctx;
 }
