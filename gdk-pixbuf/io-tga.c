@@ -234,9 +234,6 @@ tga_emit_update (TGAContext *ctx)
   gint width = gdk_pixbuf_get_width (ctx->pbuf);
   gint height = gdk_pixbuf_get_height (ctx->pbuf);
 
-  if (!ctx->updated_func)
-    return;
-
   /* We only notify row-by-row for now.
    * I was too lazy to handle line-breaks.
    */
@@ -357,13 +354,13 @@ static gboolean fill_in_context(TGAContext *ctx, GError **err)
 	w = LE16(ctx->hdr->width);
 	h = LE16(ctx->hdr->height);
 
-	if (ctx->size_func) {
+	{
 		gint wi = w;
 		gint hi = h;
-		
+
 		(*ctx->size_func) (&wi, &hi, ctx->user_data);
-		
-		if (wi == 0 || hi == 0) 
+
+		if (wi == 0 || hi == 0)
 			return FALSE;
 	}
 
@@ -629,8 +626,7 @@ tga_load_header (TGAContext  *ctx,
   if (!fill_in_context(ctx, err))
           return FALSE;
 
-  if (ctx->prepared_func)
-          (*ctx->prepared_func) (ctx->pbuf, NULL, ctx->user_data);
+  (*ctx->prepared_func) (ctx->pbuf, NULL, ctx->user_data);
 
   ctx->process = tga_read_info;
   return TRUE;
@@ -642,6 +638,10 @@ static gpointer gdk_pixbuf__tga_begin_load(GdkPixbufModuleSizeFunc size_func,
 					   gpointer user_data, GError **err)
 {
 	TGAContext *ctx;
+
+	g_assert (size_func != NULL);
+	g_assert (prepared_func != NULL);
+	g_assert (updated_func != NULL);
 
 	ctx = g_try_malloc(sizeof(TGAContext));
 	if (!ctx) {
