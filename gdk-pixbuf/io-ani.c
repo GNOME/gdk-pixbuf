@@ -161,10 +161,9 @@ prepared_callback (GdkPixbufLoader *loader,
 
 	if (context->pos == 0) 
 	{
-		if (context->prepared_func)
-			(* context->prepared_func) (pixbuf, 
-						    GDK_PIXBUF_ANIMATION (context->animation), 
-						    context->user_data);
+		(* context->prepared_func) (pixbuf, 
+					    GDK_PIXBUF_ANIMATION (context->animation), 
+					    context->user_data);
 	}
 	else {
 		/* FIXME - this is necessary for nice display of loading 
@@ -189,10 +188,9 @@ updated_callback (GdkPixbufLoader* loader,
 
 	GdkPixbuf *pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
 	
-	if (context->updated_func)
-		(* context->updated_func) (pixbuf, 
-					   x, y, width, height,
-					   context->user_data);
+	(* context->updated_func) (pixbuf, 
+				   x, y, width, height,
+				   context->user_data);
 }
 
 static gboolean
@@ -586,6 +584,10 @@ gdk_pixbuf__ani_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 {
         AniLoaderContext *context;
         
+	g_assert (size_func != NULL);
+	g_assert (prepared_func != NULL);
+	g_assert (updated_func != NULL);
+
         context = g_new0 (AniLoaderContext, 1);
         
         context->prepared_func = prepared_func;
