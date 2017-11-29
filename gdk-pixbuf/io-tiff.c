@@ -153,7 +153,7 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
 
         bytes = height * rowstride;
 
-	if (context && context->size_func) {
+	if (context) {
                 gint w = width;
                 gint h = height;
 		(* context->size_func) (&w, &h, context->user_data);
@@ -276,7 +276,7 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
                 }
         }
 
-	if (context && context->prepare_func)
+	if (context)
 		(* context->prepare_func) (pixbuf, NULL, context->user_data);
 
 	if (!TIFFReadRGBAImageOriented (tiff, width, height, (uint32 *)pixels, ORIENTATION_TOPLEFT, 1)) {
@@ -316,7 +316,7 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
         }
 #endif
 
-	if (context && context->update_func)
+	if (context)
 		(* context->update_func) (pixbuf, 0, 0, width, height, context->user_data);
 
         return pixbuf;
@@ -398,6 +398,10 @@ gdk_pixbuf__tiff_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 {
 	TiffContext *context;
         
+        g_assert (size_func != NULL);
+        g_assert (prepare_func != NULL);
+        g_assert (update_func != NULL);
+
 	context = g_new0 (TiffContext, 1);
 	context->size_func = size_func;
 	context->prepare_func = prepare_func;
