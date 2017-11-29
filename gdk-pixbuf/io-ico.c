@@ -510,7 +510,7 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 
 
 	if (State->pixbuf == NULL) {
-		if (State->size_func) {
+		{
 			gint width = State->Header.width;
 			gint height = State->Header.height;
 
@@ -540,12 +540,10 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 			gdk_pixbuf_set_option (State->pixbuf, "y_hot", hot);
 		}
 
-		if (State->prepared_func != NULL)
-			/* Notify the client that we are ready to go */
-			(*State->prepared_func) (State->pixbuf,
-                                                 NULL,
-						 State->user_data);
-
+		/* Notify the client that we are ready to go */
+		(*State->prepared_func) (State->pixbuf,
+					 NULL,
+					 State->user_data);
 	}
 
 }
@@ -564,6 +562,10 @@ gdk_pixbuf__ico_image_begin_load(GdkPixbufModuleSizeFunc size_func,
                                  GError **error)
 {
 	struct ico_progressive_state *context;
+
+	g_assert (size_func != NULL);
+	g_assert (prepared_func != NULL);
+	g_assert (updated_func != NULL);
 
 	context = g_new0(struct ico_progressive_state, 1);
 	context->size_func = size_func;
@@ -887,7 +889,7 @@ static void OneLine(struct ico_progressive_state *context)
 			context->LineWidth = (context->LineWidth / 4) * 4 + 4;
 	}
 
-	if (context->updated_func != NULL) {
+	{
 		int y;
 
 		y = context->Lines % context->Header.height;
