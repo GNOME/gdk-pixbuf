@@ -1007,6 +1007,13 @@ _gdk_pixbuf_get_module_for_file (FILE *f, const gchar *filename, GError **error)
 }
 
 static void
+noop_size_notify (gint     *width,
+		  gint     *height,
+		  gpointer  data)
+{
+}
+
+static void
 prepared_notify (GdkPixbuf *pixbuf, 
                  GdkPixbufAnimation *anim, 
                  gpointer user_data)
@@ -1016,13 +1023,23 @@ prepared_notify (GdkPixbuf *pixbuf,
         *((GdkPixbuf **)user_data) = pixbuf;
 }
 
+static void
+noop_updated_notify (GdkPixbuf *pixbuf,
+		     int        x,
+		     int        y,
+		     int        width,
+		     int        height,
+		     gpointer   user_data)
+{
+}
+
 static GdkPixbuf *
 generic_load_incrementally (GdkPixbufModule *module, FILE *f, GError **error)
 {
         GdkPixbuf *pixbuf = NULL;
 	gpointer context;
 
-	context = module->begin_load (NULL, prepared_notify, NULL, &pixbuf, error);
+	context = module->begin_load (noop_size_notify, prepared_notify, noop_updated_notify, &pixbuf, error);
         
 	if (!context)
 		goto out;
