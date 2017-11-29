@@ -6,12 +6,12 @@ subdir('pixops')
 #  - conditional, otherwise always built
 
 # We need to disable the in-house loaders for BMP, GIF and ICO
-# when enable_native_windows_loaders is true
+# when native_windows_loaders is true
 loaders = [
   [ 'png', [ 'io-png.c' ], enabled_loaders.contains('png') ],
-  [ 'bmp', [ 'io-bmp.c' ], not enable_native_windows_loaders ],
-  [ 'gif', [ 'io-gif.c', 'io-gif-animation.c' ], not enable_native_windows_loaders ],
-  [ 'ico', [ 'io-ico.c' ], not enable_native_windows_loaders ],
+  [ 'bmp', [ 'io-bmp.c' ], not native_windows_loaders ],
+  [ 'gif', [ 'io-gif.c', 'io-gif-animation.c' ], not native_windows_loaders ],
+  [ 'ico', [ 'io-ico.c' ], not native_windows_loaders ],
   [ 'ani', [ 'io-ani.c', 'io-ani-animation.c' ] ],
   [ 'jpeg', [ 'io-jpeg.c' ], enabled_loaders.contains('jpeg') ],
   [ 'pnm', [ 'io-pnm.c' ] ],
@@ -133,7 +133,7 @@ windows_native_loader_formats = [ 'bmp', 'emf', 'gif', 'ico', 'jpeg', 'tiff', 'w
 windows_base_loader_sources = [ 'io-gdip-utils.c', 'io-gdip-animation.c' ]
 
 # Build the loaders using native Windows components as static modules, if requested
-if enable_native_windows_loaders
+if native_windows_loaders
   if builtin_loaders.contains('windows') or builtin_all_loaders
     cflag_for_included_loader = ['-DINCLUDE_gdiplus']
     included_loaders_cflags += cflag_for_included_loader
@@ -193,7 +193,7 @@ foreach l: loaders
 endforeach
 
 # Build the loaders using native Windows components as dynamic modules, if requested
-if enable_native_windows_loaders
+if native_windows_loaders
   if not (builtin_loaders.contains('windows') or builtin_all_loaders)
     foreach loader: windows_native_loader_formats
       loader_sources = windows_base_loader_sources + [ 'io-gdip-@0@.c'.format(loader) ]
