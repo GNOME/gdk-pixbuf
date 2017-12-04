@@ -676,7 +676,7 @@ gdk_pixbuf_get_bits_per_sample (const GdkPixbuf *pixbuf)
  * Queries a pointer to the pixel data of a pixbuf.
  *
  * Return value: (array): A pointer to the pixbuf's pixel data.
- * Please see the section on [image data](image-data) for information
+ * Please see the section on [image data][image-data] for information
  * about how the pixel data is stored in memory.
  *
  * This function will cause an implicit copy of the pixbuf data if the
@@ -696,7 +696,7 @@ gdk_pixbuf_get_pixels (const GdkPixbuf *pixbuf)
  * Queries a pointer to the pixel data of a pixbuf.
  *
  * Return value: (array length=length): A pointer to the pixbuf's
- * pixel data.  Please see the section on [image data](image-data)
+ * pixel data.  Please see the section on [image data][image-data]
  * for information about how the pixel data is stored in memory.
  *
  * This function will cause an implicit copy of the pixbuf data if the
