@@ -45,7 +45,7 @@ if get_option('with_docs')
                  '--extra-dir=@0@'.format(join_paths(glib_docpath, 'gobject')),
                  '--extra-dir=@0@'.format(join_paths(glib_docpath, 'gio')),
                ],
-               html_images: [
+               html_assets: [
                  'composite.png',
                ],
                content_files: [
