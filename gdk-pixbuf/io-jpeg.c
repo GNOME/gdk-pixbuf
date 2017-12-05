@@ -851,7 +851,8 @@ gdk_pixbuf__jpeg_image_stop_load (gpointer data, GError **error)
 	cinfo = &context->cinfo;
 
 	/* Try to finish loading truncated files */
-	if (cinfo->output_scanline < cinfo->output_height) {
+	if (context->pixbuf &&
+	    cinfo->output_scanline < cinfo->output_height) {
 		my_src_ptr src = (my_src_ptr) cinfo->src;
 
 		/* But only if there's enough buffer space left */
