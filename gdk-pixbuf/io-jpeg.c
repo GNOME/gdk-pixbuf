@@ -881,7 +881,6 @@ gdk_pixbuf__jpeg_image_stop_load (gpointer data, GError **error)
 	context->jerr.error = error;
 	if (sigsetjmp (context->jerr.setjmp_buffer, 1)) {
                 retval = FALSE;
-                g_message ("do we have an error?");
 	} else {
 		jpeg_finish_decompress (cinfo);
                 retval = TRUE;
