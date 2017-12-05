@@ -850,20 +850,23 @@ gdk_pixbuf__jpeg_image_stop_load (gpointer data, GError **error)
 
 	cinfo = &context->cinfo;
 
-	/* Try to finish loading truncated files */
-	if (context->pixbuf &&
-	    cinfo->output_scanline < cinfo->output_height) {
-		my_src_ptr src = (my_src_ptr) cinfo->src;
+	context->jerr.error = error;
+	if (!sigsetjmp (context->jerr.setjmp_buffer, 1)) {
+		/* Try to finish loading truncated files */
+		if (context->pixbuf &&
+		    cinfo->output_scanline < cinfo->output_height) {
+			my_src_ptr src = (my_src_ptr) cinfo->src;
 
-		/* But only if there's enough buffer space left */
-		if (src->skip_next < sizeof(src->buffer) - 2) {
-			/* Insert a fake EOI marker */
-			src->buffer[src->skip_next] = (JOCTET) 0xFF;
-			src->buffer[src->skip_next + 1] = (JOCTET) JPEG_EOI;
-			src->pub.next_input_byte = src->buffer + src->skip_next;
-			src->pub.bytes_in_buffer = 2;
+			/* But only if there's enough buffer space left */
+			if (src->skip_next < sizeof(src->buffer) - 2) {
+				/* Insert a fake EOI marker */
+				src->buffer[src->skip_next] = (JOCTET) 0xFF;
+				src->buffer[src->skip_next + 1] = (JOCTET) JPEG_EOI;
+				src->pub.next_input_byte = src->buffer + src->skip_next;
+				src->pub.bytes_in_buffer = 2;
 
-			gdk_pixbuf__jpeg_image_load_lines (context, NULL);
+				gdk_pixbuf__jpeg_image_load_lines (context, NULL);
+			}
 		}
 	}
 
