@@ -1560,8 +1560,10 @@ load_from_stream_async_cb (GObject      *stream,
                         gdk_pixbuf_loader_close (loader, NULL);
                         g_task_return_error (task, error);
                         g_object_unref (task);
+                        g_bytes_unref (bytes);
                         return;
                 }
+                g_bytes_unref (bytes);
                 g_input_stream_read_bytes_async (G_INPUT_STREAM (stream),
                                                  LOAD_BUFFER_SIZE, 
                                                  G_PRIORITY_DEFAULT,
@@ -1836,7 +1838,7 @@ gdk_pixbuf_new_from_stream_async (GInputStream        *stream,
 	g_return_if_fail (callback != NULL);
 	g_return_if_fail (!cancellable || G_IS_CANCELLABLE (cancellable));
 
-	task = g_task_new (NULL, cancellable, callback, user_data);
+	task = g_task_new (stream, cancellable, callback, user_data);
 	g_task_set_source_tag (task, gdk_pixbuf_new_from_stream_async);
         g_task_set_task_data (task, gdk_pixbuf_loader_new (), g_object_unref);
 
@@ -1866,9 +1868,8 @@ gdk_pixbuf_new_from_stream_finish (GAsyncResult  *async_result,
 				   GError       **error)
 {
 	GTask *task;
-        GdkPixbuf *result;
 
-	g_return_val_if_fail (g_task_is_valid (async_result, NULL), NULL);
+	g_return_val_if_fail (G_IS_TASK (async_result), NULL);
 	g_return_val_if_fail (!error || (error && !*error), NULL);
 
 	task = G_TASK (async_result);
@@ -1876,10 +1877,7 @@ gdk_pixbuf_new_from_stream_finish (GAsyncResult  *async_result,
 	g_warn_if_fail (g_task_get_source_tag (task) == gdk_pixbuf_new_from_stream_async ||
 			g_task_get_source_tag (task) == gdk_pixbuf_new_from_stream_at_scale_async);
 
-	result = g_task_propagate_pointer (task, error);
-        if (result)
-          g_object_ref (result);
-        return result;
+	return g_task_propagate_pointer (task, error);
 }
 
 static void
