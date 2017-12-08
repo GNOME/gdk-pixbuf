@@ -1542,7 +1542,7 @@ load_from_stream_async_cb (GObject      *stream,
         GdkPixbufLoader *loader;
         GdkPixbuf *pixbuf;
         GError *error = NULL;
-        GBytes *bytes;
+        GBytes *bytes = NULL;
 
         loader = g_task_get_task_data (task);
 
@@ -1551,7 +1551,6 @@ load_from_stream_async_cb (GObject      *stream,
         if (bytes == NULL) {
                 gdk_pixbuf_loader_close (loader, NULL);
                 g_task_return_error (task, error);
-                g_object_unref (task);
         } else if (g_bytes_get_size (bytes) > 0) {
                 if (!gdk_pixbuf_loader_write (loader, 
                                               g_bytes_get_data (bytes, NULL),
@@ -1559,30 +1558,28 @@ load_from_stream_async_cb (GObject      *stream,
                                               &error)) {
                         gdk_pixbuf_loader_close (loader, NULL);
                         g_task_return_error (task, error);
-                        g_object_unref (task);
-                        g_bytes_unref (bytes);
-                        return;
+                        goto out;
                 }
-                g_bytes_unref (bytes);
                 g_input_stream_read_bytes_async (G_INPUT_STREAM (stream),
                                                  LOAD_BUFFER_SIZE, 
                                                  G_PRIORITY_DEFAULT,
                                                  g_task_get_cancellable (task),
                                                  load_from_stream_async_cb,
-                                                 task);
+                                                 g_object_ref (task));
+
         } else {
-                g_bytes_unref (bytes);
-        
                 if (!gdk_pixbuf_loader_close (loader, &error)) {
                         g_task_return_error (task, error);
-                        g_object_unref (task);
-                        return;
+                        goto out;
                 }
 
                 pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
                 g_task_return_pointer (task, g_object_ref (pixbuf), g_object_unref);
-                g_object_unref (task);
         }
+
+out:
+        g_bytes_unref (bytes);
+        g_object_unref (task);
 }
 
 
