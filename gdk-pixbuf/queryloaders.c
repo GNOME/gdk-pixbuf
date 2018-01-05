@@ -295,10 +295,9 @@ int main (int argc, char **argv)
                                 *slash = '\0';
                         }
 
-                        libdir = g_strconcat (runtime_prefix,
-                                              "/",
-                                              PIXBUF_LIBDIR + strlen (GDK_PIXBUF_PREFIX) + 1,
-                                              NULL);
+                        libdir = g_build_filename (runtime_prefix,
+                                                   PIXBUF_LIBDIR + strlen (GDK_PIXBUF_PREFIX) + 1,
+                                                   NULL);
                 }
         }
         else {
