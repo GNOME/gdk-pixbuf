@@ -338,17 +338,19 @@ int main (int argc, char **argv)
 
         if (argc == first_file) {
 #ifdef USE_GMODULE
-                const char *moduledir;
+                char *moduledir;
                 GDir *dir;
                 GList *l, *modules;
 
-                moduledir = g_getenv ("GDK_PIXBUF_MODULEDIR");
+                moduledir = g_strdup (g_getenv ("GDK_PIXBUF_MODULEDIR"));
 #ifdef G_OS_WIN32
                 if (moduledir != NULL && *moduledir != '\0')
                         moduledir = g_locale_to_utf8 (moduledir, -1, NULL, NULL, NULL);
 #endif
-                if (moduledir == NULL || *moduledir == '\0')
-                        moduledir = PIXBUF_LIBDIR;
+                if (moduledir == NULL || *moduledir == '\0') {
+                        g_free (moduledir);
+                        moduledir = g_strdup (PIXBUF_LIBDIR);
+                }
 
                 g_string_append_printf (contents, "# LoaderDir = %s\n#\n", moduledir);
 
@@ -371,6 +373,7 @@ int main (int argc, char **argv)
                 for (l = modules; l != NULL; l = l->next)
                         query_module (contents, moduledir, l->data);
                 g_list_free_full (modules, g_free);
+                g_free (moduledir);
 #else
                 g_string_append_printf (contents, "# dynamic loading of modules not supported\n");
 #endif
