@@ -257,19 +257,31 @@ int main (int argc, char **argv)
         GString *contents;
         gchar *cache_file = NULL;
         gint first_file = 1;
+        GFile *pixbuf_libdir_file;
         gchar *pixbuf_libdir;
 
-        pixbuf_libdir = g_strdup (PIXBUF_LIBDIR);
+        /* An intermediate GFile here will convert all the path separators
+         * to the right one used by the platform
+         */
+        pixbuf_libdir_file = g_file_new_for_path (PIXBUF_LIBDIR);
+        pixbuf_libdir = g_file_get_path (pixbuf_libdir_file);
+        g_object_unref (pixbuf_libdir_file);
 
 #ifdef G_OS_WIN32
         gchar *libdir;
+        GFile *pixbuf_prefix_file;
+        gchar *pixbuf_prefix;
 
-        if (g_ascii_strncasecmp (pixbuf_libdir, GDK_PIXBUF_PREFIX, strlen (GDK_PIXBUF_PREFIX)) == 0 &&
-            G_IS_DIR_SEPARATOR (pixbuf_libdir[strlen (GDK_PIXBUF_PREFIX)])) {
+        pixbuf_prefix_file = g_file_new_for_path (GDK_PIXBUF_PREFIX);
+        pixbuf_prefix = g_file_get_path (pixbuf_prefix_file);
+        g_object_unref (pixbuf_prefix_file);
+
+        if (g_ascii_strncasecmp (pixbuf_libdir, pixbuf_prefix, strlen (pixbuf_prefix)) == 0 &&
+            G_IS_DIR_SEPARATOR (pixbuf_libdir[strlen (pixbuf_prefix)])) {
                 gchar *runtime_prefix;
                 gchar *slash;
 
-                /* GDK_PIXBUF_PREFIX is a prefix of pixbuf_libdir, as it
+                /* pixbuf_prefix is a prefix of pixbuf_libdir, as it
                  * normally is. Replace that prefix in pixbuf_libdir
                  * with the installation directory on this machine.
                  * We assume this invokation of
@@ -300,13 +312,15 @@ int main (int argc, char **argv)
                         }
 
                         libdir = g_build_filename (runtime_prefix,
-                                                   pixbuf_libdir + strlen (GDK_PIXBUF_PREFIX) + 1,
+                                                   pixbuf_libdir + strlen (pixbuf_prefix) + 1,
                                                    NULL);
                 }
         }
         else {
                 libdir = NULL;
         }
+
+        g_free (pixbuf_prefix);
 
         if (libdir != NULL) {
                 g_free (pixbuf_libdir);
