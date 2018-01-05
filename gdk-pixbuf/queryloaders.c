@@ -344,8 +344,13 @@ int main (int argc, char **argv)
 
                 moduledir = g_strdup (g_getenv ("GDK_PIXBUF_MODULEDIR"));
 #ifdef G_OS_WIN32
-                if (moduledir != NULL && *moduledir != '\0')
-                        moduledir = g_locale_to_utf8 (moduledir, -1, NULL, NULL, NULL);
+                if (moduledir != NULL && *moduledir != '\0') {
+                        gchar *path;
+
+                        path = g_locale_to_utf8 (moduledir, -1, NULL, NULL, NULL);
+                        g_free (moduledir);
+                        moduledir = path;
+                }
 #endif
                 if (moduledir == NULL || *moduledir == '\0') {
                         g_free (moduledir);
