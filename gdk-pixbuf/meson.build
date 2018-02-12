@@ -242,25 +242,27 @@ loaders_cache = custom_target('loaders.cache',
                               build_by_default: true)
 loaders_dep = declare_dependency(sources: [ loaders_cache ])
 
-build_gir = get_option('gir') and not meson.is_cross_build()
+build_gir = get_option('gir')
 if build_gir
   gir_args = [
     '--quiet',
-    '--c-include=gdk-pixbuf/gdk-pixbuf.h',
     '-DGDK_PIXBUF_COMPILATION',
   ]
 
-  gnome.generate_gir(gdkpixbuf,
-                     sources: gdkpixbuf_sources + gdkpixbuf_headers + gdkpixbuf_enums + [
-                       gdk_pixbuf_features_h,
-                       'gdk-pixdata.h',
-                     ],
-                     namespace: 'GdkPixbuf',
-                     nsversion: gdk_pixbuf_api_version,
-                     identifier_prefix: 'Gdk',
-                     symbol_prefix: 'gdk',
-                     export_packages: 'gdk-pixbuf-2.0',
-                     includes: [ 'GModule-2.0', 'Gio-2.0', ],
-                     install: true,
-                     extra_args: gir_args)
+  gdkpixbuf_gir = gnome.generate_gir(
+    gdkpixbuf,
+    sources: gdkpixbuf_sources + gdkpixbuf_headers + gdkpixbuf_enums + [
+      gdk_pixbuf_features_h,
+      'gdk-pixdata.h',
+    ],
+    namespace: 'GdkPixbuf',
+    nsversion: gdk_pixbuf_api_version,
+    identifier_prefix: 'Gdk',
+    symbol_prefix: 'gdk',
+    export_packages: 'gdk-pixbuf-2.0',
+    includes: [ 'GModule-2.0', 'Gio-2.0', ],
+    header: 'gdk-pixbuf/gdk-pixbuf.h',
+    install: true,
+    extra_args: gir_args,
+  )
 endif
