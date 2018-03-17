@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
 "pixbuf&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2018-03-17 17:48+0000\n"
-"PO-Revision-Date: 2018-03-17 19:04+0100\n"
+"PO-Revision-Date: 2018-03-17 19:11+0100\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -779,7 +779,7 @@ msgstr "Raw PNM formati zahtijevaju točno jedan razmak prije podatka uzorka"
 
 #: gdk-pixbuf/io-pnm.c:780
 msgid "Cannot allocate memory for loading PNM image"
-msgstr "Nemoguće premještanj memorije za učitavanje PNM slike"
+msgstr "Nemoguće premještanje memorije za učitavanje PNM slike"
 
 #: gdk-pixbuf/io-pnm.c:830
 msgid "Insufficient memory to load PNM context struct"
