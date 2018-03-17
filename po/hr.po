@@ -4,12 +4,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 0\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
-"pixbuf\n"
-"POT-Creation-Date: 2017-10-02 11:33-0400\n"
-"PO-Revision-Date: 2018-03-17 18:47+0100\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
+"pixbuf&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2018-03-17 17:48+0000\n"
+"PO-Revision-Date: 2018-03-17 19:04+0100\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,35 +18,34 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Launchpad-Export-Date: 2018-03-17 17:44+0000\n"
 "X-Generator: Poedit 2.0.6\n"
-"Language: hr\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:156 gdk-pixbuf/gdk-pixbuf-io.c:1070
-#: gdk-pixbuf/gdk-pixbuf-io.c:1330
+#: gdk-pixbuf/gdk-pixbuf-animation.c:157 gdk-pixbuf/gdk-pixbuf-io.c:1071
+#: gdk-pixbuf/gdk-pixbuf-io.c:1333
 #, c-format
-msgid "Failed to open file '%s': %s"
-msgstr "Nemoguće otvaranje datoteke '%s': %s"
+msgid "Failed to open file “%s”: %s"
+msgstr "Nemoguće otvaranje datoteke “%s“: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:169 gdk-pixbuf/gdk-pixbuf-io.c:955
+#: gdk-pixbuf/gdk-pixbuf-animation.c:170 gdk-pixbuf/gdk-pixbuf-io.c:955
 #, c-format
-msgid "Image file '%s' contains no data"
-msgstr "Datoteka slike \"%s\" ne sadrži podatke"
+msgid "Image file “%s” contains no data"
+msgstr "Datoteka slike “%s“ ne sadrži podatke"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:207
+#: gdk-pixbuf/gdk-pixbuf-animation.c:208
 #, c-format
 msgid ""
-"Failed to load animation '%s': reason not known, probably a corrupt "
+"Failed to load animation “%s”: reason not known, probably a corrupt "
 "animation file"
 msgstr ""
-"Nemoguće učitavanje animacije '%s': razlog nepoznat, vjerojatno je oštećena "
+"Nemoguće učitavanje animacije “%s“: razlog nepoznat, vjerojatno je oštećena "
 "datoteka animacije"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:275 gdk-pixbuf/gdk-pixbuf-io.c:1106
-#: gdk-pixbuf/gdk-pixbuf-io.c:1382
+#: gdk-pixbuf/gdk-pixbuf-animation.c:276 gdk-pixbuf/gdk-pixbuf-io.c:1107
+#: gdk-pixbuf/gdk-pixbuf-io.c:1385
 #, c-format
 msgid ""
-"Failed to load image '%s': reason not known, probably a corrupt image file"
+"Failed to load image “%s”: reason not known, probably a corrupt image file"
 msgstr ""
-"Nemoguće učitavanje slike '%s': razlog nepoznat, vjerojatno je oštećena "
+"Nemoguće učitavanje slike “%s“: razlog nepoznat, vjerojatno je oštećena "
 "datoteka slike"
 
 #: gdk-pixbuf/gdk-pixbuf.c:166
@@ -129,7 +129,7 @@ msgstr "Nemoguće učitavanje modula za učitavanje slika: %s: %s"
 #: gdk-pixbuf/gdk-pixbuf-io.c:790
 #, c-format
 msgid ""
-"Image-loading module %s does not export the proper interface; perhaps it's "
+"Image-loading module %s does not export the proper interface; perhaps it’s "
 "from a different gdk-pixbuf version?"
 msgstr ""
 "Modul za učitavanje slika %s ne izvaža odgovarajuće sučelje; možda je iz "
@@ -137,81 +137,81 @@ msgstr ""
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:799 gdk-pixbuf/gdk-pixbuf-io.c:842
 #, c-format
-msgid "Image type '%s' is not supported"
-msgstr "Vrsta slike '%s' nije podržana"
+msgid "Image type “%s” is not supported"
+msgstr "Vrsta slike “%s” nije podržana"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:927
 #, c-format
-msgid "Couldn't recognize the image file format for file '%s'"
-msgstr "Nemoguće prepoznavanje datotečnog formata slike za datoteku '%s'"
+msgid "Couldn’t recognize the image file format for file “%s”"
+msgstr "Nemoguće prepoznavanje datotečnog formata slike za datoteku “%s”"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:935
 msgid "Unrecognized image file format"
 msgstr "Neprepoznat format slike"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1117
+#: gdk-pixbuf/gdk-pixbuf-io.c:1118
 #, c-format
-msgid "Failed to load image '%s': %s"
-msgstr "Nemoguće učitavanje slike '%s': %s"
+msgid "Failed to load image “%s”: %s"
+msgstr "Nemoguće učitavanje slike “%s”: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2143 gdk-pixbuf/io-gdip-utils.c:838
+#: gdk-pixbuf/gdk-pixbuf-io.c:2188 gdk-pixbuf/io-gdip-utils.c:838
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Greška pri zapisivanju u datoteku slike: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2185 gdk-pixbuf/gdk-pixbuf-io.c:2306
+#: gdk-pixbuf/gdk-pixbuf-io.c:2230 gdk-pixbuf/gdk-pixbuf-io.c:2351
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Ovo izdanje gdk međuspremnika piksela ne podržava spremanje slike formata: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2216
+#: gdk-pixbuf/gdk-pixbuf-io.c:2261
 msgid "Insufficient memory to save image to callback"
 msgstr "Nema dovoljno memorije za spremanje slike u povratni poziv"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2229
+#: gdk-pixbuf/gdk-pixbuf-io.c:2274
 msgid "Failed to open temporary file"
 msgstr "Neuspjelo otvaranje privremene datoteke"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2252
+#: gdk-pixbuf/gdk-pixbuf-io.c:2297
 msgid "Failed to read from temporary file"
 msgstr "Neuspjelo čitanje iz privremene datoteke"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2462
+#: gdk-pixbuf/gdk-pixbuf-io.c:2507
 #, c-format
-msgid "Failed to open '%s' for writing: %s"
-msgstr "Nemoguće otvaranje '%s' za zapisivanje: %s"
+msgid "Failed to open “%s” for writing: %s"
+msgstr "Nemoguće otvaranje “%s” za zapisivanje: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2488
+#: gdk-pixbuf/gdk-pixbuf-io.c:2533
 #, c-format
 msgid ""
-"Failed to close '%s' while writing image, all data may not have been saved: "
+"Failed to close “%s” while writing image, all data may not have been saved: "
 "%s"
 msgstr ""
-"Nemoguće zatvaranje '%s' pri zapisivanju slike, možda nisu svi podaci "
+"Nemoguće zatvaranje “%s” pri zapisivanju slike, možda nisu svi podaci "
 "spremljeni: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2709 gdk-pixbuf/gdk-pixbuf-io.c:2761
+#: gdk-pixbuf/gdk-pixbuf-io.c:2754 gdk-pixbuf/gdk-pixbuf-io.c:2806
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Nema dovoljno memorije za spremanje slike u međuspremnik"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2807
+#: gdk-pixbuf/gdk-pixbuf-io.c:2852
 msgid "Error writing to image stream"
 msgstr "Greška zapisivanja u strujanje slike"
 
 #: gdk-pixbuf/gdk-pixbuf-loader.c:382
 #, c-format
 msgid ""
-"Internal error: Image loader module '%s' failed to complete an operation, "
-"but didn't give a reason for the failure"
+"Internal error: Image loader module “%s” failed to complete an operation, "
+"but didn’t give a reason for the failure"
 msgstr ""
-"Unutarnja greška: Modul učitača slika '%s' nije uspio završiti radnju, ali "
+"Unutarnja greška: Modul učitača slika “%s” nije uspio završiti radnju, ali "
 "nije dao razlog za neuspjeh"
 
 #: gdk-pixbuf/gdk-pixbuf-loader.c:424
 #, c-format
-msgid "Incremental loading of image type '%s' is not supported"
-msgstr "Postepeno učitavanje '%s' vrste slike nije podržano"
+msgid "Incremental loading of image type “%s” is not supported"
+msgstr "Postepeno učitavanje “%s” vrste slike nije podržano"
 
 #: gdk-pixbuf/gdk-pixbuf-simple-anim.c:161
 msgid "Loop"
@@ -314,11 +314,11 @@ msgid "Image is too wide for BMP format."
 msgstr "Slika je preširoka za BMP format."
 
 #: gdk-pixbuf/io-bmp.c:1418
-msgid "Couldn't allocate memory for saving BMP file"
-msgstr "Nedovoljno memorije za spremanje BMP datoteke"
+msgid "Couldn’t allocate memory for saving BMP file"
+msgstr "Nemoguće premještanje memorije za spremanje BMP datoteke"
 
 #: gdk-pixbuf/io-bmp.c:1459
-msgid "Couldn't write to BMP file"
+msgid "Couldn’t write to BMP file"
 msgstr "Nemoguće zapisivanje u BMP datoteku"
 
 #: gdk-pixbuf/io-bmp.c:1512 gdk-pixbuf/io-gdip-bmp.c:83
@@ -331,39 +331,39 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1744
+#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1757
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
 
-#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1415
+#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1416
 msgctxt "image format"
 msgid "Windows icon"
 msgstr "Windows ikona"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1357
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1380
 #, c-format
 msgid ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"JPEG quality must be a value between 0 and 100; value “%s” could not be "
 "parsed."
 msgstr ""
-"JPEG kvaliteta mora biti vrijednost između 0 i 100; vrijednost  '%s' se ne "
+"JPEG kvaliteta mora biti vrijednost između 0 i 100; vrijednost “%s” se ne "
 "može obraditi."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1373
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1396
 #, c-format
 msgid ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+"JPEG quality must be a value between 0 and 100; value “%d” is not allowed."
 msgstr ""
-"JPEG kvaliteta mora biti vrijednost između 0 i 100; vrijednost '%d' nije "
+"JPEG kvaliteta mora biti vrijednost između 0 i 100; vrijednost “%d“ nije "
 "dopuštena."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1657
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1680
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
 
-#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1038
+#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1069
 msgctxt "image format"
 msgid "TIFF"
 msgstr "TIFF"
@@ -390,11 +390,11 @@ msgid "Could not read from stream: %s"
 msgstr "Nemoguće čitanje iz strujanja: %s"
 
 #: gdk-pixbuf/io-gdip-utils.c:618
-msgid "Couldn't load bitmap"
+msgid "Couldn’t load bitmap"
 msgstr "Nemoguće čitanje mape bitova"
 
 #: gdk-pixbuf/io-gdip-utils.c:774
-msgid "Couldn't load metafile"
+msgid "Couldn’t load metafile"
 msgstr "Nemogće učitavanje metadatoteke"
 
 #: gdk-pixbuf/io-gdip-utils.c:879
@@ -402,7 +402,7 @@ msgid "Unsupported image format for GDI+"
 msgstr "Nepodržani format slike za GDI+"
 
 #: gdk-pixbuf/io-gdip-utils.c:886
-msgid "Couldn't save"
+msgid "Couldn’t save"
 msgstr "Nemoguće spremanje"
 
 #: gdk-pixbuf/io-gdip-wmf.c:60
@@ -415,7 +415,7 @@ msgstr "WMF"
 msgid "Failure reading GIF: %s"
 msgstr "Greška GIF čitanja: %s"
 
-#: gdk-pixbuf/io-gif.c:496 gdk-pixbuf/io-gif.c:1519 gdk-pixbuf/io-gif.c:1693
+#: gdk-pixbuf/io-gif.c:496 gdk-pixbuf/io-gif.c:1532 gdk-pixbuf/io-gif.c:1706
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF datoteci nedostaju određeni podaci (možda su nekako skraćeni?)"
 
@@ -424,127 +424,127 @@ msgstr "GIF datoteci nedostaju određeni podaci (možda su nekako skraćeni?)"
 msgid "Internal error in the GIF loader (%s)"
 msgstr "Unutrašnja greška GIF učitača (%s)"
 
-#: gdk-pixbuf/io-gif.c:579
-msgid "Stack overflow"
-msgstr "Prekoračenje naslage"
-
-#: gdk-pixbuf/io-gif.c:639
-msgid "GIF image loader cannot understand this image."
-msgstr "Učitač GIF slike ne prepoznaje ovu sliku."
-
-#: gdk-pixbuf/io-gif.c:668
+#: gdk-pixbuf/io-gif.c:515 gdk-pixbuf/io-gif.c:676
 msgid "Bad code encountered"
 msgstr "Pronađen je neispravan kôd"
 
-#: gdk-pixbuf/io-gif.c:678
+#: gdk-pixbuf/io-gif.c:587
+msgid "Stack overflow"
+msgstr "Prekoračenje naslage"
+
+#: gdk-pixbuf/io-gif.c:647
+msgid "GIF image loader cannot understand this image."
+msgstr "Učitač GIF slike ne prepoznaje ovu sliku."
+
+#: gdk-pixbuf/io-gif.c:686
 msgid "Circular table entry in GIF file"
 msgstr "Kružni unos tablice GIF datoteke"
 
-#: gdk-pixbuf/io-gif.c:882 gdk-pixbuf/io-gif.c:1505 gdk-pixbuf/io-gif.c:1558
-#: gdk-pixbuf/io-gif.c:1681
+#: gdk-pixbuf/io-gif.c:890 gdk-pixbuf/io-gif.c:1518 gdk-pixbuf/io-gif.c:1571
+#: gdk-pixbuf/io-gif.c:1694
 msgid "Not enough memory to load GIF file"
 msgstr "Nedovoljno memorije za učitavanje GIF datoteke"
 
-#: gdk-pixbuf/io-gif.c:976
+#: gdk-pixbuf/io-gif.c:984
 msgid "Not enough memory to composite a frame in GIF file"
 msgstr "Nedovoljno memorije za stvaranje okvira unutar GIF datoteke"
 
-#: gdk-pixbuf/io-gif.c:1148
+#: gdk-pixbuf/io-gif.c:1156
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "GIF slika je oštećena (neispravno LZW sažimanje)"
 
-#: gdk-pixbuf/io-gif.c:1198
+#: gdk-pixbuf/io-gif.c:1211
 msgid "File does not appear to be a GIF file"
 msgstr "Izgleda da datoteka nije GIF datoteka"
 
-#: gdk-pixbuf/io-gif.c:1210
+#: gdk-pixbuf/io-gif.c:1223
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "Inačica %s GIF formata datoteke nije podržana"
 
-#: gdk-pixbuf/io-gif.c:1257
+#: gdk-pixbuf/io-gif.c:1270
 msgid "Resulting GIF image has zero size"
 msgstr "Rezultirajuća GIF slika ima nultu vrijednost veličine"
 
-#: gdk-pixbuf/io-gif.c:1336
+#: gdk-pixbuf/io-gif.c:1349
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
 msgstr ""
 "GIF slika nema globalnu mapu boja, a okvir unutar nje nema lokalnu mapu boja."
 
-#: gdk-pixbuf/io-gif.c:1581
+#: gdk-pixbuf/io-gif.c:1594
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF slika je skraćena ili nepotpuna."
 
-#: gdk-pixbuf/io-gif.c:1588
+#: gdk-pixbuf/io-gif.c:1601
 msgid "Not all frames of the GIF image were loaded."
 msgstr "Svi okviri GIF slike nisu učitani."
 
-#: gdk-pixbuf/io-icns.c:358
+#: gdk-pixbuf/io-icns.c:359
 #, c-format
 msgid "Error reading ICNS image: %s"
 msgstr "Greška čitanja ICNS slike: %s"
 
-#: gdk-pixbuf/io-icns.c:375 gdk-pixbuf/io-icns.c:452
+#: gdk-pixbuf/io-icns.c:376 gdk-pixbuf/io-icns.c:453
 msgid "Could not decode ICNS file"
 msgstr "Niemoguće dekôdiranje ICNS datoteke"
 
-#: gdk-pixbuf/io-icns.c:511
+#: gdk-pixbuf/io-icns.c:512
 msgctxt "image format"
 msgid "MacOS X icon"
 msgstr "MacOS X ikona"
 
-#: gdk-pixbuf/io-ico.c:237 gdk-pixbuf/io-ico.c:251 gdk-pixbuf/io-ico.c:343
-#: gdk-pixbuf/io-ico.c:424 gdk-pixbuf/io-ico.c:449
+#: gdk-pixbuf/io-ico.c:237 gdk-pixbuf/io-ico.c:251 gdk-pixbuf/io-ico.c:341
+#: gdk-pixbuf/io-ico.c:425 gdk-pixbuf/io-ico.c:450
 #, c-format
 msgid "Invalid header in icon (%s)"
 msgstr "Neispravno zaglavlje u ikoni (%s)"
 
-#: gdk-pixbuf/io-ico.c:267 gdk-pixbuf/io-ico.c:353 gdk-pixbuf/io-ico.c:459
-#: gdk-pixbuf/io-ico.c:502 gdk-pixbuf/io-ico.c:530
+#: gdk-pixbuf/io-ico.c:267 gdk-pixbuf/io-ico.c:354 gdk-pixbuf/io-ico.c:460
+#: gdk-pixbuf/io-ico.c:503 gdk-pixbuf/io-ico.c:531
 msgid "Not enough memory to load icon"
 msgstr "Nedovoljno memorije za učitavanje ikone"
 
-#: gdk-pixbuf/io-ico.c:384
+#: gdk-pixbuf/io-ico.c:385
 msgid "Invalid header in icon"
 msgstr "Neispravno zaglavlje ikone"
 
-#: gdk-pixbuf/io-ico.c:385
+#: gdk-pixbuf/io-ico.c:386
 msgid "Compressed icons are not supported"
 msgstr "Sažete ikone nisu podržane"
 
-#: gdk-pixbuf/io-ico.c:487
+#: gdk-pixbuf/io-ico.c:488
 msgid "Unsupported icon type"
 msgstr "Nepodržana vrsta ikone"
 
-#: gdk-pixbuf/io-ico.c:579
+#: gdk-pixbuf/io-ico.c:580
 msgid "Not enough memory to load ICO file"
 msgstr "Nedovoljno memorije za učitavanje ICO datoteke"
 
-#: gdk-pixbuf/io-ico.c:625
+#: gdk-pixbuf/io-ico.c:626
 msgid "ICO image was truncated or incomplete."
 msgstr "ICO slika je skraćena ili nepotpuna."
 
-#: gdk-pixbuf/io-ico.c:1073
+#: gdk-pixbuf/io-ico.c:1074
 msgid "Image too large to be saved as ICO"
 msgstr "Slika je prevelika da bi se spremila kao ICO"
 
-#: gdk-pixbuf/io-ico.c:1084
+#: gdk-pixbuf/io-ico.c:1085
 msgid "Cursor hotspot outside image"
 msgstr "Žarišna točka pokazivača je izvan slike"
 
-#: gdk-pixbuf/io-ico.c:1107
+#: gdk-pixbuf/io-ico.c:1108
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Nepodržana dubina za ICO datoteku: %d"
 
 #: gdk-pixbuf/io-jasper.c:73
-msgid "Couldn't allocate memory for stream"
+msgid "Couldn’t allocate memory for stream"
 msgstr "Nemoguće premještanje memorije za strujanje"
 
 #: gdk-pixbuf/io-jasper.c:124
-msgid "Couldn't decode image"
+msgid "Couldn’t decode image"
 msgstr "Nemoguće dekôdiranje slike"
 
 #: gdk-pixbuf/io-jasper.c:142
@@ -556,28 +556,28 @@ msgid "Image type currently not supported"
 msgstr "Vrsta slike trenutno nije podržana"
 
 #: gdk-pixbuf/io-jasper.c:170 gdk-pixbuf/io-jasper.c:178
-msgid "Couldn't allocate memory for color profile"
-msgstr "Nemoguće premještanje memorije za profile boja"
+msgid "Couldn’t allocate memory for color profile"
+msgstr "Nemoguće premještanje memorije za profil boja"
 
 #: gdk-pixbuf/io-jasper.c:204
 msgid "Insufficient memory to open JPEG 2000 file"
 msgstr "Nedovoljno memorije za otvaranje JPEG2000 datoteke"
 
 #: gdk-pixbuf/io-jasper.c:283
-msgid "Couldn't allocate memory to buffer image data"
-msgstr "Nedovoljno memorije za podatke slike u međuspremniku"
+msgid "Couldn’t allocate memory to buffer image data"
+msgstr "Neuspješno premještanje memorije za podatke u međuspremniku slike"
 
 #: gdk-pixbuf/io-jasper.c:327
 msgctxt "image format"
 msgid "JPEG 2000"
 msgstr "JPEG 2000"
 
-#: gdk-pixbuf/io-jpeg.c:125
+#: gdk-pixbuf/io-jpeg.c:126
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Greška pri interpretaciji JPEG slike (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:633
+#: gdk-pixbuf/io-jpeg.c:634
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -585,45 +585,45 @@ msgstr ""
 "Nedovoljno memorije za učitavanje slike, pokušajte zatvoriti neke aplikacije "
 "kako bi oslobodili memoriju"
 
-#: gdk-pixbuf/io-jpeg.c:706 gdk-pixbuf/io-jpeg.c:917
+#: gdk-pixbuf/io-jpeg.c:707 gdk-pixbuf/io-jpeg.c:940
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Nepodržan JPEG prostor boja (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:817 gdk-pixbuf/io-jpeg.c:1116 gdk-pixbuf/io-jpeg.c:1464
-#: gdk-pixbuf/io-jpeg.c:1474
-msgid "Couldn't allocate memory for loading JPEG file"
+#: gdk-pixbuf/io-jpeg.c:818 gdk-pixbuf/io-jpeg.c:1139 gdk-pixbuf/io-jpeg.c:1487
+#: gdk-pixbuf/io-jpeg.c:1497
+msgid "Couldn’t allocate memory for loading JPEG file"
 msgstr "Nemoguće premještanje memorije za učitavanje JPEG datoteke"
 
-#: gdk-pixbuf/io-jpeg.c:1073
+#: gdk-pixbuf/io-jpeg.c:1096
 msgid "Transformed JPEG has zero width or height."
 msgstr "Transformirani JPEG ima nultu vrijednosti širine ili visine."
 
-#: gdk-pixbuf/io-jpeg.c:1100
+#: gdk-pixbuf/io-jpeg.c:1123
 #, c-format
 msgid "Unsupported number of color components (%d)"
 msgstr "Nepodržani broj komponenti boje (%d)"
 
-#: gdk-pixbuf/io-jpeg.c:1394
+#: gdk-pixbuf/io-jpeg.c:1417
 #, c-format
 msgid ""
-"JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
+"JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
-"JPEG x-dpi vrijednost mora biti između 1 i 65535; vrijednost '%s' nije "
+"JPEG x-dpi vrijednost mora biti između 1 i 65535; vrijednost “%s” nije "
 "dopuštena."
 
-#: gdk-pixbuf/io-jpeg.c:1415
+#: gdk-pixbuf/io-jpeg.c:1438
 #, c-format
 msgid ""
-"JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
+"JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
-"JPEG y-dpi vrijednost mora biti između 1 i 65535; vrijednost '%s' nije "
+"JPEG y-dpi vrijednost mora biti između 1 i 65535; vrijednost “%s” nije "
 "dopuštena."
 
-#: gdk-pixbuf/io-jpeg.c:1429
+#: gdk-pixbuf/io-jpeg.c:1452
 #, c-format
-msgid "Color profile has invalid length '%u'."
-msgstr "Profil boje ima neispravnu duljinu '%u'."
+msgid "Color profile has invalid length “%u”."
+msgstr "Profil boje ima neispravnu duljinu “%u“."
 
 #: gdk-pixbuf/io-png.c:53
 msgid "Bits per channel of PNG image is invalid."
@@ -682,7 +682,7 @@ msgstr ""
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Ključevi za PNG tekstovne odjeljke moraju biti ASCII znakovi."
 
-#: gdk-pixbuf/io-png.c:919 gdk-pixbuf/io-tiff.c:802
+#: gdk-pixbuf/io-png.c:919 gdk-pixbuf/io-tiff.c:833
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Profil boja ima neispravnu duljinu %d."
@@ -690,32 +690,32 @@ msgstr "Profil boja ima neispravnu duljinu %d."
 #: gdk-pixbuf/io-png.c:932
 #, c-format
 msgid ""
-"PNG compression level must be a value between 0 and 9; value '%s' could not "
+"PNG compression level must be a value between 0 and 9; value “%s” could not "
 "be parsed."
 msgstr ""
-"Razina sažimanja PNG datoteke mora biti vrijednost između 0 i 9; '%s' se ne "
+"Razina sažimanja PNG datoteke mora biti vrijednost između 0 i 9; “%s” se ne "
 "može obraditi."
 
 #: gdk-pixbuf/io-png.c:945
 #, c-format
 msgid ""
-"PNG compression level must be a value between 0 and 9; value '%d' is not "
+"PNG compression level must be a value between 0 and 9; value “%d” is not "
 "allowed."
 msgstr ""
 "Razina sažimanja PNG datoteke mora biti vrijednost između 0 i 9; vrijednost "
-"'%d' nije dopuštena."
+"“%d“ nije dopuštena."
 
 #: gdk-pixbuf/io-png.c:964
 #, c-format
-msgid "PNG x-dpi must be greater than zero; value '%s' is not allowed."
+msgid "PNG x-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
-"PNG x-dpi vrijednost mora biti veća od nule; vrijednost '%s' nije dopuštena."
+"PNG x-dpi vrijednost mora biti veća od nule; vrijednost “%s” nije dopuštena."
 
 #: gdk-pixbuf/io-png.c:984
 #, c-format
-msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
+msgid "PNG y-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
-"PNG y-dpi vrijednost mora biti veća od nule; vrijednost '%s' nije dopuštena."
+"PNG y-dpi vrijednost mora biti veća od nule; vrijednost “%s” nije dopuštena."
 
 #: gdk-pixbuf/io-png.c:1033
 #, c-format
@@ -730,7 +730,7 @@ msgid "PNG"
 msgstr "PNG"
 
 #: gdk-pixbuf/io-pnm.c:246
-msgid "PNM loader expected to find an integer, but didn't"
+msgid "PNM loader expected to find an integer, but didn’t"
 msgstr "PNM učitač je očekivao cijeli broj, ali vrijednost nije cijeli broj"
 
 #: gdk-pixbuf/io-pnm.c:278
@@ -893,68 +893,68 @@ msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
 
-#: gdk-pixbuf/io-tiff.c:108
+#: gdk-pixbuf/io-tiff.c:109
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Nemoguće dobivanje širine slike (neispravna TIFF datoteka)"
 
-#: gdk-pixbuf/io-tiff.c:116
+#: gdk-pixbuf/io-tiff.c:117
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Nemoguće dobivanje visine slike (neispravna TIFF datoteka)"
 
-#: gdk-pixbuf/io-tiff.c:124
+#: gdk-pixbuf/io-tiff.c:125
 msgid "Width or height of TIFF image is zero"
 msgstr "Visina ili širina TIFF slike ima nultu vrijednost"
 
-#: gdk-pixbuf/io-tiff.c:132 gdk-pixbuf/io-tiff.c:142
+#: gdk-pixbuf/io-tiff.c:133 gdk-pixbuf/io-tiff.c:143
 msgid "Dimensions of TIFF image too large"
 msgstr "Razlučivost TIFF slike je prevelika"
 
-#: gdk-pixbuf/io-tiff.c:168 gdk-pixbuf/io-tiff.c:180 gdk-pixbuf/io-tiff.c:536
+#: gdk-pixbuf/io-tiff.c:169 gdk-pixbuf/io-tiff.c:181 gdk-pixbuf/io-tiff.c:567
 msgid "Insufficient memory to open TIFF file"
 msgstr "Nedovoljno memorije za otvaranje TIFF datoteke"
 
-#: gdk-pixbuf/io-tiff.c:278
+#: gdk-pixbuf/io-tiff.c:279
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Neuspjelo učitavanje RGB podataka iz TIFF datoteke"
 
-#: gdk-pixbuf/io-tiff.c:340
+#: gdk-pixbuf/io-tiff.c:364
 msgid "Failed to open TIFF image"
 msgstr "Neuspjelo otvaranje TIFF slike"
 
-#: gdk-pixbuf/io-tiff.c:474 gdk-pixbuf/io-tiff.c:486
+#: gdk-pixbuf/io-tiff.c:498 gdk-pixbuf/io-tiff.c:510
 msgid "Failed to load TIFF image"
 msgstr "Neuspjelo učitavanje TIFF slike"
 
-#: gdk-pixbuf/io-tiff.c:711
+#: gdk-pixbuf/io-tiff.c:742
 msgid "Failed to save TIFF image"
 msgstr "Neuspjelo učitavanje TIFF slike"
 
-#: gdk-pixbuf/io-tiff.c:772
-msgid "TIFF compression doesn't refer to a valid codec."
+#: gdk-pixbuf/io-tiff.c:803
+msgid "TIFF compression doesn’t refer to a valid codec."
 msgstr "TIFF sažimanje nema valjan kôdek."
 
-#: gdk-pixbuf/io-tiff.c:817
-msgid "TIFF bits-per-sample doesn't contain a supported value."
+#: gdk-pixbuf/io-tiff.c:848
+msgid "TIFF bits-per-sample doesn’t contain a supported value."
 msgstr "TIFF bits-per-sample ne sadrži podržanu vrijednost."
 
-#: gdk-pixbuf/io-tiff.c:898
+#: gdk-pixbuf/io-tiff.c:929
 msgid "Failed to write TIFF data"
 msgstr "Neuspjelo zapisivanje TIFF podataka"
 
-#: gdk-pixbuf/io-tiff.c:916
+#: gdk-pixbuf/io-tiff.c:947
 #, c-format
-msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
+msgid "TIFF x-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
-"TIFF x-dpi vrijednost mora biti veća od nule; vrijednost '%s' nije dopuštena."
+"TIFF x-dpi vrijednost mora biti veća od nule; vrijednost “%s” nije dopuštena."
 
-#: gdk-pixbuf/io-tiff.c:928
+#: gdk-pixbuf/io-tiff.c:959
 #, c-format
-msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
+msgid "TIFF y-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
-"TIFF y-dpi vrijednost mora biti veća od nule; vrijednost '%s' nije dopuštena."
+"TIFF y-dpi vrijednost mora biti veća od nule; vrijednost “%s” nije dopuštena."
 
-#: gdk-pixbuf/io-tiff.c:969
-msgid "Couldn't write to TIFF file"
+#: gdk-pixbuf/io-tiff.c:1000
+msgid "Couldn’t write to TIFF file"
 msgstr "Nemoguće zapisivanje u TIFF datoteku"
 
 #: gdk-pixbuf/io-xbm.c:318
