@@ -388,6 +388,7 @@ gnome = import('gnome')
 
 subdir('gdk-pixbuf')
 
+gdkpixbuf_xlib_inc = []
 if get_option('x11')
   x11_dep = cc.find_library('X11', required: false)
     if x11_dep.found()
