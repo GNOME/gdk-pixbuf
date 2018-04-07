@@ -1,3 +1,12 @@
+2.36.12
+=======
+* build: meson fixes for win32
+* build: Make --without-libtiff work
+* build: Make x11 support optional
+* gif, ico, jpeg, tiff, icns: various fixes (#778584, #779012, #753605, #779020, #779016)
+* Implement async loading without threads
+* Translation updates
+
 2.36.11
 =======
 * build: Fix tiff loader build (#786342)
