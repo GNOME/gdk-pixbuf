@@ -160,20 +160,16 @@ if get_option('default_library') != 'static'
   endif
 endif
 
-foreach cflag: test_cflags
-  if cc.has_argument(cflag)
-    common_cflags += cflag
-  endif
-endforeach
+common_cflags += cc.get_supported_arguments(test_cflags)
 
 # Linker flags
 if host_machine.system() == 'linux'
-  ldflag_prog = 'int main (void) { return 0; }'
-  foreach ldflag: [ '-Wl,-Bsymbolic', '-Wl,-z,relro', '-Wl,-z,now', ]
-    if cc.links(ldflag_prog, args: ldflag, name: 'using @0@'.format(ldflag))
-      common_ldflags += ldflag
-    endif
-  endforeach
+  test_ldflags = ['-Wl,-Bsymbolic', '-Wl,-z,relro', '-Wl,-z,now']
+  if meson.version().version_compare('>= 0.46.0')
+    common_ldflags += cc.get_supported_link_arguments(test_ldflags)
+  else
+    common_ldflags += test_ldflags
+  endif
 endif
 
 # Maintain compatibility with autotools on macOS
