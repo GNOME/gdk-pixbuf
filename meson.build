@@ -6,7 +6,7 @@ project('gdk-pixbuf', 'c',
           'warning_level=1',
           'c_std=c99',
         ],
-        meson_version: '>= 0.43.0')
+        meson_version: '>= 0.45.0')
 
 add_project_arguments([ '-D_POSIX_C_SOURCE=200809L', '-D_DEFAULT_SOURCE', '-D_XOPEN_SOURCE' ], language: 'c')
 
