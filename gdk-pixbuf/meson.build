@@ -84,7 +84,9 @@ gdkpixbuf_sources = [
 
 gdkpixbuf_marshals = gnome.genmarshal('gdk-pixbuf-marshal',
                                       sources: 'gdk-pixbuf-marshal.list',
-                                      prefix: '_gdk_pixbuf_marshal')
+                                      prefix: '_gdk_pixbuf_marshal',
+                                      install_header: true,
+                                      install_dir: join_paths(gdk_pixbuf_includedir, gdk_pixbuf_api_path))
 
 gdkpixbuf_enums = gnome.mkenums('gdk-pixbuf-enum-types',
                                 sources: gdkpixbuf_headers,
