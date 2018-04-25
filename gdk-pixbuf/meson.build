@@ -156,13 +156,16 @@ endif
 
 # The main gdk-pixbuf shared library
 gdkpixbuf = library('gdk_pixbuf-2.0',
-                    gdkpixbuf_sources + gdkpixbuf_enums + gdkpixbuf_marshals,
+                    gdkpixbuf_sources + pixops_sources + gdkpixbuf_enums + gdkpixbuf_marshals,
                     soversion: soversion,
                     version: libversion,
                     c_args: common_cflags + gdk_pixbuf_cflags + included_loaders_cflags,
                     link_args: common_ldflags,
-                    include_directories: root_inc,
-                    dependencies: gdk_pixbuf_deps + included_loaders_deps + [ pixops_dep ],
+                    include_directories: [
+                      root_inc,
+                      include_directories('pixops'),
+                    ],
+                    dependencies: gdk_pixbuf_deps + included_loaders_deps,
                     install: true)
 
 gdkpixbuf_dep = declare_dependency(link_with: gdkpixbuf,
