@@ -2,37 +2,40 @@
 # override the environment in order to use the utilities we just built instead
 # of the system ones
 resources_c = custom_target('resources.c',
-                            input: 'resources.gresource.xml',
-                            output: 'resources.c',
-                            command: [
-                              gen_resources,
-                              '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
-                              '--loaders=@0@'.format(loaders_cache.full_path()),
-                              '--sourcedir=@0@'.format(meson.current_source_dir()),
-                              '--source',
-                              '@INPUT@',
-                              '@OUTPUT@',
-                            ],
-                            depends: [
-                              gdk_pixbuf_pixdata,
-                              loaders_cache,
-                            ])
+  input: 'resources.gresource.xml',
+  output: 'resources.c',
+  command: [
+    gen_resources,
+    '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
+    '--loaders=@0@'.format(loaders_cache.full_path()),
+    '--sourcedir=@0@'.format(meson.current_source_dir()),
+    '--source',
+    '@INPUT@',
+    '@OUTPUT@',
+  ],
+  depends: [
+    gdk_pixbuf_pixdata,
+    loaders_cache,
+  ],
+)
+
 resources_h = custom_target('resources.h',
-                            input: 'resources.gresource.xml',
-                            output: 'resources.h',
-                            command: [
-                              gen_resources,
-                              '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
-                              '--loaders=@0@'.format(loaders_cache.full_path()),
-                              '--sourcedir=@0@'.format(meson.current_source_dir()),
-                              '--header',
-                              '@INPUT@',
-                              '@OUTPUT@',
-                            ],
-                            depends: [
-                              gdk_pixbuf_pixdata,
-                              loaders_cache,
-                            ])
+  input: 'resources.gresource.xml',
+  output: 'resources.h',
+  command: [
+    gen_resources,
+    '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
+    '--loaders=@0@'.format(loaders_cache.full_path()),
+    '--sourcedir=@0@'.format(meson.current_source_dir()),
+    '--header',
+    '@INPUT@',
+    '@OUTPUT@',
+  ],
+  depends: [
+    gdk_pixbuf_pixdata,
+    loaders_cache,
+  ],
+)
 
 installed_tests = [
   [ 'animation' ],
@@ -82,10 +85,11 @@ test_data = [
   'aero.gif',
 ]
 
-installed_test_bindir = join_paths(gdk_pixbuf_libexecdir, 'installed-tests', gdk_pixbuf_api_name)
-installed_test_datadir = join_paths(gdk_pixbuf_datadir, 'installed-tests', gdk_pixbuf_api_name)
+installed_test_bindir = join_paths(gdk_pixbuf_libexecdir, 'installed-tests', meson.project_name())
+installed_test_datadir = join_paths(gdk_pixbuf_datadir, 'installed-tests', meson.project_name())
 
 install_data(test_data, install_dir: installed_test_bindir)
+install_subdir('test-images', install_dir: installed_test_bindir)
 
 test_deps = gdk_pixbuf_deps + [ gdkpixbuf_dep ]
 
@@ -98,23 +102,27 @@ foreach t: installed_tests
   endif
 
   custom_target(test_name + '.test',
-                output: test_name + '.test',
-                command: [
-                  gen_installed_test,
-                  '--testbindir=@0@'.format(installed_test_bindir),
-                  '--testbin=@0@'.format(test_name),
-                  '@OUTPUT@',
-                ],
-                install: true,
-                install_dir: installed_test_datadir)
+    output: test_name + '.test',
+    command: [
+      gen_installed_test,
+      '--testbindir=@0@'.format(installed_test_bindir),
+      '--testbin=@0@'.format(test_name),
+      '@OUTPUT@',
+    ],
+    install: true,
+    install_dir: installed_test_datadir,
+  )
 
   test_bin = executable(test_name, test_sources,
-                        dependencies: test_deps,
-                        include_directories: [
-                          root_inc,
-                          gdk_pixbuf_inc,
-                        ],
-                        c_args: common_cflags)
+    dependencies: test_deps,
+    include_directories: [
+      root_inc,
+      gdk_pixbuf_inc,
+    ],
+    c_args: common_cflags,
+    install: true,
+    install_dir: installed_test_bindir,
+  )
 
   # Two particularly slow tests
   if test_name == 'pixbuf-area-updated' or test_name == 'pixbuf-randomly-modified'
@@ -124,20 +132,22 @@ foreach t: installed_tests
   endif
 
   test(test_name, test_bin,
-       args: [ '-k', '--tap' ],
-       env: [
-         'G_TEST_SRCDIR=@0@'.format(meson.current_source_dir()),
-         'G_TEST_BUILDDIR=@0@'.format(meson.current_build_dir()),
-         'GDK_PIXBUF_MODULE_FILE=@0@'.format(loaders_cache.full_path()),
-       ],
-       timeout: timeout)
+    args: [ '-k', '--tap' ],
+    env: [
+      'G_TEST_SRCDIR=@0@'.format(meson.current_source_dir()),
+      'G_TEST_BUILDDIR=@0@'.format(meson.current_build_dir()),
+      'GDK_PIXBUF_MODULE_FILE=@0@'.format(loaders_cache.full_path()),
+    ],
+    timeout: timeout,
+  )
 endforeach
 
 executable('pixbuf-read',
-           'pixbuf-read.c',
-           dependencies: test_deps,
-           include_directories: [
-             root_inc,
-             include_directories('../gdk-pixbuf')
-           ],
-           c_args: common_cflags)
+  'pixbuf-read.c',
+  dependencies: test_deps,
+  include_directories: [
+    root_inc,
+    include_directories('../gdk-pixbuf')
+  ],
+  c_args: common_cflags,
+)
