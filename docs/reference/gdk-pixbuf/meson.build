@@ -10,23 +10,29 @@ docpath = join_paths(gdk_pixbuf_datadir, 'gtk-doc', 'html')
 
 private_headers = [
   'pixops',
+  'gdk-pixbuf.h',
   'gdk-pixbuf-alias.h',
+  'gdk-pixbuf-autocleanups.h',
+  'gdk-pixbuf-buffer-queue-private.h',
   'gdk-pixbuf-marshal.h',
   'gdk-pixbuf-private.h',
+  'gdk-pixbuf-scaled-anim.h',
   'gdk-pixbuf-xlib-private.h',
-  'io-gif-animation.h',
   'io-ani-animation.h',
+  'io-gdip-animation.h',
+  'io-gdip-native.h',
+  'io-gdip-propertytags.h',
+  'io-gdip-utils.h',
+  'io-gif-animation.h',
   'xpm-color-table.h',
   'test-images.h',
 ]
 
-if get_option('docs')
-  # This should not be needed, but gnome.gtkdoc() does not copy the
-  # .types file into the builddir, if one is found
-  configure_file(input: 'gdk-pixbuf.types',
-                 output: 'gdk-pixbuf.types',
-                 configuration: configuration_data())
+if not get_option('x11')
+  private_headers += 'contrib'
+endif
 
+if get_option('docs')
   gnome.gtkdoc('gdk-pixbuf',
                main_xml: 'gdk-pixbuf.xml',
                src_dir: [
@@ -36,6 +42,7 @@ if get_option('docs')
                dependencies: gdkpixbuf_dep,
                gobject_typesfile: 'gdk-pixbuf.types',
                scan_args: [
+                 '--rebuild-types',
                  '--deprecated-guards="GDK_PIXBUF_ENABLE_BROKEN|GDK_PIXBUF_DISABLE_DEPRECATED"',
                  '--ignore-headers=' + ' '.join(private_headers),
                ],
