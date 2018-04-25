@@ -271,3 +271,21 @@ if build_gir
     extra_args: gir_args,
   )
 endif
+
+pkgconfig = import('pkgconfig')
+pkgconfig.generate(
+  name: 'GdkPixbuf',
+  description: 'Image loading and scaling',
+  version: meson.project_version(),
+  variables: [
+    'gdk_pixbuf_binary_version=@0@'.format(gdk_pixbuf_binary_version),
+    'gdk_pixbuf_binarydir=${libdir}/@0@/@1@'.format(gdk_pixbuf_api_name, gdk_pixbuf_binary_version),
+    'gdk_pixbuf_moduledir=${gdk_pixbuf_binarydir}/loaders',
+    'gdk_pixbuf_cache_file=${gdk_pixbuf_binarydir}/loaders.cache',
+  ],
+  libraries: gdkpixbuf,
+  requires: 'gobject-2.0',
+  subdirs: gdk_pixbuf_api_name,
+  filebase: gdk_pixbuf_api_name,
+  install_dir: join_paths(gdk_pixbuf_libdir, 'pkgconfig'),
+)

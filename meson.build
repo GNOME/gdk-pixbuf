@@ -368,25 +368,6 @@ gdk_pixbuf_conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 
 configure_file(output: 'config.h', configuration: gdk_pixbuf_conf)
 
-# Compat variables for pkgconfig
-pkgconf = configuration_data()
-pkgconf.set('prefix', gdk_pixbuf_prefix)
-pkgconf.set('exec_prefix', gdk_pixbuf_prefix)
-pkgconf.set('libdir', gdk_pixbuf_libdir)
-pkgconf.set('includedir', gdk_pixbuf_includedir)
-pkgconf.set('GDK_PIXBUF_API_VERSION', gdk_pixbuf_api_version)
-pkgconf.set('GDK_PIXBUF_BINARY_VERSION', gdk_pixbuf_binary_version)
-pkgconf.set('GDK_PIXBUF_EXTRA_CFLAGS', '')
-pkgconf.set('GDK_PIXBUF_EXTRA_LIBS', '')
-pkgconf.set('PNG_DEP_CFLAGS_PACKAGES', '')
-pkgconf.set('VERSION', meson.project_version())
-
-configure_file(input: 'gdk-pixbuf-2.0.pc.in',
-               output: 'gdk-pixbuf-2.0.pc',
-               configuration: pkgconf,
-               install: true,
-               install_dir: join_paths(gdk_pixbuf_libdir, 'pkgconfig'))
-
 root_inc = include_directories('.')
 
 # Auxiliary scripts
