@@ -52,7 +52,7 @@ may be absolute or relative paths.
 <para>
 Normally, the output of <command>gdk-pixbuf-queryloaders</command> is written
 to <filename><replaceable>libdir</replaceable>/gdk-pixbuf-2.0/2.10.0/loaders.cache</filename>, where <application>gdk-pixbuf</application> looks for it by default. If it is written to some other
-location, the environment variable <link linkend="GDK_PIXBUF_MODULE_FILE"><envar>GDK_PIXBUF_MODULE_FILE</envar></link>
+location, the environment variable <envar>GDK_PIXBUF_MODULE_FILE</envar>
 can be set to point <application>gdk-pixbuf</application> at the file.
 </para>
 </refsect1>
