@@ -1,0 +1,20 @@
+stages:
+  - build
+
+.cache-paths: &cache-paths
+  paths:
+    - _ccache/
+
+meson-fedora-x86_64:
+  image: registry.gitlab.gnome.org/gnome/gdk-pixbuf/master:v1
+  stage: build
+  script:
+    - bash -x ./.gitlab/ci/test-docker.sh
+  artifacts:
+    when: on_failure
+    name: "gdk-pixbuf-${CI_COMMIT_REF_NAME}"
+    paths:
+      - "${CI_PROJECT_DIR}/_build/meson-logs"
+  cache:
+    key: "$CI_JOB_NAME"
+    <<: *cache-paths
