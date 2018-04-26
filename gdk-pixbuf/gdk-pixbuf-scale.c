@@ -29,7 +29,6 @@
  * SECTION:scaling
  * @Short_description: Scaling pixbufs and scaling and alpha blending pixbufs
  * @Title: Scaling
- * @See_also:    <link linkend="gdk-GdkRGB">GdkRGB</link>.
  * 
  * The GdkPixBuf contains functions to scale pixbufs, to scale
  * pixbufs and alpha blend against an existing image, and to scale
@@ -59,49 +58,13 @@
  * setting the `GDK_DISABLE_MEDIALIB` environment variable.  
  * 
  * The alpha blending function used is:
- * |[
+ *
+ * |[<!-- language="plain" -->
  * Cd = Cs·As + Cd(1-As)
  * ]|
+ *
  * where `Cd` is the destination pixel color, `Cs` is the source pixel color,
  * and `As` is the source pixel alpha.
- * 
- * The following example demonstrates handling an expose event by
- * rendering the appropriate area of a source image (which is scaled
- * to fit the widget) onto the widget's window.  The source image is
- * rendered against a checkerboard, which provides a visual
- * representation of the alpha channel if the image has one. If the
- * image doesn't have an alpha channel, calling
- * gdk_pixbuf_composite_color() function has exactly the same effect
- * as calling gdk_pixbuf_scale().
- * 
- * ## Handling an expose event
- *
- * |[
- * gboolean
- * expose_cb (GtkWidget *widget, GdkEventExpose *event, gpointer data)
- * {
- *   GdkPixbuf *dest;
- * 
- *   dest = gdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8, event->area.width, event->area.height);
- * 
- *   gdk_pixbuf_composite_color (pixbuf, dest,
- *                               0, 0, event->area.width, event->area.height,
- *                               -event->area.x, -event->area.y,
- *                               (double) widget->allocation.width / gdk_pixbuf_get_width (pixbuf),
- *                               (double) widget->allocation.height / gdk_pixbuf_get_height (pixbuf),
- *                               GDK_INTERP_BILINEAR, 255,
- *                               event->area.x, event->area.y, 16, 0xaaaaaa, 0x555555);
- * 
- *   gdk_draw_pixbuf (widget->window, widget->style->fg_gc[GTK_STATE_NORMAL], dest,
- *                    0, 0, event->area.x, event->area.y,
- *                    event->area.width, event->area.height,
- *                    GDK_RGB_DITHER_NORMAL, event->area.x, event->area.y);
- *   
- *   gdk_pixbuf_unref (dest);
- *   
- *   return TRUE;
- * }
- * ]|
  */
 
 
