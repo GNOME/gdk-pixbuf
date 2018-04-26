@@ -399,20 +399,14 @@ gdk_pixbuf_io_init (void)
         GdkPixbufModulePattern *pattern;
         GError *error = NULL;
 #endif
-        GdkPixbufModule *builtin_module ;
 
-        /*  initialize on separate line to avoid compiler warnings in the
-         *  common case of no compiled-in modules.
-         */
-        builtin_module = NULL;
-
-#define load_one_builtin_module(format)                                 \
-        builtin_module = g_new0 (GdkPixbufModule, 1);                   \
-        builtin_module->module_name = #format;                          \
-        if (gdk_pixbuf_load_module_unlocked (builtin_module, NULL))             \
-                file_formats = g_slist_prepend (file_formats, builtin_module);\
-        else                                                            \
-                g_free (builtin_module)
+#define load_one_builtin_module(format)                                 G_STMT_START { \
+        GdkPixbufModule *__builtin_module = g_new0 (GdkPixbufModule, 1);               \
+        __builtin_module->module_name = #format;                                       \
+        if (gdk_pixbuf_load_module_unlocked (__builtin_module, NULL))                  \
+                file_formats = g_slist_prepend (file_formats, __builtin_module);       \
+        else                                                                           \
+                g_free (__builtin_module);                              } G_STMT_END
 
 #ifdef INCLUDE_ani
         load_one_builtin_module (ani);
