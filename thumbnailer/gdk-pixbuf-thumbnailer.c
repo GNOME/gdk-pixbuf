@@ -221,16 +221,16 @@ file_to_pixbuf (const char  *path,
 	if (pixbuf == NULL)
 		return NULL;
 
+        original_width = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (pixbuf),
+                                                             "gnome-original-width"));
+        original_height = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (pixbuf),
+                                                              "gnome-original-height"));
+
 	tmp_pixbuf = gdk_pixbuf_apply_embedded_orientation (pixbuf);
 	gdk_pixbuf_copy_options (pixbuf, tmp_pixbuf);
 	gdk_pixbuf_remove_option (tmp_pixbuf, "orientation");
 	g_object_unref (pixbuf);
 	pixbuf = tmp_pixbuf;
-
-        original_width = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (pixbuf),
-                                                             "gnome-original-width"));
-        original_height = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (pixbuf),
-                                                              "gnome-original-height"));
 
 	if (original_width > 0 && original_height > 0) {
 		char *tmp;
