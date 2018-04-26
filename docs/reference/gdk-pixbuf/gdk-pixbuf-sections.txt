@@ -419,5 +419,14 @@ xlib_rgb_get_visual_info
 xlib_rgb_get_depth
 xlib_rgb_get_display
 xlib_rgb_get_screen
+<SUBSECTION Private>
+Bool
+Colormap
+Display
+Drawable
+GC
+Pixmap
+Screen
+Visual
 </SECTION>
 
