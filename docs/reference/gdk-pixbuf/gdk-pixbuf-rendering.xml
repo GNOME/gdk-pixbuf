@@ -18,8 +18,8 @@
 <title>Description</title>
   <para>
     The functions to render pixbufs to GDK drawables are contained in 
-    GDK, see the <link linkend="gdk-Pixbufs">Pixbufs</link> section 
-    of the GDK documentation.
+    GDK, see the <link linkend="https://developer.gnome.org/gdk3/stable/gdk3-Cairo-Interaction.html">GDK
+    documentation</link>.
   </para>
 </refsect1>
 
