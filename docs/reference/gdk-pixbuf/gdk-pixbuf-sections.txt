@@ -13,6 +13,7 @@ GDK_PIXBUF_VERSION
 GDK_PIXBUF_MAJOR
 GDK_PIXBUF_MINOR
 GDK_PIXBUF_MICRO
+GDK_PIXBUF_CHECK_VERSION
 GDK_PIXBUF_VERSION_2_0
 GDK_PIXBUF_VERSION_2_2
 GDK_PIXBUF_VERSION_2_4
@@ -122,6 +123,8 @@ gdk_pixbuf_remove_option
 gdk_pixbuf_get_options
 gdk_pixbuf_copy_options
 gdk_pixbuf_read_pixels
+gdk_pixbuf_read_pixel_bytes
+gdk_pixbuf_calculate_rowstride
 
 <SUBSECTION Standard>
 GDK_TYPE_PIXBUF_ERROR
@@ -162,6 +165,10 @@ gdk_pixbuf_new_from_stream_async
 gdk_pixbuf_new_from_stream_finish
 gdk_pixbuf_new_from_stream_at_scale
 gdk_pixbuf_new_from_stream_at_scale_async
+<SUBSECTION Private>
+gdk_pixbuf_new_from_file_at_scale_utf8
+gdk_pixbuf_new_from_file_at_size_utf8
+gdk_pixbuf_new_from_file_utf8
 </SECTION>
 
 <SECTION>
@@ -178,6 +185,8 @@ gdk_pixbuf_save_to_streamv
 gdk_pixbuf_save_to_stream_async
 gdk_pixbuf_save_to_streamv_async
 gdk_pixbuf_save_to_stream_finish
+<SUBSECTION Private>
+gdk_pixbuf_savev_utf8
 </SECTION>
 
 <SECTION>
@@ -261,6 +270,7 @@ GDK_TYPE_PIXBUF_SCALED_ANIM
 GDK_TYPE_PIXBUF_SCALED_ANIM_ITER
 <SUBSECTION Private>
 gdk_pixbuf_non_anim_new
+gdk_pixbuf_non_anim_get_type
 
 gdk_pixbuf_animation_get_type
 gdk_pixbuf_animation_iter_get_type
@@ -272,6 +282,7 @@ gdk_pixbuf_scaled_anim_get_type
 gdk_pixbuf_scaled_anim_iter_get_type
 GdkPixbufScaledAnimClass
 GdkPixbufScaledAnim
+gdk_pixbuf_animation_new_from_file_utf8
 </SECTION>
 
 <SECTION>
