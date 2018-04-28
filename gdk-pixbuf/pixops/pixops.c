@@ -23,7 +23,6 @@
 
 #include "../fallback-c89.c"
 #include "pixops.h"
-#include "pixops-internal.h"
 
 #define SUBSAMPLE_BITS 4
 #define SUBSAMPLE (1 << SUBSAMPLE_BITS)
@@ -837,36 +836,6 @@ composite_line_22_4a4 (int *weights, int n_x, int n_y,
   return dest;
 }
 
-#ifdef USE_MMX
-static guchar *
-composite_line_22_4a4_mmx_stub (int *weights, int n_x, int n_y, guchar *dest,
-				int dest_x, guchar *dest_end,
-				int dest_channels, int dest_has_alpha,
-				guchar **src, int src_channels,
-				gboolean src_has_alpha, int x_init,
-				int x_step, int src_width, int check_size,
-				guint32 color1, guint32 color2)
-{
-  guint32 mmx_weights[16][8];
-  int j;
-
-  for (j=0; j<16; j++)
-    {
-      mmx_weights[j][0] = 0x00010001 * (weights[4*j] >> 8);
-      mmx_weights[j][1] = 0x00010001 * (weights[4*j] >> 8);
-      mmx_weights[j][2] = 0x00010001 * (weights[4*j + 1] >> 8);
-      mmx_weights[j][3] = 0x00010001 * (weights[4*j + 1] >> 8);
-      mmx_weights[j][4] = 0x00010001 * (weights[4*j + 2] >> 8);
-      mmx_weights[j][5] = 0x00010001 * (weights[4*j + 2] >> 8);
-      mmx_weights[j][6] = 0x00010001 * (weights[4*j + 3] >> 8);
-      mmx_weights[j][7] = 0x00010001 * (weights[4*j + 3] >> 8);
-    }
-
-  return _pixops_composite_line_22_4a4_mmx (mmx_weights, dest, src[0], src[1],
-					    x_step, dest_end, x_init);
-}
-#endif /* USE_MMX */
-
 static void
 composite_pixel_color (guchar *dest, int dest_x, int dest_channels,
 		       int dest_has_alpha, int src_has_alpha, int check_size,
@@ -979,44 +948,6 @@ composite_line_color (int *weights, int n_x, int n_y, guchar *dest,
 
   return dest;
 }
-
-#ifdef USE_MMX
-static guchar *
-composite_line_color_22_4a4_mmx_stub (int *weights, int n_x, int n_y,
-				      guchar *dest, int dest_x,
-				      guchar *dest_end, int dest_channels,
-				      int dest_has_alpha, guchar **src,
-				      int src_channels, gboolean src_has_alpha,
-				      int x_init, int x_step, int src_width,
-				      int check_size, guint32 color1,
-				      guint32 color2)
-{
-  guint32 mmx_weights[16][8];
-  int check_shift = get_check_shift (check_size);
-  int colors[4];
-  int j;
-
-  for (j=0; j<16; j++)
-    {
-      mmx_weights[j][0] = 0x00010001 * (weights[4*j] >> 8);
-      mmx_weights[j][1] = 0x00010001 * (weights[4*j] >> 8);
-      mmx_weights[j][2] = 0x00010001 * (weights[4*j + 1] >> 8);
-      mmx_weights[j][3] = 0x00010001 * (weights[4*j + 1] >> 8);
-      mmx_weights[j][4] = 0x00010001 * (weights[4*j + 2] >> 8);
-      mmx_weights[j][5] = 0x00010001 * (weights[4*j + 2] >> 8);
-      mmx_weights[j][6] = 0x00010001 * (weights[4*j + 3] >> 8);
-      mmx_weights[j][7] = 0x00010001 * (weights[4*j + 3] >> 8);
-    }
-
-  colors[0] = (color1 & 0xff00) << 8 | (color1 & 0xff);
-  colors[1] = (color1 & 0xff0000) >> 16;
-  colors[2] = (color2 & 0xff00) << 8 | (color2 & 0xff);
-  colors[3] = (color2 & 0xff0000) >> 16;
-
-  return _pixops_composite_line_color_22_4a4_mmx (mmx_weights, dest, src[0],
-    src[1], x_step, dest_end, x_init, dest_x, check_shift, colors);
-}
-#endif /* USE_MMX */
 
 static void
 scale_pixel (guchar *dest, int dest_x, int dest_channels, int dest_has_alpha,
@@ -1142,34 +1073,6 @@ scale_line (int *weights, int n_x, int n_y, guchar *dest, int dest_x,
   return dest;
 }
 
-#ifdef USE_MMX 
-static guchar *
-scale_line_22_33_mmx_stub (int *weights, int n_x, int n_y, guchar *dest,
-			   int dest_x, guchar *dest_end, int dest_channels,
-			   int dest_has_alpha, guchar **src, int src_channels,
-			   gboolean src_has_alpha, int x_init, int x_step,
-			   int src_width, int check_size, guint32 color1,
-			   guint32 color2)
-{
-  guint32 mmx_weights[16][8];
-  int j;
-
-  for (j=0; j<16; j++)
-    {
-      mmx_weights[j][0] = 0x00010001 * (weights[4*j] >> 8);
-      mmx_weights[j][1] = 0x00010001 * (weights[4*j] >> 8);
-      mmx_weights[j][2] = 0x00010001 * (weights[4*j + 1] >> 8);
-      mmx_weights[j][3] = 0x00010001 * (weights[4*j + 1] >> 8);
-      mmx_weights[j][4] = 0x00010001 * (weights[4*j + 2] >> 8);
-      mmx_weights[j][5] = 0x00010001 * (weights[4*j + 2] >> 8);
-      mmx_weights[j][6] = 0x00010001 * (weights[4*j + 3] >> 8);
-      mmx_weights[j][7] = 0x00010001 * (weights[4*j + 3] >> 8);
-    }
-
-  return _pixops_scale_line_22_33_mmx (mmx_weights, dest, src[0], src[1],
-				       x_step, dest_end, x_init);
-}
-#endif /* USE_MMX */
 
 static guchar *
 scale_line_22_33 (int *weights, int n_x, int n_y, guchar *dest, int dest_x,
@@ -1910,10 +1813,6 @@ _pixops_composite_color_real (guchar          *dest_buf,
   PixopsLineFunc line_func;
   guchar *tmp_buf = NULL;
   
-#ifdef USE_MMX
-  gboolean found_mmx = _pixops_have_mmx ();
-#endif
-
   g_return_if_fail (!(dest_channels == 3 && dest_has_alpha));
   g_return_if_fail (!(src_channels == 3 && src_has_alpha));
 
@@ -1941,14 +1840,7 @@ _pixops_composite_color_real (guchar          *dest_buf,
   if (!make_weights (&filter, interp_type, scale_x, scale_y))
     return;
 
-#ifdef USE_MMX
-  if (filter.x.n == 2 && filter.y.n == 2 &&
-      dest_channels == 4 && src_channels == 4 &&
-      src_has_alpha && !dest_has_alpha && found_mmx)
-    line_func = composite_line_color_22_4a4_mmx_stub;
-  else
-#endif
-    line_func = composite_line_color;
+  line_func = composite_line_color;
   
   pixops_process (dest_buf, render_x0, render_y0, render_x1, render_y1,
 		  dest_rowstride, dest_channels, dest_has_alpha,
@@ -2071,10 +1963,6 @@ _pixops_composite_real (guchar          *dest_buf,
   PixopsLineFunc line_func;
   guchar *tmp_buf = NULL;
   
-#ifdef USE_MMX
-  gboolean found_mmx = _pixops_have_mmx ();
-#endif
-
   g_return_if_fail (!(dest_channels == 3 && dest_has_alpha));
   g_return_if_fail (!(src_channels == 3 && src_has_alpha));
 
@@ -2107,14 +1995,7 @@ _pixops_composite_real (guchar          *dest_buf,
 
   if (filter.x.n == 2 && filter.y.n == 2 && dest_channels == 4 &&
       src_channels == 4 && src_has_alpha && !dest_has_alpha)
-    {
-#ifdef USE_MMX
-      if (found_mmx)
-	line_func = composite_line_22_4a4_mmx_stub;
-      else
-#endif	
-	line_func = composite_line_22_4a4;
-    }
+    line_func = composite_line_22_4a4;
   else
     line_func = composite_line;
   
@@ -2491,10 +2372,6 @@ _pixops_scale_real (guchar        *dest_buf,
   PixopsLineFunc line_func;
   guchar *tmp_buf = NULL;	/* Temporary image for two-step scaling */
 
-#ifdef USE_MMX
-  gboolean found_mmx = _pixops_have_mmx ();
-#endif
-
   g_return_if_fail (!(dest_channels == 3 && dest_has_alpha));
   g_return_if_fail (!(src_channels == 3 && src_has_alpha));
   g_return_if_fail (!(src_has_alpha && !dest_has_alpha));
@@ -2522,14 +2399,7 @@ _pixops_scale_real (guchar        *dest_buf,
     return;
 
   if (filter.x.n == 2 && filter.y.n == 2 && dest_channels == 3 && src_channels == 3)
-    {
-#ifdef USE_MMX
-      if (found_mmx)
-	line_func = scale_line_22_33_mmx_stub;
-      else
-#endif
-	line_func = scale_line_22_33;
-    }
+    line_func = scale_line_22_33;
   else
     line_func = scale_line;
   

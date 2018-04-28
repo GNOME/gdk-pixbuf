@@ -138,23 +138,6 @@ TODO
   switching around conditionals and inner loops in various
   places.
 
-* Right now, in several of the most common cases, there are
-  optimized mmx routines, but no optimized C routines.
-
-  For instance, there is a 
-
-    pixops_composite_line_22_4a4_mmx()
-
-  But no 
-  
-    pixops_composite_line_22_4a4()
-
-  Also, it may be desirable to include a few more special cases - in particular:
-
-    pixops_composite_line_22_4a3()
-
-  May be desirable.
-
 * Scaling down images by large scale factors is _slow_ since huge filter
   matrixes are computed. (e.g., to scale down by a factor of 100, we compute
   101x101 filter matrixes. At some point, it would be more efficent to
