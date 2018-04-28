@@ -1346,19 +1346,24 @@ static guint32 *DM_565 = NULL;
 static void
 xlib_rgb_preprocess_dm_565 (void)
 {
-  int i;
-  guint32 dith;
-
   if (DM_565 == NULL)
     {
+      int i, x, y;
+      guint32 dith;
+
       DM_565 = malloc(sizeof(guint32) * DM_WIDTH * DM_HEIGHT);
-      for (i = 0; i < DM_WIDTH * DM_HEIGHT; i++)
+      i = 0;
+      for (y = 0; y < DM_HEIGHT; y++)
 	{
-	  dith = DM[0][i] >> 3;
-	  DM_565[i] = (dith << 20) | dith | (((7 - dith) >> 1) << 10);
+	  for (x = 0; x < DM_WIDTH; x++)
+	    {
+	      dith = DM[y][x] >> 3;
+	      DM_565[i] = (dith << 20) | dith | (((7 - dith) >> 1) << 10);
 #ifdef VERBOSE
-	  printf ("%i %x %x\n", i, dith, DM_565[i]);
+	      printf ("%i %x %x\n", i, dith, DM_565[i]);
 #endif
+	      i++;
+	    }
 	}
     }
 }
