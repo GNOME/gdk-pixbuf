@@ -194,7 +194,21 @@ else
   shared_mime_dep = []
 endif
 
-gdk_pixbuf_deps = [ mathlib_dep, gobject_dep, gmodule_dep, gio_dep, shared_mime_dep ]
+# Check if medialib is available
+medialib_dep = cc.find_library('mlib', required: false)
+if medialib_dep.found()
+  if cc.has_function('mlib_ImageSetStruct', dependencies: medialib_dep)
+    gdk_pixbuf_conf.set('USE_MEDIALIB', 1)
+
+    if cc.has_function('mlib_VideoColorRGBint_to_BGRAint', dependencies: medialib_dep)
+      gdk_pixbuf_conf.set('USE_MEDIALIB25', 1)
+    endif
+  else
+    medialib_dep = []
+  endif
+endif
+
+gdk_pixbuf_deps = [ mathlib_dep, gobject_dep, gmodule_dep, gio_dep, shared_mime_dep, medialib_dep ]
 
 # Check if we can build shared modules
 build_modules = gmodule_dep.get_pkgconfig_variable('gmodule_supported') == 'true'
