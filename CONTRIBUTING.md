@@ -78,8 +78,6 @@ contribution.
 ├── contrib
 │   └── gdk-pixbuf-xlib
 ├── docs
-│   └── reference
-│       └── gdk-pixbuf
 ├── gdk-pixbuf
 │   └── pixops
 ├── m4
@@ -97,7 +95,7 @@ contribution.
  - `contrib`: Additional functionality outside the main GdkPixbuf API
   - `gdk-pixbuf-xlib`: Xlib integration API; this library is considered
     deprecated, and should not be used in newly written code
- - `docs/reference/gdk-pixbuf`: The GdkPixbuf API reference
+ - `docs`: The GdkPixbuf API reference
  - `gdk-pixbuf`: The core GdkPixbuf source
   - `pixops`: Platform-specific code for pixel operations
  - `po`: Localization files

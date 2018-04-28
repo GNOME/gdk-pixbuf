@@ -394,7 +394,7 @@ subdir('tests')
 subdir('thumbnailer')
 
 # Documentation
-subdir('docs/reference/gdk-pixbuf')
+subdir('docs')
 
 if not meson.is_cross_build()
   meson.add_install_script('build-aux/post-install.sh',
