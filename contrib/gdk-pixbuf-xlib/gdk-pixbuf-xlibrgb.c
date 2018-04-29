@@ -664,10 +664,9 @@ xlib_rgb_choose_visual_for_xprint (int aDepth)
   int i;
 
   XWindowAttributes win_att;
-  Status ret_stat;
   Visual      *root_visual;
 
-  ret_stat = XGetWindowAttributes(image_info->display, 
+  XGetWindowAttributes(image_info->display,
 			RootWindow(image_info->display, image_info->screen_num),
 			&win_att);
   root_visual = win_att.visual;
@@ -712,7 +711,7 @@ xlib_rgb_set_gray_cmap (Colormap cmap)
 {
   int i;
   XColor color;
-  int status;
+  Status status G_GNUC_UNUSED;
   unsigned long pixels[256];
   int r, g, b, gray;
 
