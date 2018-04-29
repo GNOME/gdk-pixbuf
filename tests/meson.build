@@ -89,8 +89,10 @@ test_data = [
 installed_test_bindir = join_paths(gdk_pixbuf_libexecdir, 'installed-tests', meson.project_name())
 installed_test_datadir = join_paths(gdk_pixbuf_datadir, 'installed-tests', meson.project_name())
 
-install_data(test_data, install_dir: installed_test_bindir)
-install_subdir('test-images', install_dir: installed_test_bindir)
+if get_option('installed_tests')
+  install_data(test_data, install_dir: installed_test_bindir)
+  install_subdir('test-images', install_dir: installed_test_bindir)
+endif
 
 test_deps = gdk_pixbuf_deps + [ gdkpixbuf_dep ]
 
@@ -110,7 +112,7 @@ foreach t: installed_tests
       '--testbin=@0@'.format(test_name),
       '@OUTPUT@',
     ],
-    install: true,
+    install: get_option('installed_tests'),
     install_dir: installed_test_datadir,
   )
 
@@ -121,7 +123,7 @@ foreach t: installed_tests
       gdk_pixbuf_inc,
     ],
     c_args: common_cflags,
-    install: true,
+    install: get_option('installed_tests'),
     install_dir: installed_test_bindir,
   )
 
