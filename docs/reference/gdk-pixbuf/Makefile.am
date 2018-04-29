@@ -21,12 +21,20 @@ CFILE_GLOB=$(top_srcdir)/gdk-pixbuf/*.c $(top_srcdir)/contrib/gdk-pixbuf-xlib/*.
 # Header files to ignore when scanning
 IGNORE_HFILES=				\
 	pixops				\
+	gdk-pixbuf.h			\
 	gdk-pixbuf-alias.h		\
+	gdk-pixbuf-autocleanups.h	\
+	gdk-pixbuf-buffer-queue-private.h \
 	gdk-pixbuf-marshal.h		\
 	gdk-pixbuf-private.h		\
+	gdk-pixbuf-scaled-anim.h	\
 	gdk-pixbuf-xlib-private.h	\
-	io-gif-animation.h		\
 	io-ani-animation.h		\
+	io-gdip-animation.h		\
+	io-gdip-native.h		\
+	io-gdip-propertytags.h		\
+	io-gdip-utils.h			\
+	io-gif-animation.h		\
 	xpm-color-table.h		\
 	test-images.h
 
