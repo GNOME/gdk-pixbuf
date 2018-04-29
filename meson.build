@@ -418,3 +418,10 @@ subdir('thumbnailer')
 
 # Documentation
 subdir('docs/reference/gdk-pixbuf')
+
+if not meson.is_cross_build()
+  meson.add_install_script('build-aux/post-install.sh',
+    gdk_pixbuf_libdir,
+    gdk_pixbuf_binary_version,
+  )
+endif
