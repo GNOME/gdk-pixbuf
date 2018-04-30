@@ -6,6 +6,7 @@
          xmlns="http://usefulinc.com/ns/doap#">
   <name xml:lang="en">gdk-pixbuf</name>
   <shortdesc xml:lang="en">An image loading library</shortdesc>
+  <description>GdkPixbuf is a library for loading, saving, and transforming image data in various formats, like PNG, JPEG, and TIFF</description>
 
   <homepage rdf:resource="http://www.gtk.org" />
   <mailing-list rdf:resource="https://mail.gnome.org/mailman/listinfo/gtk-devel-list" />
