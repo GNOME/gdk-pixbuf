@@ -8,154 +8,239 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
-"pixbuf\n"
-"POT-Creation-Date: 2012-02-04 18:44-0500\n"
-"PO-Revision-Date: 2010-11-22 20:20+0300\n"
-"Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
+"pixbuf&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-12-05 15:46+0000\n"
+"PO-Revision-Date: 2018-04-29 11:54+0300\n"
+"Last-Translator: Florentina Mușat <florentina.musat.28 [at] gmail [dot] "
+"com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2);;\n"
-"X-Generator: Virtaal 0.6.1\n"
+"20)) ? 1 : 2);\n"
+"X-Generator: Poedit 2.0.7\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:146 gdk-pixbuf/gdk-pixbuf-io.c:1083
-#: gdk-pixbuf/gdk-pixbuf-io.c:1349
+#: gdk-pixbuf/gdk-pixbuf-animation.c:156 gdk-pixbuf/gdk-pixbuf-io.c:1070
+#: gdk-pixbuf/gdk-pixbuf-io.c:1330
 #, c-format
-msgid "Failed to open file '%s': %s"
+msgid "Failed to open file “%s”: %s"
 msgstr "Nu s-a putut deschide fișierul „%s”: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:159 gdk-pixbuf/gdk-pixbuf-io.c:1095
+#: gdk-pixbuf/gdk-pixbuf-animation.c:169 gdk-pixbuf/gdk-pixbuf-io.c:955
 #, c-format
-msgid "Image file '%s' contains no data"
+msgid "Image file “%s” contains no data"
 msgstr "Fișierul imagine „%s” nu conține date"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:201 gdk-pixbuf/gdk-pixbuf-io.c:1131
-#: gdk-pixbuf/gdk-pixbuf-io.c:1401
+#: gdk-pixbuf/gdk-pixbuf-animation.c:207
 #, c-format
 msgid ""
-"Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr ""
-"Nu s-a putut încărca imaginea „%s” dintr-un motiv necunoscut, probabil un "
-"fișier imagine corupt"
-
-#: gdk-pixbuf/gdk-pixbuf-animation.c:234
-#, c-format
-msgid ""
-"Failed to load animation '%s': reason not known, probably a corrupt "
+"Failed to load animation “%s”: reason not known, probably a corrupt "
 "animation file"
 msgstr ""
-"Nu s-a putut încărca animația „%s” dintr-un motiv necunoscut, probabil un "
+"Nu s-a putut încărca animația „%s”: motivul nu este cunoscut, probabil un "
 "fișier animație corupt"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:809
+#: gdk-pixbuf/gdk-pixbuf-animation.c:275 gdk-pixbuf/gdk-pixbuf-io.c:1106
+#: gdk-pixbuf/gdk-pixbuf-io.c:1382
+#, c-format
+msgid ""
+"Failed to load image “%s”: reason not known, probably a corrupt image file"
+msgstr ""
+"Nu s-a putut încărca imaginea „%s”: motivul nu este cunoscut, probabil un "
+"fișier imagine corupt"
+
+#: gdk-pixbuf/gdk-pixbuf.c:166
+msgid "Number of Channels"
+msgstr "Numărul de canale"
+
+#: gdk-pixbuf/gdk-pixbuf.c:167
+msgid "The number of samples per pixel"
+msgstr "Numărul de mostre per pixel"
+
+#: gdk-pixbuf/gdk-pixbuf.c:176
+msgid "Colorspace"
+msgstr "Spațiu de culoare"
+
+#: gdk-pixbuf/gdk-pixbuf.c:177
+msgid "The colorspace in which the samples are interpreted"
+msgstr "Spațiul de culoare în care sunt interpretate mostrele"
+
+#: gdk-pixbuf/gdk-pixbuf.c:185
+msgid "Has Alpha"
+msgstr "Are alfa"
+
+#: gdk-pixbuf/gdk-pixbuf.c:186
+msgid "Whether the pixbuf has an alpha channel"
+msgstr "Dacă pixbuf-ul are un canal alfa"
+
+#: gdk-pixbuf/gdk-pixbuf.c:199
+msgid "Bits per Sample"
+msgstr "Biți per mostră"
+
+#: gdk-pixbuf/gdk-pixbuf.c:200
+msgid "The number of bits per sample"
+msgstr "Numărul de biți per mostră"
+
+#: gdk-pixbuf/gdk-pixbuf.c:209
+msgid "Width"
+msgstr "Lățime"
+
+#: gdk-pixbuf/gdk-pixbuf.c:210
+msgid "The number of columns of the pixbuf"
+msgstr "Numărul de coloane al pixbuf-ului"
+
+#: gdk-pixbuf/gdk-pixbuf.c:219
+msgid "Height"
+msgstr "Înălțime"
+
+#: gdk-pixbuf/gdk-pixbuf.c:220
+msgid "The number of rows of the pixbuf"
+msgstr "Numărul de rânduri al pixbuf-ului"
+
+#: gdk-pixbuf/gdk-pixbuf.c:236
+msgid "Rowstride"
+msgstr "Pas de rând"
+
+#: gdk-pixbuf/gdk-pixbuf.c:237
+msgid ""
+"The number of bytes between the start of a row and the start of the next row"
+msgstr ""
+"Numărul de octeți între începutul unui rând și începutul rândului următor"
+
+#: gdk-pixbuf/gdk-pixbuf.c:246
+msgid "Pixels"
+msgstr "Pixeli"
+
+#: gdk-pixbuf/gdk-pixbuf.c:247
+msgid "A pointer to the pixel data of the pixbuf"
+msgstr "Un indicator la datele pixel ale pixbuf"
+
+#: gdk-pixbuf/gdk-pixbuf.c:261
+msgid "Pixel Bytes"
+msgstr "Octeți de pixel"
+
+#: gdk-pixbuf/gdk-pixbuf.c:262
+msgid "Readonly pixel data"
+msgstr "Date pixel doar citire"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:775
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Nu s-a putut încărca modulul de încărcare al imaginilor: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:824
+#: gdk-pixbuf/gdk-pixbuf-io.c:790
 #, c-format
 msgid ""
-"Image-loading module %s does not export the proper interface; perhaps it's "
+"Image-loading module %s does not export the proper interface; perhaps it’s "
 "from a different gdk-pixbuf version?"
 msgstr ""
 "Modulul de încărcare a imaginilor %s nu exportă interfața corectă; poate că "
 "este dintr-o versiune gdk-pixbuf diferită?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:833 gdk-pixbuf/gdk-pixbuf-io.c:884
+#: gdk-pixbuf/gdk-pixbuf-io.c:799 gdk-pixbuf/gdk-pixbuf-io.c:842
 #, c-format
-msgid "Image type '%s' is not supported"
+msgid "Image type “%s” is not supported"
 msgstr "Tipul de imagine „%s” nu este suportat"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:964
+#: gdk-pixbuf/gdk-pixbuf-io.c:927
 #, c-format
-msgid "Couldn't recognize the image file format for file '%s'"
-msgstr "Nu s-a putut recunoaște formatul de imagine pentru fișierul „%s”"
+msgid "Couldn’t recognize the image file format for file “%s”"
+msgstr ""
+"Nu s-a putut recunoaște formatul de fișier imagine pentru fișierul „%s”"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:972
+#: gdk-pixbuf/gdk-pixbuf-io.c:935
 msgid "Unrecognized image file format"
 msgstr "Format fișier imagine nerecunoscut"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1140
+#: gdk-pixbuf/gdk-pixbuf-io.c:1117
 #, c-format
-msgid "Failed to load image '%s': %s"
+msgid "Failed to load image “%s”: %s"
 msgstr "Nu s-a putut încărca imaginea „%s”: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2028 gdk-pixbuf/io-gdip-utils.c:888
+#: gdk-pixbuf/gdk-pixbuf-io.c:2190 gdk-pixbuf/io-gdip-utils.c:838
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Eroare la scrierea fișierului imagine JPEG: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2073 gdk-pixbuf/gdk-pixbuf-io.c:2203
+#: gdk-pixbuf/gdk-pixbuf-io.c:2232 gdk-pixbuf/gdk-pixbuf-io.c:2353
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Această versiune de gdk-pixbuf nu suportă salvarea formatului de imagine: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2107
+#: gdk-pixbuf/gdk-pixbuf-io.c:2263
 msgid "Insufficient memory to save image to callback"
 msgstr "Memorie insuficientă pentru salvarea imaginii"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2120
+#: gdk-pixbuf/gdk-pixbuf-io.c:2276
 msgid "Failed to open temporary file"
 msgstr "Nu s-a putut deschide fișierul temporar"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2146
+#: gdk-pixbuf/gdk-pixbuf-io.c:2299
 msgid "Failed to read from temporary file"
 msgstr "Nu s-a putut citi fișierul temporar"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2399
+#: gdk-pixbuf/gdk-pixbuf-io.c:2509
 #, c-format
-msgid "Failed to open '%s' for writing: %s"
+msgid "Failed to open “%s” for writing: %s"
 msgstr "Nu s-a putut deschide „%s” pentru scriere: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2425
+#: gdk-pixbuf/gdk-pixbuf-io.c:2535
 #, c-format
 msgid ""
-"Failed to close '%s' while writing image, all data may not have been saved: "
+"Failed to close “%s” while writing image, all data may not have been saved: "
 "%s"
 msgstr ""
 "Nu s-a putut închide „%s” la scrierea imaginii, e posibil să nu se fi salvat "
 "toate datele: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2646 gdk-pixbuf/gdk-pixbuf-io.c:2698
+#: gdk-pixbuf/gdk-pixbuf-io.c:2756 gdk-pixbuf/gdk-pixbuf-io.c:2808
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Memorie insuficientă pentru a salva imaginea în buffer"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2744
+#: gdk-pixbuf/gdk-pixbuf-io.c:2854
 msgid "Error writing to image stream"
 msgstr "Eroare la scrierea în fluxul imagine"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:395
+#: gdk-pixbuf/gdk-pixbuf-loader.c:382
 #, c-format
 msgid ""
-"Internal error: Image loader module '%s' failed to complete an operation, "
-"but didn't give a reason for the failure"
+"Internal error: Image loader module “%s” failed to complete an operation, "
+"but didn’t give a reason for the failure"
 msgstr ""
-"Eroare internă: Modulul de încărcare de imagini „%s” nu a reușit să termine "
-"o operațiune și nu a precizat cauza acestui eșec"
+"Eroare internă: modulul de încărcare a imaginilor „%s” nu a reușit să "
+"termine o operațiune, dar nu a precizat motivul acestui eșec"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:437
+#: gdk-pixbuf/gdk-pixbuf-loader.c:424
 #, c-format
-msgid "Incremental loading of image type '%s' is not supported"
-msgstr "Încărcarea progresivă a imaginilor tip „%s” nu este suportată"
+msgid "Incremental loading of image type “%s” is not supported"
+msgstr "Încărcarea progresivă a tipului de imagine „%s” nu este suportată"
 
-#: gdk-pixbuf/gdk-pixdata.c:160
+#: gdk-pixbuf/gdk-pixbuf-simple-anim.c:161
+msgid "Loop"
+msgstr "Repetă"
+
+#: gdk-pixbuf/gdk-pixbuf-simple-anim.c:162
+msgid "Whether the animation should loop when it reaches the end"
+msgstr "Dacă animația ar trebui să se repete când ajunge la sfârșit"
+
+#: gdk-pixbuf/gdk-pixdata.c:165
 msgid "Image header corrupt"
 msgstr "Antet imagine corupt"
 
-#: gdk-pixbuf/gdk-pixdata.c:165
+#: gdk-pixbuf/gdk-pixdata.c:170
 msgid "Image format unknown"
 msgstr "Format necunoscut de imagine"
 
-#: gdk-pixbuf/gdk-pixdata.c:170 gdk-pixbuf/gdk-pixdata.c:502
+#: gdk-pixbuf/gdk-pixdata.c:175 gdk-pixbuf/gdk-pixdata.c:467
+#: gdk-pixbuf/gdk-pixdata.c:477 gdk-pixbuf/gdk-pixdata.c:573
 msgid "Image pixel data corrupt"
 msgstr "Datele pixel ale imaginii sunt corupte"
 
-#: gdk-pixbuf/gdk-pixdata.c:446
+#: gdk-pixbuf/gdk-pixdata.c:489
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -163,192 +248,230 @@ msgstr[0] "nu s-a putut aloca memoria buffer de %u octet"
 msgstr[1] "nu s-a putut aloca memoria buffer de %u octeți"
 msgstr[2] "nu s-a putut aloca memoria buffer de %u de octeți"
 
-#: gdk-pixbuf/io-ani.c:244
+#: gdk-pixbuf/io-ani.c:242
 msgid "Unexpected icon chunk in animation"
 msgstr "Fragment neașteptat în iconița animată"
 
-#: gdk-pixbuf/io-ani.c:337
-msgid "Unsupported animation type"
-msgstr "Tip de animație nesuportat"
-
-#: gdk-pixbuf/io-ani.c:348 gdk-pixbuf/io-ani.c:406 gdk-pixbuf/io-ani.c:432
-#: gdk-pixbuf/io-ani.c:455 gdk-pixbuf/io-ani.c:482 gdk-pixbuf/io-ani.c:569
+#: gdk-pixbuf/io-ani.c:340 gdk-pixbuf/io-ani.c:398 gdk-pixbuf/io-ani.c:424
+#: gdk-pixbuf/io-ani.c:447 gdk-pixbuf/io-ani.c:474 gdk-pixbuf/io-ani.c:561
 msgid "Invalid header in animation"
 msgstr "Antet incorect în animație"
 
-#: gdk-pixbuf/io-ani.c:358 gdk-pixbuf/io-ani.c:380 gdk-pixbuf/io-ani.c:464
-#: gdk-pixbuf/io-ani.c:491 gdk-pixbuf/io-ani.c:542 gdk-pixbuf/io-ani.c:614
+#: gdk-pixbuf/io-ani.c:350 gdk-pixbuf/io-ani.c:372 gdk-pixbuf/io-ani.c:456
+#: gdk-pixbuf/io-ani.c:483 gdk-pixbuf/io-ani.c:534 gdk-pixbuf/io-ani.c:606
 msgid "Not enough memory to load animation"
 msgstr "Memorie insuficientă pentru a încărca animația"
 
-#: gdk-pixbuf/io-ani.c:398 gdk-pixbuf/io-ani.c:424 gdk-pixbuf/io-ani.c:443
+#: gdk-pixbuf/io-ani.c:390 gdk-pixbuf/io-ani.c:416 gdk-pixbuf/io-ani.c:435
 msgid "Malformed chunk in animation"
 msgstr "Fragment malformat în animație"
 
-#: gdk-pixbuf/io-ani.c:711
-msgid "The ANI image format"
-msgstr "Formatul de imagine ANI"
+#: gdk-pixbuf/io-ani.c:628
+msgid "ANI image was truncated or incomplete."
+msgstr "Imaginea ANI era trunchiată sau incompletă."
 
-#: gdk-pixbuf/io-bmp.c:229 gdk-pixbuf/io-bmp.c:266 gdk-pixbuf/io-bmp.c:337
-#: gdk-pixbuf/io-bmp.c:369 gdk-pixbuf/io-bmp.c:392 gdk-pixbuf/io-bmp.c:495
+#: gdk-pixbuf/io-ani.c:669
+msgctxt "image format"
+msgid "Windows animated cursor"
+msgstr "Cursor animat Windows"
+
+#: gdk-pixbuf/io-bmp.c:227 gdk-pixbuf/io-bmp.c:265 gdk-pixbuf/io-bmp.c:372
+#: gdk-pixbuf/io-bmp.c:399 gdk-pixbuf/io-bmp.c:424 gdk-pixbuf/io-bmp.c:459
+#: gdk-pixbuf/io-bmp.c:481 gdk-pixbuf/io-bmp.c:558
 msgid "BMP image has bogus header data"
 msgstr "Imaginea BMP are datele din antet greșite"
 
-#: gdk-pixbuf/io-bmp.c:240 gdk-pixbuf/io-bmp.c:432
+#: gdk-pixbuf/io-bmp.c:238 gdk-pixbuf/io-bmp.c:494
 msgid "Not enough memory to load bitmap image"
 msgstr "Memorie insuficientă pentru a încărca imaginea bitmap"
 
-#: gdk-pixbuf/io-bmp.c:318
+#: gdk-pixbuf/io-bmp.c:329
 msgid "BMP image has unsupported header size"
 msgstr "Imaginea BMP are un antet cu o mărime nesuportată"
 
-#: gdk-pixbuf/io-bmp.c:356
+#: gdk-pixbuf/io-bmp.c:339
+msgid "BMP image has unsupported depth"
+msgstr "Imaginea BMP nu are o adâncime suportată"
+
+#: gdk-pixbuf/io-bmp.c:354
+msgid "BMP image has oversize palette"
+msgstr "Imaginea BMP are paleta supradimensionată"
+
+#: gdk-pixbuf/io-bmp.c:386
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Imaginile BMP de tip „topdown” nu pot fi comprimate"
 
-#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:707
+#: gdk-pixbuf/io-bmp.c:411
+msgid "BMP image width too large"
+msgstr "Lățimea imaginii BMP este prea mare"
+
+#: gdk-pixbuf/io-bmp.c:782 gdk-pixbuf/io-png.c:528 gdk-pixbuf/io-pnm.c:721
 msgid "Premature end-of-file encountered"
 msgstr "S-a întâlnit un sfârșit de fișier „EOF” prematur"
 
-#: gdk-pixbuf/io-bmp.c:1328
-msgid "Couldn't allocate memory for saving BMP file"
+#: gdk-pixbuf/io-bmp.c:1310
+#, c-format
+msgid "Error while decoding colormap"
+msgstr "Eroare la decodarea hărții de culoare"
+
+#: gdk-pixbuf/io-bmp.c:1373 gdk-pixbuf/io-bmp.c:1385
+msgid "Image is too wide for BMP format."
+msgstr "Imaginea este prea lată pentru formatul BMP."
+
+#: gdk-pixbuf/io-bmp.c:1418
+msgid "Couldn’t allocate memory for saving BMP file"
 msgstr "Nu s-a putut aloca memorie pentru salvarea fișierului BMP"
 
-#: gdk-pixbuf/io-bmp.c:1369
-msgid "Couldn't write to BMP file"
-msgstr "Nu s-a putut scrie fișierul BMP"
+#: gdk-pixbuf/io-bmp.c:1459
+msgid "Couldn’t write to BMP file"
+msgstr "Nu s-a putut scrie în fișierul BMP"
 
-#: gdk-pixbuf/io-bmp.c:1422 gdk-pixbuf/io-gdip-bmp.c:82
-msgid "The BMP image format"
-msgstr "Formatul de imagine BMP"
+#: gdk-pixbuf/io-bmp.c:1512 gdk-pixbuf/io-gdip-bmp.c:83
+msgctxt "image format"
+msgid "BMP"
+msgstr "BMP"
 
-#: gdk-pixbuf/io-gdip-emf.c:59
-msgid "The EMF image format"
-msgstr "Formatul de imagine EMF"
+#: gdk-pixbuf/io-gdip-emf.c:61
+msgctxt "image format"
+msgid "EMF"
+msgstr "EMF"
 
-#: gdk-pixbuf/io-gdip-gif.c:80 gdk-pixbuf/io-gif.c:1699
-msgid "The GIF image format"
-msgstr "Formatul de imagine GIF"
+#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1757
+msgctxt "image format"
+msgid "GIF"
+msgstr "GIF"
 
-#: gdk-pixbuf/io-gdip-ico.c:59 gdk-pixbuf/io-ico.c:1271
-msgid "The ICO image format"
-msgstr "Formatul de imagine ICO"
+#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1416
+msgctxt "image format"
+msgid "Windows icon"
+msgstr "Iconiță Windows"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:53 gdk-pixbuf/io-jpeg.c:1139
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1380
 #, c-format
 msgid ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"JPEG quality must be a value between 0 and 100; value “%s” could not be "
 "parsed."
 msgstr ""
-"Calitatea JPEG trebuie să fie o valoare între 0 și 100, valoarea „%s” nu a "
+"Calitatea JPEG trebuie să fie o valoare între 0 și 100; valoarea „%s” nu a "
 "putut fi prelucrată."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:68 gdk-pixbuf/io-jpeg.c:1154
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1396
 #, c-format
 msgid ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+"JPEG quality must be a value between 0 and 100; value “%d” is not allowed."
 msgstr ""
-"Calitatea JPEG trebuie să fie o valoare între 0 și 100, valoarea „%d” nu "
+"Calitatea JPEG trebuie să fie o valoare între 0 și 100; valoarea „%d” nu "
 "este permisă."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:136 gdk-pixbuf/io-jpeg.c:1316
-msgid "The JPEG image format"
-msgstr "Formatul de imagine JPEG"
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1680
+msgctxt "image format"
+msgid "JPEG"
+msgstr "JPEG"
 
-#: gdk-pixbuf/io-gdip-utils.c:154
+#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1069
+msgctxt "image format"
+msgid "TIFF"
+msgstr "TIFF"
+
+#: gdk-pixbuf/io-gdip-utils.c:155
 #, c-format
 msgid "Could not allocate memory: %s"
 msgstr "Nu s-a putut aloca memorie: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
-#: gdk-pixbuf/io-gdip-utils.c:333
+#: gdk-pixbuf/io-gdip-utils.c:180 gdk-pixbuf/io-gdip-utils.c:294
+#: gdk-pixbuf/io-gdip-utils.c:334
 #, c-format
 msgid "Could not create stream: %s"
 msgstr "Nu s-a putut crea fluxul: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:193
+#: gdk-pixbuf/io-gdip-utils.c:194
 #, c-format
 msgid "Could not seek stream: %s"
 msgstr "Nu s-a putut căuta în flux: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:205
+#: gdk-pixbuf/io-gdip-utils.c:206
 #, c-format
 msgid "Could not read from stream: %s"
 msgstr "Nu s-a putut citi din flux: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:617 gdk-pixbuf/io-gdip-utils.c:752
-msgid "Couldn't load bitmap"
-msgstr "Nu s-a putut încărca un „bitmap”"
+#: gdk-pixbuf/io-gdip-utils.c:618
+msgid "Couldn’t load bitmap"
+msgstr "Nu s-a putut încărca bitmap-ul"
 
 #: gdk-pixbuf/io-gdip-utils.c:774
-msgid "Couldn't load metafile"
-msgstr "Nu s-a putut încărca un „metafile”"
+msgid "Couldn’t load metafile"
+msgstr "Nu s-a putut încărca fișierul meta"
 
-#: gdk-pixbuf/io-gdip-utils.c:933
+#: gdk-pixbuf/io-gdip-utils.c:879
 msgid "Unsupported image format for GDI+"
 msgstr "Format de imagine nesuportat de GDI+"
 
-#: gdk-pixbuf/io-gdip-utils.c:940
-msgid "Couldn't save"
+#: gdk-pixbuf/io-gdip-utils.c:886
+msgid "Couldn’t save"
 msgstr "Nu s-a putut salva"
 
-#: gdk-pixbuf/io-gdip-wmf.c:58
-msgid "The WMF image format"
-msgstr "Formatul de imagine WMF"
+#: gdk-pixbuf/io-gdip-wmf.c:60
+msgctxt "image format"
+msgid "WMF"
+msgstr "WMF"
 
 #: gdk-pixbuf/io-gif.c:221
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "Nu s-a putut citi fișierul GIF: %s"
 
-#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1482 gdk-pixbuf/io-gif.c:1648
+#: gdk-pixbuf/io-gif.c:496 gdk-pixbuf/io-gif.c:1532 gdk-pixbuf/io-gif.c:1706
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "Din fișierul GIF lipseau o parte din date (poate a fost trunchiat?)"
 
-#: gdk-pixbuf/io-gif.c:504
+#: gdk-pixbuf/io-gif.c:505
 #, c-format
 msgid "Internal error in the GIF loader (%s)"
 msgstr "Eroare internă în modulul de încărcare GIF (%s)"
 
-#: gdk-pixbuf/io-gif.c:578
-msgid "Stack overflow"
-msgstr "Stivă supraîncărcată"
-
-#: gdk-pixbuf/io-gif.c:638
-msgid "GIF image loader cannot understand this image."
-msgstr "Modulul de încărcare GIF nu înțelege această imagine."
-
-#: gdk-pixbuf/io-gif.c:667
+#: gdk-pixbuf/io-gif.c:515 gdk-pixbuf/io-gif.c:676
 msgid "Bad code encountered"
 msgstr "S-a întâlnit cod incorect"
 
-#: gdk-pixbuf/io-gif.c:677
+#: gdk-pixbuf/io-gif.c:587
+msgid "Stack overflow"
+msgstr "Stivă supraîncărcată"
+
+#: gdk-pixbuf/io-gif.c:647
+msgid "GIF image loader cannot understand this image."
+msgstr "Modulul de încărcare GIF nu înțelege această imagine."
+
+#: gdk-pixbuf/io-gif.c:686
 msgid "Circular table entry in GIF file"
 msgstr "Înregistrare circulară în tabel în fișierul GIF"
 
-#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1468 gdk-pixbuf/io-gif.c:1521
-#: gdk-pixbuf/io-gif.c:1636
+#: gdk-pixbuf/io-gif.c:890 gdk-pixbuf/io-gif.c:1518 gdk-pixbuf/io-gif.c:1571
+#: gdk-pixbuf/io-gif.c:1694
 msgid "Not enough memory to load GIF file"
 msgstr "Memorie insuficientă pentru a încărca fișierul GIF"
 
-#: gdk-pixbuf/io-gif.c:959
+#: gdk-pixbuf/io-gif.c:984
 msgid "Not enough memory to composite a frame in GIF file"
 msgstr "Memorie insuficientă pentru a compune un cadru în fișierul GIF"
 
-#: gdk-pixbuf/io-gif.c:1131
+#: gdk-pixbuf/io-gif.c:1156
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "Fișierul imagine GIF este corupt (compresie LZW incorectă)"
 
-#: gdk-pixbuf/io-gif.c:1181
+#: gdk-pixbuf/io-gif.c:1211
 msgid "File does not appear to be a GIF file"
 msgstr "Fișierul nu pare a fi de tip GIF"
 
-#: gdk-pixbuf/io-gif.c:1193
+#: gdk-pixbuf/io-gif.c:1223
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "Versiunea %s a formatului GIF nu este suportată"
 
-#: gdk-pixbuf/io-gif.c:1302
+#: gdk-pixbuf/io-gif.c:1270
+msgid "Resulting GIF image has zero size"
+msgstr "Imaginea GIF rezultată are dimensiunea zero"
+
+#: gdk-pixbuf/io-gif.c:1349
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -356,106 +479,111 @@ msgstr ""
 "Imaginea GIF nu are o hartă globală de culoare și un cadru al său nu are "
 "hartă locală de culoare."
 
-#: gdk-pixbuf/io-gif.c:1543
+#: gdk-pixbuf/io-gif.c:1594
 msgid "GIF image was truncated or incomplete."
 msgstr "Imaginea GIF era trunchiată sau incompletă."
 
-#: gdk-pixbuf/io-icns.c:347
+#: gdk-pixbuf/io-gif.c:1601
+msgid "Not all frames of the GIF image were loaded."
+msgstr "Nu s-au încărcat toate cadrele imaginii GIF."
+
+#: gdk-pixbuf/io-icns.c:359
 #, c-format
 msgid "Error reading ICNS image: %s"
 msgstr "Eroare la citirea imaginii ICNS: %s"
 
-#: gdk-pixbuf/io-icns.c:364
+#: gdk-pixbuf/io-icns.c:376 gdk-pixbuf/io-icns.c:453
 msgid "Could not decode ICNS file"
 msgstr "Nu s-a putut decoda fișierul ICNS"
 
-#: gdk-pixbuf/io-icns.c:397
-msgid "The ICNS image format"
-msgstr "Formatul de imagine ICNS"
+#: gdk-pixbuf/io-icns.c:512
+msgctxt "image format"
+msgid "MacOS X icon"
+msgstr "Iconiță MacOS X"
 
-#: gdk-pixbuf/io-ico.c:228 gdk-pixbuf/io-ico.c:242 gdk-pixbuf/io-ico.c:291
-#: gdk-pixbuf/io-ico.c:302 gdk-pixbuf/io-ico.c:395
-msgid "Invalid header in icon"
-msgstr "Antet incorect în iconiță"
+#: gdk-pixbuf/io-ico.c:237 gdk-pixbuf/io-ico.c:251 gdk-pixbuf/io-ico.c:341
+#: gdk-pixbuf/io-ico.c:425 gdk-pixbuf/io-ico.c:450
+#, c-format
+msgid "Invalid header in icon (%s)"
+msgstr "Antet nevalid în iconiță (%s)"
 
-#: gdk-pixbuf/io-ico.c:257 gdk-pixbuf/io-ico.c:312 gdk-pixbuf/io-ico.c:405
-#: gdk-pixbuf/io-ico.c:458 gdk-pixbuf/io-ico.c:488
+#: gdk-pixbuf/io-ico.c:267 gdk-pixbuf/io-ico.c:354 gdk-pixbuf/io-ico.c:460
+#: gdk-pixbuf/io-ico.c:503 gdk-pixbuf/io-ico.c:531
 msgid "Not enough memory to load icon"
 msgstr "Memorie insuficientă pentru a încărca iconița"
 
-#: gdk-pixbuf/io-ico.c:338
+#: gdk-pixbuf/io-ico.c:385
+msgid "Invalid header in icon"
+msgstr "Antet incorect în iconiță"
+
+#: gdk-pixbuf/io-ico.c:386
 msgid "Compressed icons are not supported"
 msgstr "Iconițele comprimate nu sunt suportate"
 
-#: gdk-pixbuf/io-ico.c:358
-msgid "Icon has zero width"
-msgstr "Iconița are lățimea zero"
-
-#: gdk-pixbuf/io-ico.c:368
-msgid "Icon has zero height"
-msgstr "Iconița are înălțimea zero"
-
-#: gdk-pixbuf/io-ico.c:443
+#: gdk-pixbuf/io-ico.c:488
 msgid "Unsupported icon type"
 msgstr "Tip de iconiță nesuportat"
 
-#: gdk-pixbuf/io-ico.c:537
+#: gdk-pixbuf/io-ico.c:580
 msgid "Not enough memory to load ICO file"
 msgstr "Memorie insuficientă pentru a încarca fișierul ICO"
 
-#: gdk-pixbuf/io-ico.c:1002
+#: gdk-pixbuf/io-ico.c:626
+msgid "ICO image was truncated or incomplete."
+msgstr "Imaginea ICO era trunchiată sau incompletă."
+
+#: gdk-pixbuf/io-ico.c:1074
 msgid "Image too large to be saved as ICO"
 msgstr "Imagine prea mare pentru a fi salvată ca ICO"
 
-#: gdk-pixbuf/io-ico.c:1013
+#: gdk-pixbuf/io-ico.c:1085
 msgid "Cursor hotspot outside image"
 msgstr "Hotspot cursor înafara imaginii"
 
-#: gdk-pixbuf/io-ico.c:1036
+#: gdk-pixbuf/io-ico.c:1108
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Adâncime nesuportată pentru fișierul ICO: %d"
 
-#: gdk-pixbuf/io-jasper.c:74
-msgid "Couldn't allocate memory for stream"
+#: gdk-pixbuf/io-jasper.c:73
+msgid "Couldn’t allocate memory for stream"
 msgstr "Nu s-a putut aloca memorie pentru flux"
 
-#: gdk-pixbuf/io-jasper.c:104
-msgid "Couldn't decode image"
+#: gdk-pixbuf/io-jasper.c:124
+msgid "Couldn’t decode image"
 msgstr "Nu s-a putut decoda imaginea"
 
-#: gdk-pixbuf/io-jasper.c:122
+#: gdk-pixbuf/io-jasper.c:142
 msgid "Transformed JPEG2000 has zero width or height"
 msgstr "Fișierul JPEG2000 transformat are lățimea sau înălțimea zero"
 
-#: gdk-pixbuf/io-jasper.c:136
+#: gdk-pixbuf/io-jasper.c:158
 msgid "Image type currently not supported"
 msgstr "Tipul de imagine nu este suportat deocamdată"
 
-#: gdk-pixbuf/io-jasper.c:148 gdk-pixbuf/io-jasper.c:156
-msgid "Couldn't allocate memory for color profile"
+#: gdk-pixbuf/io-jasper.c:170 gdk-pixbuf/io-jasper.c:178
+msgid "Couldn’t allocate memory for color profile"
 msgstr "Nu s-a putut aloca memorie pentru profilul de culoare"
 
-#: gdk-pixbuf/io-jasper.c:182
+#: gdk-pixbuf/io-jasper.c:204
 msgid "Insufficient memory to open JPEG 2000 file"
 msgstr "Memorie insuficientă pentru a deschide fișierul JPEG 2000"
 
-#: gdk-pixbuf/io-jasper.c:261
-msgid "Couldn't allocate memory to buffer image data"
-msgstr ""
-"Nu s-a putut aloca memorie pentru plasarea în memoria buffer a datelor "
-"imaginii"
+#: gdk-pixbuf/io-jasper.c:283
+msgid "Couldn’t allocate memory to buffer image data"
+msgstr "Nu s-a putut aloca memorie pentru a preîncărca datele imaginii"
 
-#: gdk-pixbuf/io-jasper.c:305
-msgid "The JPEG 2000 image format"
-msgstr "Formatul de imagine JPEG 2000"
+#: gdk-pixbuf/io-jasper.c:327
+msgctxt "image format"
+msgid "JPEG 2000"
+msgstr "JPEG 2000"
 
-#: gdk-pixbuf/io-jpeg.c:116
+#: gdk-pixbuf/io-jpeg.c:126
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Eroare la interpretarea fișierului imagine JPEG (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:527
+#: gdk-pixbuf/io-jpeg.c:634
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -463,457 +591,404 @@ msgstr ""
 "Memorie insuficientă pentru încărcarea imaginii, încercați să închideți "
 "câteva aplicații pentru a elibera memorie"
 
-#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:781
+#: gdk-pixbuf/io-jpeg.c:707 gdk-pixbuf/io-jpeg.c:940
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Adâncime de culoare JPEG nesuportată (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:680 gdk-pixbuf/io-jpeg.c:950 gdk-pixbuf/io-jpeg.c:1183
-#: gdk-pixbuf/io-jpeg.c:1192
-msgid "Couldn't allocate memory for loading JPEG file"
+#: gdk-pixbuf/io-jpeg.c:818 gdk-pixbuf/io-jpeg.c:1139 gdk-pixbuf/io-jpeg.c:1487
+#: gdk-pixbuf/io-jpeg.c:1497
+msgid "Couldn’t allocate memory for loading JPEG file"
 msgstr "Nu s-a putut aloca memorie pentru încărcarea imaginii JPEG"
 
-#: gdk-pixbuf/io-jpeg.c:925
+#: gdk-pixbuf/io-jpeg.c:1096
 msgid "Transformed JPEG has zero width or height."
 msgstr "Fișierul JPEG transformat are lățimea sau înălțimea zero."
 
-#: gdk-pixbuf/io-pcx.c:186
-msgid "Couldn't allocate memory for header"
-msgstr "Nu se poate aloca memorie pentru antet"
-
-#: gdk-pixbuf/io-pcx.c:201 gdk-pixbuf/io-pcx.c:559
-msgid "Couldn't allocate memory for context buffer"
-msgstr "Nu se poate aloca memorie pentru un buffer de context"
-
-#: gdk-pixbuf/io-pcx.c:600
-msgid "Image has invalid width and/or height"
-msgstr "Imaginea are înălțimea sau lățimea incorecte"
-
-#: gdk-pixbuf/io-pcx.c:612 gdk-pixbuf/io-pcx.c:673
-msgid "Image has unsupported bpp"
-msgstr "Imaginea are o adâncime nesuportată"
-
-#: gdk-pixbuf/io-pcx.c:617 gdk-pixbuf/io-pcx.c:625
+#: gdk-pixbuf/io-jpeg.c:1123
 #, c-format
-msgid "Image has unsupported number of %d-bit planes"
-msgstr "Imaginea are un număr nesuportat de biți pentru adâncime: %d"
+msgid "Unsupported number of color components (%d)"
+msgstr "Număr de componente ale culorii nesuportat (%d)"
 
-#: gdk-pixbuf/io-pcx.c:641
-msgid "Couldn't create new pixbuf"
-msgstr "Nu se poate crea un nou buffer de pixeli"
+#: gdk-pixbuf/io-jpeg.c:1417
+#, c-format
+msgid ""
+"JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."
+msgstr ""
+"X-dpi JPEG trebuie să fie o valoare între 1 și 65535; valoarea „%s” nu este "
+"permisă."
 
-#: gdk-pixbuf/io-pcx.c:649
-msgid "Couldn't allocate memory for line data"
-msgstr "Nu se poate aloca memorie pentru datele liniare"
+#: gdk-pixbuf/io-jpeg.c:1438
+#, c-format
+msgid ""
+"JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."
+msgstr ""
+"Y-dpi JPEG trebuie să fie o valoare între 1 și 65535; valoarea „%s” nu este "
+"permisă."
 
-#: gdk-pixbuf/io-pcx.c:656
-msgid "Couldn't allocate memory for PCX image"
-msgstr "Nu se poate aloca memorie pentru imaginea PCX"
+#: gdk-pixbuf/io-jpeg.c:1452
+#, c-format
+msgid "Color profile has invalid length “%u”."
+msgstr "Profilul de culoare are lungime nevalidă „%u”."
 
-#: gdk-pixbuf/io-pcx.c:703
-msgid "Didn't get all lines of PCX image"
-msgstr "Nu s-au obținut toate liniile imaginii PCX"
-
-#: gdk-pixbuf/io-pcx.c:710
-msgid "No palette found at end of PCX data"
-msgstr "Nu s-a găsit nici o paletă la sfârșitul datelor PCX"
-
-#: gdk-pixbuf/io-pcx.c:755
-msgid "The PCX image format"
-msgstr "Formatul de imagine PCX"
-
-#: gdk-pixbuf/io-pixdata.c:148
-#, fuzzy
-msgid "Transformed pixbuf has zero width or height."
-msgstr "Fișierul PNG transformat are lățimea sau înălțimea zero."
-
-#: gdk-pixbuf/io-pixdata.c:186
-#, fuzzy
-msgid "The GdkPixdata format"
-msgstr "Formatul de imagine GIF"
-
-#: gdk-pixbuf/io-png.c:54
+#: gdk-pixbuf/io-png.c:53
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Numărul de biți/canal al imaginii PNG este incorect."
 
-#: gdk-pixbuf/io-png.c:135 gdk-pixbuf/io-png.c:641
+#: gdk-pixbuf/io-png.c:134 gdk-pixbuf/io-png.c:666
 msgid "Transformed PNG has zero width or height."
 msgstr "Fișierul PNG transformat are lățimea sau înălțimea zero."
 
-#: gdk-pixbuf/io-png.c:143
+#: gdk-pixbuf/io-png.c:142
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Numărul de biți/canal al fișirului PNG transformat nu este opt."
 
-#: gdk-pixbuf/io-png.c:152
+#: gdk-pixbuf/io-png.c:151
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Fișierul PNG transformat nu este RBG sau RGBA."
 
-#: gdk-pixbuf/io-png.c:161
+#: gdk-pixbuf/io-png.c:160
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "Fișierul PNG transformat are un număr nesuportat de canale, acestea trebuie "
 "să fie trei sau patru."
 
-#: gdk-pixbuf/io-png.c:182
+#: gdk-pixbuf/io-png.c:181
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Eroare fatală în fișierul imagine PNG: %s"
 
-#: gdk-pixbuf/io-png.c:315
+#: gdk-pixbuf/io-png.c:318
 msgid "Insufficient memory to load PNG file"
 msgstr "Memorie insuficientă pentru a încărca imaginea PNG"
 
-#: gdk-pixbuf/io-png.c:656
+#: gdk-pixbuf/io-png.c:679
 #, c-format
 msgid ""
-"Insufficient memory to store a %ld by %ld image; try exiting some "
+"Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
-"Memorie insuficientă pentru a păstra o imagine %ld pe %ld, încercați să "
-"închideți câteva aplicații pentru a elibera memorie"
+"Memorie insuficientă pentru a stoca o imagine %lu pe %lu; încercați să "
+"închideți câteva aplicații pentru reduce utilizarea memoriei"
 
-#: gdk-pixbuf/io-png.c:719
+#: gdk-pixbuf/io-png.c:755
 msgid "Fatal error reading PNG image file"
 msgstr "Eroare fatală la citirea fișierului imagine PNG"
 
-#: gdk-pixbuf/io-png.c:768
+#: gdk-pixbuf/io-png.c:804
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Eroare fatală la citirea fișierului imagine PNG: %s"
 
-#: gdk-pixbuf/io-png.c:862
+#: gdk-pixbuf/io-png.c:896
 msgid ""
 "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgstr ""
 "Fragmentele de text dintr-un PNG trebuie să aibă cel puțin 1 și cel mult 79 "
 "de caractere."
 
-#: gdk-pixbuf/io-png.c:871
+#: gdk-pixbuf/io-png.c:905
 msgid "Keys for PNG text chunks must be ASCII characters."
 msgstr "Fragmentele de text dintr-un PNG trebuie să fie caractere ASCII."
 
-#: gdk-pixbuf/io-png.c:885 gdk-pixbuf/io-tiff.c:737
+#: gdk-pixbuf/io-png.c:919 gdk-pixbuf/io-tiff.c:833
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Profilul de culoare are lungime nevalidă %d."
 
-#: gdk-pixbuf/io-png.c:898
+#: gdk-pixbuf/io-png.c:932
 #, c-format
 msgid ""
-"PNG compression level must be a value between 0 and 9; value '%s' could not "
+"PNG compression level must be a value between 0 and 9; value “%s” could not "
 "be parsed."
 msgstr ""
 "Nivelul de compresie PNG trebuie să fie o valoare între 0 și 9, valoarea "
 "„%s” nu a putut fi prelucrată."
 
-#: gdk-pixbuf/io-png.c:911
+#: gdk-pixbuf/io-png.c:945
 #, c-format
 msgid ""
-"PNG compression level must be a value between 0 and 9; value '%d' is not "
+"PNG compression level must be a value between 0 and 9; value “%d” is not "
 "allowed."
 msgstr ""
 "Nivelul de compresie PNG trebuie să fie o valoare între 0 și 9, valoarea "
 "„%d” nu este permisă."
 
-#: gdk-pixbuf/io-png.c:959
+#: gdk-pixbuf/io-png.c:964
+#, c-format
+msgid "PNG x-dpi must be greater than zero; value “%s” is not allowed."
+msgstr ""
+"X-dpi PNG trebuie să fie o valoare mai mare decât zero; valoarea „%s” nu "
+"este permisă."
+
+#: gdk-pixbuf/io-png.c:984
+#, c-format
+msgid "PNG y-dpi must be greater than zero; value “%s” is not allowed."
+msgstr ""
+"Y-dpi JPEG trebuie să fie o valoare mai mare decât zero; valoarea „%s” nu "
+"este permisă."
+
+#: gdk-pixbuf/io-png.c:1033
 #, c-format
 msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgstr ""
 "Valoarea fragmentului de text PNG %s nu poate fi convertită la codarea "
 "ISO-8859-1."
 
-#: gdk-pixbuf/io-png.c:1122
-msgid "The PNG image format"
-msgstr "Formatul de imagine PNG"
+#: gdk-pixbuf/io-png.c:1218
+msgctxt "image format"
+msgid "PNG"
+msgstr "PNG"
 
-#: gdk-pixbuf/io-pnm.c:248
-msgid "PNM loader expected to find an integer, but didn't"
-msgstr "Modulul de încărcare PNM aștepta un întreg, dar a primit altceva."
+#: gdk-pixbuf/io-pnm.c:246
+msgid "PNM loader expected to find an integer, but didn’t"
+msgstr "Modulul de încărcare PNM aștepta un întreg, dar a primit altceva"
 
-#: gdk-pixbuf/io-pnm.c:280
+#: gdk-pixbuf/io-pnm.c:278
 msgid "PNM file has an incorrect initial byte"
 msgstr "Fișierul PNM are octetul inițial incorect"
 
-#: gdk-pixbuf/io-pnm.c:310
+#: gdk-pixbuf/io-pnm.c:308
 msgid "PNM file is not in a recognized PNM subformat"
 msgstr "Fișierul PNM nu este într-un subformat PNM recunoscut"
 
-#: gdk-pixbuf/io-pnm.c:335
+#: gdk-pixbuf/io-pnm.c:333
+msgid "PNM file has an invalid width"
+msgstr "Fișierul PNM nu are o lățime validă"
+
+#: gdk-pixbuf/io-pnm.c:341
 msgid "PNM file has an image width of 0"
 msgstr "Fișierul PNM are lățimea imaginii 0"
 
-#: gdk-pixbuf/io-pnm.c:356
+#: gdk-pixbuf/io-pnm.c:362
+msgid "PNM file has an invalid height"
+msgstr "Fișierul PNM nu are o înălțime validă"
+
+#: gdk-pixbuf/io-pnm.c:370
 msgid "PNM file has an image height of 0"
 msgstr "Fișierul PNM are înălțimea imaginii 0"
 
-#: gdk-pixbuf/io-pnm.c:379
+#: gdk-pixbuf/io-pnm.c:393
 msgid "Maximum color value in PNM file is 0"
 msgstr "Valoarea maximă a culorii în fișierul PNM este 0"
 
-#: gdk-pixbuf/io-pnm.c:387
+#: gdk-pixbuf/io-pnm.c:401
 msgid "Maximum color value in PNM file is too large"
 msgstr "Valoarea maximă a culorii în fișierul PNM este prea mare"
 
-#: gdk-pixbuf/io-pnm.c:427 gdk-pixbuf/io-pnm.c:457 gdk-pixbuf/io-pnm.c:502
+#: gdk-pixbuf/io-pnm.c:441 gdk-pixbuf/io-pnm.c:471 gdk-pixbuf/io-pnm.c:516
 msgid "Raw PNM image type is invalid"
 msgstr "Tipul de imagine PNM brută nu este valid"
 
-#: gdk-pixbuf/io-pnm.c:652
+#: gdk-pixbuf/io-pnm.c:666
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "Modulul de încărcare de imagini PNM nu suportă acest subformat PNM"
 
-#: gdk-pixbuf/io-pnm.c:739 gdk-pixbuf/io-pnm.c:966
+#: gdk-pixbuf/io-pnm.c:753 gdk-pixbuf/io-pnm.c:980
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr "Formatele brute PNM cer exact un spațiu gol înainte de datele eșantion"
 
-#: gdk-pixbuf/io-pnm.c:766
+#: gdk-pixbuf/io-pnm.c:780
 msgid "Cannot allocate memory for loading PNM image"
 msgstr "Nu se poate aloca memorie pentru încărcarea imaginii PNM"
 
-#: gdk-pixbuf/io-pnm.c:816
+#: gdk-pixbuf/io-pnm.c:830
 msgid "Insufficient memory to load PNM context struct"
 msgstr "Memorie insuficientă pentru a încărca structura contextului PNM"
 
-#: gdk-pixbuf/io-pnm.c:867
+#: gdk-pixbuf/io-pnm.c:881
 msgid "Unexpected end of PNM image data"
 msgstr "Sfârșit neașteptat al datelor imaginii PNM"
 
-#: gdk-pixbuf/io-pnm.c:995
+#: gdk-pixbuf/io-pnm.c:1009
 msgid "Insufficient memory to load PNM file"
 msgstr "Memorie insuficientă pentru a încărca fișierul PNM"
 
-#: gdk-pixbuf/io-pnm.c:1079
-msgid "The PNM/PBM/PGM/PPM image format family"
-msgstr "Familia formatelor de imagine PNM/PBM/PGM/PPM"
+#: gdk-pixbuf/io-pnm.c:1093
+msgctxt "image format"
+msgid "PNM/PBM/PGM/PPM"
+msgstr "PNM/PBM/PGM/PPM"
 
-#: gdk-pixbuf/io-qtif.c:128
+#: gdk-pixbuf/io-qtif.c:126
 msgid "Input file descriptor is NULL."
 msgstr "Descriptorul fișierului de intrare este NULL."
 
-#: gdk-pixbuf/io-qtif.c:143
+#: gdk-pixbuf/io-qtif.c:141
 msgid "Failed to read QTIF header"
 msgstr "Nu s-a putut citi antetul QTIF"
 
-#: gdk-pixbuf/io-qtif.c:152 gdk-pixbuf/io-qtif.c:189 gdk-pixbuf/io-qtif.c:460
-#, fuzzy, c-format
+#: gdk-pixbuf/io-qtif.c:150 gdk-pixbuf/io-qtif.c:187 gdk-pixbuf/io-qtif.c:454
+#, c-format
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
-msgstr[0] "Dimensiunea atomului QTIF este prea mare (%d octeți)"
+msgstr[0] "Dimensiunea atomului QTIF este prea mare (%d octet)"
 msgstr[1] "Dimensiunea atomului QTIF este prea mare (%d octeți)"
-msgstr[2] "Dimensiunea atomului QTIF este prea mare (%d octeți)"
+msgstr[2] "Dimensiunea atomului QTIF este prea mare (%d de octeți)"
 
-#: gdk-pixbuf/io-qtif.c:175
-#, fuzzy, c-format
+#: gdk-pixbuf/io-qtif.c:173
+#, c-format
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
 msgstr[0] ""
-"Nu s-a putut aloca memoria tampon pentru citirea din fișier de %d octeți "
+"Nu s-a putut aloca un octet pentru preîncărcarea de citire din fișier"
 msgstr[1] ""
-"Nu s-a putut aloca memoria tampon pentru citirea din fișier de %d octeți "
+"Nu s-au putut aloca %d octeți pentru preîncărcarea de citire din fișier"
 msgstr[2] ""
-"Nu s-a putut aloca memoria tampon pentru citirea din fișier de %d octeți "
+"Nu s-au putut aloca %d de octeți pentru preîncărcarea de citire din fișier"
 
-#: gdk-pixbuf/io-qtif.c:206
+#: gdk-pixbuf/io-qtif.c:201
 #, c-format
 msgid "File error when reading QTIF atom: %s"
 msgstr "A apărut o eroare în timp ce se citea un atom QTIF din fișier: %s"
 
-#: gdk-pixbuf/io-qtif.c:243
-#, fuzzy, c-format
+#: gdk-pixbuf/io-qtif.c:238
+#, c-format
 msgid "Failed to skip the next %d byte with seek()."
 msgid_plural "Failed to skip the next %d bytes with seek()."
-msgstr[0] "Nu s-a putut sări peste următorii %d octeți cu seek()."
+msgstr[0] "Nu s-a putut sări peste următorul octet cu seek()."
 msgstr[1] "Nu s-a putut sări peste următorii %d octeți cu seek()."
-msgstr[2] "Nu s-a putut sări peste următorii %d octeți cu seek()."
+msgstr[2] "Nu s-a putut sări peste următorii %d de octeți cu seek()."
 
-#: gdk-pixbuf/io-qtif.c:270
+#: gdk-pixbuf/io-qtif.c:265
 msgid "Failed to allocate QTIF context structure."
 msgstr "Nu s-a putut aloca structura de context QTIF."
 
-#: gdk-pixbuf/io-qtif.c:330
+#: gdk-pixbuf/io-qtif.c:325
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "Nu s-a putut crea obiectul GdkPixbufLoader."
 
-#: gdk-pixbuf/io-qtif.c:434
+#: gdk-pixbuf/io-qtif.c:429
 msgid "Failed to find an image data atom."
 msgstr "Nu s-a putut găsi un atom de imagine."
 
-#: gdk-pixbuf/io-qtif.c:619
-msgid "The QTIF image format"
-msgstr "Formatul de imagine QTIF"
+#: gdk-pixbuf/io-qtif.c:613
+msgctxt "image format"
+msgid "QuickTime"
+msgstr "QuickTime"
 
-#: gdk-pixbuf/io-ras.c:125
-msgid "RAS image has bogus header data"
-msgstr "Imaginea RAS are datele din antet greșite"
+#: gdk-pixbuf/io-tga.c:333
+msgid "Cannot allocate colormap"
+msgstr "Nu se poate aloca harta de culoare"
 
-#: gdk-pixbuf/io-ras.c:147
-msgid "RAS image has unknown type"
-msgstr "Imaginea RAS are un tip necunoscut"
-
-#: gdk-pixbuf/io-ras.c:155
-msgid "unsupported RAS image variation"
-msgstr "variație de imagine RAS nesuportată"
-
-#: gdk-pixbuf/io-ras.c:170 gdk-pixbuf/io-ras.c:199
-msgid "Not enough memory to load RAS image"
-msgstr "Memorie insuficientă pentru a încarca imaginea RAS"
-
-#: gdk-pixbuf/io-ras.c:544
-msgid "The Sun raster image format"
-msgstr "Formatul de imagine raster Sun"
-
-#: gdk-pixbuf/io-tga.c:153
-msgid "Cannot allocate memory for IOBuffer struct"
-msgstr "Nu se poate aloca memorie pentru structura IOBuffer"
-
-#: gdk-pixbuf/io-tga.c:172
-msgid "Cannot allocate memory for IOBuffer data"
-msgstr "Nu se poate aloca memorie pentru datele IOBuffer"
-
-#: gdk-pixbuf/io-tga.c:183
-msgid "Cannot realloc IOBuffer data"
-msgstr "Nu se pot realoca datele IOBuffer"
-
-#: gdk-pixbuf/io-tga.c:213
-msgid "Cannot allocate temporary IOBuffer data"
-msgstr "Nu se pot aloca datele temporare IOBuffer"
-
-#: gdk-pixbuf/io-tga.c:346
+#: gdk-pixbuf/io-tga.c:358
 msgid "Cannot allocate new pixbuf"
 msgstr "Nu se poate aloca un nou buffer de pixeli"
 
-#: gdk-pixbuf/io-tga.c:685
-msgid "Image is corrupted or truncated"
-msgstr "Imaginea este coruptă sau trunchiată"
-
-#: gdk-pixbuf/io-tga.c:692
-msgid "Cannot allocate colormap structure"
-msgstr "Nu se poate aloca structura hărții de culoare"
-
-#: gdk-pixbuf/io-tga.c:699
-msgid "Cannot allocate colormap entries"
-msgstr "Nu se pot aloca intrările hărții de culoare"
-
-#: gdk-pixbuf/io-tga.c:721
+#: gdk-pixbuf/io-tga.c:506
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "Adâncime de biți neașteptată pentru intrările hărții de culoare"
 
-#: gdk-pixbuf/io-tga.c:739
+#: gdk-pixbuf/io-tga.c:522
+msgid "Pseudocolor image does not contain a colormap"
+msgstr "Imaginea cu pseudoculoare nu conține o hartă de culoare"
+
+#: gdk-pixbuf/io-tga.c:565
 msgid "Cannot allocate TGA header memory"
 msgstr "Nu se poate aloca memorie pentru antetul TGA"
 
-#: gdk-pixbuf/io-tga.c:772
+#: gdk-pixbuf/io-tga.c:596
 msgid "TGA image has invalid dimensions"
 msgstr "Imaginea TGA are dimensiuni incorecte"
 
-#: gdk-pixbuf/io-tga.c:778 gdk-pixbuf/io-tga.c:787 gdk-pixbuf/io-tga.c:797
-#: gdk-pixbuf/io-tga.c:807 gdk-pixbuf/io-tga.c:814
+#: gdk-pixbuf/io-tga.c:602 gdk-pixbuf/io-tga.c:609
 msgid "TGA image type not supported"
 msgstr "Tip de imagine TGA nesuportat"
 
-#: gdk-pixbuf/io-tga.c:861
+#: gdk-pixbuf/io-tga.c:634
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Nu se poate aloca memorie pentru structura contextului TGA"
 
-#: gdk-pixbuf/io-tga.c:926
-msgid "Excess data in file"
-msgstr "Date în exces în fișier"
+#: gdk-pixbuf/io-tga.c:695
+msgid "TGA image was truncated or incomplete."
+msgstr "Imaginea TGA era trunchiată sau incompletă."
 
-#: gdk-pixbuf/io-tga.c:1007
-msgid "The Targa image format"
-msgstr "Formatul de imagine TGA"
+#: gdk-pixbuf/io-tga.c:747
+msgctxt "image format"
+msgid "Targa"
+msgstr "Targa"
 
-#: gdk-pixbuf/io-tiff.c:164
+#: gdk-pixbuf/io-tiff.c:109
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Nu s-a putut obține lățimea imaginii (fișier TIFF incorect)"
 
-#: gdk-pixbuf/io-tiff.c:171
+#: gdk-pixbuf/io-tiff.c:117
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Nu s-a putut obține înălțimea imaginii (fișier TIFF incorect)"
 
-#: gdk-pixbuf/io-tiff.c:179
+#: gdk-pixbuf/io-tiff.c:125
 msgid "Width or height of TIFF image is zero"
 msgstr "Lățimea sau înalțimea imaginii TIFF este zero"
 
-#: gdk-pixbuf/io-tiff.c:188 gdk-pixbuf/io-tiff.c:197
+#: gdk-pixbuf/io-tiff.c:133 gdk-pixbuf/io-tiff.c:143
 msgid "Dimensions of TIFF image too large"
 msgstr "Dimensiunile imaginii TIFF sunt prea mari"
 
-#: gdk-pixbuf/io-tiff.c:221 gdk-pixbuf/io-tiff.c:233 gdk-pixbuf/io-tiff.c:560
+#: gdk-pixbuf/io-tiff.c:169 gdk-pixbuf/io-tiff.c:181 gdk-pixbuf/io-tiff.c:567
 msgid "Insufficient memory to open TIFF file"
 msgstr "Memorie insuficientă pentru a deschide fișierul TIFF"
 
-#: gdk-pixbuf/io-tiff.c:294
+#: gdk-pixbuf/io-tiff.c:279
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Nu s-au putut încărca datele RGB din fișierul TIFF"
 
-#: gdk-pixbuf/io-tiff.c:350
+#: gdk-pixbuf/io-tiff.c:364
 msgid "Failed to open TIFF image"
 msgstr "Nu s-a putut deschide imaginea TIFF"
 
-#: gdk-pixbuf/io-tiff.c:362 gdk-pixbuf/io-tiff.c:777
-msgid "TIFFClose operation failed"
-msgstr "Operațiunea „TIFFClose” a eșuat"
-
-#: gdk-pixbuf/io-tiff.c:492 gdk-pixbuf/io-tiff.c:505
+#: gdk-pixbuf/io-tiff.c:498 gdk-pixbuf/io-tiff.c:510
 msgid "Failed to load TIFF image"
 msgstr "Nu s-a putut încărca imaginea TIFF"
 
-#: gdk-pixbuf/io-tiff.c:691
+#: gdk-pixbuf/io-tiff.c:742
 msgid "Failed to save TIFF image"
 msgstr "Nu s-a putut salva imaginea TIFF"
 
-#: gdk-pixbuf/io-tiff.c:726
-msgid "TIFF compression doesn't refer to a valid codec."
+#: gdk-pixbuf/io-tiff.c:803
+msgid "TIFF compression doesn’t refer to a valid codec."
 msgstr "Compresia TIFF nu se referă la un codec valid."
 
-#: gdk-pixbuf/io-tiff.c:766
+#: gdk-pixbuf/io-tiff.c:848
+msgid "TIFF bits-per-sample doesn’t contain a supported value."
+msgstr "Biți-per-mostră TIFF nu conține o valoare suportată."
+
+#: gdk-pixbuf/io-tiff.c:929
 msgid "Failed to write TIFF data"
 msgstr "Nu s-a putut scrie imaginea TIFF"
 
-#: gdk-pixbuf/io-tiff.c:813
-msgid "Couldn't write to TIFF file"
+#: gdk-pixbuf/io-tiff.c:947
+#, c-format
+msgid "TIFF x-dpi must be greater than zero; value “%s” is not allowed."
+msgstr ""
+"X-dpi TIFF trebuie să fie o valoare mai mare decât zero; valoarea „%s” nu "
+"este permisă."
+
+#: gdk-pixbuf/io-tiff.c:959
+#, c-format
+msgid "TIFF y-dpi must be greater than zero; value “%s” is not allowed."
+msgstr ""
+"Y-dpi TIFF trebuie să fie o valoare mai mare decât zero; valoarea „%s” nu "
+"este permisă."
+
+#: gdk-pixbuf/io-tiff.c:1000
+msgid "Couldn’t write to TIFF file"
 msgstr "Nu s-a putut scrie în fișierul TIFF"
 
-#: gdk-pixbuf/io-tiff.c:868
-msgid "The TIFF image format"
-msgstr "Formatul de imagine TIFF"
-
-#: gdk-pixbuf/io-wbmp.c:245
-msgid "Image has zero width"
-msgstr "Imaginea are lățimea zero"
-
-#: gdk-pixbuf/io-wbmp.c:263
-msgid "Image has zero height"
-msgstr "Imaginea are înălțimea zero"
-
-#: gdk-pixbuf/io-wbmp.c:274
-msgid "Not enough memory to load image"
-msgstr "Memorie insuficientă pentru a încărca imaginea"
-
-#: gdk-pixbuf/io-wbmp.c:333
-msgid "Couldn't save the rest"
-msgstr "Nu s-a putut salva restul"
-
-#: gdk-pixbuf/io-wbmp.c:374
-msgid "The WBMP image format"
-msgstr "Formatul de imagine WBMP"
-
-#: gdk-pixbuf/io-xbm.c:296
+#: gdk-pixbuf/io-xbm.c:318
 msgid "Invalid XBM file"
 msgstr "Fișier XBM nevalid"
 
-#: gdk-pixbuf/io-xbm.c:306
+#: gdk-pixbuf/io-xbm.c:328
 msgid "Insufficient memory to load XBM image file"
 msgstr "Memorie insuficientă pentru a încărca fișierul XBM"
 
-#: gdk-pixbuf/io-xbm.c:454
+#: gdk-pixbuf/io-xbm.c:476
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr "Nu s-a putut scrie un fișier temporar la încărcarea imaginii XBM"
 
-#: gdk-pixbuf/io-xbm.c:493
-msgid "The XBM image format"
-msgstr "Formatul de imagine XBM"
+#: gdk-pixbuf/io-xbm.c:515
+msgctxt "image format"
+msgid "XBM"
+msgstr "XBM"
 
 #: gdk-pixbuf/io-xpm.c:469
 msgid "No XPM header found"
@@ -952,8 +1027,158 @@ msgid "Failed to write to temporary file when loading XPM image"
 msgstr "Nu s-a putut scrie un fișier temporar la încărcarea imaginii XPM"
 
 #: gdk-pixbuf/io-xpm.c:817
-msgid "The XPM image format"
-msgstr "Formatul de imagine XPM"
+msgctxt "image format"
+msgid "XPM"
+msgstr "XPM"
+
+#~ msgid "Unsupported animation type"
+#~ msgstr "Tip de animație nesuportat"
+
+#~ msgid "The ANI image format"
+#~ msgstr "Formatul de imagine ANI"
+
+#~ msgid "The BMP image format"
+#~ msgstr "Formatul de imagine BMP"
+
+#~ msgid "The EMF image format"
+#~ msgstr "Formatul de imagine EMF"
+
+#~ msgid "The GIF image format"
+#~ msgstr "Formatul de imagine GIF"
+
+#~ msgid "The ICO image format"
+#~ msgstr "Formatul de imagine ICO"
+
+#~ msgid "The JPEG image format"
+#~ msgstr "Formatul de imagine JPEG"
+
+#~ msgid "The WMF image format"
+#~ msgstr "Formatul de imagine WMF"
+
+#~ msgid "The ICNS image format"
+#~ msgstr "Formatul de imagine ICNS"
+
+#~ msgid "Icon has zero width"
+#~ msgstr "Iconița are lățimea zero"
+
+#~ msgid "Icon has zero height"
+#~ msgstr "Iconița are înălțimea zero"
+
+#~ msgid "The JPEG 2000 image format"
+#~ msgstr "Formatul de imagine JPEG 2000"
+
+#~ msgid "Couldn't allocate memory for header"
+#~ msgstr "Nu se poate aloca memorie pentru antet"
+
+#~ msgid "Couldn't allocate memory for context buffer"
+#~ msgstr "Nu se poate aloca memorie pentru un buffer de context"
+
+#~ msgid "Image has invalid width and/or height"
+#~ msgstr "Imaginea are înălțimea sau lățimea incorecte"
+
+#~ msgid "Image has unsupported bpp"
+#~ msgstr "Imaginea are o adâncime nesuportată"
+
+#~ msgid "Image has unsupported number of %d-bit planes"
+#~ msgstr "Imaginea are un număr nesuportat de biți pentru adâncime: %d"
+
+#~ msgid "Couldn't create new pixbuf"
+#~ msgstr "Nu se poate crea un nou buffer de pixeli"
+
+#~ msgid "Couldn't allocate memory for line data"
+#~ msgstr "Nu se poate aloca memorie pentru datele liniare"
+
+#~ msgid "Couldn't allocate memory for PCX image"
+#~ msgstr "Nu se poate aloca memorie pentru imaginea PCX"
+
+#~ msgid "Didn't get all lines of PCX image"
+#~ msgstr "Nu s-au obținut toate liniile imaginii PCX"
+
+#~ msgid "No palette found at end of PCX data"
+#~ msgstr "Nu s-a găsit nici o paletă la sfârșitul datelor PCX"
+
+#~ msgid "The PCX image format"
+#~ msgstr "Formatul de imagine PCX"
+
+#, fuzzy
+#~ msgid "Transformed pixbuf has zero width or height."
+#~ msgstr "Fișierul PNG transformat are lățimea sau înălțimea zero."
+
+#, fuzzy
+#~ msgid "The GdkPixdata format"
+#~ msgstr "Formatul de imagine GIF"
+
+#~ msgid "The PNG image format"
+#~ msgstr "Formatul de imagine PNG"
+
+#~ msgid "The PNM/PBM/PGM/PPM image format family"
+#~ msgstr "Familia formatelor de imagine PNM/PBM/PGM/PPM"
+
+#~ msgid "The QTIF image format"
+#~ msgstr "Formatul de imagine QTIF"
+
+#~ msgid "RAS image has bogus header data"
+#~ msgstr "Imaginea RAS are datele din antet greșite"
+
+#~ msgid "RAS image has unknown type"
+#~ msgstr "Imaginea RAS are un tip necunoscut"
+
+#~ msgid "unsupported RAS image variation"
+#~ msgstr "variație de imagine RAS nesuportată"
+
+#~ msgid "Not enough memory to load RAS image"
+#~ msgstr "Memorie insuficientă pentru a încarca imaginea RAS"
+
+#~ msgid "The Sun raster image format"
+#~ msgstr "Formatul de imagine raster Sun"
+
+#~ msgid "Cannot allocate memory for IOBuffer struct"
+#~ msgstr "Nu se poate aloca memorie pentru structura IOBuffer"
+
+#~ msgid "Cannot allocate memory for IOBuffer data"
+#~ msgstr "Nu se poate aloca memorie pentru datele IOBuffer"
+
+#~ msgid "Cannot realloc IOBuffer data"
+#~ msgstr "Nu se pot realoca datele IOBuffer"
+
+#~ msgid "Cannot allocate temporary IOBuffer data"
+#~ msgstr "Nu se pot aloca datele temporare IOBuffer"
+
+#~ msgid "Image is corrupted or truncated"
+#~ msgstr "Imaginea este coruptă sau trunchiată"
+
+#~ msgid "Cannot allocate colormap structure"
+#~ msgstr "Nu se poate aloca structura hărții de culoare"
+
+#~ msgid "Excess data in file"
+#~ msgstr "Date în exces în fișier"
+
+#~ msgid "The Targa image format"
+#~ msgstr "Formatul de imagine TGA"
+
+#~ msgid "TIFFClose operation failed"
+#~ msgstr "Operațiunea „TIFFClose” a eșuat"
+
+#~ msgid "The TIFF image format"
+#~ msgstr "Formatul de imagine TIFF"
+
+#~ msgid "Image has zero height"
+#~ msgstr "Imaginea are înălțimea zero"
+
+#~ msgid "Not enough memory to load image"
+#~ msgstr "Memorie insuficientă pentru a încărca imaginea"
+
+#~ msgid "Couldn't save the rest"
+#~ msgstr "Nu s-a putut salva restul"
+
+#~ msgid "The WBMP image format"
+#~ msgstr "Formatul de imagine WBMP"
+
+#~ msgid "The XBM image format"
+#~ msgstr "Formatul de imagine XBM"
+
+#~ msgid "The XPM image format"
+#~ msgstr "Formatul de imagine XPM"
 
 #~ msgid "Couldn't allocate memory for paletted data"
 #~ msgstr "Nu se poate aloca memorie pentru datele paletei"
