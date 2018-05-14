@@ -677,7 +677,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 		g_free (icc_profile_base64);
 	}
 
-	dptr = pixbuf->pixels;
+	dptr = gdk_pixbuf_get_pixels (pixbuf);
 
 	/* decompress all the lines, a few at a time */
 	while (cinfo.output_scanline < cinfo.output_height) {
@@ -1182,7 +1182,7 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 
 
 			/* Use pixbuf buffer to store decompressed data */
-			context->dptr = context->pixbuf->pixels;
+			context->dptr = gdk_pixbuf_get_pixels (context->pixbuf);
 			
 			/* Notify the client that we are ready to go */
 			if (context->prepared_func)
@@ -1227,7 +1227,7 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 				if (!context->in_output) {
 					if (jpeg_start_output (cinfo, cinfo->input_scan_number)) {
 						context->in_output = TRUE;
-						context->dptr = context->pixbuf->pixels;
+						context->dptr = gdk_pixbuf_get_pixels (context->pixbuf);
 					}
 					else
 						break;
