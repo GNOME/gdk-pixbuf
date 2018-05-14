@@ -47,6 +47,9 @@
 #endif
 
 
+/* Helper macros to convert between density units */
+#define DPCM_TO_DPI(value) ((int) round ((value) * 2.54))
+
 typedef struct _TiffContext TiffContext;
 struct _TiffContext
 {
