@@ -44,7 +44,8 @@ Known bugs:
 #endif
 #include <string.h>
 #include <errno.h>
-#include "gdk-pixbuf-private.h"
+#include <glib/gi18n-lib.h>
+#include "gdk-pixbuf-io.h"
 
 
 
@@ -636,16 +637,15 @@ OneLine32 (struct ico_progressive_state *context)
 {
         gint X;
         guchar *Pixels;
+	gsize rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
         X = 0;
         if (context->Header.Negative == 0)
                 Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-                          (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
         else
                 Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-                          context->Lines);
+			  rowstride * context->Lines);
         while (X < context->Header.width) {
                 /* BGRA */
                 Pixels[X * 4 + 0] = context->LineBuf[X * 4 + 2];
@@ -660,16 +660,15 @@ static void OneLine24(struct ico_progressive_state *context)
 {
 	gint X;
 	guchar *Pixels;
+	gsize rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-			  (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-			  context->Lines);
+			  rowstride * context->Lines);
 	while (X < context->Header.width) {
 		Pixels[X * 4 + 0] = context->LineBuf[X * 3 + 2];
 		Pixels[X * 4 + 1] = context->LineBuf[X * 3 + 1];
@@ -686,15 +685,14 @@ OneLine16 (struct ico_progressive_state *context)
         int i;
         guchar *pixels;
         guchar *src;
+	gsize rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
         if (context->Header.Negative == 0)
                 pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-                          (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
         else
                 pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-                          context->Lines);
+			  rowstride * context->Lines);
 
         src = context->LineBuf;
 
@@ -724,16 +722,15 @@ static void OneLine8(struct ico_progressive_state *context)
 {
 	gint X;
 	guchar *Pixels;
+	gsize rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-			  (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-			  context->Lines);
+			  rowstride * context->Lines);
 	while (X < context->Header.width) {
 		/* The joys of having a BGR byteorder */
 		Pixels[X * 4 + 0] =
@@ -750,16 +747,15 @@ static void OneLine4(struct ico_progressive_state *context)
 {
 	gint X;
 	guchar *Pixels;
+	gsize rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-			  (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-			  context->Lines);
+			  rowstride * context->Lines);
 	
 	while (X < context->Header.width) {
 		guchar Pix;
@@ -793,16 +789,15 @@ static void OneLine1(struct ico_progressive_state *context)
 {
 	gint X;
 	guchar *Pixels;
+	gsize rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-			  (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-			  context->Lines);
+			  rowstride * context->Lines);
 	while (X < context->Header.width) {
 		int Bit;
 
@@ -821,6 +816,7 @@ static void OneLineTransp(struct ico_progressive_state *context)
 {
 	gint X;
 	guchar *Pixels;
+	gsize rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
 	/* Ignore the XOR mask for XP style 32-bpp icons with alpha */ 
 	if (context->Header.depth == 32)
@@ -829,12 +825,10 @@ static void OneLineTransp(struct ico_progressive_state *context)
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-			  (2*context->Header.height - context->Lines - 1));
+			  rowstride * (2*context->Header.height - context->Lines - 1));
 	else
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  (gsize) context->pixbuf->rowstride *
-			  (context->Lines-context->Header.height));
+			  rowstride * (context->Lines-context->Header.height));
 	while (X < context->Header.width) {
 		int Bit;
 
