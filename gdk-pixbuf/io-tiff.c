@@ -35,7 +35,11 @@
 #endif
 #include <tiffio.h>
 #include <errno.h>
-#include "gdk-pixbuf-private.h"
+#include <glib-object.h>
+#include <glib/gi18n-lib.h>
+
+#include "gdk-pixbuf-core.h"
+#include "gdk-pixbuf-io.h"
 #include "fallback-c89.c"
 
 #ifdef G_OS_WIN32
@@ -290,20 +294,26 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
                 gdk_pixbuf_set_option (pixbuf, "multipage", "yes");
 
 #if G_BYTE_ORDER == G_BIG_ENDIAN
-	/* Turns out that the packing used by TIFFRGBAImage depends on 
-         * the host byte order... 
-         */ 
-	while (pixels < pixbuf->pixels + bytes) {
-		uint32 pixel = *(uint32 *)pixels;
-		int r = TIFFGetR(pixel);
-		int g = TIFFGetG(pixel);
-		int b = TIFFGetB(pixel);
-		int a = TIFFGetA(pixel);
-		*pixels++ = r;
-		*pixels++ = g;
-		*pixels++ = b;
-		*pixels++ = a;
-	}
+        {
+                guchar *pixbuf_pixels = gdk_pixbuf_get_pixels (pixbuf);
+
+                pixels = pixbuf_pixels;
+
+                /* Turns out that the packing used by TIFFRGBAImage depends on 
+                 * the host byte order... 
+                 */ 
+                while (pixels < pixbuf_pixels + bytes) {
+                        uint32 pixel = *(uint32 *)pixels;
+                        int r = TIFFGetR(pixel);
+                        int g = TIFFGetG(pixel);
+                        int b = TIFFGetB(pixel);
+                        int a = TIFFGetA(pixel);
+                        *pixels++ = r;
+                        *pixels++ = g;
+                        *pixels++ = b;
+                        *pixels++ = a;
+                }
+        }
 #endif
 
 	if (context && context->update_func)
