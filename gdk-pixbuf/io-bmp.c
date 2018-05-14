@@ -28,7 +28,11 @@
 #include <unistd.h>
 #endif
 #include <string.h>
-#include "gdk-pixbuf-private.h"
+#include <glib-object.h>
+#include <glib/gi18n-lib.h>
+
+#include "gdk-pixbuf-core.h"
+#include "gdk-pixbuf-io.h"
 
 #define DUMPBIH 0
 
@@ -502,9 +506,11 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 		
 		/* make all pixels initially transparent */
 		if (State->Compressed == BI_RLE4 || State->Compressed == BI_RLE8) {
-			memset (gdk_pixbuf_get_pixels (State->pixbuf), 0, State->pixbuf->rowstride * State->Header.height);
+			gint rowstride = gdk_pixbuf_get_rowstride (State->pixbuf);
+
+			memset (gdk_pixbuf_get_pixels (State->pixbuf), 0, rowstride * State->Header.height);
 			State->compr.p = gdk_pixbuf_get_pixels (State->pixbuf) 
-				+ State->pixbuf->rowstride * (State->Header.height- 1);
+				+ rowstride * (State->Header.height- 1);
 		}
 	}
 	
@@ -799,13 +805,14 @@ static void OneLine32(struct bmp_progressive_state *context)
 	int i;
 	guchar *pixels;
 	guchar *src;
+	gint rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
 	if (!context->Header.Negative)
 		pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride * (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
 	else
 		pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride * context->Lines);
+			  rowstride * context->Lines);
 
 	src = context->buff;
 
@@ -860,16 +867,15 @@ static void OneLine24(struct bmp_progressive_state *context)
 {
 	gint X;
 	guchar *Pixels;
+	gint rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride *
-			  (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride *
-			  context->Lines);
+			  rowstride * context->Lines);
 	while (X < context->Header.width) {
 		Pixels[X * 3 + 0] = context->buff[X * 3 + 2];
 		Pixels[X * 3 + 1] = context->buff[X * 3 + 1];
@@ -884,13 +890,14 @@ static void OneLine16(struct bmp_progressive_state *context)
 	int i;
 	guchar *pixels;
 	guchar *src;
+	gint rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
 	if (!context->Header.Negative)
 		pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride * (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
 	else
 		pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride * context->Lines);
+			  rowstride * context->Lines);
 
 	src = context->buff;
 
@@ -944,16 +951,15 @@ static void OneLine8(struct bmp_progressive_state *context)
 {
 	gint X;
 	guchar *Pixels;
+	gint rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride *
-			  (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride *
-			  context->Lines);
+			  rowstride * context->Lines);
 	while (X < context->Header.width) {
 		Pixels[X * 3 + 0] =
 		    context->Colormap[context->buff[X]][2];
@@ -969,16 +975,15 @@ static void OneLine4(struct bmp_progressive_state *context)
 {
 	gint X;
 	guchar *Pixels;
+	gint rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride *
-			  (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride *
-			  context->Lines);
+			  rowstride * context->Lines);
 
 	while (X < context->Header.width) {
 		guchar Pix;
@@ -1010,16 +1015,15 @@ static void OneLine1(struct bmp_progressive_state *context)
 {
 	gint X;
 	guchar *Pixels;
+	gint rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 
 	X = 0;
 	if (context->Header.Negative == 0)
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride *
-			  (context->Header.height - context->Lines - 1));
+			  rowstride * (context->Header.height - context->Lines - 1));
 	else
 		Pixels = (gdk_pixbuf_get_pixels (context->pixbuf) +
-			  context->pixbuf->rowstride *
-			  context->Lines);
+			  rowstride * context->Lines);
 	while (X < context->Header.width) {
 		gint Bit;
 
@@ -1139,7 +1143,7 @@ DoCompressed(struct bmp_progressive_state *context, GError **error)
 					context->compr.x = 0;
 					context->compr.y++;
 					context->compr.p = gdk_pixbuf_get_pixels (context->pixbuf) 
-						+ (context->pixbuf->rowstride * (context->Header.height - context->compr.y - 1))
+						+ (gdk_pixbuf_get_rowstride (context->pixbuf) * (context->Header.height - context->compr.y - 1))
 						+ (4 * context->compr.x);
 					context->compr.phase = NEUTRAL;
 					break;
@@ -1165,7 +1169,7 @@ DoCompressed(struct bmp_progressive_state *context, GError **error)
 		    case DELTA_Y:
 			    context->compr.y += c;
 			    context->compr.p = gdk_pixbuf_get_pixels (context->pixbuf) 
-				    + (context->pixbuf->rowstride * (context->Header.height - context->compr.y - 1))
+				    + (gdk_pixbuf_get_rowstride (context->pixbuf) * (context->Header.height - context->compr.y - 1))
 				    + (4 * context->compr.x);
 			    context->compr.phase = NEUTRAL;
 			    break;
