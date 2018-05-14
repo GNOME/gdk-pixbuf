@@ -21,7 +21,6 @@
 
 #include "config.h"
 #include <errno.h>
-#include "gdk-pixbuf-private.h"
 #include "io-ani-animation.h"
 
 static void gdk_pixbuf_ani_anim_finalize   (GObject        *object);
