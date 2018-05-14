@@ -23,7 +23,6 @@
 #include "config.h"
 #include <errno.h>
 #include "gdk-pixbuf-transform.h"
-#include "gdk-pixbuf-private.h"
 #include "io-gif-animation.h"
 
 static void gdk_pixbuf_gif_anim_finalize   (GObject        *object);
