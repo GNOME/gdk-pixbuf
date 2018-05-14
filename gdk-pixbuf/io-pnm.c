@@ -782,7 +782,7 @@ gdk_pixbuf__pnm_image_load (FILE *f, GError **error)
 			}
 
 			context.rowstride = context.pixbuf->rowstride;
-			context.pixels = context.pixbuf->pixels;
+			context.pixels = gdk_pixbuf_get_pixels (context.pixbuf);
 		}
 		
 		/* if we got here we're reading image data */
@@ -1010,7 +1010,7 @@ gdk_pixbuf__pnm_image_load_increment (gpointer data,
 				return FALSE;
 			}
 			
-			context->pixels = context->pixbuf->pixels;
+			context->pixels = gdk_pixbuf_get_pixels (context->pixbuf);
 			context->rowstride = context->pixbuf->rowstride;
 			
 			/* Notify the client that we are ready to go */

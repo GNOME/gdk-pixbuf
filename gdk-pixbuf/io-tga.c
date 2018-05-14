@@ -193,7 +193,7 @@ tga_write_pixel (TGAContext     *ctx,
   guint x = (ctx->hdr->flags & TGA_ORIGIN_RIGHT) ? ctx->pbuf->width - ctx->pbuf_x - 1 : ctx->pbuf_x;
   guint y = (ctx->hdr->flags & TGA_ORIGIN_UPPER) ? ctx->pbuf_y : ctx->pbuf->height - ctx->pbuf_y - 1;
 
-  memcpy (ctx->pbuf->pixels + y * ctx->pbuf->rowstride + x * ctx->pbuf->n_channels, color, ctx->pbuf->n_channels);
+  memcpy (gdk_pixbuf_get_pixels (ctx->pbuf) + y * ctx->pbuf->rowstride + x * ctx->pbuf->n_channels, color, ctx->pbuf->n_channels);
 
   ctx->pbuf_x++;
   if (ctx->pbuf_x >= ctx->pbuf->width)

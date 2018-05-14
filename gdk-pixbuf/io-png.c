@@ -325,7 +325,7 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
 
 	rows = g_new (png_bytep, h);
 
-        for (i = 0, ptr = pixbuf->pixels; i < h; i++, ptr = (guchar *) ptr + pixbuf->rowstride)
+        for (i = 0, ptr = gdk_pixbuf_get_pixels (pixbuf); i < h; i++, ptr = (guchar *) ptr + pixbuf->rowstride)
 		rows[i] = ptr;
 
 	png_read_image (png_ptr, rows);
@@ -766,7 +766,7 @@ png_row_callback   (png_structp png_read_ptr,
         lc->last_pass_seen_in_chunk = pass_num;
 
         rowstride = lc->pixbuf->rowstride;
-        old_row = lc->pixbuf->pixels + (row_num * rowstride);
+        old_row = gdk_pixbuf_get_pixels (lc->pixbuf) + (row_num * rowstride);
 
         png_progressive_combine_row(lc->png_read_ptr, old_row, new_row);
 }
