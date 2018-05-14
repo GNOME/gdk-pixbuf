@@ -27,12 +27,18 @@
 #include <string.h>
 #include <png.h>
 #include <math.h>
-#include "gdk-pixbuf-private.h"
+#include <glib-object.h>
+#include <glib/gi18n-lib.h>
+
+#include "gdk-pixbuf-core.h"
+#include "gdk-pixbuf-io.h"
 #include "fallback-c89.c"
 
 /* Helper macros to convert between density units */
 #define DPI_TO_DPM(value) ((int) round ((value) * 1000 / 25.4))
 #define DPM_TO_DPI(value) ((int) round ((value) * 25.4 / 1000))
+
+#define DEFAULT_FILL_COLOR 0x979899ff
 
 static gboolean
 setup_png_transformations(png_structp png_read_ptr, png_infop png_info_ptr,
@@ -251,6 +257,7 @@ static GdkPixbuf *
 gdk_pixbuf__png_image_load (FILE *f, GError **error)
 {
         GdkPixbuf * volatile pixbuf = NULL;
+        gint rowstride;
 	png_structp png_ptr;
 	png_infop info_ptr;
         png_textp text_ptr;
@@ -325,11 +332,13 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
 		return NULL;
 	}
 
+        rowstride = gdk_pixbuf_get_rowstride (pixbuf);
+
         gdk_pixbuf_fill (pixbuf, DEFAULT_FILL_COLOR);
 
 	rows = g_new (png_bytep, h);
 
-        for (i = 0, ptr = gdk_pixbuf_get_pixels (pixbuf); i < h; i++, ptr = (guchar *) ptr + pixbuf->rowstride)
+        for (i = 0, ptr = gdk_pixbuf_get_pixels (pixbuf); i < h; i++, ptr = (guchar *) ptr + rowstride)
 		rows[i] = ptr;
 
 	png_read_image (png_ptr, rows);
@@ -570,6 +579,8 @@ gdk_pixbuf__png_image_load_increment(gpointer context,
                 return FALSE;
         } else {
                 if (lc->first_row_seen_in_chunk >= 0 && lc->update_func) {
+                        gint width = gdk_pixbuf_get_width (lc->pixbuf);
+
                         /* We saw at least one row */
                         gint pass_diff = lc->last_pass_seen_in_chunk - lc->first_pass_seen_in_chunk;
                         
@@ -579,7 +590,7 @@ gdk_pixbuf__png_image_load_increment(gpointer context,
                                 /* start and end row were in the same pass */
                                 (lc->update_func)(lc->pixbuf, 0,
                                                   lc->first_row_seen_in_chunk,
-                                                  lc->pixbuf->width,
+                                                  width,
                                                   (lc->last_row_seen_in_chunk -
                                                    lc->first_row_seen_in_chunk) + 1,
 						  lc->notify_user_data);
@@ -591,14 +602,14 @@ gdk_pixbuf__png_image_load_increment(gpointer context,
                                 /* first row to end */
                                 (lc->update_func)(lc->pixbuf, 0,
                                                   lc->first_row_seen_in_chunk,
-                                                  lc->pixbuf->width,
+                                                  width,
                                                   (lc->max_row_seen_in_chunk -
                                                    lc->first_row_seen_in_chunk) + 1,
 						  lc->notify_user_data);
                                 /* top to last row */
                                 (lc->update_func)(lc->pixbuf,
                                                   0, 0, 
-                                                  lc->pixbuf->width,
+                                                  width,
                                                   lc->last_row_seen_in_chunk + 1,
 						  lc->notify_user_data);
                         } else {
@@ -606,7 +617,7 @@ gdk_pixbuf__png_image_load_increment(gpointer context,
                                    whole image */
                                 (lc->update_func)(lc->pixbuf,
                                                   0, 0, 
-                                                  lc->pixbuf->width,
+                                                  width,
                                                   lc->max_row_seen_in_chunk + 1,
 						  lc->notify_user_data);
                         }
@@ -751,7 +762,7 @@ png_row_callback   (png_structp png_read_ptr,
         if (lc->fatal_error_occurred)
                 return;
 
-        if (row_num >= lc->pixbuf->height) {
+        if (row_num >= gdk_pixbuf_get_height (lc->pixbuf)) {
                 lc->fatal_error_occurred = TRUE;
                 g_set_error_literal (lc->error,
                                      GDK_PIXBUF_ERROR,
@@ -769,7 +780,7 @@ png_row_callback   (png_structp png_read_ptr,
         lc->last_row_seen_in_chunk = row_num;
         lc->last_pass_seen_in_chunk = pass_num;
 
-        rowstride = lc->pixbuf->rowstride;
+        rowstride = gdk_pixbuf_get_rowstride (lc->pixbuf);
         old_row = gdk_pixbuf_get_pixels (lc->pixbuf) + (row_num * rowstride);
 
         png_progressive_combine_row(lc->png_read_ptr, old_row, new_row);
