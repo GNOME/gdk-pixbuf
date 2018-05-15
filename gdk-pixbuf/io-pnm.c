@@ -25,7 +25,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <setjmp.h>
-#include "gdk-pixbuf-private.h"
+#include <glib/gi18n-lib.h>
+#include "gdk-pixbuf-io.h"
 
 #define PNM_BUF_SIZE 4096
 
@@ -781,7 +782,7 @@ gdk_pixbuf__pnm_image_load (FILE *f, GError **error)
 				return NULL;
 			}
 
-			context.rowstride = context.pixbuf->rowstride;
+			context.rowstride = gdk_pixbuf_get_rowstride (context.pixbuf);
 			context.pixels = gdk_pixbuf_get_pixels (context.pixbuf);
 		}
 		
@@ -1011,7 +1012,7 @@ gdk_pixbuf__pnm_image_load_increment (gpointer data,
 			}
 			
 			context->pixels = gdk_pixbuf_get_pixels (context->pixbuf);
-			context->rowstride = context->pixbuf->rowstride;
+			context->rowstride = gdk_pixbuf_get_rowstride (context->pixbuf);
 			
 			/* Notify the client that we are ready to go */
 			if (context->prepared_func)
