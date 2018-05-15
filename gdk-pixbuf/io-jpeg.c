@@ -33,8 +33,8 @@
 #include <jpeglib.h>
 #include <jerror.h>
 #include <math.h>
-
-#include "gdk-pixbuf-private.h"
+#include <glib/gi18n-lib.h>
+#include "gdk-pixbuf-io.h"
 #include "fallback-c89.c"
 
 #ifndef HAVE_SIGSETJMP
@@ -687,7 +687,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 		lptr = lines;
 		for (i = 0; i < cinfo.rec_outbuf_height; i++) {
 			*lptr++ = dptr;
-			dptr += pixbuf->rowstride;
+			dptr += gdk_pixbuf_get_rowstride (pixbuf);
 		}
 
 		jpeg_read_scanlines (&cinfo, lines, cinfo.rec_outbuf_height);
@@ -918,7 +918,7 @@ gdk_pixbuf__jpeg_image_load_lines (JpegProgContext  *context,
                 rowptr = context->dptr;
                 for (i=0; i < cinfo->rec_outbuf_height; i++) {
                         *lptr++ = rowptr;
-                        rowptr += context->pixbuf->rowstride;
+                        rowptr += gdk_pixbuf_get_rowstride (context->pixbuf);
                 }
 
                 nlines = jpeg_read_scanlines (cinfo, lines,
@@ -946,7 +946,7 @@ gdk_pixbuf__jpeg_image_load_lines (JpegProgContext  *context,
                         return FALSE;
                 }
 
-                context->dptr += (gsize)nlines * context->pixbuf->rowstride;
+                context->dptr += (gsize)nlines * gdk_pixbuf_get_rowstride (context->pixbuf);
 
                 /* send updated signal */
 		if (context->updated_func)
