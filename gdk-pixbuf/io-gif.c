@@ -55,7 +55,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
-#include "gdk-pixbuf-private.h"
+#include <glib/gi18n-lib.h>
+#include "gdk-pixbuf-io.h"
 #include "io-gif-animation.h"
 
 
