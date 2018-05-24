@@ -79,6 +79,9 @@ gdkpixbuf_sources = [
   'gdk-pixbuf-simple-anim.c',
   'gdk-pixbuf-scaled-anim.c',
   'gdk-pixbuf-util.c',
+]
+
+gdkpixdata_sources = [
   'gdk-pixdata.c',
 ]
 
@@ -156,7 +159,13 @@ endif
 
 # The main gdk-pixbuf shared library
 gdkpixbuf = library('gdk_pixbuf-2.0',
-                    gdkpixbuf_sources + pixops_sources + gdkpixbuf_enums + gdkpixbuf_marshals,
+                    sources: [
+                      gdkpixbuf_sources,
+                      pixops_sources,
+                      gdkpixbuf_enums,
+                      gdkpixbuf_marshals,
+                      gdkpixdata_sources,
+                    ],
                     soversion: soversion,
                     version: libversion,
                     c_args: common_cflags + gdk_pixbuf_cflags + included_loaders_cflags,
@@ -165,13 +174,60 @@ gdkpixbuf = library('gdk_pixbuf-2.0',
                       root_inc,
                       include_directories('pixops'),
                     ],
-                    dependencies: gdk_pixbuf_deps + included_loaders_deps,
+                    dependencies: [
+                      gdk_pixbuf_deps,
+                      included_loaders_deps,
+                    ],
                     install: true)
 
-gdkpixbuf_dep = declare_dependency(link_with: gdkpixbuf,
-                                   include_directories: root_inc,
-                                   dependencies: gdk_pixbuf_deps,
-                                   sources: gdkpixbuf_enum_h)
+build_gir = get_option('gir')
+if build_gir
+  gir_args = [
+    '--quiet',
+    '-DGDK_PIXBUF_COMPILATION',
+  ]
+
+  gdkpixbuf_gir = gnome.generate_gir(
+    gdkpixbuf,
+    sources: gdkpixbuf_sources + gdkpixbuf_headers + gdkpixbuf_enums + [
+      gdk_pixbuf_features_h,
+    ],
+    namespace: 'GdkPixbuf',
+    nsversion: gdk_pixbuf_api_version,
+    identifier_prefix: 'Gdk',
+    symbol_prefix: 'gdk',
+    export_packages: 'gdk-pixbuf-2.0',
+    includes: [ 'GModule-2.0', 'Gio-2.0', ],
+    header: 'gdk-pixbuf/gdk-pixbuf.h',
+    install: true,
+    extra_args: gir_args,
+  )
+
+  gdkpixdata_gir = gnome.generate_gir(
+    gdkpixbuf,
+    sources: gdkpixdata_sources + ['gdk-pixdata.h'],
+    namespace: 'GdkPixdata',
+    nsversion: gdk_pixbuf_api_version,
+    identifier_prefix: 'Gdk',
+    symbol_prefix: 'gdk',
+    export_packages: 'gdk-pixbuf-2.0',
+    includes: [ gdkpixbuf_gir[0] ],
+    header: 'gdk-pixbuf/gdk-pixdata.h',
+    install: true,
+    extra_args: gir_args,
+  )
+
+  built_girs = [ gdkpixbuf_gir, gdkpixdata_gir ]
+else
+  built_girs = []
+endif
+
+gdkpixbuf_dep = declare_dependency(
+  link_with: gdkpixbuf,
+  include_directories: root_inc,
+  dependencies: gdk_pixbuf_deps,
+  sources: [ gdkpixbuf_enum_h, built_girs ],
+)
 
 # Now check if we are building loaders as installed shared modules
 # We do this here because shared modules depend on libgdk-pixbuf
@@ -246,31 +302,6 @@ loaders_cache = custom_target('loaders.cache',
                               ],
                               build_by_default: true)
 loaders_dep = declare_dependency(sources: [ loaders_cache ])
-
-build_gir = get_option('gir')
-if build_gir
-  gir_args = [
-    '--quiet',
-    '-DGDK_PIXBUF_COMPILATION',
-  ]
-
-  gdkpixbuf_gir = gnome.generate_gir(
-    gdkpixbuf,
-    sources: gdkpixbuf_sources + gdkpixbuf_headers + gdkpixbuf_enums + [
-      gdk_pixbuf_features_h,
-      'gdk-pixdata.h',
-    ],
-    namespace: 'GdkPixbuf',
-    nsversion: gdk_pixbuf_api_version,
-    identifier_prefix: 'Gdk',
-    symbol_prefix: 'gdk',
-    export_packages: 'gdk-pixbuf-2.0',
-    includes: [ 'GModule-2.0', 'Gio-2.0', ],
-    header: 'gdk-pixbuf/gdk-pixbuf.h',
-    install: true,
-    extra_args: gir_args,
-  )
-endif
 
 pkgconfig = import('pkgconfig')
 pkgconfig.generate(
