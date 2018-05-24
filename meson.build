@@ -402,3 +402,24 @@ if not meson.is_cross_build()
     gdk_pixbuf_binary_version,
   )
 endif
+
+summary = [
+  '',
+  'GDK-Pixbuf @0@'.format(meson.project_version()),
+  '==================',
+  '           prefix: @0@'.format(gdk_pixbuf_prefix),
+  '           libdir: @0@'.format(gdk_pixbuf_libdir),
+  '          datadir: @0@'.format(gdk_pixbuf_datadir),
+  '       libexecdir: @0@'.format(gdk_pixbuf_libexecdir),
+  '',
+  '  enabled loaders: @0@'.format(' '.join(enabled_loaders)),
+  '',
+  '    documentation: @0@'.format(get_option('docs')),
+  '        man pages: @0@'.format(get_option('man')),
+  '    introspection: @0@'.format(get_option('gir')),
+  '              x11: @0@'.format(get_option('x11')),
+  '  installed tests: @0@'.format(get_option('installed_tests')),
+  '      relocatable: @0@'.format(get_option('relocatable')),
+  '',
+]
+message('\n'.join(summary))
