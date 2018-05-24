@@ -113,7 +113,7 @@ GdkPixbuf is divided into logical sections:
    data in different formats
  - Image transformations: [Scaling and compositing][gdkpixbuf-api-ops] image
    data inside GdkPixbuf instances
- - The [GdkPixbuf loader][gdkpixbuf-api-loaders] API, for incremental
+ - The [GdkPixbuf loader][gdkpixbuf-api-loader] API, for incremental
    asynchronous loading of image data in a GdkPixbuf
  - The [loadable module interface][gdkpixbuf-api-module] for writing out of
    tree image loaders
