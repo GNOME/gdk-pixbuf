@@ -65,6 +65,6 @@ check the current build configuration, and change its options.
 
 ## License
 
-GdkPixbuf is released under the terms of the GNU Library General Public
-License version 2, or, at your option, any later version. See the
+GdkPixbuf is released under the terms of the GNU Lesser General Public
+License version 2.1, or, at your option, any later version. See the
 [COPYING](./COPYING) file for further details.
