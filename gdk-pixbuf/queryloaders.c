@@ -315,6 +315,12 @@ int main (int argc, char **argv)
         GFile *pixbuf_libdir_file;
         gchar *pixbuf_libdir;
 
+#ifdef G_OS_WIN32
+        gchar *libdir;
+        GFile *pixbuf_prefix_file;
+        gchar *pixbuf_prefix;
+#endif
+
         /* An intermediate GFile here will convert all the path separators
          * to the right one used by the platform
          */
@@ -323,10 +329,6 @@ int main (int argc, char **argv)
         g_object_unref (pixbuf_libdir_file);
 
 #ifdef G_OS_WIN32
-        gchar *libdir;
-        GFile *pixbuf_prefix_file;
-        gchar *pixbuf_prefix;
-
         pixbuf_prefix_file = g_file_new_for_path (GDK_PIXBUF_PREFIX);
         pixbuf_prefix = g_file_get_path (pixbuf_prefix_file);
         g_object_unref (pixbuf_prefix_file);
