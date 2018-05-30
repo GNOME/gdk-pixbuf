@@ -301,7 +301,7 @@ int main (int argc, char **argv)
 			scaled = gdk_pixbuf_scale_simple (pixbuf,
 							  floor (width * scale + 0.5),
 							  floor (height * scale + 0.5),
-							  GDK_INTERP_HYPER);
+							  GDK_INTERP_BILINEAR);
 #endif
 			gdk_pixbuf_copy_options (pixbuf, scaled);
 			g_object_unref (pixbuf);
