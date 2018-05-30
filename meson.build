@@ -381,10 +381,8 @@ subdir('gdk-pixbuf')
 
 gdkpixbuf_xlib_inc = []
 if get_option('x11')
-  x11_dep = cc.find_library('X11', required: false)
-    if x11_dep.found()
-      subdir('contrib/gdk-pixbuf-xlib')
-    endif
+  x11_dep = dependency('x11')
+  subdir('contrib/gdk-pixbuf-xlib')
 endif
 
 # i18n
