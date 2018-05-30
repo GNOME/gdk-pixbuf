@@ -14,7 +14,7 @@ ccache --show-stats
 
 # Disable ccache while running Meson, to avoid cached compiler tests
 export CCACHE_DISABLE=true
-meson ${builddir} ${srcdir} || exit $?
+meson ${BUILD_OPTS} ${builddir} ${srcdir} || exit $?
 unset CCACHE_DISABLE
 
 cd ${builddir}
