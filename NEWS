@@ -1,3 +1,22 @@
+2.37.0 (development)
+===
+
+ - Rework relocation support for loaders cache on Windows [Christoph Reiter, #776081]
+ - Properly install test data [Emmanuele Bassi, Jeremy Bicha, #795527, #795210]
+ - Plug a memory leak when using GBytes [Vitaly Kirsanov, #787626]
+ - Fix introspection annotations [Iñaki García Etxebarria, #789935]
+ - Fix documentation building with X11 disabled [Quentin Glidic, #794872]
+ - Drop Autotools build and move to Meson [Emmanuele Bassi]
+ - Fix OOB error when dithering [Bert Pauline, #748211]
+ - Drop the MMX assembly optimizations for pixops [Emmanuele Bassi]
+ - Improve compatibility for the post-install script [Brendan L, #795705]
+ - Expose the dimensions of the original image from GdkPixbufLoader [Debarshi Ray, #778517]
+ - Improve thumbnailer implementation [Debarshi Ray, #778517]
+ - Make X11 a dependency if the `x11` build option is enabled [Emmanuele Bassi, #77]
+ - Generate separate introspection data for GdkPixdata API [Emmanuele Bassi, #72]
+ - Deprecate GDK_INTERP_HYPER [Emmanuele Bassi, #3]
+ - Avoid a deprecation warning with recent libjasper [Emmanuele Bassi, #73]
+
 2.36.12
 =======
 * build: meson fixes for win32
