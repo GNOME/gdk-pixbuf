@@ -8,6 +8,8 @@ stages:
 meson-fedora-x86_64:
   image: registry.gitlab.gnome.org/gnome/gdk-pixbuf/master:v1
   stage: build
+  variables:
+    BUILD_OPTS: "-Dpng=true -Djpeg=true -Dtiff=true -Djasper=true"
   script:
     - bash -x ./.gitlab/ci/test-docker.sh
   artifacts:

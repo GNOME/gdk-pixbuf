@@ -67,7 +67,7 @@ jasper_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 
 	jas_init ();
 
-	stream = jas_stream_memopen (NULL, -1);
+	stream = jas_stream_memopen (NULL, 0);
 	if (!stream) {
 		g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
                                      _("Couldn’t allocate memory for stream"));
