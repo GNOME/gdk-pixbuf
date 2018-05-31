@@ -378,6 +378,7 @@ endif
 gdk_pixbuf_conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 
 configure_file(output: 'config.h', configuration: gdk_pixbuf_conf)
+add_project_arguments([ '-DHAVE_CONFIG_H=1' ], language: 'c')
 
 root_inc = include_directories('.')
 
