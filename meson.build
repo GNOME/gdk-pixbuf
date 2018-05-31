@@ -170,19 +170,21 @@ endif
 
 common_cflags += cc.get_supported_arguments(test_cflags)
 
-# Linker flags
 if host_machine.system() == 'linux'
+  # Additional linker flags
   test_ldflags = ['-Wl,-Bsymbolic', '-Wl,-z,relro', '-Wl,-z,now']
   if meson.version().version_compare('>= 0.46.0')
     common_ldflags += cc.get_supported_link_arguments(test_ldflags)
   else
     common_ldflags += test_ldflags
   endif
+  gdk_pixbuf_conf.set('OS_LINUX', 1)
 endif
 
-# Maintain compatibility with autotools on macOS
 if host_machine.system() == 'darwin'
+  # Maintain compatibility with autotools on macOS
   common_ldflags += [ '-compatibility_version 1', '-current_version 1.0', ]
+  gdk_pixbuf_conf.set('OS_DARWIN', 1)
 endif
 
 # Dependencies
