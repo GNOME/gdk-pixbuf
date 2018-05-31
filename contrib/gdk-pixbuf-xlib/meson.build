@@ -21,7 +21,6 @@ gdkpixbuf_xlib = library('gdk_pixbuf_xlib-2.0',
                          soversion: soversion,
                          version: libversion,
                          c_args: common_cflags + gdk_pixbuf_cflags + [
-                           '-DHAVE_CONFIG_H',
                            '-DSTDC_HEADERS',
                          ],
                          link_args: common_ldflags,

@@ -85,16 +85,24 @@ if cc.has_function('lrint', dependencies: mathlib_dep)
   gdk_pixbuf_conf.set('HAVE_LRINT', 1)
 endif
 
+if cc.has_function('bind_textdomain_codeset', prefix: '#include <libintl.h>')
+  gdk_pixbuf_conf.set('HAVE_BIND_TEXTDOMAIN_CODESET', 1)
+endif
+
+if cc.has_function('setrlimit', prefix: '#include <sys/time.h>\n#include <sys/resource.h>')
+  gdk_pixbuf_conf.set('HAVE_SETRLIMIT', 1)
+endif
 
 # We use links() because sigsetjmp() is often a macro hidden behind other macros
-gdk_pixbuf_conf.set('HAVE_SIGSETJMP',
-                    cc.links('''#define _POSIX_SOURCE
-                                #include <setjmp.h>
-                                int main (void) {
-                                  sigjmp_buf env;
-                                  sigsetjmp (env, 0);
-                                  return 0;
-                                }''', name: 'sigsetjmp'))
+gdk_pixbuf_conf.set10('HAVE_SIGSETJMP',
+  cc.links('''#define _POSIX_SOURCE
+              #include <setjmp.h>
+              int main (void) {
+                sigjmp_buf env;
+                sigsetjmp (env, 0);
+                return 0;
+              }''', name: 'sigsetjmp'),
+)
 
 # Common compiler and linker flags
 common_cflags = []
@@ -162,19 +170,21 @@ endif
 
 common_cflags += cc.get_supported_arguments(test_cflags)
 
-# Linker flags
 if host_machine.system() == 'linux'
+  # Additional linker flags
   test_ldflags = ['-Wl,-Bsymbolic', '-Wl,-z,relro', '-Wl,-z,now']
   if meson.version().version_compare('>= 0.46.0')
     common_ldflags += cc.get_supported_link_arguments(test_ldflags)
   else
     common_ldflags += test_ldflags
   endif
+  gdk_pixbuf_conf.set('OS_LINUX', 1)
 endif
 
-# Maintain compatibility with autotools on macOS
 if host_machine.system() == 'darwin'
+  # Maintain compatibility with autotools on macOS
   common_ldflags += [ '-compatibility_version 1', '-current_version 1.0', ]
+  gdk_pixbuf_conf.set('OS_DARWIN', 1)
 endif
 
 # Dependencies
@@ -294,8 +304,9 @@ if get_option('jpeg') and not native_windows_loaders
       enabled_loaders += 'jpeg'
       loaders_deps += jpeg_dep
 
-      gdk_pixbuf_conf.set('HAVE_PROGRESSIVE_JPEG',
-                          cc.has_function('jpeg_simple_progression', dependencies: jpeg_dep))
+      gdk_pixbuf_conf.set10('HAVE_PROGRESSIVE_JPEG',
+                            cc.has_function('jpeg_simple_progression',
+                                            dependencies: jpeg_dep))
     endif
   endif
 endif
@@ -367,6 +378,7 @@ endif
 gdk_pixbuf_conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 
 configure_file(output: 'config.h', configuration: gdk_pixbuf_conf)
+add_project_arguments([ '-DHAVE_CONFIG_H=1' ], language: 'c')
 
 root_inc = include_directories('.')
 
