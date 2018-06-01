@@ -37,27 +37,36 @@ resources_h = custom_target('resources.h',
   ],
 )
 
+# [ test name, [ test suites ], needs_resources (opt) ]
+#
+# test suites:
+#  - conform: Behavior conformance test
+#  - security: CVEs and the like
+#  - slow: Needs special timeout value
+#  - format: Per-format test
+#  - io: Loading/saving
+#  - ops: Pixel operations
 installed_tests = [
-  [ 'animation' ],
-  [ 'cve-2015-4491', true ],
-  [ 'pixbuf-fail' ],
-  [ 'pixbuf-icon-serialize' ],
-  [ 'pixbuf-randomly-modified' ],
-  [ 'pixbuf-threads' ],
-  [ 'pixbuf-icc' ],
-  [ 'pixbuf-jpeg' ],
-  [ 'pixbuf-dpi' ],
-  [ 'pixbuf-pixdata', true ],
-  [ 'pixbuf-stream' ],
-  [ 'pixbuf-reftest' ],
-  [ 'pixbuf-resource', true ],
-  [ 'pixbuf-scale' ],
-  [ 'pixbuf-scale-two-step' ],
-  [ 'pixbuf-short-gif-write' ],
-  [ 'pixbuf-save' ],
-  [ 'pixbuf-readonly-to-mutable' ],
-  [ 'pixbuf-composite' ],
-  [ 'pixbuf-area-updated' ],
+  [ 'animation', ['format'], ],
+  [ 'cve-2015-4491', ['security'], true ],
+  [ 'pixbuf-fail', ['conform'], ],
+  [ 'pixbuf-icon-serialize', ['conform'], ],
+  [ 'pixbuf-randomly-modified', ['slow'], ],
+  [ 'pixbuf-threads', ['io'], ],
+  [ 'pixbuf-icc', ['io'], ],
+  [ 'pixbuf-jpeg', ['format'], ],
+  [ 'pixbuf-dpi', ['io'], ],
+  [ 'pixbuf-pixdata', ['format'], true ],
+  [ 'pixbuf-stream', ['io'], ],
+  [ 'pixbuf-reftest', ['conform'], ],
+  [ 'pixbuf-resource', ['io'], true ],
+  [ 'pixbuf-scale', ['ops'], ],
+  [ 'pixbuf-scale-two-step', ['ops'], ],
+  [ 'pixbuf-short-gif-write', ['format'], ],
+  [ 'pixbuf-save', ['io'] ],
+  [ 'pixbuf-readonly-to-mutable', ['conform'], ],
+  [ 'pixbuf-composite', ['ops'], ],
+  [ 'pixbuf-area-updated', ['slow'], ],
 ]
 
 test_data = [
@@ -99,7 +108,8 @@ test_deps = gdk_pixbuf_deps + [ gdkpixbuf_dep ]
 foreach t: installed_tests
   test_name = t[0]
   test_sources = [ test_name + '.c', 'test-common.c' ]
-  needs_resources = t.get(1, false)
+  test_suites = t[1]
+  needs_resources = t.get(2, false)
   if needs_resources
     test_sources += [ resources_c, resources_h ]
   endif
@@ -128,13 +138,14 @@ foreach t: installed_tests
   )
 
   # Two particularly slow tests
-  if test_name == 'pixbuf-area-updated' or test_name == 'pixbuf-randomly-modified'
+  if test_suites.contains('slow')
     timeout = 300
   else
     timeout = 30
   endif
 
   test(test_name, test_bin,
+    suite: test_suites,
     args: [ '-k', '--tap' ],
     env: [
       'G_TEST_SRCDIR=@0@'.format(meson.current_source_dir()),
