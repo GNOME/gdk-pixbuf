@@ -94,7 +94,7 @@ if cc.has_function('setrlimit', prefix: '#include <sys/time.h>\n#include <sys/re
 endif
 
 # We use links() because sigsetjmp() is often a macro hidden behind other macros
-gdk_pixbuf_conf.set10('HAVE_SIGSETJMP',
+gdk_pixbuf_conf.set('HAVE_SIGSETJMP',
   cc.links('''#define _POSIX_SOURCE
               #include <setjmp.h>
               int main (void) {
@@ -218,7 +218,7 @@ gdk_pixbuf_deps = [ mathlib_dep, gobject_dep, gmodule_dep, gio_dep, shared_mime_
 
 # Check if we can build shared modules
 build_modules = gmodule_dep.get_pkgconfig_variable('gmodule_supported') == 'true'
-gdk_pixbuf_conf.set10('USE_GMODULE', build_modules)
+gdk_pixbuf_conf.set('USE_GMODULE', build_modules)
 
 # Check which loaders should be built into gdk-pixbuf
 builtin_loaders = get_option('builtin_loaders').split(',')
@@ -304,9 +304,9 @@ if get_option('jpeg') and not native_windows_loaders
       enabled_loaders += 'jpeg'
       loaders_deps += jpeg_dep
 
-      gdk_pixbuf_conf.set10('HAVE_PROGRESSIVE_JPEG',
-                            cc.has_function('jpeg_simple_progression',
-                                            dependencies: jpeg_dep))
+      gdk_pixbuf_conf.set('HAVE_PROGRESSIVE_JPEG',
+                          cc.has_function('jpeg_simple_progression',
+                                          dependencies: jpeg_dep))
     endif
   endif
 endif
@@ -407,10 +407,18 @@ subdir('thumbnailer')
 subdir('docs')
 
 if not meson.is_cross_build()
-  meson.add_install_script('build-aux/post-install.sh',
-    gdk_pixbuf_libdir,
-    gdk_pixbuf_binary_version,
-  )
+  # On Visual Studio, we don't normally have a shell interpreter, so use a .bat
+  if cc.get_id() == 'msvc'
+    meson.add_install_script('build-aux/post-install.bat',
+      gdk_pixbuf_libdir,
+      gdk_pixbuf_binary_version,
+    )
+  else
+    meson.add_install_script('build-aux/post-install.sh',
+      gdk_pixbuf_libdir,
+      gdk_pixbuf_binary_version,
+    )
+  endif
 endif
 
 summary = [
