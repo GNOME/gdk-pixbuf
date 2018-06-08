@@ -407,10 +407,18 @@ subdir('thumbnailer')
 subdir('docs')
 
 if not meson.is_cross_build()
-  meson.add_install_script('build-aux/post-install.sh',
-    gdk_pixbuf_libdir,
-    gdk_pixbuf_binary_version,
-  )
+  # On Visual Studio, we don't normally have a shell interpreter, so use a .bat
+  if cc.get_id() == 'msvc'
+    meson.add_install_script('build-aux/post-install.bat',
+      gdk_pixbuf_libdir,
+      gdk_pixbuf_binary_version,
+    )
+  else
+    meson.add_install_script('build-aux/post-install.sh',
+      gdk_pixbuf_libdir,
+      gdk_pixbuf_binary_version,
+    )
+  endif
 endif
 
 summary = [
