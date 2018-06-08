@@ -37,7 +37,7 @@
 #include "gdk-pixbuf-private.h"
 #include "fallback-c89.c"
 
-#ifndef HAVE_SIGSETJMP
+#if !defined (HAVE_SIGSETJMP) || (HAVE_SIGSETJMP < 1)
 #define sigjmp_buf jmp_buf
 #define sigsetjmp(jb, x) setjmp(jb)
 #define siglongjmp longjmp
