@@ -16,7 +16,7 @@ meson-fedora-x86_64:
     when: on_failure
     name: "gdk-pixbuf-${CI_COMMIT_REF_NAME}"
     paths:
-      - "${CI_PROJECT_DIR}/_build/meson-logs"
+      - "${CI_PROJECT_DIR}/build_*/meson-logs"
   cache:
     key: "$CI_JOB_NAME"
     <<: *cache-paths
