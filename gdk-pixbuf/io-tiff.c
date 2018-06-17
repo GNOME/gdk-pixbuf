@@ -41,7 +41,7 @@
 #ifdef G_OS_WIN32
 #include <fcntl.h>
 #include <io.h>
-#include <Windows.h>
+#include <windows.h>
 #define lseek(a,b,c) _lseek(a,b,c)
 #define O_RDWR _O_RDWR
 #endif
