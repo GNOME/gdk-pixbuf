@@ -1,6 +1,5 @@
 2.37.0 (development)
 ===
-
  - Rework relocation support for loaders cache on Windows [Christoph Reiter, #776081]
  - Properly install test data [Emmanuele Bassi, Jeremy Bicha, #795527, #795210]
  - Plug a memory leak when using GBytes [Vitaly Kirsanov, #787626]
@@ -16,6 +15,9 @@
  - Generate separate introspection data for GdkPixdata API [Emmanuele Bassi, #72]
  - Deprecate GDK_INTERP_HYPER [Emmanuele Bassi, #3]
  - Avoid a deprecation warning with recent libjasper [Emmanuele Bassi, #73]
+ - Fix build on macOS [Emmanuele Bassi, !5]
+ - Fix build with Visual Studio [Chun-wei Fan, !8]
+ - Fix cross-compilation of Windows build on Linux [Benjamin Gilbert, !10]
 
 2.36.12
 =======
