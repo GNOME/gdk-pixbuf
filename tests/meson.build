@@ -49,7 +49,7 @@ resources_h = custom_target('resources.h',
 installed_tests = [
   [ 'animation', ['format'], ],
   [ 'cve-2015-4491', ['security'], true ],
-  [ 'pixbuf-fail', ['conform'], ],
+  [ 'pixbuf-fail', ['conform', 'slow'], ],
   [ 'pixbuf-icon-serialize', ['conform'], ],
   [ 'pixbuf-randomly-modified', ['slow'], ],
   [ 'pixbuf-threads', ['io'], ],
