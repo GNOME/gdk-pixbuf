@@ -260,11 +260,11 @@ diff2_rgba (const guint8 *ip)
   return ip[0] != ip[4] || ip[1] != ip[5] || ip[2] != ip[6] || ip[3] != ip[7];
 }
 
-static guint8*			/* dest buffer bound */
-rl_encode_rgbx (guint8 *bp,	/* dest buffer */
-		const guint8 *ip,	/* image pointer */
-		const guint8 *limit,	/* image upper bound */
-		guint   n_ch)
+static guint8 *                         /* dest buffer bound */
+rl_encode_rgbx (guint8       *bp,       /* dest buffer */
+                const guint8 *ip,       /* image pointer */
+                const guint8 *limit,    /* image upper bound */
+                guint         n_ch)
 {
   gboolean (*diff2_pix) (const guint8 *) = n_ch > 3 ? diff2_rgba : diff2_rgb;
   const guint8 *ilimit = limit - n_ch;
@@ -380,7 +380,7 @@ gdk_pixdata_from_pixbuf (GdkPixdata      *pixdata,
       else
         buf = (GdkPixbuf *)pixbuf;
 
-      pixels = gdk_pixbuf_read_pixels(buf);
+      pixels = gdk_pixbuf_read_pixels (buf);
       pad = rowstride;
       pad = MAX (pad, 130 + n_bytes / 127);
       data = g_new (guint8, pad + n_bytes);
