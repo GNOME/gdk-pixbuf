@@ -299,7 +299,7 @@ gdk_pixbuf_finalize (GObject *object)
                 break;
 
         default:
-                g_assert_not_reached();
+                g_assert_not_reached ();
         }
         
         G_OBJECT_CLASS (gdk_pixbuf_parent_class)->finalize (object);
@@ -724,7 +724,7 @@ downgrade_to_pixels (const GdkPixbuf *pixbuf)
                 return;
 
         case STORAGE_BYTES: {
-                GdkPixbuf *mut_pixbuf = (GdkPixbuf*)pixbuf;
+                GdkPixbuf *mut_pixbuf = (GdkPixbuf *) pixbuf;
                 gsize len;
                 Pixels pixels;
 
@@ -738,7 +738,7 @@ downgrade_to_pixels (const GdkPixbuf *pixbuf)
         }
 
         default:
-                g_assert_not_reached();
+                g_assert_not_reached ();
         }
 }
 
@@ -830,7 +830,7 @@ gdk_pixbuf_read_pixel_bytes (const GdkPixbuf  *pixbuf)
                 return g_bytes_ref (pixbuf->s.bytes.bytes);
 
         default:
-                g_assert_not_reached();
+                g_assert_not_reached ();
         }
 }
 
@@ -1272,7 +1272,7 @@ gdk_pixbuf_set_property (GObject         *object,
            * passed value is not NULL before actually setting pixbuf->storage.
            */
           case PROP_PIXELS:
-                  g_assert(pixbuf->s.pixels.pixels == NULL);
+                  g_assert (pixbuf->s.pixels.pixels == NULL);
                   notify = pixbuf->s.pixels.pixels != (guchar *) g_value_get_pointer (value);
                   pixbuf->s.pixels.pixels = (guchar *) g_value_get_pointer (value);
                   pixbuf->s.pixels.destroy_fn = NULL;
@@ -1283,7 +1283,7 @@ gdk_pixbuf_set_property (GObject         *object,
                   }
                   break;
           case PROP_PIXEL_BYTES:
-                  g_assert(pixbuf->s.bytes.bytes == NULL);
+                  g_assert (pixbuf->s.bytes.bytes == NULL);
                   notify = pixbuf->s.bytes.bytes != g_value_get_boxed (value);
                   pixbuf->s.bytes.bytes = g_value_dup_boxed (value);
 
@@ -1335,7 +1335,7 @@ gdk_pixbuf_get_property (GObject         *object,
                   g_value_set_pointer (value, gdk_pixbuf_get_pixels (pixbuf));
                   break;
           case PROP_PIXEL_BYTES:
-                  g_value_set_boxed (value, gdk_pixbuf_read_pixel_bytes(pixbuf));
+                  g_value_set_boxed (value, gdk_pixbuf_read_pixel_bytes (pixbuf));
                   break;
           default:
                   G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
