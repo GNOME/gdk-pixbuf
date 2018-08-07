@@ -256,6 +256,7 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
         gint    num_texts;
         gchar *key;
         gchar *value;
+        gdouble gamma;
         png_uint_32 x_resolution;
         png_uint_32 y_resolution;
         int unit_type;
@@ -352,6 +353,17 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
                         icc_profile_base64 = g_base64_encode ((const guchar *) icc_profile, (gsize)icc_profile_size);
                         gdk_pixbuf_set_option (pixbuf, "icc-profile", icc_profile_base64);
                         g_free (icc_profile_base64);
+                }
+#endif
+
+#if defined(PNG_READ_gAMA_SUPPORTED)
+                /* Extract gamma value */
+                retval = png_get_gAMA (png_ptr, info_ptr, &gamma);
+                if (retval != 0) {
+                        char *gamma_str;
+                        gamma_str = g_strdup_printf ("%lf", gamma);
+                        gdk_pixbuf_set_option (pixbuf, "gamma", gamma_str);
+                        g_free (gamma_str);
                 }
 #endif
         }
