@@ -34,7 +34,7 @@ part of the dependency's build process.
 Set the PATH, LIB, INCLUDE and PKG_CONFIG_PATH environmental variables as
 needed.  Run the following in a Visual Studio command prompt:
 
-python $(PATH_TO_meson.py)\meson.py $(GDK_PIXBUF_SRCDIR) --builldtype=$(BUILD_CONFIG) --prefix=$(PREFIX) -Dman=false $(OTHER_OPTIONS)
+python $(PATH_TO_meson.py)\meson.py $(GDK_PIXBUF_SRCDIR) --builldtype=$(BUILD_CONFIG) --prefix=$(PREFIX) -Dman=false -Dx11=false $(OTHER_OPTIONS)
 
 For $(OTHER_OPTIONS), the following may be of interest, besides the png,
 jpeg, japer and tiff options.  Prefix each option with -D:
