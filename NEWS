@@ -1,3 +1,8 @@
+2.37.92 (release candidate)
+===
+ - Ensure that GdkPixbuf's storage is safely handled [Federico Mena Quintero]
+ - Add test case for buffer overflow in pixdata loader [Bastien Nocera, #57]
+
 2.37.0 (development)
 ===
  - Rework relocation support for loaders cache on Windows [Christoph Reiter, #776081]
