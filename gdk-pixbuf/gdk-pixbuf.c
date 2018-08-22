@@ -777,10 +777,12 @@ gdk_pixbuf_get_pixels_with_length (const GdkPixbuf *pixbuf,
  * gdk_pixbuf_read_pixels:
  * @pixbuf: A pixbuf
  *
- * Returns a read-only pointer to the raw pixel data; must not be
+ * Provides a read-only pointer to the raw pixel data; must not be
  * modified.  This function allows skipping the implicit copy that
  * must be made if gdk_pixbuf_get_pixels() is called on a read-only
  * pixbuf.
+ *
+ * Returns: a read-only pointer to the raw pixel data
  *
  * Since: 2.32
  */
@@ -809,10 +811,15 @@ gdk_pixbuf_read_pixels (const GdkPixbuf  *pixbuf)
  * gdk_pixbuf_read_pixel_bytes:
  * @pixbuf: A pixbuf
  *
+ * Provides a #GBytes buffer containing the raw pixel data; the data
+ * must not be modified.  This function allows skipping the implicit
+ * copy that must be made if gdk_pixbuf_get_pixels() is called on a
+ * read-only pixbuf.
+ *
  * Returns: (transfer full): A new reference to a read-only copy of
- * the pixel data.  Note that for mutable pixbufs, this function will
- * incur a one-time copy of the pixel data for conversion into the
- * returned #GBytes.
+ *   the pixel data.  Note that for mutable pixbufs, this function will
+ *   incur a one-time copy of the pixel data for conversion into the
+ *   returned #GBytes.
  *
  * Since: 2.32
  */
