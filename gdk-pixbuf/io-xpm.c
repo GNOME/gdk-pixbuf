@@ -30,8 +30,10 @@
 #include <unistd.h> /* for unlink */
 #endif
 #include <errno.h>
-#include "gdk-pixbuf-private.h"
 #include <glib/gstdio.h>
+#include <glib/gi18n-lib.h>
+#include "gdk-pixbuf-core.h"
+#include "gdk-pixbuf-io.h"
 
 
 
@@ -458,6 +460,7 @@ pixbuf_create_from_xpm (const gchar * (*get_buf) (enum buf_op op, gpointer handl
 	XPMColor *colors, *color, *fallbackcolor;
 	guchar *pixtmp;
 	GdkPixbuf *pixbuf;
+	gint rowstride;
 
 	fallbackcolor = NULL;
 
@@ -588,10 +591,12 @@ pixbuf_create_from_xpm (const gchar * (*get_buf) (enum buf_op op, gpointer handl
 		return NULL;
 	}
 
+	rowstride = gdk_pixbuf_get_rowstride (pixbuf);
+
 	wbytes = w * cpp;
 
 	for (ycnt = 0; ycnt < h; ycnt++) {
-		pixtmp = pixbuf->pixels + ycnt * pixbuf->rowstride;
+		pixtmp = gdk_pixbuf_get_pixels (pixbuf) + ycnt * rowstride;
 
 		buffer = (*get_buf) (op_body, handle);
 		if ((!buffer) || (strlen (buffer) < wbytes))
@@ -744,7 +749,11 @@ gdk_pixbuf__xpm_image_stop_load (gpointer data,
 							  NULL,
 							  context->user_data);
 		       if (context->update_func)
-			       (* context->update_func) (pixbuf, 0, 0, pixbuf->width, pixbuf->height, context->user_data);
+			       (* context->update_func) (pixbuf,
+							 0, 0,
+							 gdk_pixbuf_get_width (pixbuf),
+							 gdk_pixbuf_get_height (pixbuf),
+							 context->user_data);
                        g_object_unref (pixbuf);
 
                        retval = TRUE;

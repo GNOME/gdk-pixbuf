@@ -63,6 +63,27 @@ You can use the `--prefix` argument to control the installation prefix.
 You can also use `meson configure` from within the build directory to
 check the current build configuration, and change its options.
 
+#### Build options
+
+You can specify the following options in the command line to `meson`:
+
+* `-Djasper=true` - Enable support for JPEG2000.  This requires
+  libjasper's development files to be installed.
+
+* `-Ddocs=true` - Build the API reference documentation.  This
+  requires `gtk-doc` to be installed.
+
+* `-Drelocatable=true` - Enable application bundle relocation support.
+
+For a complete list of build-time options, see the file
+[`meson_options.txt`](meson_options.txt).  You can read about Meson
+options in general [in the Meson manual](http://mesonbuild.com/Build-options.html).
+
+## Running tests
+
+You can run the test suite by running `meson test -C _build`, where
+`_build` is the build directory you used during the build stage.
+
 ## License
 
 GdkPixbuf is released under the terms of the GNU Lesser General Public

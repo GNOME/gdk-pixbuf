@@ -30,8 +30,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <setjmp.h>
+#include <glib/gi18n-lib.h>
 #include "gdk-pixbuf.h"
-#include "gdk-pixbuf-private.h"
 
 /***
  * Definitions

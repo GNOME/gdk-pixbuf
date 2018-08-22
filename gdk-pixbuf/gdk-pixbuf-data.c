@@ -77,9 +77,9 @@ gdk_pixbuf_new_from_data (const guchar *data, GdkColorspace colorspace, gboolean
 			       "rowstride", rowstride,
 			       "pixels", data,
 			       NULL);
-        
-	pixbuf->destroy_fn = destroy_fn;
-	pixbuf->destroy_fn_data = destroy_fn_data;
+	g_assert (pixbuf->storage == STORAGE_PIXELS);
+	pixbuf->s.pixels.destroy_fn = destroy_fn;
+	pixbuf->s.pixels.destroy_fn_data = destroy_fn_data;
 
 	return pixbuf;
 }

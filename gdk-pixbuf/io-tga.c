@@ -32,8 +32,11 @@
 #include "config.h"
 #include <stdio.h>
 #include <string.h>
+#include <glib-object.h>
+#include <glib/gi18n-lib.h>
 
-#include "gdk-pixbuf-private.h"
+#include "gdk-pixbuf-core.h"
+#include "gdk-pixbuf-io.h"
 #include "gdk-pixbuf-buffer-queue-private.h"
 
 #undef DEBUG_TGA
@@ -190,13 +193,18 @@ static inline void
 tga_write_pixel (TGAContext     *ctx,
                  const TGAColor *color)
 {
-  guint x = (ctx->hdr->flags & TGA_ORIGIN_RIGHT) ? ctx->pbuf->width - ctx->pbuf_x - 1 : ctx->pbuf_x;
-  guint y = (ctx->hdr->flags & TGA_ORIGIN_UPPER) ? ctx->pbuf_y : ctx->pbuf->height - ctx->pbuf_y - 1;
+  gint width = gdk_pixbuf_get_width (ctx->pbuf);
+  gint height = gdk_pixbuf_get_height (ctx->pbuf);
+  gint rowstride = gdk_pixbuf_get_rowstride (ctx->pbuf);
+  gint n_channels = gdk_pixbuf_get_n_channels (ctx->pbuf);
 
-  memcpy (ctx->pbuf->pixels + y * ctx->pbuf->rowstride + x * ctx->pbuf->n_channels, color, ctx->pbuf->n_channels);
+  guint x = (ctx->hdr->flags & TGA_ORIGIN_RIGHT) ? width - ctx->pbuf_x - 1 : ctx->pbuf_x;
+  guint y = (ctx->hdr->flags & TGA_ORIGIN_UPPER) ? ctx->pbuf_y : height - ctx->pbuf_y - 1;
+
+  memcpy (gdk_pixbuf_get_pixels (ctx->pbuf) + y * rowstride + x * n_channels, color, n_channels);
 
   ctx->pbuf_x++;
-  if (ctx->pbuf_x >= ctx->pbuf->width)
+  if (ctx->pbuf_x >= width)
     {
       ctx->pbuf_x = 0;
       ctx->pbuf_y++;
@@ -206,18 +214,26 @@ tga_write_pixel (TGAContext     *ctx,
 static gsize
 tga_pixels_remaining (TGAContext *ctx)
 {
-  return ctx->pbuf->width * (ctx->pbuf->height - ctx->pbuf_y) - ctx->pbuf_x;
+  gint width = gdk_pixbuf_get_width (ctx->pbuf);
+  gint height = gdk_pixbuf_get_height (ctx->pbuf);
+
+  return width * (height - ctx->pbuf_y) - ctx->pbuf_x;
 }
 
 static gboolean
 tga_all_pixels_written (TGAContext *ctx)
 {
-  return ctx->pbuf_y >= ctx->pbuf->height;
+  gint height = gdk_pixbuf_get_height (ctx->pbuf);
+
+  return ctx->pbuf_y >= height;
 }
 
 static void
 tga_emit_update (TGAContext *ctx)
 {
+  gint width = gdk_pixbuf_get_width (ctx->pbuf);
+  gint height = gdk_pixbuf_get_height (ctx->pbuf);
+
   if (!ctx->ufunc)
     return;
 
@@ -230,12 +246,12 @@ tga_emit_update (TGAContext *ctx)
   if (ctx->hdr->flags & TGA_ORIGIN_UPPER)
     (*ctx->ufunc) (ctx->pbuf,
                    0, ctx->pbuf_y_notified,
-                   ctx->pbuf->width, ctx->pbuf_y - ctx->pbuf_y_notified,
+                   width, ctx->pbuf_y - ctx->pbuf_y_notified,
                    ctx->udata);
   else
     (*ctx->ufunc) (ctx->pbuf,
-                   0, ctx->pbuf->height - ctx->pbuf_y,
-                   ctx->pbuf->width, ctx->pbuf_y - ctx->pbuf_y_notified,
+                   0, height - ctx->pbuf_y,
+                   width, ctx->pbuf_y - ctx->pbuf_y_notified,
                    ctx->udata);
 
   ctx->pbuf_y_notified = ctx->pbuf_y;

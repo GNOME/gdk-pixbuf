@@ -22,7 +22,7 @@
 #ifndef GDK_PIXBUF_ANI_ANIMATION_H
 #define GDK_PIXBUF_ANI_ANIMATION_H
 
-#include "gdk-pixbuf-private.h"
+#include <glib/gi18n-lib.h>
 #include "gdk-pixbuf-animation.h"
 
 typedef struct _GdkPixbufAniAnim GdkPixbufAniAnim;

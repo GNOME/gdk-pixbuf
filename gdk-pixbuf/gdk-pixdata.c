@@ -249,25 +249,25 @@ gdk_pixdata_deserialize (GdkPixdata   *pixdata,
 }
 
 static gboolean
-diff2_rgb (guint8 *ip)
+diff2_rgb (const guint8 *ip)
 {
   return ip[0] != ip[3] || ip[1] != ip[4] || ip[2] != ip[5];
 }
 
 static gboolean
-diff2_rgba (guint8 *ip)
+diff2_rgba (const guint8 *ip)
 {
   return ip[0] != ip[4] || ip[1] != ip[5] || ip[2] != ip[6] || ip[3] != ip[7];
 }
 
-static guint8*			/* dest buffer bound */
-rl_encode_rgbx (guint8 *bp,	/* dest buffer */
-		guint8 *ip,	/* image pointer */
-		guint8 *limit,	/* image upper bound */
-		guint   n_ch)
+static guint8 *                         /* dest buffer bound */
+rl_encode_rgbx (guint8       *bp,       /* dest buffer */
+                const guint8 *ip,       /* image pointer */
+                const guint8 *limit,    /* image upper bound */
+                guint         n_ch)
 {
-  gboolean (*diff2_pix) (guint8 *) = n_ch > 3 ? diff2_rgba : diff2_rgb;
-  guint8 *ilimit = limit - n_ch;
+  gboolean (*diff2_pix) (const guint8 *) = n_ch > 3 ? diff2_rgba : diff2_rgb;
+  const guint8 *ilimit = limit - n_ch;
 
   while (ip < limit)
     {
@@ -275,7 +275,7 @@ rl_encode_rgbx (guint8 *bp,	/* dest buffer */
 
       if (diff2_pix (ip))
 	{
-	  guint8 *s_ip = ip;
+	  const guint8 *s_ip = ip;
 	  guint l = 1;
 
 	  ip += n_ch;
@@ -341,6 +341,7 @@ gdk_pixdata_from_pixbuf (GdkPixdata      *pixdata,
 {
   gpointer free_me = NULL;
   guint height, rowstride, encoding, bpp, length;
+  const guint8 *pixels = NULL;
   guint8 *img_buffer;
 
   g_return_val_if_fail (pixdata != NULL, NULL);
@@ -377,14 +378,16 @@ gdk_pixdata_from_pixbuf (GdkPixdata      *pixdata,
 				buf, 0, 0);
 	}
       else
-	buf = (GdkPixbuf *)pixbuf;
+        buf = (GdkPixbuf *)pixbuf;
+
+      pixels = gdk_pixbuf_read_pixels (buf);
       pad = rowstride;
       pad = MAX (pad, 130 + n_bytes / 127);
       data = g_new (guint8, pad + n_bytes);
       free_me = data;
       img_buffer = data;
       img_buffer_end = rl_encode_rgbx (img_buffer,
-				       buf->pixels, buf->pixels + n_bytes,
+				       pixels, pixels + n_bytes,
 				       bpp);
       length = img_buffer_end - img_buffer;
       if (buf != pixbuf)
@@ -392,7 +395,7 @@ gdk_pixdata_from_pixbuf (GdkPixdata      *pixdata,
     }
   else
     {
-      img_buffer = pixbuf->pixels;
+      img_buffer = (guint8 *) gdk_pixbuf_read_pixels (pixbuf);
       length = rowstride * height;
     }
 

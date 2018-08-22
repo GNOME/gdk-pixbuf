@@ -35,8 +35,10 @@
 #endif
 #include <stdio.h>
 #include <errno.h>
-#include "gdk-pixbuf-private.h"
 #include <glib/gstdio.h>
+#include <glib/gi18n-lib.h>
+
+#include "gdk-pixbuf-io.h"
 
 
 
