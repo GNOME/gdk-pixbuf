@@ -6,7 +6,7 @@ project('gdk-pixbuf', 'c',
           'warning_level=1',
           'c_std=c99',
         ],
-        meson_version: '>= 0.45.0')
+        meson_version: '>= 0.46.0')
 
 add_project_arguments([ '-D_POSIX_C_SOURCE=200809L', '-D_DEFAULT_SOURCE', '-D_XOPEN_SOURCE' ], language: 'c')
 
@@ -173,11 +173,7 @@ common_cflags += cc.get_supported_arguments(test_cflags)
 if host_machine.system() == 'linux'
   # Additional linker flags
   test_ldflags = ['-Wl,-Bsymbolic', '-Wl,-z,relro', '-Wl,-z,now']
-  if meson.version().version_compare('>= 0.46.0')
-    common_ldflags += cc.get_supported_link_arguments(test_ldflags)
-  else
-    common_ldflags += test_ldflags
-  endif
+  common_ldflags += cc.get_supported_link_arguments(test_ldflags)
   gdk_pixbuf_conf.set('OS_LINUX', 1)
 endif
 
