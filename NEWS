@@ -1,3 +1,7 @@
+2.38.0 (stable)
+===
+ - Documentation fixes
+
 2.37.92 (release candidate)
 ===
  - Ensure that GdkPixbuf's storage is safely handled [Federico Mena Quintero]
