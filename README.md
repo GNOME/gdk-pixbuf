@@ -25,9 +25,9 @@ graphical assets.
 
 In order to build GdkPixbuf you will need to have installed:
 
- - Meson
+ - [Meson](http://mesonbuild.com)
  - A C99-compliant compiler and toolchain
- - GLib's development files
+ - [GLib's development files](https://gitlab.gnome.org/GNOME/glib/)
 
 Depending on the image formats you want to support you will also need:
 
@@ -38,10 +38,10 @@ Depending on the image formats you want to support you will also need:
 
 Additionally, you may need:
 
- - shared-mime-info
- - GObject Introspection
- - GTK-Doc
- - Xlib's development files
+ - [shared-mime-info](https://freedesktop.org/wiki/Software/shared-mime-info/)
+ - [GObject Introspection](https://gitlab.gnome.org/GNOME/gobject-introspection/)
+ - [GTK-Doc](https://gitlab.gnome.org/GNOME/gtk-doc/)
+ - [Xlib's development files](https://cgit.freedesktop.org/xorg/lib/libX11/)
  - mediaLib's development files
 
 ### Building and installing
