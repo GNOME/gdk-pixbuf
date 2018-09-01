@@ -17,16 +17,10 @@
 <refsect1>
 <title>Description</title>
   <para>
-    The functions to render pixbufs to GDK drawables are contained in 
-    GDK, see the <link linkend="https://developer.gnome.org/gdk3/stable/gdk3-Cairo-Interaction.html">GDK
-    documentation</link>.
+    The functions to render pixbufs to GDK drawables are provided by GDK, see
+    the <ulink url="https://developer.gnome.org/gdk3/stable/gdk3-Cairo-Interaction.html">GDK
+    documentation</ulink>.
   </para>
 </refsect1>
 
-
-
-
 </refentry>
-
-
-

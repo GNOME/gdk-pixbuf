@@ -17,13 +17,10 @@
 <title>Description</title>
   <para>
     The functions to take the image data from a GDK windowing system surface
-    and store them into a GdkPixbuf are typically provided by GDK; see
-    <link linkend="https://developer.gnome.org/gdk3/stable/gdk3-Pixbufs.html">the
-    GDK documentation</link>.
+    and store them into a GdkPixbuf are provided by GDK; see
+    <ulink url="https://developer.gnome.org/gdk3/stable/gdk3-Pixbufs.html">the
+    GDK documentation</ulink>.
   </para>
 </refsect1>
-
-
-
 
 </refentry>
