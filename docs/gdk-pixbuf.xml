@@ -81,18 +81,28 @@
     <xi:include href="xml/creating.xml" />
     <xi:include href="xml/inline.xml" />
     <xi:include href="xml/scaling.xml" />
-    <xi:include href="gdk-pixbuf-rendering.xml" />
-    <xi:include href="gdk-pixbuf-from-drawables.xml" />
     <xi:include href="xml/util.xml" />
     <xi:include href="xml/animation.xml" />
 
-    <xi:include href="xml/gdk-pixbuf-loader.xml" />
-    <xi:include href="xml/module_interface.xml" />
+    <chapter id="LoadableModules">
+      <title>Loadable modules</title>
+      <xi:include href="xml/module_interface.xml" />
+      <xi:include href="xml/gdk-pixbuf-loader.xml" />
+    </chapter>
 
-    <xi:include href="xml/gdk-pixbuf-xlib-init.xml" />
-    <xi:include href="xml/gdk-pixbuf-xlib-rendering.xml" />
-    <xi:include href="xml/gdk-pixbuf-xlib-from-drawables.xml" />
-    <xi:include href="xml/gdk-pixbuf-xlib-rgb.xml" />
+    <chapter id="Xlib">
+      <title>Xlib integration (deprecated)</title>
+      <xi:include href="xml/gdk-pixbuf-xlib-init.xml" />
+      <xi:include href="xml/gdk-pixbuf-xlib-rendering.xml" />
+      <xi:include href="xml/gdk-pixbuf-xlib-from-drawables.xml" />
+      <xi:include href="xml/gdk-pixbuf-xlib-rgb.xml" />
+    </chapter>
+
+    <chapter id="Gdk">
+      <title>GDK integration (deprecated)</title>
+      <xi:include href="xml/gdk-pixbuf-rendering.xml" />
+      <xi:include href="xml/gdk-pixbuf-from-drawables.xml" />
+    </chapter>
   </reference>
 
   <reference>
