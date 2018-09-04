@@ -232,6 +232,7 @@ gdkpixbuf_dep = declare_dependency(
 # Now check if we are building loaders as installed shared modules
 # We do this here because shared modules depend on libgdk-pixbuf
 dynamic_loaders = []
+dynamic_loaders_dep = []
 
 foreach l: loaders
   name = l[0]
@@ -250,6 +251,7 @@ foreach l: loaders
 
     # We need the path to build loaders.cache for tests
     dynamic_loaders += mod.full_path()
+    dynamic_loaders_dep += mod
   endif
 endforeach
 
@@ -267,6 +269,7 @@ if native_windows_loaders
                           install: true,
                           install_dir: gdk_pixbuf_loaderdir)
       dynamic_loaders += mod.full_path()
+      dynamic_loaders_dep = mod
     endforeach
   endif
 endif
@@ -300,6 +303,7 @@ loaders_cache = custom_target('loaders.cache',
                                 gdk_pixbuf_query_loaders,
                                 dynamic_loaders,
                               ],
+                              depends: dynamic_loaders_dep,
                               build_by_default: true)
 loaders_dep = declare_dependency(sources: [ loaders_cache ])
 
