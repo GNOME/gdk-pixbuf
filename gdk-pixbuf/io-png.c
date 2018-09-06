@@ -1129,13 +1129,13 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
                              PNG_COLOR_TYPE_RGB, PNG_INTERLACE_NONE,
                              PNG_COMPRESSION_TYPE_BASE, PNG_FILTER_TYPE_BASE);
        }
+       /* Note bpc is always 8 */
        sig_bit.red = bpc;
        sig_bit.green = bpc;
        sig_bit.blue = bpc;
        sig_bit.alpha = bpc;
        png_set_sBIT (png_ptr, info_ptr, &sig_bit);
        png_write_info (png_ptr, info_ptr);
-       png_set_shift (png_ptr, &sig_bit);
        png_set_packing (png_ptr);
 
        for (y = 0, ptr = pixels; y < h; y++, ptr += rowstride) {
