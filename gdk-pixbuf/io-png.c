@@ -1135,7 +1135,12 @@ static gboolean real_save_png (GdkPixbuf        *pixbuf,
        sig_bit.alpha = bpc;
        png_set_sBIT (png_ptr, info_ptr, &sig_bit);
        png_write_info (png_ptr, info_ptr);
-       png_set_shift (png_ptr, &sig_bit);
+       if (bpc != 8 && bpc != 16) {
+               /* Note that libpng runs shift transform if asked, even if it's a null op. */
+               /* Only trigger it if we have fewer bits... */
+               /* However, currently only 8 bpc are supported in gdk-pixbuf */
+               png_set_shift (png_ptr, &sig_bit);
+       }
        png_set_packing (png_ptr);
 
        for (y = 0, ptr = pixels; y < h; y++, ptr += rowstride) {
