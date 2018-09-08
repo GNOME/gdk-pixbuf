@@ -489,7 +489,7 @@ gdk_pixbuf__png_image_begin_load (GdkPixbufModuleSizeFunc size_func,
         
 	if (setjmp (png_jmpbuf(lc->png_read_ptr))) {
 		if (lc->png_info_ptr)
-			png_destroy_read_struct(&lc->png_read_ptr, NULL, NULL);
+			png_destroy_read_struct(&lc->png_read_ptr, &lc->png_info_ptr, NULL);
                 g_free(lc);
                 /* error callback should have set the error */
                 return NULL;
