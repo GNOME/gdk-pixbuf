@@ -483,16 +483,19 @@ gdk_pixbuf__png_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 #endif
         if (lc->png_read_ptr == NULL) {
                 g_free(lc);
-                /* error callback should have set the error */
+
+                /* A failure here isn't supposed to call the error
+                 * callback, but it doesn't hurt to be careful.
+                 */
+                if (error && *error == NULL) {
+                        g_set_error_literal (error,
+                                             GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
+                                             _("Couldn’t allocate memory for loading PNG"));
+                }
+
                 return NULL;
         }
-        
-	if (setjmp (png_jmpbuf(lc->png_read_ptr))) {
-                png_destroy_read_struct(&lc->png_read_ptr, &lc->png_info_ptr, NULL);
-                g_free(lc);
-                /* error callback should have set the error */
-                return NULL;
-	}
 
         /* Create the auxiliary context struct */
 
@@ -500,6 +503,23 @@ gdk_pixbuf__png_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 
         if (lc->png_info_ptr == NULL) {
                 png_destroy_read_struct(&lc->png_read_ptr, NULL, NULL);
+                g_free(lc);
+
+                /* A failure here isn't supposed to call the error
+                 * callback, but it doesn't hurt to be careful.
+                 */
+                if (error && *error == NULL) {
+                        g_set_error_literal (error,
+                                             GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
+                                             _("Couldn’t allocate memory for loading PNG"));
+                }
+
+                return NULL;
+        }
+
+        if (setjmp (png_jmpbuf(lc->png_read_ptr))) {
+                png_destroy_read_struct(&lc->png_read_ptr, &lc->png_info_ptr, NULL);
                 g_free(lc);
                 /* error callback should have set the error */
                 return NULL;
