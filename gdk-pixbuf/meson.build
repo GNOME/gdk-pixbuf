@@ -189,8 +189,11 @@ if build_gir
 
   gdkpixbuf_gir = gnome.generate_gir(
     gdkpixbuf,
-    sources: gdkpixbuf_sources + gdkpixbuf_headers + gdkpixbuf_enums + [
-      gdk_pixbuf_features_h,
+    sources: [ gdkpixbuf_sources,
+               gdkpixbuf_headers,
+               gdkpixbuf_enums,
+               gdkpixdata_sources,
+               gdk_pixbuf_features_h,
     ],
     namespace: 'GdkPixbuf',
     nsversion: gdk_pixbuf_api_version,
