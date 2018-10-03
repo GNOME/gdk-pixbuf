@@ -243,6 +243,12 @@ foreach l: loaders
   sources = l[1]
   cond = l.get(2, true)
   cflags = l.get(3, [])
+  name_suffix = []
+
+  # FIXME: workaround for https://gitlab.gnome.org/GNOME/glib/issues/1413
+  if host_system == 'darwin'
+    name_suffix = 'so'
+  endif
 
   if cond and not (builtin_loaders.contains(name) or builtin_all_loaders)
     mod = shared_module('pixbufloader-@0@'.format(name),
@@ -250,6 +256,7 @@ foreach l: loaders
                         dependencies: loaders_deps + gdk_pixbuf_deps + [ gdkpixbuf_dep ],
                         include_directories: [ root_inc, gdk_pixbuf_inc ],
                         c_args: common_cflags + gdk_pixbuf_cflags + cflags,
+                        name_suffix: name_suffix,
                         install: true,
                         install_dir: gdk_pixbuf_loaderdir)
 
