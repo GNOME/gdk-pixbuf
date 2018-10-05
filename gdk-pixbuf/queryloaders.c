@@ -46,6 +46,10 @@
 #include <windows.h>
 #endif
 
+#ifdef OS_DARWIN
+#include <mach-o/dyld.h>
+#endif
+
 static void
 print_escaped (GString *contents, const char *str)
 {
@@ -129,7 +133,7 @@ get_toplevel (void)
                 toplevel = g_win32_get_package_installation_directory_of_module (NULL);
 #elif defined(OS_DARWIN)
                 char pathbuf[PATH_MAX + 1];
-                uint32_t  bufsize = sizeof (pathbuf);
+                uint32_t bufsize = sizeof (pathbuf);
                 gchar *bin_dir;
 
                 _NSGetExecutablePath (pathbuf, &bufsize);
