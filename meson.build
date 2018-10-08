@@ -396,8 +396,10 @@ endif
 # i18n
 subdir('po')
 
-subdir('tests')
-subdir('thumbnailer')
+if not meson.is_cross_build()
+  subdir('tests')
+  subdir('thumbnailer')
+endif
 
 # Documentation
 subdir('docs')
