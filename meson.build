@@ -189,11 +189,11 @@ gmodule_dep = dependency('gmodule-no-export-2.0')
 gio_dep = dependency('gio-2.0')
 
 # On non-Windows/macOS systems we always required shared-mime-info and GIO
-if host_system != 'windows' and host_system != 'darwin'
-  shared_mime_dep = dependency('shared-mime-info')
+# shared_mime_dep = []
+shared_mime_dep = []
+if get_option('gio_sniffing') and host_system != 'windows' and host_system != 'darwin'
+  shared_mime_dep += dependency('shared-mime-info')
   gdk_pixbuf_conf.set('GDK_PIXBUF_USE_GIO_MIME', 1)
-else
-  shared_mime_dep = []
 endif
 
 # Check if medialib is available
