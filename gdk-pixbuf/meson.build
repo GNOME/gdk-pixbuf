@@ -305,18 +305,23 @@ foreach bin: gdkpixbuf_bin
   set_variable(bin_name.underscorify(), bin)
 endforeach
 
-# The 'loaders.cache' used for testing, so we don't accidentally
-# load the installed cache; we always build it by default
-loaders_cache = custom_target('loaders.cache',
-                              output: 'loaders.cache',
-                              capture: true,
-                              command: [
-                                gdk_pixbuf_query_loaders,
-                                dynamic_loaders,
-                              ],
-                              depends: dynamic_loaders_dep,
-                              build_by_default: true)
-loaders_dep = declare_dependency(sources: [ loaders_cache ])
+if not meson.is_cross_build()
+  # The 'loaders.cache' used for testing, so we don't accidentally
+  # load the installed cache; we always build it by default
+  loaders_cache = custom_target('loaders.cache',
+                                output: 'loaders.cache',
+                                capture: true,
+                                command: [
+                                  gdk_pixbuf_query_loaders,
+                                  dynamic_loaders,
+                                ],
+                                depends: dynamic_loaders_dep,
+                                build_by_default: true)
+  loaders_dep = declare_dependency(sources: [ loaders_cache ])
+else
+  loaders_cache = []
+  loaders_dep = declare_dependency()
+endif
 
 pkgconfig = import('pkgconfig')
 pkgconfig.generate(
