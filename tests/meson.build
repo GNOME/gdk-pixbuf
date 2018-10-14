@@ -140,7 +140,7 @@ foreach t: installed_tests
 
   # Two particularly slow tests
   if test_suites.contains('slow')
-    timeout = 300
+    timeout = 1800
   else
     timeout = 30
   endif
