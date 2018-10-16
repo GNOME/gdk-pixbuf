@@ -125,6 +125,7 @@ foreach l: loaders
 
     mod = static_library('staticpixbufloader-@0@'.format(name),
                          sources,
+                         gdkpixbuf_enum_h,
                          dependencies: loaders_deps + gdk_pixbuf_deps,
                          include_directories: [ root_inc, gdk_pixbuf_inc ],
                          c_args: common_cflags + gdk_pixbuf_cflags + cflags + cflag_for_included_loader)
@@ -149,6 +150,7 @@ if native_windows_loaders
 
     mod = static_library('staticpixbufloader-gdiplus',
                          win_loader_sources,
+                         gdkpixbuf_enum_h,
                          dependencies: loaders_deps + gdk_pixbuf_deps,
                          include_directories: [ root_inc, gdk_pixbuf_inc ],
                          c_args: common_cflags + gdk_pixbuf_cflags + cflag_for_included_loader)
@@ -253,6 +255,7 @@ foreach l: loaders
   if cond and not (builtin_loaders.contains(name) or builtin_all_loaders)
     mod = shared_module('pixbufloader-@0@'.format(name),
                         sources,
+                        gdkpixbuf_enum_h,
                         dependencies: loaders_deps + gdk_pixbuf_deps + [ gdkpixbuf_dep ],
                         include_directories: [ root_inc, gdk_pixbuf_inc ],
                         c_args: common_cflags + gdk_pixbuf_cflags + cflags,
@@ -274,6 +277,7 @@ if native_windows_loaders
 
       mod = shared_module('pixbufloader-gdip-@0@'.format(loader),
                           loader_sources,
+                          gdkpixbuf_enum_h,
                           dependencies: loaders_deps + gdk_pixbuf_deps + [ gdkpixbuf_dep ],
                           include_directories: [ root_inc, gdk_pixbuf_inc ],
                           c_args: common_cflags + gdk_pixbuf_cflags + cflags,
@@ -296,6 +300,7 @@ foreach bin: gdkpixbuf_bin
   bin_source = bin.get(1, bin_name + '.c')
 
   bin = executable(bin_name, bin_source,
+                   gdkpixbuf_enum_h,
                    dependencies: gdk_pixbuf_deps + [ gdkpixbuf_dep ],
                    include_directories: [ root_inc, gdk_pixbuf_inc ],
                    c_args: common_cflags + gdk_pixbuf_cflags,
