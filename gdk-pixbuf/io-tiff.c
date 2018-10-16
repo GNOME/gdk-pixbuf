@@ -90,6 +90,11 @@ static void free_buffer (guchar *pixels, gpointer data)
 	g_free (pixels);
 }
 
+static guchar unassoc(guchar value, int alpha) {
+	const int new_value = value * 255 / alpha;
+	return (new_value > 255) ? 255 : new_value;
+}
+
 static GdkPixbuf *
 tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
 {
@@ -105,6 +110,10 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
         guint icc_profile_size;
         uint16 resolution_unit;
         gchar *density_str;
+        uint16 samples_per_pixel = 0;
+        uint16 extra_samples;
+        uint16 *extra_samples_ptr = NULL;
+        gboolean is_associated = FALSE;
         gint retval;
 
         /* We're called with the lock held. */
@@ -152,6 +161,25 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
         }
 
         bytes = height * rowstride;
+
+        if (!TIFFGetField (tiff, TIFFTAG_SAMPLESPERPIXEL, &samples_per_pixel)) {
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_FAILED,
+                                     _("Could not get image samples per pixels (bad TIFF file)"));
+                return NULL;
+        }
+        if (samples_per_pixel >= 4 &&
+            !!TIFFGetField (tiff, TIFFTAG_EXTRASAMPLES, &extra_samples, &extra_samples_ptr)) {
+                g_set_error_literal (error,
+                                     GDK_PIXBUF_ERROR,
+                                     GDK_PIXBUF_ERROR_FAILED,
+                                     _("Could not get image extra samples information (bad TIFF file)"));
+                return NULL;
+        }
+        if (extra_samples > 1 && extra_samples_ptr != NULL && extra_samples_ptr[0] == EXTRASAMPLE_ASSOCALPHA) {
+                is_associated = TRUE;
+        }
 
 	if (context && context->size_func) {
                 gint w = width;
@@ -315,7 +343,21 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
                 }
         }
 #endif
+        if (is_associated) {
+                /* Need to dis-associate the RGB values */
+                guchar *pixbuf_pixels = gdk_pixbuf_get_pixels (pixbuf);
 
+                pixels = pixbuf_pixels;
+                while (pixels < pixbuf_pixels + bytes) {
+                        int a = pixels[3];
+                        if (a > 0 && a < 255) {
+                                pixels[0] = unassoc(pixels[0], a);
+                                pixels[1] = unassoc(pixels[1], a);
+                                pixels[2] = unassoc(pixels[2], a);
+                        }
+                        pixels++;
+                }
+        }
 	if (context && context->update_func)
 		(* context->update_func) (pixbuf, 0, 0, width, height, context->user_data);
 
