@@ -42,6 +42,7 @@ revision = gdk_pixbuf_interface_age
 libversion = '@0@.@1@.@2@'.format(soversion, current, revision)
 age = gdk_pixbuf_binary_age - gdk_pixbuf_interface_age
 current_minus_age = current - age
+darwin_versions = ['@0@'.format(current + 1), '@0@.@1@'.format(current + 1, gdk_pixbuf_interface_age)]
 
 # Paths
 gdk_pixbuf_prefix = get_option('prefix')
@@ -179,7 +180,7 @@ endif
 
 if host_machine.system() == 'darwin'
   # Maintain compatibility with autotools on macOS
-  common_ldflags += [ '-compatibility_version 1', '-current_version 1.0', ]
+  common_ldflags += [ '-compatibility_version', darwin_versions[0], '-current_version', darwin_versions[1]]
   gdk_pixbuf_conf.set('OS_DARWIN', 1)
 endif
 
