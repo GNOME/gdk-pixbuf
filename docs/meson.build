@@ -4,7 +4,11 @@ configure_file(input: 'version.xml.in',
                output: 'version.xml',
                configuration: version_xml)
 
-glib_prefix = dependency('glib-2.0').get_pkgconfig_variable('prefix')
+if gobject_dep.type_name() == 'pkgconfig'
+  glib_prefix = gobject_dep.get_pkgconfig_variable('prefix')
+else
+  glib_prefix = get_option('prefix')
+endif
 glib_docpath = join_paths(glib_prefix, 'share', 'gtk-doc', 'html')
 docpath = join_paths(gdk_pixbuf_datadir, 'gtk-doc', 'html')
 
