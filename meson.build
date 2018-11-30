@@ -57,7 +57,14 @@ gdk_pixbuf_loaderdir = join_paths(gdk_pixbuf_libdir, 'gdk-pixbuf-@0@/@1@/loaders
 
 # Dependencies
 glib_req_version = '>= 2.38.0'
-gio_dep = dependency('gio-2.0', version: glib_req_version)
+glib_dep = dependency('glib-2.0', version: glib_req_version,
+                      fallback : ['glib', 'libglib_dep'])
+gobject_dep = dependency('gobject-2.0', version: glib_req_version,
+                         fallback : ['glib', 'libgobject_dep'])
+gmodule_dep = dependency('gmodule-no-export-2.0', version: glib_req_version,
+                         fallback : ['glib', 'libgmodule_dep'])
+gio_dep = dependency('gio-2.0', version: glib_req_version,
+                     fallback : ['glib', 'libgio_dep'])
 
 # Configurations
 gdk_pixbuf_conf = configuration_data()
@@ -184,11 +191,6 @@ if host_machine.system() == 'darwin'
   gdk_pixbuf_conf.set('OS_DARWIN', 1)
 endif
 
-# Dependencies
-gobject_dep = dependency('gobject-2.0', version: glib_req_version)
-gmodule_dep = dependency('gmodule-no-export-2.0')
-gio_dep = dependency('gio-2.0')
-
 # On non-Windows/macOS systems we always required shared-mime-info and GIO
 if host_system != 'windows' and host_system != 'darwin'
   shared_mime_dep = dependency('shared-mime-info')
@@ -211,10 +213,15 @@ if medialib_dep.found()
   endif
 endif
 
-gdk_pixbuf_deps = [ mathlib_dep, gobject_dep, gmodule_dep, gio_dep, shared_mime_dep, medialib_dep ]
+gdk_pixbuf_deps = [ mathlib_dep, glib_dep, gobject_dep, gmodule_dep, gio_dep,
+                    shared_mime_dep, medialib_dep ]
 
 # Check if we can build shared modules
-build_modules = gmodule_dep.get_pkgconfig_variable('gmodule_supported') == 'true'
+if gmodule_dep.type_name() == 'pkgconfig'
+  build_modules = gmodule_dep.get_pkgconfig_variable('gmodule_supported') == 'true'
+else
+  build_modules = subproject('glib').get_variable('g_module_impl') != '0'
+endif
 gdk_pixbuf_conf.set('USE_GMODULE', build_modules)
 
 # Check which loaders should be built into gdk-pixbuf
@@ -268,6 +275,13 @@ if get_option('png')
           loaders_deps += [ png_dep, zlib_dep ]
         endif
       endif
+    endif
+
+    # Finally, look for a subproject
+    png_dep = dependency('', required: false, fallback: ['libpng', 'png_dep'])
+    if png_dep.found()
+      enabled_loaders += 'png'
+      loaders_deps += png_dep
     endif
   endif
 endif
