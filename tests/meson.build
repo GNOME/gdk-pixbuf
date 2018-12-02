@@ -53,6 +53,7 @@ installed_tests = [
   [ 'pixbuf-icon-serialize', ['conform'], ],
   [ 'pixbuf-randomly-modified', ['slow'], ],
   [ 'pixbuf-threads', ['io'], ],
+  [ 'pixbuf-gif', ['io'], ],
   [ 'pixbuf-icc', ['io'], ],
   [ 'pixbuf-jpeg', ['format'], ],
   [ 'pixbuf-dpi', ['io'], ],
