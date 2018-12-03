@@ -542,7 +542,7 @@ get_code (GifContext *context,
 {
 	int i, j, ret;
 
-	if ((context->code_curbit + code_size) >= context->code_lastbit){
+	if ((context->code_curbit + code_size) > context->code_lastbit){
 		gif_set_lzw_fill_buffer (context);
 		return -3;
 	}
