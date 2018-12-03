@@ -25,8 +25,8 @@ interlace
 extra-pixels
 extra-data
 no-clear
-#no-eoi
-#no-clear-and-eoi
+no-eoi
+no-clear-and-eoi
 invalid-colors
 max-width
 max-height
