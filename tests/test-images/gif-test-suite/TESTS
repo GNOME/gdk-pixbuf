@@ -31,8 +31,8 @@ missing-pixels
 extra-pixels
 extra-data
 no-clear
-#no-eoi
-#no-clear-and-eoi
+no-eoi
+no-clear-and-eoi
 #many-clears
 #double-clears
 invalid-colors
