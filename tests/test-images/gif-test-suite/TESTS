@@ -27,8 +27,8 @@ extra-data
 no-clear
 no-eoi
 no-clear-and-eoi
-#many-clears
-#double-clears
+many-clears
+double-clears
 invalid-colors
 max-width
 max-height

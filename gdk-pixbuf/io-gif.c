@@ -556,14 +556,6 @@ get_code (GifContext *context,
 	return ret;
 }
 
-
-static void
-set_gif_lzw_clear_code (GifContext *context)
-{
-	context->state = GIF_LZW_CLEAR_CODE;
-	context->lzw_code_pending = -1;
-}
-
 static int
 gif_lzw_clear_code (GifContext *context)
 {
@@ -634,8 +626,7 @@ lzw_read_byte (GifContext *context)
 			context->lzw_max_code_size = 2 * context->lzw_clear_code;
 			context->lzw_max_code = context->lzw_clear_code + 2;
 			context->lzw_sp = context->lzw_stack;
-
-			set_gif_lzw_clear_code (context);
+			context->lzw_fresh = TRUE;
 			return -3;
 		} else if (code == context->lzw_end_code) {
 			int count;
