@@ -46,3 +46,8 @@ option('installed_tests',
        description: 'Install the test suite',
        type: 'boolean',
        value: true)
+option('gio_sniffing',
+       description: 'Perform file type detection using GIO (Unused on MacOS and Windows)',
+       type: 'boolean',
+       value: true)
+
