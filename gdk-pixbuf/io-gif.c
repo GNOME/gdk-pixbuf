@@ -210,7 +210,7 @@ gif_read (GifContext *context, guchar *buffer, size_t len)
 	if (context->file) {
 #ifdef IO_GIFDEBUG
 		count += len;
-		g_print ("Fsize :%d\tcount :%d\t", len, count);
+		g_print ("Fsize :%zi\tcount :%d\t", len, count);
 #endif
 		retval = (fread (buffer, 1, len, context->file) == len);
 
@@ -244,7 +244,7 @@ gif_read (GifContext *context, guchar *buffer, size_t len)
 			context->ptr += len;
 			context->amount_needed = 0;
 #ifdef IO_GIFDEBUG
-			g_print ("Psize :%d\tcount :%d\t", len, count);
+			g_print ("Psize :%zi\tcount :%d\t", len, count);
 			if (len < 100) {
 				for (i = 0; i < len; i++)
 					g_print ("%d ", buffer[i]);
