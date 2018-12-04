@@ -86,7 +86,6 @@ enum {
 	GIF_GET_COLORMAP2,
 	GIF_PREPARE_LZW,
 	GIF_LZW_FILL_BUFFER,
-	GIF_LZW_CLEAR_CODE,
 	GIF_GET_LZW,
 	GIF_DONE
 };
@@ -162,7 +161,6 @@ struct _GifContext
 	int code_lastbit;
 	int code_done;
 	int code_last_byte;
-	int lzw_code_pending;
 
 	/* lzw context */
 	gint lzw_fresh;
@@ -554,29 +552,6 @@ get_code (GifContext *context,
 	return ret;
 }
 
-
-static void
-set_gif_lzw_clear_code (GifContext *context)
-{
-	context->state = GIF_LZW_CLEAR_CODE;
-	context->lzw_code_pending = -1;
-}
-
-static int
-gif_lzw_clear_code (GifContext *context)
-{
-	gint code;
-
-	code = get_code (context, context->lzw_code_size);
-	if (code == -3)
-		return -0;
-
-	context->lzw_firstcode = context->lzw_oldcode = code;
-	context->lzw_code_pending = code;
-	context->state = GIF_GET_LZW;
-	return 0;
-}
-
 #define CHECK_LZW_SP() G_STMT_START {                                           \
         if ((guchar *)context->lzw_sp >=                                        \
             (guchar *)context->lzw_stack + sizeof (context->lzw_stack)) {       \
@@ -595,12 +570,6 @@ lzw_read_byte (GifContext *context)
 	gint retval;
 	gint my_retval;
 	register int i;
-
-	if (context->lzw_code_pending != -1) {
-		retval = context->lzw_code_pending;
-		context->lzw_code_pending = -1;
-		return retval;
-	}
 
 	if (context->lzw_fresh) {
 		context->lzw_fresh = FALSE;
@@ -632,8 +601,7 @@ lzw_read_byte (GifContext *context)
 			context->lzw_max_code_size = 2 * context->lzw_clear_code;
 			context->lzw_max_code = context->lzw_clear_code + 2;
 			context->lzw_sp = context->lzw_stack;
-
-			set_gif_lzw_clear_code (context);
+			context->lzw_fresh = TRUE;
 			return -3;
 		} else if (code == context->lzw_end_code) {
 			int count;
@@ -1136,7 +1104,6 @@ static void
 gif_set_prepare_lzw (GifContext *context)
 {
 	context->state = GIF_PREPARE_LZW;
-	context->lzw_code_pending = -1;
 }
 static int
 gif_prepare_lzw (GifContext *context)
@@ -1442,11 +1409,6 @@ gif_main_loop (GifContext *context)
 		case GIF_LZW_FILL_BUFFER:
                         LOG("fill_buffer\n");
 			retval = gif_lzw_fill_buffer (context);
-			break;
-
-		case GIF_LZW_CLEAR_CODE:
-                        LOG("clear_code\n");
-			retval = gif_lzw_clear_code (context);
 			break;
 
 		case GIF_GET_LZW:
