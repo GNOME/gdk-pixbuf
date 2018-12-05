@@ -24,6 +24,7 @@
 #include <errno.h>
 #include "gdk-pixbuf-transform.h"
 #include "io-gif-animation.h"
+#include "lzw.h"
 
 static void gdk_pixbuf_gif_anim_finalize   (GObject        *object);
 
@@ -35,6 +36,7 @@ static void                    gdk_pixbuf_gif_anim_get_size (GdkPixbufAnimation 
                                                              int                *height);
 static GdkPixbufAnimationIter* gdk_pixbuf_gif_anim_get_iter (GdkPixbufAnimation *anim,
                                                              const GTimeVal     *start_time);
+static GdkPixbuf*              gdk_pixbuf_gif_anim_iter_get_pixbuf (GdkPixbufAnimationIter *iter);
 
 
 
@@ -70,15 +72,16 @@ gdk_pixbuf_gif_anim_finalize (GObject *object)
 
         for (l = gif_anim->frames; l; l = l->next) {
                 frame = l->data;
-                g_object_unref (frame->pixbuf);
-                if (frame->composited)
-                        g_object_unref (frame->composited);
-                if (frame->revert)
-                        g_object_unref (frame->revert);
+                g_byte_array_unref (frame->lzw_data);
+                if (frame->color_map_allocated)
+                        g_free (frame->color_map);
                 g_free (frame);
         }
 
         g_list_free (gif_anim->frames);
+
+        g_clear_object (&gif_anim->last_frame_data);
+        g_clear_object (&gif_anim->last_frame_revert_data);
 
         G_OBJECT_CLASS (gdk_pixbuf_gif_anim_parent_class)->finalize (object);
 }
@@ -98,13 +101,16 @@ static GdkPixbuf*
 gdk_pixbuf_gif_anim_get_static_image (GdkPixbufAnimation *animation)
 {
         GdkPixbufGifAnim *gif_anim;
+        GdkPixbufAnimationIter *iter;
+        GTimeVal start_time = { 0, 0 };
 
         gif_anim = GDK_PIXBUF_GIF_ANIM (animation);
 
         if (gif_anim->frames == NULL)
                 return NULL;
-        else
-                return GDK_PIXBUF (((GdkPixbufFrame*)gif_anim->frames->data)->pixbuf);
+
+        iter = gdk_pixbuf_gif_anim_get_iter (animation, &start_time);
+        return gdk_pixbuf_gif_anim_iter_get_pixbuf (iter);
 }
 
 static void
@@ -164,7 +170,6 @@ gdk_pixbuf_gif_anim_get_iter (GdkPixbufAnimation *anim,
 static void gdk_pixbuf_gif_anim_iter_finalize   (GObject                   *object);
 
 static int        gdk_pixbuf_gif_anim_iter_get_delay_time             (GdkPixbufAnimationIter *iter);
-static GdkPixbuf* gdk_pixbuf_gif_anim_iter_get_pixbuf                 (GdkPixbufAnimationIter *iter);
 static gboolean   gdk_pixbuf_gif_anim_iter_on_currently_loading_frame (GdkPixbufAnimationIter *iter);
 static gboolean   gdk_pixbuf_gif_anim_iter_advance                    (GdkPixbufAnimationIter *iter,
                                                                        const GTimeVal         *current_time);
@@ -203,47 +208,6 @@ gdk_pixbuf_gif_anim_iter_finalize (GObject *object)
         g_object_unref (iter->gif_anim);
 
         G_OBJECT_CLASS (gdk_pixbuf_gif_anim_iter_parent_class)->finalize (object);
-}
-
-static void
-gtk_pixpuf_gif_reuse_old_composited_buffer (GdkPixbufFrame *old,
-                                            GdkPixbufFrame *new)
-{
-        /* Move old buffer to new frame to reuse memory and
-         * minimise footprint */
-        new->composited = old->composited;
-        old->composited = NULL;
-}
-
-static void
-gdk_pixbuf_gif_anim_iter_clean_previous (GList *initial)
-{
-        GdkPixbufFrame *frame;
-        GList *tmp;
-
-        /* Cleanup previous frames until first cleaned frame */
-        frame = initial->data;
-
-        /* Check the current frame */
-        if (!frame->composited || frame->need_recomposite) {
-                /* The composite frame doesn't exist,
-                 * nothing to cleanup */
-                return;
-        }
-
-        /* Work with previous frames */
-        tmp = initial->prev;
-        while (tmp != NULL) {
-                frame = tmp->data;
-                if (!frame->composited || frame->need_recomposite) {
-                        /* Composite for previous frame doesn't exist */
-                        break;
-                }
-
-                /* delete cached pixbuf */
-                g_clear_object (&frame->composited);
-                tmp = tmp->prev;
-        }
 }
 
 static gboolean
@@ -306,8 +270,6 @@ gdk_pixbuf_gif_anim_iter_advance (GdkPixbufAnimationIter *anim_iter,
                         break;
 
                 tmp = tmp->next;
-                if (tmp)
-                        gdk_pixbuf_gif_anim_iter_clean_previous(tmp);
         }
 
         old = iter->current_frame;
@@ -341,245 +303,152 @@ gdk_pixbuf_gif_anim_iter_get_delay_time (GdkPixbufAnimationIter *anim_iter)
                 return -1; /* show last frame forever */
 }
 
-void
-gdk_pixbuf_gif_anim_frame_composite (GdkPixbufGifAnim *gif_anim,
-                                     GdkPixbufFrame   *frame)
+static void
+composite_frame (GdkPixbufGifAnim *anim, GdkPixbufFrame *frame)
 {
-        GList *link;
-        GList *tmp;
+        LZWDecoder *lzw_decoder = NULL;
+        guint8 *index_buffer = NULL;
+        gsize n_indexes, i;
+        guint16 *interlace_rows = NULL;
+        guchar *pixels;
 
-        link = g_list_find (gif_anim->frames, frame);
+        anim->last_frame = frame;
 
-        if (frame->need_recomposite || frame->composited == NULL) {
-                /* For now, to composite we start with the last
-                 * composited frame and composite everything up to
-                 * here.
-                 */
-
-                /* Rewind to last composited frame. */
-                tmp = link;
-                while (tmp != NULL) {
-                        GdkPixbufFrame *f = tmp->data;
-
-                        if (f->need_recomposite) {
-                                if (f->composited) {
-                                        g_object_unref (f->composited);
-                                        f->composited = NULL;
-                                }
-                        }
-
-                        if (f->composited != NULL)
-                                break;
-
-                        tmp = tmp->prev;
-                }
-
-                /* Go forward, compositing all frames up to the current frame */
-                if (tmp == NULL)
-                        tmp = gif_anim->frames;
-
-                while (tmp != NULL) {
-                        GdkPixbufFrame *f = tmp->data;
-                        gint clipped_width, clipped_height;
-
-                        if (f->pixbuf == NULL)
-                                return;
-
-                        clipped_width = MIN (gif_anim->width - f->x_offset, gdk_pixbuf_get_width (f->pixbuf));
-                        clipped_height = MIN (gif_anim->height - f->y_offset, gdk_pixbuf_get_height (f->pixbuf));
-
-                        if (f->need_recomposite) {
-                                if (f->composited) {
-                                        g_object_unref (f->composited);
-                                        f->composited = NULL;
-                                }
-                        }
-
-                        if (f->composited != NULL)
-                                goto next;
-
-                        if (tmp->prev == NULL) {
-                                /* First frame may be smaller than the whole image;
-                                 * if so, we make the area outside it full alpha if the
-                                 * image has alpha, and background color otherwise.
-                                 * GIF spec doesn't actually say what to do about this.
-                                 */
-                                f->composited = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
-                                                                TRUE,
-                                                                8, gif_anim->width, gif_anim->height);
-
-                                if (f->composited == NULL)
-                                        return;
-
-                                /* alpha gets dumped if f->composited has no alpha */
-
-                                gdk_pixbuf_fill (f->composited,
-                                                 ((unsigned) gif_anim->bg_red << 24) |
-                                                 (gif_anim->bg_green << 16) |
-                                                 (gif_anim->bg_blue << 8));
-
-                                if (clipped_width > 0 && clipped_height > 0)
-                                        gdk_pixbuf_composite (f->pixbuf,
-                                                              f->composited,
-                                                              f->x_offset,
-                                                              f->y_offset,
-                                                              clipped_width,
-                                                              clipped_height,
-                                                              f->x_offset, f->y_offset,
-                                                              1.0, 1.0,
-                                                              GDK_INTERP_BILINEAR,
-                                                              255);
-
-                                if (f->action == GDK_PIXBUF_FRAME_REVERT)
-                                        g_warning ("First frame of GIF has bad dispose mode, GIF loader should not have loaded this image");
-
-                                f->need_recomposite = FALSE;
-                        } else {
-                                GdkPixbufFrame *prev_frame;
-                                gint prev_clipped_width;
-                                gint prev_clipped_height;
-
-                                prev_frame = tmp->prev->data;
-
-                                prev_clipped_width = MIN (gif_anim->width - prev_frame->x_offset, gdk_pixbuf_get_width (prev_frame->pixbuf));
-                                prev_clipped_height = MIN (gif_anim->height - prev_frame->y_offset, gdk_pixbuf_get_height (prev_frame->pixbuf));
-
-                                /* Init f->composited with what we should have after the previous
-                                 * frame
-                                 */
-
-                                if (prev_frame->action == GDK_PIXBUF_FRAME_RETAIN) {
-                                        gtk_pixpuf_gif_reuse_old_composited_buffer (prev_frame, f);
-
-                                        if (f->composited == NULL)
-                                                return;
-
-                                } else if (prev_frame->action == GDK_PIXBUF_FRAME_DISPOSE) {
-                                        gtk_pixpuf_gif_reuse_old_composited_buffer (prev_frame, f);
-
-                                        if (f->composited == NULL)
-                                                return;
-
-                                        if (prev_clipped_width > 0 && prev_clipped_height > 0) {
-                                                /* Clear area of previous frame to background */
-                                                GdkPixbuf *area;
-
-                                                area = gdk_pixbuf_new_subpixbuf (f->composited,
-                                                                                 prev_frame->x_offset,
-                                                                                 prev_frame->y_offset,
-                                                                                 prev_clipped_width,
-                                                                                 prev_clipped_height);
-
-                                                if (area == NULL)
-                                                        return;
-
-                                                gdk_pixbuf_fill (area,
-                                                                 (gif_anim->bg_red << 24) |
-                                                                 (gif_anim->bg_green << 16) |
-                                                                 (gif_anim->bg_blue << 8));
-
-                                                g_object_unref (area);
-                                        }
-                                } else if (prev_frame->action == GDK_PIXBUF_FRAME_REVERT) {
-                                        gtk_pixpuf_gif_reuse_old_composited_buffer (prev_frame, f);
-
-                                        if (f->composited == NULL)
-                                                return;
-
-                                        if (prev_frame->revert != NULL &&
-                                            prev_clipped_width > 0 && prev_clipped_height > 0) {
-                                                /* Copy in the revert frame */
-                                                gdk_pixbuf_copy_area (prev_frame->revert,
-                                                                      0, 0,
-                                                                      gdk_pixbuf_get_width (prev_frame->revert),
-                                                                      gdk_pixbuf_get_height (prev_frame->revert),
-                                                                      f->composited,
-                                                                      prev_frame->x_offset,
-                                                                      prev_frame->y_offset);
-                                        }
-                                } else {
-                                        g_warning ("Unknown revert action for GIF frame");
-                                }
-
-                                if (f->revert == NULL &&
-                                    f->action == GDK_PIXBUF_FRAME_REVERT) {
-                                        if (clipped_width > 0 && clipped_height > 0) {
-                                                /* We need to save the contents before compositing */
-                                                GdkPixbuf *area;
-
-                                                area = gdk_pixbuf_new_subpixbuf (f->composited,
-                                                                                 f->x_offset,
-                                                                                 f->y_offset,
-                                                                                 clipped_width,
-                                                                                 clipped_height);
-
-                                                if (area == NULL)
-                                                        return;
-
-                                                f->revert = gdk_pixbuf_copy (area);
-
-                                                g_object_unref (area);
-
-                                                if (f->revert == NULL)
-                                                        return;
-                                        }
-                                }
-
-                                if (clipped_width > 0 && clipped_height > 0 &&
-                                    f->pixbuf != NULL && f->composited != NULL) {
-                                        /* Put current frame onto f->composited */
-                                        gdk_pixbuf_composite (f->pixbuf,
-                                                              f->composited,
-                                                              f->x_offset,
-                                                              f->y_offset,
-                                                              clipped_width,
-                                                              clipped_height,
-                                                              f->x_offset, f->y_offset,
-                                                              1.0, 1.0,
-                                                              GDK_INTERP_NEAREST,
-                                                              255);
-                                }
-
-                                f->need_recomposite = FALSE;
-                        }
-
-                next:
-                        if (tmp == link)
-                                break;
-
-                        tmp = tmp->next;
-                        if (tmp)
-                                 gdk_pixbuf_gif_anim_iter_clean_previous(tmp);
-                }
+        /* Store overwritten data if required */
+        g_clear_object (&anim->last_frame_revert_data);
+        if (frame->action == GDK_PIXBUF_FRAME_REVERT) {
+                anim->last_frame_revert_data = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, frame->width, frame->height);
+                if (anim->last_frame_revert_data != NULL)
+                        gdk_pixbuf_copy_area (anim->last_frame_data,
+                                              frame->x_offset, frame->y_offset, frame->width, frame->height,
+                                              anim->last_frame_revert_data,
+                                              0, 0);
         }
+
+        lzw_decoder = lzw_decoder_new (frame->lzw_code_size + 1);
+        index_buffer = g_new (guint8, frame->width * frame->height);
+        if (index_buffer == NULL)
+                goto out;
+
+        interlace_rows = g_new (guint16, frame->height);
+        if (interlace_rows == NULL)
+                goto out;
+        if (frame->interlace) {
+                int row, n = 0;
+                for (row = 0; row < frame->height; row += 8)
+                        interlace_rows[n++] = row;
+                for (row = 4; row < frame->height; row += 8)
+                        interlace_rows[n++] = row;
+                for (row = 2; row < frame->height; row += 4)
+                        interlace_rows[n++] = row;
+                for (row = 1; row < frame->height; row += 2)
+                        interlace_rows[n++] = row;
+        }
+        else {
+                int row;
+                for (row = 0; row < frame->height; row++)
+                        interlace_rows[row] = row;
+        }
+
+        n_indexes = lzw_decoder_feed (lzw_decoder, frame->lzw_data->data, frame->lzw_data->len, index_buffer, frame->width * frame->height);
+        pixels = gdk_pixbuf_get_pixels (anim->last_frame_data);
+        for (i = 0; i < n_indexes; i++) {
+                guint8 index = index_buffer[i];
+                guint x, y;
+                int offset;
+
+                if (index == frame->transparent_index)
+                        continue;
+
+                x = i % frame->width + frame->x_offset;
+                y = interlace_rows[i / frame->width] + frame->y_offset;
+                if (x >= anim->width || y >= anim->height)
+                        continue;
+
+                offset = y * gdk_pixbuf_get_rowstride (anim->last_frame_data) + x * 4;
+                pixels[offset + 0] = frame->color_map[index * 3 + 0];
+                pixels[offset + 1] = frame->color_map[index * 3 + 1];
+                pixels[offset + 2] = frame->color_map[index * 3 + 2];
+                pixels[offset + 3] = 255;
+        }
+
+out:
+        g_clear_object (&lzw_decoder);
+        g_free (index_buffer);
+        g_free (interlace_rows);
 }
 
 GdkPixbuf*
 gdk_pixbuf_gif_anim_iter_get_pixbuf (GdkPixbufAnimationIter *anim_iter)
 {
-        GdkPixbufGifAnimIter *iter;
-        GdkPixbufFrame *frame;
+        GdkPixbufGifAnimIter *iter = GDK_PIXBUF_GIF_ANIM_ITER (anim_iter);
+        GdkPixbufGifAnim *anim = iter->gif_anim;
+        GdkPixbufFrame *requested_frame;
+        GList *link;
 
-        iter = GDK_PIXBUF_GIF_ANIM_ITER (anim_iter);
+        if (iter->current_frame != NULL)
+                requested_frame = iter->current_frame->data;
+        else
+                requested_frame = g_list_last (anim->frames)->data;
 
-        frame = iter->current_frame ? iter->current_frame->data : g_list_last (iter->gif_anim->frames)->data;
+        /* If the previously rendered frame is not before this one, then throw it away */
+        if (anim->last_frame != NULL) {
+                link = g_list_find (anim->frames, anim->last_frame);
+                while (link != NULL && link->data != requested_frame)
+                        link = link->next;
+                if (link == NULL)
+                        anim->last_frame = NULL;
+        }
 
-#if 0
-        if (FALSE && frame)
-          g_print ("current frame %d dispose mode %d  %d x %d\n",
-                   g_list_index (iter->gif_anim->frames,
-                                 frame),
-                   frame->action,
-                   gdk_pixbuf_get_width (frame->pixbuf),
-                   gdk_pixbuf_get_height (frame->pixbuf));
-#endif
+        /* If no rendered frame, render the first frame */
+        if (anim->last_frame == NULL) {
+                if (anim->last_frame_data == NULL)
+                        anim->last_frame_data = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, anim->width, anim->height);
+                if (anim->last_frame_data == NULL)
+                        return NULL;
+                memset (gdk_pixbuf_get_pixels (anim->last_frame_data), 0, gdk_pixbuf_get_rowstride (anim->last_frame_data) * anim->height);
+                composite_frame (anim, g_list_nth_data (anim->frames, 0));
+        }
 
-        if (frame == NULL)
-                return NULL;
+        /* If the requested frame is already rendered, then no action required */
+        if (requested_frame == anim->last_frame)
+                return anim->last_frame_data;
 
-        gdk_pixbuf_gif_anim_frame_composite (iter->gif_anim, frame);
+        /* Starting from the last rendered frame, render to the current frame */
+        for (link = g_list_find (anim->frames, anim->last_frame); link->next != NULL && link->data != requested_frame; link = link->next) {
+                GdkPixbufFrame *frame = link->data;
+                guchar *pixels;
+                int y, x_end, y_end;
 
-        return frame->composited;
+                /* Remove last frame if required */
+                switch (frame->action) {
+                case GDK_PIXBUF_FRAME_RETAIN:
+                        break;
+                case GDK_PIXBUF_FRAME_DISPOSE:
+                        /* Replace previous area with background */
+                        pixels = gdk_pixbuf_get_pixels (anim->last_frame_data);
+                        x_end = MIN (anim->last_frame->x_offset + anim->last_frame->width, anim->width);
+                        y_end = MIN (anim->last_frame->y_offset + anim->last_frame->height, anim->height);
+                        for (y = anim->last_frame->y_offset; y < y_end; y++) {
+                                guchar *line = pixels + y * gdk_pixbuf_get_rowstride (anim->last_frame_data) + anim->last_frame->x_offset * 4;
+                                memset (line, 0, (x_end - anim->last_frame->x_offset) * 4);
+                        }
+                        break;
+                case GDK_PIXBUF_FRAME_REVERT:
+                        /* Replace previous area with last retained area */
+                        if (anim->last_frame_revert_data != NULL)
+                                gdk_pixbuf_copy_area (anim->last_frame_revert_data,
+                                                      0, 0, anim->last_frame->width, anim->last_frame->height,
+                                                      anim->last_frame_data,
+                                                      anim->last_frame->x_offset, anim->last_frame->y_offset);
+                        break;
+                }
+
+                /* Render next frame */
+                composite_frame (anim, link->next->data);
+        }
+
+        return anim->last_frame_data;
 }
 
 static gboolean
