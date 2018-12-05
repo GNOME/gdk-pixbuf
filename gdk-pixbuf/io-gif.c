@@ -58,7 +58,6 @@
 #include <glib/gi18n-lib.h>
 #include "gdk-pixbuf-io.h"
 #include "io-gif-animation.h"
-#include "lzw.h"
 
 
 
@@ -108,12 +107,10 @@ struct _GifContext
 
         gboolean has_global_cmap;
 
-        CMap global_color_map;
         gint global_colormap_size;
         unsigned int global_bit_pixel;
 	unsigned int global_color_resolution;
         unsigned int background_index;
-        gboolean stop_after_first_frame;
 
         gboolean frame_cmap_active;
         CMap frame_color_map;
@@ -155,14 +152,6 @@ struct _GifContext
 	guchar block_buf[280];
 
 	guchar lzw_set_code_size;
-	LZWDecoder *lzw_decoder;
-	guint8 *index_buffer;
-	gsize index_buffer_length;
-
-	/* painting context */
-	gint draw_xpos;
-	gint draw_ypos;
-	gint draw_pass;
 
         /* error pointer */
         GError **error;
@@ -259,15 +248,9 @@ gif_get_colormap (GifContext *context)
 			return -1;
 		}
 
-		context->global_color_map[0][context->global_colormap_size] = rgb[0];
-		context->global_color_map[1][context->global_colormap_size] = rgb[1];
-		context->global_color_map[2][context->global_colormap_size] = rgb[2];
-
-                if (context->global_colormap_size == context->background_index) {
-                        context->animation->bg_red = rgb[0];
-                        context->animation->bg_green = rgb[1];
-                        context->animation->bg_blue = rgb[2];
-                }
+		context->animation->color_map[context->global_colormap_size * 3 + 0] = rgb[0];
+		context->animation->color_map[context->global_colormap_size * 3 + 1] = rgb[1];
+		context->animation->color_map[context->global_colormap_size * 3 + 2] = rgb[2];
 
 		context->global_colormap_size ++;
 	}
@@ -430,173 +413,23 @@ static void
 gif_set_get_lzw (GifContext *context)
 {
 	context->state = GIF_GET_LZW;
-	context->draw_xpos = 0;
-	context->draw_ypos = 0;
-	context->draw_pass = 0;
-}
-
-static void
-gif_fill_in_pixels (GifContext *context, guchar *dest, gint offset, guchar v)
-{
-	guchar *pixel = NULL;
-        guchar (*cmap)[MAXCOLORMAPSIZE];
-
-        if (context->frame_cmap_active)
-                cmap = context->frame_color_map;
-        else
-                cmap = context->global_color_map;
-        
-	if (context->gif89.transparent != -1) {
-		pixel = dest + (context->draw_ypos + offset) * gdk_pixbuf_get_rowstride (context->frame->pixbuf) + context->draw_xpos * 4;
-		*pixel = cmap [0][(guchar) v];
-		*(pixel+1) = cmap [1][(guchar) v];
-		*(pixel+2) = cmap [2][(guchar) v];
-		*(pixel+3) = (guchar) ((v == context->gif89.transparent) ? 0 : 255);
-	} else {
-		pixel = dest + (context->draw_ypos + offset) * gdk_pixbuf_get_rowstride (context->frame->pixbuf) + context->draw_xpos * 3;
-		*pixel = cmap [0][(guchar) v];
-		*(pixel+1) = cmap [1][(guchar) v];
-		*(pixel+2) = cmap [2][(guchar) v];
-	}
-}
-
-
-/* only called if progressive and interlaced */
-static void
-gif_fill_in_lines (GifContext *context, guchar *dest, guchar v)
-{
-	switch (context->draw_pass) {
-	case 0:
-		if (context->draw_ypos > 4) {
-			gif_fill_in_pixels (context, dest, -4, v);
-			gif_fill_in_pixels (context, dest, -3, v);
-		}
-		if (context->draw_ypos < (context->frame_height - 4)) {
-			gif_fill_in_pixels (context, dest, 3, v);
-			gif_fill_in_pixels (context, dest, 4, v);
-		}
-		/* we don't need a break here.  We draw the outer pixels first, then the
-		 * inner ones, then the innermost ones.  case 0 needs to draw all 3 bands.
-		 * case 1, just the last two, and case 2 just draws the last one*/
-	case 1:
-		if (context->draw_ypos > 2)
-			gif_fill_in_pixels (context, dest, -2, v);
-		if (context->draw_ypos < (context->frame_height - 2))
-			gif_fill_in_pixels (context, dest, 2, v);
-		/* no break as above. */
-	case 2:
-		if (context->draw_ypos > 1)
-			gif_fill_in_pixels (context, dest, -1, v);
-		if (context->draw_ypos < (context->frame_height - 1))
-			gif_fill_in_pixels (context, dest, 1, v);
-	case 3:
-	default:
-		break;
-	}
-}
-
-/* Clips a rectancle to the base dimensions. Returns TRUE if the clipped rectangle is non-empty. */
-static gboolean
-clip_frame (GifContext *context, 
-            gint       *x, 
-            gint       *y, 
-            gint       *width, 
-            gint       *height)
-{
-        gint orig_x, orig_y;
-        
-        orig_x = *x;
-        orig_y = *y;
-	*x = MAX (0, *x);
-	*y = MAX (0, *y);
-	*width = MIN (context->width, orig_x + *width) - *x;
-	*height = MIN (context->height, orig_y + *height) - *y;
-
-	if (*width > 0 && *height > 0)
-		return TRUE;
-
-	/* The frame is completely off-bounds */
-
-	*x = 0;
-	*y = 0;
-	*width = 0;
-	*height = 0;
-
-        return FALSE;
-}
-
-/* Call update_func on the given rectangle, unless it is completely off-bounds */
-static void
-maybe_update (GifContext *context,
-              gint        x,
-              gint        y,
-              gint        width,
-              gint        height)
-{
-        if (clip_frame (context, &x, &y, &width, &height))
-                (*context->update_func) (context->frame->pixbuf, 
-                                         x, y, width, height,
-                                         context->user_data);
 }
 
 static int
 gif_get_lzw (GifContext *context)
 {
-	guchar *dest, *temp;
-	gint lower_bound, upper_bound; /* bounds for emitting the area_updated signal */
-	gboolean bound_flag;
-	gint first_pass; /* bounds for emitting the area_updated signal */
-	gint v;
-
 	if (context->frame == NULL) {
-                context->frame = g_new (GdkPixbufFrame, 1);
+                int rowstride;
+                guint64 len;
 
-                context->frame->composited = NULL;
-                context->frame->revert = NULL;
-                
-                if (context->frame_len == 0 || context->frame_height == 0) {
-                        /* An empty frame, we just output a single transparent
-                         * pixel at (0, 0).
-                         */
-                        context->x_offset = 0;
-                        context->y_offset = 0;
-                        context->frame_len = 1;
-                        context->frame_height = 1;
-                        context->frame->pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, 1, 1);
-                        if (context->frame->pixbuf) {
-                                guchar *pixels;
-
-                                pixels = gdk_pixbuf_get_pixels (context->frame->pixbuf);
-                                pixels[0] = 0;
-                                pixels[1] = 0;
-                                pixels[2] = 0;
-                                pixels[3] = 0;
-                        }
-                } else {
-                        int rowstride;
-                        guint64 len;
-
-                        rowstride = gdk_pixbuf_calculate_rowstride (GDK_COLORSPACE_RGB,
-                                                                    TRUE,
-                                                                    8,
-                                                                    context->frame_len,
-                                                                    context->frame_height);
-                        if (rowstride > 0 &&
-                            g_uint64_checked_mul (&len, rowstride, context->frame_height) &&
-                            len <= G_MAXINT) {
-                                context->frame->pixbuf =
-                                        gdk_pixbuf_new (GDK_COLORSPACE_RGB,
-                                                        TRUE,
-                                                        8,
-                                                        context->frame_len,
-                                                        context->frame_height);
-                        } else {
-                                context->frame->pixbuf = NULL;
-                        }
-                }
-
-                if (!context->frame->pixbuf) {
-                        g_free (context->frame);
+                rowstride = gdk_pixbuf_calculate_rowstride (GDK_COLORSPACE_RGB,
+                                                            TRUE,
+                                                            8,
+                                                            context->frame_len,
+                                                            context->frame_height);
+                if (rowstride < 0 ||
+                    !g_uint64_checked_mul (&len, rowstride, context->frame_height) ||
+                    len >= G_MAXINT) {
                         g_set_error_literal (context->error,
                                              GDK_PIXBUF_ERROR,
                                              GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
@@ -604,10 +437,33 @@ gif_get_lzw (GifContext *context)
                         return -2;
                 }
 
+                context->frame = g_new0 (GdkPixbufFrame, 1);
+
+                context->frame->lzw_data = g_byte_array_new ();
+                context->frame->lzw_code_size = context->lzw_set_code_size;
+
+                context->frame->width = context->frame_len;
+                context->frame->height = context->frame_height;
                 context->frame->x_offset = context->x_offset;
                 context->frame->y_offset = context->y_offset;
-                context->frame->need_recomposite = TRUE;
-                
+                context->frame->interlace = context->frame_interlace;
+
+                if (context->frame_colormap_size > 0) {
+                        int i;
+
+                        context->frame->color_map = g_malloc (256 * 3);
+                        context->frame->color_map_allocated = TRUE;
+                        for (i = 0; i < 256; i++) {
+                                context->frame->color_map[i * 3 + 0] = context->frame_color_map[0][i];
+                                context->frame->color_map[i * 3 + 1] = context->frame_color_map[1][i];
+                                context->frame->color_map[i * 3 + 2] = context->frame_color_map[2][i];
+                        }
+                }
+                else
+                        context->frame->color_map = context->animation->color_map;
+
+                context->frame->transparent_index = context->gif89.transparent;
+
                 /* GIF delay is in hundredths, we want thousandths */
                 context->frame->delay_time = context->gif89.delay_time * 10;
 
@@ -622,7 +478,7 @@ gif_get_lzw (GifContext *context)
                  */
                 if (context->frame->delay_time < 20)
                         context->frame->delay_time = 20; /* 20 = "fast" */
-                
+
                 context->frame->elapsed = context->animation->total_time;
                 context->animation->total_time += context->frame->delay_time;                
                 
@@ -642,228 +498,47 @@ gif_get_lzw (GifContext *context)
                         break;
                 }
 
-                context->animation->n_frames ++;
                 context->animation->frames = g_list_append (context->animation->frames, context->frame);
 
-                /* Only call prepare_func for the first frame */
-		if (context->animation->frames->next == NULL) { 
-                        if (context->animation->width == 0 )
-                                context->animation->width = gdk_pixbuf_get_width(context->frame->pixbuf);
-                        if (context->animation->height == 0)
-                                context->animation->height = gdk_pixbuf_get_height (context->frame->pixbuf);
-
-                        if (context->prepare_func)
-                                (* context->prepare_func) (context->frame->pixbuf,
-                                                           GDK_PIXBUF_ANIMATION (context->animation),
-                                                           context->user_data);
-                } else {
-                        /* Otherwise init frame with last frame */
-                        GList *link;
-                        GdkPixbufFrame *prev_frame;
-                        gint x, y, w, h;
-                        
-                        link = g_list_find (context->animation->frames, context->frame);
-
-                        prev_frame = link->prev->data;
-
-                        gdk_pixbuf_gif_anim_frame_composite (context->animation, prev_frame);
-
-                        /* Composite failed */
-                        if (prev_frame->composited == NULL) {
-                                GdkPixbufFrame *frame = NULL;
-                                link = g_list_first (context->animation->frames);
-                                while (link != NULL) {
-                                        frame = (GdkPixbufFrame *)link->data;
-                                        if (frame != NULL) {
-                                                if (frame->pixbuf != NULL)
-                                                        g_object_unref (frame->pixbuf);
-                                                if (frame->composited != NULL)
-                                                        g_object_unref (frame->composited);
-                                                if (frame->revert != NULL)
-                                                        g_object_unref (frame->revert);
-                                                g_free (frame);
-                                        }
-                                        link = link->next;
-                                }
-                                
-                                g_list_free (context->animation->frames);
-                                context->animation->frames = NULL;
-                                
-                                g_set_error_literal (context->error,
-                                                     GDK_PIXBUF_ERROR,
-                                                     GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
-                                                     _("Not enough memory to composite a frame in GIF file"));
-                                return -2;
-                        }
-                    
-                        x = context->frame->x_offset;
-                        y = context->frame->y_offset;
-                        w = gdk_pixbuf_get_width (context->frame->pixbuf);
-                        h = gdk_pixbuf_get_height (context->frame->pixbuf);
-                        if (clip_frame (context, &x, &y, &w, &h))
-                                gdk_pixbuf_copy_area (prev_frame->composited,
-                                                      x, y, w, h,
-                                                      context->frame->pixbuf,
-                                                      0, 0);
-                }
+		/* Notify when have first frame */
+		if (context->animation->frames->next == NULL && context->prepare_func != NULL) {
+			GdkPixbuf *pixbuf = gdk_pixbuf_animation_get_static_image (GDK_PIXBUF_ANIMATION (context->animation));
+			if (pixbuf != NULL)
+				(* context->prepare_func) (pixbuf,
+				                           GDK_PIXBUF_ANIMATION (context->animation),
+				                           context->user_data);
+		}
         }
 
-	dest = gdk_pixbuf_get_pixels (context->frame->pixbuf);
-
-	bound_flag = FALSE;
-	lower_bound = upper_bound = context->draw_ypos;
-	first_pass = context->draw_pass;
-
+	/* read all blocks */
 	while (TRUE) {
-                guchar (*cmap)[MAXCOLORMAPSIZE];
-                guint8 block[255];
-                gint empty_block = FALSE;
-                gsize n_indexes, i;
+		gint retval, empty_block = FALSE;
 
-                if (context->frame_cmap_active)
-                        cmap = context->frame_color_map;
-                else
-                        cmap = context->global_color_map;
+		retval = get_data_block (context, (unsigned char *) context->block_buf, &empty_block);
 
-		v = get_data_block (context, block, &empty_block);
-		if (v < 0) {
-			goto finished_data;
+		/* Notify frame update */
+		if ((retval != 0 || empty_block) && context->animation->frames->next == NULL && context->update_func != NULL) {
+			GdkPixbuf *pixbuf = gdk_pixbuf_animation_get_static_image (GDK_PIXBUF_ANIMATION (context->animation));
+			if (pixbuf)
+				(* context->update_func) (pixbuf,
+				                          0, 0, context->frame->width, context->frame->height,
+				                          context->user_data);
 		}
+
+		if (retval != 0)
+			return retval;
+
 		if (empty_block) {
-			goto done;
+			context->frame = NULL;
+			context->state = GIF_GET_NEXT_STEP;
+			return 0;
 		}
 
-		bound_flag = TRUE;
-
-                g_assert (gdk_pixbuf_get_has_alpha (context->frame->pixbuf));
-
-		if (context->lzw_decoder == NULL) {
-			context->lzw_decoder = lzw_decoder_new (context->lzw_set_code_size + 1);
-			context->index_buffer_length = context->frame_len * context->frame_height;
-			context->index_buffer = g_new (guint8, context->index_buffer_length);
-                }
-		n_indexes = lzw_decoder_feed (context->lzw_decoder, block, context->block_count, context->index_buffer, context->index_buffer_length);
-                context->block_count = 0;
-
-		for (i = 0; i < n_indexes; i++) {
-                v = context->index_buffer[i];
-
-                temp = dest + context->draw_ypos * gdk_pixbuf_get_rowstride (context->frame->pixbuf) + context->draw_xpos * 4;
-                *temp = cmap [0][(guchar) v];
-                *(temp+1) = cmap [1][(guchar) v];
-                *(temp+2) = cmap [2][(guchar) v];
-                *(temp+3) = (guchar) ((v == context->gif89.transparent) ? 0 : 255);
-
-		if (context->prepare_func && context->frame_interlace)
-			gif_fill_in_lines (context, dest, v);
-
-		context->draw_xpos++;
-                
-		if (context->draw_xpos == context->frame_len) {
-			context->draw_xpos = 0;
-			if (context->frame_interlace) {
-				switch (context->draw_pass) {
-				case 0:
-				case 1:
-					context->draw_ypos += 8;
-					break;
-				case 2:
-					context->draw_ypos += 4;
-					break;
-				case 3:
-					context->draw_ypos += 2;
-					break;
-				}
-
-				if (context->draw_ypos >= context->frame_height) {
-					context->draw_pass++;
-					switch (context->draw_pass) {
-					case 1:
-						context->draw_ypos = 4;
-						break;
-					case 2:
-						context->draw_ypos = 2;
-						break;
-					case 3:
-						context->draw_ypos = 1;
-						break;
-					default:
-						goto done;
-					}
-				}
-			} else {
-				context->draw_ypos++;
-			}
-			if (context->draw_pass != first_pass) {
-				if (context->draw_ypos > lower_bound) {
-					lower_bound = 0;
-					upper_bound = context->frame_height;
-				} else {
-                                        
-				}
-			} else
-				upper_bound = context->draw_ypos;
-		}
-		if (context->draw_ypos >= context->frame_height)
-			break;
-		}
+		g_byte_array_append (context->frame->lzw_data, context->block_buf, context->block_count);
+		if (context->animation->last_frame == context->frame)
+			context->animation->last_frame = NULL;
+		context->block_count = 0;
 	}
-
- done:
-
-        context->state = GIF_GET_NEXT_STEP;
-
-        v = 0;
-
- finished_data:
-        
-        if (bound_flag)
-                context->frame->need_recomposite = TRUE;
-        
-	if (bound_flag && context->update_func) {
-		if (lower_bound <= upper_bound && first_pass == context->draw_pass) {
-                        maybe_update (context,
-                                      context->frame->x_offset,
-                                      context->frame->y_offset + lower_bound,
-                                      gdk_pixbuf_get_width (context->frame->pixbuf),
-                                      upper_bound - lower_bound + 1);
-		} else {
-			if (lower_bound <= upper_bound) {
-                                maybe_update (context,
-                                              context->frame->x_offset,
-                                              context->frame->y_offset,
-                                              gdk_pixbuf_get_width (context->frame->pixbuf),
-                                              gdk_pixbuf_get_height (context->frame->pixbuf));
-			} else {
-                                maybe_update (context,
-                                              context->frame->x_offset,
-                                              context->frame->y_offset,
-                                              gdk_pixbuf_get_width (context->frame->pixbuf),
-                                              upper_bound);
-                                maybe_update (context,
-                                              context->frame->x_offset,
-                                              context->frame->y_offset + lower_bound,
-                                              gdk_pixbuf_get_width (context->frame->pixbuf),
-                                              gdk_pixbuf_get_height (context->frame->pixbuf) - lower_bound);
-			}
-		}
-	}
-
-	if (context->state == GIF_GET_NEXT_STEP) {
-		g_clear_object (&context->lzw_decoder);
-		g_clear_pointer (&context->index_buffer, g_free);
-
-                /* Will be freed with context->animation, we are just
-                 * marking that we're done with it (no current frame)
-                 */
-		context->frame = NULL;
-                context->frame_cmap_active = FALSE;
-
-                if (context->stop_after_first_frame)
-                        context->state =  GIF_DONE;
-	}
-	
-	return v;
 }
 
 static void
@@ -879,16 +554,13 @@ gif_prepare_lzw (GifContext *context)
 		return -1;
 	}
         
-        if (context->lzw_set_code_size > LZW_CODE_MAX) {
+        if (context->lzw_set_code_size > 12) {
                 g_set_error_literal (context->error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
                                      _("GIF image is corrupt (incorrect LZW compression)"));
                 return -2;
         }
-
-	context->lzw_decoder = NULL;
-	context->index_buffer = NULL;
 
 	gif_set_get_lzw (context);
 
@@ -951,13 +623,6 @@ gif_init (GifContext *context)
 	context->background_index = buf[5];
 	context->aspect_ratio = buf[6];
 
-        /* Use background of transparent black as default, though if
-         * one isn't set explicitly no one should ever use it.
-         */
-        context->animation->bg_red = 0;
-        context->animation->bg_green = 0;
-        context->animation->bg_blue = 0;
-
         context->animation->width = context->width;
         context->animation->height = context->height;
 
@@ -1006,7 +671,7 @@ gif_get_frame_info (GifContext *context)
 	if (!gif_read (context, buf, 9)) {
 		return -1;
 	}
-        
+
 	/* Okay, we got all the info we need.  Lets record it */
 	context->frame_len = LM_to_uint (buf[4], buf[5]);
 	context->frame_height = LM_to_uint (buf[6], buf[7]);
@@ -1191,7 +856,6 @@ new_context (void)
 	context->gif89.disposal = -1;
         context->animation->loop = 1;
         context->in_loop_extension = FALSE;
-        context->stop_after_first_frame = FALSE;
 
 	return context;
 }
@@ -1217,7 +881,6 @@ gdk_pixbuf__gif_image_load (FILE *file, GError **error)
         
 	context->file = file;
         context->error = error;
-        context->stop_after_first_frame = TRUE;
 
         retval = gif_main_loop (context);
 	if (retval == -1 || context->animation->frames == NULL) {

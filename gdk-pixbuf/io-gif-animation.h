@@ -59,23 +59,24 @@ typedef struct _GdkPixbufFrame GdkPixbufFrame;
 struct _GdkPixbufGifAnim {
         GdkPixbufAnimation parent_instance;
 
-        /* Number of frames */
-        int n_frames;
-
         /* Total length of animation */
         int total_time;
         
+        /* Color map */
+        guchar color_map[256 * 3];
+
 	/* List of GdkPixbufFrame structures */
         GList *frames;
 
 	/* bounding box size */
 	int width, height;
 
-        guchar bg_red;
-        guchar bg_green;
-        guchar bg_blue;
-        
         int loop;
+
+        /* Last rendered frames */
+	GdkPixbuf *last_frame_data;
+	GdkPixbufFrame *last_frame;
+	GdkPixbuf *last_frame_revert_data;
 };
 
 struct _GdkPixbufGifAnimClass {
@@ -125,12 +126,25 @@ GType gdk_pixbuf_gif_anim_iter_get_type (void) G_GNUC_CONST;
 
 
 struct _GdkPixbufFrame {
-	/* The pixbuf with this frame's image data */
-	GdkPixbuf *pixbuf;
+	/* Compressed frame data */
+	GByteArray *lzw_data;
+	guint8 lzw_code_size;
 
-        /* Offsets for overlaying onto the GIF graphic area */
+        /* Position of frame data in image */
         int x_offset;
 	int y_offset;
+	guint16 width;
+	guint16 height;
+
+	/* Layout of pixels */
+	gboolean interlace;
+
+	/* Color map */
+	gboolean color_map_allocated;
+	guchar *color_map;
+
+	/* Transparency */
+	int transparent_index;
 
 	/* Frame duration in ms */
 	int delay_time;
@@ -140,30 +154,6 @@ struct _GdkPixbufFrame {
         
         /* Overlay mode */
 	GdkPixbufFrameAction action;
-
-        /* TRUE if the pixbuf has been modified since
-         * the last frame composite operation
-         */
-        gboolean need_recomposite;
-
-        /* The below reflects the "use hell of a lot of RAM"
-         * philosophy of coding
-         */
-        
-        /* Cached composite image (the image you actually display
-         * for this frame)
-         */
-        GdkPixbuf *composited;
-
-        /* Cached revert image (the contents of the area
-         * covered by the frame prior to compositing;
-         * same size as pixbuf, not as the composite image; only
-         * used for FRAME_REVERT frames)
-         */
-        GdkPixbuf *revert;
 };
-
-void gdk_pixbuf_gif_anim_frame_composite (GdkPixbufGifAnim *gif_anim,
-                                          GdkPixbufFrame   *frame);
 
 #endif
