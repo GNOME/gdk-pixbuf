@@ -14,9 +14,25 @@ meson-fedora-x86_64:
     - bash -x ./.gitlab/ci/test-docker.sh
   artifacts:
     when: on_failure
-    name: "gdk-pixbuf-${CI_COMMIT_REF_NAME}"
+    name: "gdk-pixbuf-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
     paths:
       - "${CI_PROJECT_DIR}/build_*/meson-logs"
   cache:
     key: "$CI_JOB_NAME"
     <<: *cache-paths
+
+msys2-mingw64:
+  stage: build
+  tags:
+    - win32
+  variables:
+    MSYSTEM: "MINGW64"
+    CHERE_INVOKING: "yes"
+  script:
+    - C:\msys64\usr\bin\pacman --noconfirm -Syyuu
+    - C:\msys64\usr\bin\bash -lc "bash -x ./.gitlab/ci/test-msys2.sh"
+  artifacts:
+    name: "gdk-pixbuf-%CI_JOB_NAME%-%CI_COMMIT_REF_NAME%"
+    when: always
+    paths:
+      - _build/meson-logs
