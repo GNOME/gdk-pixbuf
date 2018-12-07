@@ -90,9 +90,9 @@ static void free_buffer (guchar *pixels, gpointer data)
 	g_free (pixels);
 }
 
-static guchar unassoc(guchar value, int alpha) {
+static guchar unassoc (guchar value, int alpha) {
 	const int new_value = value * 255 / alpha;
-	return (new_value > 255) ? 255 : new_value;
+	return MIN(255, new_value);
 }
 
 static GdkPixbuf *
@@ -177,7 +177,9 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
                                      _("Could not get image extra samples information (bad TIFF file)"));
                 return NULL;
         }
-        if (extra_samples > 1 && extra_samples_ptr != NULL && extra_samples_ptr[0] == EXTRASAMPLE_ASSOCALPHA) {
+        if (extra_samples > 1 &&
+            extra_samples_ptr != NULL &&
+            extra_samples_ptr[0] == EXTRASAMPLE_ASSOCALPHA) {
                 is_associated = TRUE;
         }
 
@@ -351,9 +353,9 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
                 while (pixels < pixbuf_pixels + bytes) {
                         int a = pixels[3];
                         if (a > 0 && a < 255) {
-                                pixels[0] = unassoc(pixels[0], a);
-                                pixels[1] = unassoc(pixels[1], a);
-                                pixels[2] = unassoc(pixels[2], a);
+                                pixels[0] = unassoc (pixels[0], a);
+                                pixels[1] = unassoc (pixels[1], a);
+                                pixels[2] = unassoc (pixels[2], a);
                         }
                         pixels++;
                 }
