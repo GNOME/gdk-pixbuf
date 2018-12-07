@@ -58,6 +58,7 @@
 #include <glib/gi18n-lib.h>
 #include "gdk-pixbuf-io.h"
 #include "io-gif-animation.h"
+#include "lzw.h"
 
 
 
@@ -65,7 +66,6 @@
 #undef IO_GIFDEBUG
 
 #define MAXCOLORMAPSIZE  256
-#define MAX_LZW_BITS     12
 
 #define INTERLACE          0x40
 #define LOCALCOLORMAP      0x80
@@ -85,7 +85,6 @@ enum {
 	GIF_GET_EXTENSION,
 	GIF_GET_COLORMAP2,
 	GIF_PREPARE_LZW,
-	GIF_LZW_FILL_BUFFER,
 	GIF_GET_LZW,
 	GIF_DONE
 };
@@ -155,26 +154,10 @@ struct _GifContext
 	guchar block_count;
 	guchar block_buf[280];
 
-	int old_state; /* used by lzw_fill buffer */
-	/* get_code context */
-	int code_curbit;
-	int code_lastbit;
-	int code_done;
-	int code_last_byte;
-
-	/* lzw context */
-	gint lzw_code_size;
 	guchar lzw_set_code_size;
-	gint lzw_max_code;
-	gint lzw_max_code_size;
-	gint lzw_firstcode;
-	gint lzw_oldcode;
-	gint lzw_clear_code;
-	gint lzw_end_code;
-	gint *lzw_sp;
-
-	gint lzw_table[2][(1 << MAX_LZW_BITS)];
-	gint lzw_stack[(1 << (MAX_LZW_BITS)) * 2 + 1];
+	LZWDecoder *lzw_decoder;
+	guint8 *index_buffer;
+	gsize index_buffer_length;
 
 	/* painting context */
 	gint draw_xpos;
@@ -184,9 +167,6 @@ struct _GifContext
         /* error pointer */
         GError **error;
 };
-
-/* The buffer must be at least 255 bytes long. */
-static int GetDataBlock (GifContext *, unsigned char *);
 
 
 
@@ -444,225 +424,6 @@ gif_get_extension (GifContext *context)
 	} while (!empty_block);
 
 	return 0;
-}
-
-static int ZeroDataBlock = FALSE;
-
-/* @buf must be at least 255 bytes long. */
-static int
-GetDataBlock (GifContext *context,
-	      unsigned char *buf)
-{
-/*  	unsigned char count; */
-
-	if (!gif_read (context, &context->block_count, 1)) {
-		/*g_message (_("GIF: error in getting DataBlock size\n"));*/
-		return -1;
-	}
-
-	ZeroDataBlock = context->block_count == 0;
-
-	if ((context->block_count != 0) && (!gif_read (context, buf, context->block_count))) {
-		/*g_message (_("GIF: error in reading DataBlock\n"));*/
-		return -1;
-	}
-
-	return context->block_count;
-}
-
-
-static void
-gif_set_lzw_fill_buffer (GifContext *context)
-{
-	context->block_count = 0;
-	context->old_state = context->state;
-	context->state = GIF_LZW_FILL_BUFFER;
-}
-
-static int
-gif_lzw_fill_buffer (GifContext *context)
-{
-	gint retval;
-
-	if (context->code_done) {
-		if (context->code_curbit >= context->code_lastbit) {
-                        g_set_error_literal (context->error,
-                                             GDK_PIXBUF_ERROR,
-                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                             _("GIF file was missing some data (perhaps it was truncated somehow?)"));
-
-			return -2;
-		}
-                /* Is this supposed to be an error or what? */
-		/* g_message ("trying to read more data after we've done stuff\n"); */
-                g_set_error (context->error,
-                             GDK_PIXBUF_ERROR,
-                             GDK_PIXBUF_ERROR_FAILED,
-                             _("Internal error in the GIF loader (%s)"),
-                             G_STRLOC);
-                
-		return -2;
-	}
-
-	if (context->code_last_byte < 2) {
-		g_set_error_literal (context->error,
-				     GDK_PIXBUF_ERROR,
-				     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-				     _("Bad code encountered"));
-		return -2;
-	}
-
-	context->block_buf[0] = context->block_buf[context->code_last_byte - 2];
-	context->block_buf[1] = context->block_buf[context->code_last_byte - 1];
-
-	retval = get_data_block (context, &context->block_buf[2], NULL);
-
-	if (retval == -1)
-		return -1;
-
-	if (context->block_count == 0)
-		context->code_done = TRUE;
-
-	context->code_last_byte = 2 + context->block_count;
-	context->code_curbit = (context->code_curbit - context->code_lastbit) + 16;
-	context->code_lastbit = (2 + context->block_count) * 8;
-
-	context->state = context->old_state;
-	return 0;
-}
-
-static int
-get_code (GifContext *context,
-	  int   code_size)
-{
-	int i, j, ret;
-
-	if ((context->code_curbit + code_size) > context->code_lastbit){
-		gif_set_lzw_fill_buffer (context);
-		return -3;
-	}
-
-	ret = 0;
-	for (i = context->code_curbit, j = 0; j < code_size; ++i, ++j)
-		ret |= ((context->block_buf[i / 8] & (1 << (i % 8))) != 0) << j;
-
-	context->code_curbit += code_size;
-
-	return ret;
-}
-
-#define CHECK_LZW_SP() G_STMT_START {                                           \
-        if ((guchar *)context->lzw_sp >=                                        \
-            (guchar *)context->lzw_stack + sizeof (context->lzw_stack)) {       \
-                 g_set_error_literal (context->error,                           \
-                                      GDK_PIXBUF_ERROR,                         \
-                                      GDK_PIXBUF_ERROR_CORRUPT_IMAGE,           \
-                                      _("Stack overflow"));                     \
-                return -2;                                                      \
-        }                                                                       \
-} G_STMT_END
-
-static int
-lzw_read_byte (GifContext *context)
-{
-	int code, incode;
-	gint my_retval;
-	register int i;
-
-	if (context->lzw_sp > context->lzw_stack) {
-		my_retval = *--(context->lzw_sp);
-		return my_retval;
-	}
-
-	while ((code = get_code (context, context->lzw_code_size)) >= 0) {
-		if (code == context->lzw_clear_code) {
-			for (i = 0; i < context->lzw_clear_code; ++i) {
-				context->lzw_table[0][i] = 0;
-				context->lzw_table[1][i] = i;
-			}
-			for (; i < (1 << MAX_LZW_BITS); ++i)
-				context->lzw_table[0][i] = context->lzw_table[1][i] = 0;
-			context->lzw_code_size = context->lzw_set_code_size + 1;
-			context->lzw_max_code_size = 2 * context->lzw_clear_code;
-			context->lzw_max_code = context->lzw_clear_code + 2;
-			context->lzw_sp = context->lzw_stack;
-			context->lzw_oldcode = code;
-			return -3;
-		} else if (code == context->lzw_end_code) {
-			int count;
-			unsigned char buf[260];
-
-                        /*  FIXME - we should handle this case */
-                        g_set_error_literal (context->error,
-                                             GDK_PIXBUF_ERROR,
-                                             GDK_PIXBUF_ERROR_FAILED,
-                                             _("GIF image loader cannot understand this image."));
-                        return -2;
-                        
-			if (ZeroDataBlock) {
-				return -2;
-			}
-
-			while ((count = GetDataBlock (context, buf)) > 0)
-				;
-
-			if (count != 0) {
-				/*g_print (_("GIF: missing EOD in data stream (common occurence)"));*/
-				return -2;
-			}
-		}
-
-		incode = code;
-
-		if (code >= context->lzw_max_code) {
-                        CHECK_LZW_SP ();
-			*(context->lzw_sp)++ = context->lzw_firstcode;
-			code = context->lzw_oldcode;
-		}
-
-		while (code >= context->lzw_clear_code) {
-                        if (code >= (1 << MAX_LZW_BITS)) {
-                                g_set_error_literal (context->error,
-                                                     GDK_PIXBUF_ERROR,
-                                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                                     _("Bad code encountered"));
-				return -2;
-                        }
-                        CHECK_LZW_SP ();
-			*(context->lzw_sp)++ = context->lzw_table[1][code];
-
-			if (code == context->lzw_table[0][code]) {
-                                g_set_error_literal (context->error,
-                                                     GDK_PIXBUF_ERROR,
-                                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                                     _("Circular table entry in GIF file"));
-				return -2;
-			}
-			code = context->lzw_table[0][code];
-		}
-
-                CHECK_LZW_SP ();
-		*(context->lzw_sp)++ = context->lzw_firstcode = context->lzw_table[1][code];
-
-		if (context->lzw_oldcode != context->lzw_clear_code && (code = context->lzw_max_code) < (1 << MAX_LZW_BITS)) {
-			context->lzw_table[0][code] = context->lzw_oldcode;
-			context->lzw_table[1][code] = context->lzw_firstcode;
-			++context->lzw_max_code;
-			if ((context->lzw_max_code >= context->lzw_max_code_size) &&
-			    (context->lzw_max_code_size < (1 << MAX_LZW_BITS))) {
-				context->lzw_max_code_size *= 2;
-				++context->lzw_code_size;
-			}
-		}
-
-		context->lzw_oldcode = incode;
-
-		if (context->lzw_sp > context->lzw_stack) {
-			my_retval = *--(context->lzw_sp);
-			return my_retval;
-		}
-	}
-	return code;
 }
 
 static void
@@ -955,20 +716,38 @@ gif_get_lzw (GifContext *context)
 
 	while (TRUE) {
                 guchar (*cmap)[MAXCOLORMAPSIZE];
+                guint8 block[255];
+                gint empty_block = FALSE;
+                gsize n_indexes, i;
 
                 if (context->frame_cmap_active)
                         cmap = context->frame_color_map;
                 else
                         cmap = context->global_color_map;
-                
-		v = lzw_read_byte (context);
+
+		v = get_data_block (context, block, &empty_block);
 		if (v < 0) {
 			goto finished_data;
 		}
+		if (empty_block) {
+			goto done;
+		}
+
 		bound_flag = TRUE;
 
                 g_assert (gdk_pixbuf_get_has_alpha (context->frame->pixbuf));
-                
+
+		if (context->lzw_decoder == NULL) {
+			context->lzw_decoder = lzw_decoder_new (context->lzw_set_code_size + 1);
+			context->index_buffer_length = context->frame_len * context->frame_height;
+			context->index_buffer = g_new (guint8, context->index_buffer_length);
+                }
+		n_indexes = lzw_decoder_feed (context->lzw_decoder, block, context->block_count, context->index_buffer, context->index_buffer_length);
+                context->block_count = 0;
+
+		for (i = 0; i < n_indexes; i++) {
+                v = context->index_buffer[i];
+
                 temp = dest + context->draw_ypos * gdk_pixbuf_get_rowstride (context->frame->pixbuf) + context->draw_xpos * 4;
                 *temp = cmap [0][(guchar) v];
                 *(temp+1) = cmap [1][(guchar) v];
@@ -1027,6 +806,7 @@ gif_get_lzw (GifContext *context)
 		}
 		if (context->draw_ypos >= context->frame_height)
 			break;
+		}
 	}
 
  done:
@@ -1070,6 +850,9 @@ gif_get_lzw (GifContext *context)
 	}
 
 	if (context->state == GIF_GET_NEXT_STEP) {
+		g_clear_object (&context->lzw_decoder);
+		g_clear_pointer (&context->index_buffer, g_free);
+
                 /* Will be freed with context->animation, we are just
                  * marking that we're done with it (no current frame)
                  */
@@ -1091,14 +874,12 @@ gif_set_prepare_lzw (GifContext *context)
 static int
 gif_prepare_lzw (GifContext *context)
 {
-	gint i;
-
 	if (!gif_read (context, &(context->lzw_set_code_size), 1)) {
 		/*g_message (_("GIF: EOF / read error on image data\n"));*/
 		return -1;
 	}
         
-        if (context->lzw_set_code_size > MAX_LZW_BITS) {
+        if (context->lzw_set_code_size > LZW_CODE_MAX) {
                 g_set_error_literal (context->error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
@@ -1106,33 +887,9 @@ gif_prepare_lzw (GifContext *context)
                 return -2;
         }
 
-	context->lzw_code_size = context->lzw_set_code_size + 1;
-	context->lzw_clear_code = 1 << context->lzw_set_code_size;
-	context->lzw_end_code = context->lzw_clear_code + 1;
-	context->lzw_max_code_size = 2 * context->lzw_clear_code;
-	context->lzw_max_code = context->lzw_clear_code + 2;
-	context->lzw_oldcode = context->lzw_clear_code;
-	context->code_curbit = 0;
-	context->code_lastbit = 0;
-	/* During initialistion (in gif_lzw_fill_buffer) we substract 2 from
-	 * this value to peek into a buffer.
-	 * In order to not get a negative array index later, we set the value
-	 * to that magic 2 now.
-	 */
-	context->code_last_byte = 2;
-	context->code_done = FALSE;
+	context->lzw_decoder = NULL;
+	context->index_buffer = NULL;
 
-        g_assert (context->lzw_clear_code <= 
-                  G_N_ELEMENTS (context->lzw_table[0]));
-
-	for (i = 0; i < context->lzw_clear_code; ++i) {
-		context->lzw_table[0][i] = 0;
-		context->lzw_table[1][i] = i;
-	}
-	for (; i < (1 << MAX_LZW_BITS); ++i)
-		context->lzw_table[0][i] = context->lzw_table[1][0] = 0;
-
-	context->lzw_sp = context->lzw_stack;
 	gif_set_get_lzw (context);
 
 	return 0;
@@ -1391,11 +1148,6 @@ gif_main_loop (GifContext *context)
 		case GIF_PREPARE_LZW:
                         LOG("prepare_lzw\n");
 			retval = gif_prepare_lzw (context);
-			break;
-
-		case GIF_LZW_FILL_BUFFER:
-                        LOG("fill_buffer\n");
-			retval = gif_lzw_fill_buffer (context);
 			break;
 
 		case GIF_GET_LZW:
