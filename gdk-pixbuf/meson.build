@@ -10,7 +10,7 @@ subdir('pixops')
 loaders = [
   [ 'png', [ 'io-png.c' ], enabled_loaders.contains('png') ],
   [ 'bmp', [ 'io-bmp.c' ], not native_windows_loaders ],
-  [ 'gif', [ 'io-gif.c', 'io-gif-animation.c' ], not native_windows_loaders ],
+  [ 'gif', [ 'io-gif.c', 'io-gif-animation.c', 'lzw.c' ], not native_windows_loaders ],
   [ 'ico', [ 'io-ico.c' ], not native_windows_loaders ],
   [ 'ani', [ 'io-ani.c', 'io-ani-animation.c' ] ],
   [ 'jpeg', [ 'io-jpeg.c' ], enabled_loaders.contains('jpeg') ],
