@@ -881,8 +881,6 @@ gif_get_lzw (GifContext *context)
                         break;
                 }
 
-                context->frame->bg_transparent = (context->gif89.transparent == context->background_index);
-                
                 context->animation->n_frames ++;
                 context->animation->frames = g_list_append (context->animation->frames, context->frame);
 
