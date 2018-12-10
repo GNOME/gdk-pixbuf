@@ -146,9 +146,6 @@ struct _GdkPixbufFrame {
          */
         gboolean need_recomposite;
 
-        /* TRUE if the background for this frame is transparent */
-        gboolean bg_transparent;
-        
         /* The below reflects the "use hell of a lot of RAM"
          * philosophy of coding
          */
