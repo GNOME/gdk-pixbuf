@@ -85,6 +85,29 @@ make_ref_file (GFile *file)
 
   result = g_file_new_for_uri (ref_uri);
 
+#ifdef G_OS_WIN32
+  /* XXX: The .ref.png files are symlinks and on Windows git will create
+   * files containing the symlink target instead of symlinks. */
+  {
+    char *contents;
+    gsize length;
+    gboolean success;
+
+    success = g_file_load_contents (result, NULL, &contents, &length, NULL, NULL);
+    if (success)
+      {
+        if (g_str_is_ascii (contents))
+          {
+            GFile *parent = g_file_get_parent (result);
+            g_object_unref (result);
+            result = g_file_get_child (parent, contents);
+            g_object_unref (parent);
+          }
+        g_free (contents);
+      }
+  }
+#endif
+
   g_free (ref_uri);
   g_free (uri);
 
