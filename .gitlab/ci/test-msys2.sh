@@ -32,5 +32,4 @@ meson --buildtype debug \
 cd _build
 ninja
 
-# FIXME: Fix tests
-meson test || true
+meson test
