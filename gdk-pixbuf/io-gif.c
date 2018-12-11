@@ -572,7 +572,6 @@ lzw_read_byte (GifContext *context)
 	register int i;
 
 	if (context->lzw_fresh) {
-		context->lzw_fresh = FALSE;
 		do {
 			retval = get_code (context, context->lzw_code_size);
 			if (retval < 0) {
@@ -581,6 +580,7 @@ lzw_read_byte (GifContext *context)
 
 			context->lzw_firstcode = context->lzw_oldcode = retval;
 		} while (context->lzw_firstcode == context->lzw_clear_code);
+		context->lzw_fresh = FALSE;
 		return context->lzw_firstcode;
 	}
 
