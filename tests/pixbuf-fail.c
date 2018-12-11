@@ -33,7 +33,7 @@ test_fail_size (GFile *file,
   GError *error = NULL;
   guchar *contents;
   gsize i, contents_length;
-  char *filename, *content_type, *mime_type;
+  char *filename;
   gboolean success;
 
   if (!file_supported (file))
@@ -48,11 +48,27 @@ test_fail_size (GFile *file,
   g_assert_no_error (error);
   g_assert (success);
 
-  content_type = g_content_type_guess (filename, contents, contents_length, NULL);
-  mime_type = g_content_type_get_mime_type (content_type);
-  g_assert (mime_type);
+#ifdef GDK_PIXBUF_USE_GIO_MIME
+  {
+    char *mime_type, *content_type;
 
-  loader = gdk_pixbuf_loader_new_with_mime_type (mime_type, &error);
+    content_type = g_content_type_guess (filename, contents, contents_length, NULL);
+    mime_type = g_content_type_get_mime_type (content_type);
+    g_assert (mime_type);
+    loader = gdk_pixbuf_loader_new_with_mime_type (mime_type, &error);
+    g_free (mime_type);
+    g_free (content_type);
+  }
+#else
+  {
+    char *format;
+
+    success = find_format (filename, &format);
+    g_assert_true (success);
+    loader = gdk_pixbuf_loader_new_with_type (format, &error);
+    g_free (format);
+  }
+#endif
   g_assert_no_error (error);
   g_assert (loader != NULL);
 
@@ -74,8 +90,6 @@ test_fail_size (GFile *file,
   g_clear_error (&error);
 
 out:
-  g_free (mime_type);
-  g_free (content_type);
   g_free (contents);
   g_object_unref (loader);
   g_free (filename);
