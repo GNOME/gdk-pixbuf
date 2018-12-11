@@ -85,7 +85,7 @@ make_rg (int width, int height)
 }
 
 gboolean
-format_supported (const gchar *filename)
+find_format (const gchar *filename, gchar **found_format)
 {
   GSList *formats, *l;
   gboolean retval;
@@ -102,6 +102,8 @@ format_supported (const gchar *filename)
         {
           if (g_str_has_suffix (filename, extensions[i]))
             {
+              if (found_format != NULL)
+                *found_format = gdk_pixbuf_format_get_name (format);
               retval = TRUE;
               break;
             }
@@ -114,6 +116,12 @@ format_supported (const gchar *filename)
   g_slist_free (formats);
 
   return retval;
+}
+
+gboolean
+format_supported (const gchar *filename)
+{
+  return find_format(filename, NULL);
 }
 
 gboolean
