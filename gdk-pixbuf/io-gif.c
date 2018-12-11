@@ -155,7 +155,6 @@ struct _GifContext
 	/* get block context */
 	guchar block_count;
 	guchar block_buf[280];
-	gint block_ptr;
 
 	int old_state; /* used by lzw_fill buffer */
 	/* get_code context */
@@ -363,7 +362,6 @@ gif_set_get_extension (GifContext *context)
 	context->extension_flag = TRUE;
 	context->extension_label = 0;
 	context->block_count = 0;
-	context->block_ptr = 0;
 }
 
 static int
