@@ -18,6 +18,7 @@
  */
 
 #include "config.h"
+#include <glib/gstdio.h>
 #include "gdk-pixbuf/gdk-pixbuf.h"
 #include "test-common.h"
 
@@ -37,7 +38,7 @@ load_image (gpointer data,
   path = g_test_get_filename (G_TEST_DIST, "test-images/randomly-modified", filename, NULL);
 
   g_test_message ("reading %s", path); 
-  file = fopen (path, "r");
+  file = g_fopen (path, "rb");
   g_assert (file != NULL);
 
   while (!feof (file)) 

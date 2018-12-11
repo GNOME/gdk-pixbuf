@@ -31,6 +31,7 @@ typedef gboolean (* AddTestFunc) (GFile *file);
 
 gboolean format_supported (const gchar *filename);
 gboolean file_supported (GFile *file);
+gboolean find_format (const gchar *filename, gchar **found_format);
 gboolean skip_if_insufficient_memory (GError **err);
 gboolean pixdata_equal (GdkPixbuf *test, GdkPixbuf *ref, GError **error);
 GdkPixbuf *make_checkerboard (int width, int height);
