@@ -36,6 +36,14 @@ file_to_pixbuf (const char  *path,
 	if (pixbuf == NULL)
 		return NULL;
 
+	/* The GIF codec throws GDK_PIXBUF_ERROR_INCOMPLETE_ANIMATION
+	 * if it's closed without decoding all the frames. Since
+	 * gdk_pixbuf_new_from_file_at_size only decodes the first
+	 * frame, this specific error needs to be ignored.
+	 */
+	if (error != NULL && g_error_matches (*error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INCOMPLETE_ANIMATION))
+		g_clear_error (error);
+
 	tmp_pixbuf = gdk_pixbuf_apply_embedded_orientation (pixbuf);
 	gdk_pixbuf_copy_options (pixbuf, tmp_pixbuf);
 	gdk_pixbuf_remove_option (tmp_pixbuf, "orientation");
