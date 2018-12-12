@@ -64,6 +64,7 @@ installed_tests = [
   [ 'pixbuf-scale', ['ops'], ],
   [ 'pixbuf-scale-two-step', ['ops'], ],
   [ 'pixbuf-short-gif-write', ['format'], ],
+  [ 'pixbuf-gif-circular-table', ['format'], ],
   [ 'pixbuf-save', ['io'] ],
   [ 'pixbuf-readonly-to-mutable', ['conform'], ],
   [ 'pixbuf-composite', ['ops'], ],
