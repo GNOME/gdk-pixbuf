@@ -50,6 +50,7 @@ typedef struct _GdkPixbufClass GdkPixbufClass;
 #define DEFAULT_FILL_COLOR 0x979899ff
 
 typedef enum {
+        STORAGE_UNINITIALIZED,
         STORAGE_PIXELS,
         STORAGE_BYTES
 } Storage;
