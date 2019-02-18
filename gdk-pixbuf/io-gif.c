@@ -86,7 +86,6 @@ enum {
 	GIF_GET_COLORMAP2,
 	GIF_PREPARE_LZW,
 	GIF_LZW_FILL_BUFFER,
-	GIF_LZW_CLEAR_CODE,
 	GIF_GET_LZW,
 	GIF_DONE
 };
@@ -162,10 +161,8 @@ struct _GifContext
 	int code_lastbit;
 	int code_done;
 	int code_last_byte;
-	int lzw_code_pending;
 
 	/* lzw context */
-	gint lzw_fresh;
 	gint lzw_code_size;
 	guchar lzw_set_code_size;
 	gint lzw_max_code;
@@ -540,7 +537,7 @@ get_code (GifContext *context,
 {
 	int i, j, ret;
 
-	if ((context->code_curbit + code_size) >= context->code_lastbit){
+	if ((context->code_curbit + code_size) > context->code_lastbit){
 		gif_set_lzw_fill_buffer (context);
 		return -3;
 	}
@@ -552,29 +549,6 @@ get_code (GifContext *context,
 	context->code_curbit += code_size;
 
 	return ret;
-}
-
-
-static void
-set_gif_lzw_clear_code (GifContext *context)
-{
-	context->state = GIF_LZW_CLEAR_CODE;
-	context->lzw_code_pending = -1;
-}
-
-static int
-gif_lzw_clear_code (GifContext *context)
-{
-	gint code;
-
-	code = get_code (context, context->lzw_code_size);
-	if (code == -3)
-		return -0;
-
-	context->lzw_firstcode = context->lzw_oldcode = code;
-	context->lzw_code_pending = code;
-	context->state = GIF_GET_LZW;
-	return 0;
 }
 
 #define CHECK_LZW_SP() G_STMT_START {                                           \
@@ -592,28 +566,8 @@ static int
 lzw_read_byte (GifContext *context)
 {
 	int code, incode;
-	gint retval;
 	gint my_retval;
 	register int i;
-
-	if (context->lzw_code_pending != -1) {
-		retval = context->lzw_code_pending;
-		context->lzw_code_pending = -1;
-		return retval;
-	}
-
-	if (context->lzw_fresh) {
-		context->lzw_fresh = FALSE;
-		do {
-			retval = get_code (context, context->lzw_code_size);
-			if (retval < 0) {
-				return retval;
-			}
-
-			context->lzw_firstcode = context->lzw_oldcode = retval;
-		} while (context->lzw_firstcode == context->lzw_clear_code);
-		return context->lzw_firstcode;
-	}
 
 	if (context->lzw_sp > context->lzw_stack) {
 		my_retval = *--(context->lzw_sp);
@@ -632,8 +586,7 @@ lzw_read_byte (GifContext *context)
 			context->lzw_max_code_size = 2 * context->lzw_clear_code;
 			context->lzw_max_code = context->lzw_clear_code + 2;
 			context->lzw_sp = context->lzw_stack;
-
-			set_gif_lzw_clear_code (context);
+			context->lzw_oldcode = code;
 			return -3;
 		} else if (code == context->lzw_end_code) {
 			int count;
@@ -691,7 +644,7 @@ lzw_read_byte (GifContext *context)
                 CHECK_LZW_SP ();
 		*(context->lzw_sp)++ = context->lzw_firstcode = context->lzw_table[1][code];
 
-		if ((code = context->lzw_max_code) < (1 << MAX_LZW_BITS)) {
+		if (context->lzw_oldcode != context->lzw_clear_code && (code = context->lzw_max_code) < (1 << MAX_LZW_BITS)) {
 			context->lzw_table[0][code] = context->lzw_oldcode;
 			context->lzw_table[1][code] = context->lzw_firstcode;
 			++context->lzw_max_code;
@@ -1136,7 +1089,6 @@ static void
 gif_set_prepare_lzw (GifContext *context)
 {
 	context->state = GIF_PREPARE_LZW;
-	context->lzw_code_pending = -1;
 }
 static int
 gif_prepare_lzw (GifContext *context)
@@ -1161,7 +1113,7 @@ gif_prepare_lzw (GifContext *context)
 	context->lzw_end_code = context->lzw_clear_code + 1;
 	context->lzw_max_code_size = 2 * context->lzw_clear_code;
 	context->lzw_max_code = context->lzw_clear_code + 2;
-	context->lzw_fresh = TRUE;
+	context->lzw_oldcode = context->lzw_clear_code;
 	context->code_curbit = 0;
 	context->code_lastbit = 0;
 	/* During initialistion (in gif_lzw_fill_buffer) we substract 2 from
@@ -1442,11 +1394,6 @@ gif_main_loop (GifContext *context)
 		case GIF_LZW_FILL_BUFFER:
                         LOG("fill_buffer\n");
 			retval = gif_lzw_fill_buffer (context);
-			break;
-
-		case GIF_LZW_CLEAR_CODE:
-                        LOG("clear_code\n");
-			retval = gif_lzw_clear_code (context);
 			break;
 
 		case GIF_GET_LZW:
