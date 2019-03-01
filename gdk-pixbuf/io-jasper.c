@@ -223,6 +223,14 @@ jasper_image_try_load (struct jasper_context *context, GError **error)
 
 		matrix = jas_matrix_create (context->height, context->width);
 
+		if (matrix == NULL) {
+			g_set_error_literal (error,
+                                             GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
+                                             _("Insufficient memory to open JPEG 2000 file"));
+			return FALSE;
+		}
+
 		/* in libjasper, R is 0, G is 1, etc. we're lucky :)
 		 * but we need to handle the "opacity" channel ourselves */
 		if (i != 4) {

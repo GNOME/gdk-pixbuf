@@ -19,7 +19,8 @@ pacman --noconfirm -S --needed \
     mingw-w64-$MSYS2_ARCH-libpng \
     mingw-w64-$MSYS2_ARCH-libtiff \
     mingw-w64-$MSYS2_ARCH-meson \
-    mingw-w64-$MSYS2_ARCH-toolchain
+    mingw-w64-$MSYS2_ARCH-toolchain \
+    mingw-w64-$MSYS2_ARCH-gtk-doc
 
 meson --buildtype debug \
     -Dx11=false \
