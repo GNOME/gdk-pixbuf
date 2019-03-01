@@ -10,24 +10,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
-"POT-Creation-Date: 2018-09-13 10:00+0000\n"
-"PO-Revision-Date: 2018-09-14 19:58+0700\n"
+"POT-Creation-Date: 2019-03-01 11:34+0000\n"
+"PO-Revision-Date: 2019-03-01 19:02+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.6\n"
+"Plural-Forms: nplurals=2; plural= n!=1;\n"
+"X-Generator: Poedit 2.2.1\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:157 gdk-pixbuf/gdk-pixbuf-io.c:1052
-#: gdk-pixbuf/gdk-pixbuf-io.c:1314
+#: gdk-pixbuf/gdk-pixbuf-animation.c:157 gdk-pixbuf/gdk-pixbuf-io.c:1101
+#: gdk-pixbuf/gdk-pixbuf-io.c:1363
 #, c-format
 msgid "Failed to open file “%s”: %s"
 msgstr "Gagal membuka berkas “%s”: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:170 gdk-pixbuf/gdk-pixbuf-io.c:936
+#: gdk-pixbuf/gdk-pixbuf-animation.c:170 gdk-pixbuf/gdk-pixbuf-io.c:985
 #, c-format
 msgid "Image file “%s” contains no data"
 msgstr "Berkas citra “%s” tak memuat data"
@@ -41,8 +41,8 @@ msgstr ""
 "Gagal memuat animasi “%s”: alasan tak diketahui, mungkin berkas animasi yang "
 "rusak"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:276 gdk-pixbuf/gdk-pixbuf-io.c:1088
-#: gdk-pixbuf/gdk-pixbuf-io.c:1366
+#: gdk-pixbuf/gdk-pixbuf-animation.c:276 gdk-pixbuf/gdk-pixbuf-io.c:1137
+#: gdk-pixbuf/gdk-pixbuf-io.c:1415
 #, c-format
 msgid ""
 "Failed to load image “%s”: reason not known, probably a corrupt image file"
@@ -124,12 +124,12 @@ msgstr "Byte Piksel"
 msgid "Readonly pixel data"
 msgstr "Data piksel hanya-baca"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:756
+#: gdk-pixbuf/gdk-pixbuf-io.c:805
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Tak dapat memuat modul pemuat citra: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:771
+#: gdk-pixbuf/gdk-pixbuf-io.c:820
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it’s "
@@ -138,54 +138,54 @@ msgstr ""
 "Modul pemuat citra %s tak mengekspor antar muka yang benar; mungkin itu "
 "berasal dari gdk-pixbuf versi lain?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:780 gdk-pixbuf/gdk-pixbuf-io.c:823
+#: gdk-pixbuf/gdk-pixbuf-io.c:829 gdk-pixbuf/gdk-pixbuf-io.c:872
 #, c-format
 msgid "Image type “%s” is not supported"
 msgstr "Tipe citra “%s” tak didukung"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:908
+#: gdk-pixbuf/gdk-pixbuf-io.c:957
 #, c-format
 msgid "Couldn’t recognize the image file format for file “%s”"
 msgstr "Tak dapat mengenali format berkas citra bagi berkas “%s”"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:916
+#: gdk-pixbuf/gdk-pixbuf-io.c:965
 msgid "Unrecognized image file format"
 msgstr "Format berkas citra tak dikenali"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1099
+#: gdk-pixbuf/gdk-pixbuf-io.c:1148
 #, c-format
 msgid "Failed to load image “%s”: %s"
 msgstr "Gagal memuat berkas citra “%s”: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2169 gdk-pixbuf/io-gdip-utils.c:838
+#: gdk-pixbuf/gdk-pixbuf-io.c:2218 gdk-pixbuf/io-gdip-utils.c:838
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Galat saat menulis ke berkas citra: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2211 gdk-pixbuf/gdk-pixbuf-io.c:2332
+#: gdk-pixbuf/gdk-pixbuf-io.c:2260 gdk-pixbuf/gdk-pixbuf-io.c:2381
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "gdk-pixbuf yang ada sekarang tak mendukung penyimpanan format citra: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2242
+#: gdk-pixbuf/gdk-pixbuf-io.c:2291
 msgid "Insufficient memory to save image to callback"
 msgstr "Tak cukup memori untuk menyimpan citra ke callback"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2255
+#: gdk-pixbuf/gdk-pixbuf-io.c:2304
 msgid "Failed to open temporary file"
 msgstr "Gagal membuka berkas sementara"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2278
+#: gdk-pixbuf/gdk-pixbuf-io.c:2327
 msgid "Failed to read from temporary file"
 msgstr "Gagal membaca dari berkas sementara"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2488
+#: gdk-pixbuf/gdk-pixbuf-io.c:2537
 #, c-format
 msgid "Failed to open “%s” for writing: %s"
 msgstr "Gagal membuka “%s” untuk menulis: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2514
+#: gdk-pixbuf/gdk-pixbuf-io.c:2563
 #, c-format
 msgid ""
 "Failed to close “%s” while writing image, all data may not have been saved: "
@@ -194,11 +194,11 @@ msgstr ""
 "Tak bisa menutup “%s” saat menulis citra, mungkin tak semua data tersimpan: "
 "%s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2735 gdk-pixbuf/gdk-pixbuf-io.c:2787
+#: gdk-pixbuf/gdk-pixbuf-io.c:2784 gdk-pixbuf/gdk-pixbuf-io.c:2836
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Tak cukup memori untuk menyimpan citra ke dalam suatu penyangga"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2833
+#: gdk-pixbuf/gdk-pixbuf-io.c:2882
 msgid "Error writing to image stream"
 msgstr "Galat menulis ke stream citra"
 
@@ -242,6 +242,7 @@ msgstr "Data piksel citra rusak"
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
 msgstr[0] "gagal mengalokasikan penyangga citra sebesar %u byte"
+msgstr[1] "gagal mengalokasikan penyangga citra sebesar %u byte"
 
 #: gdk-pixbuf/io-ani.c:241
 msgid "Unexpected icon chunk in animation"
@@ -331,7 +332,7 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1758
+#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1703
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
@@ -407,63 +408,63 @@ msgctxt "image format"
 msgid "WMF"
 msgstr "WMF"
 
-#: gdk-pixbuf/io-gif.c:222
+#: gdk-pixbuf/io-gif.c:218
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "Kegagalan saat membaca GIF: %s"
 
-#: gdk-pixbuf/io-gif.c:497 gdk-pixbuf/io-gif.c:1533 gdk-pixbuf/io-gif.c:1707
+#: gdk-pixbuf/io-gif.c:492 gdk-pixbuf/io-gif.c:1478 gdk-pixbuf/io-gif.c:1652
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "Ada data yang hilang pada berkas GIF ini (mungkin rusak?)"
 
-#: gdk-pixbuf/io-gif.c:506
+#: gdk-pixbuf/io-gif.c:501
 #, c-format
 msgid "Internal error in the GIF loader (%s)"
 msgstr "Error intern pada pembuka berkas GIF (%s)"
 
-#: gdk-pixbuf/io-gif.c:516 gdk-pixbuf/io-gif.c:677
+#: gdk-pixbuf/io-gif.c:511 gdk-pixbuf/io-gif.c:628
 msgid "Bad code encountered"
 msgstr "Ada kode yang salah"
 
-#: gdk-pixbuf/io-gif.c:588
+#: gdk-pixbuf/io-gif.c:560
 msgid "Stack overflow"
 msgstr "Stack meluap"
 
-#: gdk-pixbuf/io-gif.c:648
+#: gdk-pixbuf/io-gif.c:599
 msgid "GIF image loader cannot understand this image."
 msgstr "Pembuka gambar GIF tidak mengenali isi berkas ini."
 
-#: gdk-pixbuf/io-gif.c:687
+#: gdk-pixbuf/io-gif.c:638
 msgid "Circular table entry in GIF file"
 msgstr "Ada entri tabel sirkular pada berkas GIF"
 
-#: gdk-pixbuf/io-gif.c:891 gdk-pixbuf/io-gif.c:1519 gdk-pixbuf/io-gif.c:1572
-#: gdk-pixbuf/io-gif.c:1695
+#: gdk-pixbuf/io-gif.c:842 gdk-pixbuf/io-gif.c:1464 gdk-pixbuf/io-gif.c:1517
+#: gdk-pixbuf/io-gif.c:1640
 msgid "Not enough memory to load GIF file"
 msgstr "Tak cukup memori untuk membuka berkas GIF"
 
-#: gdk-pixbuf/io-gif.c:985
+#: gdk-pixbuf/io-gif.c:936
 msgid "Not enough memory to composite a frame in GIF file"
 msgstr "Tak cukup memori untuk melakukan komposisi bingkai dalam  berkas GIF"
 
-#: gdk-pixbuf/io-gif.c:1157
+#: gdk-pixbuf/io-gif.c:1107
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "Gambar dalam berkas GIF rusak (kompresi LZWnya salah)"
 
-#: gdk-pixbuf/io-gif.c:1212
+#: gdk-pixbuf/io-gif.c:1162
 msgid "File does not appear to be a GIF file"
 msgstr "Berkas ini bukan berkas GIF"
 
-#: gdk-pixbuf/io-gif.c:1224
+#: gdk-pixbuf/io-gif.c:1174
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "Versi %s berkas GIF ini tidak bisa dibuka"
 
-#: gdk-pixbuf/io-gif.c:1271
+#: gdk-pixbuf/io-gif.c:1221
 msgid "Resulting GIF image has zero size"
 msgstr "Gambar GIF yang dihasilkan berukuran nol"
 
-#: gdk-pixbuf/io-gif.c:1350
+#: gdk-pixbuf/io-gif.c:1300
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -471,11 +472,11 @@ msgstr ""
 "Gambar GIF tidak memiliki peta warna global, dan frame di dalamnya tidak "
 "memiliki peta warna lokal."
 
-#: gdk-pixbuf/io-gif.c:1595
+#: gdk-pixbuf/io-gif.c:1540
 msgid "GIF image was truncated or incomplete."
 msgstr "Gambar GIF rusak atau tidak lengkap."
 
-#: gdk-pixbuf/io-gif.c:1602
+#: gdk-pixbuf/io-gif.c:1547
 msgid "Not all frames of the GIF image were loaded."
 msgstr "Tidak semua rangka dari citra GIF dimuat."
 
@@ -557,15 +558,15 @@ msgstr "Tipe citra kini belum didukung"
 msgid "Couldn’t allocate memory for color profile"
 msgstr "Tak bisa mengalokasikan memori untuk profil warna"
 
-#: gdk-pixbuf/io-jasper.c:205
+#: gdk-pixbuf/io-jasper.c:205 gdk-pixbuf/io-jasper.c:230
 msgid "Insufficient memory to open JPEG 2000 file"
 msgstr "Tak cukup memori untuk membuka berkas JPEG 2000"
 
-#: gdk-pixbuf/io-jasper.c:284
+#: gdk-pixbuf/io-jasper.c:292
 msgid "Couldn’t allocate memory to buffer image data"
 msgstr "Tak bisa mengalokasikan memori untuk menyangga data citra"
 
-#: gdk-pixbuf/io-jasper.c:328
+#: gdk-pixbuf/io-jasper.c:336
 msgctxt "image format"
 msgid "JPEG 2000"
 msgstr "JPEG 2000"
@@ -810,12 +811,14 @@ msgstr "Gagal membaca header QTIF"
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
 msgstr[0] "Ukuran atom QTIF terlalu besar (%d bita)"
+msgstr[1] "Ukuran atom QTIF terlalu besar (%d bita)"
 
 #: gdk-pixbuf/io-qtif.c:173
 #, c-format
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
 msgstr[0] "Gagal mengalokasikan %d bita bagi penyangga dalam pembacaan berkas"
+msgstr[1] "Gagal mengalokasikan %d bita bagi penyangga dalam pembacaan berkas"
 
 #: gdk-pixbuf/io-qtif.c:201
 #, c-format
@@ -827,6 +830,7 @@ msgstr "Galat berkas ketika membaca atom QTIF: %s"
 msgid "Failed to skip the next %d byte with seek()."
 msgid_plural "Failed to skip the next %d bytes with seek()."
 msgstr[0] "Gagal melompati %d bita berikutnya dengan seek()."
+msgstr[1] "Gagal melompati %d bita berikutnya dengan seek()."
 
 #: gdk-pixbuf/io-qtif.c:265
 msgid "Failed to allocate QTIF context structure."
@@ -970,7 +974,7 @@ msgstr "XBM"
 msgid "No XPM header found"
 msgstr "Header XPM tidak dijumpai"
 
-#: gdk-pixbuf/io-xpm.c:481
+#: gdk-pixbuf/io-xpm.c:481 gdk-pixbuf/io-xpm.c:507
 msgid "Invalid XPM header"
 msgstr "Kepala XPM tidak benar"
 
@@ -982,27 +986,31 @@ msgstr "Berkas XPM ini memiliki lebar gambar <= 0"
 msgid "XPM file has image height <= 0"
 msgstr "Berkas XPM ini memiliki tinggi gambar <= 0"
 
-#: gdk-pixbuf/io-xpm.c:505
+#: gdk-pixbuf/io-xpm.c:514
 msgid "XPM has invalid number of chars per pixel"
 msgstr "Berkas XPM ini memiliki jumlah karakter per pixel yang salah"
 
-#: gdk-pixbuf/io-xpm.c:514
+#: gdk-pixbuf/io-xpm.c:523
 msgid "XPM file has invalid number of colors"
 msgstr "Berkas XPM ini memiliki jumlah warna yang tidak benar"
 
-#: gdk-pixbuf/io-xpm.c:526 gdk-pixbuf/io-xpm.c:535 gdk-pixbuf/io-xpm.c:587
+#: gdk-pixbuf/io-xpm.c:535 gdk-pixbuf/io-xpm.c:544 gdk-pixbuf/io-xpm.c:593
 msgid "Cannot allocate memory for loading XPM image"
 msgstr "Tak dapat mengalokasikan memori untuk membuka gambar XPM"
 
-#: gdk-pixbuf/io-xpm.c:549
+#: gdk-pixbuf/io-xpm.c:558
 msgid "Cannot read XPM colormap"
 msgstr "Saya tidak dapat membaca peta warna XPM"
 
-#: gdk-pixbuf/io-xpm.c:787
+#: gdk-pixbuf/io-xpm.c:610
+msgid "Dimensions do not match data"
+msgstr "Dimensi tidak cocok dengan datac"
+
+#: gdk-pixbuf/io-xpm.c:804
 msgid "Failed to write to temporary file when loading XPM image"
 msgstr "Saat membuka gambar XPM ini, ada kegagalan menulis ke berkas sementara"
 
-#: gdk-pixbuf/io-xpm.c:826
+#: gdk-pixbuf/io-xpm.c:843
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
