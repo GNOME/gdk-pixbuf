@@ -459,7 +459,7 @@ pixbuf_create_from_xpm (const gchar * (*get_buf) (enum buf_op op, gpointer handl
 	GHashTable *color_hash;
 	XPMColor *colors, *color, *fallbackcolor;
 	guchar *pixtmp;
-	GdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf = NULL;
 	gint rowstride;
 
 	fallbackcolor = NULL;
@@ -556,10 +556,7 @@ pixbuf_create_from_xpm (const gchar * (*get_buf) (enum buf_op op, gpointer handl
                                              GDK_PIXBUF_ERROR,
                                              GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
                                              _("Cannot read XPM colormap"));
-			g_hash_table_destroy (color_hash);
-			g_free (name_buf);
-			g_free (colors);
-			return NULL;
+                        goto out;
 		}
 
 		color = &colors[cnt];
@@ -594,10 +591,7 @@ pixbuf_create_from_xpm (const gchar * (*get_buf) (enum buf_op op, gpointer handl
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
                                      _("Cannot allocate memory for loading XPM image"));
-		g_hash_table_destroy (color_hash);
-		g_free (colors);
-		g_free (name_buf);
-		return NULL;
+                goto out;
 	}
 
 	rowstride = gdk_pixbuf_get_rowstride (pixbuf);
@@ -646,6 +640,14 @@ pixbuf_create_from_xpm (const gchar * (*get_buf) (enum buf_op op, gpointer handl
 	}
 
 	return pixbuf;
+
+out:
+	g_hash_table_destroy (color_hash);
+	g_free (colors);
+	g_free (name_buf);
+
+	g_clear_object (&pixbuf);
+	return NULL;
 }
 
 /* Shared library entry point for file loading */
