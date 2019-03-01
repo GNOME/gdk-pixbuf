@@ -602,8 +602,14 @@ pixbuf_create_from_xpm (const gchar * (*get_buf) (enum buf_op op, gpointer handl
 		pixtmp = gdk_pixbuf_get_pixels (pixbuf) + ycnt * rowstride;
 
 		buffer = (*get_buf) (op_body, handle);
-		if ((!buffer) || (strlen (buffer) < wbytes))
-			continue;
+		if ((!buffer) || (strlen (buffer) < wbytes)) {
+			/* Advertised width doesn't match pixels */
+			g_set_error_literal (error,
+					     GDK_PIXBUF_ERROR,
+					     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+					     _("Dimensions do not match data"));
+			goto out;
+		}
 
 		for (n = 0, xcnt = 0; n < wbytes; n += cpp, xcnt++) {
 			strncpy (pixel_str, &buffer[n], cpp);
