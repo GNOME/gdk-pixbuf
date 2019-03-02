@@ -106,7 +106,6 @@ GDK_PIXBUF_DEPRECATED_IN_2_36_FOR
 GdkPixbufError
 GDK_PIXBUF_ERROR
 GdkColorspace
-GdkPixbufAlphaMode
 GdkPixbuf
 gdk_pixbuf_get_colorspace
 gdk_pixbuf_get_n_channels
