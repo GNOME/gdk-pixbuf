@@ -21,7 +21,6 @@ private_headers = [
   'gdk-pixbuf-marshal.h',
   'gdk-pixbuf-private.h',
   'gdk-pixbuf-scaled-anim.h',
-  'gdk-pixbuf-xlib-private.h',
   'io-ani-animation.h',
   'io-gdip-animation.h',
   'io-gdip-native.h',
@@ -39,10 +38,7 @@ endif
 if get_option('docs')
   gnome.gtkdoc('gdk-pixbuf',
                main_xml: 'gdk-pixbuf.xml',
-               src_dir: [
-                 gdk_pixbuf_inc,
-                 gdkpixbuf_xlib_inc,
-               ],
+               src_dir: [ gdk_pixbuf_inc ],
                dependencies: gdkpixbuf_dep,
                gobject_typesfile: 'gdk-pixbuf.types',
                scan_args: [
