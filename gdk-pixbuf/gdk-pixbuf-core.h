@@ -122,6 +122,8 @@ G_BEGIN_DECLS
  * channel extension, it will be possible to do full alpha
  * compositing onto arbitrary drawables.  For now both cases fall
  * back to a bilevel clipping mask.
+ *
+ * Deprecated: it is unused since 2.42.
  */
 typedef enum
 {
