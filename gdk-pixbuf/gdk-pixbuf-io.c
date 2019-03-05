@@ -176,16 +176,18 @@ format_check (GdkPixbufModule *module, guchar *buffer, int size)
 
 G_LOCK_DEFINE_STATIC (init_lock);
 
+static gboolean file_formats_inited = FALSE;
 static GSList *file_formats = NULL;
 
-static void gdk_pixbuf_io_init (void);
+static gboolean gdk_pixbuf_io_init (void);
 
 static GSList *
 get_file_formats (void)
 {
         G_LOCK (init_lock);
-        if (file_formats == NULL)
-                gdk_pixbuf_io_init ();
+        if (file_formats == NULL ||
+            file_formats_inited == FALSE)
+                file_formats_inited = gdk_pixbuf_io_init ();
         G_UNLOCK (init_lock);
         
         return file_formats;
@@ -398,9 +400,8 @@ gdk_pixbuf_io_init_modules (const char  *filename,
         int n_patterns = 0;
         GdkPixbufModulePattern *pattern;
         GError *local_error = NULL;
-#endif
+        guint num_formats;
 
-#ifdef USE_GMODULE
         channel = g_io_channel_new_file (filename, "r",  &local_error);
         if (!channel) {
                 g_set_error (error,
@@ -416,6 +417,8 @@ gdk_pixbuf_io_init_modules (const char  *filename,
                 g_string_free (tmp_buf, TRUE);
                 return FALSE;
         }
+
+        num_formats = g_slist_length (file_formats);
         
         while (!have_error && g_io_channel_read_line (channel, &line_buf, NULL, &term, NULL) == G_IO_STATUS_NORMAL) {
                 const char *p;
@@ -551,6 +554,15 @@ gdk_pixbuf_io_init_modules (const char  *filename,
         }
         g_string_free (tmp_buf, TRUE);
         g_io_channel_unref (channel);
+
+        if (g_slist_length (file_formats) <= num_formats) {
+                g_set_error (error,
+                             G_IO_ERROR,
+                             G_IO_ERROR_NOT_INITIALIZED,
+                             "No new GdkPixbufModule loaded from '%s'",
+                             filename);
+                return FALSE;
+        }
 #endif
         return TRUE;
 }
@@ -662,15 +674,17 @@ gdk_pixbuf_io_init_builtin (void)
 #undef load_one_builtin_module
 }
 
-static void
+static gboolean
 gdk_pixbuf_io_init (void)
 {
 	char *module_file;
+	gboolean ret;
 
 	gdk_pixbuf_io_init_builtin ();
 	module_file = gdk_pixbuf_get_module_file ();
-	gdk_pixbuf_io_init_modules (module_file, NULL);
+	ret = gdk_pixbuf_io_init_modules (module_file, NULL);
 	g_free (module_file);
+	return ret;
 }
 
 #define module(type) \
