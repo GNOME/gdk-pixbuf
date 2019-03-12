@@ -294,19 +294,23 @@ endif
 # Note that we currently do not use the native Windows loaders to handle PNG and
 # JPEG2000 images
 if host_system == 'windows'
-  native_windows_loaders = get_option('native_windows_loaders')
+  gdip = get_option('gdip')
+  prefer_native_windows_loaders = get_option ('prefer_native_windows_loaders')
 else
-  native_windows_loaders = false
+  gdip = false
+  prefer_native_windows_loaders = false
 endif
 
-if native_windows_loaders
+prefer_free_loaders = not gdip or not prefer_native_windows_loaders
+prefer_gdip_loaders = gdip and prefer_native_windows_loaders
+
+if gdip
   loaders_deps += cc.find_library('gdiplus')
   loaders_deps += cc.find_library('ole32')
-  enabled_loaders += 'gdiplus'
 endif
 
-# Don't check and build the jpeg loader if native_windows_loaders is true
-if get_option('jpeg') and not native_windows_loaders
+# Don't check and build the jpeg loader if prefer_native_windows_loaders is true and gdip is enabled
+if get_option('jpeg') and prefer_free_loaders
   if cc.has_header('jpeglib.h')
     jpeg_dep = cc.find_library('jpeg', required: false)
     if cc.get_id() == 'msvc' and not jpeg_dep.found()
@@ -325,8 +329,8 @@ if get_option('jpeg') and not native_windows_loaders
   endif
 endif
 
-# Don't check and build the tiff loader if native_windows_loaders is true
-if get_option('tiff') and not native_windows_loaders
+# Don't check and build the tiff loader if prefer_native_windows_loaders is true and gdip is enabled
+if get_option('tiff') and prefer_free_loaders
   tiff_dep = dependency('libtiff-4', required: false)
   if not tiff_dep.found()
     # Fallback when no pkg-config file is found for libtiff on MSVC, which is quite normal

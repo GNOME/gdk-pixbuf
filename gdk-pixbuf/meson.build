@@ -5,23 +5,29 @@ subdir('pixops')
 #  - sources
 #  - conditional, otherwise always built
 
-# We need to disable the in-house loaders for BMP, GIF and ICO
-# when native_windows_loaders is true
 loaders = [
   [ 'png', [ 'io-png.c' ], enabled_loaders.contains('png') ],
-  [ 'bmp', [ 'io-bmp.c' ], not native_windows_loaders ],
-  [ 'gif', [ 'io-gif.c', 'io-gif-animation.c' ], not native_windows_loaders ],
-  [ 'ico', [ 'io-ico.c' ], not native_windows_loaders ],
+  [ 'gdip-png', [ 'io-gdip-png.c' ], false ], # Always disabled
+  [ 'bmp', [ 'io-bmp.c' ], prefer_free_loaders ],
+  [ 'gdip-bmp', [ 'io-gdip-bmp.c' ], prefer_gdip_loaders ],
+  [ 'gdip-emf', [ 'io-gdip-emf.c' ], gdip ],
+  [ 'gif', [ 'io-gif.c', 'io-gif-animation.c' ], prefer_free_loaders ],
+  [ 'gdip-gif', [ 'io-gdip-gif.c' ], prefer_gdip_loaders ],
+  [ 'ico', [ 'io-ico.c' ], prefer_free_loaders ],
+  [ 'gdip-ico', [ 'io-gdip-ico.c' ], prefer_gdip_loaders ],
   [ 'ani', [ 'io-ani.c', 'io-ani-animation.c' ] ],
-  [ 'jpeg', [ 'io-jpeg.c' ], enabled_loaders.contains('jpeg') ],
+  [ 'jpeg', [ 'io-jpeg.c' ], enabled_loaders.contains('jpeg') and not prefer_gdip_loaders ],
+  [ 'gdip-jpeg', [ 'io-gdip-jpeg.c' ], gdip and (not enabled_loaders.contains('jpeg') or prefer_native_windows_loaders)],
   [ 'pnm', [ 'io-pnm.c' ] ],
-  [ 'tiff', [ 'io-tiff.c' ], enabled_loaders.contains('tiff') ],
+  [ 'tiff', [ 'io-tiff.c' ], enabled_loaders.contains('tiff') and not prefer_gdip_loaders ],
+  [ 'gdip-tiff', [ 'io-gdip-tiff.c' ], gdip and (not enabled_loaders.contains('tiff') or prefer_native_windows_loaders) ],
   [ 'xpm', [ 'io-xpm.c' ] ],
   [ 'xbm', [ 'io-xbm.c' ] ],
   [ 'tga', [ 'io-tga.c', 'gdk-pixbuf-buffer-queue.c' ] ],
   [ 'icns', [ 'io-icns.c' ] ],
   [ 'jasper', [ 'io-jasper.c' ], enabled_loaders.contains('jasper'), jasper_extra_cflags ],
-  [ 'qtif', [ 'io-qtif.c' ] ]
+  [ 'qtif', [ 'io-qtif.c' ] ],
+  [ 'gdip-wmf', [ 'io-gdip-wmf.c' ], gdip ],
 ]
 
 gdk_pixbuf_inc = include_directories('.')
@@ -119,8 +125,11 @@ foreach l: loaders
   cond = l.get(2, true)
   cflags = l.get(3, [])
 
-  if cond and (builtin_loaders.contains(name) or builtin_all_loaders)
-    cflag_for_included_loader = ['-DINCLUDE_@0@'.format(name)]
+  is_gdip = name.contains ('gdip-')
+  is_builtin = builtin_loaders.contains(name) or builtin_all_loaders or is_gdip and builtin_loaders.contains('windows')
+  if cond and is_builtin
+    enabled_loaders += name
+    cflag_for_included_loader = ['-DINCLUDE_@0@'.format(name.underscorify())]
     included_loaders_cflags += cflag_for_included_loader
 
     mod = static_library('staticpixbufloader-@0@'.format(name),
@@ -134,29 +143,17 @@ foreach l: loaders
   endif
 endforeach
 
-# List of formats supported by the native Windows components-based loader(s)
-windows_native_loader_formats = [ 'bmp', 'emf', 'gif', 'ico', 'jpeg', 'tiff', 'wmf' ]
 windows_base_loader_sources = [ 'io-gdip-utils.c', 'io-gdip-animation.c' ]
-
-# Build the loaders using native Windows components as static modules, if requested
-if native_windows_loaders
-  if builtin_loaders.contains('windows') or builtin_all_loaders
-    cflag_for_included_loader = ['-DINCLUDE_gdiplus']
-    included_loaders_cflags += cflag_for_included_loader
-    win_loader_sources = windows_base_loader_sources
-    foreach loader: windows_native_loader_formats
-      win_loader_sources += 'io-gdip-@0@.c'.format(loader)
-    endforeach
-
-    mod = static_library('staticpixbufloader-gdiplus',
-                         win_loader_sources,
-                         gdkpixbuf_enum_h,
-                         dependencies: loaders_deps + gdk_pixbuf_deps,
-                         include_directories: [ root_inc, gdk_pixbuf_inc ],
-                         c_args: common_cflags + gdk_pixbuf_cflags + cflag_for_included_loader)
-
-    included_loaders_deps += declare_dependency(link_with: mod)
-  endif
+# Add the common gdip code helper lib if gdip is enabled.
+# This is harmless even if all gdip- loaders are disabled
+if gdip
+  mod = static_library('staticpixbufloader-gdip-common',
+                       windows_base_loader_sources,
+                       gdkpixbuf_enum_h,
+                       dependencies: loaders_deps + gdk_pixbuf_deps,
+                       include_directories: [ root_inc, gdk_pixbuf_inc ],
+                       c_args: common_cflags + gdk_pixbuf_cflags + cflags)
+  included_loaders_deps += declare_dependency(link_with: mod)
 endif
 
 # The main gdk-pixbuf shared library
@@ -252,7 +249,14 @@ foreach l: loaders
     name_suffix = 'so'
   endif
 
-  if cond and not (builtin_loaders.contains(name) or builtin_all_loaders)
+  is_gdip = name.contains ('gdip-')
+  is_builtin = builtin_loaders.contains(name) or builtin_all_loaders or is_gdip and builtin_loaders.contains('windows')
+  if cond and not is_builtin
+    enabled_loaders += name
+    if is_gdip
+      sources += windows_base_loader_sources
+    endif
+
     mod = shared_module('pixbufloader-@0@'.format(name),
                         sources,
                         gdkpixbuf_enum_h,
@@ -268,26 +272,6 @@ foreach l: loaders
     dynamic_loaders_dep += mod
   endif
 endforeach
-
-# Build the loaders using native Windows components as dynamic modules, if requested
-if native_windows_loaders
-  if not (builtin_loaders.contains('windows') or builtin_all_loaders)
-    foreach loader: windows_native_loader_formats
-      loader_sources = windows_base_loader_sources + [ 'io-gdip-@0@.c'.format(loader) ]
-
-      mod = shared_module('pixbufloader-gdip-@0@'.format(loader),
-                          loader_sources,
-                          gdkpixbuf_enum_h,
-                          dependencies: loaders_deps + gdk_pixbuf_deps + [ gdkpixbuf_dep ],
-                          include_directories: [ root_inc, gdk_pixbuf_inc ],
-                          c_args: common_cflags + gdk_pixbuf_cflags + cflags,
-                          install: true,
-                          install_dir: gdk_pixbuf_loaderdir)
-      dynamic_loaders += mod.full_path()
-      dynamic_loaders_dep = mod
-    endforeach
-  endif
-endif
 
 gdkpixbuf_bin = [
   [ 'gdk-pixbuf-csource' ],

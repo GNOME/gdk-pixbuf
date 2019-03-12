@@ -24,7 +24,7 @@
 
 #include "io-gdip-utils.h"
 
-#ifndef INCLUDE_gdiplus
+#ifndef INCLUDE_gdip_wmf
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
 #else
 #define MODULE_ENTRY(function) void _gdk_pixbuf__gdip_wmf_ ## function

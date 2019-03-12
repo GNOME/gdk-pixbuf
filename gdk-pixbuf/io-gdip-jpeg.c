@@ -108,7 +108,7 @@ gdk_pixbuf__gdip_is_save_option_supported_JPEG (const gchar *option_key)
   return FALSE;
 }
 
-#ifndef INCLUDE_gdiplus
+#ifndef INCLUDE_gdip_jpeg
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
 #else
 #define MODULE_ENTRY(function) void _gdk_pixbuf__gdip_jpeg_ ## function

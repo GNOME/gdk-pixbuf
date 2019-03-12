@@ -1,25 +1,25 @@
 option('png',
-       description: 'Enable PNG loader (requires libpng)',
+       description: 'Enable PNG loader (requires libpng). Add "png" to builtin_loaders to build this loader into gdk-pixbnf, otherwise it will be a shared module',
        type: 'boolean',
        value: true)
 option('tiff',
-       description: 'Enable TIFF loader (requires libtiff), disabled on Windows if "native_windows_loaders" is used',
+       description: 'Enable TIFF loader (requires libtiff). Add "tiff" to builtin_loaders to build this loader into gdk-pixbnf, otherwise it will be a shared module',
        type: 'boolean',
        value: true)
 option('jpeg',
-       description: 'Enable JPEG loader (requires libjpeg), disabled on Windows if "native_windows_loaders" is used',
+       description: 'Enable JPEG loader (requires libjpeg). Add "jpeg" to builtin_loaders to build this loader into gdk-pixbnf, otherwise it will be a shared module',
        type: 'boolean',
        value: true)
 option('jasper',
-       description: 'Enable JPEG2000 loader (requires libjasper)',
+       description: 'Enable JPEG2000 loader (requires libjasper). Add "jasper" to builtin_loaders to build this loader into gdk-pixbnf, otherwise it will be a shared module',
        type: 'boolean',
        value: false)
 option('x11',
-       description: 'Enable X11 support (requires libX11)',
+       description: 'Enable X11 support (requires libX11). Always a dynamic module, cannot be built into gdk-pixbuf, otherwise it will be a shared module',
        type: 'boolean',
        value: true)
 option('builtin_loaders',
-       description: 'Comma-separated list of loaders to build into gdk-pixbuf, or "none", or "all" to build all buildable loaders into gdk-pixbuf',
+       description: 'Comma-separated list of loaders to build into gdk-pixbuf, or "none", or "all" to build all buildable (enabled) loaders into gdk-pixbuf',
        type: 'string',
        value: 'none')
 option('docs',
@@ -38,8 +38,12 @@ option('relocatable',
        description: 'Whether to enable application bundle relocation support',
        type: 'boolean',
        value: false)
-option('native_windows_loaders',
-       description: 'Use Windows system components to handle BMP, EMF, GIF, ICO, JPEG, TIFF and WMF images, overriding jpeg and tiff.  To build this into gdk-pixbuf, pass in windows" with the other loaders to build in or use "all" with the builtin_loaders option',
+option('gdip',
+       description: 'Enable Windows GDI+ support (requires Windows). Add "gdip-bmp", "gdip-emf", "gdip-gif", "gdip-ico", "gdip-jpeg", "gdip-tiff" and "gdip-wmf" to builtin_loaders to build some of these GDI+ loaders into gdk-pixbnf (or "windows" to build in all of them), otherwise they will be shared modules',
+       type: 'boolean',
+       value: true)
+option('prefer_native_windows_loaders',
+       description: 'Disables "bmp", "gif", "ico", "jpeg" and "tiff" loaders if their "gdip-" counterparts are available',
        type: 'boolean',
        value: false)
 option('installed_tests',

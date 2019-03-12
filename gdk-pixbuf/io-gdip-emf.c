@@ -24,7 +24,7 @@
 
 #include "io-gdip-utils.h"
 
-#ifndef INCLUDE_gdiplus
+#ifndef INCLUDE_gdip_emf
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
 #else
 #define MODULE_ENTRY(function) void _gdk_pixbuf__gdip_emf_ ## function
