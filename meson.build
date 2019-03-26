@@ -177,6 +177,7 @@ if get_option('default_library') != 'static'
 endif
 
 common_cflags += cc.get_supported_arguments(test_cflags)
+add_project_arguments(common_cflags, language: 'c')
 
 if host_machine.system() == 'linux'
   # Additional linker flags
