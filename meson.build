@@ -130,6 +130,8 @@ elif cc.get_id() == 'gcc' or cc.get_id() == 'clang'
     '-Wold-style-definition',
     '-Wdeclaration-after-statement',
     '-Wunused',
+    # Due to pixops code, we do not want to see unused parameters
+    '-Wno-unused-parameter',
     '-Wcast-align',
     '-Wmissing-noreturn',
     '-Wmissing-format-attribute',
