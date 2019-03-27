@@ -3565,7 +3565,7 @@ xlib_rgb_cmap_new (guint32 *colors, int n_colors)
 		   ((rgb & 0xf000) >> 8) |
 		   ((rgb & 0xf0) >> 4);
 #ifdef VERBOSE
-	printf ("%d %x %x %d\n", i, j, colorcube[j]);
+	printf ("%d %d %x\n", i, j, colorcube[j]);
 #endif
 	cmap->lut[i] = colorcube[j];
       }
