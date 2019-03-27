@@ -101,7 +101,7 @@ typedef struct
         GdkPixbufAnimation *animation;
         gboolean closed;
         guchar header_buf[SNIFF_BUFFER_SIZE];
-        gint header_buf_offset;
+        gsize header_buf_offset;
         GdkPixbufModule *image_module;
         gpointer context;
         gint original_width;
