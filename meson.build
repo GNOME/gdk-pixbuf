@@ -130,6 +130,9 @@ elif cc.get_id() == 'gcc' or cc.get_id() == 'clang'
     '-Wold-style-definition',
     '-Wdeclaration-after-statement',
     '-Wunused',
+    # Due to function casts through (void*) we cannot support -Wpedantic:
+    # https://wiki.gnome.org/Projects/GLib/CompilerRequirements#Function_pointer_conversions.
+    '-Wno-pedantic',
     # Due to pixops code, we do not want to see unused parameters
     '-Wno-unused-parameter',
     '-Wcast-align',
