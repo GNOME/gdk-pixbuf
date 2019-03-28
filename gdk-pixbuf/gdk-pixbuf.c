@@ -472,7 +472,7 @@ gdk_pixbuf_calculate_rowstride (GdkColorspace colorspace,
 				int           width,
 				int           height)
 {
-	unsigned int channels;
+	int channels;
 
 	g_return_val_if_fail (colorspace == GDK_COLORSPACE_RGB, -1);
 	g_return_val_if_fail (bits_per_sample == 8, -1);
@@ -1245,7 +1245,7 @@ gdk_pixbuf_set_property (GObject         *object,
   switch (prop_id)
           {
           case PROP_COLORSPACE:
-                  notify = pixbuf->colorspace != g_value_get_enum (value);
+                  notify = pixbuf->colorspace != (GdkColorspace) g_value_get_enum (value);
                   pixbuf->colorspace = g_value_get_enum (value);
                   break;
           case PROP_N_CHANNELS:
