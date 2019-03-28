@@ -241,7 +241,7 @@ gdk_pixdata_deserialize (GdkPixdata   *pixdata,
     return_invalid_format (error);
 
   /* deserialize pixel data */
-  if (stream_length < pixdata->length - GDK_PIXDATA_HEADER_LENGTH)
+  if (stream_length < (guint) (pixdata->length - GDK_PIXDATA_HEADER_LENGTH))
     return_pixel_corrupt (error);
   pixdata->pixel_data = (guint8 *)stream;
 
@@ -473,7 +473,7 @@ gdk_pixbuf_from_pixdata (const GdkPixdata *pixdata,
 
   if (encoding == GDK_PIXDATA_ENCODING_RAW &&
       pixdata->length >= 1 &&
-      pixdata->length < pixdata->height * pixdata->rowstride - GDK_PIXDATA_HEADER_LENGTH)
+      pixdata->length < (gint) (pixdata->height * pixdata->rowstride - GDK_PIXDATA_HEADER_LENGTH))
     {
       g_set_error_literal (error, GDK_PIXBUF_ERROR,
                            GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
