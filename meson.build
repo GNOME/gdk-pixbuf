@@ -135,6 +135,10 @@ elif cc.get_id() == 'gcc' or cc.get_id() == 'clang'
     '-Wno-pedantic',
     # Due to pixops code, we do not want to see unused parameters
     '-Wno-unused-parameter',
+    # Due to pervasive use of things like GPOINTER_TO_UINT(), we do not support
+    # building with -Wbad-function-cast.
+    '-Wno-bad-function-cast',
+    '-Wno-cast-function-type',
     '-Wcast-align',
     '-Wmissing-noreturn',
     '-Wmissing-format-attribute',
