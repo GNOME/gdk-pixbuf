@@ -110,7 +110,7 @@ gdk_pixbuf_new_from_bytes (GBytes *data, GdkColorspace colorspace, gboolean has_
 	g_return_val_if_fail (bits_per_sample == 8, NULL);
 	g_return_val_if_fail (width > 0, NULL);
 	g_return_val_if_fail (height > 0, NULL);
-	g_return_val_if_fail (g_bytes_get_size (data) >= width * height * (has_alpha ? 4 : 3), NULL);
+	g_return_val_if_fail (g_bytes_get_size (data) >= (gsize) (width * height * (has_alpha ? 4 : 3)), NULL);
 
 	return (GdkPixbuf*) g_object_new (GDK_TYPE_PIXBUF, 
 					  "pixel-bytes", data,
