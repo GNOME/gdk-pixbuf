@@ -878,7 +878,6 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                 copy_gray_row (dith_row_1, pixels, width, has_alpha);
 
                 for (y = 0; y < height; y++) {
-                        guint x;
                         gint *p;
 
                         memset (mono_row, 0, (width + 7) / 8);
@@ -893,7 +892,7 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                                 copy_gray_row (dith_row_2, pixels + ((y + 1) * rowstride), width, has_alpha);
 
                         p = dith_row_1;
-                        for (x = 0; x < width; x++) {
+                        for (gint x = 0; x < width; x++) {
                                 gint p_old, p_new, quant_error;
 
                                 /* Apply Floyd-Steinberg dithering */
