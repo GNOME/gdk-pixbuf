@@ -307,7 +307,6 @@ gdk_pixbuf__xbm_image_load_real (FILE     *f,
 	guchar *data, *ptr;
 	guchar *pixels;
 	guint row_stride;
-	int x, y;
 	int reg = 0; /* Quiet compiler */
 	int bits;
 
@@ -349,9 +348,9 @@ gdk_pixbuf__xbm_image_load_real (FILE     *f,
 	/* Initialize PIXBUF */
 
 	ptr = data;
-	for (y = 0; y < h; y++) {
+	for (guint y = 0; y < h; y++) {
 		bits = 0;
-		for (x = 0; x < w; x++) {
+		for (guint x = 0; x < w; x++) {
 			guchar channel;
 			if (bits == 0) {
 				reg = *ptr++;
