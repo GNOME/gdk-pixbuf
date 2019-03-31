@@ -233,7 +233,7 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
 
 		if (context->loader == NULL) 
 		{
-			if (context->pos >= context->NumFrames) 
+			if ((guint) context->pos >= context->NumFrames)
 			{
 				g_set_error_literal (error,
                                                      GDK_PIXBUF_ERROR,
@@ -372,7 +372,7 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
 			return FALSE;
 		}
 
-		for (i = 0; i < context->NumSteps; i++) 
+		for (guint i = 0; i < context->NumSteps; i++) 
 		{
 			/* default values if the corresponding chunks are absent */
 			context->animation->delay[i] = context->DisplayRate * 1000 / 60;
@@ -399,7 +399,7 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
 		}
 
 		context->animation->total_time = 0;
-		for (i = 0; i < context->NumSteps; i++) 
+		for (guint i = 0; i < context->NumSteps; i++) 
 		{
 			context->animation->delay[i] = read_int32 (context) * 1000 / 60;
 			context->animation->total_time += context->animation->delay[i];
@@ -423,10 +423,10 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
                                              _("Invalid header in animation"));
 			return FALSE;
 		}
-		for (i = 0; i < context->NumSteps; i++) 
+		for (guint i = 0; i < context->NumSteps; i++) 
 		{
 			context->animation->sequence[i] = read_int32 (context);
-			if (context->animation->sequence[i] >= context->NumFrames) 
+			if ((guint) context->animation->sequence[i] >= context->NumFrames)
 			{
 				g_set_error_literal (error,
                                                      GDK_PIXBUF_ERROR,
