@@ -206,7 +206,7 @@ static gboolean gdk_pixbuf__bmp_image_load_increment(gpointer data,
  * Does it by hand instead of dereferencing a simple (gint *) cast due to
  * alignment constraints many platforms.
  */
-static int
+static guint
 lsb_32 (guchar *src)
 {
 	return src[0] | (src[1] << 8) | (src[2] << 16) | (src[3] << 24);
@@ -408,7 +408,7 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 	if ((State->Type >= 8) && (State->Type <= 32) && (State->Type % 8 == 0)) {
 		bytesPerPixel = State->Type / 8;
 		State->LineWidth = State->Header.width * bytesPerPixel;
-		if (State->Header.width != State->LineWidth / bytesPerPixel) {
+		if ((guint) State->Header.width != State->LineWidth / bytesPerPixel) {
 			g_set_error_literal (error,
 					     GDK_PIXBUF_ERROR,
 					     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
@@ -576,7 +576,6 @@ static gboolean DecodeColormap (guchar *buff,
 				struct bmp_progressive_state *State,
 				GError **error)
 {
-	gint i;
 	gint samples;
 	guint newbuffersize;
 
@@ -594,7 +593,7 @@ static gboolean DecodeColormap (guchar *buff,
 	}
 
 	State->Colormap = g_malloc0 ((1 << State->Header.depth) * sizeof (*State->Colormap));
-	for (i = 0; i < State->Header.n_colors; i++)
+	for (guint i = 0; i < State->Header.n_colors; i++)
 
 	{
 		State->Colormap[i][0] = buff[i * samples];
@@ -1040,7 +1039,7 @@ static void OneLine1(struct bmp_progressive_state *context)
 static void OneLine(struct bmp_progressive_state *context)
 {
 	context->BufferDone = 0;
-	if (context->Lines >= context->Header.height)
+	if (context->Lines >= (guint) context->Header.height)
 		return;
 
 	if (context->Type == 32)
@@ -1088,7 +1087,6 @@ static void OneLine(struct bmp_progressive_state *context)
 static gboolean 
 DoCompressed(struct bmp_progressive_state *context, GError **error)
 {
-	gint i, j;
 	gint y;
 	guchar c;
 	gint idx;
@@ -1108,7 +1106,7 @@ DoCompressed(struct bmp_progressive_state *context, GError **error)
 
 	y = context->compr.y;
 
- 	for (i = 0; i < context->BufferSize; i++) {
+	for (guint i = 0; i < context->BufferSize; i++) {
 		c = context->buff[i];
 		switch (context->compr.phase) {
 		    case NEUTRAL:
@@ -1120,7 +1118,7 @@ DoCompressed(struct bmp_progressive_state *context, GError **error)
 				    context->compr.phase = ESCAPE;
 			    break;
 		    case ENCODED:
-			    for (j = 0; j < context->compr.run; j++) {
+			    for (gint j = 0; j < context->compr.run; j++) {
 				    if (context->Compressed == BI_RLE8)
 					    idx = c;
 				    else if (j & 1) 
@@ -1193,7 +1191,7 @@ DoCompressed(struct bmp_progressive_state *context, GError **error)
 				    }
 			    }
 			    else {
-				    for (j = 0; j < 2; j++) {
+				    for (guint j = 0; j < 2; j++) {
 					    if (context->compr.count & 1)
 						    idx = c & 0x0f;
 					    else 
@@ -1257,8 +1255,7 @@ gdk_pixbuf__bmp_image_load_increment(gpointer data,
 	struct bmp_progressive_state *context =
 	    (struct bmp_progressive_state *) data;
 
-	gint BytesToCopy;
-	gint BytesToRemove;
+	guint BytesToCopy, BytesToRemove;
 
 	if (context->read_state == READ_STATE_DONE)
 		return TRUE;
