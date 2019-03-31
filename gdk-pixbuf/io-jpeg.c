@@ -179,17 +179,15 @@ static void
 convert_cmyk_to_rgb (struct jpeg_decompress_struct *cinfo,
 		     guchar **lines) 
 {
-	gint i, j;
-
 	g_return_if_fail (cinfo != NULL);
 	g_return_if_fail (cinfo->output_components == 4);
 	g_return_if_fail (cinfo->out_color_space == JCS_CMYK);
 
-	for (i = cinfo->rec_outbuf_height - 1; i >= 0; i--) {
+	for (gint i = cinfo->rec_outbuf_height - 1; i >= 0; i--) {
 		guchar *p;
 		
 		p = lines[i];
-		for (j = 0; j < cinfo->output_width; j++) {
+		for (guint j = 0; j < cinfo->output_width; j++) {
 			int c, m, y, k;
 			c = p[0];
 			m = p[1];
@@ -760,11 +758,12 @@ skip_input_data (j_decompress_ptr cinfo, long num_bytes)
 	/* move as far as we can into current buffer */
 	/* then set skip_next to catch the rest      */
 	if (num_bytes > 0) {
-		num_can_do = MIN (src->pub.bytes_in_buffer, num_bytes);
+		gsize num_bytes_unsigned = num_bytes;
+		num_can_do = MIN (src->pub.bytes_in_buffer, num_bytes_unsigned);
 		src->pub.next_input_byte += (size_t) num_can_do;
 		src->pub.bytes_in_buffer -= (size_t) num_can_do;
 
-		src->skip_next = num_bytes - num_can_do;
+		src->skip_next = num_bytes_unsigned - num_can_do;
 	}
 }
 
@@ -861,7 +860,7 @@ gdk_pixbuf__jpeg_image_stop_load (gpointer data, GError **error)
 			my_src_ptr src = (my_src_ptr) cinfo->src;
 
 			/* But only if there's enough buffer space left */
-			if (src->skip_next < sizeof(src->buffer) - 2) {
+			if (src->skip_next < (gssize) (sizeof(src->buffer) - 2)) {
 				/* Insert a fake EOI marker */
 				src->buffer[src->skip_next] = (JOCTET) 0xFF;
 				src->buffer[src->skip_next + 1] = (JOCTET) JPEG_EOI;
@@ -1105,7 +1104,7 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 			cinfo->scale_num = 1;
 			for (cinfo->scale_denom = 2; cinfo->scale_denom <= 8; cinfo->scale_denom *= 2) {
 				jpeg_calc_output_dimensions (cinfo);
-				if (cinfo->output_width < width || cinfo->output_height < height) {
+				if ((gint) cinfo->output_width < width || (gint) cinfo->output_height < height) {
 					cinfo->scale_denom /= 2;
 					break;
 				}
@@ -1564,7 +1563,7 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
 			data = g_new (gchar, 0xffff);
 			memcpy (data, "ICC_PROFILE\000", 12);
 			data[13] = segments;
-			for (i=0; i<=segments; i++) {
+			for (guint i = 0; i <= segments; i++) {
 				data[12] = i;
 				offset = 0xffef * i;
 
