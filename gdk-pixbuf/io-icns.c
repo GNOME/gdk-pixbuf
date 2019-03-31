@@ -93,7 +93,7 @@ load_resources (unsigned size, IN gpointer data, gsize datalen,
     return FALSE;
 
   current = bytes + sizeof (IcnsBlockHeader);
-  while ((current - bytes < icnslen) && (icnslen - (current - bytes) >= sizeof (IcnsBlockHeader)))
+  while ((current - bytes < icnslen) && (icnslen - (current - bytes) >= (gint) sizeof (IcnsBlockHeader)))
     {
       header = (IcnsBlockHeader *) current;
       blocklen = GUINT32_FROM_BE (header->size);
@@ -428,8 +428,7 @@ gdk_pixbuf__icns_image_load_increment (gpointer       data,
                                        GError       **error)
 {
   IcnsProgressiveState *context = data;
-  int i;
-  int filesize;
+  guint filesize;
   gint w, h;
 
   context->byte_array = g_byte_array_append (context->byte_array, buf, size);
@@ -445,7 +444,7 @@ gdk_pixbuf__icns_image_load_increment (gpointer       data,
   if (context->byte_array->len < filesize)
     return TRUE;
 
-  for (i = 0; i < G_N_ELEMENTS(sizes) && !context->pixbuf; i++)
+  for (guint i = 0; i < G_N_ELEMENTS(sizes) && !context->pixbuf; i++)
     context->pixbuf = load_icon (sizes[i],
 				 context->byte_array->data,
 				 context->byte_array->len);
