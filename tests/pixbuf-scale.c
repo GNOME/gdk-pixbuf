@@ -178,8 +178,8 @@ test_halve_checkerboard (gconstpointer data)
 {
   GdkInterpType interp_type = *(GdkInterpType *) data;
   const GdkPixbuf *source;              /* Source image */
-  gint width = 256, height = 256;       /* Size of source image */
-  gint scaled_width, scaled_height;     /* Size of scaled image */
+  guint width = 256, height = 256;      /* Size of source image */
+  guint scaled_width, scaled_height;    /* Size of scaled image */
   GdkPixbuf *scaled;                    /* Scaled version */
   guchar *row;                          /* Pointer to start of row of pixels within the image */
   guchar *pixel;                        /* Pointer to current pixel data in row */
@@ -238,7 +238,7 @@ crop_n_compare (const GdkPixbuf *source,
   guchar *crow, *srow;                  /* Pointer to current row in image data */
   guchar *cpixel, *spixel;              /* Pointer to current pixel in row */
   guint x, y;
-  gint scaled_width, scaled_height;     /* Size of scaled image */
+  guint scaled_width, scaled_height;    /* Size of scaled image */
 
   cropped = gdk_pixbuf_new_subpixbuf ((GdkPixbuf *)source, offset_x, offset_y, width, height);
   g_assert_nonnull (cropped);
