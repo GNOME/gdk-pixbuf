@@ -110,7 +110,7 @@ struct _GifContext
         gboolean has_global_cmap;
 
         CMap global_color_map;
-        gint global_colormap_size;
+        gsize global_colormap_size;
         unsigned int global_bit_pixel;
 	unsigned int global_color_resolution;
         unsigned int background_index;
@@ -118,7 +118,7 @@ struct _GifContext
 
         gboolean frame_cmap_active;
         CMap frame_color_map;
-        gint frame_colormap_size;
+        gsize frame_colormap_size;
         unsigned int frame_bit_pixel;
 
 	unsigned int aspect_ratio;
@@ -716,18 +716,24 @@ gif_fill_in_lines (GifContext *context, guchar *dest, guchar v)
 		}
 		/* we don't need a break here.  We draw the outer pixels first, then the
 		 * inner ones, then the innermost ones.  case 0 needs to draw all 3 bands.
-		 * case 1, just the last two, and case 2 just draws the last one*/
-	case 1:
+                 * case 1, just the last two, and case 2 just draws the last one*/
+                /* FALLTHROUGH */
+
+        case 1:
 		if (context->draw_ypos > 2)
 			gif_fill_in_pixels (context, dest, -2, v);
 		if (context->draw_ypos < (context->frame_height - 2))
 			gif_fill_in_pixels (context, dest, 2, v);
 		/* no break as above. */
+                /* FALLTHROUGH */
+
 	case 2:
 		if (context->draw_ypos > 1)
 			gif_fill_in_pixels (context, dest, -1, v);
 		if (context->draw_ypos < (context->frame_height - 1))
 			gif_fill_in_pixels (context, dest, 1, v);
+                /* FALLTHROUGH */
+
 	case 3:
 	default:
 		break;
@@ -742,7 +748,7 @@ clip_frame (GifContext *context,
             gint       *width, 
             gint       *height)
 {
-        gint orig_x, orig_y;
+        guint orig_x, orig_y;
         
         orig_x = *x;
         orig_y = *y;
@@ -881,7 +887,7 @@ gif_get_lzw (GifContext *context)
                         break;
                 }
 
-                context->frame->bg_transparent = (context->gif89.transparent == context->background_index);
+                context->frame->bg_transparent = ((guint) context->gif89.transparent == context->background_index);
                 
                 context->animation->n_frames ++;
                 context->animation->frames = g_list_append (context->animation->frames, context->frame);
@@ -1124,7 +1130,7 @@ gif_prepare_lzw (GifContext *context)
 	context->code_last_byte = 2;
 	context->code_done = FALSE;
 
-        g_assert (context->lzw_clear_code <= 
+        g_assert ((guint) context->lzw_clear_code <=
                   G_N_ELEMENTS (context->lzw_table[0]));
 
 	for (i = 0; i < context->lzw_clear_code; ++i) {
