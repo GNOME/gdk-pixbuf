@@ -1265,8 +1265,8 @@ gdk_pixbuf_xlib_get_from_drawable (GdkPixbuf *dest,
 	}
 
 	g_return_val_if_fail (src_x >= 0 && src_y >= 0, NULL);
-	g_return_val_if_fail (src_x + width <= src_width
-			      && src_y + height <= src_height, NULL);
+	g_return_val_if_fail ((guint) (src_x + width) <= src_width &&
+			      (guint) (src_y + height) <= src_height, NULL);
 
 	if (dest) {
 		g_return_val_if_fail (dest_x >= 0 && dest_y >= 0, NULL);
