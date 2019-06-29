@@ -41,7 +41,7 @@ randomly_modify (const gchar *image, guint size)
   int i, n;
 
   guchar *img_copy = g_malloc (size);
-  g_memmove (img_copy, image, size);
+  memmove (img_copy, image, size);
   
   n = MIN (100, size / 4);
 
