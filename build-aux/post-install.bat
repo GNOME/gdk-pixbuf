@@ -1,13 +1,14 @@
 @echo off
 
-set libdir=%1
-set binary_version=%2
+set bindir=%1
+set libdir=%2
+set binary_version=%3
 
 set libdir_windows=%libdir:/=\%
 
 if not "%DESTDIR%" == "" goto warn_msg
 if not exist %libdir_windows%\gdk-pixbuf-2.0\%binary_version%\ mkdir %libdir_windows%\gdk-pixbuf-2.0\%binary_version%
-gdk-pixbuf-query-loaders > %libdir_windows%\gdk-pixbuf-2.0\%binary_version%\loaders.cache
+%bindir%\gdk-pixbuf-query-loaders > %libdir_windows%\gdk-pixbuf-2.0\%binary_version%\loaders.cache
 
 goto end
 

@@ -1,11 +1,12 @@
 #!/bin/sh
 
-libdir="$1"
-binary_version="$2"
+bindir="$1"
+libdir="$2"
+binary_version="$3"
 
 if [ -z "$DESTDIR" ]; then
         mkdir -p "$libdir/gdk-pixbuf-2.0/$binary_version"
-        gdk-pixbuf-query-loaders > "$libdir/gdk-pixbuf-2.0/$binary_version/loaders.cache"
+        $bindir/gdk-pixbuf-query-loaders > "$libdir/gdk-pixbuf-2.0/$binary_version/loaders.cache"
 else
         echo "***"
         echo "*** Warning: loaders.cache not built"
