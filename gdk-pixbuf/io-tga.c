@@ -581,7 +581,7 @@ tga_load_header (TGAContext  *ctx,
                            _("Cannot allocate TGA header memory"));
       return FALSE;
   }
-  g_memmove(ctx->hdr, g_bytes_get_data (bytes, NULL), sizeof(TGAHeader));
+  memmove(ctx->hdr, g_bytes_get_data (bytes, NULL), sizeof(TGAHeader));
   g_bytes_unref (bytes);
 #ifdef DEBUG_TGA
   g_print ("infolen %d "
