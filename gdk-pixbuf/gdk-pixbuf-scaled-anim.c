@@ -172,6 +172,7 @@ get_size (GdkPixbufAnimation *anim,
 		*height = (int)(*height * scaled->yscale + .5);
 }
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static GdkPixbufAnimationIter *
 get_iter (GdkPixbufAnimation *anim,
           const GTimeVal     *start_time)
@@ -186,6 +187,7 @@ get_iter (GdkPixbufAnimation *anim,
 	
 	return (GdkPixbufAnimationIter*)iter;
 }
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 static void
 gdk_pixbuf_scaled_anim_class_init (GdkPixbufScaledAnimClass *klass)
@@ -242,6 +244,7 @@ on_currently_loading_frame (GdkPixbufAnimationIter *iter)
 	return gdk_pixbuf_animation_iter_on_currently_loading_frame (scaled->iter);
 }
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static gboolean
 advance (GdkPixbufAnimationIter *iter,
 	 const GTimeVal         *current_time)
@@ -250,6 +253,7 @@ advance (GdkPixbufAnimationIter *iter,
 
 	return gdk_pixbuf_animation_iter_advance (scaled->iter, current_time);
 }
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 static void
 gdk_pixbuf_scaled_anim_iter_finalize (GObject *object)

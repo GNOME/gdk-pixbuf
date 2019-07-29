@@ -24,6 +24,7 @@
  */
 
 #include "config.h"
+#define GLIB_DISABLE_DEPRECATION_WARNINGS
 #include <glib.h>
 
 #define GDK_PIXBUF_C_COMPILATION
