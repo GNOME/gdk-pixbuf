@@ -1167,12 +1167,16 @@ gif_init (GifContext *context)
 	version[3] = '\0';
 
 	if ((strcmp (version, "87a") != 0) && (strcmp (version, "89a") != 0)) {
+		gchar *escaped_version;
+
 		/* bad version number, not '87a' or '89a' */
+		escaped_version = g_strescape (version, NULL);
                 g_set_error (context->error,
                              GDK_PIXBUF_ERROR,
                              GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
                              _("Version %s of the GIF file format is not supported"),
-                             version);
+                             escaped_version);
+		g_free (escaped_version);
 		return -2;
 	}
 
