@@ -98,6 +98,7 @@ gdk_pixbuf_gif_anim_is_static_image  (GdkPixbufAnimation *animation)
                 gif_anim->frames->next == NULL);
 }
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static GdkPixbuf*
 gdk_pixbuf_gif_anim_get_static_image (GdkPixbufAnimation *animation)
 {
@@ -113,6 +114,7 @@ gdk_pixbuf_gif_anim_get_static_image (GdkPixbufAnimation *animation)
         iter = gdk_pixbuf_gif_anim_get_iter (animation, &start_time);
         return gdk_pixbuf_gif_anim_iter_get_pixbuf (iter);
 }
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 static void
 gdk_pixbuf_gif_anim_get_size (GdkPixbufAnimation *anim,
