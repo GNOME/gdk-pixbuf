@@ -82,6 +82,7 @@ typedef struct _GdkPixbufAniAnimIterClass GdkPixbufAniAnimIterClass;
 #define GDK_IS_PIXBUF_ANI_ANIM_ITER_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), GDK_TYPE_PIXBUF_ANI_ANIM_ITER))
 #define GDK_PIXBUF_ANI_ANIM_ITER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), GDK_TYPE_PIXBUF_ANI_ANIM_ITER, GdkPixbufAniAnimIterClass))
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 struct _GdkPixbufAniAnimIter {
         GdkPixbufAnimationIter parent_instance;
         
@@ -100,6 +101,7 @@ struct _GdkPixbufAniAnimIter {
            begin of the current frame */
         gint                elapsed;
 };
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 struct _GdkPixbufAniAnimIterClass {
         GdkPixbufAnimationIterClass parent_class;

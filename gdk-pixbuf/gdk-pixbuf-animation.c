@@ -21,6 +21,7 @@
  */
 
 #include "config.h"
+#define GLIB_DISABLE_DEPRECATION_WARNINGS
 #include <errno.h>
 #include "gdk-pixbuf-private.h"
 #include "gdk-pixbuf-animation.h"

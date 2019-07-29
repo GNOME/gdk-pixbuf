@@ -100,6 +100,7 @@ typedef struct _GdkPixbufGifAnimIterClass GdkPixbufGifAnimIterClass;
 #define GDK_IS_PIXBUF_GIF_ANIM_ITER_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), GDK_TYPE_PIXBUF_GIF_ANIM_ITER))
 #define GDK_PIXBUF_GIF_ANIM_ITER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), GDK_TYPE_PIXBUF_GIF_ANIM_ITER, GdkPixbufGifAnimIterClass))
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 struct _GdkPixbufGifAnimIter {
         GdkPixbufAnimationIter parent_instance;
         
@@ -115,6 +116,7 @@ struct _GdkPixbufGifAnimIter {
         
         gint                first_loop_slowness;
 };
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 struct _GdkPixbufGifAnimIterClass {
         GdkPixbufAnimationIterClass parent_class;

@@ -30,9 +30,10 @@ static GdkPixbuf*              gdk_pixbuf_ani_anim_get_static_image (GdkPixbufAn
 static void                    gdk_pixbuf_ani_anim_get_size (GdkPixbufAnimation *anim,
                                                              int                *width,
                                                              int                *height);
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static GdkPixbufAnimationIter* gdk_pixbuf_ani_anim_get_iter (GdkPixbufAnimation *anim,
                                                              const GTimeVal     *start_time);
-
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 
 
@@ -122,6 +123,7 @@ iter_restart (GdkPixbufAniAnimIter *iter)
         iter->elapsed = 0;
 }
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static GdkPixbufAnimationIter*
 gdk_pixbuf_ani_anim_get_iter (GdkPixbufAnimation *anim,
                               const GTimeVal     *start_time)
@@ -141,6 +143,7 @@ gdk_pixbuf_ani_anim_get_iter (GdkPixbufAnimation *anim,
 
         return GDK_PIXBUF_ANIMATION_ITER (iter);
 }
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 
 
@@ -149,8 +152,10 @@ static void gdk_pixbuf_ani_anim_iter_finalize   (GObject                   *obje
 static int        gdk_pixbuf_ani_anim_iter_get_delay_time             (GdkPixbufAnimationIter *iter);
 static GdkPixbuf* gdk_pixbuf_ani_anim_iter_get_pixbuf                 (GdkPixbufAnimationIter *iter);
 static gboolean   gdk_pixbuf_ani_anim_iter_on_currently_loading_frame (GdkPixbufAnimationIter *iter);
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static gboolean   gdk_pixbuf_ani_anim_iter_advance                    (GdkPixbufAnimationIter *iter,
                                                                        const GTimeVal         *current_time);
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 
 
@@ -186,6 +191,7 @@ gdk_pixbuf_ani_anim_iter_finalize (GObject *object)
         G_OBJECT_CLASS (gdk_pixbuf_ani_anim_iter_parent_class)->finalize (object);
 }
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static gboolean
 gdk_pixbuf_ani_anim_iter_advance (GdkPixbufAnimationIter *anim_iter,
                                   const GTimeVal         *current_time)
@@ -237,6 +243,7 @@ gdk_pixbuf_ani_anim_iter_advance (GdkPixbufAnimationIter *anim_iter,
 
         return iter->current_frame != old;
 }
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 int
 gdk_pixbuf_ani_anim_iter_get_delay_time (GdkPixbufAnimationIter *anim_iter)
