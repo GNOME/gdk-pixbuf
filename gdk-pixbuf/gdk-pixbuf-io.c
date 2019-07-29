@@ -654,21 +654,29 @@ gdk_pixbuf_io_init_builtin (void)
 #ifdef INCLUDE_qtif
         load_one_builtin_module (qtif);
 #endif
-#ifdef INCLUDE_gdiplus
-        /* We don't bother having the GDI+ loaders individually selectable
-         * for building in or not.
-         */
-        load_one_builtin_module (ico);
-        load_one_builtin_module (wmf);
-        load_one_builtin_module (emf);
-        load_one_builtin_module (bmp);
-        load_one_builtin_module (gif);
-        load_one_builtin_module (jpeg);
-        load_one_builtin_module (tiff);
+#ifdef INCLUDE_gdip_ico
+        load_one_builtin_module (gdip_ico);
+#endif
+#ifdef INCLUDE_gdip_wmf
+        load_one_builtin_module (gdip_wmf);
+#endif
+#ifdef INCLUDE_gdip_emf
+        load_one_builtin_module (gdip_emf);
+#endif
+#ifdef INCLUDE_gdip_bmp
+        load_one_builtin_module (gdip_bmp);
+#endif
+#ifdef INCLUDE_gdip_bmp
+        load_one_builtin_module (gdip_gif);
+#endif
+#ifdef INCLUDE_gdip_bmp
+        load_one_builtin_module (gdip_jpeg);
+#endif
+#ifdef INCLUDE_gdip_tiff
+        load_one_builtin_module (gdip_tiff);
 #endif
 #ifdef INCLUDE_gdip_png
-        /* Except the gdip-png loader which normally isn't built at all even */
-        load_one_builtin_module (png);
+        load_one_builtin_module (gdip_png);
 #endif
 
 #undef load_one_builtin_module

@@ -45,7 +45,7 @@ gdk_pixbuf__gdip_image_save_TIFF (FILE         *f,
   return gdk_pixbuf__gdip_image_save_TIFF_to_callback (gdip_save_to_file_callback, f, pixbuf, keys, values, error);
 }
 
-#ifndef INCLUDE_gdiplus
+#ifndef INCLUDE_gdip_tiff
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
 #else
 #define MODULE_ENTRY(function) void _gdk_pixbuf__gdip_tiff_ ## function
