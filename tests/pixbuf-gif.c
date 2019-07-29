@@ -17,6 +17,7 @@
  * along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
 
+#define GLIB_DISABLE_DEPRECATION_WARNINGS
 #include "gdk-pixbuf/gdk-pixbuf.h"
 #include "test-common.h"
 #include <string.h>
