@@ -288,6 +288,9 @@ if get_option('png')
         loaders_deps += png_dep
       endif
     endif
+    if png_dep.found() and (builtin_loaders.contains('png') or builtin_all_loaders)
+      gdk_pixbuf_deps += png_dep
+    endif
   endif
 endif
 
@@ -302,9 +305,13 @@ else
 endif
 
 if native_windows_loaders
-  loaders_deps += cc.find_library('gdiplus')
-  loaders_deps += cc.find_library('ole32')
+  gdip_lib = cc.find_library('gdiplus')
+  ole32_lib = cc.find_library('ole32')
+  loaders_deps += [gdip_lib, ole32_lib]
   enabled_loaders += 'gdiplus'
+  if builtin_loaders.contains('gdiplus') or builtin_all_loaders
+    gdk_pixbuf_deps += [gdip_lib, ole32_lib]
+  endif
 endif
 
 # Don't check and build the jpeg loader if native_windows_loaders is true
@@ -323,6 +330,9 @@ if get_option('jpeg') and not native_windows_loaders
       gdk_pixbuf_conf.set('HAVE_PROGRESSIVE_JPEG',
                           cc.has_function('jpeg_simple_progression',
                                           dependencies: jpeg_dep))
+      if builtin_loaders.contains('jpeg') or builtin_all_loaders
+        gdk_pixbuf_deps += jpeg_dep
+      endif
     endif
   endif
 endif
@@ -346,6 +356,9 @@ if get_option('tiff') and not native_windows_loaders
   if tiff_dep.found()
     enabled_loaders += 'tiff'
     loaders_deps += tiff_dep
+    if builtin_loaders.contains('tiff') or builtin_all_loaders
+      gdk_pixbuf_deps += tiff_dep
+    endif
   endif
 endif
 
@@ -375,6 +388,9 @@ if get_option('jasper')
     if jasper_dep.found() and cc.has_function('jas_init', dependencies: jasper_dep)
       enabled_loaders += 'jasper'
       loaders_deps += jasper_dep
+      if builtin_loaders.contains('jasper') or builtin_all_loaders
+        gdk_pixbuf_deps += jasper_dep
+      endif
     endif
   endif
 endif

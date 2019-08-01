@@ -110,7 +110,7 @@ endif
 
 # Check if we need to build loaders as built-in functionality
 included_loaders_cflags = []
-included_loaders_deps = []
+included_loaders_objs = []
 
 foreach l: loaders
   name = l[0]
@@ -129,7 +129,7 @@ foreach l: loaders
                          include_directories: [ root_inc, gdk_pixbuf_inc ],
                          c_args: common_cflags + gdk_pixbuf_cflags + cflags + cflag_for_included_loader)
 
-    included_loaders_deps += declare_dependency(link_with: mod)
+    included_loaders_objs += mod.extract_all_objects()
   endif
 endforeach
 
@@ -154,7 +154,7 @@ if native_windows_loaders
                          include_directories: [ root_inc, gdk_pixbuf_inc ],
                          c_args: common_cflags + gdk_pixbuf_cflags + cflag_for_included_loader)
 
-    included_loaders_deps += declare_dependency(link_with: mod)
+    included_loaders_objs += mod.extract_all_objects()
   endif
 endif
 
@@ -167,6 +167,7 @@ gdkpixbuf = library('gdk_pixbuf-2.0',
                       gdkpixbuf_marshals,
                       gdkpixdata_sources,
                     ],
+                    objects: included_loaders_objs,
                     soversion: soversion,
                     version: libversion,
                     c_args: common_cflags + gdk_pixbuf_cflags + included_loaders_cflags,
@@ -177,7 +178,6 @@ gdkpixbuf = library('gdk_pixbuf-2.0',
                     ],
                     dependencies: [
                       gdk_pixbuf_deps,
-                      included_loaders_deps,
                     ],
                     install: true)
 
