@@ -6,7 +6,7 @@ project('gdk-pixbuf', 'c',
           'warning_level=1',
           'c_std=c99',
         ],
-        meson_version: '>= 0.46.0')
+        meson_version: '>= 0.48.0')
 
 add_project_arguments([ '-D_POSIX_C_SOURCE=200809L', '-D_DEFAULT_SOURCE', '-D_XOPEN_SOURCE' ], language: 'c')
 
@@ -186,8 +186,6 @@ if host_machine.system() == 'linux'
 endif
 
 if host_machine.system() == 'darwin'
-  # Maintain compatibility with autotools on macOS
-  common_ldflags += [ '-compatibility_version', darwin_versions[0], '-current_version', darwin_versions[1]]
   gdk_pixbuf_conf.set('OS_DARWIN', 1)
 endif
 

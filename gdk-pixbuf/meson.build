@@ -169,6 +169,7 @@ gdkpixbuf = library('gdk_pixbuf-2.0',
                     ],
                     soversion: soversion,
                     version: libversion,
+		    darwin_versions: darwin_versions,
                     c_args: common_cflags + gdk_pixbuf_cflags + included_loaders_cflags,
                     link_args: common_ldflags,
                     include_directories: [
