@@ -34,6 +34,7 @@ GDK_PIXBUF_VERSION_2_32
 GDK_PIXBUF_VERSION_2_34
 GDK_PIXBUF_VERSION_2_36
 GDK_PIXBUF_VERSION_2_38
+GDK_PIXBUF_VERSION_2_40
 GDK_PIXBUF_VERSION_MIN_REQUIRED
 GDK_PIXBUF_VERSION_MAX_ALLOWED
 
@@ -336,6 +337,7 @@ gdk_pixbuf_loader_get_type
 <SECTION>
 <TITLE>Module Interface</TITLE>
 <FILE>module_interface</FILE>
+gdk_pixbuf_init_modules
 gdk_pixbuf_get_formats
 gdk_pixbuf_format_copy
 gdk_pixbuf_format_free
