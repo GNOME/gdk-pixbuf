@@ -570,6 +570,7 @@ gdk_pixbuf_io_init_modules (const char  *filename,
 /**
  * gdk_pixbuf_init_modules:
  * @path: Path to directory where the loaders.cache is installed
+ * @error: return location for a #GError
  *
  * Initalizes the gdk-pixbuf loader modules referenced by the loaders.cache
  * file present inside that directory.
