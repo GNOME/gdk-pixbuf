@@ -30,6 +30,7 @@ private_headers = [
   'io-gif-animation.h',
   'xpm-color-table.h',
   'test-images.h',
+  'lzw.h',
 ]
 
 if not get_option('x11')
