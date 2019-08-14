@@ -1,3 +1,17 @@
+2.39.2 (development)
+===
+
+ - Add gdk_pixbuf_init_modules() for applications with GdkPixbuf loader
+   modules in a separate directory [Bastien Nocera, bgo#786035]
+ - Add subproject fallback for dependencies [Nirbheek Chauhan]
+ - Handle large XPM without crashing [Bastien Nocera, #95]
+ - Use the appropriate gdk-pixbuf-query-loaders on install [Emmanuele
+   Bassi, #126]
+ - Disable deprecation warnings introduced by GLib 2.62
+ - Escape GIF version in error messages [Robert Ancell]
+ - Use the appropriate fallback for libpng on Windows [Chun-wei Fan]
+ - Render GIF frames on demand [Robert Ancell, #101]
+
 2.38.0 (stable)
 ===
  - Documentation fixes
