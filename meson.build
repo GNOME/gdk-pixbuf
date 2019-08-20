@@ -130,6 +130,15 @@ elif cc.get_id() == 'gcc' or cc.get_id() == 'clang'
     '-Wold-style-definition',
     '-Wdeclaration-after-statement',
     '-Wunused',
+    # Due to function casts through (void*) we cannot support -Wpedantic:
+    # https://wiki.gnome.org/Projects/GLib/CompilerRequirements#Function_pointer_conversions.
+    '-Wno-pedantic',
+    # Due to pixops code, we do not want to see unused parameters
+    '-Wno-unused-parameter',
+    # Due to pervasive use of things like GPOINTER_TO_UINT(), we do not support
+    # building with -Wbad-function-cast.
+    '-Wno-bad-function-cast',
+    '-Wno-cast-function-type',
     '-Wcast-align',
     '-Wmissing-noreturn',
     '-Wmissing-format-attribute',
@@ -177,6 +186,7 @@ if get_option('default_library') != 'static'
 endif
 
 common_cflags += cc.get_supported_arguments(test_cflags)
+add_project_arguments(common_cflags, language: 'c')
 
 if host_machine.system() == 'linux'
   # Additional linker flags

@@ -318,7 +318,7 @@ xpm_extract_color (const gchar *buffer)
 	gint new_key = 0;
 	gint key = 0;
 	gint current_key = 1;
-	gint space = 128;
+	guint space = 128;
 	gchar word[129], color[129], current_color[129];
 	gchar *r; 
 	
@@ -330,7 +330,7 @@ xpm_extract_color (const gchar *buffer)
 		for (; *p != '\0' && g_ascii_isspace (*p); p++) {
 		} 
 		/* copy word */
-		for (r = word; *p != '\0' && !g_ascii_isspace (*p) && r - word < sizeof (word) - 1; p++, r++) {
+		for (r = word; *p != '\0' && !g_ascii_isspace (*p) && (size_t) (r - word) < sizeof (word) - 1; p++, r++) {
 			*r = *p;
 		}
 		*r = '\0';
@@ -399,12 +399,14 @@ file_buffer (enum buf_op op, gpointer handle)
 
 		if (xpm_seek_char (h->infile, '{') != TRUE)
 			break;
+		/* FALLTHROUGH */
 		/* Fall through to the next xpm_seek_char. */
 
 	case op_cmap:
 		xpm_seek_char (h->infile, '"');
 		if (fseek (h->infile, -1, SEEK_CUR) != 0)
 			return NULL;
+		/* FALLTHROUGH */
 		/* Fall through to the xpm_read_string. */
 
 	case op_body:
@@ -450,8 +452,8 @@ static GdkPixbuf *
 pixbuf_create_from_xpm (const gchar * (*get_buf) (enum buf_op op, gpointer handle), gpointer handle,
                         GError **error)
 {
-	gint w, h, n_col, cpp, x_hot, y_hot, items;
-	gint cnt, xcnt, ycnt, wbytes, n;
+	guint w, h, n_col, cpp, x_hot, y_hot, items;
+	guint cnt, xcnt, ycnt, wbytes, n;
 	gint is_trans = FALSE;
 	const gchar *buffer;
         gchar *name_buf;

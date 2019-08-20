@@ -292,7 +292,7 @@ scan_string (const char **pos, GString *out)
 static gboolean
 scan_int (const char **pos, int *out)
 {
-        int i = 0;
+        gsize i = 0;
         char buf[32];
         const char *p = *pos;
         

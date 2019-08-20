@@ -133,9 +133,7 @@ main (int argc, char **argv)
     }
   else
     {
-      guint i;
-
-      for (i = 1; i < argc; i++)
+      for (gint i = 1; i < argc; i++)
         {
           GFile *file = g_file_new_for_commandline_arg (argv[i]);
 

@@ -213,10 +213,9 @@ png_text_to_pixbuf_option (png_text   text_ptr,
                            gchar    **value)
 {
         gboolean is_ascii = TRUE;
-        int i;
 
         /* Avoid loading iconv if the text is plain ASCII */
-        for (i = 0; i < text_ptr.text_length; i++)
+        for (gsize i = 0; i < text_ptr.text_length; i++)
                 if (text_ptr.text[i] & 0x80) {
                         is_ascii = FALSE;
                         break;
@@ -338,7 +337,8 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
 
 	rows = g_new (png_bytep, h);
 
-        for (i = 0, ptr = gdk_pixbuf_get_pixels (pixbuf); i < h; i++, ptr = (guchar *) ptr + rowstride)
+        ptr = gdk_pixbuf_get_pixels (pixbuf);
+        for (guint i = 0; i < h; i++, ptr = (guchar *) ptr + rowstride)
 		rows[i] = ptr;
 
 	png_read_image (png_ptr, rows);
@@ -781,7 +781,7 @@ png_row_callback   (png_structp png_read_ptr,
         if (lc->fatal_error_occurred)
                 return;
 
-        if (row_num >= gdk_pixbuf_get_height (lc->pixbuf)) {
+        if (row_num >= (guint) gdk_pixbuf_get_height (lc->pixbuf)) {
                 lc->fatal_error_occurred = TRUE;
                 g_set_error_literal (lc->error,
                                      GDK_PIXBUF_ERROR,

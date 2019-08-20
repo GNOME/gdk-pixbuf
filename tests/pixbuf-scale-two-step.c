@@ -61,7 +61,7 @@ pixdata_almost_equal (GdkPixbuf *one, GdkPixbuf *two)
   guchar *one_pixel;    /* Pointer to current pixel data in one */
   guchar *two_row;      /* Pointer to start of row of pixels in two */
   guchar *two_pixel;    /* Pointer to current pixel data in two */
-  guint x, y;
+  gint x, y;
   gint width_one, height_one;
 
   width_one = gdk_pixbuf_get_width (one);
@@ -191,7 +191,7 @@ crop_n_compare(const GdkPixbuf *source,	/* The source image */
     guchar *scaled_pixel;   /* Pointer to current pixel data in scaled */
     guchar *cropped_row;    /* Pointer to start of row of pixels in cropped */
     guchar *cropped_pixel;  /* Pointer to current pixel data in cropped */
-    guint x, y;
+    gint x, y;
     gint scaled_width, scaled_height;
 
     scaled_width = gdk_pixbuf_get_width (scaled);

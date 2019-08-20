@@ -66,7 +66,7 @@ loader_sanity_check (const char *path, GdkPixbufFormat *info, GdkPixbufModule *v
 
         for (pattern = info->signature; pattern->prefix; pattern++)
         {
-                int prefix_len = strlen (pattern->prefix);
+                gsize prefix_len = strlen (pattern->prefix);
                 if (prefix_len == 0)
                 {
                         error = "empty pattern";
@@ -75,7 +75,7 @@ loader_sanity_check (const char *path, GdkPixbufFormat *info, GdkPixbufModule *v
                 }
                 if (pattern->mask)
                 {
-                        int mask_len = strlen (pattern->mask);
+                        gsize mask_len = strlen (pattern->mask);
                         if (mask_len != prefix_len)
                         {
                                 error = "mask length mismatch";
@@ -445,7 +445,7 @@ int main (int argc, char **argv)
                         const char *dent;
 
                         while ((dent = g_dir_read_name (dir))) {
-                                gint len = strlen (dent);
+                                gsize len = strlen (dent);
                                 if (len > SOEXT_LEN &&
                                     strcmp (dent + len - SOEXT_LEN, SOEXT) == 0) {
                                         modules = g_list_prepend (modules,

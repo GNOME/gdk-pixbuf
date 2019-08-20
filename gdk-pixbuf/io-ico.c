@@ -920,7 +920,7 @@ gdk_pixbuf__ico_image_load_increment(gpointer data,
 	struct ico_progressive_state *context =
 	    (struct ico_progressive_state *) data;
 
-	gint BytesToCopy;
+	guint BytesToCopy;
 
 	while (size > 0) {
 		g_assert(context->LineDone >= 0);
