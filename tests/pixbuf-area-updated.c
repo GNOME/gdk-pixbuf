@@ -20,6 +20,7 @@
  *         Bastien Nocera
  */
 
+#define GLIB_DISABLE_DEPRECATION_WARNINGS
 #include <stdio.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 

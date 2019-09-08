@@ -33,9 +33,10 @@ static GdkPixbuf*              gdk_pixbuf_gif_anim_get_static_image (GdkPixbufAn
 static void                    gdk_pixbuf_gif_anim_get_size (GdkPixbufAnimation *anim,
                                                              int                *width,
                                                              int                *height);
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static GdkPixbufAnimationIter* gdk_pixbuf_gif_anim_get_iter (GdkPixbufAnimation *anim,
                                                              const GTimeVal     *start_time);
-
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 
 
@@ -94,6 +95,7 @@ gdk_pixbuf_gif_anim_is_static_image  (GdkPixbufAnimation *animation)
                 gif_anim->frames->next == NULL);
 }
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static GdkPixbuf*
 gdk_pixbuf_gif_anim_get_static_image (GdkPixbufAnimation *animation)
 {
@@ -106,6 +108,7 @@ gdk_pixbuf_gif_anim_get_static_image (GdkPixbufAnimation *animation)
         else
                 return GDK_PIXBUF (((GdkPixbufFrame*)gif_anim->frames->data)->pixbuf);
 }
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 static void
 gdk_pixbuf_gif_anim_get_size (GdkPixbufAnimation *anim,
@@ -138,6 +141,7 @@ iter_restart (GdkPixbufGifAnimIter *iter)
         iter->current_frame = iter->gif_anim->frames;
 }
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static GdkPixbufAnimationIter*
 gdk_pixbuf_gif_anim_get_iter (GdkPixbufAnimation *anim,
                               const GTimeVal     *start_time)
@@ -158,6 +162,7 @@ gdk_pixbuf_gif_anim_get_iter (GdkPixbufAnimation *anim,
 
         return GDK_PIXBUF_ANIMATION_ITER (iter);
 }
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 
 
@@ -166,8 +171,10 @@ static void gdk_pixbuf_gif_anim_iter_finalize   (GObject                   *obje
 static int        gdk_pixbuf_gif_anim_iter_get_delay_time             (GdkPixbufAnimationIter *iter);
 static GdkPixbuf* gdk_pixbuf_gif_anim_iter_get_pixbuf                 (GdkPixbufAnimationIter *iter);
 static gboolean   gdk_pixbuf_gif_anim_iter_on_currently_loading_frame (GdkPixbufAnimationIter *iter);
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static gboolean   gdk_pixbuf_gif_anim_iter_advance                    (GdkPixbufAnimationIter *iter,
                                                                        const GTimeVal         *current_time);
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 
 
@@ -246,6 +253,7 @@ gdk_pixbuf_gif_anim_iter_clean_previous (GList *initial)
         }
 }
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 static gboolean
 gdk_pixbuf_gif_anim_iter_advance (GdkPixbufAnimationIter *anim_iter,
                                   const GTimeVal         *current_time)
@@ -320,6 +328,7 @@ gdk_pixbuf_gif_anim_iter_advance (GdkPixbufAnimationIter *anim_iter,
 
         return iter->current_frame != old;
 }
+G_GNUC_END_IGNORE_DEPRECATIONS
 
 int
 gdk_pixbuf_gif_anim_iter_get_delay_time (GdkPixbufAnimationIter *anim_iter)
