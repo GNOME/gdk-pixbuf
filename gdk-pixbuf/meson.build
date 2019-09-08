@@ -52,7 +52,6 @@ gdkpixbuf_features_conf.set('LT_CURRENT_MINUS_AGE', current_minus_age)
 gdk_pixbuf_features_h = configure_file(input: 'gdk-pixbuf-features.h.in',
                                        output: 'gdk-pixbuf-features.h',
                                        configuration: gdkpixbuf_features_conf,
-                                       install: true,
                                        install_dir: join_paths(gdk_pixbuf_includedir, gdk_pixbuf_api_path))
 
 gdkpixbuf_headers = [
