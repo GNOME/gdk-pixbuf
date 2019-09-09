@@ -21,6 +21,7 @@
  */
 
 #include "config.h"
+#include <string.h>
 #include <errno.h>
 #include "gdk-pixbuf-transform.h"
 #include "io-gif-animation.h"
