@@ -56,7 +56,7 @@ gdk_pixbuf_libexecdir = join_paths(gdk_pixbuf_prefix, get_option('libexecdir'))
 gdk_pixbuf_loaderdir = join_paths(gdk_pixbuf_libdir, 'gdk-pixbuf-@0@/@1@/loaders'.format(gdk_pixbuf_api_version, gdk_pixbuf_binary_version))
 
 # Dependencies
-glib_req_version = '>= 2.38.0'
+glib_req_version = '>= 2.56.0'
 glib_dep = dependency('glib-2.0', version: glib_req_version,
                       fallback : ['glib', 'libglib_dep'])
 gobject_dep = dependency('gobject-2.0', version: glib_req_version,
