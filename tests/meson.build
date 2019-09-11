@@ -47,6 +47,7 @@ resources_h = custom_target('resources.h',
 #  - io: Loading/saving
 #  - ops: Pixel operations
 installed_tests = [
+  [ 'pixbuf-construction', ['conform'], ],
   [ 'animation', ['format'], ],
   [ 'cve-2015-4491', ['security'], true ],
   [ 'pixbuf-fail', ['conform', 'slow'], ],
