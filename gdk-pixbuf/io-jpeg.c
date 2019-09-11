@@ -785,6 +785,10 @@ gdk_pixbuf__jpeg_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 	JpegProgContext *context;
 	my_source_mgr   *src;
 
+	g_assert (size_func != NULL);
+	g_assert (prepared_func != NULL);
+	g_assert (updated_func != NULL);
+
 	context = g_new0 (JpegProgContext, 1);
 	context->size_func = size_func;
 	context->prepared_func = prepared_func;
@@ -949,13 +953,12 @@ gdk_pixbuf__jpeg_image_load_lines (JpegProgContext  *context,
                 context->dptr += (gsize)nlines * gdk_pixbuf_get_rowstride (context->pixbuf);
 
                 /* send updated signal */
-		if (context->updated_func)
-			(* context->updated_func) (context->pixbuf,
-						   0,
-						   cinfo->output_scanline - 1,
-						   cinfo->image_width,
-						   nlines,
-						   context->user_data);
+		(* context->updated_func) (context->pixbuf,
+					   0,
+					   cinfo->output_scanline - 1,
+					   cinfo->image_width,
+					   nlines,
+					   context->user_data);
         }
 
         return TRUE;
@@ -1090,16 +1093,14 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 		
 			width = cinfo->image_width;
 			height = cinfo->image_height;
-			if (context->size_func) {
-				(* context->size_func) (&width, &height, context->user_data);
-				if (width == 0 || height == 0) {
-					g_set_error_literal (error,
-                                                             GDK_PIXBUF_ERROR,
-                                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                                             _("Transformed JPEG has zero width or height."));
-					retval = FALSE;
-					goto out;
-				}
+			(* context->size_func) (&width, &height, context->user_data);
+			if (width == 0 || height == 0) {
+				g_set_error_literal (error,
+						     GDK_PIXBUF_ERROR,
+						     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+						     _("Transformed JPEG has zero width or height."));
+				retval = FALSE;
+				goto out;
 			}
 			
 			cinfo->scale_num = 1;
@@ -1188,10 +1189,9 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 			context->dptr = gdk_pixbuf_get_pixels (context->pixbuf);
 			
 			/* Notify the client that we are ready to go */
-			if (context->prepared_func)
-				(* context->prepared_func) (context->pixbuf,
-							    NULL,
-							    context->user_data);
+			(* context->prepared_func) (context->pixbuf,
+						    NULL,
+						    context->user_data);
 			
 		} else if (!context->did_prescan) {
 			int rc;			

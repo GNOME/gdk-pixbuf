@@ -66,6 +66,10 @@ jasper_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 	struct jasper_context *context;
 	jas_stream_t *stream;
 
+	g_assert (size_func != NULL);
+	g_assert (prepared_func != NULL);
+	g_assert (updated_func != NULL);
+
 	jas_init ();
 
 	stream = jas_stream_memopen (NULL, 0);
@@ -132,17 +136,15 @@ jasper_image_try_load (struct jasper_context *context, GError **error)
 		context->width = width = jas_image_cmptwidth (raw_image, 0);
 		context->height = height = jas_image_cmptheight (raw_image, 0);
 
-		if (context->size_func) {
-			(*context->size_func) (&width, &height, context->user_data);
+		(*context->size_func) (&width, &height, context->user_data);
 
-			if (width == 0 || height == 0) {
-				jas_image_destroy(raw_image);
-				g_set_error_literal (error,
-                                                     GDK_PIXBUF_ERROR,
-                                                     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                                                     _("Transformed JPEG2000 has zero width or height"));
-				return FALSE;
-			}
+		if (width == 0 || height == 0) {
+			jas_image_destroy(raw_image);
+			g_set_error_literal (error,
+					     GDK_PIXBUF_ERROR,
+					     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+					     _("Transformed JPEG2000 has zero width or height"));
+			return FALSE;
 		}
 	}
 
@@ -205,8 +207,7 @@ jasper_image_try_load (struct jasper_context *context, GError **error)
                                              _("Insufficient memory to open JPEG 2000 file"));
 			return FALSE;
 		}
-		if (context->prepared_func)
-			context->prepared_func (context->pixbuf, NULL, context->user_data);
+		context->prepared_func (context->pixbuf, NULL, context->user_data);
 	}
 
 	/* We calculate how much we should shift the pixel
@@ -253,7 +254,7 @@ jasper_image_try_load (struct jasper_context *context, GError **error)
 			}
 			/* Update once per line for the last component, otherwise
 			 * we might contain garbage */
-			if (context->updated_func && (i == num_components - 1) && k != 0) {
+			if ((i == num_components - 1) && k != 0) {
 				context->updated_func (context->pixbuf, 0, j, k, 1, context->user_data);
 			}
 		}

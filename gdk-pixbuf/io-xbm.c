@@ -46,8 +46,8 @@
 typedef struct _XBMData XBMData;
 struct _XBMData
 {
-	GdkPixbufModulePreparedFunc prepare_func;
-	GdkPixbufModuleUpdatedFunc update_func;
+	GdkPixbufModulePreparedFunc prepared_func;
+	GdkPixbufModuleUpdatedFunc updated_func;
 	gpointer user_data;
 
 	gchar *tempname;
@@ -342,8 +342,8 @@ gdk_pixbuf__xbm_image_load_real (FILE     *f,
 	pixels = gdk_pixbuf_get_pixels (pixbuf);
 	row_stride = gdk_pixbuf_get_rowstride (pixbuf);
 
-	if (context && context->prepare_func)
-		(* context->prepare_func) (pixbuf, NULL, context->user_data);
+	if (context)
+		(* context->prepared_func) (pixbuf, NULL, context->user_data);
 
 
 	/* Initialize PIXBUF */
@@ -371,8 +371,7 @@ gdk_pixbuf__xbm_image_load_real (FILE     *f,
 	g_free (data);
 
 	if (context) {
-		if (context->update_func)
-			(* context->update_func) (pixbuf, 0, 0, w, h, context->user_data);
+		(* context->updated_func) (pixbuf, 0, 0, w, h, context->user_data);
 	}
 
 	return pixbuf;
@@ -398,17 +397,21 @@ gdk_pixbuf__xbm_image_load (FILE    *f,
 
 static gpointer
 gdk_pixbuf__xbm_image_begin_load (GdkPixbufModuleSizeFunc       size_func,
-                                  GdkPixbufModulePreparedFunc   prepare_func,
-				  GdkPixbufModuleUpdatedFunc    update_func,
+                                  GdkPixbufModulePreparedFunc   prepared_func,
+				  GdkPixbufModuleUpdatedFunc    updated_func,
 				  gpointer                      user_data,
 				  GError                      **error)
 {
 	XBMData *context;
 	gint fd;
 
+	g_assert (size_func != NULL);
+	g_assert (prepared_func != NULL);
+	g_assert (updated_func != NULL);
+
 	context = g_new (XBMData, 1);
-	context->prepare_func = prepare_func;
-	context->update_func = update_func;
+	context->prepared_func = prepared_func;
+	context->updated_func = updated_func;
 	context->user_data = user_data;
 	context->all_okay = TRUE;
 	fd = g_file_open_tmp ("gdkpixbuf-xbm-tmp.XXXXXX",

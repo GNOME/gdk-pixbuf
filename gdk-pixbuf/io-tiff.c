@@ -58,8 +58,8 @@ typedef struct _TiffContext TiffContext;
 struct _TiffContext
 {
 	GdkPixbufModuleSizeFunc size_func;
-	GdkPixbufModulePreparedFunc prepare_func;
-	GdkPixbufModuleUpdatedFunc update_func;
+	GdkPixbufModulePreparedFunc prepared_func;
+	GdkPixbufModuleUpdatedFunc updated_func;
 	gpointer user_data;
         
         guchar *buffer;
@@ -153,7 +153,7 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
 
         bytes = height * rowstride;
 
-	if (context && context->size_func) {
+	if (context) {
                 gint w = width;
                 gint h = height;
 		(* context->size_func) (&w, &h, context->user_data);
@@ -276,8 +276,8 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
                 }
         }
 
-	if (context && context->prepare_func)
-		(* context->prepare_func) (pixbuf, NULL, context->user_data);
+	if (context)
+		(* context->prepared_func) (pixbuf, NULL, context->user_data);
 
 	if (!TIFFReadRGBAImageOriented (tiff, width, height, (uint32 *)pixels, ORIENTATION_TOPLEFT, 1)) {
 		g_set_error_literal (error,
@@ -316,8 +316,8 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
         }
 #endif
 
-	if (context && context->update_func)
-		(* context->update_func) (pixbuf, 0, 0, width, height, context->user_data);
+	if (context)
+		(* context->updated_func) (pixbuf, 0, 0, width, height, context->user_data);
 
         return pixbuf;
 }
@@ -391,17 +391,21 @@ gdk_pixbuf__tiff_image_load (FILE *f, GError **error)
 
 static gpointer
 gdk_pixbuf__tiff_image_begin_load (GdkPixbufModuleSizeFunc size_func,
-                                   GdkPixbufModulePreparedFunc prepare_func,
-				   GdkPixbufModuleUpdatedFunc update_func,
+                                   GdkPixbufModulePreparedFunc prepared_func,
+				   GdkPixbufModuleUpdatedFunc updated_func,
 				   gpointer user_data,
                                    GError **error)
 {
 	TiffContext *context;
         
+        g_assert (size_func != NULL);
+        g_assert (prepared_func != NULL);
+        g_assert (updated_func != NULL);
+
 	context = g_new0 (TiffContext, 1);
 	context->size_func = size_func;
-	context->prepare_func = prepare_func;
-	context->update_func = update_func;
+	context->prepared_func = prepared_func;
+	context->updated_func = updated_func;
 	context->user_data = user_data;
         context->buffer = NULL;
         context->allocated = 0;

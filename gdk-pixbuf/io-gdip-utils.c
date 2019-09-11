@@ -551,19 +551,17 @@ destroy_gdipcontext (GdipContext *context)
 static void
 emit_updated (GdipContext *context, GdkPixbuf *pixbuf)
 {
-  if (context->updated_func)
-    (*context->updated_func) (pixbuf,
-                              0, 0,
-                              gdk_pixbuf_get_width (pixbuf),
-                              gdk_pixbuf_get_height (pixbuf),
-                              context->user_data);
+  (*context->updated_func) (pixbuf,
+                            0, 0,
+                            gdk_pixbuf_get_width (pixbuf),
+                            gdk_pixbuf_get_height (pixbuf),
+                            context->user_data);
 }
 
 static void
 emit_prepared (GdipContext *context, GdkPixbuf *pixbuf, GdkPixbufAnimation *anim)
 {
-  if (context->prepared_func)
-    (*context->prepared_func) (pixbuf, anim, context->user_data);
+  (*context->prepared_func) (pixbuf, anim, context->user_data);
 }
 
 static gpointer
@@ -574,6 +572,10 @@ gdk_pixbuf__gdip_image_begin_load (GdkPixbufModuleSizeFunc size_func,
                                    GError **error)
 {
   GdipContext *context = g_new0 (GdipContext, 1);
+
+  g_assert (size_func != NULL);
+  g_assert (prepared_func != NULL);
+  g_assert (updated_func != NULL);
 
   context->size_func     = size_func;
   context->prepared_func = prepared_func;

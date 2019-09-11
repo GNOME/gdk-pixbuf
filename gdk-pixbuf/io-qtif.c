@@ -76,8 +76,8 @@ typedef struct {
     guchar          header_buffer[sizeof(QtHeader)];
 
     GdkPixbufModuleSizeFunc     size_func;
-    GdkPixbufModulePreparedFunc prepare_func;
-    GdkPixbufModuleUpdatedFunc  update_func;
+    GdkPixbufModulePreparedFunc prepared_func;
+    GdkPixbufModuleUpdatedFunc  updated_func;
     gint            cb_prepare_count;
     gint            cb_update_count;
 } QTIFContext;
@@ -87,8 +87,8 @@ typedef struct {
  */
 static GdkPixbuf *gdk_pixbuf__qtif_image_load (FILE *f, GError **error);
 static gpointer gdk_pixbuf__qtif_image_begin_load (GdkPixbufModuleSizeFunc size_func,
-                                                   GdkPixbufModulePreparedFunc prepare_func,
-                                                   GdkPixbufModuleUpdatedFunc update_func,
+                                                   GdkPixbufModulePreparedFunc prepared_func,
+                                                   GdkPixbufModuleUpdatedFunc updated_func,
                                                    gpointer user_data,
                                                    GError **error);
 static gboolean gdk_pixbuf__qtif_image_stop_load (gpointer context, GError **error);
@@ -249,12 +249,16 @@ clean_up:
 
 /* Incremental load begin. */
 static gpointer gdk_pixbuf__qtif_image_begin_load (GdkPixbufModuleSizeFunc size_func,
-                                                   GdkPixbufModulePreparedFunc prepare_func,
-                                                   GdkPixbufModuleUpdatedFunc update_func,
+                                                   GdkPixbufModulePreparedFunc prepared_func,
+                                                   GdkPixbufModuleUpdatedFunc updated_func,
                                                    gpointer user_data,
                                                    GError **error)
 {
     QTIFContext *context;
+
+    g_assert (size_func != NULL);
+    g_assert (prepared_func != NULL);
+    g_assert (updated_func != NULL);
 
     /* Create context struct. */
     context = g_new0(QTIFContext, 1);
@@ -273,8 +277,8 @@ static gpointer gdk_pixbuf__qtif_image_begin_load (GdkPixbufModuleSizeFunc size_
     context->run_length = 0u;
     context->atom_count = QTIF_ATOM_COUNT_MAX;
     context->size_func = size_func;
-    context->prepare_func = prepare_func;
-    context->update_func = update_func;
+    context->prepared_func = prepared_func;
+    context->updated_func = updated_func;
 
     return context;
 }
@@ -329,24 +333,15 @@ static gboolean gdk_pixbuf__qtif_image_create_loader (QTIFContext *context, GErr
     /* Connect signals. */
     context->cb_prepare_count = 0;
     context->cb_update_count = 0;
-    if(context->size_func != NULL)
-    {
-        g_signal_connect(context->loader, "size-prepared",
-                         G_CALLBACK(gdk_pixbuf__qtif_cb_size_prepared),
-                         context);
-    }
-    if(context->prepare_func != NULL)
-    {
-        g_signal_connect(context->loader, "area-prepared",
-                         G_CALLBACK(gdk_pixbuf__qtif_cb_area_prepared),
-                         context);
-    }
-    if(context->update_func != NULL)
-    {
-        g_signal_connect(context->loader, "area-updated",
-                         G_CALLBACK(gdk_pixbuf__qtif_cb_area_updated),
-                         context);
-    }
+    g_signal_connect(context->loader, "size-prepared",
+		     G_CALLBACK(gdk_pixbuf__qtif_cb_size_prepared),
+		     context);
+    g_signal_connect(context->loader, "area-prepared",
+		     G_CALLBACK(gdk_pixbuf__qtif_cb_area_prepared),
+		     context);
+    g_signal_connect(context->loader, "area-updated",
+		     G_CALLBACK(gdk_pixbuf__qtif_cb_area_updated),
+		     context);
     return TRUE;
 }
 
@@ -384,19 +379,19 @@ static gboolean gdk_pixbuf__qtif_image_free_loader (QTIFContext *context, GError
     if(pixbuf != NULL)
     {
         /* Callback functions should be called for at least once. */
-        if((context->prepare_func != NULL) && (context->cb_prepare_count == 0))
+        if(context->cb_prepare_count == 0)
         {
-            (context->prepare_func)(pixbuf, NULL, context->user_data);
+            (context->prepared_func)(pixbuf, NULL, context->user_data);
         }
 
-        if((context->update_func != NULL) && (context->cb_update_count == 0))
+        if(context->cb_update_count == 0)
         {
             gint width;
             gint height;
 
             width = gdk_pixbuf_get_width(pixbuf);
             height = gdk_pixbuf_get_height(pixbuf);
-            (context->update_func)(pixbuf, 0, 0, width, height, context->user_data);
+            (context->updated_func)(pixbuf, 0, 0, width, height, context->user_data);
         }
 
         /* Free GdkPixbuf (callback function should ref it). */
@@ -542,22 +537,16 @@ static void gdk_pixbuf__qtif_cb_size_prepared(GdkPixbufLoader *loader,
                                               gpointer user_data)
 {
     QTIFContext *context = (QTIFContext *)user_data;
-    if((context != NULL) && (context->size_func != NULL))
-    {
-        (context->size_func)(&width, &height, context->user_data);
-        context->cb_prepare_count++;
-    }
+    (context->size_func)(&width, &height, context->user_data);
+    context->cb_prepare_count++;
 }
 
 static void gdk_pixbuf__qtif_cb_area_prepared(GdkPixbufLoader *loader, gpointer user_data)
 {
     QTIFContext *context = (QTIFContext *)user_data;
-    if((loader != NULL) && (context != NULL) && (context->prepare_func != NULL))
-    {
-        GdkPixbuf *pixbuf = gdk_pixbuf_loader_get_pixbuf(context->loader);
-        (context->prepare_func)(pixbuf, NULL, context->user_data);
-        context->cb_update_count++;
-    }
+    GdkPixbuf *pixbuf = gdk_pixbuf_loader_get_pixbuf(context->loader);
+    (context->prepared_func)(pixbuf, NULL, context->user_data);
+    context->cb_update_count++;
 }
 
 static void gdk_pixbuf__qtif_cb_area_updated(GdkPixbufLoader *loader,
@@ -568,11 +557,8 @@ static void gdk_pixbuf__qtif_cb_area_updated(GdkPixbufLoader *loader,
                                              gpointer user_data)
 {
     QTIFContext *context = (QTIFContext *)user_data;
-    if((loader != NULL) && (context != NULL) && (context->update_func != NULL))
-    {
-        GdkPixbuf *pixbuf = gdk_pixbuf_loader_get_pixbuf(context->loader);
-        (context->update_func)(pixbuf, x, y, width, height, context->user_data);
-    }
+    GdkPixbuf *pixbuf = gdk_pixbuf_loader_get_pixbuf(context->loader);
+    (context->updated_func)(pixbuf, x, y, width, height, context->user_data);
 }
 
 
