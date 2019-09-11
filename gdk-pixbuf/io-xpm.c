@@ -698,8 +698,8 @@ gdk_pixbuf__xpm_image_load_xpm_data (const gchar **data)
 typedef struct _XPMContext XPMContext;
 struct _XPMContext
 {
-       GdkPixbufModulePreparedFunc prepare_func;
-       GdkPixbufModuleUpdatedFunc update_func;
+       GdkPixbufModulePreparedFunc prepared_func;
+       GdkPixbufModuleUpdatedFunc updated_func;
        gpointer user_data;
 
        gchar *tempname;
@@ -715,8 +715,8 @@ struct _XPMContext
  */
 static gpointer
 gdk_pixbuf__xpm_image_begin_load (GdkPixbufModuleSizeFunc size_func,
-                                  GdkPixbufModulePreparedFunc prepare_func,
-                                  GdkPixbufModuleUpdatedFunc update_func,
+                                  GdkPixbufModulePreparedFunc prepared_func,
+                                  GdkPixbufModuleUpdatedFunc updated_func,
                                   gpointer user_data,
                                   GError **error)
 {
@@ -724,12 +724,12 @@ gdk_pixbuf__xpm_image_begin_load (GdkPixbufModuleSizeFunc size_func,
        gint fd;
 
        g_assert (size_func != NULL);
-       g_assert (prepare_func != NULL);
-       g_assert (update_func != NULL);
+       g_assert (prepared_func != NULL);
+       g_assert (updated_func != NULL);
 
        context = g_new (XPMContext, 1);
-       context->prepare_func = prepare_func;
-       context->update_func = update_func;
+       context->prepared_func = prepared_func;
+       context->updated_func = updated_func;
        context->user_data = user_data;
        context->all_okay = TRUE;
        fd = g_file_open_tmp ("gdkpixbuf-xpm-tmp.XXXXXX", &context->tempname,
@@ -765,14 +765,14 @@ gdk_pixbuf__xpm_image_stop_load (gpointer data,
                pixbuf = gdk_pixbuf__xpm_image_load (context->file, error);
 
                if (pixbuf != NULL) {
-		       (* context->prepare_func) (pixbuf,
-						  NULL,
+		       (* context->prepared_func) (pixbuf,
+						   NULL,
+						   context->user_data);
+		       (* context->updated_func) (pixbuf,
+						  0, 0,
+						  gdk_pixbuf_get_width (pixbuf),
+						  gdk_pixbuf_get_height (pixbuf),
 						  context->user_data);
-		       (* context->update_func) (pixbuf,
-						 0, 0,
-						 gdk_pixbuf_get_width (pixbuf),
-						 gdk_pixbuf_get_height (pixbuf),
-						 context->user_data);
                        g_object_unref (pixbuf);
 
                        retval = TRUE;

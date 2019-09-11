@@ -134,8 +134,8 @@ struct _GifContext
 
 	/* progressive read, only. */
 	GdkPixbufModuleSizeFunc size_func;
-	GdkPixbufModulePreparedFunc prepare_func;
-	GdkPixbufModuleUpdatedFunc update_func;
+	GdkPixbufModulePreparedFunc prepared_func;
+	GdkPixbufModuleUpdatedFunc updated_func;
 	gpointer user_data;
         guchar *buf;
 	gsize ptr;
@@ -505,9 +505,9 @@ gif_get_lzw (GifContext *context)
 		if (context->animation->frames->next == NULL) {
 			GdkPixbuf *pixbuf = gdk_pixbuf_animation_get_static_image (GDK_PIXBUF_ANIMATION (context->animation));
 			if (pixbuf != NULL)
-				(* context->prepare_func) (pixbuf,
-                                                           GDK_PIXBUF_ANIMATION (context->animation),
-                                                           context->user_data);
+				(* context->prepared_func) (pixbuf,
+                                                            GDK_PIXBUF_ANIMATION (context->animation),
+                                                            context->user_data);
 		}
         }
 
@@ -521,9 +521,9 @@ gif_get_lzw (GifContext *context)
 		if ((retval != 0 || empty_block) && context->animation->frames->next == NULL) {
 			GdkPixbuf *pixbuf = gdk_pixbuf_animation_get_static_image (GDK_PIXBUF_ANIMATION (context->animation));
 			if (pixbuf)
-				(* context->update_func) (pixbuf,
-                                                          0, 0, context->frame->width, context->frame->height,
-                                                          context->user_data);
+				(* context->updated_func) (pixbuf,
+                                                           0, 0, context->frame->width, context->frame->height,
+                                                           context->user_data);
 		}
 
 		if (retval != 0)
@@ -832,15 +832,15 @@ gif_main_loop (GifContext *context)
 
 static GifContext *
 new_context (GdkPixbufModuleSizeFunc size_func,
-             GdkPixbufModulePreparedFunc prepare_func,
-             GdkPixbufModuleUpdatedFunc update_func,
+             GdkPixbufModulePreparedFunc prepared_func,
+             GdkPixbufModuleUpdatedFunc updated_func,
              gpointer user_data)
 {
 	GifContext *context;
 
         g_assert (size_func != NULL);
-        g_assert (prepare_func != NULL);
-        g_assert (update_func != NULL);
+        g_assert (prepared_func != NULL);
+        g_assert (updated_func != NULL);
 
 	context = g_try_malloc (sizeof (GifContext));
         if (context == NULL)
@@ -853,8 +853,8 @@ new_context (GdkPixbufModuleSizeFunc size_func,
 	context->file = NULL;
 	context->state = GIF_START;
 	context->size_func = size_func;
-	context->prepare_func = prepare_func;
-	context->update_func = update_func;
+	context->prepared_func = prepared_func;
+	context->updated_func = updated_func;
 	context->user_data = user_data;
 	context->buf = NULL;
 	context->amount_needed = 13;
@@ -951,21 +951,21 @@ out:
 
 static gpointer
 gdk_pixbuf__gif_image_begin_load (GdkPixbufModuleSizeFunc size_func,
-                                  GdkPixbufModulePreparedFunc prepare_func,
-				  GdkPixbufModuleUpdatedFunc update_func,
+                                  GdkPixbufModulePreparedFunc prepared_func,
+				  GdkPixbufModuleUpdatedFunc updated_func,
 				  gpointer user_data,
                                   GError **error)
 {
 	GifContext *context;
 
         g_assert (size_func != NULL);
-        g_assert (prepare_func != NULL);
-        g_assert (update_func != NULL);
+        g_assert (prepared_func != NULL);
+        g_assert (updated_func != NULL);
 
 #ifdef IO_GIFDEBUG
 	count = 0;
 #endif
-	context = new_context (size_func, prepare_func, update_func, user_data);
+	context = new_context (size_func, prepared_func, updated_func, user_data);
 
         if (context == NULL) {
                 g_set_error_literal (error,
