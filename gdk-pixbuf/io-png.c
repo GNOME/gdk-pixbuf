@@ -267,10 +267,7 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
         gint    num_texts;
         gchar *key;
         gchar *value;
-        gchar *icc_profile_base64;
-        const gchar *icc_profile_title;
-        const gchar *icc_profile;
-        png_uint_32 icc_profile_size;
+        gdouble gamma;
         png_uint_32 x_resolution;
         png_uint_32 y_resolution;
         int unit_type;
@@ -353,17 +350,36 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
                 }
         }
 
+        if (!png_get_valid (png_ptr, info_ptr, PNG_INFO_sRGB)) {
 #if defined(PNG_cHRM_SUPPORTED)
-        /* Extract embedded ICC profile */
-        retval = png_get_iCCP (png_ptr, info_ptr,
-                               (png_charpp) &icc_profile_title, &compression_type,
-                               (png_bytepp) &icc_profile, (png_uint_32*) &icc_profile_size);
-        if (retval != 0) {
-                icc_profile_base64 = g_base64_encode ((const guchar *) icc_profile, (gsize)icc_profile_size);
-                gdk_pixbuf_set_option (pixbuf, "icc-profile", icc_profile_base64);
-                g_free (icc_profile_base64);
-        }
+                const gchar *icc_profile_title;
+                const gchar *icc_profile;
+                png_uint_32 icc_profile_size;
+
+                /* Extract embedded ICC profile */
+                retval = png_get_iCCP (png_ptr, info_ptr,
+                                       (png_charpp) &icc_profile_title, &compression_type,
+                                       (png_bytepp) &icc_profile, (png_uint_32*) &icc_profile_size);
+                if (retval != 0) {
+                        gchar *icc_profile_base64;
+
+                        icc_profile_base64 = g_base64_encode ((const guchar *) icc_profile, (gsize)icc_profile_size);
+                        gdk_pixbuf_set_option (pixbuf, "icc-profile", icc_profile_base64);
+                        g_free (icc_profile_base64);
+                }
 #endif
+
+#if defined(PNG_READ_gAMA_SUPPORTED)
+                /* Extract gamma value */
+                retval = png_get_gAMA (png_ptr, info_ptr, &gamma);
+                if (retval != 0) {
+                        char *gamma_str;
+                        gamma_str = g_strdup_printf ("%lf", gamma);
+                        gdk_pixbuf_set_option (pixbuf, "gamma", gamma_str);
+                        g_free (gamma_str);
+                }
+#endif
+        }
 
 #ifdef PNG_pHYs_SUPPORTED
         retval = png_get_pHYs (png_ptr, info_ptr, &x_resolution, &y_resolution, &unit_type);
