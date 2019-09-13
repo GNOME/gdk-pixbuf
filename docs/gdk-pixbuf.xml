@@ -90,14 +90,6 @@
       <xi:include href="xml/gdk-pixbuf-loader.xml" />
     </chapter>
 
-    <chapter id="Xlib">
-      <title>Xlib integration (deprecated)</title>
-      <xi:include href="xml/gdk-pixbuf-xlib-init.xml" />
-      <xi:include href="xml/gdk-pixbuf-xlib-rendering.xml" />
-      <xi:include href="xml/gdk-pixbuf-xlib-from-drawables.xml" />
-      <xi:include href="xml/gdk-pixbuf-xlib-rgb.xml" />
-    </chapter>
-
     <chapter id="Gdk">
       <title>GDK integration (deprecated)</title>
       <xi:include href="xml/gdk-pixbuf-rendering.xml" />
