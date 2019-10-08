@@ -1,5 +1,5 @@
 project('gdk-pixbuf', 'c',
-        version: '2.40.0',
+        version: '2.40.1',
         license: 'LGPLv2.1+',
         default_options: [
           'buildtype=debugoptimized',
