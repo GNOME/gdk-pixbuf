@@ -1,3 +1,9 @@
+2.40.0 (stable)
+===
+
+ - Allow creating a GdkPixbuf instance without any property [Federico Mena
+   Quintero, #91]
+
 2.39.2 (development)
 ===
 
