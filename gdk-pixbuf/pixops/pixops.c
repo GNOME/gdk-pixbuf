@@ -956,11 +956,20 @@ scale_pixel (guchar *dest, int dest_x, int dest_channels, int dest_has_alpha,
 {
   if (src_has_alpha)
     {
-      if (a)
+      if (a == 0xff0000)
 	{
-	  dest[0] = r / a;
-	  dest[1] = g / a;
-	  dest[2] = b / a;
+	  /* Division by a constant is converted into a multiplication by an optimizing C compiler */
+	  dest[0] = r / 0xff0000;
+	  dest[1] = g / 0xff0000;
+	  dest[2] = b / 0xff0000;
+	  dest[3] = 0xff0000 >> 16;
+	}
+      else if (a)
+	{
+	  double a1 = 1.0 / a;
+	  dest[0] = r * a1;
+	  dest[1] = g * a1;
+	  dest[2] = b * a1;
 	  dest[3] = a >> 16;
 	}
       else
@@ -991,6 +1000,7 @@ scale_line (int *weights, int n_x, int n_y, guchar *dest, int dest_x,
 {
   int x = x_init;
   int i, j;
+  const int n_xy = n_x * n_y;
 
   while (dest < dest_end)
     {
@@ -998,7 +1008,7 @@ scale_line (int *weights, int n_x, int n_y, guchar *dest, int dest_x,
       int *pixel_weights;
 
       pixel_weights = weights +
-        ((x >> (SCALE_SHIFT - SUBSAMPLE_BITS)) & SUBSAMPLE_MASK) * n_x * n_y;
+        ((x >> (SCALE_SHIFT - SUBSAMPLE_BITS)) & SUBSAMPLE_MASK) * n_xy;
 
       if (src_has_alpha)
 	{
@@ -1022,11 +1032,20 @@ scale_line (int *weights, int n_x, int n_y, guchar *dest, int dest_x,
 		}
 	    }
 
-	  if (a)
+	  if (a == 0xff0000)
 	    {
-	      dest[0] = r / a;
-	      dest[1] = g / a;
-	      dest[2] = b / a;
+	      /* Division by a constant is converted into a multiplication by an optimizing C compiler */
+	      dest[0] = r / 0xff0000;
+	      dest[1] = g / 0xff0000;
+	      dest[2] = b / 0xff0000;
+	      dest[3] = 0xff0000 >> 16;
+	    }
+	  else if (a)
+	    {
+	      double a1 = 1.0 / a;
+	      dest[0] = r * a1;
+	      dest[1] = g * a1;
+	      dest[2] = b * a1;
 	      dest[3] = a >> 16;
 	    }
 	  else
