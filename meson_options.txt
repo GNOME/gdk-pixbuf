@@ -14,10 +14,6 @@ option('jasper',
        description: 'Enable JPEG2000 loader (requires libjasper)',
        type: 'boolean',
        value: false)
-option('x11',
-       description: 'Enable X11 support (requires libX11)',
-       type: 'boolean',
-       value: true)
 option('builtin_loaders',
        description: 'Comma-separated list of loaders to build into gdk-pixbuf, or "none", or "all" to build all buildable loaders into gdk-pixbuf',
        type: 'string',
