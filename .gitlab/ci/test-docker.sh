@@ -20,7 +20,7 @@ unset CCACHE_DISABLE
 cd ${builddir}
 
 ninja || exit $?
-meson test || exit $?
+meson test -t 2 || exit $?
 
 cd ..
 
