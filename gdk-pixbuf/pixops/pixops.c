@@ -1838,7 +1838,7 @@ _pixops_composite_color_real (guchar          *dest_buf,
   
   filter.overall_alpha = overall_alpha / 255.;
   if (!make_weights (&filter, interp_type, scale_x, scale_y))
-    return;
+    goto free_tmp;
 
   line_func = composite_line_color;
   
@@ -1850,8 +1850,8 @@ _pixops_composite_color_real (guchar          *dest_buf,
 
   g_free (filter.x.weights);
   g_free (filter.y.weights);
-  if (tmp_buf)
-    g_free (tmp_buf);
+free_tmp:
+  g_free (tmp_buf);
 }
 
 void
@@ -1991,7 +1991,7 @@ _pixops_composite_real (guchar          *dest_buf,
   
   filter.overall_alpha = overall_alpha / 255.;
   if (!make_weights (&filter, interp_type, scale_x, scale_y))
-    return;
+    goto free_tmp;
 
   if (filter.x.n == 2 && filter.y.n == 2 && dest_channels == 4 &&
       src_channels == 4 && src_has_alpha && !dest_has_alpha)
@@ -2007,8 +2007,8 @@ _pixops_composite_real (guchar          *dest_buf,
 
   g_free (filter.x.weights);
   g_free (filter.y.weights);
-  if (tmp_buf)
-    g_free (tmp_buf);
+free_tmp:
+  g_free (tmp_buf);
 }
 
 void
@@ -2396,7 +2396,7 @@ _pixops_scale_real (guchar        *dest_buf,
   
   filter.overall_alpha = 1.0;
   if (!make_weights (&filter, interp_type, scale_x, scale_y))
-    return;
+    goto free_tmp;
 
   if (filter.x.n == 2 && filter.y.n == 2 && dest_channels == 3 && src_channels == 3)
     line_func = scale_line_22_33;
@@ -2411,7 +2411,8 @@ _pixops_scale_real (guchar        *dest_buf,
 
   g_free (filter.x.weights);
   g_free (filter.y.weights);
-  g_clear_pointer (&tmp_buf, g_free);
+free_tmp:
+  g_free (tmp_buf);
 }
 
 void
