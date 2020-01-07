@@ -447,7 +447,6 @@ summary = [
   '    documentation: @0@'.format(get_option('docs')),
   '        man pages: @0@'.format(get_option('man')),
   '    introspection: @0@'.format(get_option('gir')),
-  '              x11: @0@'.format(get_option('x11')),
   '  installed tests: @0@'.format(get_option('installed_tests')),
   '      relocatable: @0@'.format(get_option('relocatable')),
   '',

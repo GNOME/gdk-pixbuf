@@ -32,10 +32,6 @@ private_headers = [
   'lzw.h',
 ]
 
-if not get_option('x11')
-  private_headers += 'contrib'
-endif
-
 if get_option('docs')
   gnome.gtkdoc('gdk-pixbuf',
                main_xml: 'gdk-pixbuf.xml',
