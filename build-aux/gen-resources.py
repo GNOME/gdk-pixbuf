@@ -6,8 +6,6 @@
 
 import argparse
 import os
-import subprocess
-import sys
 
 argparser = argparse.ArgumentParser(description='Compile resources')
 argparser.add_argument('--pixdata', metavar='PATH', help='Path to gdk-pixbuf-pixdata')
@@ -36,9 +34,4 @@ newenv = os.environ.copy()
 newenv['GDK_PIXBUF_PIXDATA'] = args.pixdata
 newenv['GDK_PIXBUF_MODULE_FILE'] = args.loaders
 
-out, err = subprocess.Popen(cmd, env=newenv).communicate()
-if out is None:
-    sys.exit(0)
-else:
-    print(out)
-    sys.exit(1)
+os.execvpe(cmd[0], cmd, newenv)
