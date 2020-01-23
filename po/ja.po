@@ -1,5 +1,5 @@
 # gdk-pixbuf ja.po.
-# Copyright (C) 1998,2000-2012 Free Software Foundation, Inc.
+# Copyright (C) 1998-2012, 2020 Free Software Foundation, Inc.
 # Yasuhiro SHIRASAKI <yasuhiro@awa.tohoku.ac.jp>, 1998.
 # Yukihiro Nakai <nakai@gnome.gr.jp>, 2000-2001.
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2002, 2009-2010, 2012.
@@ -11,71 +11,62 @@
 # Masato Hashimoto <cabezon.hashimoto@gmail.com>, 2010.
 # Jiro Matsuzawa <jmatsuzawa@src.gnome.org>, 2011.
 # Yoji TOYODA <bsyamato@sea.plala.or.jp>, 2012.
+# sicklylife <translation@sicklylife.jp>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
 "POT-Creation-Date: 2019-12-27 12:57+0000\n"
-"PO-Revision-Date: 2012-10-15 22:39+0900\n"
-"Last-Translator: Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>\n"
+"PO-Revision-Date: 2020-01-23 23:00+0900\n"
+"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.5\n"
 
 #: gdk-pixbuf/gdk-pixbuf-animation.c:158 gdk-pixbuf/gdk-pixbuf-io.c:1116
 #: gdk-pixbuf/gdk-pixbuf-io.c:1378
-#, fuzzy, c-format
-#| msgid "Failed to open file '%s': %s"
+#, c-format
 msgid "Failed to open file “%s”: %s"
-msgstr "ファイル '%s' のオープンに失敗しました: %s"
+msgstr "ファイル“%s”のオープンに失敗しました: %s"
 
 #: gdk-pixbuf/gdk-pixbuf-animation.c:171 gdk-pixbuf/gdk-pixbuf-io.c:1000
-#, fuzzy, c-format
-#| msgid "Image file '%s' contains no data"
+#, c-format
 msgid "Image file “%s” contains no data"
-msgstr "画像ファイル '%s' にはデータがありません"
+msgstr "画像ファイル“%s”にはデータがありません"
 
 #: gdk-pixbuf/gdk-pixbuf-animation.c:209
-#, fuzzy, c-format
-#| msgid ""
-#| "Failed to load animation '%s': reason not known, probably a corrupt "
-#| "animation file"
+#, c-format
 msgid ""
 "Failed to load animation “%s”: reason not known, probably a corrupt "
 "animation file"
 msgstr ""
-"アニメーション '%s' の読み込みに失敗しました: 理由は不明ですが、おそらくアニ"
+"アニメーション“%s”の読み込みに失敗しました: 理由は不明ですが、おそらくアニ"
 "メーションファイルが壊れていると思われます"
 
 #: gdk-pixbuf/gdk-pixbuf-animation.c:277 gdk-pixbuf/gdk-pixbuf-io.c:1152
 #: gdk-pixbuf/gdk-pixbuf-io.c:1430
-#, fuzzy, c-format
-#| msgid ""
-#| "Failed to load image '%s': reason not known, probably a corrupt image file"
+#, c-format
 msgid ""
 "Failed to load image “%s”: reason not known, probably a corrupt image file"
 msgstr ""
-"画像 '%s' の読み込みに失敗しました: 理由は不明ですが、おそらく画像ファイルが"
+"画像“%s”の読み込みに失敗しました: 理由は不明ですが、おそらく画像ファイルが"
 "壊れていると思われます"
 
 #: gdk-pixbuf/gdk-pixbuf.c:169
 msgid "Number of Channels"
-msgstr ""
+msgstr "チャンネル数"
 
 #: gdk-pixbuf/gdk-pixbuf.c:170
-#, fuzzy
-#| msgid "XPM has invalid number of chars per pixel"
 msgid "The number of samples per pixel"
-msgstr "XPM のピクセル当たりの文字数が不正です"
+msgstr "ピクセルごとのサンプル数"
 
 #: gdk-pixbuf/gdk-pixbuf.c:179
 msgid "Colorspace"
-msgstr ""
+msgstr "色空間"
 
 #: gdk-pixbuf/gdk-pixbuf.c:180
 msgid "The colorspace in which the samples are interpreted"
@@ -83,11 +74,11 @@ msgstr ""
 
 #: gdk-pixbuf/gdk-pixbuf.c:188
 msgid "Has Alpha"
-msgstr ""
+msgstr "アルファの有無"
 
 #: gdk-pixbuf/gdk-pixbuf.c:189
 msgid "Whether the pixbuf has an alpha channel"
-msgstr ""
+msgstr "pixbuf がアルファチャンネルを含むかどうか"
 
 #: gdk-pixbuf/gdk-pixbuf.c:202
 msgid "Bits per Sample"
@@ -99,19 +90,19 @@ msgstr ""
 
 #: gdk-pixbuf/gdk-pixbuf.c:212
 msgid "Width"
-msgstr ""
+msgstr "幅"
 
 #: gdk-pixbuf/gdk-pixbuf.c:213
 msgid "The number of columns of the pixbuf"
-msgstr ""
+msgstr "pixbuf の列数"
 
 #: gdk-pixbuf/gdk-pixbuf.c:222
 msgid "Height"
-msgstr ""
+msgstr "高さ"
 
 #: gdk-pixbuf/gdk-pixbuf.c:223
 msgid "The number of rows of the pixbuf"
-msgstr ""
+msgstr "pixbuf の行数"
 
 #: gdk-pixbuf/gdk-pixbuf.c:239
 msgid "Rowstride"
@@ -124,7 +115,7 @@ msgstr ""
 
 #: gdk-pixbuf/gdk-pixbuf.c:249
 msgid "Pixels"
-msgstr ""
+msgstr "ピクセル"
 
 #: gdk-pixbuf/gdk-pixbuf.c:250
 msgid "A pointer to the pixel data of the pixbuf"
@@ -132,11 +123,11 @@ msgstr ""
 
 #: gdk-pixbuf/gdk-pixbuf.c:264
 msgid "Pixel Bytes"
-msgstr ""
+msgstr "ピクセルバイト"
 
 #: gdk-pixbuf/gdk-pixbuf.c:265
 msgid "Readonly pixel data"
-msgstr ""
+msgstr "読み込み専用のピクセルデータ"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:820
 #, c-format
@@ -144,10 +135,7 @@ msgid "Unable to load image-loading module: %s: %s"
 msgstr "画像ロード・モジュールを読み込めません: %s: %s"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:835
-#, fuzzy, c-format
-#| msgid ""
-#| "Image-loading module %s does not export the proper interface; perhaps "
-#| "it's from a different gdk-pixbuf version?"
+#, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it’s "
 "from a different gdk-pixbuf version?"
@@ -156,26 +144,23 @@ msgstr ""
 "ん。gdk-pixbuf の別のバージョンのモジュールかも?"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:844 gdk-pixbuf/gdk-pixbuf-io.c:887
-#, fuzzy, c-format
-#| msgid "Image type '%s' is not supported"
+#, c-format
 msgid "Image type “%s” is not supported"
-msgstr "画像の種類 '%s' はサポートされていません"
+msgstr "画像の種類“%s”はサポートしていません"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:972
-#, fuzzy, c-format
-#| msgid "Couldn't recognize the image file format for file '%s'"
+#, c-format
 msgid "Couldn’t recognize the image file format for file “%s”"
-msgstr "ファイル '%s' の画像ファイルの形式を認識できませんでした"
+msgstr "ファイル“%s”の画像ファイル形式を認識できませんでした"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:980
 msgid "Unrecognized image file format"
-msgstr "認識できない画像ファイルの形式"
+msgstr "認識できない画像ファイル形式"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:1163
-#, fuzzy, c-format
-#| msgid "Failed to load image '%s': %s"
+#, c-format
 msgid "Failed to load image “%s”: %s"
-msgstr "画像 '%s' の読み込みに失敗しました: %s"
+msgstr "画像“%s”の読み込みに失敗しました: %s"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:2233 gdk-pixbuf/io-gdip-utils.c:838
 #, c-format
@@ -201,21 +186,17 @@ msgid "Failed to read from temporary file"
 msgstr "一時保存ファイルからの読み込みに失敗しました"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:2552
-#, fuzzy, c-format
-#| msgid "Failed to open '%s' for writing: %s"
+#, c-format
 msgid "Failed to open “%s” for writing: %s"
-msgstr "書き込みモードで '%s' のオープンに失敗しました: %s"
+msgstr "書き込みモードで“%s”のオープンに失敗しました: %s"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:2578
-#, fuzzy, c-format
-#| msgid ""
-#| "Failed to close '%s' while writing image, all data may not have been "
-#| "saved: %s"
+#, c-format
 msgid ""
 "Failed to close “%s” while writing image, all data may not have been saved: "
 "%s"
 msgstr ""
-"画像を書き込む際に '%s' を閉じることができなかったため、すべてのデータが保存"
+"画像を書き込む際に“%s”を閉じることができなかったため、すべてのデータが保存"
 "されていないかもしれません: %s"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:2799 gdk-pixbuf/gdk-pixbuf-io.c:2851
@@ -227,30 +208,26 @@ msgid "Error writing to image stream"
 msgstr "画像ストリームの書き込み中にエラー"
 
 #: gdk-pixbuf/gdk-pixbuf-loader.c:406
-#, fuzzy, c-format
-#| msgid ""
-#| "Internal error: Image loader module '%s' failed to complete an operation, "
-#| "but didn't give a reason for the failure"
+#, c-format
 msgid ""
 "Internal error: Image loader module “%s” failed to complete an operation, "
 "but didn’t give a reason for the failure"
 msgstr ""
-"内部エラー: 画像ロード・モジュール '%s' の処理に失敗しましたが、その原因を取"
+"内部エラー: 画像ロード・モジュール“%s”の処理に失敗しましたが、その原因を取"
 "得できませんでした"
 
 #: gdk-pixbuf/gdk-pixbuf-loader.c:448
-#, fuzzy, c-format
-#| msgid "Incremental loading of image type '%s' is not supported"
+#, c-format
 msgid "Incremental loading of image type “%s” is not supported"
-msgstr "画像の種類 '%s' のインクリメンタル・ロードはサポートされていません"
+msgstr "画像の種類“%s”のインクリメンタル・ロードはサポートしていません"
 
 #: gdk-pixbuf/gdk-pixbuf-simple-anim.c:162
 msgid "Loop"
-msgstr ""
+msgstr "ループ"
 
 #: gdk-pixbuf/gdk-pixbuf-simple-anim.c:163
 msgid "Whether the animation should loop when it reaches the end"
-msgstr ""
+msgstr "アニメーションが終了したら最初に戻ってループするかどうか"
 
 #: gdk-pixbuf/gdk-pixdata.c:165
 msgid "Image header corrupt"
@@ -269,7 +246,7 @@ msgstr "画像のピクセルデータが壊れています"
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
-msgstr[0] "%uバイトの画像バッファーの確保に失敗しました"
+msgstr[0] "%u バイトの画像バッファーの確保に失敗しました"
 
 #: gdk-pixbuf/io-ani.c:241
 msgid "Unexpected icon chunk in animation"
@@ -290,15 +267,13 @@ msgid "Malformed chunk in animation"
 msgstr "アニメーションに異常なチャンクがあります"
 
 #: gdk-pixbuf/io-ani.c:627
-#, fuzzy
-#| msgid "GIF image was truncated or incomplete."
 msgid "ANI image was truncated or incomplete."
-msgstr "GIF 画像は切りつめられたか、不完全になっています。"
+msgstr "ANI 画像は切りつめられたか、不完全になっています。"
 
 #: gdk-pixbuf/io-ani.c:668
 msgctxt "image format"
 msgid "Windows animated cursor"
-msgstr ""
+msgstr "Windows アニメーションカーソル"
 
 #: gdk-pixbuf/io-bmp.c:231 gdk-pixbuf/io-bmp.c:269 gdk-pixbuf/io-bmp.c:376
 #: gdk-pixbuf/io-bmp.c:403 gdk-pixbuf/io-bmp.c:428 gdk-pixbuf/io-bmp.c:463
@@ -315,16 +290,12 @@ msgid "BMP image has unsupported header size"
 msgstr "サポートしていない BMP 画像のヘッダー・サイズです"
 
 #: gdk-pixbuf/io-bmp.c:343
-#, fuzzy
-#| msgid "BMP image has unsupported header size"
 msgid "BMP image has unsupported depth"
-msgstr "サポートしていない BMP 画像のヘッダー・サイズです"
+msgstr "サポートしていない BMP 画像の深度です"
 
 #: gdk-pixbuf/io-bmp.c:358
-#, fuzzy
-#| msgid "BMP image has bogus header data"
 msgid "BMP image has oversize palette"
-msgstr "BMP 画像のヘッダーのデータが不正です"
+msgstr "BMP 画像のパレットサイズが不正です"
 
 #: gdk-pixbuf/io-bmp.c:390
 msgid "Topdown BMP images cannot be compressed"
@@ -332,7 +303,7 @@ msgstr "トップダウン形式の BMP 画像は圧縮できません"
 
 #: gdk-pixbuf/io-bmp.c:415
 msgid "BMP image width too large"
-msgstr ""
+msgstr "BMP 画像の幅が大きすぎます"
 
 #: gdk-pixbuf/io-bmp.c:787 gdk-pixbuf/io-png.c:560 gdk-pixbuf/io-pnm.c:722
 msgid "Premature end-of-file encountered"
@@ -341,74 +312,65 @@ msgstr "ファイルの終わりが早すぎます"
 #: gdk-pixbuf/io-bmp.c:1313
 #, c-format
 msgid "Error while decoding colormap"
-msgstr ""
+msgstr "カラーマップのデコード中にエラー"
 
 #: gdk-pixbuf/io-bmp.c:1376 gdk-pixbuf/io-bmp.c:1388
 msgid "Image is too wide for BMP format."
-msgstr ""
+msgstr "画像の幅が BMP 形式としては大きすぎます。"
 
 #: gdk-pixbuf/io-bmp.c:1421
-#, fuzzy
-#| msgid "Couldn't allocate memory for saving BMP file"
 msgid "Couldn’t allocate memory for saving BMP file"
 msgstr "BMP 画像を読み込むためのメモリを確保できませんでした"
 
 #: gdk-pixbuf/io-bmp.c:1462
-#, fuzzy
-#| msgid "Couldn't write to BMP file"
 msgid "Couldn’t write to BMP file"
 msgstr "BMP ファイルに書き込めませんでした"
 
 #: gdk-pixbuf/io-bmp.c:1515 gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
-msgstr ""
+msgstr "BMP"
 
 #: gdk-pixbuf/io-gdip-emf.c:61
 msgctxt "image format"
 msgid "EMF"
-msgstr ""
+msgstr "EMF"
 
 #: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1121
 msgctxt "image format"
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
 #: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1410
 msgctxt "image format"
 msgid "Windows icon"
-msgstr ""
+msgstr "Windows アイコン"
 
 #: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1383
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%s' could not be "
-#| "parsed."
+#, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value “%s” could not be "
 "parsed."
 msgstr ""
-"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%s' を解析できません"
-"でした"
+"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値“%s”を解析できません"
+"でした。"
 
 #: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1399
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value “%d” is not allowed."
 msgstr ""
-"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%d' は確保されません"
+"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値“%d”は確保されません。"
 
 #: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1683
 msgctxt "image format"
 msgid "JPEG"
-msgstr ""
+msgstr "JPEG"
 
 #: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1082
 msgctxt "image format"
 msgid "TIFF"
-msgstr ""
+msgstr "TIFF"
 
 #: gdk-pixbuf/io-gdip-utils.c:155
 #, c-format
@@ -432,14 +394,10 @@ msgid "Could not read from stream: %s"
 msgstr "ストリームから読み込めませんでした: %s"
 
 #: gdk-pixbuf/io-gdip-utils.c:618
-#, fuzzy
-#| msgid "Couldn't load bitmap"
 msgid "Couldn’t load bitmap"
 msgstr "BMP 画像を読み込めませんでした"
 
 #: gdk-pixbuf/io-gdip-utils.c:774
-#, fuzzy
-#| msgid "Couldn't load metafile"
 msgid "Couldn’t load metafile"
 msgstr "メタ・ファイルを読み込めませんでした"
 
@@ -448,15 +406,13 @@ msgid "Unsupported image format for GDI+"
 msgstr "GDI+ ではサポートしていない画像です"
 
 #: gdk-pixbuf/io-gdip-utils.c:886
-#, fuzzy
-#| msgid "Couldn't save"
 msgid "Couldn’t save"
 msgstr "保存できませんでした"
 
 #: gdk-pixbuf/io-gdip-wmf.c:60
 msgctxt "image format"
 msgid "WMF"
-msgstr ""
+msgstr "WMF"
 
 #: gdk-pixbuf/io-gif.c:187
 #, c-format
@@ -491,7 +447,7 @@ msgid ""
 "colormap."
 msgstr ""
 "GIF 画像にグローバルなカラーマップがありません。そしてフレームにローカルなカ"
-"ラーマップがありません"
+"ラーマップがありません。"
 
 #: gdk-pixbuf/io-gif.c:896 gdk-pixbuf/io-gif.c:1070
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
@@ -505,7 +461,7 @@ msgstr "GIF 画像は切りつめられたか、不完全になっています�
 
 #: gdk-pixbuf/io-gif.c:965
 msgid "Not all frames of the GIF image were loaded."
-msgstr ""
+msgstr "GIF 画像の一部のフレームのみが読み込まれました。"
 
 #: gdk-pixbuf/io-icns.c:363
 #, c-format
@@ -519,14 +475,13 @@ msgstr "ICNS ファイルをデコードできませんでした"
 #: gdk-pixbuf/io-icns.c:516
 msgctxt "image format"
 msgid "MacOS X icon"
-msgstr ""
+msgstr "MacOS X アイコン"
 
 #: gdk-pixbuf/io-ico.c:238 gdk-pixbuf/io-ico.c:252 gdk-pixbuf/io-ico.c:342
 #: gdk-pixbuf/io-ico.c:426 gdk-pixbuf/io-ico.c:451
-#, fuzzy, c-format
-#| msgid "Invalid header in icon"
+#, c-format
 msgid "Invalid header in icon (%s)"
-msgstr "アイコンのヘッダーが不正です"
+msgstr "アイコン (%s) のヘッダーが不正です"
 
 #: gdk-pixbuf/io-ico.c:268 gdk-pixbuf/io-ico.c:355 gdk-pixbuf/io-ico.c:461
 #: gdk-pixbuf/io-ico.c:504 gdk-pixbuf/io-ico.c:532
@@ -550,10 +505,8 @@ msgid "Not enough memory to load ICO file"
 msgstr "アイコン・ファイルを読み込むために必要なメモリが足りません"
 
 #: gdk-pixbuf/io-ico.c:627
-#, fuzzy
-#| msgid "GIF image was truncated or incomplete."
 msgid "ICO image was truncated or incomplete."
-msgstr "GIF 画像は切りつめられたか、不完全になっています。"
+msgstr "ICO 画像は切りつめられたか、不完全になっています。"
 
 #: gdk-pixbuf/io-ico.c:1068
 msgid "Image too large to be saved as ICO"
@@ -569,14 +522,10 @@ msgid "Unsupported depth for ICO file: %d"
 msgstr "アイコン・ファイルとしてサポートされない色深度です: %d"
 
 #: gdk-pixbuf/io-jasper.c:74
-#, fuzzy
-#| msgid "Couldn't allocate memory for stream"
 msgid "Couldn’t allocate memory for stream"
 msgstr "ストリームのメモリを確保できませんでした"
 
 #: gdk-pixbuf/io-jasper.c:125
-#, fuzzy
-#| msgid "Couldn't decode image"
 msgid "Couldn’t decode image"
 msgstr "画像をデコードできませんでした"
 
@@ -589,8 +538,6 @@ msgid "Image type currently not supported"
 msgstr "画像の種類はサポートされていません"
 
 #: gdk-pixbuf/io-jasper.c:171 gdk-pixbuf/io-jasper.c:179
-#, fuzzy
-#| msgid "Couldn't allocate memory for color profile"
 msgid "Couldn’t allocate memory for color profile"
 msgstr "カラープロファイルで使用するメモリを確保できませんでした"
 
@@ -599,15 +546,13 @@ msgid "Insufficient memory to open JPEG 2000 file"
 msgstr "JPEG 2000 のファイルをオープンするために必要なメモリが足りません"
 
 #: gdk-pixbuf/io-jasper.c:292
-#, fuzzy
-#| msgid "Couldn't allocate memory to buffer image data"
 msgid "Couldn’t allocate memory to buffer image data"
 msgstr "画像データを格納するためのメモリを確保できませんでした"
 
 #: gdk-pixbuf/io-jasper.c:336
 msgctxt "image format"
 msgid "JPEG 2000"
-msgstr ""
+msgstr "JPEG 2000"
 
 #: gdk-pixbuf/io-jpeg.c:129
 #, c-format
@@ -629,8 +574,6 @@ msgstr "サポートしていない JPEG のカラー・スペースです (%s)"
 
 #: gdk-pixbuf/io-jpeg.c:821 gdk-pixbuf/io-jpeg.c:1142 gdk-pixbuf/io-jpeg.c:1490
 #: gdk-pixbuf/io-jpeg.c:1500
-#, fuzzy
-#| msgid "Couldn't allocate memory for loading JPEG file"
 msgid "Couldn’t allocate memory for loading JPEG file"
 msgstr "JPEG 画像を読み込むためのメモリを確保できませんでした"
 
@@ -639,34 +582,28 @@ msgid "Transformed JPEG has zero width or height."
 msgstr "変換した JPEG の幅または高さが 0 です。"
 
 #: gdk-pixbuf/io-jpeg.c:1126
-#, fuzzy, c-format
-#| msgid "Unsupported JPEG color space (%s)"
+#, c-format
 msgid "Unsupported number of color components (%d)"
-msgstr "サポートしていない JPEG のカラー・スペースです (%s)"
+msgstr ""
 
 #: gdk-pixbuf/io-jpeg.c:1420
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
-"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%d' は確保されません"
+"JPEG の \"X DPI\" は 1〜65535 の値にしてください。値“%s”は確保されません。"
 
 #: gdk-pixbuf/io-jpeg.c:1441
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
-"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%d' は確保されません"
+"JPEG の \"Y DPI\" は 1〜65535 の値にしてください。値“%s”は確保されません。"
 
 #: gdk-pixbuf/io-jpeg.c:1455
-#, fuzzy, c-format
-#| msgid "Color profile has invalid length %d."
+#, c-format
 msgid "Color profile has invalid length “%u”."
-msgstr "カラープロファイルの長さ %d が不正です。"
+msgstr "カラープロファイルの長さ“%u”が不正です。"
 
 #: gdk-pixbuf/io-png.c:63
 msgid "Bits per channel of PNG image is invalid."
@@ -688,7 +625,7 @@ msgstr "変換した PNG は RGB でも RGBA でもありません。"
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "変換した PNG のチャンネル数がサポートされているものではありません。3 または "
-"4 にしてください"
+"4 にしてください。"
 
 #: gdk-pixbuf/io-png.c:191
 #, c-format
@@ -700,10 +637,8 @@ msgid "Insufficient memory to load PNG file"
 msgstr "PNG 画像を読み込むために必要なメモリが足りません"
 
 #: gdk-pixbuf/io-png.c:494 gdk-pixbuf/io-png.c:515
-#, fuzzy
-#| msgid "Couldn't allocate memory for loading JPEG file"
 msgid "Couldn’t allocate memory for loading PNG"
-msgstr "JPEG 画像を読み込むためのメモリを確保できませんでした"
+msgstr "PNG を読み込むためのメモリを確保できませんでした"
 
 #: gdk-pixbuf/io-png.c:713
 #, c-format
@@ -738,41 +673,31 @@ msgid "Color profile has invalid length %d."
 msgstr "カラープロファイルの長さ %d が不正です。"
 
 #: gdk-pixbuf/io-png.c:966
-#, fuzzy, c-format
-#| msgid ""
-#| "PNG compression level must be a value between 0 and 9; value '%s' could "
-#| "not be parsed."
+#, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value “%s” could not "
 "be parsed."
 msgstr ""
-"PNG の圧縮レベルは 0〜9 の値にしてください。値 '%s' を解析できませんでした"
+"PNG の圧縮レベルは 0〜9 の値にしてください。値“%s”を解析できませんでした。"
 
 #: gdk-pixbuf/io-png.c:979
-#, fuzzy, c-format
-#| msgid ""
-#| "PNG compression level must be a value between 0 and 9; value '%d' is not "
-#| "allowed."
+#, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value “%d” is not "
 "allowed."
-msgstr "PNG の圧縮レベルは 0〜9 の値にしてください。値 '%d' は範囲外です。"
+msgstr "PNG の圧縮レベルは 0〜9 の値にしてください。値“%d”は範囲外です。"
 
 #: gdk-pixbuf/io-png.c:998
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid "PNG x-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
-"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%d' は確保されません"
+"PNG の \"X DPI\" は 0 より大きい値にしてください。値“%s”は確保されません。"
 
 #: gdk-pixbuf/io-png.c:1018
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid "PNG y-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
-"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%d' は確保されません"
+"PNG の \"Y DPI\" は 0 より大きい値にしてください。値“%s”は確保されません。"
 
 #: gdk-pixbuf/io-png.c:1067
 #, c-format
@@ -784,11 +709,9 @@ msgstr ""
 #: gdk-pixbuf/io-png.c:1252
 msgctxt "image format"
 msgid "PNG"
-msgstr ""
+msgstr "PNG"
 
 #: gdk-pixbuf/io-pnm.c:247
-#, fuzzy
-#| msgid "PNM loader expected to find an integer, but didn't"
 msgid "PNM loader expected to find an integer, but didn’t"
 msgstr "PNM ローダーは整数を期待していたのですが、整数ではありませんでした"
 
@@ -801,20 +724,16 @@ msgid "PNM file is not in a recognized PNM subformat"
 msgstr "PNM ファイルが認識可能な PNM サブ形式ではありません"
 
 #: gdk-pixbuf/io-pnm.c:334
-#, fuzzy
-#| msgid "PNM file has an image width of 0"
 msgid "PNM file has an invalid width"
-msgstr "PNM ファイルの画像の幅が 0 です"
+msgstr "PNM ファイルの幅が不正です"
 
 #: gdk-pixbuf/io-pnm.c:342
 msgid "PNM file has an image width of 0"
 msgstr "PNM ファイルの画像の幅が 0 です"
 
 #: gdk-pixbuf/io-pnm.c:363
-#, fuzzy
-#| msgid "PNM file has an image height of 0"
 msgid "PNM file has an invalid height"
-msgstr "PNM ファイルの画像の高さが 0 です"
+msgstr "PNM ファイルの高さが不正です"
 
 #: gdk-pixbuf/io-pnm.c:371
 msgid "PNM file has an image height of 0"
@@ -860,7 +779,7 @@ msgstr "PNM ファイルを読み込むために必要なメモリが足りま�
 #: gdk-pixbuf/io-pnm.c:1094
 msgctxt "image format"
 msgid "PNM/PBM/PGM/PPM"
-msgstr ""
+msgstr "PNM/PBM/PGM/PPM"
 
 #: gdk-pixbuf/io-qtif.c:126
 msgid "Input file descriptor is NULL."
@@ -908,13 +827,11 @@ msgstr "画像データ atom を見つけられませんでした。"
 #: gdk-pixbuf/io-qtif.c:613
 msgctxt "image format"
 msgid "QuickTime"
-msgstr ""
+msgstr "QuickTime"
 
 #: gdk-pixbuf/io-tga.c:349
-#, fuzzy
-#| msgid "Cannot allocate colormap entries"
 msgid "Cannot allocate colormap"
-msgstr "カラーマップのエントリを確保できません"
+msgstr "カラーマップを確保できません"
 
 #: gdk-pixbuf/io-tga.c:374
 msgid "Cannot allocate new pixbuf"
@@ -945,15 +862,13 @@ msgid "Cannot allocate memory for TGA context struct"
 msgstr "TGA コンテキスト構造体用のメモリを確保できません"
 
 #: gdk-pixbuf/io-tga.c:711
-#, fuzzy
-#| msgid "GIF image was truncated or incomplete."
 msgid "TGA image was truncated or incomplete."
-msgstr "GIF 画像は切りつめられたか、不完全になっています。"
+msgstr "TGA 画像は切りつめられたか、不完全になっています。"
 
 #: gdk-pixbuf/io-tga.c:763
 msgctxt "image format"
 msgid "Targa"
-msgstr ""
+msgstr "Targa"
 
 #: gdk-pixbuf/io-tiff.c:116
 msgid "Could not get image width (bad TIFF file)"
@@ -992,8 +907,6 @@ msgid "Failed to save TIFF image"
 msgstr "TIFF 画像の保存に失敗しました"
 
 #: gdk-pixbuf/io-tiff.c:816
-#, fuzzy
-#| msgid "TIFF compression doesn't refer to a valid codec."
 msgid "TIFF compression doesn’t refer to a valid codec."
 msgstr "TIFF 圧縮が適切なコーデックを参照していません。"
 
@@ -1006,24 +919,18 @@ msgid "Failed to write TIFF data"
 msgstr "TIFF データの書き込みに失敗しました"
 
 #: gdk-pixbuf/io-tiff.c:960
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid "TIFF x-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
-"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%d' は確保されません"
+"TIFF の \"X DPI\" は 0 より大きい値にしてください。値“%s”は確保されません。"
 
 #: gdk-pixbuf/io-tiff.c:972
-#, fuzzy, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+#, c-format
 msgid "TIFF y-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
-"JPEG の \"クオリティ\" は 0〜100 の値にしてください。値 '%d' は確保されません"
+"TIFF の \"Y DPI\" は 0 より大きい値にしてください。値“%s”は確保されません。"
 
 #: gdk-pixbuf/io-tiff.c:1013
-#, fuzzy
-#| msgid "Couldn't write to TIFF file"
 msgid "Couldn’t write to TIFF file"
 msgstr "TIFF ファイルに書き込めませんでした"
 
@@ -1042,7 +949,7 @@ msgstr "XBM 画像を読み込む際に一時ファイルへの書き込みに�
 #: gdk-pixbuf/io-xbm.c:517
 msgctxt "image format"
 msgid "XBM"
-msgstr ""
+msgstr "XBM"
 
 #: gdk-pixbuf/io-xpm.c:472
 msgid "No XPM header found"
@@ -1077,10 +984,8 @@ msgid "Cannot read XPM colormap"
 msgstr "XPM のカラーマップを読み込めません"
 
 #: gdk-pixbuf/io-xpm.c:610
-#, fuzzy
-#| msgid "Dimensions of TIFF image too large"
 msgid "Dimensions do not match data"
-msgstr "TIFF 画像の次元が大きすぎます"
+msgstr ""
 
 #: gdk-pixbuf/io-xpm.c:804
 msgid "Failed to write to temporary file when loading XPM image"
@@ -1089,7 +994,7 @@ msgstr "XPM 画像を読み込む際に一時ファイルへの書き込みに�
 #: gdk-pixbuf/io-xpm.c:843
 msgctxt "image format"
 msgid "XPM"
-msgstr ""
+msgstr "XPM"
 
 #~ msgid "The ANI image format"
 #~ msgstr "ANI 画像形式"
