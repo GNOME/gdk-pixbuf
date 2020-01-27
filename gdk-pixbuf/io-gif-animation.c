@@ -104,6 +104,7 @@ gdk_pixbuf_gif_anim_get_static_image (GdkPixbufAnimation *animation)
 {
         GdkPixbufGifAnim *gif_anim;
         GdkPixbufAnimationIter *iter;
+        GdkPixbuf *pixbuf;
         GTimeVal start_time = { 0, 0 };
 
         gif_anim = GDK_PIXBUF_GIF_ANIM (animation);
@@ -112,7 +113,10 @@ gdk_pixbuf_gif_anim_get_static_image (GdkPixbufAnimation *animation)
                 return NULL;
 
         iter = gdk_pixbuf_gif_anim_get_iter (animation, &start_time);
-        return gdk_pixbuf_gif_anim_iter_get_pixbuf (iter);
+        pixbuf = gdk_pixbuf_gif_anim_iter_get_pixbuf (iter);
+        g_object_unref (iter);
+
+        return pixbuf;
 }
 G_GNUC_END_IGNORE_DEPRECATIONS
 
