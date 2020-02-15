@@ -970,7 +970,7 @@ gdk_pixbuf__jpeg_image_load_lines (JpegProgContext  *context,
  * buf - new image data
  * size - length of new image data
  *
- * append image data onto inrecrementally built output image
+ * append image data onto incrementally built output image
  */
 static gboolean
 gdk_pixbuf__jpeg_image_load_increment (gpointer data,
@@ -1007,22 +1007,8 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 		goto out;
 	}
 
-	/* skip over data if requested, handle unsigned int sizes cleanly */
-	/* only can happen if we've already called jpeg_get_header once   */
-	if (context->src_initialized && src->skip_next) {
-		if (src->skip_next > size) {
-			src->skip_next -= size;
-			retval = TRUE;
-			goto out;
-		} else {
-			num_left = size - src->skip_next;
-			bufhd = buf + src->skip_next;
-			src->skip_next = 0;
-		}
-	} else {
-		num_left = size;
-		bufhd = buf;
-	}
+	num_left = size;
+	bufhd = buf;
 
 	if (num_left == 0) {
 		retval = TRUE;
@@ -1034,6 +1020,19 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 	spinguard = 0;
 	first = TRUE;
 	while (TRUE) {
+		/* skip over data if requested, handle unsigned int sizes cleanly */
+		/* only can happen if we've already called jpeg_get_header        */
+		if (context->src_initialized && src->skip_next) {
+			if (src->skip_next >= num_left) {
+				src->skip_next -= num_left;
+				retval = TRUE;
+				goto out;
+			} else {
+				num_left -= src->skip_next;
+				bufhd += src->skip_next;
+				src->skip_next = 0;
+			}
+		}
 
 		/* handle any data from caller we haven't processed yet */
 		if (num_left > 0) {
