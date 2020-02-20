@@ -119,8 +119,8 @@ common_ldflags = []
 if cc.get_id() == 'msvc'
   # For Visual Studio, just force-include msvc_reommended_pragmas.h
   # so that we silence unwanted noise and track potential issues
-  test_cflags = []
-  add_project_arguments([ '-FImsvc_recommended_pragmas.h' ], language: 'c')
+  test_cflags = [ '-FImsvc_recommended_pragmas.h', '-utf-8' ]
+  add_project_arguments(cc.get_supported_arguments(test_cflags), language: 'c')
 elif cc.get_id() == 'gcc' or cc.get_id() == 'clang'
   test_cflags = [
     '-Wpointer-arith',
