@@ -411,11 +411,15 @@ gdk_pixbuf_gif_anim_iter_get_pixbuf (GdkPixbufAnimationIter *anim_iter)
 
         /* If no rendered frame, render the first frame */
         if (anim->last_frame == NULL) {
+                gsize len = 0;
                 if (anim->last_frame_data == NULL)
                         anim->last_frame_data = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, anim->width, anim->height);
                 if (anim->last_frame_data == NULL)
                         return NULL;
-                memset (gdk_pixbuf_get_pixels (anim->last_frame_data), 0, gdk_pixbuf_get_rowstride (anim->last_frame_data) * anim->height);
+                if (g_size_checked_mul (&len, gdk_pixbuf_get_rowstride (anim->last_frame_data), anim->height))
+                        memset (gdk_pixbuf_get_pixels (anim->last_frame_data), 0, len);
+                else
+                        return NULL;
                 composite_frame (anim, g_list_nth_data (anim->frames, 0));
         }
 
