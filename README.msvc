@@ -28,7 +28,6 @@ part of the dependency's build process.
 -IJG JPEG or libjpeg-turbo (strongly recommended, use -Djpeg=false to disable)
 -libpng (strongly recommended, use -Dpng=false to disable)
 -libtiff (strongly recommended, use -Dtiff=false to disable)
--libjasper (optional, JPEG2000 library, use -Djpaster=true to enable)
 
 1) Configure the build using Meson:
 Set the PATH, LIB, INCLUDE and PKG_CONFIG_PATH environmental variables as
@@ -37,7 +36,7 @@ needed.  Run the following in a Visual Studio command prompt:
 python $(PATH_TO_meson.py)\meson.py $(GDK_PIXBUF_SRCDIR) --buildtype=$(BUILD_CONFIG) --prefix=$(PREFIX) -Dman=false $(OTHER_OPTIONS)
 
 For $(OTHER_OPTIONS), the following may be of interest, besides the png,
-jpeg, japer and tiff options.  Prefix each option with -D:
+jpeg and tiff options.  Prefix each option with -D:
 
 -builtin_loaders: list of image loaders that we want to build into
  the main GDK-Pixbuf DLL, or use 'all' to include all buildable image

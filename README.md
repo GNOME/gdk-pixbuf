@@ -34,7 +34,6 @@ Depending on the image formats you want to support you will also need:
  - libpng's development files
  - libjpeg's development files
  - libtiff's development files
- - libjasper's development files
 
 Additionally, you may need:
 
@@ -68,9 +67,6 @@ check the current build configuration, and change its options.
 
 You can specify the following options in the command line to `meson`:
 
- * `-Djasper=true` - Enable support for JPEG2000.  This requires
-   [libjasper's development files](http://www.ece.uvic.ca/~frodo/jasper/)
-   to be installed.
  * `-Dgtk_doc=true` - Build the API reference documentation.  This
    requires `gtk-doc` to be installed.
  * `-Drelocatable=true` - Enable application bundle relocation support.

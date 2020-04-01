@@ -89,8 +89,6 @@ test_threads (void)
         g_thread_pool_push (pool, "valid.1.tga", NULL);
       if (format_supported ("tiff"))
         g_thread_pool_push (pool, "valid.1.tiff", NULL);
-      if (format_supported ("jp2"))
-        g_thread_pool_push (pool, "valid.1.jp2", NULL);
     }
 
   g_thread_pool_free (pool, FALSE, TRUE);

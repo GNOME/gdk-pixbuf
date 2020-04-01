@@ -20,7 +20,6 @@ loaders = [
   [ 'xbm', [ 'io-xbm.c' ] ],
   [ 'tga', [ 'io-tga.c', 'gdk-pixbuf-buffer-queue.c' ] ],
   [ 'icns', [ 'io-icns.c' ] ],
-  [ 'jasper', [ 'io-jasper.c' ], enabled_loaders.contains('jasper'), jasper_extra_cflags ],
   [ 'qtif', [ 'io-qtif.c' ] ]
 ]
 

@@ -347,36 +347,6 @@ if get_option('tiff') and not native_windows_loaders
   endif
 endif
 
-jasper_extra_cflags = []
-
-if get_option('jasper')
-  has_jasper_header = false
-
-  if cc.get_id() == 'msvc'
-    # We must define JAS_WIN_MSVC_BUILD before including jasper/jasper.h on MSVC
-    jasper_msvc_macro = 'JAS_WIN_MSVC_BUILD'
-    has_jasper_header = cc.has_header('jasper/jasper.h', prefix: '#define @0@'.format(jasper_msvc_macro))
-    jasper_extra_cflags = [ '-D@0@'.format(jasper_msvc_macro) ]
-  else
-    has_jasper_header = cc.has_header('jasper/jasper.h')
-  endif
-
-  if has_jasper_header
-    jasper_dep = cc.find_library('jasper', required: false)
-    if not jasper_dep.found()
-      if cc.get_id() == 'msvc'
-        # on MSVC, we need to look for libjasper.lib if jasper.lib is not found,
-        # which corresponds to what libjasper's MSVC projects produce
-        jasper_dep = cc.find_library('libjasper', required: false)
-      endif
-    endif
-    if jasper_dep.found() and cc.has_function('jas_init', dependencies: jasper_dep)
-      enabled_loaders += 'jasper'
-      loaders_deps += jasper_dep
-    endif
-  endif
-endif
-
 # Determine whether we enable application bundle relocation support, and we use
 # this always on Windows
 if host_system == 'windows'

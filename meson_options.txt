@@ -10,10 +10,6 @@ option('jpeg',
        description: 'Enable JPEG loader (requires libjpeg), disabled on Windows if "native_windows_loaders" is used',
        type: 'boolean',
        value: true)
-option('jasper',
-       description: 'Enable JPEG2000 loader (requires libjasper)',
-       type: 'boolean',
-       value: false)
 option('builtin_loaders',
        description: 'Comma-separated list of loaders to build into gdk-pixbuf, or "none", or "all" to build all buildable loaders into gdk-pixbuf',
        type: 'string',
