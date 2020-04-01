@@ -75,7 +75,7 @@ main (int   argc,
 #endif
 
   pixbuf = gdk_pixbuf_new_from_file (infilename, &error);
-  if (!pixbuf)
+  if (error != NULL)
     {
       g_printerr ("failed to load \"%s\": %s\n",
 		  argv[1],
@@ -88,6 +88,11 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   free_me = gdk_pixdata_from_pixbuf (&pixdata, pixbuf, use_rle);
   data = gdk_pixdata_serialize (&pixdata, &data_len);
 G_GNUC_END_IGNORE_DEPRECATIONS
+  if (data == NULL)
+    {
+      g_printerr ("failed to serialize \"%s\"", argv[1]);
+      return 1;
+    }
 
   if (!g_file_set_contents (outfilename, (char *)data, data_len, &error))
     {
