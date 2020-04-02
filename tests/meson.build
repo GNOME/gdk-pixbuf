@@ -1,43 +1,58 @@
-# Resources; we cannot use gnome.compile_resources() here, because we need to
-# override the environment in order to use the utilities we just built instead
-# of the system ones
-resources_c = custom_target('resources.c',
-  input: 'resources.gresource.xml',
-  output: 'resources.c',
-  command: [
-    gen_resources,
-    '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
-    '--loaders=@0@'.format(loaders_cache.full_path()),
-    '--sourcedir=@0@'.format(meson.current_source_dir()),
-    '--source',
-    '@INPUT@',
-    '@OUTPUT@',
-  ],
-  depends: [
-    gdk_pixbuf_pixdata,
-    loaders_cache,
-  ],
-)
+# Resources contain PNG and BMP files, so we need these two loaders
+# enabled in order to build them
+if enabled_loaders.contains('png') and enabled_loaders.contains('bmp')
+  # Resources; we cannot use gnome.compile_resources() here, because we need to
+  # override the environment in order to use the utilities we just built instead
+  # of the system ones
+  resources_c = custom_target('resources.c',
+    input: 'resources.gresource.xml',
+    output: 'resources.c',
+    command: [
+      gen_resources,
+      '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
+      '--loaders=@0@'.format(loaders_cache.full_path()),
+      '--sourcedir=@0@'.format(meson.current_source_dir()),
+      '--source',
+      '@INPUT@',
+      '@OUTPUT@',
+    ],
+    depends: [
+      gdk_pixbuf_pixdata,
+      loaders_cache,
+    ],
+  )
 
-resources_h = custom_target('resources.h',
-  input: 'resources.gresource.xml',
-  output: 'resources.h',
-  command: [
-    gen_resources,
-    '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
-    '--loaders=@0@'.format(loaders_cache.full_path()),
-    '--sourcedir=@0@'.format(meson.current_source_dir()),
-    '--header',
-    '@INPUT@',
-    '@OUTPUT@',
-  ],
-  depends: [
-    gdk_pixbuf_pixdata,
-    loaders_cache,
-  ],
-)
+  resources_h = custom_target('resources.h',
+    input: 'resources.gresource.xml',
+    output: 'resources.h',
+    command: [
+      gen_resources,
+      '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
+      '--loaders=@0@'.format(loaders_cache.full_path()),
+      '--sourcedir=@0@'.format(meson.current_source_dir()),
+      '--header',
+      '@INPUT@',
+      '@OUTPUT@',
+    ],
+    depends: [
+      gdk_pixbuf_pixdata,
+      loaders_cache,
+    ],
+  )
+  no_resources = false
+else
+  resources_c = []
+  resources_h = []
+  no_resources = true
+endif
 
-# [ test name, [ test suites ], needs_resources (opt) ]
+# {
+#   'test name': {
+#     'suites': [ test suites ], (optional)
+#     'needs_resources': bool, (optional)
+#     'skip': bool, (optional)
+#   }
+# }
 #
 # test suites:
 #  - conform: Behavior conformance test
@@ -46,31 +61,67 @@ resources_h = custom_target('resources.h',
 #  - format: Per-format test
 #  - io: Loading/saving
 #  - ops: Pixel operations
-installed_tests = [
-  [ 'pixbuf-construction', ['conform'], ],
-  [ 'animation', ['format'], ],
-  [ 'cve-2015-4491', ['security'], true ],
-  [ 'pixbuf-fail', ['conform', 'slow'], ],
-  [ 'pixbuf-icon-serialize', ['conform'], ],
-  [ 'pixbuf-randomly-modified', ['slow'], ],
-  [ 'pixbuf-threads', ['io'], ],
-  [ 'pixbuf-gif', ['io'], ],
-  [ 'pixbuf-icc', ['io'], ],
-  [ 'pixbuf-jpeg', ['format'], ],
-  [ 'pixbuf-dpi', ['io'], ],
-  [ 'pixbuf-pixdata', ['format'], true ],
-  [ 'pixbuf-stream', ['io'], ],
-  [ 'pixbuf-reftest', ['conform'], ],
-  [ 'pixbuf-resource', ['io'], true ],
-  [ 'pixbuf-scale', ['ops'], ],
-  [ 'pixbuf-scale-two-step', ['ops'], ],
-  [ 'pixbuf-short-gif-write', ['format'], ],
-  [ 'pixbuf-gif-circular-table', ['format'], ],
-  [ 'pixbuf-save', ['io'] ],
-  [ 'pixbuf-readonly-to-mutable', ['conform'], ],
-  [ 'pixbuf-composite', ['ops'], ],
-  [ 'pixbuf-area-updated', ['slow'], ],
-]
+installed_tests = {
+  'pixbuf-construction': { 'suites': ['conform'], },
+  'animation': {
+    'suites': ['format'],
+    'skip': not enabled_loaders.contains('gif'),
+  },
+  'cve-2015-4491': {
+    'suites': ['security'],
+    'needs_resources': true,
+    'skip': no_resources,
+  },
+  'pixbuf-fail': { 'suites': ['conform', 'slow'], },
+  'pixbuf-icon-serialize': { 'suites': ['conform'], },
+  'pixbuf-randomly-modified': { 'suites': ['slow'], },
+  'pixbuf-threads': { 'suites': ['io'], },
+  'pixbuf-gif': {
+    'suites': ['io'],
+    'skip': not enabled_loaders.contains('gif'),
+  },
+  'pixbuf-icc': {
+    'suites': ['io'],
+  },
+  'pixbuf-jpeg': {
+    'suites': ['format'],
+    'skip': not enabled_loaders.contains('jpeg'),
+  },
+  'pixbuf-dpi': {
+    'suites': ['io'],
+  },
+  'pixbuf-pixdata': {
+    'suites': ['format'],
+    'needs_resources': true,
+    'skip': no_resources,
+  },
+  'pixbuf-stream': { 'suites': ['io'], },
+  'pixbuf-reftest': {
+    'suites': ['conform'],
+  },
+  'pixbuf-resource': {
+    'suites': ['io'],
+    'needs_resources': true,
+    'skip': no_resources,
+  },
+  'pixbuf-scale': { 'suites': ['ops'], },
+  'pixbuf-scale-two-step': { 'suites': ['ops'], },
+  'pixbuf-short-gif-write': {
+    'suites': ['format'],
+    'skip': not enabled_loaders.contains('gif'),
+  },
+  'pixbuf-gif-circular-table': {
+    'suites': ['format'],
+    'skip': not enabled_loaders.contains('gif'),
+  },
+  'pixbuf-save': { 'suites': ['io'] },
+  'pixbuf-readonly-to-mutable': { 'suites': ['conform'], },
+  'pixbuf-composite': {
+    'suites': ['ops'],
+    'skip': not enabled_loaders.contains('png'),
+  },
+  'pixbuf-area-updated': { 'suites': ['slow'], },
+}
 
 test_data = [
   'test-image.png',
@@ -108,22 +159,27 @@ if get_option('installed_tests')
   install_subdir('test-images', install_dir: installed_test_bindir)
 endif
 
-test_deps = gdk_pixbuf_deps + [ gdkpixbuf_dep ]
+test_deps = gdk_pixbuf_deps + [ gdkpixbuf_dep, ]
+test_args = [ '-k', '--tap' ]
+test_env = environment()
+test_env.set('G_TEST_SRCDIR', meson.current_source_dir())
+test_env.set('G_TEST_BUILDDIR', meson.current_build_dir())
+test_env.set('GDK_PIXBUF_MODULE_FILE', loaders_cache.full_path())
 
-foreach t: installed_tests
-  test_name = t[0]
+foreach test_name, test_data: installed_tests
   test_sources = [ test_name + '.c', 'test-common.c' ]
-  test_suites = t[1]
-  needs_resources = t.get(2, false)
+  test_suites = test_data.get('suites', [])
+  needs_resources = test_data.get('needs_resources', false)
   if needs_resources
     test_sources += [ resources_c, resources_h ]
   endif
+  skip_if_true = test_data.get('skip', false)
 
   custom_target(test_name + '.test',
     output: test_name + '.test',
     command: [
       gen_installed_test,
-      '--testbindir=@0@'.format(installed_test_bindir),
+      '--testbindir="@0@"'.format(installed_test_bindir),
       '--testbin=@0@'.format(test_name),
       '@OUTPUT@',
     ],
@@ -131,34 +187,30 @@ foreach t: installed_tests
     install_dir: installed_test_datadir,
   )
 
-  test_bin = executable(test_name, test_sources,
-    dependencies: test_deps,
-    include_directories: [
-      root_inc,
-      gdk_pixbuf_inc,
-    ],
-    c_args: common_cflags,
-    install: get_option('installed_tests'),
-    install_dir: installed_test_bindir,
-  )
+  if not skip_if_true
+    test_bin = executable(test_name, test_sources,
+      dependencies: test_deps,
+      include_directories: [ root_inc, gdk_pixbuf_inc, ],
+      c_args: common_cflags,
+      install: get_option('installed_tests'),
+      install_dir: installed_test_bindir,
+    )
 
-  # Two particularly slow tests
-  if test_suites.contains('slow')
-    timeout = 300
-  else
-    timeout = 30
+    # Two particularly slow tests
+    if test_suites.contains('slow')
+      timeout = 300
+    else
+      timeout = 30
+    endif
+
+    test(test_name, test_bin,
+      suite: test_suites,
+      args: test_args,
+      env: test_env,
+      timeout: timeout,
+      protocol: 'tap',
+    )
   endif
-
-  test(test_name, test_bin,
-    suite: test_suites,
-    args: [ '-k', '--tap' ],
-    env: [
-      'G_TEST_SRCDIR=@0@'.format(meson.current_source_dir()),
-      'G_TEST_BUILDDIR=@0@'.format(meson.current_build_dir()),
-      'GDK_PIXBUF_MODULE_FILE=@0@'.format(loaders_cache.full_path()),
-    ],
-    timeout: timeout,
-  )
 endforeach
 
 executable('pixbuf-read',
