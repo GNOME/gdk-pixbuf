@@ -64,6 +64,13 @@ test_composite2 (void)
   GdkPixbuf *src, *dest;
   guchar *pixels, *p;
 
+  char *filename = g_test_get_filename (G_TEST_DIST, "test-image.png", NULL);
+  if (!format_supported (filename))
+    {
+      g_test_skip ("PNG format not supported");
+      return;
+    }
+
   src = gdk_pixbuf_new_from_file (g_test_get_filename (G_TEST_DIST, "test-image.png", NULL), NULL);
 
   {
