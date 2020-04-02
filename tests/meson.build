@@ -148,7 +148,8 @@ test_data = [
   'bug775693.pixdata',
   'bug775229.pixdata',
   'aero.gif',
-  'circular-table.gif'
+  'circular-table.gif',
+  'issue70.jpg',
 ]
 
 installed_test_bindir = join_paths(gdk_pixbuf_libexecdir, 'installed-tests', meson.project_name())
