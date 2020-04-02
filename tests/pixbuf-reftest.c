@@ -148,8 +148,16 @@ test_reftest (gconstpointer data)
       return;
     }
 
-  filename = g_file_get_path (file);
   ref_file = make_ref_file (file);
+  if (!file_supported (ref_file))
+    {
+      g_test_skip ("format not supported for reference file");
+      return;
+    }
+
+  filename = g_file_get_path (file);
+
+  g_test_message ("Loading ref file '%s' for test file '%s'", g_file_peek_path (ref_file), filename);
 
   stream = G_INPUT_STREAM (g_file_read (ref_file, NULL, &error));
   g_assert_no_error (error);
