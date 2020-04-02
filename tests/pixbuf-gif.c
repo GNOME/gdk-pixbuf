@@ -79,6 +79,12 @@ run_gif_test (gconstpointer data)
   int i;
   GError *error = NULL;
 
+  if (!format_supported (filename))
+    {
+      g_test_skip ("GIF format not supported");
+      return;
+    }
+
   config_file = g_key_file_new ();
   g_key_file_set_list_separator (config_file, ',');
   config_filename = g_strdup_printf ("%s.conf", name);
