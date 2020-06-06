@@ -507,7 +507,7 @@ pixbuf_create_from_xpm (const gchar * (*get_buf) (enum buf_op op, gpointer handl
                                      _("Invalid XPM header"));
 		return NULL;
 	}
-	if (cpp <= 0 || cpp >= 32) {
+	if (cpp <= 0 || cpp >= 32 || w >= G_MAXINT / cpp) {
                 g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
