@@ -133,8 +133,8 @@ next_int (FILE *fstream)
 			/* trim high bits, check type and accumulate */
 			ch &= 0xff;
 			if (g_ascii_isxdigit (ch)) {
-				value = (value << 4) + g_ascii_xdigit_value (ch);
-				gotone++;
+				value = ((value & 0xf) << 4) + g_ascii_xdigit_value (ch);
+				gotone = 1;
 			} else if ((hex_table[ch]) < 0 && gotone) {
 				done++;
 			}
