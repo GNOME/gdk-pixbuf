@@ -19,6 +19,7 @@
 
 #include "gdk-pixbuf/gdk-pixbuf.h"
 #include "test-common.h"
+#include <errno.h>
 #include <string.h>
 
 #ifdef G_OS_UNIX
@@ -60,6 +61,7 @@ get_readonly_pixbuf (void)
 #ifdef G_OS_UNIX
   {
     MappedBuf *buf;
+    int saved_errno;
     int pagesize;
     int pages;
     int r;
@@ -76,8 +78,11 @@ get_readonly_pixbuf (void)
     buf->len = pages * pagesize;
     zero_fd = open("/dev/zero", O_RDWR);
     g_assert(zero_fd != -1);
+    saved_errno = errno;
+    errno = 0;
     buf->buf = mmap (NULL, buf->len, PROT_READ | PROT_WRITE, MAP_PRIVATE, zero_fd, 0);
-    g_assert (buf->buf != NULL);
+    g_assert_true (errno >= 0);
+    errno = saved_errno;
     close(zero_fd);
 
     memcpy (buf->buf, gdk_pixbuf_get_pixels (reference), pixlen);
