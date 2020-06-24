@@ -625,10 +625,12 @@ static gboolean DecodeColormap (guchar *buff,
 static void
 find_bits (int n, int *lowest, int *n_set)
 {
+	unsigned int i;
+
 	*lowest = 0;
 	*n_set = 0;
 
-	for (unsigned int i = 31; n != 0; n <<= 1, i--)
+	for (i = 31; n != 0; n <<= 1, i--)
 		if (n & ((unsigned int) 1 << 31)) {
 			*lowest = i;
 			(*n_set)++;
