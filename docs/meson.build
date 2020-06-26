@@ -33,6 +33,10 @@ private_headers = [
 ]
 
 if get_option('docs')
+  warning('The "docs" build option is deprecated; please use "gtk_doc=true"')
+endif
+
+if get_option('gtk_doc') or get_option('docs')
   gnome.gtkdoc('gdk-pixbuf',
                main_xml: 'gdk-pixbuf.xml',
                src_dir: [ gdk_pixbuf_inc ],

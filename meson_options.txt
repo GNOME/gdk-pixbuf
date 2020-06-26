@@ -18,8 +18,12 @@ option('builtin_loaders',
        description: 'Comma-separated list of loaders to build into gdk-pixbuf, or "none", or "all" to build all buildable loaders into gdk-pixbuf',
        type: 'string',
        value: 'none')
-option('docs',
+option('gtk_doc',
        description: 'Whether to generate the API reference (requires GTK-Doc)',
+       type: 'boolean',
+       value: false)
+option('docs',
+       description: 'Whether to generate the whole documentation (see: gtk_doc and man options) [Deprecated]',
        type: 'boolean',
        value: false)
 option('gir',

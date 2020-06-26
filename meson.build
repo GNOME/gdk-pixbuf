@@ -414,6 +414,7 @@ if not meson.is_cross_build()
 endif
 
 # Documentation
+build_docs = get_option('gtk_doc') or get_option('docs')
 subdir('docs')
 
 if not meson.is_cross_build()
@@ -444,7 +445,7 @@ summary = [
   '',
   '  enabled loaders: @0@'.format(' '.join(enabled_loaders)),
   '',
-  '    documentation: @0@'.format(get_option('docs')),
+  '    documentation: @0@'.format(build_docs),
   '        man pages: @0@'.format(get_option('man')),
   '    introspection: @0@'.format(get_option('gir')),
   '  installed tests: @0@'.format(get_option('installed_tests')),
