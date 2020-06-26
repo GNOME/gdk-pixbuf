@@ -1,3 +1,23 @@
+2.41.0 (development)
+===
+
+ - Remove the libjasper JPEG2000 loader
+ - Split the gdk-pixbuf-xlib library to a separate repository
+ - Fix build on Solaris [Alan Coopersmith]
+ - Fix cppcheck 'shifting signed 32-bit value warning' [Emmanuel Fleury, #96]
+ - Fix memory leaks in pixops error paths [Alex Henrie]
+ - Improve internal consistency of loaders [Federico Mena Quintero]
+ - Fix build with MSVC [Chun-wei Fan]
+ - Skip bytes during JPEG incremental load [Nathan Lee]
+ - Check for overflows [#132]
+ - Add missing test for issue #70 [Bastien Nocera]
+ - Let the test suite cope with missing loaders [#123]
+ - Fix build on SunOS [#128]
+ - Check for mmap failure [Tobias Müller]
+ - Fix UB in the XPM loader [Tobias Stoeckmann]
+ - Speed up alpha scaling pixop [Jan Ziak]
+ - Add the `gtk_doc` configuration option, and deprecate `docs`
+
 2.40.0 (stable)
 ===
 
