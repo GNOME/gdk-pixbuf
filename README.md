@@ -71,7 +71,7 @@ You can specify the following options in the command line to `meson`:
  * `-Djasper=true` - Enable support for JPEG2000.  This requires
    [libjasper's development files](http://www.ece.uvic.ca/~frodo/jasper/)
    to be installed.
- * `-Ddocs=true` - Build the API reference documentation.  This
+ * `-Dgtk_doc=true` - Build the API reference documentation.  This
    requires `gtk-doc` to be installed.
  * `-Drelocatable=true` - Enable application bundle relocation support.
 
