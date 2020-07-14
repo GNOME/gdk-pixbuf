@@ -88,15 +88,6 @@ enum {
 	GIF_DONE
 };
 
-
-typedef struct _Gif89 Gif89;
-struct _Gif89
-{
-	int transparent;
-	int delay_time;
-	int disposal;
-};
-
 typedef struct _GifContext GifContext;
 struct _GifContext
 {
@@ -116,7 +107,9 @@ struct _GifContext
 
 	GdkPixbufGifAnim *animation;
 	GdkPixbufFrame *frame;
-	Gif89 gif89;
+	int transparent_index;
+	int delay_time;
+	int disposal;
 
 	/* stuff per frame. */
 	int frame_len;
@@ -345,13 +338,13 @@ gif_get_extension (GifContext *context)
 				/* I only want to set the transparency if I haven't
 				 * created the frame yet.
                                  */
-				context->gif89.disposal = (context->block_buf[0] >> 2) & 0x7;
-				context->gif89.delay_time = LM_to_uint (context->block_buf[1], context->block_buf[2]);
+				context->disposal = (context->block_buf[0] >> 2) & 0x7;
+				context->delay_time = LM_to_uint (context->block_buf[1], context->block_buf[2]);
 				
 				if ((context->block_buf[0] & 0x1) != 0) {
-					context->gif89.transparent = context->block_buf[3];
+					context->transparent_index = context->block_buf[3];
 				} else {
-					context->gif89.transparent = -1;
+					context->transparent_index = -1;
 				}
 			}
 
@@ -458,10 +451,10 @@ gif_get_lzw (GifContext *context)
                         context->frame->color_map = context->animation->color_map;
                 }
 
-                context->frame->transparent_index = context->gif89.transparent;
+                context->frame->transparent_index = context->transparent_index;
 
                 /* GIF delay is in hundredths, we want thousandths */
-                context->frame->delay_time = context->gif89.delay_time * 10;
+                context->frame->delay_time = context->delay_time * 10;
 
                 /* GIFs with delay time 0 are mostly broken, but they
                  * just want a default, "not that fast" delay.
@@ -478,7 +471,7 @@ gif_get_lzw (GifContext *context)
                 context->frame->elapsed = context->animation->total_time;
                 context->animation->total_time += context->frame->delay_time;                
                 
-                switch (context->gif89.disposal) {
+                switch (context->disposal) {
                 case 0:
                 case 1:
                         context->frame->action = GDK_PIXBUF_FRAME_RETAIN;
@@ -673,11 +666,11 @@ gif_get_frame_info (GifContext *context)
 	context->y_offset = LM_to_uint (buf[2], buf[3]);
 
 	if (context->animation->frames == NULL &&
-            context->gif89.disposal == 3) {
+            context->disposal == 3) {
                 /* First frame can't have "revert to previous" as its
                  * dispose mode. Silently use "retain" instead.
                  */
-                context->gif89.disposal = 0;
+                context->disposal = 0;
 	}
 
 	context->frame_interlace = BitSet (buf[8], INTERLACE);
@@ -685,7 +678,7 @@ gif_get_frame_info (GifContext *context)
 #ifdef DUMP_IMAGE_DETAILS
         g_print (">width: %d height: %d xoffset: %d yoffset: %d disposal: %d delay: %d transparent: %d interlace: %d\n",
                  context->frame_len, context->frame_height, context->x_offset, context->y_offset,
-                 context->gif89.disposal, context->gif89.delay_time, context->gif89.transparent, context->frame_interlace);
+                 context->disposal, context->delay_time, context->transparent_index, context->frame_interlace);
 #endif
         
 	if (BitSet (buf[8], LOCALCOLORMAP)) {
@@ -851,9 +844,9 @@ new_context (GdkPixbufModuleSizeFunc size_func,
 	context->buf = NULL;
 	context->amount_needed = 13;
 	context->buf = g_new (guchar, context->amount_needed);
-	context->gif89.transparent = -1;
-	context->gif89.delay_time = -1;
-	context->gif89.disposal = -1;
+	context->transparent_index = -1;
+	context->delay_time = -1;
+	context->disposal = -1;
         context->animation->loop = 1;
         context->in_loop_extension = FALSE;
 
