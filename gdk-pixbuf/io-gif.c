@@ -112,7 +112,6 @@ struct _GifContext
 	unsigned int global_color_resolution;
         unsigned int background_index;
 
-        gboolean frame_cmap_active;
         CMap frame_color_map;
         gint frame_colormap_size;
         unsigned int frame_bit_pixel;
@@ -234,7 +233,6 @@ gif_set_get_colormap (GifContext *context)
 static void
 gif_set_get_colormap2 (GifContext *context)
 {
-	context->frame_colormap_size = 0;
 	context->state = GIF_GET_COLORMAP2;
 }
 
@@ -696,6 +694,7 @@ gif_get_frame_info (GifContext *context)
                  context->gif89.disposal, context->gif89.delay_time, context->gif89.transparent, context->frame_interlace);
 #endif
         
+	context->frame_colormap_size = 0;
 	if (BitSet (buf[8], LOCALCOLORMAP)) {
 
 #ifdef DUMP_IMAGE_DETAILS
@@ -707,7 +706,6 @@ gif_get_frame_info (GifContext *context)
 		 * of an animated gif. */
 		/* if it does, we need to re-read in the colormap,
 		 * the gray_scale, and the bit_pixel */
-                context->frame_cmap_active = TRUE;
 		context->frame_bit_pixel = 1 << ((buf[8] & 0x07) + 1);
 		gif_set_get_colormap2 (context);
 		return 0;
