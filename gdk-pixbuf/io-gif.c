@@ -94,7 +94,6 @@ struct _Gif89
 {
 	int transparent;
 	int delay_time;
-	int input_flag;
 	int disposal;
 };
 
@@ -109,15 +108,12 @@ struct _GifContext
 
         gint global_colormap_size;
         unsigned int global_bit_pixel;
-	unsigned int global_color_resolution;
-        unsigned int background_index;
 
         gboolean frame_cmap_active;
         CMap frame_color_map;
         gint frame_colormap_size;
         unsigned int frame_bit_pixel;
 
-	unsigned int aspect_ratio;
 	GdkPixbufGifAnim *animation;
 	GdkPixbufFrame *frame;
 	Gif89 gif89;
@@ -350,7 +346,6 @@ gif_get_extension (GifContext *context)
 				 * created the frame yet.
                                  */
 				context->gif89.disposal = (context->block_buf[0] >> 2) & 0x7;
-				context->gif89.input_flag = (context->block_buf[0] >> 1) & 0x1;
 				context->gif89.delay_time = LM_to_uint (context->block_buf[1], context->block_buf[2]);
 				
 				if ((context->block_buf[0] & 0x1) != 0) {
@@ -624,10 +619,7 @@ gif_init (GifContext *context)
          * last 3:   size of colormap
          */
 	context->global_bit_pixel = 2 << (buf[4] & 0x07);
-	context->global_color_resolution = (((buf[4] & 0x70) >> 3) + 1);
         context->has_global_cmap = (buf[4] & 0x80) != 0;
-	context->background_index = buf[5];
-	context->aspect_ratio = buf[6];
 
         context->animation->width = context->width;
         context->animation->height = context->height;
@@ -652,8 +644,8 @@ gif_init (GifContext *context)
 	}
 
 #ifdef DUMP_IMAGE_DETAILS
-        g_print (">Image width: %d height: %d global_cmap: %d background: %d\n",
-                 context->width, context->height, context->has_global_cmap, context->background_index);
+        g_print (">Image width: %d height: %d global_cmap: %d\n",
+                 context->width, context->height, context->has_global_cmap);
 #endif
         
 	return 0;
@@ -861,7 +853,6 @@ new_context (GdkPixbufModuleSizeFunc size_func,
 	context->buf = g_new (guchar, context->amount_needed);
 	context->gif89.transparent = -1;
 	context->gif89.delay_time = -1;
-	context->gif89.input_flag = -1;
 	context->gif89.disposal = -1;
         context->animation->loop = 1;
         context->in_loop_extension = FALSE;
