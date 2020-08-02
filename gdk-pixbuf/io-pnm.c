@@ -873,6 +873,12 @@ gdk_pixbuf__pnm_image_stop_load (gpointer data,
 	
 	if (context->pixbuf)
 		g_object_unref (context->pixbuf);
+	else {
+		g_set_error_literal (error, GDK_PIXBUF_ERROR,
+				     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+				     _("Premature end-of-file encountered"));
+		retval = FALSE;
+	}
 
 #if 0
 	/* We should ignore trailing newlines and we can't
