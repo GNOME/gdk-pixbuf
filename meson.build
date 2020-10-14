@@ -417,7 +417,7 @@ summary = [
   '',
   '    documentation: @0@'.format(build_docs),
   '        man pages: @0@'.format(get_option('man')),
-  '    introspection: @0@'.format(get_option('gir')),
+  '    introspection: @0@'.format(build_gir),
   '  installed tests: @0@'.format(get_option('installed_tests')),
   '      relocatable: @0@'.format(get_option('relocatable')),
   '',
