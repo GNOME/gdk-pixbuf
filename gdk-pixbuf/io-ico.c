@@ -5,6 +5,7 @@
  *
  * Authors: Arjan van de Ven <arjan@fenrus.demon.nl>
  *          Federico Mena-Quintero <federico@gimp.org>
+ *          Pat Suwalski <pat@suwalski.net>
  *
  * Based on io-bmp.c
  *
@@ -46,8 +47,7 @@ Known bugs:
 #include <errno.h>
 #include <glib/gi18n-lib.h>
 #include "gdk-pixbuf-io.h"
-
-
+#include "gdk-pixbuf-loader.h"
 
 /* 
 
@@ -165,6 +165,7 @@ struct ico_progressive_state {
         gint x_hot;
         gint y_hot;
 
+	GdkPixbufLoader *pngloader;	/* Used for possible PNG loader */
 	struct headerpair Header;	/* Decoded (BE->CPU) header */
 	GList *entries;
 	guint			DIBoffset;
@@ -193,6 +194,11 @@ context_free (struct ico_progressive_state *context)
 	if (context->pixbuf)
 		g_object_unref (context->pixbuf);
 
+	if (context->pngloader) {
+		gdk_pixbuf_loader_close (context->pngloader, NULL);
+		g_object_unref (context->pngloader);
+	}
+
 	g_free (context);
 }
 
@@ -209,6 +215,75 @@ compare_direntry_scores (gconstpointer a,
 	else if (ib->ImageScore > ia->ImageScore)
 		return 1;
 	return 0;
+}
+
+/* Callback passed to PNG loader on "area_prepared" signal */
+static void
+png_prepared_callback (GdkPixbufLoader *loader,
+                       gpointer         data)
+{
+	struct ico_progressive_state *context = (struct ico_progressive_state*) data;
+
+	context->pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+
+	if (!context->pixbuf)
+		return;
+
+	if (context->prepared_func != NULL)
+		(*context->prepared_func) (context->pixbuf, NULL, context->user_data);
+}
+
+/* Callback passed to PNG loader on "area_updated" signal */
+static void
+png_updated_callback (GdkPixbufLoader *loader,
+                      gint             x,
+                      gint             y,
+                      gint             width,
+                      gint             height,
+                      gpointer         data)
+{
+	struct ico_progressive_state *context = (struct ico_progressive_state*) data;
+	GdkPixbuf *pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+
+	if (context->updated_func)
+		(* context->updated_func) (pixbuf, x, y, width, height, context->user_data);
+}
+
+/* Creates a PNG pixbuf loader */
+static void
+png_pixbuf_create (struct ico_progressive_state  *context,
+                   GError                       **error)
+{
+	g_autoptr(GError) loader_error = NULL;
+
+	context->pngloader = gdk_pixbuf_loader_new_with_type ("png", &loader_error);
+	if (loader_error) {
+		g_propagate_error (error, loader_error);
+		return;
+	}
+
+	g_signal_connect (context->pngloader, "area_prepared", G_CALLBACK (png_prepared_callback), context);
+	g_signal_connect (context->pngloader, "area_updated", G_CALLBACK (png_updated_callback), context);
+}
+
+/* Writes bytes to the PNG pixbuf loader */
+static gboolean
+png_pixbuf_write (GdkPixbufLoader  *loader,
+                  const guchar     *buf,
+                  guint             bytes,
+                  GError          **error)
+{
+	g_autoptr(GError) loader_error = NULL;
+
+	if (!gdk_pixbuf_loader_write (loader, buf, bytes, &loader_error)) {
+		g_propagate_error (error, loader_error);
+		gdk_pixbuf_loader_close (loader, NULL);
+		g_object_unref (loader);
+
+		return FALSE;
+	}
+
+	return TRUE;
 }
 
 static void DecodeHeader(guchar *Data, gint Bytes,
@@ -292,10 +367,10 @@ static void DecodeHeader(guchar *Data, gint Bytes,
                 width = Ptr[0];
                 height = Ptr[1];
                 depth = Ptr[2];
-		x_hot = (Ptr[5] << 8) + Ptr[4];
-		y_hot = (Ptr[7] << 8) + Ptr[6];
+                x_hot = (Ptr[5] << 8) + Ptr[4];
+                y_hot = (Ptr[7] << 8) + Ptr[6];
                 data_size = ((guint) (Ptr[11]) << 24) + (Ptr[10] << 16) + (Ptr[9] << 8) + (Ptr[8]);
-		data_offset = ((guint) (Ptr[15]) << 24) + (Ptr[14] << 16) + (Ptr[13] << 8) + (Ptr[12]);
+                data_offset = ((guint) (Ptr[15]) << 24) + (Ptr[14] << 16) + (Ptr[13] << 8) + (Ptr[12]);
                 DEBUG(g_print ("Image %d: %d x %d\n\tDepth: %d\n", I, width, height, depth);
                 if (imgtype == 2)
                   g_print ("\tHotspot: %d x %d\n", x_hot, y_hot);
@@ -363,17 +438,10 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 
 		BIH = Data+entry->DIBoffset;
 
-		/* A compressed icon, try the next one */
-		if ((BIH[16] != 0) || (BIH[17] != 0) || (BIH[18] != 0)
-		    || (BIH[19] != 0)) {
-			DEBUG(g_print("Skipping icon with score %d, as it is compressed\n", entry->ImageScore));
-			continue;
-		}
-
 		DEBUG(g_print("Selecting icon with score %d\n", entry->ImageScore));
 
 		/* If we made it to here then we have selected a BIH structure
-		 * in a format that we can parse */
+		 * in a format that we can parse, or a PNG */
 		break;
 	}
 
@@ -384,10 +452,22 @@ static void DecodeHeader(guchar *Data, gint Bytes,
 				     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
 				     got_broken_header ?
 					_("Invalid header in icon") :
-					_("Compressed icons are not supported"));
+					_("No supported icon formats found"));
 		return;
 	}
 
+  /* Check for PNG header */
+	if (BIH[0] == 0x89 && BIH[1] == 'P' && BIH[2] == 'N' && BIH[3] == 'G') {
+		/* Create a PNG pixbuf data can be passed on to */
+		png_pixbuf_create (State, error);
+
+		/* We already have 40 bytes of the possible bitmap InfoHeader.
+			Pass this on to the PNG pixbuf loader. */
+		png_pixbuf_write (State->pngloader, Data+entry->DIBoffset, INFOHEADER_SIZE, error);
+
+		/* The rest of this function applies only to bitmaps. */
+		return;
+	}
 	/* This is the one we're going with */
 	State->DIBoffset = entry->DIBoffset;
 	State->x_hot = entry->x_hot;
@@ -925,6 +1005,11 @@ gdk_pixbuf__ico_image_load_increment(gpointer data,
 	gint BytesToCopy;
 
 	while (size > 0) {
+		/* If the PNG loader is present, use it. */
+		if (context->pngloader) {
+			return png_pixbuf_write (context->pngloader, buf, size, error);
+		}
+
 		g_assert(context->LineDone >= 0);
 		if (context->HeaderDone < context->HeaderSize) {	/* We still 
 									   have headerbytes to do */
@@ -1415,7 +1500,3 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 	info->flags = GDK_PIXBUF_FORMAT_WRITABLE | GDK_PIXBUF_FORMAT_THREADSAFE;
 	info->license = "LGPL";
 }
-
-
-
-
