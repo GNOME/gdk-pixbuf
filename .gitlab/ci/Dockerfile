@@ -31,7 +31,7 @@ RUN dnf -y install \
         which \
  && dnf clean all
 
-RUN pip3 install meson==0.48.1
+RUN pip3 install meson==0.55.3
 
 ARG HOST_USER_ID=5555
 ENV HOST_USER_ID ${HOST_USER_ID}
