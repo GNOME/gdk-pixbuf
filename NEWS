@@ -1,4 +1,4 @@
-2.41.0 (development)
+2.42.0 (stable)
 ===
 
  - Remove the libjasper JPEG2000 loader
@@ -17,6 +17,10 @@
  - Fix UB in the XPM loader [Tobias Stoeckmann]
  - Speed up alpha scaling pixop [Jan Ziak]
  - Add the `gtk_doc` configuration option, and deprecate `docs`
+ - Add the `introspection` configuration option, and remove `gir` [Xavier Claessens, !85]
+ - Handle truncated PNMs more gracefully [Felix Riemann, #111]
+ - Clean up GIF loader code [Robert Ancell]
+ - Fix colormap handling in GIF [Robert Ancell, #156]
 
 2.40.0 (stable)
 ===
