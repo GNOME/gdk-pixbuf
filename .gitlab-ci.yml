@@ -50,17 +50,20 @@ meson-fedora-x86_64:
   stage: build
   extends: .build-linux
   image: ${FEDORA_IMAGE}
+  needs: []
 
 release-build:
   stage: build
   extends: .build-linux
   image: ${FEDORA_IMAGE}
+  needs: []
   variables:
     BUILD_OPTS: "-Dbuildtype=release"
 
 reference:
   stage: docs
   image: ${FEDORA_IMAGE}
+  needs: []
   variables:
     BUILD_OPTS: "-Dgtk_doc=true"
   script:
@@ -74,6 +77,7 @@ reference:
 
 pages:
   stage: deploy
+  needs: [reference]
   script:
     - mv _reference public
   artifacts:
@@ -84,6 +88,7 @@ pages:
 
 msys2-mingw64:
   stage: build
+  needs: []
   tags:
     - win32-ps
   variables:
