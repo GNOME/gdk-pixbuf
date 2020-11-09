@@ -1,5 +1,6 @@
 stages:
   - build
+  - analysis
   - docs
   - deploy
 
@@ -74,6 +75,37 @@ reference:
     when: on_success
     paths:
       - _reference
+
+static-scan:
+  image: $FEDORA_IMAGE
+  stage: analysis
+  needs: []
+  variables:
+    BUILD_OPTS: "--buildtype=debug"
+  script:
+    - meson ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _scan_build
+    - ninja -C _scan_build scan-build
+  artifacts:
+    paths:
+      - _scan_build/meson-logs
+  allow_failure: true
+
+# Run tests with the address sanitizer. We need to turn off introspection,
+# since it is incompatible with asan
+asan-build:
+  image: $FEDORA_IMAGE
+  tags: [ asan ]
+  stage: analysis
+  needs: []
+  variables:
+  script:
+    - CC=clang meson --buildtype=debugoptimized -Db_sanitize=address -Db_lundef=false -Dintrospection=disabled _build
+    - ninja -C _build
+    - .gitlab/scripts/run-tests.sh _build
+  artifacts:
+    paths:
+      - _build/meson-logs
+  allow_failure: true
 
 release-dist:
   stage: build
