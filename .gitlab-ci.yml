@@ -3,47 +3,71 @@ stages:
   - docs
   - deploy
 
+# Common variables
 variables:
   CCACHE_DIR: _ccache
+  COMMON_MESON_FLAGS: "-Dwerror=true -Dglib:werror=false"
+  LOADERS_FLAGS: "-Dpng=true -Djpeg=true -Dtiff=true"
+  MESON_TEST_TIMEOUT_MULTIPLIER: 3
+  FEDORA_IMAGE: "registry.gitlab.gnome.org/gnome/gdk-pixbuf/fedora:v1"
+
+.only-default:
+  only:
+    - branches
+  except:
+    - tags
 
 .build-linux:
-  image: registry.gitlab.gnome.org/gnome/gdk-pixbuf/master:v2
-  stage: build
   before_script:
     - mkdir -p _ccache
   script:
-    - meson ${BUILD_OPTS} _build .
+    - meson ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _build .
     - ninja -C _build
+    - .gitlab/scripts/run-tests.sh _build
   artifacts:
-    when: on_failure
+    when: always
     name: "gdk-pixbuf-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
     paths:
-      - "${CI_PROJECT_DIR}/build_*/meson-logs"
+      - "${CI_PROJECT_DIR}/_build/meson-logs"
+      - "${CI_PROJECT_DIR}/_build/report-${CI_JOB_NAME}.xml"
+    reports:
+      junit:
+        - "${CI_PROJECT_DIR}/_build/report-${CI_JOB_NAME}.xml"
   cache:
     key: "$CI_JOB_NAME"
     paths:
       - _ccache/
 
+style-check-diff:
+  extends: .only-default
+  image: $FEDORA_IMAGE
+  stage: .pre
+  allow_failure: true
+  script:
+    - .gitlab/scripts/run-style-check-diff.sh
+
 meson-fedora-x86_64:
+  stage: build
   extends: .build-linux
-  variables:
-    BUILD_OPTS: "-Dpng=true -Djpeg=true -Dtiff=true -Djasper=true"
-  after_script:
-    - meson test -C _build -t 3
+  image: ${FEDORA_IMAGE}
+  needs: []
 
 release-build:
+  stage: build
   extends: .build-linux
+  image: ${FEDORA_IMAGE}
+  needs: []
   variables:
-    BUILD_OPTS: "-Dpng=true -Djpeg=true -Dtiff=true -Dbuildtype=release"
-  after_script:
-    - meson test -C _build -t 3
+    BUILD_OPTS: "-Dbuildtype=release"
 
 reference:
-  extends: .build-linux
   stage: docs
+  image: ${FEDORA_IMAGE}
+  needs: []
   variables:
-    BUILD_OPTS: "-Dgtk_doc=true"
-  after_script:
+    BUILD_OPTS: "-Dbuildtype=release -Dgtk_doc=true"
+  script:
+    - meson ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _build .
     - ninja -C _build gdk-pixbuf-doc
     - mv _build/docs/html _reference
   artifacts:
@@ -51,8 +75,29 @@ reference:
     paths:
       - _reference
 
+release-dist:
+  stage: build
+  image: ${FEDORA_IMAGE}
+  needs: []
+  variables:
+    BUILD_OPTS: "-Dbuildtype=release -Dgtk_doc=true"
+  script:
+    - meson ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _build .
+    - meson compile -C _build
+    - meson dist -C _build
+    - ninja -C _build gdk-pixbuf-doc
+    - tar -c -J -f _build/gdk-pixbuf-docs-${CI_COMMIT_TAG}.tar.xz _build/docs/
+  artifacts:
+    when: on_success
+    paths:
+      - _build/meson-dist/gdk-pixbuf-${CI_COMMIT_TAG}.tar.xz
+      - _build/gdk-pixbuf-docs-${CI_COMMIT_TAG}.tar.xz
+  only:
+    - tags
+
 pages:
   stage: deploy
+  needs: [reference]
   script:
     - mv _reference public
   artifacts:
@@ -63,6 +108,7 @@ pages:
 
 msys2-mingw64:
   stage: build
+  needs: []
   tags:
     - win32-ps
   variables:
