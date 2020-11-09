@@ -3,16 +3,20 @@ stages:
   - docs
   - deploy
 
+# Common variables
 variables:
   CCACHE_DIR: _ccache
+  COMMON_MESON_FLAGS: "-Dwerror=true -Dglib:werror=false"
+  LOADERS_FLAGS: "-Dpng=true -Djpeg=true -Dtiff=true"
+  MESON_TEST_TIMEOUT_MULTIPLIER: 3
+  FEDORA_IMAGE: "registry.gitlab.gnome.org/gnome/gdk-pixbuf/fedora:v1"
+
 
 .build-linux:
-  image: registry.gitlab.gnome.org/gnome/gdk-pixbuf/master:v2
-  stage: build
   before_script:
     - mkdir -p _ccache
   script:
-    - meson ${BUILD_OPTS} _build .
+    - meson ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _build .
     - ninja -C _build
   artifacts:
     when: on_failure
@@ -25,22 +29,25 @@ variables:
       - _ccache/
 
 meson-fedora-x86_64:
+  stage: build
   extends: .build-linux
-  variables:
-    BUILD_OPTS: "-Dpng=true -Djpeg=true -Dtiff=true -Djasper=true"
+  image: ${FEDORA_IMAGE}
   after_script:
-    - meson test -C _build -t 3
+    - meson test -C _build
 
 release-build:
+  stage: build
   extends: .build-linux
+  image: ${FEDORA_IMAGE}
   variables:
-    BUILD_OPTS: "-Dpng=true -Djpeg=true -Dtiff=true -Dbuildtype=release"
+    BUILD_OPTS: "-Dbuildtype=release"
   after_script:
-    - meson test -C _build -t 3
+    - meson test -C _build
 
 reference:
-  extends: .build-linux
   stage: docs
+  extends: .build-linux
+  image: ${FEDORA_IMAGE}
   variables:
     BUILD_OPTS: "-Dgtk_doc=true"
   after_script:
