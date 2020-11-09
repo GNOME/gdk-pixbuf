@@ -65,7 +65,7 @@ reference:
   image: ${FEDORA_IMAGE}
   needs: []
   variables:
-    BUILD_OPTS: "-Dgtk_doc=true"
+    BUILD_OPTS: "-Dbuildtype=release -Dgtk_doc=true"
   script:
     - meson ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _build .
     - ninja -C _build gdk-pixbuf-doc
@@ -74,6 +74,26 @@ reference:
     when: on_success
     paths:
       - _reference
+
+release-dist:
+  stage: build
+  image: ${FEDORA_IMAGE}
+  needs: []
+  variables:
+    BUILD_OPTS: "-Dbuildtype=release -Dgtk_doc=true"
+  script:
+    - meson ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _build .
+    - meson compile -C _build
+    - meson dist -C _build
+    - ninja -C _build gdk-pixbuf-doc
+    - tar -c -J -f _build/gdk-pixbuf-docs-${CI_COMMIT_TAG}.tar.xz _build/docs/
+  artifacts:
+    when: on_success
+    paths:
+      - _build/meson-dist/gdk-pixbuf-${CI_COMMIT_TAG}.tar.xz
+      - _build/gdk-pixbuf-docs-${CI_COMMIT_TAG}.tar.xz
+  only:
+    - tags
 
 pages:
   stage: deploy
