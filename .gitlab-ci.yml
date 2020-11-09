@@ -18,11 +18,16 @@ variables:
   script:
     - meson ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _build .
     - ninja -C _build
+    - .gitlab/scripts/run-tests.sh _build
   artifacts:
-    when: on_failure
+    when: always
     name: "gdk-pixbuf-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
     paths:
-      - "${CI_PROJECT_DIR}/build_*/meson-logs"
+      - "${CI_PROJECT_DIR}/_build/meson-logs"
+      - "${CI_PROJECT_DIR}/_build/report-${CI_JOB_NAME}.xml"
+    reports:
+      junit:
+        - "${CI_PROJECT_DIR}/_build/report-${CI_JOB_NAME}.xml"
   cache:
     key: "$CI_JOB_NAME"
     paths:
@@ -32,8 +37,6 @@ meson-fedora-x86_64:
   stage: build
   extends: .build-linux
   image: ${FEDORA_IMAGE}
-  after_script:
-    - meson test -C _build
 
 release-build:
   stage: build
@@ -41,16 +44,14 @@ release-build:
   image: ${FEDORA_IMAGE}
   variables:
     BUILD_OPTS: "-Dbuildtype=release"
-  after_script:
-    - meson test -C _build
 
 reference:
   stage: docs
-  extends: .build-linux
   image: ${FEDORA_IMAGE}
   variables:
     BUILD_OPTS: "-Dgtk_doc=true"
-  after_script:
+  script:
+    - meson ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _build .
     - ninja -C _build gdk-pixbuf-doc
     - mv _build/docs/html _reference
   artifacts:
