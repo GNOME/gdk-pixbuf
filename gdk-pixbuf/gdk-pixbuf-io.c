@@ -396,7 +396,7 @@ gdk_pixbuf_io_init_modules (const char  *filename,
         GString *tmp_buf = g_string_new (NULL);
         gboolean have_error = FALSE;
         GdkPixbufModule *module = NULL;
-        int flags;
+        int flags = 0;
         int n_patterns = 0;
         GdkPixbufModulePattern *pattern;
         GError *local_error = NULL;
@@ -428,8 +428,7 @@ gdk_pixbuf_io_init_modules (const char  *filename,
                 line_buf[term] = 0;
 
                 if (!skip_space (&p)) {
-                                /* Blank line marking the end of a module
-                                 */
+                        /* Blank line marking the end of a module */
                         if (module && *p != '#') {
                                 file_formats = g_slist_prepend (file_formats, module);
                                 module = NULL;
@@ -442,8 +441,7 @@ gdk_pixbuf_io_init_modules (const char  *filename,
                         goto next_line;
                 
                 if (!module) {
-                                /* Read a module location
-                                 */
+                        /* Read a module location */
                         module = g_new0 (GdkPixbufModule, 1);
                         n_patterns = 0;
                         
@@ -464,6 +462,7 @@ gdk_pixbuf_io_init_modules (const char  *filename,
                         module->info->name =  g_strdup (tmp_buf->str);
                         module->module_name = module->info->name;
 
+                        flags = 0;
                         if (!scan_int (&p, &flags)) {
                                 g_warning ("Error parsing loader info in '%s'\n  %s", 
                                            filename, line_buf);
