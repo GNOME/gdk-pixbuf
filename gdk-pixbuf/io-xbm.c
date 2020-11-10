@@ -304,7 +304,7 @@ gdk_pixbuf__xbm_image_load_real (FILE     *f,
 {
 	guint w, h;
 	int x_hot, y_hot;
-	guchar *data, *ptr;
+	guchar *data = NULL, *ptr;
 	guchar *pixels;
 	guint row_stride;
 	int x, y;
@@ -324,6 +324,7 @@ gdk_pixbuf__xbm_image_load_real (FILE     *f,
 	pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, FALSE, 8, w, h);
 
         if (pixbuf == NULL) {
+                g_free (data);
                 g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
@@ -362,9 +363,9 @@ gdk_pixbuf__xbm_image_load_real (FILE     *f,
 			reg >>= 1;
 			bits--;
 
-			pixels[x*3+0] = channel;
-			pixels[x*3+1] = channel;
-			pixels[x*3+2] = channel;
+			pixels[x * 3 + 0] = channel;
+			pixels[x * 3 + 1] = channel;
+			pixels[x * 3 + 2] = channel;
 		}
 		pixels += row_stride;
 	}
