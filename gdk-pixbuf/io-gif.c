@@ -792,6 +792,7 @@ new_context (GdkPixbufModuleSizeFunc size_func,
         
         context->animation = g_object_new (GDK_TYPE_PIXBUF_GIF_ANIM, NULL);
 	context->frame = NULL;
+	context->transparent_index = -1;
 	context->file = NULL;
 	context->state = GIF_START;
 	context->size_func = size_func;
