@@ -164,10 +164,10 @@ run_gif_test (gconstpointer data)
 
       g_assert_cmpint (gdk_pixbuf_get_colorspace (pixbuf), ==, GDK_COLORSPACE_RGB);
       g_assert_cmpint (gdk_pixbuf_get_n_channels (pixbuf), ==, 4);
-      g_assert (gdk_pixbuf_get_has_alpha (pixbuf));
+      g_assert_true (gdk_pixbuf_get_has_alpha (pixbuf));
       g_assert_cmpint (gdk_pixbuf_get_rowstride (pixbuf), ==, width * 4);
       pixels = g_bytes_new_static (gdk_pixbuf_read_pixels (pixbuf), gdk_pixbuf_get_byte_length (pixbuf));
-      g_assert (pixels_match (pixels, expected_pixels));
+      g_assert_true (pixels_match (pixels, expected_pixels));
       g_clear_pointer (&pixels, g_bytes_unref);
       g_clear_pointer (&expected_pixels, g_bytes_unref);
     }
