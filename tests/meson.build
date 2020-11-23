@@ -78,7 +78,6 @@ installed_tests = {
   'pixbuf-threads': { 'suites': ['io'], },
   'pixbuf-gif': {
     'suites': ['io'],
-    'skip': not enabled_loaders.contains('gif'),
   },
   'pixbuf-icc': {
     'suites': ['io'],
