@@ -79,7 +79,7 @@ run_gif_test (gconstpointer data)
   int i;
   GError *error = NULL;
 
-  if (!format_supported (filename))
+  if (!format_supported ("gif"))
     {
       g_test_skip ("GIF format not supported");
       return;
