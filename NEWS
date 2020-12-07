@@ -1,3 +1,12 @@
+2.42.2 (stable)
+===
+
+ - Requre Meson 0.55.3
+ - Improve the PNG save operation
+ - Fix leak in the error path of the XPM loader
+ - Fix loading GIF without a GCE rendering color 0 [Robert Ancell, #162]
+ - Fix invalid LZW codes in the GIF loader [Robert Ancell, #164, CVE-2020-29385]
+
 2.42.0 (stable)
 ===
 
