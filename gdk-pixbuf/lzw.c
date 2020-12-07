@@ -195,17 +195,18 @@ lzw_decoder_feed (LZWDecoder *self,
                                 if (self->last_code != self->clear_code && self->code_table_size < MAX_CODES) {
                                         if (self->code < self->code_table_size)
                                                 add_code (self, self->code);
-                                        else if (self->code == self->code_table_size)
+                                        else
                                                 add_code (self, self->last_code);
-                                        else {
-                                                /* Invalid code received - just stop here */
-                                                self->last_code = self->eoi_code;
-                                                return output_length;
-                                        }
 
                                         /* When table is full increase code size */
                                         if (self->code_table_size == (1 << self->code_size) && self->code_size < LZW_CODE_MAX)
                                                 self->code_size++;
+                                }
+
+                                /* Invalid code received - just stop here */
+                                if (self->code >= self->code_table_size) {
+                                        self->last_code = self->eoi_code;
+                                        return output_length;
                                 }
 
                                 /* Convert codeword into indexes */
