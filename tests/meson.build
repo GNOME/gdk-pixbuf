@@ -174,6 +174,9 @@ foreach test_name, test_data: installed_tests
     test_sources += [ resources_c, resources_h ]
   endif
   skip_if_true = test_data.get('skip', false)
+  if skip_if_true
+    continue
+  endif
 
   custom_target(test_name + '.test',
     output: test_name + '.test',
@@ -187,30 +190,28 @@ foreach test_name, test_data: installed_tests
     install_dir: installed_test_datadir,
   )
 
-  if not skip_if_true
-    test_bin = executable(test_name, test_sources,
-      dependencies: test_deps,
-      include_directories: [ root_inc, gdk_pixbuf_inc, ],
-      c_args: common_cflags,
-      install: get_option('installed_tests'),
-      install_dir: installed_test_bindir,
-    )
+  test_bin = executable(test_name, test_sources,
+    dependencies: test_deps,
+    include_directories: [ root_inc, gdk_pixbuf_inc, ],
+    c_args: common_cflags,
+    install: get_option('installed_tests'),
+    install_dir: installed_test_bindir,
+  )
 
-    # Two particularly slow tests
-    if test_suites.contains('slow')
-      timeout = 300
-    else
-      timeout = 30
-    endif
-
-    test(test_name, test_bin,
-      suite: test_suites,
-      args: test_args,
-      env: test_env,
-      timeout: timeout,
-      protocol: 'tap',
-    )
+  # Two particularly slow tests
+  if test_suites.contains('slow')
+    timeout = 300
+  else
+    timeout = 30
   endif
+
+  test(test_name, test_bin,
+    suite: test_suites,
+    args: test_args,
+    env: test_env,
+    timeout: timeout,
+    protocol: 'tap',
+  )
 endforeach
 
 executable('pixbuf-read',
