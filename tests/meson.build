@@ -1,6 +1,6 @@
 # Resources contain PNG and BMP files, so we need these two loaders
 # enabled in order to build them
-if enabled_loaders.contains('png') and enabled_loaders.contains('bmp')
+if enabled_loaders.contains('png')
   # Resources; we cannot use gnome.compile_resources() here, because we need to
   # override the environment in order to use the utilities we just built instead
   # of the system ones
@@ -65,7 +65,6 @@ installed_tests = {
   'pixbuf-construction': { 'suites': ['conform'], },
   'animation': {
     'suites': ['format'],
-    'skip': not enabled_loaders.contains('gif'),
   },
   'cve-2015-4491': {
     'suites': ['security'],
@@ -107,11 +106,9 @@ installed_tests = {
   'pixbuf-scale-two-step': { 'suites': ['ops'], },
   'pixbuf-short-gif-write': {
     'suites': ['format'],
-    'skip': not enabled_loaders.contains('gif'),
   },
   'pixbuf-gif-circular-table': {
     'suites': ['format'],
-    'skip': not enabled_loaders.contains('gif'),
   },
   'pixbuf-save': { 'suites': ['io'] },
   'pixbuf-readonly-to-mutable': { 'suites': ['conform'], },
@@ -174,6 +171,9 @@ foreach test_name, test_data: installed_tests
     test_sources += [ resources_c, resources_h ]
   endif
   skip_if_true = test_data.get('skip', false)
+  if skip_if_true
+    continue
+  endif
 
   custom_target(test_name + '.test',
     output: test_name + '.test',
@@ -187,30 +187,28 @@ foreach test_name, test_data: installed_tests
     install_dir: installed_test_datadir,
   )
 
-  if not skip_if_true
-    test_bin = executable(test_name, test_sources,
-      dependencies: test_deps,
-      include_directories: [ root_inc, gdk_pixbuf_inc, ],
-      c_args: common_cflags,
-      install: get_option('installed_tests'),
-      install_dir: installed_test_bindir,
-    )
+  test_bin = executable(test_name, test_sources,
+    dependencies: test_deps,
+    include_directories: [ root_inc, gdk_pixbuf_inc, ],
+    c_args: common_cflags,
+    install: get_option('installed_tests'),
+    install_dir: installed_test_bindir,
+  )
 
-    # Two particularly slow tests
-    if test_suites.contains('slow')
-      timeout = 300
-    else
-      timeout = 30
-    endif
-
-    test(test_name, test_bin,
-      suite: test_suites,
-      args: test_args,
-      env: test_env,
-      timeout: timeout,
-      protocol: 'tap',
-    )
+  # Two particularly slow tests
+  if test_suites.contains('slow')
+    timeout = 300
+  else
+    timeout = 30
   endif
+
+  test(test_name, test_bin,
+    suite: test_suites,
+    args: test_args,
+    env: test_env,
+    timeout: timeout,
+    protocol: 'tap',
+  )
 endforeach
 
 executable('pixbuf-read',

@@ -513,15 +513,22 @@ gif_prepare_lzw (GifContext *context)
 	return 0;
 }
 
-/* needs 13 bytes to proceed. */
+/*
+ * Read the GIF signature and screen descriptor.
+ *
+ * | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9  | 10     | 11 | 12 |
+ * |-----------|-----------|-----------------------------------|
+ * | magic     | version   | screen descriptor                 |
+ * | G | I | F | 8 | 9 | a | width | height | colors | ignored |
+ */
 static gint
 gif_init (GifContext *context)
 {
-	unsigned char buf[16];
+	unsigned char buf[13];
 	char version[4];
         gint width, height;
 
-	if (!gif_read (context, buf, 6)) {
+	if (!gif_read (context, buf, 13)) {
 		/* Unable to read magic number,
                  * gif_read() should have set error
                  */
@@ -554,22 +561,16 @@ gif_init (GifContext *context)
 		return -2;
 	}
 
-	/* read the screen descriptor */
-	if (!gif_read (context, buf, 7)) {
-		/* Failed to read screen descriptor, error set */
-		return -1;
-	}
-
-	context->width = LM_to_uint (buf[0], buf[1]);
-	context->height = LM_to_uint (buf[2], buf[3]);
+	context->width = LM_to_uint (buf[6], buf[7]);
+	context->height = LM_to_uint (buf[8], buf[9]);
         /* The 4th byte is
          * high bit: whether to use the background index
          * next 3:   color resolution
          * next:     whether colormap is sorted by priority of allocation
          * last 3:   size of colormap
          */
-	context->global_bit_pixel = 2 << (buf[4] & 0x07);
-        context->has_global_cmap = (buf[4] & 0x80) != 0;
+	context->global_bit_pixel = 2 << (buf[10] & 0x07);
+        context->has_global_cmap = (buf[10] & 0x80) != 0;
 
         context->animation->width = context->width;
         context->animation->height = context->height;
