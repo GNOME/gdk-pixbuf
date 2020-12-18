@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
-"POT-Creation-Date: 2020-06-26 16:33+0000\n"
-"PO-Revision-Date: 2020-09-22 12:00+0200\n"
+"POT-Creation-Date: 2020-12-12 18:15+0000\n"
+"PO-Revision-Date: 2020-12-18 11:29+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <f.t.public@gmail.com>\n"
 "Language: fur\n"
@@ -16,15 +16,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:175 gdk-pixbuf/gdk-pixbuf-io.c:1126
-#: gdk-pixbuf/gdk-pixbuf-io.c:1388
+#: gdk-pixbuf/gdk-pixbuf-animation.c:175 gdk-pixbuf/gdk-pixbuf-io.c:1125
+#: gdk-pixbuf/gdk-pixbuf-io.c:1387
 #, c-format
 msgid "Failed to open file “%s”: %s"
 msgstr "No si è rivâts a vierzi il file “%s”: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:188 gdk-pixbuf/gdk-pixbuf-io.c:993
+#: gdk-pixbuf/gdk-pixbuf-animation.c:188 gdk-pixbuf/gdk-pixbuf-io.c:992
 #, c-format
 msgid "Image file “%s” contains no data"
 msgstr "Il file imagjin “%s” nol à dâts"
@@ -38,8 +38,8 @@ msgstr ""
 "No si è rivâts a cjariâ la animazion “%s”: reson no cognossude, forsit un "
 "file di animazion ruvinât"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:294 gdk-pixbuf/gdk-pixbuf-io.c:1162
-#: gdk-pixbuf/gdk-pixbuf-io.c:1440
+#: gdk-pixbuf/gdk-pixbuf-animation.c:294 gdk-pixbuf/gdk-pixbuf-io.c:1161
+#: gdk-pixbuf/gdk-pixbuf-io.c:1439
 #, c-format
 msgid ""
 "Failed to load image “%s”: reason not known, probably a corrupt image file"
@@ -120,12 +120,12 @@ msgstr "Byte pixel"
 msgid "Readonly pixel data"
 msgstr "Dâts in dome leture dai pixel"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:813
+#: gdk-pixbuf/gdk-pixbuf-io.c:812
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Impussibil vierzi il modul pal cjariament des imagjins: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:828
+#: gdk-pixbuf/gdk-pixbuf-io.c:827
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it’s "
@@ -134,54 +134,54 @@ msgstr ""
 "Il modul pal cjariament des imagjins %s nol espuarte la interface juste; "
 "Isal forsit di une version diferente di gdk-pixbuf?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:837 gdk-pixbuf/gdk-pixbuf-io.c:880
+#: gdk-pixbuf/gdk-pixbuf-io.c:836 gdk-pixbuf/gdk-pixbuf-io.c:879
 #, c-format
 msgid "Image type “%s” is not supported"
 msgstr "Il gjenar di imagjin “%s” nol è supuartât"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:965
+#: gdk-pixbuf/gdk-pixbuf-io.c:964
 #, c-format
 msgid "Couldn’t recognize the image file format for file “%s”"
 msgstr "Impussibil ricognossi il formât di imagjin pal file “%s”"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:973
+#: gdk-pixbuf/gdk-pixbuf-io.c:972
 msgid "Unrecognized image file format"
 msgstr "Formât dal file di imagjin no ricognossût"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1173
+#: gdk-pixbuf/gdk-pixbuf-io.c:1172
 #, c-format
 msgid "Failed to load image “%s”: %s"
 msgstr "No si è rivâts a cjariâ la imagjin “%s”: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2243 gdk-pixbuf/io-gdip-utils.c:840
+#: gdk-pixbuf/gdk-pixbuf-io.c:2242 gdk-pixbuf/io-gdip-utils.c:840
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Erôr tal scrivi tal file imagjin: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2285 gdk-pixbuf/gdk-pixbuf-io.c:2406
+#: gdk-pixbuf/gdk-pixbuf-io.c:2284 gdk-pixbuf/gdk-pixbuf-io.c:2405
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Cheste version di gdk-pixbuf no supuarte il salvâ tal formât imagjin: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2316
+#: gdk-pixbuf/gdk-pixbuf-io.c:2315
 msgid "Insufficient memory to save image to callback"
 msgstr "No vonde memorie par salvâ la imagjin di riclamâ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2329
+#: gdk-pixbuf/gdk-pixbuf-io.c:2328
 msgid "Failed to open temporary file"
 msgstr "No si è rivâts a vierzi il file temporani"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2352
+#: gdk-pixbuf/gdk-pixbuf-io.c:2351
 msgid "Failed to read from temporary file"
 msgstr "No si è rivâts a lei dal file temporani"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2562
+#: gdk-pixbuf/gdk-pixbuf-io.c:2561
 #, c-format
 msgid "Failed to open “%s” for writing: %s"
 msgstr "No si è rivâts a vierzi “%s” pe scriture: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2588
+#: gdk-pixbuf/gdk-pixbuf-io.c:2587
 #, c-format
 msgid ""
 "Failed to close “%s” while writing image, all data may not have been saved: "
@@ -190,11 +190,11 @@ msgstr ""
 "No si è rivâts a sierâ “%s” intant che si scriveve la imagjin, al pues jessi "
 "che ducj i dâts no sedin stâts salvâts: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2809 gdk-pixbuf/gdk-pixbuf-io.c:2861
+#: gdk-pixbuf/gdk-pixbuf-io.c:2808 gdk-pixbuf/gdk-pixbuf-io.c:2860
 msgid "Insufficient memory to save image into a buffer"
 msgstr "No vonde memorie par salvâ la imagjin intun buffer"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2907
+#: gdk-pixbuf/gdk-pixbuf-io.c:2906
 msgid "Error writing to image stream"
 msgstr "Erôr tal scrivi sul flus imagjin"
 
@@ -299,6 +299,7 @@ msgid "BMP image width too large"
 msgstr "Largjece imagjin BMP masse grande"
 
 #: gdk-pixbuf/io-bmp.c:792 gdk-pixbuf/io-png.c:564 gdk-pixbuf/io-pnm.c:722
+#: gdk-pixbuf/io-pnm.c:879
 msgid "Premature end-of-file encountered"
 msgstr "Fin dal file (eof) rivade masse adore"
 
@@ -329,7 +330,7 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1156
+#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1044
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
@@ -345,7 +346,7 @@ msgid ""
 "JPEG quality must be a value between 0 and 100; value “%s” could not be "
 "parsed."
 msgstr ""
-"La cualitât di une imagjin JPEG e scugne jessi comprindude tra 0 e 100; il "
+"La cualitât di une imagjin JPEG e scugne vê une compression tra 0 e 100; il "
 "valôr “%s” nol pues jessi analizât."
 
 #: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1398
@@ -353,7 +354,7 @@ msgstr ""
 msgid ""
 "JPEG quality must be a value between 0 and 100; value “%d” is not allowed."
 msgstr ""
-"La cualitât di une imagjin JPEG e scugne jessi comprindude tra 0 e 100; il "
+"La cualitât di une imagjin JPEG e scugne vê une compression tra 0 e 100; il "
 "valôr “%d” nol è permetût."
 
 #: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1682
@@ -408,34 +409,34 @@ msgctxt "image format"
 msgid "WMF"
 msgstr "WMF"
 
-#: gdk-pixbuf/io-gif.c:187
+#: gdk-pixbuf/io-gif.c:158
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "No si è rivâts a lei il GIF: %s"
 
-#: gdk-pixbuf/io-gif.c:436 gdk-pixbuf/io-gif.c:918 gdk-pixbuf/io-gif.c:974
-#: gdk-pixbuf/io-gif.c:1093
+#: gdk-pixbuf/io-gif.c:381 gdk-pixbuf/io-gif.c:855 gdk-pixbuf/io-gif.c:908
+#: gdk-pixbuf/io-gif.c:981
 msgid "Not enough memory to load GIF file"
 msgstr "No vonde memorie par cjariâ il file GIF"
 
-#: gdk-pixbuf/io-gif.c:562
+#: gdk-pixbuf/io-gif.c:507
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "La imagjin GIF e je ruvinade (compression LZW no juste)"
 
-#: gdk-pixbuf/io-gif.c:591
+#: gdk-pixbuf/io-gif.c:536
 msgid "File does not appear to be a GIF file"
 msgstr "Il file nol somee jessi un GIF"
 
-#: gdk-pixbuf/io-gif.c:606
+#: gdk-pixbuf/io-gif.c:551
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "La version %s dal formât file GIF no je supuartade"
 
-#: gdk-pixbuf/io-gif.c:644
+#: gdk-pixbuf/io-gif.c:586
 msgid "Resulting GIF image has zero size"
 msgstr "La imagjin GIF risultant e à dimension zero"
 
-#: gdk-pixbuf/io-gif.c:722
+#: gdk-pixbuf/io-gif.c:664
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -443,17 +444,17 @@ msgstr ""
 "La imagjin GIF no à une mape di colôrs globâl e un fotogram jenfri nol à une "
 "mape colôrs locâl."
 
-#: gdk-pixbuf/io-gif.c:931 gdk-pixbuf/io-gif.c:1105
+#: gdk-pixbuf/io-gif.c:868 gdk-pixbuf/io-gif.c:993
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr ""
 "Il file GIF al mancjave di cualchi dât (forsit al jere cjonçât in cualchi "
 "maniere)"
 
-#: gdk-pixbuf/io-gif.c:993
+#: gdk-pixbuf/io-gif.c:927
 msgid "GIF image was truncated or incomplete."
 msgstr "La imagjin GIF e jere cjonçade o incomplete."
 
-#: gdk-pixbuf/io-gif.c:1000
+#: gdk-pixbuf/io-gif.c:934
 msgid "Not all frames of the GIF image were loaded."
 msgstr "No ducj i fotograms de imagjin GIF a jerin cjariâts."
 
@@ -587,7 +588,7 @@ msgstr "Il PNG trasformât nol è RGB o RGBA."
 #: gdk-pixbuf/io-png.c:170
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
-"Il PNG trasformât al à un numar di canâi no supuartât, al scugne jessi 3 o 4."
+"Il PNG trasformât al à un numar di canâi no supuartât, a scugnin jessi 3 o 4."
 
 #: gdk-pixbuf/io-png.c:191
 #, c-format
@@ -620,62 +621,50 @@ msgstr "Erôr fatâl tal lei il file imagjin PNG"
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Erôr fatâl tal lei il file imagjin PNG: %s"
 
-#: gdk-pixbuf/io-png.c:932
-msgid ""
-"Keys for PNG text chunks must have at least 1 and at most 79 characters."
-msgstr ""
-"Lis clâfs pes porzions di test PNG a scugnin vê almancul 1 e al massim 79 "
-"caratars."
-
-#: gdk-pixbuf/io-png.c:941
-msgid "Keys for PNG text chunks must be ASCII characters."
-msgstr "Lis clâfs pes porzions di test PNG a scugnin jessi caratars ASCII."
-
-#: gdk-pixbuf/io-png.c:955 gdk-pixbuf/io-tiff.c:850
-#, c-format
-msgid "Color profile has invalid length %d."
-msgstr "Il profîl colôr al à une lungjece %d no valide."
-
-#: gdk-pixbuf/io-png.c:968
+#: gdk-pixbuf/io-png.c:937
 #, c-format
 msgid ""
-"PNG compression level must be a value between 0 and 9; value “%s” could not "
-"be parsed."
+"Invalid key “%s”. Keys for PNG text chunks must have at least 1 and at most "
+"79 characters."
 msgstr ""
-"Il nivel di compression PNG al scugne jessi un valôr tra 0 e 9; il valôr "
-"“%s” nol pues jessi interpretât."
+"Clâf “%s” no valide. Lis clâfs pes porzions di test PNG a scugnin vê "
+"almancul 1 e al massim 79 caratars."
 
-#: gdk-pixbuf/io-png.c:981
+#: gdk-pixbuf/io-png.c:950
+#, c-format
+msgid "Invalid key “%s”. Keys for PNG text chunks must be ASCII characters."
+msgstr ""
+"Clâf “%s” no valide. Lis clâfs pes porzions di test PNG a scugnin jessi "
+"caratars ASCII."
+
+#: gdk-pixbuf/io-png.c:980
 #, c-format
 msgid ""
-"PNG compression level must be a value between 0 and 9; value “%d” is not "
-"allowed."
+"Value for PNG text chunk '%s' cannot be converted to ISO-8859-1 encoding."
 msgstr ""
-"Il nivel di compression PNG al scugne jessi un valôr tra 0 e 9; il valôr "
-"“%d” nol è permetût."
-
-#: gdk-pixbuf/io-png.c:1000
-#, c-format
-msgid "PNG x-dpi must be greater than zero; value “%s” is not allowed."
-msgstr ""
-"Il x-dpi PNG al scugne jessi plui grant di zero; il valôr “%s” nol è "
-"permetût."
-
-#: gdk-pixbuf/io-png.c:1020
-#, c-format
-msgid "PNG y-dpi must be greater than zero; value “%s” is not allowed."
-msgstr ""
-"Il y-dpi PNG al scugne jessi plui grant di zero; il valôr “%s” nol è "
-"permetût."
-
-#: gdk-pixbuf/io-png.c:1069
-#, c-format
-msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
-msgstr ""
-"Il valôr pe porzion di test PNG %s nol pues jessi convertît ae codifiche "
+"Il valôr pas porzions di test PNG '%s' nol pues jessi convertît te codifiche "
 "ISO-8859-1."
 
-#: gdk-pixbuf/io-png.c:1254
+#: gdk-pixbuf/io-png.c:992
+#, c-format
+msgid "Color profile has invalid length %d"
+msgstr "Il profîl colôr al à une lungjece %d no valide"
+
+#: gdk-pixbuf/io-png.c:1004
+#, c-format
+msgid ""
+"PNG compression level must be a value between 0 and 9; value “%s” is invalid"
+msgstr ""
+"Il nivel di compression PNG al scugne vê un valôr tra 0 e 9; il valôr “%s” "
+"nol è valit"
+
+#: gdk-pixbuf/io-png.c:1018
+#, c-format
+msgid "PNG %s must be greater than zero; value “%s” is not allowed"
+msgstr ""
+"Il PNG %s al scugne jessi plui grant di zero; il valôr “%s” nol è permetût"
+
+#: gdk-pixbuf/io-png.c:1246
 msgctxt "image format"
 msgid "PNG"
 msgstr "PNG"
@@ -725,7 +714,7 @@ msgstr "Il gjenar di imagjin PNM grês nol è valit"
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "Il modul di cjariament imagjin PNM nol supuarte chest sot-formât PNM"
 
-#: gdk-pixbuf/io-pnm.c:754 gdk-pixbuf/io-pnm.c:985
+#: gdk-pixbuf/io-pnm.c:754 gdk-pixbuf/io-pnm.c:991
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr ""
 "I formâts PNM grês a àn bisugne di juste un spazi blanc prime dai dâts grês"
@@ -738,15 +727,15 @@ msgstr "Impussibil assegnâ memorie pal cjariament de imagjin PNM"
 msgid "Insufficient memory to load PNM context struct"
 msgstr "No vonde memorie par cjariâ la struture dal contest PNM"
 
-#: gdk-pixbuf/io-pnm.c:886
+#: gdk-pixbuf/io-pnm.c:892
 msgid "Unexpected end of PNM image data"
 msgstr "Fin inspietade dai dâts imagjin PNM"
 
-#: gdk-pixbuf/io-pnm.c:1014
+#: gdk-pixbuf/io-pnm.c:1020
 msgid "Insufficient memory to load PNM file"
 msgstr "No vonde memorie par cjariâ il file PNM"
 
-#: gdk-pixbuf/io-pnm.c:1097
+#: gdk-pixbuf/io-pnm.c:1103
 msgctxt "image format"
 msgid "PNM/PBM/PGM/PPM"
 msgstr "PNM/PBM/PGM/PPM"
@@ -883,6 +872,11 @@ msgstr "No si è rivâts a salvâ la imagjin TIFF"
 msgid "TIFF compression doesn’t refer to a valid codec."
 msgstr "La compression TIFF no fâs riferiment a un codec valit."
 
+#: gdk-pixbuf/io-tiff.c:850
+#, c-format
+msgid "Color profile has invalid length %d."
+msgstr "Il profîl colôr al à une lungjece %d no valide."
+
 #: gdk-pixbuf/io-tiff.c:865
 msgid "TIFF bits-per-sample doesn’t contain a supported value."
 msgstr "Il bit-par-campion TIFF nol conten un valôr supuartât."
@@ -913,17 +907,17 @@ msgstr "Impussibil scrivi tal file TIFF"
 msgid "Invalid XBM file"
 msgstr "File XBM no valit"
 
-#: gdk-pixbuf/io-xbm.c:330
+#: gdk-pixbuf/io-xbm.c:331
 msgid "Insufficient memory to load XBM image file"
 msgstr "No vonde memorie par cjariâ il file imagjin XBM"
 
-#: gdk-pixbuf/io-xbm.c:481
+#: gdk-pixbuf/io-xbm.c:482
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr ""
 "No si è rivâts a scrivi sul file temporani cuant che si cjariave la imagjin "
 "XBM"
 
-#: gdk-pixbuf/io-xbm.c:520
+#: gdk-pixbuf/io-xbm.c:521
 msgctxt "image format"
 msgid "XBM"
 msgstr "XBM"
@@ -974,6 +968,18 @@ msgstr ""
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
+
+#~ msgid ""
+#~ "PNG compression level must be a value between 0 and 9; value “%s” could "
+#~ "not be parsed."
+#~ msgstr ""
+#~ "Il nivel di compression PNG al scugne jessi un valôr tra 0 e 9; il valôr "
+#~ "“%s” nol pues jessi interpretât."
+
+#~ msgid "PNG y-dpi must be greater than zero; value “%s” is not allowed."
+#~ msgstr ""
+#~ "Il y-dpi PNG al scugne jessi plui grant di zero; il valôr “%s” nol è "
+#~ "permetût."
 
 #~ msgid "Internal error in the GIF loader (%s)"
 #~ msgstr "Erôr interni tal modul di cjariament GIF (%s)"
