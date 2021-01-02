@@ -188,6 +188,7 @@ if build_gir
   gir_args = [
     '--quiet',
     '-DGDK_PIXBUF_COMPILATION',
+    '-DGDK_PIXBUF_ENABLE_BACKEND',
   ]
 
   gdkpixbuf_gir = gnome.generate_gir(
