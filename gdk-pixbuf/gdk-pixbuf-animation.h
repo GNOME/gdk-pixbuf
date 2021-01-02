@@ -161,17 +161,16 @@ struct _GdkPixbufAnimationClass {
 
         /*< public >*/
 
-        gboolean                (*is_static_image)  (GdkPixbufAnimation *anim);
+        gboolean                (*is_static_image)  (GdkPixbufAnimation *animation);
 
-        GdkPixbuf*              (*get_static_image) (GdkPixbufAnimation *anim);
-        
-        void                    (*get_size) (GdkPixbufAnimation *anim,
+        GdkPixbuf*              (*get_static_image) (GdkPixbufAnimation *animation);
+
+        void                    (*get_size) (GdkPixbufAnimation *animation,
                                              int                 *width,
                                              int                 *height);
-        
-        GdkPixbufAnimationIter* (*get_iter) (GdkPixbufAnimation *anim,
-                                             const GTimeVal     *start_time);
 
+        GdkPixbufAnimationIter* (*get_iter) (GdkPixbufAnimation *animation,
+                                             const GTimeVal     *start_time);
 };
 G_GNUC_END_IGNORE_DEPRECATIONS
 
