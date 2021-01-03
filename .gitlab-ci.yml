@@ -63,7 +63,7 @@ macos:
     - pip3 install --user ninja
     - export PATH=/Users/gitlabrunner/Library/Python/3.7/bin:$PATH
   script:
-    - meson setup _build
+    - meson setup -Dintrospection=disabled -Dinstalled_tests=false -Dman=false -Dgtk_doc=false _build
     - meson compile -C_build
   artifacts:
     when: always
