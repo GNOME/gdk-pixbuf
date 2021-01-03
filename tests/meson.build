@@ -1,45 +1,53 @@
 # Resources contain PNG and BMP files, so we need these two loaders
 # enabled in order to build them
 if enabled_loaders.contains('png')
-  # Resources; we cannot use gnome.compile_resources() here, because we need to
-  # override the environment in order to use the utilities we just built instead
-  # of the system ones
-  resources_c = custom_target('resources.c',
-    input: 'resources.gresource.xml',
-    output: 'resources.c',
-    command: [
-      gen_resources,
-      '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
-      '--loaders=@0@'.format(loaders_cache.full_path()),
-      '--sourcedir=@0@'.format(meson.current_source_dir()),
-      '--source',
-      '@INPUT@',
-      '@OUTPUT@',
-    ],
-    depends: [
-      gdk_pixbuf_pixdata,
-      loaders_cache,
-    ],
-  )
+  if glib_dep.type_name() == 'internal'
+    # The gen_resources script does not work if we use glib as a subproject,
+    # since it won't find glib-compile-resources in the path
+    resources_c = []
+    resources_h = []
+    no_resources = true
+  else
+    # Resources; we cannot use gnome.compile_resources() here, because we need to
+    # override the environment in order to use the utilities we just built instead
+    # of the system ones
+    resources_c = custom_target('resources.c',
+      input: 'resources.gresource.xml',
+      output: 'resources.c',
+      command: [
+        gen_resources,
+        '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
+        '--loaders=@0@'.format(loaders_cache.full_path()),
+        '--sourcedir=@0@'.format(meson.current_source_dir()),
+        '--source',
+        '@INPUT@',
+        '@OUTPUT@',
+      ],
+      depends: [
+        gdk_pixbuf_pixdata,
+        loaders_cache,
+      ],
+    )
 
-  resources_h = custom_target('resources.h',
-    input: 'resources.gresource.xml',
-    output: 'resources.h',
-    command: [
-      gen_resources,
-      '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
-      '--loaders=@0@'.format(loaders_cache.full_path()),
-      '--sourcedir=@0@'.format(meson.current_source_dir()),
-      '--header',
-      '@INPUT@',
-      '@OUTPUT@',
-    ],
-    depends: [
-      gdk_pixbuf_pixdata,
-      loaders_cache,
-    ],
-  )
-  no_resources = false
+    resources_h = custom_target('resources.h',
+      input: 'resources.gresource.xml',
+      output: 'resources.h',
+      command: [
+        gen_resources,
+        '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
+        '--loaders=@0@'.format(loaders_cache.full_path()),
+        '--sourcedir=@0@'.format(meson.current_source_dir()),
+        '--header',
+        '@INPUT@',
+        '@OUTPUT@',
+      ],
+      depends: [
+        gdk_pixbuf_pixdata,
+        loaders_cache,
+      ],
+    )
+    no_resources = false
+  endif
 else
   resources_c = []
   resources_h = []
