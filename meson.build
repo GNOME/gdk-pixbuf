@@ -4,7 +4,7 @@ project('gdk-pixbuf', 'c',
         default_options: [
           'buildtype=debugoptimized',
           'warning_level=1',
-          'c_std=c99',
+          'c_std=gnu99',
         ],
         meson_version: '>= 0.55.3')
 
