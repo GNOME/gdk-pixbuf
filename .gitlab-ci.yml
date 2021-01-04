@@ -56,6 +56,9 @@ meson-fedora-x86_64:
 macos:
   stage: build
   needs: []
+  only:
+    - master
+    - merge_requests
   tags:
     - macos
   before_script:
