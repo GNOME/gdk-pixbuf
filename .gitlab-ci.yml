@@ -53,6 +53,26 @@ meson-fedora-x86_64:
   image: ${FEDORA_IMAGE}
   needs: []
 
+macos:
+  stage: build
+  needs: []
+  only:
+    - master
+    - merge_requests
+  tags:
+    - macos
+  before_script:
+    - pip3 install --user meson==0.56
+    - pip3 install --user ninja
+    - export PATH=/Users/gitlabrunner/Library/Python/3.7/bin:$PATH
+  script:
+    - meson setup -Dintrospection=disabled -Dinstalled_tests=false -Dman=false -Dgtk_doc=false _build
+    - meson compile -C_build
+  artifacts:
+    when: always
+    paths:
+      - "${CI_PROJECT_DIR}/_build/meson-logs"
+
 release-build:
   stage: build
   extends: .build-linux

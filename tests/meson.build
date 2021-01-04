@@ -9,6 +9,7 @@ if enabled_loaders.contains('png')
     output: 'resources.c',
     command: [
       gen_resources,
+      '--glib-compile-resources=@0@'.format(glib_compile_resources.full_path()),
       '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
       '--loaders=@0@'.format(loaders_cache.full_path()),
       '--sourcedir=@0@'.format(meson.current_source_dir()),
@@ -27,6 +28,7 @@ if enabled_loaders.contains('png')
     output: 'resources.h',
     command: [
       gen_resources,
+      '--glib-compile-resources=@0@'.format(glib_compile_resources.full_path()),
       '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
       '--loaders=@0@'.format(loaders_cache.full_path()),
       '--sourcedir=@0@'.format(meson.current_source_dir()),
