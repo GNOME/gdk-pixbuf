@@ -623,14 +623,6 @@ gif_get_frame_info (GifContext *context)
 	context->x_offset = LM_to_uint (buf[0], buf[1]);
 	context->y_offset = LM_to_uint (buf[2], buf[3]);
 
-	if (context->animation->frames == NULL &&
-            context->disposal == 3) {
-                /* First frame can't have "revert to previous" as its
-                 * dispose mode. Silently use "retain" instead.
-                 */
-                context->disposal = 0;
-	}
-
 	context->frame_interlace = BitSet (buf[8], INTERLACE);
 
 #ifdef DUMP_IMAGE_DETAILS
