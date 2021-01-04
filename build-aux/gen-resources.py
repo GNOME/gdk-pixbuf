@@ -8,6 +8,7 @@ import argparse
 import os
 
 argparser = argparse.ArgumentParser(description='Compile resources')
+argparser.add_argument('--glib-compile-resources', metavar='PATH', help='Path to glib-compile-resources')
 argparser.add_argument('--pixdata', metavar='PATH', help='Path to gdk-pixbuf-pixdata')
 argparser.add_argument('--loaders', metavar='PATH', help='Path to the loaders.cache file')
 argparser.add_argument('--sourcedir', metavar='PATH', help='Path to the source directory')
@@ -20,7 +21,13 @@ group.add_argument('--source', help='Generate source file', action='store_true')
 
 args = argparser.parse_args()
 
-cmd = ['glib-compile-resources']
+cmd = []
+
+if args.glib_compile_resources:
+    cmd += [args.glib_compile_resources]
+else:
+    cmd += ['glib-compile-resources']
+
 if args.header:
     cmd += ['--generate-header']
 else:
