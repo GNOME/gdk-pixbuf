@@ -371,6 +371,9 @@ gen_resources = find_program('build-aux/gen-resources.py')
 gen_installed_test = find_program('build-aux/gen-installed-test.py')
 gen_thumbnailer = find_program('build-aux/gen-thumbnailer.py')
 
+# Needed by gen-resources.py
+glib_compile_resources = find_program('glib-compile-resources')
+
 gnome = import('gnome')
 
 subdir('gdk-pixbuf')
