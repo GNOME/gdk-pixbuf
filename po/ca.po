@@ -158,7 +158,7 @@ msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it’s "
 "from a different gdk-pixbuf version?"
 msgstr ""
-"El mòdul %s per carregar imatges no exporta la interfície adequada: potser "
+"El mòdul %s per a carregar imatges no exporta la interfície adequada: potser "
 "és d'una versió de gdk-pixbuf diferent?"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:836 gdk-pixbuf/gdk-pixbuf-io.c:879
@@ -192,7 +192,7 @@ msgstr "Aquest muntatge de gdk-pixbuf no permet desar el format d'imatge: %s"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:2315
 msgid "Insufficient memory to save image to callback"
-msgstr "No hi ha memòria suficient per desar la imatge a la crida de retorn"
+msgstr "No hi ha memòria suficient per a desar la imatge a la crida de retorn"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:2328
 msgid "Failed to open temporary file"
@@ -219,7 +219,7 @@ msgstr ""
 #: gdk-pixbuf/gdk-pixbuf-io.c:2808 gdk-pixbuf/gdk-pixbuf-io.c:2860
 msgid "Insufficient memory to save image into a buffer"
 msgstr ""
-"No hi ha memòria suficient per desar la imatge en una memòria intermèdia"
+"No hi ha memòria suficient per a desar la imatge en una memòria intermèdia"
 
 #: gdk-pixbuf/gdk-pixbuf-io.c:2906
 msgid "Error writing to image stream"
@@ -279,7 +279,7 @@ msgstr "La capçalera de l'animació no és vàlida"
 #: gdk-pixbuf/io-ani.c:347 gdk-pixbuf/io-ani.c:369 gdk-pixbuf/io-ani.c:453
 #: gdk-pixbuf/io-ani.c:480 gdk-pixbuf/io-ani.c:531 gdk-pixbuf/io-ani.c:607
 msgid "Not enough memory to load animation"
-msgstr "No hi ha memòria suficient per carregar l'animació"
+msgstr "No hi ha memòria suficient per a carregar l'animació"
 
 #: gdk-pixbuf/io-ani.c:387 gdk-pixbuf/io-ani.c:413 gdk-pixbuf/io-ani.c:432
 msgid "Malformed chunk in animation"
@@ -302,7 +302,7 @@ msgstr "La imatge BMP conté dades de capçalera errònies"
 
 #: gdk-pixbuf/io-bmp.c:242 gdk-pixbuf/io-bmp.c:498
 msgid "Not enough memory to load bitmap image"
-msgstr "No hi ha memòria suficient per carregar la imatge de mapa de bits"
+msgstr "No hi ha memòria suficient per a carregar la imatge de mapa de bits"
 
 #: gdk-pixbuf/io-bmp.c:333
 msgid "BMP image has unsupported header size"
@@ -341,7 +341,7 @@ msgstr "La imatge és massa ampla pel format BMP."
 
 #: gdk-pixbuf/io-bmp.c:1421
 msgid "Couldn’t allocate memory for saving BMP file"
-msgstr "No s'ha pogut obtenir memòria per desar el fitxer BMP"
+msgstr "No s'ha pogut obtenir memòria per a desar el fitxer BMP"
 
 #: gdk-pixbuf/io-bmp.c:1462
 msgid "Couldn’t write to BMP file"
@@ -444,7 +444,7 @@ msgstr "No s'ha pogut llegir el GIF: %s"
 #: gdk-pixbuf/io-gif.c:381 gdk-pixbuf/io-gif.c:854 gdk-pixbuf/io-gif.c:907
 #: gdk-pixbuf/io-gif.c:980
 msgid "Not enough memory to load GIF file"
-msgstr "No hi ha memòria suficient per carregar el fitxer GIF"
+msgstr "No hi ha memòria suficient per a carregar el fitxer GIF"
 
 #: gdk-pixbuf/io-gif.c:507
 msgid "GIF image is corrupt (incorrect LZW compression)"
@@ -507,7 +507,7 @@ msgstr "La capçalera de la icona no és vàlida (%s)"
 #: gdk-pixbuf/io-ico.c:268 gdk-pixbuf/io-ico.c:355 gdk-pixbuf/io-ico.c:461
 #: gdk-pixbuf/io-ico.c:504 gdk-pixbuf/io-ico.c:532
 msgid "Not enough memory to load icon"
-msgstr "No hi ha memòria suficient per carregar la icona"
+msgstr "No hi ha memòria suficient per a carregar la icona"
 
 #: gdk-pixbuf/io-ico.c:386
 msgid "Invalid header in icon"
@@ -523,7 +523,7 @@ msgstr "Tipus d'icona no implementada"
 
 #: gdk-pixbuf/io-ico.c:583
 msgid "Not enough memory to load ICO file"
-msgstr "No hi ha memòria suficient per carregar el fitxer ICO"
+msgstr "No hi ha memòria suficient per a carregar el fitxer ICO"
 
 #: gdk-pixbuf/io-ico.c:629
 msgid "ICO image was truncated or incomplete."
@@ -531,7 +531,7 @@ msgstr "Imatge ICO truncada o incompleta."
 
 #: gdk-pixbuf/io-ico.c:1070
 msgid "Image too large to be saved as ICO"
-msgstr "La imatge és massa gran per desar-la com a ICO"
+msgstr "La imatge és massa gran per a desar-la com a ICO"
 
 #: gdk-pixbuf/io-ico.c:1081
 msgid "Cursor hotspot outside image"
@@ -552,8 +552,8 @@ msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
 msgstr ""
-"La memòria per carregar la imatge és insuficient, proveu de sortir d'algunes "
-"aplicacions per alliberar memòria"
+"La memòria per a carregar la imatge és insuficient, proveu de sortir "
+"d'algunes aplicacions per a alliberar memòria"
 
 #: gdk-pixbuf/io-jpeg.c:710 gdk-pixbuf/io-jpeg.c:947
 #, c-format
@@ -563,7 +563,7 @@ msgstr "Espai de color JPEG no implementat (%s)"
 #: gdk-pixbuf/io-jpeg.c:825 gdk-pixbuf/io-jpeg.c:1142 gdk-pixbuf/io-jpeg.c:1489
 #: gdk-pixbuf/io-jpeg.c:1499
 msgid "Couldn’t allocate memory for loading JPEG file"
-msgstr "No es pot obtenir memòria per carregar el fitxer JPEG"
+msgstr "No es pot obtenir memòria per a carregar el fitxer JPEG"
 
 #: gdk-pixbuf/io-jpeg.c:1100
 msgid "Transformed JPEG has zero width or height."
@@ -621,11 +621,11 @@ msgstr "Error fatal al fitxer d'imatge PNG: %s"
 
 #: gdk-pixbuf/io-png.c:329
 msgid "Insufficient memory to load PNG file"
-msgstr "No hi ha memòria suficient per carregar el fitxer PNG"
+msgstr "No hi ha memòria suficient per a carregar el fitxer PNG"
 
 #: gdk-pixbuf/io-png.c:498 gdk-pixbuf/io-png.c:519
 msgid "Couldn’t allocate memory for loading PNG"
-msgstr "No es pot obtenir memòria per carregar el fitxer JPEG"
+msgstr "No es pot obtenir memòria per a carregar el fitxer JPEG"
 
 #: gdk-pixbuf/io-png.c:716
 #, c-format
@@ -633,8 +633,8 @@ msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
-"No hi ha suficient memòria per emmagatzemar una imatge de %lu per %lu. "
-"Sortiu d'algunes aplicacions per alliberar memòria"
+"No hi ha suficient memòria per a emmagatzemar una imatge de %lu per %lu. "
+"Sortiu d'algunes aplicacions per a alliberar memòria"
 
 #: gdk-pixbuf/io-png.c:791
 msgid "Fatal error reading PNG image file"
@@ -744,11 +744,11 @@ msgstr ""
 
 #: gdk-pixbuf/io-pnm.c:781
 msgid "Cannot allocate memory for loading PNM image"
-msgstr "No es pot obtenir memòria per carregar la imatge PNM"
+msgstr "No es pot obtenir memòria per a carregar la imatge PNM"
 
 #: gdk-pixbuf/io-pnm.c:835
 msgid "Insufficient memory to load PNM context struct"
-msgstr "No hi ha memòria suficient per carregar l'estructura de context PNM"
+msgstr "No hi ha memòria suficient per a carregar l'estructura de context PNM"
 
 #: gdk-pixbuf/io-pnm.c:892
 msgid "Unexpected end of PNM image data"
@@ -756,7 +756,7 @@ msgstr "Final inesperat de les dades de la imatge PNM"
 
 #: gdk-pixbuf/io-pnm.c:1020
 msgid "Insufficient memory to load PNM file"
-msgstr "No hi ha memòria suficient per carregar el fitxer PNM"
+msgstr "No hi ha memòria suficient per a carregar el fitxer PNM"
 
 #: gdk-pixbuf/io-pnm.c:1103
 msgctxt "image format"
@@ -877,7 +877,7 @@ msgstr "Les dimensions de la imatge TIFF són massa grans"
 
 #: gdk-pixbuf/io-tiff.c:176 gdk-pixbuf/io-tiff.c:188 gdk-pixbuf/io-tiff.c:584
 msgid "Insufficient memory to open TIFF file"
-msgstr "No hi ha memòria suficient per obrir el fitxer TIFF"
+msgstr "No hi ha memòria suficient per a obrir el fitxer TIFF"
 
 #: gdk-pixbuf/io-tiff.c:286
 msgid "Failed to load RGB data from TIFF file"
@@ -934,7 +934,7 @@ msgstr "El fitxer XBM no és vàlid"
 
 #: gdk-pixbuf/io-xbm.c:331
 msgid "Insufficient memory to load XBM image file"
-msgstr "No hi ha memòria suficient per carregar el fitxer gràfic XBM"
+msgstr "No hi ha memòria suficient per a carregar el fitxer gràfic XBM"
 
 #: gdk-pixbuf/io-xbm.c:482
 msgid "Failed to write to temporary file when loading XBM image"
@@ -971,7 +971,7 @@ msgstr "El fitxer XPM té un nombre de colors no vàlid"
 
 #: gdk-pixbuf/io-xpm.c:535 gdk-pixbuf/io-xpm.c:544 gdk-pixbuf/io-xpm.c:593
 msgid "Cannot allocate memory for loading XPM image"
-msgstr "No es pot obtenir memòria per carregar la imatge XPM"
+msgstr "No es pot obtenir memòria per a carregar la imatge XPM"
 
 #: gdk-pixbuf/io-xpm.c:558
 msgid "Cannot read XPM colormap"
@@ -989,59 +989,3 @@ msgstr "No s'ha pogut escriure al fitxer temporal en carregar la imatge XPM"
 msgctxt "image format"
 msgid "XPM"
 msgstr "XPM"
-
-#~ msgid "Internal error in the GIF loader (%s)"
-#~ msgstr "Error intern en el carregador de GIF (%s)"
-
-#~ msgid "Bad code encountered"
-#~ msgstr "S'ha trobat un codi incorrecte"
-
-#~ msgid "Stack overflow"
-#~ msgstr "Sobreeiximent de la pila"
-
-#~ msgid "GIF image loader cannot understand this image."
-#~ msgstr "El carregador d'imatges GIF no entén aquesta imatge."
-
-#~ msgid "Circular table entry in GIF file"
-#~ msgstr "Entrada de taula circular al fitxer GIF"
-
-#~ msgid "Not enough memory to composite a frame in GIF file"
-#~ msgstr "No hi ha memòria suficient per compondre un marc al fitxer GIF"
-
-#~ msgid "Couldn’t allocate memory for stream"
-#~ msgstr "No s'ha pogut assignar memòria per al flux"
-
-#~ msgid "Couldn’t decode image"
-#~ msgstr "No s'ha pogut descodificar la imatge"
-
-#~ msgid "Transformed JPEG2000 has zero width or height"
-#~ msgstr "El JPEG 2000 transformat té amplada o alçada zero"
-
-#~ msgid "Image type currently not supported"
-#~ msgstr "El tipus d'imatge no està implementat actualment"
-
-#~ msgid "Couldn’t allocate memory for color profile"
-#~ msgstr "No s'ha pogut assignar memòria per al perfil de color"
-
-#~ msgid "Insufficient memory to open JPEG 2000 file"
-#~ msgstr "No hi ha memòria suficient per obrir el fitxer JPEG 2000"
-
-#~ msgid "Couldn’t allocate memory to buffer image data"
-#~ msgstr ""
-#~ "No s'ha pogut assignar memòria per ubicar les dades d'imatge a la memòria "
-#~ "intermèdia"
-
-#~ msgctxt "image format"
-#~ msgid "JPEG 2000"
-#~ msgstr "JPEG 2000"
-
-#~ msgid ""
-#~ "PNG compression level must be a value between 0 and 9; value “%s” could "
-#~ "not be parsed."
-#~ msgstr ""
-#~ "El nivell de compressió de PNG ha de ser un valor entre 0 i 9; el valor "
-#~ "«%s» no es pot analitzar."
-
-#~ msgid "PNG y-dpi must be greater than zero; value “%s” is not allowed."
-#~ msgstr ""
-#~ "PNG y-dpi ha de tenir un valor major de zero; el valor «%s» no és permès."
