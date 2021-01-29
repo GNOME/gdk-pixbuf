@@ -1,4 +1,4 @@
-executable('gdk-pixbuf-thumbnailer',
+bin = executable('gdk-pixbuf-thumbnailer',
            [ 'gdk-pixbuf-thumbnailer.c', 'gnome-thumbnailer-skeleton.c' ],
            c_args: common_cflags + [
              '-DTHUMBNAILER_RETURNS_PIXBUF',
@@ -6,6 +6,7 @@ executable('gdk-pixbuf-thumbnailer',
            ],
            dependencies: gdk_pixbuf_deps + [ gdkpixbuf_dep ],
            install: true)
+meson.override_find_program('gdk-pixbuf-thumbnailer', bin)
 
 gdk_pixbuf_print_mime_types = executable('gdk-pixbuf-print-mime-types',
                                          'gdk-pixbuf-print-mime-types.c',
