@@ -307,6 +307,7 @@ foreach bin: gdkpixbuf_bin
                    include_directories: [ root_inc, gdk_pixbuf_inc ],
                    c_args: common_cflags + gdk_pixbuf_cflags,
                    install: true)
+  meson.override_find_program(bin_name, bin)
 
   # Used in tests
   set_variable(bin_name.underscorify(), bin)
