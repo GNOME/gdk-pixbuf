@@ -93,7 +93,8 @@ if cc.has_function('lrint', dependencies: mathlib_dep)
   gdk_pixbuf_conf.set('HAVE_LRINT', 1)
 endif
 
-if cc.has_function('bind_textdomain_codeset', prefix: '#include <libintl.h>')
+intl_dep = cc.find_library('intl', required: false)
+if cc.has_function('bind_textdomain_codeset', prefix: '#include <libintl.h>', dependency: intl_dep)
   gdk_pixbuf_conf.set('HAVE_BIND_TEXTDOMAIN_CODESET', 1)
 endif
 
@@ -212,7 +213,7 @@ if medialib_dep.found()
 endif
 
 gdk_pixbuf_deps = [ mathlib_dep, glib_dep, gobject_dep, gmodule_dep, gio_dep,
-                    shared_mime_dep, medialib_dep ]
+                    shared_mime_dep, medialib_dep, intl_dep ]
 
 # Check if we can build shared modules
 if gmodule_dep.type_name() == 'pkgconfig'
