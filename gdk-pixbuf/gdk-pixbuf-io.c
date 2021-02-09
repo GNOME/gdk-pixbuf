@@ -678,7 +678,9 @@ gdk_pixbuf_io_init (void)
 	gboolean ret;
 
 	gdk_pixbuf_io_init_builtin ();
+#ifdef USE_GMODULE
 	module_file = gdk_pixbuf_get_module_file ();
+#endif
 	ret = gdk_pixbuf_io_init_modules (module_file, NULL);
 	g_free (module_file);
 	return ret;
