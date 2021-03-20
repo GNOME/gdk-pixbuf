@@ -1,69 +1,47 @@
-version_xml = configuration_data()
-version_xml.set('GDK_PIXBUF_VERSION', meson.project_version())
-configure_file(input: 'version.xml.in',
-               output: 'version.xml',
-               configuration: version_xml)
+gidocgen_dep = dependency('gi-docgen',
+  version: '>= 2021.1',
+  fallback: ['gi-docgen', 'dummy_dep'],
+  required: get_option('gtk_doc'),
+)
 
-if gobject_dep.type_name() == 'pkgconfig'
-  glib_prefix = gobject_dep.get_pkgconfig_variable('prefix')
-else
-  glib_prefix = get_option('prefix')
-endif
-glib_docpath = join_paths(glib_prefix, 'share', 'gtk-doc', 'html')
-docpath = join_paths(gdk_pixbuf_datadir, 'gtk-doc', 'html')
 
-private_headers = [
-  'pixops',
-  'gdk-pixbuf.h',
-  'gdk-pixbuf-alias.h',
-  'gdk-pixbuf-autocleanups.h',
-  'gdk-pixbuf-buffer-queue-private.h',
-  'gdk-pixbuf-marshal.h',
-  'gdk-pixbuf-private.h',
-  'gdk-pixbuf-scaled-anim.h',
-  'io-ani-animation.h',
-  'io-gdip-animation.h',
-  'io-gdip-native.h',
-  'io-gdip-propertytags.h',
-  'io-gdip-utils.h',
-  'io-gif-animation.h',
-  'xpm-color-table.h',
-  'test-images.h',
-  'lzw.h',
+toml_conf = configuration_data()
+toml_conf.set('VERSION', meson.project_version())
+toml = configure_file(input: 'gdk-pixbuf.toml.in', output: 'gdk-pixbuf.toml', configuration: toml_conf)
+
+gidocgen = find_program('gi-docgen', required: get_option('gtk_doc'))
+
+docs_dir = gdk_pixbuf_datadir / 'doc/gdk-pixbuf/reference'
+
+expand_content_md_files = [
 ]
 
+build_docs = get_option('gtk_doc')
 if get_option('docs')
-  warning('The "docs" build option is deprecated; please use "gtk_doc=true"')
+  warning('The docs option is deprecated; use -Dgtk_doc=true')
+  build_docs = true
 endif
 
-if get_option('gtk_doc') or get_option('docs')
-  gnome.gtkdoc('gdk-pixbuf',
-               main_xml: 'gdk-pixbuf.xml',
-               src_dir: [ gdk_pixbuf_inc ],
-               dependencies: gdkpixbuf_dep,
-               gobject_typesfile: 'gdk-pixbuf.types',
-               scan_args: [
-                 '--rebuild-types',
-                 '--deprecated-guards="GDK_PIXBUF_ENABLE_BROKEN|GDK_PIXBUF_DISABLE_DEPRECATED"',
-                 '--ignore-headers=' + ' '.join(private_headers),
-               ],
-               fixxref_args: [
-                 '--html-dir=@0@'.format(docpath),
-                 '--extra-dir=@0@'.format(join_paths(glib_docpath, 'glib')),
-                 '--extra-dir=@0@'.format(join_paths(glib_docpath, 'gobject')),
-                 '--extra-dir=@0@'.format(join_paths(glib_docpath, 'gio')),
-               ],
-               html_assets: [
-                 'composite.png',
-               ],
-               content_files: [
-                 'gdk-pixbuf-from-drawables.xml',
-                 'gdk-pixbuf-rendering.xml',
-                 'gdk-pixbuf.xml',
-                 'gdk-pixbuf-csource.xml',
-                 'gdk-pixbuf-query-loaders.xml',
-               ],
-               install: true)
+if build_docs
+  custom_target('gdk-pixbuf-doc',
+    input: [ toml, gdkpixbuf_gir[0] ],
+    output: 'gdk-pixbuf',
+    command: [
+      gidocgen,
+      'generate',
+      '--quiet',
+      '--add-include-path=@0@'.format(meson.current_build_dir() / '../gdk-pixbuf'),
+      '--config=@INPUT0@',
+      '--output-dir=@OUTPUT@',
+      '--no-namespace-dir',
+      '--content-dir=@0@'.format(meson.current_source_dir()),
+      '@INPUT1@',
+    ],
+    depend_files: [ expand_content_md_files ],
+    build_by_default: true,
+    install: true,
+    install_dir: docs_dir,
+  )
 endif
 
 xsltproc = find_program('xsltproc', required: false)
