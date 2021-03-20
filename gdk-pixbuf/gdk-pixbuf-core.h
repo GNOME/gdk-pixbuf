@@ -54,7 +54,7 @@ G_BEGIN_DECLS
  * compositing onto arbitrary drawables.  For now both cases fall
  * back to a bilevel clipping mask.
  *
- * Deprecated: it is unused since 2.42.
+ * Deprecated: 2.42: There is no user of GdkPixbufAlphaMode
  */
 typedef enum
 {
