@@ -7,7 +7,8 @@ gidocgen_dep = dependency('gi-docgen',
 
 toml_conf = configuration_data()
 toml_conf.set('VERSION', meson.project_version())
-toml = configure_file(input: 'gdk-pixbuf.toml.in', output: 'gdk-pixbuf.toml', configuration: toml_conf)
+pixbuf_toml = configure_file(input: 'gdk-pixbuf.toml.in', output: 'gdk-pixbuf.toml', configuration: toml_conf)
+pixdata_toml = configure_file(input: 'gdk-pixdata.toml.in', output: 'gdk-pixdata.toml', configuration: toml_conf)
 
 gidocgen = find_program('gi-docgen', required: get_option('gtk_doc'))
 
@@ -25,7 +26,7 @@ endif
 
 if build_docs
   custom_target('gdk-pixbuf-doc',
-    input: [ toml, gdkpixbuf_gir[0] ],
+    input: [ pixbuf_toml, gdkpixbuf_gir[0] ],
     output: 'gdk-pixbuf',
     command: [
       gidocgen,
@@ -39,6 +40,25 @@ if build_docs
       '@INPUT1@',
     ],
     depend_files: [ expand_content_md_files ],
+    build_by_default: true,
+    install: true,
+    install_dir: docs_dir,
+  )
+
+  custom_target('gdk-pixdata-doc',
+    input: [ pixdata_toml, gdkpixdata_gir[0] ],
+    output: 'gdk-pixdata',
+    command: [
+      gidocgen,
+      'generate',
+      '--quiet',
+      '--add-include-path=@0@'.format(meson.current_build_dir() / '../gdk-pixbuf'),
+      '--config=@INPUT0@',
+      '--output-dir=@OUTPUT@',
+      '--no-namespace-dir',
+      '--content-dir=@0@'.format(meson.current_source_dir()),
+      '@INPUT1@',
+    ],
     build_by_default: true,
     install: true,
     install_dir: docs_dir,

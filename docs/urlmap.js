@@ -10,4 +10,5 @@ baseURLs = [
     [ 'Gtk', 'https://gnome.pages.gitlab.gnome.org/gtk/gtk4/' ],
     [ 'Pango', 'https://gnome.pages/gitlab.gnome.org/pango/pango/' ],
     [ 'PangoCairo', 'https://gnome.pages.gitlab.gnome.org/pango/pangocairo/' ],
+    [ 'GdkPixbuf', 'https://gnome.pages.gitlab.gnome.org/gdk-pixbuf/' ],
 ]

@@ -23,19 +23,32 @@
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 
 /**
- * SECTION:inline
- * @Short_description: Functions for inlined pixbuf handling.
- * @Title: Inline data
- * 
- * Using #GdkPixdata, images can be compiled into an application,
- * making it unnecessary to refer to external image files at runtime.
- * GdkPixBuf includes a utility named gdk-pixbuf-csource, which
- * can be used to convert image files into #GdkPixdata structures suitable
- * for inclusion in C sources. To convert the #GdkPixdata structures back 
- * into #GdkPixbufs, use gdk_pixbuf_from_pixdata.
+ * GdkPixdata:
+ * @magic: magic number. A valid `GdkPixdata` structure must have
+ *   `GDK_PIXBUF_MAGIC_NUMBER` here
+ * @length: less than 1 to disable length checks, otherwise
+ *   `GDK_PIXDATA_HEADER_LENGTH` plus the length of `pixel_data`
+ * @pixdata_type: information about colorspace, sample width and
+ *   encoding, in a `GdkPixdataType`
+ * @rowstride: Distance in bytes between rows
+ * @width: Width of the image in pixels
+ * @height: Height of the image in pixels
+ * @pixel_data: (array) (element-type guint8): `width` x `height`
+ *   pixels, encoded according to `pixdata_type` and `rowstride`
  *
- * #GdkPixdata should not be used any more. #GResource should be used to save
- * the original compressed images inside the program's binary.
+ * A pixel buffer suitable for serialization and streaming.
+ * 
+ * Using `GdkPixdata`, images can be compiled into an application,
+ * making it unnecessary to refer to external image files at runtime.
+ *
+ * `GdkPixbuf` includes a utility named `gdk-pixbuf-csource`, which
+ * can be used to convert image files into `GdkPixdata` structures suitable
+ * for inclusion in C sources. To convert the `GdkPixdata` structures back
+ * into a `GdkPixbuf`, use `gdk_pixbuf_from_pixdata()`.
+ *
+ * Deprecated: 2.32: `GdkPixdata` should not be used any more. `GResource`
+ *   should be used to save the original compressed images inside the
+ *   program's binary
  */
 
 #define APPEND g_string_append_printf
