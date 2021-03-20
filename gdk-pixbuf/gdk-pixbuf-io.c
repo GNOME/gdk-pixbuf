@@ -48,79 +48,68 @@
 #endif
 
 /**
- * SECTION:file-loading
- * @Short_description: Loading a pixbuf from a file.
- * @Title: File Loading
- * @See_also: #GdkPixbufLoader.
+ * GdkPixbufModule:
+ * @module_name: the name of the module, usually the same as the
+ *  usual file extension for images of this type, eg. "xpm", "jpeg" or "png".
+ * @module_path: the path from which the module is loaded.
+ * @module: the loaded #GModule.
+ * @info: a #GdkPixbufFormat holding information about the module.
+ * @load: loads an image from a file.
+ * @load_xpm_data: loads an image from data in memory.
+ * @begin_load: begins an incremental load.
+ * @stop_load: stops an incremental load.
+ * @load_increment: continues an incremental load.
+ * @load_animation: loads an animation from a file.
+ * @save: saves a #GdkPixbuf to a file.
+ * @save_to_callback: saves a #GdkPixbuf by calling the given #GdkPixbufSaveFunc.
+ * @is_save_option_supported: returns whether a save option key is supported by the module
  * 
- * The GdkPixBuf library provides a simple mechanism for loading
- * an image from a file in synchronous fashion.  This means that the
- * library takes control of the application while the file is being
- * loaded; from the user's point of view, the application will block
- * until the image is done loading.
+ * A `GdkPixbufModule` contains the necessary functions to load and save
+ * images in a certain file format.
  * 
+ * If `GdkPixbuf` has been compiled with `GModule` support, it can be extended
+ * by modules which can load (and perhaps also save) new image and animation
+ * formats.
+ *
+ * ## Implementing modules
  * 
- * This interface can be used by applications in which blocking is
- * acceptable while an image is being loaded.  It can also be used to
- * load small images in general.  Applications that need progressive
- * loading can use the #GdkPixbufLoader functionality instead.
- */
-
-/**
- * SECTION:file-saving
- * @Short_description: Saving a pixbuf to a file.
- * @Title: File saving
- * 
- * These functions allow to save a #GdkPixbuf in a number of 
- * file formats. The formatted data can be written to a file
- * or to a memory buffer. GdkPixBuf can also call a user-defined
- * callback on the data, which allows to e.g. write the image 
- * to a socket or store it in a database.
- */
-
-/**
- * SECTION:module_interface
- * @Short_description: Extending GdkPixBuf
- * @Title: Module Interface
- * 
- * If GdkPixBuf has been compiled with GModule support, it can be extended by
- * modules which can load (and perhaps also save) new image and animation
- * formats. Each loadable module must export a
- * #GdkPixbufModuleFillInfoFunc function named `fill_info` and
- * a #GdkPixbufModuleFillVtableFunc function named
- * `fill_vtable`.
+ * The `GdkPixbuf` interfaces needed for implementing modules are contained in
+ * `gdk-pixbuf-io.h` (and `gdk-pixbuf-animation.h` if the module supports
+ * animations). They are not covered by the same stability guarantees as the
+ * regular GdkPixbuf API. To underline this fact, they are protected by the
+ * `GDK_PIXBUF_ENABLE_BACKEND` pre-processor symbol.
+ *
+ * Each loadable module must contain a `GdkPixbufModuleFillVtableFunc` function
+ * named `fill_vtable`, which will get called when the module
+ * is loaded and must set the function pointers of the `GdkPixbufModule`.
  * 
  * In order to make format-checking work before actually loading the modules
- * (which may require dlopening image libraries), modules export their 
- * signatures (and other information) via the `fill_info` function. An
- * external utility, gdk-pixbuf-query-loaders, uses this to create a text
+ * (which may require calling `dlopen` to load image libraries), modules export
+ * their signatures (and other information) via the `fill_info` function. An
+ * external utility, `gdk-pixbuf-query-loaders`, uses this to create a text
  * file containing a list of all available loaders and  their signatures.
- * This file is then read at runtime by GdkPixBuf to obtain the list of
+ * This file is then read at runtime by `GdkPixbuf` to obtain the list of
  * available loaders and their signatures. 
  * 
  * Modules may only implement a subset of the functionality available via
- * #GdkPixbufModule. If a particular functionality is not implemented, the
+ * `GdkPixbufModule`. If a particular functionality is not implemented, the
  * `fill_vtable` function will simply not set the corresponding
- * function pointers of the #GdkPixbufModule structure. If a module supports
- * incremental loading (i.e. provides #begin_load, #stop_load and
- * #load_increment), it doesn't have to implement #load, since GdkPixBuf can
- * supply a generic #load implementation wrapping the incremental loading. 
+ * function pointers of the `GdkPixbufModule` structure. If a module supports
+ * incremental loading (i.e. provides `begin_load`, `stop_load` and
+ * `load_increment`), it doesn't have to implement `load`, since `GdkPixbuf`
+ * can supply a generic `load` implementation wrapping the incremental loading.
+ *
+ * ## Installing modules
  * 
  * Installing a module is a two-step process:
- * - copy the module file(s) to the loader directory (normally
- *   `$libdir/gdk-pixbuf-2.0/$version/loaders`, unless overridden by the
- *   environment variable `GDK_PIXBUF_MODULEDIR`) 
- * - call gdk-pixbuf-query-loaders to update the module file (normally
- *   `$libdir/gdk-pixbuf-2.0/$version/loaders.cache`, unless overridden by the
- *   environment variable `GDK_PIXBUF_MODULE_FILE`)
- * 
- * The GdkPixBuf interfaces needed for implementing modules are contained in
- * `gdk-pixbuf-io.h` (and `gdk-pixbuf-animation.h` if the module supports
- * animations). They are not covered by the same stability guarantees as the
- * regular  GdkPixBuf API. To underline this fact, they are protected by
- * `#ifdef GDK_PIXBUF_ENABLE_BACKEND`.
+ *
+ *  - copy the module file(s) to the loader directory (normally
+ *    `$libdir/gdk-pixbuf-2.0/$version/loaders`, unless overridden by the
+ *    environment variable `GDK_PIXBUF_MODULEDIR`)
+ *  - call `gdk-pixbuf-query-loaders` to update the module file (normally
+ *    `$libdir/gdk-pixbuf-2.0/$version/loaders.cache`, unless overridden
+ *    by the environment variable `GDK_PIXBUF_MODULE_FILE`)
  */
-
 
 static gint 
 format_check (GdkPixbufModule *module, guchar *buffer, int size)

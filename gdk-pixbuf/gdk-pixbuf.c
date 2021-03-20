@@ -21,6 +21,146 @@
  * License along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * GdkPixbuf:
+ *
+ * A pixel buffer.
+ *
+ * `GdkPixbuf` contains information about an image's pixel data,
+ * its color space, bits per sample, width and height, and the
+ * rowstride (the number of bytes between the start of one row
+ * and the start of the next).
+ *
+ * ## Creating new `GdkPixbuf`
+ * 
+ * The most basic way to create a pixbuf is to wrap an existing pixel
+ * buffer with a [class@GdkPixbuf.Pixbuf] instance. You can use the
+ * [`ctor@GdkPixbuf.Pixbuf.new_from_data`] function to do this.
+ * 
+ * Every time you create a new `GdkPixbuf` instance for some data, you
+ * will need to specify the destroy notification function that will be
+ * called when the data buffer needs to be freed; this will happen when
+ * a `GdkPixbuf` is finalized by the reference counting functions. If
+ * you have a chunk of static data compiled into your application, you
+ * can pass in `NULL` as the destroy notification function so that the
+ * data will not be freed.
+ * 
+ * The [`ctor@GdkPixbuf.Pixbuf.new`] constructor function can be used
+ * as a convenience to create a pixbuf with an empty buffer; this is
+ * equivalent to allocating a data buffer using `malloc()` and then
+ * wrapping it with `gdk_pixbuf_new_from_data()`. The `gdk_pixbuf_new()`
+ * function will compute an optimal rowstride so that rendering can be
+ * performed with an efficient algorithm.
+ *
+ * As a special case, you can use the [`ctor@GdkPixbuf.Pixbuf.new_from_xpm_data`]
+ * function to create a pixbuf from inline XPM image data.
+ * 
+ * You can also copy an existing pixbuf with the [method@Pixbuf.copy]
+ * function. This is not the same as just acquiring a reference to
+ * the old pixbuf instance: the copy function will actually duplicate
+ * the pixel data in memory and create a new [class@Pixbuf] instance
+ * for it.
+ *
+ * ## Reference counting
+ * 
+ * `GdkPixbuf` structures are reference counted. This means that an
+ * application can share a single pixbuf among many parts of the
+ * code. When a piece of the program needs to use a pixbuf, it should
+ * acquire a reference to it by calling `g_object_ref()`; when it no
+ * longer needs the pixbuf, it should release the reference it acquired
+ * by calling `g_object_unref()`. The resources associated with a
+ * `GdkPixbuf` will be freed when its reference count drops to zero.
+ * Newly-created `GdkPixbuf` instances start with a reference count
+ * of one.
+ *
+ * ## Image Data
+ *
+ * Image data in a pixbuf is stored in memory in an uncompressed,
+ * packed format. Rows in the image are stored top to bottom, and
+ * in each row pixels are stored from left to right.
+ *
+ * There may be padding at the end of a row.
+ *
+ * The "rowstride" value of a pixbuf, as returned by [`method@GdkPixbuf.Pixbuf.get_rowstride`],
+ * indicates the number of bytes between rows.
+ *
+ * **NOTE**: If you are copying raw pixbuf data with `memcpy()` note that the
+ * last row in the pixbuf may not be as wide as the full rowstride, but rather
+ * just as wide as the pixel data needs to be; that is: it is unsafe to do
+ * `memcpy (dest, pixels, rowstride * height)` to copy a whole pixbuf. Use
+ * [method@GdkPixbuf.Pixbuf.copy] instead, or compute the width in bytes of the
+ * last row as:
+ *
+ * ```c
+ * last_row = width * ((n_channels * bits_per_sample + 7) / 8);
+ * ```
+ *
+ * The same rule applies when iterating over each row of a `GdkPixbuf` pixels
+ * array.
+ *
+ * The following code illustrates a simple `put_pixel()`
+ * function for RGB pixbufs with 8 bits per channel with an alpha
+ * channel.
+ *
+ * ```c
+ * static void
+ * put_pixel (GdkPixbuf *pixbuf,
+ *            int x,
+ * 	   int y,
+ * 	   guchar red,
+ * 	   guchar green,
+ * 	   guchar blue,
+ * 	   guchar alpha)
+ * {
+ *   int n_channels = gdk_pixbuf_get_n_channels (pixbuf);
+ *
+ *   // Ensure that the pixbuf is valid
+ *   g_assert (gdk_pixbuf_get_colorspace (pixbuf) == GDK_COLORSPACE_RGB);
+ *   g_assert (gdk_pixbuf_get_bits_per_sample (pixbuf) == 8);
+ *   g_assert (gdk_pixbuf_get_has_alpha (pixbuf));
+ *   g_assert (n_channels == 4);
+ *
+ *   int width = gdk_pixbuf_get_width (pixbuf);
+ *   int height = gdk_pixbuf_get_height (pixbuf);
+ *
+ *   // Ensure that the coordinates are in a valid range
+ *   g_assert (x >= 0 && x < width);
+ *   g_assert (y >= 0 && y < height);
+ *
+ *   int rowstride = gdk_pixbuf_get_rowstride (pixbuf);
+ *
+ *   // The pixel buffer in the GdkPixbuf instance
+ *   guchar *pixels = gdk_pixbuf_get_pixels (pixbuf);
+ *
+ *   // The pixel we wish to modify
+ *   guchar *p = pixels + y * rowstride + x * n_channels;
+ *   p[0] = red;
+ *   p[1] = green;
+ *   p[2] = blue;
+ *   p[3] = alpha;
+ * }
+ * ```
+ *
+ * ## Loading images
+ *
+ * The `GdkPixBuf` class provides a simple mechanism for loading
+ * an image from a file in synchronous and asynchronous fashion.
+ *
+ * For GUI applications, it is recommended to use the asynchronous
+ * stream API to avoid blocking the control flow of the application.
+ *
+ * Additionally, `GdkPixbuf` provides the [class@GdkPixbuf.PixbufLoader`]
+ * API for progressive image loading.
+ *
+ * ## Saving images
+ *
+ * The `GdkPixbuf` class provides methods for saving image data in
+ * a number of file formats. The formatted data can be written to a
+ * file or to a memory buffer. `GdkPixbuf` can also call a user-defined
+ * callback on the data, which allows to e.g. write the image
+ * to a socket or store it in a database.
+ */
+
 #include "config.h"
 
 #include <math.h>
@@ -36,136 +176,6 @@
 #include <glib-object.h>
 #include <gio/gio.h>
 #include "gdk-pixbuf-marshal.h"
-
-/**
- * SECTION:creating
- * @Short_description: Creating a pixbuf from image data that is already in memory.
- * @Title: Image Data in Memory
- * @See_also: gdk_pixbuf_finalize().
- * 
- * The most basic way to create a pixbuf is to wrap an existing pixel
- * buffer with a #GdkPixbuf structure.  You can use the
- * gdk_pixbuf_new_from_data() function to do this You need to specify
- * the destroy notification function that will be called when the
- * data buffer needs to be freed; this will happen when a #GdkPixbuf
- * is finalized by the reference counting functions If you have a
- * chunk of static data compiled into your application, you can pass
- * in %NULL as the destroy notification function so that the data
- * will not be freed.
- * 
- * The gdk_pixbuf_new() function can be used as a convenience to
- * create a pixbuf with an empty buffer.  This is equivalent to
- * allocating a data buffer using malloc() and then wrapping it with
- * gdk_pixbuf_new_from_data(). The gdk_pixbuf_new() function will
- * compute an optimal rowstride so that rendering can be performed
- * with an efficient algorithm.
- * 
- * As a special case, you can use the gdk_pixbuf_new_from_xpm_data()
- * function to create a pixbuf from inline XPM image data.
- * 
- * You can also copy an existing pixbuf with the gdk_pixbuf_copy()
- * function.  This is not the same as just doing a g_object_ref()
- * on the old pixbuf; the copy function will actually duplicate the
- * pixel data in memory and create a new #GdkPixbuf structure for it.
- */
-
-/**
- * SECTION:refcounting
- * @Short_description: Functions for reference counting and memory management on pixbufs.
- * @Title: Reference Counting and Memory Mangement
- * @See_also: #GdkPixbuf, gdk_pixbuf_new_from_data().
- * 
- * #GdkPixbuf structures are reference counted.  This means that an
- * application can share a single pixbuf among many parts of the
- * code.  When a piece of the program needs to keep a pointer to a
- * pixbuf, it should add a reference to it by calling g_object_ref().
- * When it no longer needs the pixbuf, it should subtract a reference
- * by calling g_object_unref().  The pixbuf will be destroyed when
- * its reference count drops to zero.  Newly-created #GdkPixbuf
- * structures start with a reference count of one.
- * 
- * > As #GdkPixbuf is derived from #GObject now, gdk_pixbuf_ref() and
- * > gdk_pixbuf_unref() are deprecated in favour of g_object_ref()
- * > and g_object_unref() resp.
- * 
- * Finalizing a pixbuf means to free its pixel data and to free the
- * #GdkPixbuf structure itself.  Most of the library functions that
- * create #GdkPixbuf structures create the pixel data by themselves
- * and define the way it should be freed; you do not need to worry
- * about those.
- *
- * To provide preallocated pixel data, use
- * gdk_pixbuf_new_from_bytes().  The gdk_pixbuf_new_from_data() API is
- * an older variant that predates the existence of #GBytes.
- */
-
-/**
- * SECTION:gdk-pixbuf
- * @Short_description: Information that describes an image.
- * @Title: The GdkPixbuf Structure
- *
- * The #GdkPixbuf structure contains
- * information that describes an image in memory.
- *
- * ## Image Data ## {#image-data}
- *
- * Image data in a pixbuf is stored in memory in uncompressed,
- * packed format.  Rows in the image are stored top to bottom, and
- * in each row pixels are stored from left to right.  There may be
- * padding at the end of a row.  The "rowstride" value of a pixbuf,
- * as returned by gdk_pixbuf_get_rowstride(), indicates the number
- * of bytes between rows.
- *
- * ## put_pixel() Example ## {#put-pixel}
- *
- * The following code illustrates a simple put_pixel()
- * function for RGB pixbufs with 8 bits per channel with an alpha
- * channel.  It is not included in the gdk-pixbuf library for
- * performance reasons; rather than making several function calls
- * for each pixel, your own code can take shortcuts.
- *
- * |[<!-- language="C" -->
- * static void
- * put_pixel (GdkPixbuf *pixbuf, int x, int y, guchar red, guchar green, guchar blue, guchar alpha)
- * {
- *   int width, height, rowstride, n_channels;
- *   guchar *pixels, *p;
- *
- *   n_channels = gdk_pixbuf_get_n_channels (pixbuf);
- *
- *   g_assert (gdk_pixbuf_get_colorspace (pixbuf) == GDK_COLORSPACE_RGB);
- *   g_assert (gdk_pixbuf_get_bits_per_sample (pixbuf) == 8);
- *   g_assert (gdk_pixbuf_get_has_alpha (pixbuf));
- *   g_assert (n_channels == 4);
- *
- *   width = gdk_pixbuf_get_width (pixbuf);
- *   height = gdk_pixbuf_get_height (pixbuf);
- *
- *   g_assert (x >= 0 && x < width);
- *   g_assert (y >= 0 && y < height);
- *
- *   rowstride = gdk_pixbuf_get_rowstride (pixbuf);
- *   pixels = gdk_pixbuf_get_pixels (pixbuf);
- *
- *   p = pixels + y * rowstride + x * n_channels;
- *   p[0] = red;
- *   p[1] = green;
- *   p[2] = blue;
- *   p[3] = alpha;
- * }
- * ]|
- *
- * This function will not work for pixbufs with images that are
- * other than 8 bits per sample or channel, but it will work for
- * most of the pixbufs that GTK+ uses.
- *
- * If you are doing memcpy() of raw pixbuf data, note that the last row
- * in the pixbuf may not be as wide as the full rowstride, but rather
- * just as wide as the pixel data needs to be. That is, it is unsafe to
- * do `memcpy (dest, pixels, rowstride * height)` to copy a whole pixbuf.
- * Use gdk_pixbuf_copy() instead, or compute the width in bytes of the
- * last row as `width * ((n_channels * bits_per_sample + 7) / 8)`.
- */
 
 static void gdk_pixbuf_finalize     (GObject        *object);
 static void gdk_pixbuf_set_property (GObject        *object,

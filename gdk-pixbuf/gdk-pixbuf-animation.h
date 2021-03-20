@@ -36,20 +36,9 @@ G_BEGIN_DECLS
 
 /* Animation support */
 
-/**
- * GdkPixbufAnimation:
- *
- * An opaque struct representing an animation.
- */
 typedef struct _GdkPixbufAnimation GdkPixbufAnimation;
 
 
-/**
- * GdkPixbufAnimationIter:
- *
- * An opaque struct representing an iterator which points to a
- * certain position in an animation.
- */
 typedef struct _GdkPixbufAnimationIter GdkPixbufAnimationIter;
 
 #define GDK_TYPE_PIXBUF_ANIMATION              (gdk_pixbuf_animation_get_type ())

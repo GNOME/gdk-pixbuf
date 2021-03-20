@@ -27,19 +27,6 @@
 #include "gdk-pixbuf-private.h"
 
 /**
- * SECTION:util
- * @Short_description: Utility and miscellaneous convenience functions.
- * @Title: Utilities
- * @See_also: #GdkPixbuf
- * 
- * These functions provide miscellaneous utilities for manipulating
- * pixbufs.  The pixel data in pixbufs may of course be manipulated
- * directly by applications, but several common operations can be
- * performed by these functions instead.
- */
-
-
-/**
  * gdk_pixbuf_add_alpha:
  * @pixbuf: A #GdkPixbuf.
  * @substitute_color: Whether to set a color to zero opacity.  If this

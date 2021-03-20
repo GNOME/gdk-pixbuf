@@ -8,15 +8,6 @@
 #include <glib.h>
 
 /**
- * SECTION:initialization_versions
- * @Short_description: Library version numbers.
- * @Title: Initialization and Versions
- * 
- * These macros and variables let you check the version of gdk-pixbuf
- * you're linking against.
- */
-
-/**
  * GDK_PIXBUF_MAJOR:
  * 
  * Major version of gdk-pixbuf library, that is the "0" in
@@ -37,9 +28,10 @@
 /**
  * GDK_PIXBUF_VERSION:
  * 
- * Contains the full version of the gdk-pixbuf header as a string.
+ * Contains the full version of GdkPixbuf as a string.
+ *
  * This is the version being compiled against; contrast with
- * #gdk_pixbuf_version.
+ * `gdk_pixbuf_version`.
  */
 
 #define GDK_PIXBUF_MAJOR (@GDK_PIXBUF_MAJOR@)
@@ -81,7 +73,7 @@
  * 
  * This variable is in the library, so represents the
  * gdk-pixbuf library you have linked against. Contrast with the
- * #GDK_PIXBUF_MAJOR macro, which represents the major version of the
+ * `GDK_PIXBUF_MAJOR` macro, which represents the major version of the
  * gdk-pixbuf headers you have included.
  */
 /**
@@ -93,7 +85,7 @@
  * 
  * This variable is in the library, so represents the
  * gdk-pixbuf library you have linked against. Contrast with the
- * #GDK_PIXBUF_MINOR macro, which represents the minor version of the
+ * `GDK_PIXBUF_MINOR` macro, which represents the minor version of the
  * gdk-pixbuf headers you have included.
  */
 /**
@@ -105,7 +97,7 @@
  * 
  * This variable is in the library, so represents the
  * gdk-pixbuf library you have linked against. Contrast with the
- * #GDK_PIXBUF_MICRO macro, which represents the micro version of the
+ * `GDK_PIXBUF_MICRO` macro, which represents the micro version of the
  * gdk-pixbuf headers you have included.
  */
 /**

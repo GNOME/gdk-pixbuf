@@ -32,52 +32,53 @@
 #include "gdk-pixbuf-marshal.h"
 
 /**
- * SECTION:gdk-pixbuf-loader
- * @Short_description: Application-driven progressive image loading.
- * @Title: GdkPixbufLoader
- * @See_also: gdk_pixbuf_new_from_file(), gdk_pixbuf_animation_new_from_file()
+ * GdkPixbufLoader:
+ *
+ * Incremental image loader.
  * 
- * #GdkPixbufLoader provides a way for applications to drive the
+ * `GdkPixbufLoader` provides a way for applications to drive the
  * process of loading an image, by letting them send the image data
  * directly to the loader instead of having the loader read the data
- * from a file.  Applications can use this functionality instead of
- * gdk_pixbuf_new_from_file() or gdk_pixbuf_animation_new_from_file() 
- * when they need to parse image data in
- * small chunks.  For example, it should be used when reading an
- * image from a (potentially) slow network connection, or when
- * loading an extremely large file.
- * 
- * 
- * To use #GdkPixbufLoader to load an image, just create a new one, and
- * call gdk_pixbuf_loader_write() to send the data to it.  When done,
- * gdk_pixbuf_loader_close() should be called to end the stream and
- * finalize everything. The loader will emit three important signals
- * throughout the process. The first, #GdkPixbufLoader::size-prepared,
- * will be emitted as soon as the image has enough information to
- * determine the size of the image to be used. If you want to scale
- * the image while loading it, you can call gdk_pixbuf_loader_set_size()
- * in response to this signal.
- * 
- * 
- * The second signal, #GdkPixbufLoader::area-prepared, will be emitted as
- * soon as the pixbuf of the desired has been allocated. You can obtain it
- * by calling gdk_pixbuf_loader_get_pixbuf(). If you want to use it, simply
- * ref it. You can also call gdk_pixbuf_loader_get_pixbuf() later and get
- * the same pixbuf.
- * 
- * The last signal, #GdkPixbufLoader::area-updated, gets emitted every time
- * a region is updated. This way you can update a partially completed image.
- * Note that you do not know anything about the completeness of an image
- * from the updated area. For example, in an interlaced image, you need to
- * make several passes before the image is done loading.
- * 
- * # Loading an animation 
+ * from a file. Applications can use this functionality instead of
+ * `gdk_pixbuf_new_from_file()` or `gdk_pixbuf_animation_new_from_file()`
+ * when they need to parse image data in small chunks. For example,
+ * it should be used when reading an image from a (potentially) slow
+ * network connection, or when loading an extremely large file.
  *
- * Loading an animation is almost as easy as loading an image. Once the first
- * #GdkPixbufLoader::area-prepared signal has been emitted, you can call
- * gdk_pixbuf_loader_get_animation() to get the #GdkPixbufAnimation struct
- * and gdk_pixbuf_animation_get_iter() to get a #GdkPixbufAnimationIter for
- * displaying it. 
+ * To use `GdkPixbufLoader` to load an image, create a new instance,
+ * and call [method@GdkPixbuf.PixbufLoader.write] to send the data
+ * to it. When done, [method@GdkPixbuf.PixbufLoader.close] should be
+ * called to end the stream and finalize everything.
+ *
+ * The loader will emit three important signals throughout the process:
+ *
+ *  - [signal@GdkPixbuf.PixbufLoader::size-prepared] will be emitted as
+ *    soon as the image has enough information to determine the size of
+ *    the image to be used. If you want to scale the image while loading
+ *    it, you can call [method@GdkPixbuf.PixbufLoader.set_size] in
+ *    response to this signal.
+ *  - [signal@GdkPixbuf.PixbufLoader::area-prepared] will be emitted as
+ *    soon as the pixbuf of the desired has been allocated. You can obtain
+ *    the `GdkPixbuf` instance by calling [method@GdkPixbuf.PixbufLoader.get_pixbuf].
+ *    If you want to use it, simply acquire a reference to it. You can
+ *    also call `gdk_pixbuf_loader_get_pixbuf()` later to get the same
+ *    pixbuf.
+ *  - [signal@GdkPixbuf.PixbufLoader::area-updated] will be emitted every
+ *    time a region is updated. This way you can update a partially
+ *    completed image. Note that you do not know anything about the
+ *    completeness of an image from the updated area. For example, in an
+ *    interlaced image you will need to make several passes before the
+ *    image is done loading.
+ * 
+ * ## Loading an animation
+ *
+ * Loading an animation is almost as easy as loading an image. Once the
+ * first [signal@GdkPixbuf.PixbufLoader::area-prepared] signal has been
+ * emitted, you can call [method@GdkPixbuf.PixbufLoader.get_animation] to
+ * get the [class@GdkPixbuf.PixbufAnimation] instance, and then call
+ * and [method@GdkPixbuf.PixbufAnimation.get_iter] to get a
+ * [class@GdkPixbuf.PixbufAnimationIter] to retrieve the pixbuf for the
+ * desired time stamp.
  */
 
 

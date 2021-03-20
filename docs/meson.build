@@ -14,6 +14,7 @@ gidocgen = find_program('gi-docgen', required: get_option('gtk_doc'))
 docs_dir = gdk_pixbuf_datadir / 'doc/gdk-pixbuf/reference'
 
 expand_content_md_files = [
+  'scaling-compositing.md',
 ]
 
 build_docs = get_option('gtk_doc')

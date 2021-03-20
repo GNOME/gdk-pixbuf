@@ -26,49 +26,6 @@
 #include "pixops/pixops.h"
 
 /**
- * SECTION:scaling
- * @Short_description: Scaling pixbufs and scaling and alpha blending pixbufs
- * @Title: Scaling
- * 
- * The GdkPixBuf contains functions to scale pixbufs, to scale
- * pixbufs and alpha blend against an existing image, and to scale
- * pixbufs and alpha blend against a solid color or checkerboard.
- * Alpha blending a checkerboard is a common way to show an image with
- * an alpha channel in image-viewing and editing software.
- * 
- * Note that in these functions, the terms ‘alpha blending’ and ‘compositing’
- * are used synonymously.
- * 
- * Since the full-featured functions (gdk_pixbuf_scale(),
- * gdk_pixbuf_composite(), and gdk_pixbuf_composite_color()) are
- * rather complex to use and have many arguments, two simple
- * convenience functions are provided, gdk_pixbuf_scale_simple() and
- * gdk_pixbuf_composite_color_simple() which create a new pixbuf of a
- * given size, scale an original image to fit, and then return the
- * new pixbuf.
- * 
- * If the destination pixbuf was created from a readonly source, these
- * operations will force a copy into a mutable buffer.
- * 
- * Scaling and alpha blending functions take advantage of MMX hardware
- * acceleration on systems where MMX is supported.  If gdk-pixbuf is built
- * with the Sun mediaLib library, these functions are instead accelerated
- * using mediaLib, which provides hardware acceleration on Intel, AMD,
- * and Sparc chipsets.  If desired, mediaLib support can be turned off by
- * setting the `GDK_DISABLE_MEDIALIB` environment variable.  
- * 
- * The alpha blending function used is:
- *
- * |[<!-- language="plain" -->
- * Cd = Cs·As + Cd(1-As)
- * ]|
- *
- * where `Cd` is the destination pixel color, `Cs` is the source pixel color,
- * and `As` is the source pixel alpha.
- */
-
-
-/**
  * gdk_pixbuf_scale:
  * @src: a #GdkPixbuf
  * @dest: the #GdkPixbuf into which to render the results

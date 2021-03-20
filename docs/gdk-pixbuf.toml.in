@@ -40,6 +40,9 @@ content_images = [
   'composite.png',
   'gnome-gmush-1.png',
 ]
+content_files = [
+  'scaling-compositing.md',
+]
 
 [[object]]
 name = "PIXBUF_DEPRECATED_IN_2_0_FOR"
