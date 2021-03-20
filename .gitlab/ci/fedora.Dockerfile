@@ -23,8 +23,11 @@ RUN dnf -y install \
         meson \
         python3 \
         python3-jinja2 \
+        python3-markdown \
         python3-pip \
         python3-pygments \
+        python3-toml \
+        python3-typogrify \
         python3-wheel \
         redhat-rpm-config \
         shared-mime-info \
