@@ -39,8 +39,7 @@ Additionally, you may need:
 
  - [shared-mime-info](https://freedesktop.org/wiki/Software/shared-mime-info/)
  - [GObject Introspection](https://gitlab.gnome.org/GNOME/gobject-introspection/)
- - [GTK-Doc](https://gitlab.gnome.org/GNOME/gtk-doc/)
- - [Xlib's development files](https://cgit.freedesktop.org/xorg/lib/libX11/)
+ - [GI-DocGen](https://gitlab.gnome.org/ebassi/gi-docgen/)
  - mediaLib's development files
 
 ### Building and installing
@@ -51,10 +50,9 @@ the project; typically, on most platforms, you should be able to use the
 following commands to build and install GdkPixbuf in the default prefix:
 
 ```sh
-$ meson _build .
-$ cd _build
-$ ninja
-$ sudo ninja install
+$ meson setup _build .
+$ meson compile -C _build
+$ meson install -C _build
 ```
 
 You can use Meson's `--prefix` argument to control the installation prefix
@@ -67,9 +65,8 @@ check the current build configuration, and change its options.
 
 You can specify the following options in the command line to `meson`:
 
- * `-Dgtk_doc=true` - Build the API reference documentation.  This
-   requires `gtk-doc` to be installed.
- * `-Drelocatable=true` - Enable application bundle relocation support.
+ * `-Dgtk_doc=true` - Build the API reference documentation
+ * `-Drelocatable=true` - Enable application bundle relocation support
 
 For a complete list of build-time options, see the file
 [`meson_options.txt`](meson_options.txt).  You can read about Meson
