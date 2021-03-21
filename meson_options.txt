@@ -15,7 +15,7 @@ option('builtin_loaders',
        type: 'string',
        value: 'none')
 option('gtk_doc',
-       description: 'Whether to generate the API reference (requires GTK-Doc)',
+       description: 'Whether to generate the API reference',
        type: 'boolean',
        value: false)
 option('docs',
