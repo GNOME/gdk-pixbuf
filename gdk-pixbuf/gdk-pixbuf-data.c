@@ -39,23 +39,30 @@
  * drops to zero, or %NULL if the data should not be freed
  * @destroy_fn_data: (closure): Closure data to pass to the destroy notification function
  * 
- * Creates a new #GdkPixbuf out of in-memory image data.  Currently only RGB
- * images with 8 bits per sample are supported.
+ * Creates a new #GdkPixbuf out of in-memory image data.
+ *
+ * Currently only RGB images with 8 bits per sample are supported.
  *
  * Since you are providing a pre-allocated pixel buffer, you must also
  * specify a way to free that data.  This is done with a function of
- * type #GdkPixbufDestroyNotify.  When a pixbuf created with is
+ * type `GdkPixbufDestroyNotify`.  When a pixbuf created with is
  * finalized, your destroy notification function will be called, and
  * it is its responsibility to free the pixel array.
  *
- * See also gdk_pixbuf_new_from_bytes().
+ * See also: [ctor@GdkPixbuf.Pixbuf.new_from_bytes]
  *
- * Return value: (transfer full): A newly-created #GdkPixbuf structure with a reference count of 1.
+ * Return value: (transfer full): A newly-created pixbuf
  **/
 GdkPixbuf *
-gdk_pixbuf_new_from_data (const guchar *data, GdkColorspace colorspace, gboolean has_alpha,
-			  int bits_per_sample, int width, int height, int rowstride,
-	  GdkPixbufDestroyNotify destroy_fn, gpointer destroy_fn_data)
+gdk_pixbuf_new_from_data (const guchar           *data,
+                          GdkColorspace           colorspace,
+                          gboolean                has_alpha,
+			  int                     bits_per_sample,
+                          int                     width,
+                          int                     height,
+                          int                     rowstride,
+	                  GdkPixbufDestroyNotify  destroy_fn,
+                          gpointer                destroy_fn_data)
 {
 	GdkPixbuf *pixbuf;
 
@@ -95,15 +102,24 @@ gdk_pixbuf_new_from_data (const guchar *data, GdkColorspace colorspace, gboolean
  * @rowstride: Distance in bytes between row starts
  * 
  * Creates a new #GdkPixbuf out of in-memory readonly image data.
- * Currently only RGB images with 8 bits per sample are supported.
- * This is the #GBytes variant of gdk_pixbuf_new_from_data().
  *
- * Return value: (transfer full): A newly-created #GdkPixbuf structure with a reference count of 1.
+ * Currently only RGB images with 8 bits per sample are supported.
+ *
+ * This is the `GBytes` variant of gdk_pixbuf_new_from_data(), useful
+ * for language bindings.
+ *
+ * Return value: (transfer full): A newly-created pixbuf
+ *
  * Since: 2.32
  **/
 GdkPixbuf *
-gdk_pixbuf_new_from_bytes (GBytes *data, GdkColorspace colorspace, gboolean has_alpha,
-			   int bits_per_sample, int width, int height, int rowstride)
+gdk_pixbuf_new_from_bytes (GBytes        *data,
+                           GdkColorspace  colorspace,
+                           gboolean       has_alpha,
+			   int            bits_per_sample,
+                           int            width,
+                           int            height,
+                           int            rowstride)
 {
 	g_return_val_if_fail (data != NULL, NULL);
 	g_return_val_if_fail (colorspace == GDK_COLORSPACE_RGB, NULL);
@@ -112,14 +128,14 @@ gdk_pixbuf_new_from_bytes (GBytes *data, GdkColorspace colorspace, gboolean has_
 	g_return_val_if_fail (height > 0, NULL);
 	g_return_val_if_fail (g_bytes_get_size (data) >= width * height * (has_alpha ? 4 : 3), NULL);
 
-	return (GdkPixbuf*) g_object_new (GDK_TYPE_PIXBUF, 
-					  "pixel-bytes", data,
-					  "colorspace", colorspace,
-					  "n-channels", has_alpha ? 4 : 3,
-					  "bits-per-sample", bits_per_sample,
-					  "has-alpha", has_alpha ? TRUE : FALSE,
-					  "width", width,
-					  "height", height,
-					  "rowstride", rowstride,
-					  NULL);
+	return g_object_new (GDK_TYPE_PIXBUF,
+                             "pixel-bytes", data,
+                             "colorspace", colorspace,
+                             "n-channels", has_alpha ? 4 : 3,
+                             "bits-per-sample", bits_per_sample,
+                             "has-alpha", has_alpha ? TRUE : FALSE,
+                             "width", width,
+                             "height", height,
+                             "rowstride", rowstride,
+                             NULL);
 }
