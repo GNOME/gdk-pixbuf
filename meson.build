@@ -408,6 +408,10 @@ if not meson.is_cross_build()
   endif
 endif
 
+if not meson.is_subproject()
+  meson.add_dist_script('build-aux/dist.py')
+endif
+
 summary = [
   '',
   'GDK-Pixbuf @0@'.format(meson.project_version()),
