@@ -1,3 +1,18 @@
+2.42.4 (stable)
+===
+
+ - Make enum type registration thread safe
+ - Do not install skipped test files [Jan Tojnar]
+ - Fix GIF initialization [Simon McVittie]
+ - Always run GIF loader tests [Simon McVittie]
+ - Fix leaks discovered via ASan [Simon McVittie]
+ - Expose GdkPixbufLoader API via introspection [Paolo Borelli]
+ - Fix revert-to-previous first frame behaviour for GIF files [Robert Ancell, #166]
+ - Link to libintl if needed [Fabrice Fontaine]
+ - Improve support for using gdk-pixbuf as a subproject [Xavier Claessens]
+ - Fix build with GModule disabled [Fabrice Fontaine]
+ - Use gi-docgen to generate the API reference from introspection data
+
 2.42.2 (stable)
 ===
 
