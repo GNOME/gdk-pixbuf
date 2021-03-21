@@ -26,49 +26,6 @@
 #include "pixops/pixops.h"
 
 /**
- * SECTION:scaling
- * @Short_description: Scaling pixbufs and scaling and alpha blending pixbufs
- * @Title: Scaling
- * 
- * The GdkPixBuf contains functions to scale pixbufs, to scale
- * pixbufs and alpha blend against an existing image, and to scale
- * pixbufs and alpha blend against a solid color or checkerboard.
- * Alpha blending a checkerboard is a common way to show an image with
- * an alpha channel in image-viewing and editing software.
- * 
- * Note that in these functions, the terms ‘alpha blending’ and ‘compositing’
- * are used synonymously.
- * 
- * Since the full-featured functions (gdk_pixbuf_scale(),
- * gdk_pixbuf_composite(), and gdk_pixbuf_composite_color()) are
- * rather complex to use and have many arguments, two simple
- * convenience functions are provided, gdk_pixbuf_scale_simple() and
- * gdk_pixbuf_composite_color_simple() which create a new pixbuf of a
- * given size, scale an original image to fit, and then return the
- * new pixbuf.
- * 
- * If the destination pixbuf was created from a readonly source, these
- * operations will force a copy into a mutable buffer.
- * 
- * Scaling and alpha blending functions take advantage of MMX hardware
- * acceleration on systems where MMX is supported.  If gdk-pixbuf is built
- * with the Sun mediaLib library, these functions are instead accelerated
- * using mediaLib, which provides hardware acceleration on Intel, AMD,
- * and Sparc chipsets.  If desired, mediaLib support can be turned off by
- * setting the `GDK_DISABLE_MEDIALIB` environment variable.  
- * 
- * The alpha blending function used is:
- *
- * |[<!-- language="plain" -->
- * Cd = Cs·As + Cd(1-As)
- * ]|
- *
- * where `Cd` is the destination pixel color, `Cs` is the source pixel color,
- * and `As` is the source pixel alpha.
- */
-
-
-/**
  * gdk_pixbuf_scale:
  * @src: a #GdkPixbuf
  * @dest: the #GdkPixbuf into which to render the results
@@ -88,8 +45,8 @@
  * @dest_height) of the resulting image onto the destination image
  * replacing the previous contents.
  *
- * Try to use gdk_pixbuf_scale_simple() first, this function is
- * the industrial-strength power tool you can fall back to if
+ * Try to use gdk_pixbuf_scale_simple() first; this function is
+ * the industrial-strength power tool you can fall back to, if
  * gdk_pixbuf_scale_simple() isn't powerful enough.
  *
  * If the source rectangle overlaps the destination rectangle on the
@@ -148,6 +105,7 @@ gdk_pixbuf_scale (const GdkPixbuf *src,
  * 
  * Creates a transformation of the source image @src by scaling by
  * @scale_x and @scale_y then translating by @offset_x and @offset_y.
+ *
  * This gives an image in the coordinates of the destination pixbuf.
  * The rectangle (@dest_x, @dest_y, @dest_width, @dest_height)
  * is then alpha blended onto the corresponding rectangle of the
@@ -229,7 +187,6 @@ gdk_pixbuf_composite (const GdkPixbuf *src,
  *
  * See gdk_pixbuf_composite_color_simple() for a simpler variant of this
  * function suitable for many tasks.
- * 
  **/
 void
 gdk_pixbuf_composite_color (const GdkPixbuf *src,
@@ -283,24 +240,26 @@ gdk_pixbuf_composite_color (const GdkPixbuf *src,
  * @dest_height: the height of destination image
  * @interp_type: the interpolation type for the transformation.
  *
- * Create a new #GdkPixbuf containing a copy of @src scaled to
- * @dest_width x @dest_height. Leaves @src unaffected.  @interp_type
- * should be #GDK_INTERP_NEAREST if you want maximum speed (but when
- * scaling down #GDK_INTERP_NEAREST is usually unusably ugly).  The
- * default @interp_type should be #GDK_INTERP_BILINEAR which offers
- * reasonable quality and speed.
+ * Create a new pixbuf containing a copy of `src` scaled to
+ * `dest_width` x `dest_height`.
  *
- * You can scale a sub-portion of @src by creating a sub-pixbuf
- * pointing into @src; see gdk_pixbuf_new_subpixbuf().
+ * This function leaves `src` unaffected.
  *
- * If @dest_width and @dest_height are equal to the @src width and height, a
- * copy of @src is returned, avoiding any scaling.
+ * The `interp_type` should be `GDK_INTERP_NEAREST` if you want maximum
+ * speed (but when scaling down `GDK_INTERP_NEAREST` is usually unusably
+ * ugly). The default `interp_type` should be `GDK_INTERP_BILINEAR` which
+ * offers reasonable quality and speed.
  *
- * For more complicated scaling/alpha blending see gdk_pixbuf_scale()
- * and gdk_pixbuf_composite().
+ * You can scale a sub-portion of `src` by creating a sub-pixbuf
+ * pointing into `src`; see [method@GdkPixbuf.Pixbuf.new_subpixbuf].
+ *
+ * If `dest_width` and `dest_height` are equal to the width and height of
+ * `src`, this function will return an unscaled copy of `src`.
+ *
+ * For more complicated scaling/alpha blending see [method@GdkPixbuf.Pixbuf.scale]
+ * and [method@GdkPixbuf.Pixbuf.composite].
  * 
- * Return value: (nullable) (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
- * allocated for it.
+ * Return value: (nullable) (transfer full): the new pixbuf
  **/
 GdkPixbuf *
 gdk_pixbuf_scale_simple (const GdkPixbuf *src,
@@ -341,12 +300,11 @@ gdk_pixbuf_scale_simple (const GdkPixbuf *src,
  * @color1: the color of check at upper left
  * @color2: the color of the other check
  *
- * Creates a new #GdkPixbuf by scaling @src to @dest_width x
- * @dest_height and alpha blending the result with a checkboard of colors
- * @color1 and @color2.
+ * Creates a new pixbuf by scaling `src` to `dest_width` x `dest_height`
+ * and alpha blending the result with a checkboard of colors `color1`
+ * and `color2`.
  * 
- * Return value: (nullable) (transfer full): the new #GdkPixbuf, or %NULL if not enough memory could be
- * allocated for it.
+ * Return value: (nullable) (transfer full): the new pixbuf
  **/
 GdkPixbuf *
 gdk_pixbuf_composite_color_simple (const GdkPixbuf *src,
@@ -387,10 +345,9 @@ gdk_pixbuf_composite_color_simple (const GdkPixbuf *src,
  * Rotates a pixbuf by a multiple of 90 degrees, and returns the
  * result in a new pixbuf.
  *
- * If @angle is 0, a copy of @src is returned, avoiding any rotation.
+ * If `angle` is 0, this function will return a copy of `src`.
  *
- * Returns: (nullable) (transfer full): the new #GdkPixbuf, or %NULL
- * if not enough memory could be allocated for it.
+ * Returns: (nullable) (transfer full): the new pixbuf
  *
  * Since: 2.6
  */
@@ -489,13 +446,12 @@ gdk_pixbuf_rotate_simple (const GdkPixbuf   *src,
 /**
  * gdk_pixbuf_flip:
  * @src: a #GdkPixbuf
- * @horizontal: %TRUE to flip horizontally, %FALSE to flip vertically
+ * @horizontal: `TRUE` to flip horizontally, `FALSE` to flip vertically
  *
  * Flips a pixbuf horizontally or vertically and returns the
  * result in a new pixbuf.
  *
- * Returns: (nullable) (transfer full): the new #GdkPixbuf, or %NULL
- * if not enough memory could be allocated for it.
+ * Returns: (nullable) (transfer full): the new pixbuf
  *
  * Since: 2.6
  */

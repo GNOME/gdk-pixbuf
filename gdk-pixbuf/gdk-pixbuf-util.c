@@ -27,41 +27,35 @@
 #include "gdk-pixbuf-private.h"
 
 /**
- * SECTION:util
- * @Short_description: Utility and miscellaneous convenience functions.
- * @Title: Utilities
- * @See_also: #GdkPixbuf
- * 
- * These functions provide miscellaneous utilities for manipulating
- * pixbufs.  The pixel data in pixbufs may of course be manipulated
- * directly by applications, but several common operations can be
- * performed by these functions instead.
- */
-
-
-/**
  * gdk_pixbuf_add_alpha:
  * @pixbuf: A #GdkPixbuf.
- * @substitute_color: Whether to set a color to zero opacity.  If this
- * is %FALSE, then the (@r, @g, @b) arguments will be ignored.
+ * @substitute_color: Whether to set a color to zero opacity.
  * @r: Red value to substitute.
  * @g: Green value to substitute.
  * @b: Blue value to substitute.
  *
  * Takes an existing pixbuf and adds an alpha channel to it.
+ *
  * If the existing pixbuf already had an alpha channel, the channel
  * values are copied from the original; otherwise, the alpha channel
  * is initialized to 255 (full opacity).
  * 
- * If @substitute_color is %TRUE, then the color specified by (@r, @g, @b) will be
- * assigned zero opacity. That is, if you pass (255, 255, 255) for the
- * substitute color, all white pixels will become fully transparent.
+ * If `substitute_color` is `TRUE`, then the color specified by the
+ * (`r`, `g`, `b`) arguments will be assigned zero opacity. That is,
+ * if you pass `(255, 255, 255)` for the substitute color, all white
+ * pixels will become fully transparent.
  *
- * Return value: (transfer full): A newly-created pixbuf with a reference count of 1.
+ * If `substitute_color` is `FALSE`, then the (`r`, `g`, `b`) arguments
+ * will be ignored.
+ *
+ * Return value: (transfer full): A newly-created pixbuf
  **/
 GdkPixbuf *
 gdk_pixbuf_add_alpha (const GdkPixbuf *pixbuf,
-		      gboolean substitute_color, guchar r, guchar g, guchar b)
+                      gboolean substitute_color,
+                      guchar r,
+                      guchar g,
+                      guchar b)
 {
 	GdkPixbuf *new_pixbuf;
 	int x, y;
@@ -135,8 +129,9 @@ gdk_pixbuf_add_alpha (const GdkPixbuf *pixbuf,
  * @dest_x: X coordinate within @dest_pixbuf.
  * @dest_y: Y coordinate within @dest_pixbuf.
  *
- * Copies a rectangular area from @src_pixbuf to @dest_pixbuf.  Conversion of
- * pixbuf formats is done automatically.
+ * Copies a rectangular area from `src_pixbuf` to `dest_pixbuf`.
+ *
+ * Conversion of pixbuf formats is done automatically.
  *
  * If the source rectangle overlaps the destination rectangle on the
  * same pixbuf, it will be overwritten during the copy operation.
@@ -181,21 +176,27 @@ gdk_pixbuf_copy_area (const GdkPixbuf *src_pixbuf,
  * @saturation: saturation factor
  * @pixelate: whether to pixelate
  *
- * Modifies saturation and optionally pixelates @src, placing the result in
- * @dest. @src and @dest may be the same pixbuf with no ill effects.  If
- * @saturation is 1.0 then saturation is not changed. If it's less than 1.0,
- * saturation is reduced (the image turns toward grayscale); if greater than
- * 1.0, saturation is increased (the image gets more vivid colors). If @pixelate
- * is %TRUE, then pixels are faded in a checkerboard pattern to create a
- * pixelated image. @src and @dest must have the same image format, size, and
+ * Modifies saturation and optionally pixelates `src`, placing the result in
+ * `dest`.
+ *
+ * The `src` and `dest` pixbufs must have the same image format, size, and
  * rowstride.
+ *
+ * The `src` and `dest` arguments may be the same pixbuf with no ill effects.
+ *
+ * If `saturation` is 1.0 then saturation is not changed. If it's less than 1.0,
+ * saturation is reduced (the image turns toward grayscale); if greater than
+ * 1.0, saturation is increased (the image gets more vivid colors).
+ *
+ * If `pixelate` is `TRUE`, then pixels are faded in a checkerboard pattern to
+ * create a pixelated image.
  * 
  **/
 void
-gdk_pixbuf_saturate_and_pixelate(const GdkPixbuf *src,
-                                 GdkPixbuf *dest,
-                                 gfloat saturation,
-                                 gboolean pixelate)
+gdk_pixbuf_saturate_and_pixelate (const GdkPixbuf *src,
+                                  GdkPixbuf *dest,
+                                  gfloat saturation,
+                                  gboolean pixelate)
 {
         /* NOTE that src and dest MAY be the same pixbuf! */
   
@@ -271,20 +272,20 @@ gdk_pixbuf_saturate_and_pixelate(const GdkPixbuf *src,
 
 /**
  * gdk_pixbuf_apply_embedded_orientation:
- * @src: A #GdkPixbuf.
+ * @src: a pixbuf with an orientation option
  *
  * Takes an existing pixbuf and checks for the presence of an
- * associated "orientation" option, which may be provided by the 
- * jpeg loader (which reads the exif orientation tag) or the 
- * tiff loader (which reads the tiff orientation tag, and
- * compensates it for the partial transforms performed by 
- * libtiff). If an orientation option/tag is present, the
- * appropriate transform will be performed so that the pixbuf
- * is oriented correctly.
+ * associated "orientation" option.
  *
- * Return value: (transfer full): A newly-created pixbuf, %NULL if
- * not enough memory could be allocated for it, or a reference to the
- * input pixbuf (with an increased reference count).
+ * The orientation option may be provided by the JPEG loader (which
+ * reads the exif orientation tag) or the TIFF loader (which reads
+ * the TIFF orientation tag, and compensates it for the partial
+ * transforms performed by libtiff).
+ *
+ * If an orientation option/tag is present, the appropriate transform
+ * will be performed so that the pixbuf is oriented correctly.
+ *
+ * Return value: (transfer full) (nullable): A newly-created pixbuf
  *
  * Since: 2.12
  **/

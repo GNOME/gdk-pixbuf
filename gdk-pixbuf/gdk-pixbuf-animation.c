@@ -30,19 +30,28 @@
 #include <glib/gstdio.h>
 
 /**
- * SECTION:animation
- * @Short_description: Animated images.
- * @Title: Animations
- * @See_also: #GdkPixbufLoader.
+ * GdkPixbufAnimation:
+ *
+ * An opaque object representing an animation.
  *
  * The GdkPixBuf library provides a simple mechanism to load and
  * represent animations. An animation is conceptually a series of
- * frames to be displayed over time. The animation may not be
- * represented as a series of frames internally; for example, it may
- * be stored as a sprite and instructions for moving the sprite around
- * a background. To display an animation you don't need to understand
- * its representation, however; you just ask GdkPixBuf what should
+ * frames to be displayed over time.
+ *
+ * The animation may not be represented as a series of frames
+ * internally; for example, it may be stored as a sprite and
+ * instructions for moving the sprite around a background.
+ *
+ * To display an animation you don't need to understand its
+ * representation, however; you just ask `GdkPixbuf` what should
  * be displayed at a given point in time.
+ */
+
+/**
+ * GdkPixbufAnimationIter:
+ *
+ * An opaque object representing an iterator which points to a
+ * certain position in an animation.
  */
 
 typedef struct _GdkPixbufNonAnim GdkPixbufNonAnim;
@@ -138,18 +147,19 @@ noop_updated_notify (GdkPixbuf *pixbuf,
 /**
  * gdk_pixbuf_animation_new_from_file:
  * @filename: (type filename): Name of file to load, in the GLib file
- *     name encoding
+ *   name encoding
  * @error: return location for error
  *
- * Creates a new animation by loading it from a file. The file format is
- * detected automatically. If the file's format does not support multi-frame
- * images, then an animation with a single frame will be created. Possible errors
- * are in the #GDK_PIXBUF_ERROR and #G_FILE_ERROR domains.
+ * Creates a new animation by loading it from a file.
  *
- * Return value: A newly-created animation with a reference count of 1, or %NULL
- * if any of several error conditions ocurred:  the file could not be opened,
- * there was no loader for the file's format, there was not enough memory to
- * allocate the image buffer, or the image file contained invalid data.
+ * The file format is detected automatically.
+ *
+ * If the file's format does not support multi-frame images, then an animation
+ * with a single frame will be created.
+ *
+ * Possible errors are in the `GDK_PIXBUF_ERROR` and `G_FILE_ERROR` domains.
+ *
+ * Return value: (transfer full) (nullable): A newly-created animation
  */
 GdkPixbufAnimation *
 gdk_pixbuf_animation_new_from_file (const gchar  *filename,
@@ -320,7 +330,7 @@ fail_begin_load:
  *
  * Same as gdk_pixbuf_animation_new_from_file()
  *
- * Return value: A newly-created animation with a reference count of 1, or %NULL
+ * Return value: A newly-created animation with a reference count of 1, or `NULL`
  * if any of several error conditions ocurred:  the file could not be opened,
  * there was no loader for the file's format, there was not enough memory to
  * allocate the image buffer, or the image file contained invalid data.
@@ -335,24 +345,24 @@ gdk_pixbuf_animation_new_from_file_utf8 (const gchar  *filename,
 
 /**
  * gdk_pixbuf_animation_new_from_stream:
- * @stream:  a #GInputStream to load the pixbuf from
- * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
+ * @stream:  a `GInputStream` to load the pixbuf from
+ * @cancellable: (nullable): optional `GCancellable` object
  * @error: Return location for an error
  *
  * Creates a new animation by loading it from an input stream.
  *
- * The file format is detected automatically. If %NULL is returned, then
- * @error will be set. The @cancellable can be used to abort the operation
- * from another thread. If the operation was cancelled, the error
- * %G_IO_ERROR_CANCELLED will be returned. Other possible errors are in
- * the #GDK_PIXBUF_ERROR and %G_IO_ERROR domains.
+ * The file format is detected automatically.
+ *
+ * If `NULL` is returned, then @error will be set.
+ *
+ * The @cancellable can be used to abort the operation from another thread.
+ * If the operation was cancelled, the error `G_IO_ERROR_CANCELLED` will be
+ * returned. Other possible errors are in the `GDK_PIXBUF_ERROR` and
+ * `G_IO_ERROR` domains.
  *
  * The stream is not closed.
  *
- * Return value: A newly-created pixbuf, or %NULL if any of several error
- * conditions occurred: the file could not be opened, the image format is
- * not supported, there was not enough memory to allocate the image buffer,
- * the stream contained invalid data, or the operation was cancelled.
+ * Return value: (transfer full) (nullable): A newly-created animation
  *
  * Since: 2.28
  */
@@ -433,8 +443,8 @@ animation_new_from_stream_thread (GTask        *task,
 /**
  * gdk_pixbuf_animation_new_from_stream_async:
  * @stream: a #GInputStream from which to load the animation
- * @cancellable: (allow-none): optional #GCancellable object, %NULL to ignore
- * @callback: a #GAsyncReadyCallback to call when the pixbuf is loaded
+ * @cancellable: (nullable): optional #GCancellable object
+ * @callback: a `GAsyncReadyCallback` to call when the pixbuf is loaded
  * @user_data: the data to pass to the callback function
  *
  * Creates a new animation by asynchronously loading an image from an input stream.
@@ -442,7 +452,7 @@ animation_new_from_stream_thread (GTask        *task,
  * For more details see gdk_pixbuf_new_from_stream(), which is the synchronous
  * version of this function.
  *
- * When the operation is finished, @callback will be called in the main thread.
+ * When the operation is finished, `callback` will be called in the main thread.
  * You can then call gdk_pixbuf_animation_new_from_stream_finish() to get the
  * result of the operation.
  *
@@ -469,13 +479,12 @@ gdk_pixbuf_animation_new_from_stream_async (GInputStream        *stream,
 /**
  * gdk_pixbuf_animation_new_from_stream_finish:
  * @async_result: a #GAsyncResult
- * @error: a #GError, or %NULL
+ * @error: a #GError, or `NULL`
  *
  * Finishes an asynchronous pixbuf animation creation operation started with
- * gdk_pixbuf_animation_new_from_stream_async().
+ * [func@GdkPixbuf.PixbufAnimation.new_from_stream_async].
  *
- * Return value: a #GdkPixbufAnimation or %NULL on error. Free the returned
- * object with g_object_unref().
+ * Return value: (transfer full) (nullable): the newly created animation
  *
  * Since: 2.28
  **/
@@ -499,13 +508,10 @@ gdk_pixbuf_animation_new_from_stream_finish (GAsyncResult  *async_result,
  *
  * Creates a new pixbuf animation by loading an image from an resource.
  *
- * The file format is detected automatically. If %NULL is returned, then
+ * The file format is detected automatically. If `NULL` is returned, then
  * @error will be set.
  *
- * Return value: A newly-created animation, or %NULL if any of several error
- * conditions occurred: the file could not be opened, the image format is
- * not supported, there was not enough memory to allocate the image buffer,
- * the stream contained invalid data, or the operation was cancelled.
+ * Return value: (transfer full) (nullable): A newly-created animation
  *
  * Since: 2.28
  */
@@ -567,12 +573,14 @@ gdk_pixbuf_animation_unref (GdkPixbufAnimation *animation)
  * gdk_pixbuf_animation_is_static_image:
  * @animation: a #GdkPixbufAnimation
  *
+ * Checks whether the animation is a static image.
+ *
  * If you load a file with gdk_pixbuf_animation_new_from_file() and it
  * turns out to be a plain, unanimated image, then this function will
- * return %TRUE. Use gdk_pixbuf_animation_get_static_image() to retrieve
+ * return `TRUE`. Use gdk_pixbuf_animation_get_static_image() to retrieve
  * the image.
  *
- * Return value: %TRUE if the "animation" was really just an image
+ * Return value: `TRUE` if the "animation" was really just an image
  */
 gboolean
 gdk_pixbuf_animation_is_static_image (GdkPixbufAnimation *animation)
@@ -586,12 +594,17 @@ gdk_pixbuf_animation_is_static_image (GdkPixbufAnimation *animation)
  * gdk_pixbuf_animation_get_static_image:
  * @animation: a #GdkPixbufAnimation
  *
+ * Retrieves a static image for the animation.
+ *
  * If an animation is really just a plain image (has only one frame),
- * this function returns that image. If the animation is an animation,
- * this function returns a reasonable thing to display as a static
- * unanimated image, which might be the first frame, or something more
- * sophisticated. If an animation hasn't loaded any frames yet, this
- * function will return %NULL.
+ * this function returns that image.
+ *
+ * If the animation is an animation, this function returns a reasonable
+ * image to use as a static unanimated image, which might be the first
+ * frame, or something more sophisticated depending on the file format.
+ *
+ * If an animation hasn't loaded any frames yet, this function will
+ * return `NULL`.
  *
  * Return value: (transfer none): unanimated image representing the animation
  */
@@ -653,9 +666,10 @@ gdk_pixbuf_animation_get_height (GdkPixbufAnimation *animation)
  * @animation: a #GdkPixbufAnimation
  * @start_time: (allow-none): time when the animation starts playing
  *
- * Get an iterator for displaying an animation. The iterator provides
- * the frames that should be displayed at a given time. It should be
- * freed after use with g_object_unref().
+ * Get an iterator for displaying an animation.
+ *
+ * The iterator provides the frames that should be displayed at a
+ * given time.
  *
  * @start_time would normally come from g_get_current_time(), and marks
  * the beginning of animation playback. After creating an iterator, you
@@ -667,7 +681,7 @@ gdk_pixbuf_animation_get_height (GdkPixbufAnimation *animation)
  * the image is updated, you should reinstall the timeout with the new,
  * possibly-changed delay time.
  *
- * As a shortcut, if @start_time is %NULL, the result of
+ * As a shortcut, if @start_time is `NULL`, the result of
  * g_get_current_time() will be used automatically.
  *
  * To update the image (i.e. possibly change the result of
@@ -678,14 +692,14 @@ gdk_pixbuf_animation_get_height (GdkPixbufAnimation *animation)
  * after the delay time, you should also update it whenever you
  * receive the area_updated signal and
  * gdk_pixbuf_animation_iter_on_currently_loading_frame() returns
- * %TRUE. In this case, the frame currently being fed into the loader
+ * `TRUE`. In this case, the frame currently being fed into the loader
  * has received new data, so needs to be refreshed. The delay time for
  * a frame may also be modified after an area_updated signal, for
  * example if the delay time for a frame is encoded in the data after
  * the frame itself. So your timeout should be reinstalled after any
  * area_updated signal.
  *
- * A delay time of -1 is possible, indicating "infinite."
+ * A delay time of -1 is possible, indicating "infinite".
  *
  * Return value: (transfer full): an iterator to move over the animation
  */
@@ -723,9 +737,10 @@ gdk_pixbuf_animation_iter_init (GdkPixbufAnimationIter *iter)
  * @iter: an animation iterator
  *
  * Gets the number of milliseconds the current pixbuf should be displayed,
- * or -1 if the current pixbuf should be displayed forever. g_timeout_add()
- * conveniently takes a timeout in milliseconds, so you can use a timeout
- * to schedule the next update.
+ * or -1 if the current pixbuf should be displayed forever.
+ *
+ * The `g_timeout_add()` function conveniently takes a timeout in milliseconds,
+ * so you can use a timeout to schedule the next update.
  *
  * Note that some formats, like GIF, might clamp the timeout values in the
  * image file to avoid updates that are just too quick. The minimum timeout
@@ -746,17 +761,21 @@ gdk_pixbuf_animation_iter_get_delay_time (GdkPixbufAnimationIter *iter)
  * gdk_pixbuf_animation_iter_get_pixbuf:
  * @iter: an animation iterator
  *
- * Gets the current pixbuf which should be displayed; the pixbuf might not
- * be the same size as the animation itself
+ * Gets the current pixbuf which should be displayed.
+ *
+ * The pixbuf might not be the same size as the animation itself
  * (gdk_pixbuf_animation_get_width(), gdk_pixbuf_animation_get_height()).
- * This pixbuf should be displayed for
- * gdk_pixbuf_animation_iter_get_delay_time() milliseconds. The caller
- * of this function does not own a reference to the returned pixbuf;
- * the returned pixbuf will become invalid when the iterator advances
- * to the next frame, which may happen anytime you call
- * gdk_pixbuf_animation_iter_advance(). Copy the pixbuf to keep it
- * (don't just add a reference), as it may get recycled as you advance
- * the iterator.
+ *
+ * This pixbuf should be displayed for gdk_pixbuf_animation_iter_get_delay_time()
+ * milliseconds.
+ *
+ * The caller of this function does not own a reference to the returned
+ * pixbuf; the returned pixbuf will become invalid when the iterator
+ * advances to the next frame, which may happen anytime you call
+ * gdk_pixbuf_animation_iter_advance().
+ *
+ * Copy the pixbuf to keep it (don't just add a reference), as it may get
+ * recycled as you advance the iterator.
  *
  * Return value: (transfer none): the pixbuf to be displayed
  */
@@ -774,12 +793,13 @@ gdk_pixbuf_animation_iter_get_pixbuf (GdkPixbufAnimationIter *iter)
  * @iter: a #GdkPixbufAnimationIter
  *
  * Used to determine how to respond to the area_updated signal on
- * #GdkPixbufLoader when loading an animation. area_updated is emitted
- * for an area of the frame currently streaming in to the loader. So if
- * you're on the currently loading frame, you need to redraw the screen for
- * the updated area.
+ * #GdkPixbufLoader when loading an animation.
  *
- * Return value: %TRUE if the frame we're on is partially loaded, or the last frame
+ * The `::area_updated` signal is emitted for an area of the frame currently
+ * streaming in to the loader. So if you're on the currently loading frame,
+ * you will need to redraw the screen for the updated area.
+ *
+ * Return value: `TRUE` if the frame we're on is partially loaded, or the last frame
  */
 gboolean
 gdk_pixbuf_animation_iter_on_currently_loading_frame (GdkPixbufAnimationIter *iter)
@@ -795,8 +815,10 @@ gdk_pixbuf_animation_iter_on_currently_loading_frame (GdkPixbufAnimationIter *it
  * @iter: a #GdkPixbufAnimationIter
  * @current_time: (allow-none): current time
  *
- * Possibly advances an animation to a new frame. Chooses the frame based
- * on the start time passed to gdk_pixbuf_animation_get_iter().
+ * Possibly advances an animation to a new frame.
+ *
+ * Chooses the frame based on the start time passed to
+ * gdk_pixbuf_animation_get_iter().
  *
  * @current_time would normally come from g_get_current_time(), and
  * must be greater than or equal to the time passed to
@@ -805,17 +827,17 @@ gdk_pixbuf_animation_iter_on_currently_loading_frame (GdkPixbufAnimationIter *it
  * called. That is, you can't go backward in time; animations only
  * play forward.
  *
- * As a shortcut, pass %NULL for the current time and g_get_current_time()
+ * As a shortcut, pass `NULL` for the current time and g_get_current_time()
  * will be invoked on your behalf. So you only need to explicitly pass
  * @current_time if you're doing something odd like playing the animation
  * at double speed.
  *
- * If this function returns %FALSE, there's no need to update the animation
+ * If this function returns `FALSE`, there's no need to update the animation
  * display, assuming the display had been rendered prior to advancing;
- * if %TRUE, you need to call gdk_pixbuf_animation_iter_get_pixbuf()
+ * if `TRUE`, you need to call gdk_pixbuf_animation_iter_get_pixbuf()
  * and update the display with the new pixbuf.
  *
- * Returns: %TRUE if the image may need updating
+ * Returns: `TRUE` if the image may need updating
  */
 gboolean
 gdk_pixbuf_animation_iter_advance (GdkPixbufAnimationIter *iter,
