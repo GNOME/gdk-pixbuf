@@ -10,8 +10,8 @@
 msgid ""
 msgstr "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
-"POT-Creation-Date: 2020-11-10 02:27+0000\n"
-"PO-Revision-Date: 2021-01-10 10:00+0100\n"
+"POT-Creation-Date: 2021-01-10 12:23+0000\n"
+"PO-Revision-Date: 2021-04-05 10:00+0100\n"
 "Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
 "Language: eu\n"
@@ -233,7 +233,7 @@ msgstr[1] "huts egin du irudiaren bufferra %u byte-rekin esleitzean"
 
 #: gdk-pixbuf/io-ani.c:239
 msgid "Unexpected icon chunk in animation"
-msgstr "Ustekabeko ikono-zatia animazioan"
+msgstr "Ustekabeko ikono-puska animazioan"
 
 #: gdk-pixbuf/io-ani.c:337 gdk-pixbuf/io-ani.c:395 gdk-pixbuf/io-ani.c:421
 #: gdk-pixbuf/io-ani.c:444 gdk-pixbuf/io-ani.c:471 gdk-pixbuf/io-ani.c:558
@@ -247,7 +247,7 @@ msgstr "Ez dago animazioa kargatzeko adina memoria"
 
 #: gdk-pixbuf/io-ani.c:387 gdk-pixbuf/io-ani.c:413 gdk-pixbuf/io-ani.c:432
 msgid "Malformed chunk in animation"
-msgstr "Gaizki osatutako zatia animazioan"
+msgstr "Gaizki osatutako puska animazioan"
 
 #: gdk-pixbuf/io-ani.c:629
 msgid "ANI image was truncated or incomplete."
@@ -320,7 +320,7 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1043
+#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1037
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
@@ -400,8 +400,8 @@ msgstr "WMF"
 msgid "Failure reading GIF: %s"
 msgstr "Ezin izan da GIF irakurri: %s"
 
-#: gdk-pixbuf/io-gif.c:381 gdk-pixbuf/io-gif.c:854 gdk-pixbuf/io-gif.c:907
-#: gdk-pixbuf/io-gif.c:980
+#: gdk-pixbuf/io-gif.c:381 gdk-pixbuf/io-gif.c:848 gdk-pixbuf/io-gif.c:901
+#: gdk-pixbuf/io-gif.c:974
 msgid "Not enough memory to load GIF file"
 msgstr "Ez dago GIF fitxategia kargatzeko adina memoria"
 
@@ -409,34 +409,34 @@ msgstr "Ez dago GIF fitxategia kargatzeko adina memoria"
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "GIF irudia hondatuta dago (LZW konpresio okerra)"
 
-#: gdk-pixbuf/io-gif.c:536
+#: gdk-pixbuf/io-gif.c:543
 msgid "File does not appear to be a GIF file"
 msgstr "Fitxategiak ez dirudi GIF fitxategia"
 
-#: gdk-pixbuf/io-gif.c:551
+#: gdk-pixbuf/io-gif.c:558
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "GIF fitxategi-formatuaren %s bertsioa ez da onartzen"
 
-#: gdk-pixbuf/io-gif.c:586
+#: gdk-pixbuf/io-gif.c:587
 msgid "Resulting GIF image has zero size"
 msgstr "Emaitzako GIF irudiaren tamaina zero da"
 
-#: gdk-pixbuf/io-gif.c:664
+#: gdk-pixbuf/io-gif.c:657
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
 msgstr "GIF irudiak ez du kolore-mapa orokorrik, eta bere barruko markoak ez du kolore-mapa lokalik."
 
-#: gdk-pixbuf/io-gif.c:867 gdk-pixbuf/io-gif.c:992
+#: gdk-pixbuf/io-gif.c:861 gdk-pixbuf/io-gif.c:986
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF fitxategian datu batzuk falta dira (agian nolabait trunkatuta zegoen?)"
 
-#: gdk-pixbuf/io-gif.c:926
+#: gdk-pixbuf/io-gif.c:920
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF irudia trunkatuta edo osatu gabe zegoen."
 
-#: gdk-pixbuf/io-gif.c:933
+#: gdk-pixbuf/io-gif.c:927
 msgid "Not all frames of the GIF image were loaded."
 msgstr "Ez dira GIF irudiaren fotograma guztiak kargatu."
 
@@ -599,18 +599,18 @@ msgstr "Errore larria PNG irudi-fitxategia irakurtzean: %s"
 msgid ""
 "Invalid key “%s”. Keys for PNG text chunks must have at least 1 and at most "
 "79 characters."
-msgstr "“%s” gako baliogabea. PNG testu-zatiek gutxienez karaktere bat eta gehienez 79 karaktere eduki behar dituzte."
+msgstr "“%s” gako baliogabea. PNG testu-puskek gutxienez karaktere bat eta gehienez 79 karaktere eduki behar dituzte."
 
 #: gdk-pixbuf/io-png.c:950
 #, c-format
 msgid "Invalid key “%s”. Keys for PNG text chunks must be ASCII characters."
-msgstr "“%s” gako baliogabea. PNG testu-zatiek ASCII karaktereak izan behar dute.."
+msgstr "“%s” gako baliogabea. PNG testu-puskek ASCII karaktereak izan behar dute.."
 
 #: gdk-pixbuf/io-png.c:980
 #, c-format
 msgid ""
 "Value for PNG text chunk '%s' cannot be converted to ISO-8859-1 encoding."
-msgstr "'%s' PNG testu-zatiaren balioa ezin da bihurtu ISO-8859-1 kodeketara."
+msgstr "'%s' PNG testu-puskaren balioa ezin da bihurtu ISO-8859-1 kodeketara."
 
 #: gdk-pixbuf/io-png.c:992
 #, c-format
