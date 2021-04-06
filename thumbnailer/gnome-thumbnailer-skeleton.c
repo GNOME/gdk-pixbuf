@@ -24,6 +24,7 @@
 #include <gio/gio.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
+#include <locale.h>
 #include <math.h>
 #include <stdlib.h>
 
@@ -237,6 +238,8 @@ int main (int argc, char **argv)
 	char *data = NULL;
 	gsize length;
 #endif
+
+	setlocale (LC_ALL, "");
 
 #if !GLIB_CHECK_VERSION(2, 36, 0)
 	g_type_init ();
