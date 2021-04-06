@@ -193,7 +193,7 @@ endif
 # On non-Windows/macOS/android systems we always required shared-mime-info and GIO
 # shared_mime_dep = []
 shared_mime_dep = []
-if get_option('gio_sniffing') and host_system != 'windows' and host_system != 'darwin' and host_system != 'android'
+if get_option('gio_sniffing') and host_system not in ['windows', 'darwin', 'android']
   shared_mime_dep += dependency('shared-mime-info')
   gdk_pixbuf_conf.set('GDK_PIXBUF_USE_GIO_MIME', 1)
 endif

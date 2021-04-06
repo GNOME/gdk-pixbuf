@@ -17,7 +17,8 @@ option('builtin_loaders',
 option('gtk_doc',
        description: 'Whether to generate the API reference',
        type: 'boolean',
-       value: false)
+       value: false,
+       yield: true)
 option('docs',
        description: 'Whether to generate the whole documentation (see: gtk_doc and man options) [Deprecated]',
        type: 'boolean',
