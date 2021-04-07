@@ -281,7 +281,7 @@ if get_option('png')
     # that will bypass --wrap-mode and cause issues for distro packagers.
     # See: https://mesonbuild.com/Reference-manual.html#dependency
     if not png_dep.found()
-      png_dep = dependency('', required: false, fallback: ['libpng', 'png_dep'])
+      png_dep = dependency('', required: false, fallback: 'libpng')
       if png_dep.found()
         enabled_loaders += 'png'
         loaders_deps += png_dep
