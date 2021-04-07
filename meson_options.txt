@@ -11,9 +11,9 @@ option('jpeg',
        type: 'boolean',
        value: true)
 option('builtin_loaders',
-       description: 'Comma-separated list of loaders to build into gdk-pixbuf, or "none", or "all" to build all buildable loaders into gdk-pixbuf',
+       description: 'Comma-separated list of loaders to build into gdk-pixbuf, or "default", or "none", or "all" to build all buildable loaders into gdk-pixbuf',
        type: 'string',
-       value: 'none')
+       value: 'default')
 option('gtk_doc',
        description: 'Whether to generate the API reference',
        type: 'boolean',
