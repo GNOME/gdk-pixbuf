@@ -245,6 +245,8 @@ builtin_loaders = get_option('builtin_loaders').split(',')
 builtin_all_loaders = false
 if builtin_loaders == [ 'all' ]
   builtin_all_loaders = true
+elif builtin_loaders == [ 'none' ]
+  builtin_loaders = []
 endif
 
 # Loader dependencies
