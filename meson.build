@@ -315,6 +315,11 @@ if get_option('jpeg') and not native_windows_loaders
       # so look for it as well when jpeg.lib cannot be found
       jpeg_dep = cc.find_library('libjpeg', required: false)
     endif
+
+    if not jpeg_dep.found()
+      jpeg_dep = dependency('libjpeg', required: false, fallback: 'libjpeg')
+    endif
+
     if jpeg_dep.found() and cc.has_function('jpeg_destroy_decompress', dependencies: jpeg_dep)
       enabled_loaders += 'jpeg'
       loaders_deps += jpeg_dep
