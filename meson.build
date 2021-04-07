@@ -1,12 +1,13 @@
 project('gdk-pixbuf', 'c',
-        version: '2.42.5',
-        license: 'LGPL-2.1-or-later',
-        default_options: [
-          'buildtype=debugoptimized',
-          'warning_level=1',
-          'c_std=gnu99',
-        ],
-        meson_version: '>= 0.55.3')
+  version: '2.42.5',
+  license: 'LGPL-2.1-or-later',
+  default_options: [
+    'buildtype=debugoptimized',
+    'warning_level=1',
+    'c_std=gnu99',
+  ],
+  meson_version: '>= 0.56.0',
+)
 
 add_project_arguments([ '-D_POSIX_C_SOURCE=200809L', '-D_DEFAULT_SOURCE', '-D_XOPEN_SOURCE=700' ], language: 'c')
 
@@ -193,12 +194,15 @@ endif
 # On non-Windows/macOS/android systems we always required shared-mime-info and GIO
 # shared_mime_dep = []
 shared_mime_dep = []
+use_gio_mime = false
 if get_option('gio_sniffing') and host_system not in ['windows', 'darwin', 'android']
   shared_mime_dep += dependency('shared-mime-info')
   gdk_pixbuf_conf.set('GDK_PIXBUF_USE_GIO_MIME', 1)
+  use_gio_mime = true
 endif
 
 # Check if medialib is available
+use_medialib = false
 medialib_dep = cc.find_library('mlib', required: false)
 if medialib_dep.found()
   if cc.has_function('mlib_ImageSetStruct', dependencies: medialib_dep)
@@ -207,17 +211,27 @@ if medialib_dep.found()
     if cc.has_function('mlib_VideoColorRGBint_to_BGRAint', dependencies: medialib_dep)
       gdk_pixbuf_conf.set('USE_MEDIALIB25', 1)
     endif
+
+    use_medialib = true
   else
     medialib_dep = []
   endif
 endif
 
-gdk_pixbuf_deps = [ mathlib_dep, glib_dep, gobject_dep, gmodule_dep, gio_dep,
-                    shared_mime_dep, medialib_dep, intl_dep ]
+gdk_pixbuf_deps = [
+  mathlib_dep,
+  glib_dep,
+  gobject_dep,
+  gmodule_dep,
+  gio_dep,
+  shared_mime_dep,
+  medialib_dep,
+  intl_dep,
+]
 
 # Check if we can build shared modules
 if gmodule_dep.type_name() == 'pkgconfig'
-  build_modules = gmodule_dep.get_pkgconfig_variable('gmodule_supported') == 'true'
+  build_modules = gmodule_dep.get_variable(pkgconfig: 'gmodule_supported') == 'true'
 else
   build_modules = subproject('glib').get_variable('g_module_impl') != '0'
 endif
@@ -417,22 +431,21 @@ if not meson.is_subproject()
   meson.add_dist_script('build-aux/dist.py')
 endif
 
-summary = [
-  '',
-  'GDK-Pixbuf @0@'.format(meson.project_version()),
-  '==================',
-  '           prefix: @0@'.format(gdk_pixbuf_prefix),
-  '           libdir: @0@'.format(gdk_pixbuf_libdir),
-  '          datadir: @0@'.format(gdk_pixbuf_datadir),
-  '       libexecdir: @0@'.format(gdk_pixbuf_libexecdir),
-  '',
-  '  enabled loaders: @0@'.format(' '.join(enabled_loaders)),
-  '',
-  '    documentation: @0@'.format(build_docs),
-  '        man pages: @0@'.format(get_option('man')),
-  '    introspection: @0@'.format(build_gir),
-  '  installed tests: @0@'.format(get_option('installed_tests')),
-  '      relocatable: @0@'.format(get_option('relocatable')),
-  '',
-]
-message('\n'.join(summary))
+summary('Shared modules', build_modules, section: 'Loaders')
+summary('Enabled loaders', enabled_loaders, section: 'Loaders')
+summary('Builtin loaders', builtin_loaders, section: 'Loaders')
+
+summary('Debugging', get_option('debug'), section: 'Build')
+summary('Optimization', get_option('optimization'), section: 'Build')
+summary('GIO MIME sniffing', use_gio_mime, section: 'Build')
+summary('MediaLib', use_medialib, section: 'Build')
+summary('Introspection', build_gir, section: 'Build')
+summary('Documentation', build_docs, section: 'Build')
+summary('Manual pages', get_option('man'), section: 'Build')
+summary('Relocatable', get_option('relocatable'), section: 'Build')
+summary('Installed tests', get_option('installed_tests'), section: 'Build')
+
+summary('prefix', gdk_pixbuf_prefix, section: 'Directories')
+summary('libdir', gdk_pixbuf_libdir, section: 'Directories')
+summary('datadir', gdk_pixbuf_datadir, section: 'Directories')
+summary('libexecdir', gdk_pixbuf_libdir, section: 'Directories')
