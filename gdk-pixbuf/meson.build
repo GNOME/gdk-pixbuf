@@ -1,27 +1,64 @@
 subdir('pixops')
 
-# Loader libs
-#  - name
-#  - sources
-#  - conditional, otherwise always built
+# Loaders
+#  - sources: additional source files
+#  - c_args: additional C compiler arguments
+#  - enabled: condition for building
 
-# We need to disable the in-house loaders for BMP, GIF and ICO
-# when native_windows_loaders is true
-loaders = [
-  [ 'png', [ 'io-png.c' ], enabled_loaders.contains('png') ],
-  [ 'bmp', [ 'io-bmp.c' ], not native_windows_loaders ],
-  [ 'gif', [ 'io-gif.c', 'io-gif-animation.c', 'lzw.c' ], not native_windows_loaders ],
-  [ 'ico', [ 'io-ico.c' ], not native_windows_loaders ],
-  [ 'ani', [ 'io-ani.c', 'io-ani-animation.c' ] ],
-  [ 'jpeg', [ 'io-jpeg.c' ], enabled_loaders.contains('jpeg') ],
-  [ 'pnm', [ 'io-pnm.c' ] ],
-  [ 'tiff', [ 'io-tiff.c' ], enabled_loaders.contains('tiff') ],
-  [ 'xpm', [ 'io-xpm.c' ] ],
-  [ 'xbm', [ 'io-xbm.c' ] ],
-  [ 'tga', [ 'io-tga.c', 'gdk-pixbuf-buffer-queue.c' ] ],
-  [ 'icns', [ 'io-icns.c' ] ],
-  [ 'qtif', [ 'io-qtif.c' ] ]
-]
+loaders = {
+  'png': {
+    'sources': [ 'io-png.c' ],
+    'enabled': enabled_loaders.contains('png'),
+  },
+  'bmp': {
+    'sources': [ 'io-bmp.c' ],
+    'enabled': not native_windows_loaders,
+  },
+  'gif': {
+    'sources': [ 'io-gif.c', 'io-gif-animation.c', 'lzw.c' ],
+    'enabled': not native_windows_loaders,
+  },
+  'ico': {
+    'sources': [ 'io-ico.c' ],
+    'enabled': not native_windows_loaders,
+  },
+  'ani': {
+    'sources': [ 'io-ani.c', 'io-ani-animation.c' ],
+    'enabled': true,
+  },
+  'jpeg': {
+    'sources': [ 'io-jpeg.c' ],
+    'enabled': enabled_loaders.contains('jpeg'),
+  },
+  'pnm': {
+    'sources': [ 'io-pnm.c' ],
+    'enabled': true,
+  },
+  'tiff': {
+    'sources': [ 'io-tiff.c' ],
+    'enabled': enabled_loaders.contains('tiff'),
+  },
+  'xpm': {
+    'sources': [ 'io-xpm.c' ],
+    'enabled': true,
+  },
+  'xbm': {
+    'sources': [ 'io-xbm.c' ],
+    'enabled': true,
+  },
+  'tga': {
+    'sources': [ 'io-tga.c', 'gdk-pixbuf-buffer-queue.c' ],
+    'enabled': true,
+  },
+  'icns': {
+    'sources': [ 'io-icns.c' ],
+    'enabled': true,
+  },
+  'qtif': {
+    'sources': [ 'io-qtif.c' ],
+    'enabled': true,
+  },
+}
 
 gdk_pixbuf_inc = include_directories('.')
 
@@ -111,11 +148,10 @@ endif
 included_loaders_cflags = []
 included_loaders_deps = []
 
-foreach l: loaders
-  name = l[0]
-  sources = l[1]
-  cond = l.get(2, true)
-  cflags = l.get(3, [])
+foreach name, loader: loaders
+  sources = loader.get('sources', [])
+  cond = loader.get('enabled', true)
+  cflags = loader.get('c_args', [])
 
   if cond and (builtin_loaders.contains(name) or builtin_all_loaders)
     cflag_for_included_loader = ['-DINCLUDE_@0@'.format(name)]
@@ -242,11 +278,10 @@ gdkpixbuf_dep = declare_dependency(
 dynamic_loaders = []
 dynamic_loaders_dep = []
 
-foreach l: loaders
-  name = l[0]
-  sources = l[1]
-  cond = l.get(2, true)
-  cflags = l.get(3, [])
+foreach name, loader: loaders
+  sources = loader.get('sources', [])
+  cond = loader.get('enabled', true)
+  cflags = loader.get('c_args', [])
   name_suffix = []
 
   # FIXME: workaround for https://gitlab.gnome.org/GNOME/glib/issues/1413
@@ -274,8 +309,8 @@ endforeach
 # Build the loaders using native Windows components as dynamic modules, if requested
 if native_windows_loaders
   if not (builtin_loaders.contains('windows') or builtin_all_loaders)
-    foreach loader: windows_native_loader_formats
-      loader_sources = windows_base_loader_sources + [ 'io-gdip-@0@.c'.format(loader) ]
+    foreach name, loader: windows_native_loader_formats
+      loader_sources = windows_base_loader_sources + [ 'io-gdip-@0@.c'.format(name) ]
 
       mod = shared_module('pixbufloader-gdip-@0@'.format(loader),
                           loader_sources,
