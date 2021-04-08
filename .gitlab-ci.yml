@@ -10,7 +10,7 @@ variables:
   COMMON_MESON_FLAGS: "-Dwerror=true -Dglib:werror=false"
   LOADERS_FLAGS: "-Dpng=true -Djpeg=true -Dtiff=true"
   MESON_TEST_TIMEOUT_MULTIPLIER: 3
-  FEDORA_IMAGE: "registry.gitlab.gnome.org/gnome/gdk-pixbuf/fedora:v2"
+  FEDORA_IMAGE: "registry.gitlab.gnome.org/gnome/gdk-pixbuf/fedora:v3"
 
 .only-default:
   only:

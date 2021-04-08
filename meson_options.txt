@@ -11,9 +11,10 @@ option('jpeg',
        type: 'boolean',
        value: true)
 option('builtin_loaders',
-       description: 'Comma-separated list of loaders to build into gdk-pixbuf, or "none", or "all" to build all buildable loaders into gdk-pixbuf',
-       type: 'string',
-       value: 'none')
+       description: 'Comma-separated list of loaders to build into gdk-pixbuf',
+       type: 'array',
+       choices: ['all', 'none', 'windows', 'png', 'bmp', 'gif', 'ico', 'ani', 'jpeg', 'pnm', 'tiff', 'xpm', 'xbm', 'tga', 'icns', 'qtif'],
+       value: ['png', 'jpeg'])
 option('gtk_doc',
        description: 'Whether to generate the API reference',
        type: 'boolean',
