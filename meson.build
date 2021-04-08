@@ -237,21 +237,15 @@ else
 endif
 gdk_pixbuf_conf.set('USE_GMODULE', build_modules)
 
-# We want these loaders to be built into gdk-pixbuf unless
-# the builtin_loaders option specifies otherwise
-default_builtin_loaders = [ 'png', 'jpeg' ]
-
 # Check which loaders should be built into gdk-pixbuf
-builtin_loaders = get_option('builtin_loaders').split(',')
+builtin_loaders = get_option('builtin_loaders')
 
 # If 'all' is specified for builtin_loaders, build all
 # buildable loaders into gdk-pixbuf
 builtin_all_loaders = false
-if builtin_loaders == [ 'all' ]
+if builtin_loaders.contains('all')
   builtin_all_loaders = true
-elif builtin_loaders == [ 'default' ]
-  builtin_loaders = default_builtin_loaders
-elif builtin_loaders == [ 'none' ]
+elif builtin_loaders.contains('none')
   builtin_loaders = []
 endif
 
