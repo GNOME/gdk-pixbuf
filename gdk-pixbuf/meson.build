@@ -366,23 +366,21 @@ else
   loaders_dep = declare_dependency()
 endif
 
-pkg_variables = {
-  'bindir': '${prefix}/@0@'.format(get_option('bindir')),
-  'gdk_pixbuf_binary_version': gdk_pixbuf_binary_version,
-  'gdk_pixbuf_binarydir': '${libdir}/@0@/@1@'.format(gdk_pixbuf_api_name, gdk_pixbuf_binary_version),
-  'gdk_pixbuf_moduledir': '${gdk_pixbuf_binarydir}/loaders',
-  'gdk_pixbuf_cache_file': '${gdk_pixbuf_binarydir}/loaders.cache',
-  'gdk_pixbuf_csource': '${bindir}/gdk-pixbuf-csource',
-  'gdk_pixbuf_pixdata': '${bindir}/gdk-pixbuf-pixdata',
-  'gdk_pixbuf_query_loaders': '${bindir}/gdk-pixbuf-query-loaders',
-}
-
 pkgconfig = import('pkgconfig')
 pkgconfig.generate(
   gdkpixbuf,
   name: 'GdkPixbuf',
   description: 'Image loading and scaling',
-  variables: pkg_variables,
+  variables: [
+    'bindir=${prefix}/@0@'.format(get_option('bindir')),
+    'gdk_pixbuf_binary_version=@0@'.format(gdk_pixbuf_binary_version),
+    'gdk_pixbuf_binarydir=${libdir}/@0@/@1@'.format(gdk_pixbuf_api_name, gdk_pixbuf_binary_version),
+    'gdk_pixbuf_moduledir=${gdk_pixbuf_binarydir}/loaders',
+    'gdk_pixbuf_cache_file=${gdk_pixbuf_binarydir}/loaders.cache',
+    'gdk_pixbuf_csource=${bindir}/gdk-pixbuf-csource',
+    'gdk_pixbuf_pixdata=${bindir}/gdk-pixbuf-pixdata',
+    'gdk_pixbuf_query_loaders=${bindir}/gdk-pixbuf-query-loaders',
+  ],
   requires: 'gobject-2.0',
   subdirs: gdk_pixbuf_api_name,
   filebase: gdk_pixbuf_api_name,
