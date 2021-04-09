@@ -1,3 +1,15 @@
+2.42.6 (stable)
+===
+
+ - Disable shared-mime-info dependency on Android [BogDan Vatra, !104]
+ - Yield gtk_doc option value in subprojects
+ - Always initialise locale on thumbnailer startup [Bastien Nocera, !110]
+ - Add fallback subproject for libjpeg [Benjamin Otte, !109]
+ - Install API reference directly under $datadir/doc/gdk-pixbuf
+ - Use type:array for the builtin_loaders option
+ - Default to using builtin png and jpeg loaders
+ - Replace platform-specific post-install script files with a Python script
+
 2.42.4 (stable)
 ===
 
