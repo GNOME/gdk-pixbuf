@@ -1307,10 +1307,10 @@ gdk_pixbuf__bmp_image_load_increment(gpointer data,
 
 		case READ_STATE_PALETTE:
 			if (!DecodeColormap (context->buff, context, error)) {
-				g_set_error (error,
-					     GDK_PIXBUF_ERROR,
-					     GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-					     _("Error while decoding colormap"));
+				g_set_error_literal (error,
+					             GDK_PIXBUF_ERROR,
+					             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+					             _("Error while decoding colormap"));
 				return FALSE;
 			}
 			break;
