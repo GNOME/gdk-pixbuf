@@ -297,7 +297,7 @@ if get_option('png')
     # that will bypass --wrap-mode and cause issues for distro packagers.
     # See: https://mesonbuild.com/Reference-manual.html#dependency
     if not png_dep.found()
-      png_dep = dependency('', required: false, fallback: 'libpng')
+      png_dep = dependency('', required: false, fallback: ['libpng', 'png_dep'])
       if png_dep.found()
         enabled_loaders += 'png'
         loaders_deps += png_dep
@@ -324,25 +324,38 @@ endif
 
 # Don't check and build the jpeg loader if native_windows_loaders is true
 if get_option('jpeg') and not native_windows_loaders
-  if cc.has_header('jpeglib.h')
+  jpeg_dep = dependency('libjpeg', required: false)
+
+  if not jpeg_dep.found() and cc.has_header('jpeglib.h')
     jpeg_dep = cc.find_library('jpeg', required: false)
     if cc.get_id() == 'msvc' and not jpeg_dep.found()
       # The IJG JPEG library builds the .lib file as libjpeg.lib in its MSVC build system,
       # so look for it as well when jpeg.lib cannot be found
       jpeg_dep = cc.find_library('libjpeg', required: false)
     endif
+  endif
 
-    if not jpeg_dep.found()
-      jpeg_dep = dependency('libjpeg', required: false, fallback: 'libjpeg')
+  # If we couldn't find libjpeg in our include/linker paths,
+  # then use pkg-config, and if that fails, fall back to the
+  # wrap
+  if not jpeg_dep.found()
+    jpeg_dep = dependency('libjpeg', required: false, fallback: ['libjpeg', 'jpeg_dep'])
+  endif
+
+  if jpeg_dep.found()
+    enabled_loaders += 'jpeg'
+    loaders_deps += jpeg_dep
+
+    if jpeg_dep.type_name() == 'internal'
+      has_destroy_decompress = true
+      has_simple_progression = true
+    else
+      has_destroy_decompress = cc.has_function('jpeg_destroy_decompress', dependencies: jpeg_dep)
+      has_simple_progression = cc.has_function('jpeg_simple_progression', dependencies: jpeg_dep)
     endif
 
-    if jpeg_dep.found() and cc.has_function('jpeg_destroy_decompress', dependencies: jpeg_dep)
-      enabled_loaders += 'jpeg'
-      loaders_deps += jpeg_dep
-
-      gdk_pixbuf_conf.set('HAVE_PROGRESSIVE_JPEG',
-                          cc.has_function('jpeg_simple_progression',
-                                          dependencies: jpeg_dep))
+    if has_destroy_decompress and has_simple_progression
+      gdk_pixbuf_conf.set('HAVE_PROGRESSIVE_JPEG', has_simple_progression)
     endif
   endif
 endif
