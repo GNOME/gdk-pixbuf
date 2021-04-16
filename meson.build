@@ -351,8 +351,13 @@ if get_option('jpeg') and not native_windows_loaders
   endif
 
   if jpeg_dep.found()
-    has_destroy_decompress = cc.has_function('jpeg_destroy_decompress', dependencies: jpeg_dep)
-    has_simple_progression = cc.has_function('jpeg_simple_progression', dependencies: jpeg_dep)
+    if jpeg_dep.type_name() == 'internal'
+      has_destroy_decompress = true
+      has_simple_progression = true
+    else
+      has_destroy_decompress = cc.has_function('jpeg_destroy_decompress', dependencies: jpeg_dep)
+      has_simple_progression = cc.has_function('jpeg_simple_progression', dependencies: jpeg_dep)
+    endif
 
     if has_destroy_decompress and has_simple_progression
       gdk_pixbuf_conf.set('HAVE_PROGRESSIVE_JPEG', has_simple_progression)
