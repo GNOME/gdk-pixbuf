@@ -324,33 +324,28 @@ endif
 
 # Don't check and build the jpeg loader if native_windows_loaders is true
 if get_option('jpeg') and not native_windows_loaders
-  if cc.has_header('jpeglib.h')
+  jpeg_dep = dependency('libjpeg', required: false)
+
+  if not jpeg_dep.found() and cc.has_header('jpeglib.h')
     jpeg_dep = cc.find_library('jpeg', required: false)
     if cc.get_id() == 'msvc' and not jpeg_dep.found()
       # The IJG JPEG library builds the .lib file as libjpeg.lib in its MSVC build system,
       # so look for it as well when jpeg.lib cannot be found
       jpeg_dep = cc.find_library('libjpeg', required: false)
     endif
-
-    if jpeg_dep.found()
-      enabled_loaders += 'jpeg'
-      loaders_deps += jpeg_dep
-    endif
   endif
 
   # If we couldn't find libjpeg in our include/linker paths,
   # then use pkg-config, and if that fails, fall back to the
   # wrap
-  if not enabled_loaders.contains('jpeg')
+  if not jpeg_dep.found()
     jpeg_dep = dependency('libjpeg', required: false, fallback: ['libjpeg', 'jpeg_dep'])
-
-    if jpeg_dep.found()
-      enabled_loaders += 'jpeg'
-      loaders_deps += jpeg_dep
-    endif
   endif
 
   if jpeg_dep.found()
+    enabled_loaders += 'jpeg'
+    loaders_deps += jpeg_dep
+
     if jpeg_dep.type_name() == 'internal'
       has_destroy_decompress = true
       has_simple_progression = true
