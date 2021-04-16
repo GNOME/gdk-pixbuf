@@ -297,7 +297,7 @@ if get_option('png')
     # that will bypass --wrap-mode and cause issues for distro packagers.
     # See: https://mesonbuild.com/Reference-manual.html#dependency
     if not png_dep.found()
-      png_dep = dependency('', required: false, fallback: 'libpng')
+      png_dep = dependency('', required: false, fallback: ['libpng', 'png_dep'])
       if png_dep.found()
         enabled_loaders += 'png'
         loaders_deps += png_dep
@@ -342,7 +342,7 @@ if get_option('jpeg') and not native_windows_loaders
   # then use pkg-config, and if that fails, fall back to the
   # wrap
   if not enabled_loaders.contains('jpeg')
-    jpeg_dep = dependency('libjpeg', required: false, fallback: 'libjpeg')
+    jpeg_dep = dependency('libjpeg', required: false, fallback: ['libjpeg', 'jpeg_dep'])
 
     if jpeg_dep.found()
       enabled_loaders += 'jpeg'
