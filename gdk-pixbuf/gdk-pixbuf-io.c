@@ -393,6 +393,7 @@ gdk_pixbuf_io_init_modules (const char  *filename,
 
         channel = g_io_channel_new_file (filename, "r",  &local_error);
         if (!channel) {
+                char *filename_utf8 = g_filename_display_name (filename);
                 g_set_error (error,
                              G_IO_ERROR,
                              G_IO_ERROR_INVALID_ARGUMENT,
@@ -401,9 +402,10 @@ gdk_pixbuf_io_init_modules (const char  *filename,
                              "Try running the command\n"
                              "  gdk-pixbuf-query-loaders > %s\n"
                              "to make things work again for the time being.",
-                             filename, local_error->message, filename);
+                             filename_utf8, local_error->message, filename_utf8);
                 g_clear_error (&local_error);
                 g_string_free (tmp_buf, TRUE);
+                g_free (filename_utf8);
                 return FALSE;
         }
 
@@ -544,11 +546,13 @@ gdk_pixbuf_io_init_modules (const char  *filename,
         g_io_channel_unref (channel);
 
         if (g_slist_length (file_formats) <= num_formats) {
+                char *filename_utf8 = g_filename_display_name (filename);
                 g_set_error (error,
                              G_IO_ERROR,
                              G_IO_ERROR_NOT_INITIALIZED,
                              "No new GdkPixbufModule loaded from '%s'",
-                             filename);
+                             filename_utf8);
+                g_free (filename_utf8);
                 return FALSE;
         }
 #endif
@@ -797,11 +801,13 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
                 module = g_module_open (path, G_MODULE_BIND_LAZY | G_MODULE_BIND_LOCAL);
 
                 if (!module) {
+                        char *path_utf8 = g_filename_display_name (path);
                         g_set_error (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_FAILED,
                                      _("Unable to load image-loading module: %s: %s"),
-                                     path, g_module_error ());
+                                     path_utf8, g_module_error ());
+                        g_free (path_utf8);
                         return FALSE;
                 }
 
@@ -812,11 +818,13 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
                         (* fill_vtable) (image_module);
                         return TRUE;
                 } else {
+                        char *path_utf8 = g_filename_display_name (path);
                         g_set_error (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_FAILED,
                                      _("Image-loading module %s does not export the proper interface; perhaps it’s from a different gdk-pixbuf version?"),
-                                     path);
+                                     path_utf8);
+                        g_free (path_utf8);
                         return FALSE;
                 }
         }
