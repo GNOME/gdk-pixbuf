@@ -309,8 +309,8 @@ endforeach
 # Build the loaders using native Windows components as dynamic modules, if requested
 if native_windows_loaders
   if not (builtin_loaders.contains('windows') or builtin_all_loaders)
-    foreach name, loader: windows_native_loader_formats
-      loader_sources = windows_base_loader_sources + [ 'io-gdip-@0@.c'.format(name) ]
+    foreach loader: windows_native_loader_formats
+      loader_sources = windows_base_loader_sources + [ 'io-gdip-@0@.c'.format(loader) ]
 
       mod = shared_module('pixbufloader-gdip-@0@'.format(loader),
                           loader_sources,
