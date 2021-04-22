@@ -552,7 +552,7 @@ jpeg_destroy_exif_context (JpegExifContext *context)
 
 /* Shared library entry point */
 static GdkPixbuf *
-gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
+gdk_pixbuf__real_jpeg_image_load (FILE *f, struct jpeg_decompress_struct *cinfo, GError **error)
 {
 	gint   i;
 	char   otag_str[5];
@@ -565,7 +565,6 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
                            * at most 4."
 			   */
 	guchar **lptr;
-	struct jpeg_decompress_struct cinfo;
 	struct error_handler_data jerr;
 	stdio_src_ptr src;
 	gchar *icc_profile_base64;
@@ -573,7 +572,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 	JpegExifContext exif_context = { 0, };
 
 	/* setup error handler */
-	cinfo.err = jpeg_std_error (&jerr.pub);
+	cinfo->err = jpeg_std_error (&jerr.pub);
 	jerr.pub.error_exit = fatal_error_handler;
         jerr.pub.output_message = output_message_handler;
         jerr.error = error;
@@ -583,7 +582,7 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 		if (pixbuf)
 			g_object_unref (pixbuf);
 
-		jpeg_destroy_decompress (&cinfo);
+		jpeg_destroy_decompress (cinfo);
 		jpeg_destroy_exif_context (&exif_context);
 
 		/* error should have been set by fatal_error_handler () */
@@ -591,14 +590,14 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 	}
 
 	/* load header, setup */
-	jpeg_create_decompress (&cinfo);
+	jpeg_create_decompress (cinfo);
 
-	cinfo.src = (struct jpeg_source_mgr *)
-	  (*cinfo.mem->alloc_small) ((j_common_ptr) &cinfo, JPOOL_PERMANENT,
+	cinfo->src = (struct jpeg_source_mgr *)
+	  (*cinfo->mem->alloc_small) ((j_common_ptr) cinfo, JPOOL_PERMANENT,
 				  sizeof (stdio_source_mgr));
-	src = (stdio_src_ptr) cinfo.src;
+	src = (stdio_src_ptr) cinfo->src;
 	src->buffer = (JOCTET *)
-	  (*cinfo.mem->alloc_small) ((j_common_ptr) &cinfo, JPOOL_PERMANENT,
+	  (*cinfo->mem->alloc_small) ((j_common_ptr) cinfo, JPOOL_PERMANENT,
 				      JPEG_PROG_BUF_SIZE * sizeof (JOCTET));
 
 	src->pub.init_source = stdio_init_source;
@@ -610,21 +609,23 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 	src->pub.bytes_in_buffer = 0; /* forces fill_input_buffer on first read */
 	src->pub.next_input_byte = NULL; /* until buffer loaded */
 
-	jpeg_save_markers (&cinfo, JPEG_APP0+1, 0xffff);
-	jpeg_save_markers (&cinfo, JPEG_APP0+2, 0xffff);
-	jpeg_save_markers (&cinfo, JPEG_COM, 0xffff);
-	jpeg_read_header (&cinfo, TRUE);
+	jpeg_save_markers (cinfo, JPEG_APP0+1, 0xffff);
+	jpeg_save_markers (cinfo, JPEG_APP0+2, 0xffff);
+	jpeg_save_markers (cinfo, JPEG_COM, 0xffff);
+	jpeg_read_header (cinfo, TRUE);
 
 	/* parse exif data */
-	jpeg_parse_exif (&exif_context, &cinfo);
+	jpeg_parse_exif (&exif_context, cinfo);
 	
-	jpeg_start_decompress (&cinfo);
-	cinfo.do_fancy_upsampling = FALSE;
-	cinfo.do_block_smoothing = FALSE;
+	jpeg_start_decompress (cinfo);
+	cinfo->do_fancy_upsampling = FALSE;
+	cinfo->do_block_smoothing = FALSE;
 
 	pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, 
-				 cinfo.out_color_components == 4 ? TRUE : FALSE, 
-				 8, cinfo.output_width, cinfo.output_height);
+				 cinfo->out_color_components == 4 ? TRUE : FALSE, 
+				 8,
+                                 cinfo->output_width,
+                                 cinfo->output_height);
 	      
 	if (!pixbuf) {
                 /* broken check for *error == NULL for robustness against
@@ -640,28 +641,28 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 		goto out; 
 	}
 
-	comment = jpeg_get_comment (&cinfo);
+	comment = jpeg_get_comment (cinfo);
 	if (comment != NULL) {
 		gdk_pixbuf_set_option (pixbuf, "comment", comment);
 		g_free (comment);
 	}
 
-	switch (cinfo.density_unit) {
+	switch (cinfo->density_unit) {
 	case 1:
 		/* Dots per inch (no conversion required) */
-		density_str = g_strdup_printf ("%d", cinfo.X_density);
+		density_str = g_strdup_printf ("%d", cinfo->X_density);
 		gdk_pixbuf_set_option (pixbuf, "x-dpi", density_str);
 		g_free (density_str);
-		density_str = g_strdup_printf ("%d", cinfo.Y_density);
+		density_str = g_strdup_printf ("%d", cinfo->Y_density);
 		gdk_pixbuf_set_option (pixbuf, "y-dpi", density_str);
 		g_free (density_str);
 		break;
 	case 2:
 		/* Dots per cm - convert into dpi */
-		density_str = g_strdup_printf ("%d", DPCM_TO_DPI (cinfo.X_density));
+		density_str = g_strdup_printf ("%d", DPCM_TO_DPI (cinfo->X_density));
 		gdk_pixbuf_set_option (pixbuf, "x-dpi", density_str);
 		g_free (density_str);
-		density_str = g_strdup_printf ("%d", DPCM_TO_DPI (cinfo.Y_density));
+		density_str = g_strdup_printf ("%d", DPCM_TO_DPI (cinfo->Y_density));
 		gdk_pixbuf_set_option (pixbuf, "y-dpi", density_str);
 		g_free (density_str);
 		break;
@@ -683,24 +684,24 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 	dptr = gdk_pixbuf_get_pixels (pixbuf);
 
 	/* decompress all the lines, a few at a time */
-	while (cinfo.output_scanline < cinfo.output_height) {
+	while (cinfo->output_scanline < cinfo->output_height) {
 		lptr = lines;
-		for (i = 0; i < cinfo.rec_outbuf_height; i++) {
+		for (i = 0; i < cinfo->rec_outbuf_height; i++) {
 			*lptr++ = dptr;
 			dptr += gdk_pixbuf_get_rowstride (pixbuf);
 		}
 
-		jpeg_read_scanlines (&cinfo, lines, cinfo.rec_outbuf_height);
+		jpeg_read_scanlines (cinfo, lines, cinfo->rec_outbuf_height);
 
-		switch (cinfo.out_color_space) {
+		switch (cinfo->out_color_space) {
 		    case JCS_GRAYSCALE:
-		      explode_gray_into_buf (&cinfo, lines);
+		      explode_gray_into_buf (cinfo, lines);
 		      break;
 		    case JCS_RGB:
 		      /* do nothing */
 		      break;
 		    case JCS_CMYK:
-		      convert_cmyk_to_rgb (&cinfo, lines);
+		      convert_cmyk_to_rgb (cinfo, lines);
 		      break;
 		    default:
 		      g_clear_object (&pixbuf);
@@ -708,17 +709,25 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
                                    GDK_PIXBUF_ERROR,
 				   GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
 				   _("Unsupported JPEG color space (%s)"),
-				   colorspace_name (cinfo.out_color_space));
+				   colorspace_name (cinfo->out_color_space));
 		      goto out;
 		}
 	}
 
 out:
-	jpeg_finish_decompress (&cinfo);
-	jpeg_destroy_decompress (&cinfo);
+	jpeg_finish_decompress (cinfo);
+	jpeg_destroy_decompress (cinfo);
 	jpeg_destroy_exif_context (&exif_context);
 
 	return pixbuf;
+}
+
+static GdkPixbuf *
+gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
+{
+        struct jpeg_decompress_struct cinfo;
+
+        return gdk_pixbuf__real_jpeg_image_load (f, &cinfo, error);
 }
 
 
