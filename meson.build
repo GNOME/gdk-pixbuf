@@ -254,56 +254,40 @@ enabled_loaders = []
 loaders_deps = []
 
 if get_option('png')
-  # We have a vast selection of libpng versions to choose from
-  foreach png: [ 'libpng16', 'libpng15', 'libpng14', 'libpng13', 'libpng12', 'libpng10' ]
-    if not enabled_loaders.contains('png')
-      png_dep = dependency(png, required: false)
+  png_dep = dependency('libpng', required: false)
+
+  if not png_dep.found() and cc.has_header('png.h')
+    # MSVC: First look for the DLL + import .lib build of libpng,
+    # which is normally libpngxx.lib, when libpng's pkg-config can't
+    # be found, which is quite normal on MSVC.
+    foreach png: [ 'libpng16', 'libpng15', 'libpng14', 'libpng12', 'libpng13', 'libpng10' ]
+      png_dep = cc.find_library(png, required: false)
       if png_dep.found()
-        enabled_loaders += 'png'
-        loaders_deps += png_dep
+        break
       endif
-    endif
-  endforeach
+    endforeach
 
-  if not enabled_loaders.contains('png')
-    if cc.get_id() == 'msvc' and cc.has_header('png.h')
-      # MSVC: First look for the DLL + import .lib build of libpng,
-      # which is normally libpngxx.lib, when libpng's pkg-config can't
-      # be found, which is quite normal on MSVC.
-      foreach png: [ 'libpng16', 'libpng15', 'libpng14', 'libpng12', 'libpng13', 'libpng10' ]
-        if not enabled_loaders.contains('png')
-          png_dep = cc.find_library(png, required: false)
-          if png_dep.found()
-            enabled_loaders += 'png'
-            loaders_deps += png_dep
-          endif
-        endif
-      endforeach
-
-      # If we still can't find libpng, try looking for the static libpng.lib,
-      # which means we need to ensure we have the static zlib .lib as well
-      if not enabled_loaders.contains('png')
-        png_dep = cc.find_library('libpng', required: false)
-        zlib_dep = cc.find_library('zlib', required: false)
-        if png_dep.found() and zlib_dep.found()
-          enabled_loaders += 'png'
-          loaders_deps += [ png_dep, zlib_dep ]
-        endif
-      endif
-    endif
-
-    # Finally, look for the dependency in a fallback subproject if allowed by
-    # the --wrap-mode option. We don't directly call subproject() here because
-    # that will bypass --wrap-mode and cause issues for distro packagers.
-    # See: https://mesonbuild.com/Reference-manual.html#dependency
+    # If we still can't find libpng, try looking for the static libpng.lib,
+    # which means we need to ensure we have the static zlib .lib as well
     if not png_dep.found()
-      png_dep = dependency('', required: false, fallback: ['libpng', 'png_dep'])
-      if png_dep.found()
-        enabled_loaders += 'png'
-        loaders_deps += png_dep
+      png_dep = cc.find_library('libpng', required: false)
+      zlib_dep = cc.find_library('zlib', required: false)
+      if png_dep.found() and zlib_dep.found()
+        loaders_deps += zlib_dep
       endif
     endif
   endif
+
+  # Finally, look for the dependency in a fallback subproject if allowed by
+  # the --wrap-mode option. We don't directly call subproject() here because
+  # that will bypass --wrap-mode and cause issues for distro packagers.
+  # See: https://mesonbuild.com/Reference-manual.html#dependency
+  if not png_dep.found()
+    png_dep = dependency('libpng', fallback: ['libpng', 'png_dep'])
+  endif
+
+  enabled_loaders += 'png'
+  loaders_deps += png_dep
 endif
 
 # On Windows, check whether we are building the native Windows loaders
@@ -335,28 +319,24 @@ if get_option('jpeg') and not native_windows_loaders
     endif
   endif
 
-  # If we couldn't find libjpeg in our include/linker paths,
-  # then use pkg-config, and if that fails, fall back to the
-  # wrap
+  # Finally, look for the dependency in a fallback
   if not jpeg_dep.found()
-    jpeg_dep = dependency('libjpeg', required: false, fallback: ['libjpeg', 'jpeg_dep'])
+    jpeg_dep = dependency('libjpeg', fallback: ['libjpeg-turbo', 'jpeg_dep'])
   endif
 
-  if jpeg_dep.found()
-    enabled_loaders += 'jpeg'
-    loaders_deps += jpeg_dep
+  enabled_loaders += 'jpeg'
+  loaders_deps += jpeg_dep
 
-    if jpeg_dep.type_name() == 'internal'
-      has_destroy_decompress = true
-      has_simple_progression = true
-    else
-      has_destroy_decompress = cc.has_function('jpeg_destroy_decompress', dependencies: jpeg_dep)
-      has_simple_progression = cc.has_function('jpeg_simple_progression', dependencies: jpeg_dep)
-    endif
+  if jpeg_dep.type_name() == 'internal'
+    has_destroy_decompress = true
+    has_simple_progression = true
+  else
+    has_destroy_decompress = cc.has_function('jpeg_destroy_decompress', dependencies: jpeg_dep)
+    has_simple_progression = cc.has_function('jpeg_simple_progression', dependencies: jpeg_dep)
+  endif
 
-    if has_destroy_decompress and has_simple_progression
-      gdk_pixbuf_conf.set('HAVE_PROGRESSIVE_JPEG', has_simple_progression)
-    endif
+  if has_destroy_decompress and has_simple_progression
+    gdk_pixbuf_conf.set('HAVE_PROGRESSIVE_JPEG', has_simple_progression)
   endif
 endif
 
@@ -372,14 +352,12 @@ if get_option('tiff') and not native_windows_loaders
       if not tiff_dep.found()
         # For the static lib, zlib and libjpeg .lib's have been looked for first, and
         # they are optional for libtiff
-        tiff_dep = cc.find_library('libtiff', required: false)
+        tiff_dep = cc.find_library('libtiff')
       endif
     endif
   endif
-  if tiff_dep.found()
-    enabled_loaders += 'tiff'
-    loaders_deps += tiff_dep
-  endif
+  enabled_loaders += 'tiff'
+  loaders_deps += tiff_dep
 endif
 
 # Determine whether we enable application bundle relocation support, and we use
