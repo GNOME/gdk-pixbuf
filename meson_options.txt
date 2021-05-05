@@ -1,15 +1,15 @@
 option('png',
        description: 'Enable PNG loader (requires libpng)',
-       type: 'boolean',
-       value: true)
+       type: 'feature',
+       value: 'enabled')
 option('tiff',
        description: 'Enable TIFF loader (requires libtiff), disabled on Windows if "native_windows_loaders" is used',
-       type: 'boolean',
-       value: true)
+       type: 'feature',
+       value: 'auto')
 option('jpeg',
        description: 'Enable JPEG loader (requires libjpeg), disabled on Windows if "native_windows_loaders" is used',
-       type: 'boolean',
-       value: true)
+       type: 'feature',
+       value: 'enabled')
 option('builtin_loaders',
        description: 'Comma-separated list of loaders to build into gdk-pixbuf',
        type: 'array',
