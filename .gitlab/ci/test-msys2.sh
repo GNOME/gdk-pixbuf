@@ -21,9 +21,9 @@ pacman --noconfirm -S --needed \
     mingw-w64-$MSYS2_ARCH-toolchain
 
 meson setup --buildtype debug \
-    -Dpng=true \
-    -Djpeg=true \
-    -Dtiff=true \
+    -Dpng=enabled \
+    -Djpeg=enabled \
+    -Dtiff=enabled \
     _build
 
 meson compile -C _build

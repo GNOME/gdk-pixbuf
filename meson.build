@@ -253,7 +253,8 @@ endif
 enabled_loaders = []
 loaders_deps = []
 
-if get_option('png')
+png_opt = get_option('png')
+if not png_opt.disabled()
   png_dep = dependency('libpng', required: false)
 
   if not png_dep.found() and cc.has_header('png.h')
@@ -283,11 +284,16 @@ if get_option('png')
   # that will bypass --wrap-mode and cause issues for distro packagers.
   # See: https://mesonbuild.com/Reference-manual.html#dependency
   if not png_dep.found()
-    png_dep = dependency('libpng', fallback: ['libpng', 'png_dep'])
+    png_dep = dependency('libpng',
+      fallback: ['libpng', 'png_dep'],
+      required: png_opt,
+    )
   endif
 
-  enabled_loaders += 'png'
-  loaders_deps += png_dep
+  if png_dep.found()
+    enabled_loaders += 'png'
+    loaders_deps += png_dep
+  endif
 endif
 
 # On Windows, check whether we are building the native Windows loaders
@@ -307,7 +313,8 @@ if native_windows_loaders
 endif
 
 # Don't check and build the jpeg loader if native_windows_loaders is true
-if get_option('jpeg') and not native_windows_loaders
+jpeg_opt = get_option('jpeg')
+if not jpeg_opt.disabled() and not native_windows_loaders
   jpeg_dep = dependency('libjpeg', required: false)
 
   if not jpeg_dep.found() and cc.has_header('jpeglib.h')
@@ -321,43 +328,55 @@ if get_option('jpeg') and not native_windows_loaders
 
   # Finally, look for the dependency in a fallback
   if not jpeg_dep.found()
-    jpeg_dep = dependency('libjpeg', fallback: ['libjpeg-turbo', 'jpeg_dep'])
+    jpeg_dep = dependency('libjpeg',
+      fallback: ['libjpeg-turbo', 'jpeg_dep'],
+      required: jpeg_opt,
+    )
   endif
 
-  enabled_loaders += 'jpeg'
-  loaders_deps += jpeg_dep
+  if jpeg_dep.found()
+    enabled_loaders += 'jpeg'
+    loaders_deps += jpeg_dep
 
-  if jpeg_dep.type_name() == 'internal'
-    has_destroy_decompress = true
-    has_simple_progression = true
-  else
-    has_destroy_decompress = cc.has_function('jpeg_destroy_decompress', dependencies: jpeg_dep)
-    has_simple_progression = cc.has_function('jpeg_simple_progression', dependencies: jpeg_dep)
-  endif
+    if jpeg_dep.type_name() == 'internal'
+      has_destroy_decompress = true
+      has_simple_progression = true
+    else
+      has_destroy_decompress = cc.has_function('jpeg_destroy_decompress', dependencies: jpeg_dep)
+      has_simple_progression = cc.has_function('jpeg_simple_progression', dependencies: jpeg_dep)
+    endif
 
-  if has_destroy_decompress and has_simple_progression
-    gdk_pixbuf_conf.set('HAVE_PROGRESSIVE_JPEG', has_simple_progression)
+    if has_destroy_decompress and has_simple_progression
+      gdk_pixbuf_conf.set('HAVE_PROGRESSIVE_JPEG', has_simple_progression)
+    endif
   endif
 endif
 
 # Don't check and build the tiff loader if native_windows_loaders is true
-if get_option('tiff') and not native_windows_loaders
+tiff_opt = get_option('tiff')
+if not tiff_opt.disabled() and not native_windows_loaders
   tiff_dep = dependency('libtiff-4', required: false)
-  if not tiff_dep.found()
-    # Fallback when no pkg-config file is found for libtiff on MSVC, which is quite normal
-    if cc.get_id() == 'msvc' and cc.has_header('tiff.h')
-      # First look for the DLL builds of libtiff, then the static builds
-      tiff_dep = cc.find_library('libtiff_i', required: false)
+  if not tiff_dep.found() and cc.has_header('tiff.h')
+    # First look for the DLL builds of libtiff, then the static builds
+    tiff_dep = cc.find_library('libtiff_i', required: false)
 
-      if not tiff_dep.found()
-        # For the static lib, zlib and libjpeg .lib's have been looked for first, and
-        # they are optional for libtiff
-        tiff_dep = cc.find_library('libtiff')
-      endif
+    if not tiff_dep.found()
+      # For the static lib, zlib and libjpeg .lib's have been looked for first, and
+      # they are optional for libtiff
+      tiff_dep = cc.find_library('libtiff', required: false)
     endif
   endif
-  enabled_loaders += 'tiff'
-  loaders_deps += tiff_dep
+
+  # We currently don't have a fallback subproject, but this handles error
+  # reporting if tiff_opt is enabled.
+  if not tiff_dep.found()
+    tiff_dep = dependency('libtiff-4', required: tiff_opt)
+  endif
+
+  if tiff_dep.found()
+    enabled_loaders += 'tiff'
+    loaders_deps += tiff_dep
+  endif
 endif
 
 # Determine whether we enable application bundle relocation support, and we use
