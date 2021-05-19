@@ -817,7 +817,7 @@ gdk_pixbuf_get_bits_per_sample (const GdkPixbuf *pixbuf)
  * This function will cause an implicit copy of the pixbuf data if the
  * pixbuf was created from read-only data.
  *
- * Please see the section on [image data](#image-data) for information
+ * Please see the section on [image data](class.Pixbuf.html#image-data) for information
  * about how the pixel data is stored in memory.
  *
  * Return value: (array): A pointer to the pixbuf's pixel data.
@@ -864,7 +864,7 @@ downgrade_to_pixels (const GdkPixbuf *pixbuf)
  * This function will cause an implicit copy of the pixbuf data if the
  * pixbuf was created from read-only data.
  *
- * Please see the section on [image data](#image-data) for information
+ * Please see the section on [image data](class.Pixbuf.html#image-data) for information
  * about how the pixel data is stored in memory.
  *
  * Return value: (array length=length): A pointer to the pixbuf's
