@@ -285,7 +285,7 @@ if not png_opt.disabled()
   # See: https://mesonbuild.com/Reference-manual.html#dependency
   if not png_dep.found()
     png_dep = dependency('libpng',
-      fallback: ['libpng', 'png_dep'],
+      fallback: ['libpng', 'libpng_dep'],
       required: png_opt,
     )
   endif
