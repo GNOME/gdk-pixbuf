@@ -270,7 +270,7 @@ typedef GdkPixbufAnimation *(* GdkPixbufModuleLoadAnimationFunc) (FILE *f,
  * [callback@GdkPixbuf.PixbufModuleIncrementLoadFunc] callback, and will be freed
  * by [callback@GdkPixbuf.PixbufModuleStopLoadFunc] callback.
  *
- * Returns: (transfer full) (nullable): the data to be passed to
+ * Returns: (transfer full): the data to be passed to
  *   [callback@GdkPixbuf.PixbufModuleIncrementLoadFunc]
  *   and [callback@GdkPixbuf.PixbufModuleStopLoadFunc], or `NULL` in case of error
  */
