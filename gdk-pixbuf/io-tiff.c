@@ -29,6 +29,7 @@
 
 #include "config.h"
 #include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
@@ -97,13 +98,13 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
 	gint width, height, rowstride, bytes;
 	GdkPixbuf *pixbuf;
 	guint16 bits_per_sample = 0;
-	uint16 orientation = 0;
-	uint16 transform = 0;
-        uint16 codec;
+	uint16_t orientation = 0;
+	uint16_t transform = 0;
+        uint16_t codec;
         gchar *icc_profile_base64;
         const gchar *icc_profile;
         guint icc_profile_size;
-        uint16 resolution_unit;
+        uint16_t resolution_unit;
         gchar *density_str;
         gint retval;
 
@@ -279,7 +280,7 @@ tiff_image_parse (TIFF *tiff, TiffContext *context, GError **error)
 	if (context)
 		(* context->prepared_func) (pixbuf, NULL, context->user_data);
 
-	if (!TIFFReadRGBAImageOriented (tiff, width, height, (uint32 *)pixels, ORIENTATION_TOPLEFT, 1)) {
+	if (!TIFFReadRGBAImageOriented (tiff, width, height, (uint32_t *)pixels, ORIENTATION_TOPLEFT, 1)) {
 		g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_FAILED,
@@ -951,7 +952,7 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
 
         if (x_dpi != NULL && y_dpi != NULL) {
                 char *endptr = NULL;
-                uint16 resolution_unit = RESUNIT_INCH;
+                uint16_t resolution_unit = RESUNIT_INCH;
                 float x_dpi_value, y_dpi_value;
 
                 x_dpi_value = strtol (x_dpi, &endptr, 10);
