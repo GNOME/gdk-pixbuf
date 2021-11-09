@@ -214,56 +214,189 @@ struct _GdkPixbufModulePattern {
 	int relevance;
 };
 
+/**
+ * GdkPixbufModuleLoadFunc:
+ * @f: the file stream from which the image should be loaded
+ * @error: return location for a loading error
+ *
+ * Loads a file from a standard C file stream into a new `GdkPixbuf`.
+ *
+ * In case of error, this function should return `NULL` and set the `error` argument.
+ *
+ * Returns: (transfer full): a `GdkPixbuf` with the contents of the file
+ */
+typedef GdkPixbuf *(* GdkPixbufModuleLoadFunc) (FILE *f,
+                                                GError **error);
+
+/**
+ * GdkPixbufModuleLoadXpmDataFunc:
+ * @data: the XPM data, as an array
+ *
+ * Loads XPM data into a new `GdkPixbuf`.
+ *
+ * Returns: (transfer full): a `GdkPixbuf` with the XPM data
+ */
+typedef GdkPixbuf *(* GdkPixbufModuleLoadXpmDataFunc) (const char **data);
+
+/**
+ * GdkPixbufModuleLoadAnimationFunc:
+ * @f: the file stream from which the image should be loaded
+ * @error: return location for a loading error
+ *
+ * Loads a file from a standard C file stream into a new `GdkPixbufAnimation`.
+ *
+ * In case of error, this function should return `NULL` and set the `error` argument.
+ *
+ * Returns: (transfer full): a `GdkPixbufAnimation` with the contents of the file
+ */
+typedef GdkPixbufAnimation *(* GdkPixbufModuleLoadAnimationFunc) (FILE *f,
+                                                                  GError **error);
+
+/**
+ * GdkPixbufModuleBeginLoadFunc:
+ * @size_func: the function to be called when the size is known
+ * @prepared_func: the function to be called when the data has been prepared
+ * @updated_func: the function to be called when the data has been updated
+ * @user_data: the data to be passed to the functions
+ * @error: return location for a loading error
+ *
+ * Sets up the image loading state.
+ *
+ * The image loader is responsible for storing the given function pointers
+ * and user data, and call them when needed.
+ *
+ * The image loader should set up an internal state object, and return it
+ * from this function; the state object will then be updated from the
+ * [callback@GdkPixbuf.PixbufModuleIncrementLoadFunc] callback, and will be freed
+ * by [callback@GdkPixbuf.PixbufModuleStopLoadFunc] callback.
+ *
+ * Returns: (transfer full) (nullable): the data to be passed to
+ *   [callback@GdkPixbuf.PixbufModuleIncrementLoadFunc]
+ *   and [callback@GdkPixbuf.PixbufModuleStopLoadFunc], or `NULL` in case of error
+ */
+typedef gpointer (* GdkPixbufModuleBeginLoadFunc) (GdkPixbufModuleSizeFunc size_func,
+                                                   GdkPixbufModulePreparedFunc prepared_func,
+                                                   GdkPixbufModuleUpdatedFunc updated_func,
+                                                   gpointer user_data,
+                                                   GError **error);
+
+/**
+ * GdkPixbufModuleStopLoadFunc:
+ * @context: (transfer full): the state object created by [callback@GdkPixbuf.PixbufModuleBeginLoadFunc]
+ * @error: return location for a loading error
+ *
+ * Finalizes the image loading state.
+ *
+ * This function is called on success and error states.
+ *
+ * Returns: `TRUE` if the loading operation was successful
+ */
+typedef gboolean (* GdkPixbufModuleStopLoadFunc) (gpointer context,
+                                                  GError **error);
+
+/**
+ * GdkPixbufModuleIncrementLoadFunc:
+ * @context: (transfer none): the state object created by [callback@GdkPixbuf.PixbufModuleBeginLoadFunc]
+ * @buf: (array length=size) (element-type guint8): the data to load
+ * @size: the length of the data to load
+ * @error: return location for a loading error
+ *
+ * Incrementally loads a buffer into the image data.
+ *
+ * Returns: `TRUE` if the incremental load was successful
+ */
+typedef gboolean (* GdkPixbufModuleIncrementLoadFunc) (gpointer context,
+                                                       const guchar *buf,
+                                                       guint size,
+                                                       GError **error);
+
+/**
+ * GdkPixbufModuleSaveFunc:
+ * @f: the file stream into which the image should be saved
+ * @pixbuf: the image to save
+ * @param_keys: (nullable) (array zero-terminated=1): parameter keys to save
+ * @param_values: (nullable) (array zero-terminated=1): parameter values to save
+ * @error: return location for a saving error
+ *
+ * Saves a `GdkPixbuf` into a standard C file stream.
+ *
+ * The optional `param_keys` and `param_values` arrays contain the keys and
+ * values (in the same order) for attributes to be saved alongside the image
+ * data.
+ *
+ * Returns: `TRUE` on success; in case of failure, `FALSE` is returned and
+ *   the `error` is set
+ */
+typedef gboolean (* GdkPixbufModuleSaveFunc) (FILE *f,
+                                              GdkPixbuf *pixbuf,
+                                              gchar **param_keys,
+                                              gchar **param_values,
+                                              GError **error);
+
+/**
+ * GdkPixbufModuleSaveCallbackFunc:
+ * @save_func: the function to call when saving
+ * @user_data: (closure): the data to pass to @save_func
+ * @pixbuf: the `GdkPixbuf` to save
+ * @option_keys: (nullable) (array zero-terminated=1): an array of option names
+ * @option_values: (nullable) (array zero-terminated=1): an array of option values
+ * @error: return location for a save error
+ *
+ * Saves a `GdkPixbuf` by calling the provided function.
+ *
+ * The optional `option_keys` and `option_values` arrays contain the keys and
+ * values (in the same order) for attributes to be saved alongside the image
+ * data.
+ *
+ * Returns: `TRUE` on success; in case of failure, `FALSE` is returned and
+ *   the `error` is set
+ */
+typedef gboolean (* GdkPixbufModuleSaveCallbackFunc) (GdkPixbufSaveFunc save_func,
+                                                      gpointer user_data,
+                                                      GdkPixbuf *pixbuf,
+                                                      gchar **option_keys,
+                                                      gchar **option_values,
+                                                      GError **error);
+
+/**
+ * GdkPixbufModuleSaveOptionSupportedFunc:
+ * @option_key: the option key to check
+ *
+ * Checks whether the given `option_key` is supported when saving.
+ *
+ * Returns: `TRUE` if the option is supported
+ */
+typedef gboolean (* GdkPixbufModuleSaveOptionSupportedFunc) (const gchar *option_key);
+
 typedef struct _GdkPixbufModule GdkPixbufModule;
 struct _GdkPixbufModule {
 	char *module_name;
 	char *module_path;
 	GModule *module;
 	GdkPixbufFormat *info;
-	
-        GdkPixbuf *(* load) (FILE    *f,
-                             GError **error);
-        GdkPixbuf *(* load_xpm_data) (const char **data);
+
+        /* Atomic loading */
+        GdkPixbufModuleLoadFunc load;
+        GdkPixbufModuleLoadXpmDataFunc load_xpm_data;
 
         /* Incremental loading */
-
-        gpointer (* begin_load)     (GdkPixbufModuleSizeFunc size_func,
-                                     GdkPixbufModulePreparedFunc prepared_func,
-                                     GdkPixbufModuleUpdatedFunc updated_func,
-                                     gpointer user_data,
-                                     GError **error);
-        gboolean (* stop_load)      (gpointer context,
-                                     GError **error);
-        gboolean (* load_increment) (gpointer      context,
-                                     const guchar *buf,
-                                     guint         size,
-                                     GError      **error);
+        GdkPixbufModuleBeginLoadFunc begin_load;
+        GdkPixbufModuleStopLoadFunc stop_load;
+        GdkPixbufModuleIncrementLoadFunc load_increment;
 
 	/* Animation loading */
-	GdkPixbufAnimation *(* load_animation) (FILE    *f,
-                                                GError **error);
+        GdkPixbufModuleLoadAnimationFunc load_animation;
 
         /* Saving */
-        gboolean (* save) (FILE      *f,
-                           GdkPixbuf *pixbuf,
-                           gchar    **param_keys,
-                           gchar    **param_values,
-                           GError   **error);
+        GdkPixbufModuleSaveFunc save;
+        GdkPixbufModuleSaveCallbackFunc save_to_callback;
+        GdkPixbufModuleSaveOptionSupportedFunc is_save_option_supported;
 
-        gboolean (*save_to_callback) (GdkPixbufSaveFunc save_func,
-				      gpointer user_data,
-				      GdkPixbuf *pixbuf,
-				      gchar **option_keys,
-				      gchar **option_values,
-				      GError **error);
-  
-        gboolean (* is_save_option_supported) (const gchar *option_key);
-
-  /*< private >*/
-	void (*_reserved1) (void); 
-	void (*_reserved2) (void); 
-	void (*_reserved3) (void); 
-	void (*_reserved4) (void);
+        /*< private >*/
+        void (*_reserved1) (void);
+        void (*_reserved2) (void);
+        void (*_reserved3) (void);
+        void (*_reserved4) (void);
 };
 
 /**
@@ -275,7 +408,6 @@ struct _GdkPixbufModule {
  * 
  * Since: 2.2
  */
-
 typedef void (* GdkPixbufModuleFillVtableFunc) (GdkPixbufModule *module);
 
 /**
