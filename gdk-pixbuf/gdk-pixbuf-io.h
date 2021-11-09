@@ -223,18 +223,18 @@ struct _GdkPixbufModulePattern {
  *
  * In case of error, this function should return `NULL` and set the `error` argument.
  *
- * Returns: (transfer full): a `GdkPixbuf` with the contents of the file
+ * Returns: (transfer full): a newly created `GdkPixbuf` for the contents of the file
  */
 typedef GdkPixbuf *(* GdkPixbufModuleLoadFunc) (FILE *f,
                                                 GError **error);
 
 /**
  * GdkPixbufModuleLoadXpmDataFunc:
- * @data: the XPM data, as an array
+ * @data: (array zero-terminated=1): the XPM data
  *
  * Loads XPM data into a new `GdkPixbuf`.
  *
- * Returns: (transfer full): a `GdkPixbuf` with the XPM data
+ * Returns: (transfer full): a newly created `GdkPixbuf` for the XPM data
  */
 typedef GdkPixbuf *(* GdkPixbufModuleLoadXpmDataFunc) (const char **data);
 
@@ -247,7 +247,7 @@ typedef GdkPixbuf *(* GdkPixbufModuleLoadXpmDataFunc) (const char **data);
  *
  * In case of error, this function should return `NULL` and set the `error` argument.
  *
- * Returns: (transfer full): a `GdkPixbufAnimation` with the contents of the file
+ * Returns: (transfer full): a newly created `GdkPixbufAnimation` for the contents of the file
  */
 typedef GdkPixbufAnimation *(* GdkPixbufModuleLoadAnimationFunc) (FILE *f,
                                                                   GError **error);
