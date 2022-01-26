@@ -631,7 +631,7 @@ gdk_pixbuf_new (GdkColorspace colorspace,
 	if (rowstride <= 0)
 		return NULL;
 
-	buf = g_try_malloc_n (height, rowstride);
+	buf = g_try_malloc0_n (height, rowstride);
 	if (!buf)
 		return NULL;
 
