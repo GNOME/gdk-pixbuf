@@ -1,5 +1,5 @@
 # gdk-pixbuf ja.po.
-# Copyright (C) 1998-2012, 2020 Free Software Foundation, Inc.
+# Copyright (C) 1998-2012, 2020, 2022 Free Software Foundation, Inc.
 # Yasuhiro SHIRASAKI <yasuhiro@awa.tohoku.ac.jp>, 1998.
 # Yukihiro Nakai <nakai@gnome.gr.jp>, 2000-2001.
 # Takayuki KUSANO <AE5T-KSN@asahi-net.or.jp>, 2002, 2009-2010, 2012.
@@ -11,14 +11,14 @@
 # Masato Hashimoto <cabezon.hashimoto@gmail.com>, 2010.
 # Jiro Matsuzawa <jmatsuzawa@src.gnome.org>, 2011.
 # Yoji TOYODA <bsyamato@sea.plala.or.jp>, 2012.
-# sicklylife <translation@sicklylife.jp>, 2020.
+# sicklylife <translation@sicklylife.jp>, 2020, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
 "POT-Creation-Date: 2020-12-12 18:15+0000\n"
-"PO-Revision-Date: 2020-01-23 23:00+0900\n"
+"PO-Revision-Date: 2022-01-30 21:00+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -627,51 +627,43 @@ msgid "Fatal error reading PNG image file: %s"
 msgstr "PNG 画像ファイルの読み込み中に致命的なエラー: %s"
 
 #: gdk-pixbuf/io-png.c:937
-#, fuzzy, c-format
-#| msgid ""
-#| "Keys for PNG text chunks must have at least 1 and at most 79 characters."
+#, c-format
 msgid ""
 "Invalid key “%s”. Keys for PNG text chunks must have at least 1 and at most "
 "79 characters."
-msgstr "PNG のテキスト・チャンクのキーは 1〜79 文字にしてください。"
+msgstr ""
+"“%s”は不正なキーです。PNG のテキスト・チャンクのキーは 1〜79 文字にしてください。"
 
 #: gdk-pixbuf/io-png.c:950
-#, fuzzy, c-format
-#| msgid "Keys for PNG text chunks must be ASCII characters."
+#, c-format
 msgid "Invalid key “%s”. Keys for PNG text chunks must be ASCII characters."
-msgstr "PNG のテキスト・チャンクのキーは ASCII 文字にしてください。"
+msgstr ""
+"“%s”は不正なキーです。PNG のテキスト・チャンクのキーは ASCII 文字にしてください。"
 
 #: gdk-pixbuf/io-png.c:980
-#, fuzzy, c-format
-#| msgid ""
-#| "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
+#, c-format
 msgid ""
 "Value for PNG text chunk '%s' cannot be converted to ISO-8859-1 encoding."
 msgstr ""
-"PNG のテキスト・チャンク %s の値を ISO-8859-1 エンコーディングに変換できませ"
+"PNG のテキスト・チャンク '%s' の値を ISO-8859-1 エンコーディングに変換できませ"
 "ん。"
 
 #: gdk-pixbuf/io-png.c:992
-#, fuzzy, c-format
-#| msgid "Color profile has invalid length %d."
+#, c-format
 msgid "Color profile has invalid length %d"
-msgstr "カラープロファイルの長さ %d が不正です。"
+msgstr "カラープロファイルの長さ %d が不正です"
 
 #: gdk-pixbuf/io-png.c:1004
-#, fuzzy, c-format
-#| msgid ""
-#| "PNG compression level must be a value between 0 and 9; value “%d” is not "
-#| "allowed."
+#, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value “%s” is invalid"
-msgstr "PNG の圧縮レベルは 0〜9 の値にしてください。値“%d”は範囲外です。"
+msgstr "PNG の圧縮レベルは 0〜9 の値にしてください (値“%s”は不正です)"
 
 #: gdk-pixbuf/io-png.c:1018
-#, fuzzy, c-format
-#| msgid "PNG x-dpi must be greater than zero; value “%s” is not allowed."
+#, c-format
 msgid "PNG %s must be greater than zero; value “%s” is not allowed"
 msgstr ""
-"PNG の \"X DPI\" は 0 より大きい値にしてください。値“%s”は確保されません。"
+"PNG の %s は 0 より大きい値にしてください (値“%s”は確保されません)"
 
 #: gdk-pixbuf/io-png.c:1246
 msgctxt "image format"
