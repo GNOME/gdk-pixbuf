@@ -121,6 +121,8 @@ lzw_decoder_new (guint8 code_size)
         LZWDecoder *self;
         int i;
 
+        g_return_val_if_fail (code_size <= LZW_CODE_MAX, NULL);
+
         self = g_object_new (lzw_decoder_get_type (), NULL);
 
         self->min_code_size = code_size;
