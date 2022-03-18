@@ -1,3 +1,16 @@
+2.42.8 (stable)
+===
+
+- Clear the pixbuf's memory buffer to avoid returning uninitialized memory [#199]
+- Turn GdkPixbufModule functions into typed callbacks [!123]
+- tiff: Use non-deprecated C99 integer types [!124]
+- gif: Check for overflow when compositing or clearing frames [#190]
+- Change png/jpeg/tiff build options from boolean to feature [!118]
+- jpeg: Do not rely on UB around setjmp/longjmp [#143]
+- Build fixes [!114, #185, #182]
+- Documentation fixes [!120, !125]
+- Translation updates
+
 2.42.6 (stable)
 ===
 
