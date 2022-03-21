@@ -249,35 +249,14 @@ elif builtin_loaders.contains('none')
   builtin_loaders = []
 endif
 
+is_msvc_like = cc.get_argument_syntax() == 'msvc'
 # Loader dependencies
 enabled_loaders = []
 loaders_deps = []
 
 png_opt = get_option('png')
 if not png_opt.disabled()
-  png_dep = dependency('libpng', required: false)
-
-  if not png_dep.found() and cc.has_header('png.h')
-    # MSVC: First look for the DLL + import .lib build of libpng,
-    # which is normally libpngxx.lib, when libpng's pkg-config can't
-    # be found, which is quite normal on MSVC.
-    foreach png: [ 'libpng16', 'libpng15', 'libpng14', 'libpng12', 'libpng13', 'libpng10' ]
-      png_dep = cc.find_library(png, required: false)
-      if png_dep.found()
-        break
-      endif
-    endforeach
-
-    # If we still can't find libpng, try looking for the static libpng.lib,
-    # which means we need to ensure we have the static zlib .lib as well
-    if not png_dep.found()
-      png_dep = cc.find_library('libpng', required: false)
-      zlib_dep = cc.find_library('zlib', required: false)
-      if png_dep.found() and zlib_dep.found()
-        loaders_deps += zlib_dep
-      endif
-    endif
-  endif
+  png_dep = dependency(is_msvc_like ? 'png' : 'libpng', required: false)
 
   # Finally, look for the dependency in a fallback subproject if allowed by
   # the --wrap-mode option. We don't directly call subproject() here because
