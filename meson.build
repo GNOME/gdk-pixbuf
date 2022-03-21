@@ -325,23 +325,9 @@ endif
 # Don't check and build the tiff loader if native_windows_loaders is true
 tiff_opt = get_option('tiff')
 if not tiff_opt.disabled() and not native_windows_loaders
-  tiff_dep = dependency('libtiff-4', required: false)
-  if not tiff_dep.found() and cc.has_header('tiff.h')
-    # First look for the DLL builds of libtiff, then the static builds
-    tiff_dep = cc.find_library('libtiff_i', required: false)
-
-    if not tiff_dep.found()
-      # For the static lib, zlib and libjpeg .lib's have been looked for first, and
-      # they are optional for libtiff
-      tiff_dep = cc.find_library('libtiff', required: false)
-    endif
-  endif
-
   # We currently don't have a fallback subproject, but this handles error
   # reporting if tiff_opt is enabled.
-  if not tiff_dep.found()
-    tiff_dep = dependency('libtiff-4', required: tiff_opt)
-  endif
+  tiff_dep = dependency(is_msvc_like ? 'tiff' : 'libtiff-4', required: tiff_opt)
 
   if tiff_dep.found()
     enabled_loaders += 'tiff'
