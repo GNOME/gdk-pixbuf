@@ -294,16 +294,7 @@ endif
 # Don't check and build the jpeg loader if native_windows_loaders is true
 jpeg_opt = get_option('jpeg')
 if not jpeg_opt.disabled() and not native_windows_loaders
-  jpeg_dep = dependency('libjpeg', required: false)
-
-  if not jpeg_dep.found() and cc.has_header('jpeglib.h')
-    jpeg_dep = cc.find_library('jpeg', required: false)
-    if cc.get_id() == 'msvc' and not jpeg_dep.found()
-      # The IJG JPEG library builds the .lib file as libjpeg.lib in its MSVC build system,
-      # so look for it as well when jpeg.lib cannot be found
-      jpeg_dep = cc.find_library('libjpeg', required: false)
-    endif
-  endif
+  jpeg_dep = dependency(is_msvc_like ? 'jpeg' : 'libjpeg', required: false)
 
   # Finally, look for the dependency in a fallback
   if not jpeg_dep.found()
