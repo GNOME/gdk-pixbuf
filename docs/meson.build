@@ -65,34 +65,36 @@ if build_docs
   )
 endif
 
-xsltproc = find_program('xsltproc', required: false)
-if get_option('man') and xsltproc.found()
-  xlstproc_flags = [
-    '--nonet',
-    '--stringparam', 'man.output.quietly', '1',
-    '--stringparam', 'funcsynopsis.style', 'ansi',
-    '--stringparam', 'man.th.extra1.suppress', '1',
-    '--stringparam', 'man.authors.section.enabled', '0',
-    '--stringparam', 'man.copyright.section.enabled', '0',
+rst2man = find_program('rst2man', required: false)
+if get_option('man') and not rst2man.found()
+  error('No rst2man found, but man pages were explicitly enabled')
+endif
+
+if get_option('man') and rst2man.found()
+  rst_files = [
+    [ 'gdk-pixbuf-csource', ],
+    [ 'gdk-pixbuf-query-loaders', ],
   ]
 
-  man_files = [
-    'gdk-pixbuf-csource',
-    'gdk-pixbuf-query-loaders',
+  rst2man_flags = [
+    '--syntax-highlight=none',
   ]
 
-  foreach m: man_files
-    custom_target(m + '-man',
-                  input: '@0@.xml'.format(m),
-                  output: '@0@.1'.format(m),
-                  command: [
-                    xsltproc,
-                    xlstproc_flags,
-                    '-o', '@OUTPUT@',
-                    'http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl',
-                    '@INPUT@',
-                  ],
-                  install: true,
-                  install_dir: join_paths(gdk_pixbuf_mandir, 'man1'))
+  foreach rst: rst_files
+    man_name = rst[0]
+    man_section = rst.get(1, '1')
+
+    custom_target('man-@0@'.format(man_name),
+      input: '@0@.rst'.format(man_name),
+      output: '@0@.@1@'.format(man_name, man_section),
+      command: [
+        rst2man,
+        rst2man_flags,
+        '@INPUT@',
+      ],
+      capture: true,
+      install: true,
+      install_dir: get_option('mandir') / 'man@0@'.format(man_section),
+    )
   endforeach
 endif
