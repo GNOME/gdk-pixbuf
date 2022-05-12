@@ -414,7 +414,9 @@ subdir('gdk-pixbuf')
 subdir('po')
 
 if not meson.is_cross_build()
-  subdir('tests')
+  if get_option('tests')
+    subdir('tests')
+  endif
   subdir('thumbnailer')
 endif
 
@@ -446,6 +448,7 @@ summary('Introspection', build_gir, section: 'Build')
 summary('Documentation', build_docs, section: 'Build')
 summary('Manual pages', get_option('man'), section: 'Build')
 summary('Relocatable', get_option('relocatable'), section: 'Build')
+summary('Build tests', get_option('tests'), section: 'Build')
 summary('Installed tests', get_option('installed_tests'), section: 'Build')
 
 summary('prefix', gdk_pixbuf_prefix, section: 'Directories')
