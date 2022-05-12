@@ -74,6 +74,7 @@ macos:
     when: always
     paths:
       - "${CI_PROJECT_DIR}/_build/meson-logs"
+  allow_failure: true
 
 msys2-mingw64:
   stage: build
