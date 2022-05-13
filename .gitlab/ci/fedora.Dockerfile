@@ -1,4 +1,4 @@
-FROM fedora:33
+FROM fedora:36
 
 RUN dnf -y install \
         ccache \
@@ -22,6 +22,7 @@ RUN dnf -y install \
         libX11-devel \
         meson \
         python3 \
+        python3-docutils \
         python3-jinja2 \
         python3-markdown \
         python3-pip \
@@ -34,7 +35,7 @@ RUN dnf -y install \
         which \
  && dnf clean all
 
-RUN pip3 install meson==0.56.0
+RUN pip3 install meson==0.56
 
 ARG HOST_USER_ID=5555
 ENV HOST_USER_ID ${HOST_USER_ID}
