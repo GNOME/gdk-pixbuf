@@ -1,4 +1,4 @@
-FROM fedora:33
+FROM fedora:36
 
 RUN dnf -y install \
         ccache \
