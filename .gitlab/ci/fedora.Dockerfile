@@ -22,6 +22,7 @@ RUN dnf -y install \
         libX11-devel \
         meson \
         python3 \
+        python3-docutils \
         python3-jinja2 \
         python3-markdown \
         python3-pip \
