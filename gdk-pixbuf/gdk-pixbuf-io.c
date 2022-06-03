@@ -182,6 +182,8 @@ get_file_formats (void)
         return file_formats;
 }
 
+#ifdef GDK_PIXBUF_RELOCATABLE // implies that gdk-pixbuf is built as a dll on windows
+
 #ifdef G_OS_WIN32
 
 /* DllMain function needed to tuck away the gdk-pixbuf DLL handle */
@@ -202,9 +204,6 @@ DllMain (HINSTANCE hinstDLL,
   return TRUE;
 }
 #endif
-
-
-#ifdef GDK_PIXBUF_RELOCATABLE
 
 gchar *
 gdk_pixbuf_get_toplevel (void)

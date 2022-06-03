@@ -280,7 +280,7 @@ query_module (GString *contents, const char *dir, const char *file)
         g_free (path);
 }
 
-#ifdef G_OS_WIN32
+#if defined(G_OS_WIN32) && defined(GDK_PIXBUF_RELOCATABLE)
 
 static char *
 get_libdir (void)
