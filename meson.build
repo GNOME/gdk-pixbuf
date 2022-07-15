@@ -195,7 +195,7 @@ endif
 # shared_mime_dep = []
 shared_mime_dep = []
 use_gio_mime = false
-if get_option('gio_sniffing') and host_system not in ['windows', 'darwin', 'android']
+if get_option('gio_sniffing') and host_system not in ['windows', 'darwin', 'android','cygwin']
   shared_mime_dep += dependency('shared-mime-info')
   gdk_pixbuf_conf.set('GDK_PIXBUF_USE_GIO_MIME', 1)
   use_gio_mime = true
