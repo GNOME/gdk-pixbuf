@@ -205,6 +205,41 @@ test_jpeg_fbfbfbfb (void)
   g_free (contents);
 }
 
+static void
+test_jpeg_no_eoi (void)
+{
+  GdkPixbufLoader *loader;
+  GdkPixbuf *pixbuf;
+  GError *error = NULL;
+  gchar *contents;
+  gsize size;
+
+  if (!format_supported ("jpeg"))
+    {
+      g_test_skip ("format not supported");
+      return;
+    }
+
+  g_test_message ("Load JPEG with no EOI marker (issue: 209)");
+
+  g_file_get_contents (g_test_get_filename (G_TEST_DIST, "issue209.jpg", NULL), &contents, &size, &error);
+  g_assert_no_error (error);
+
+  loader = gdk_pixbuf_loader_new ();
+
+  gdk_pixbuf_loader_write (loader, (const guchar*)contents, size, &error);
+  g_assert_no_error (error);
+
+  gdk_pixbuf_loader_close (loader, &error);
+  g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE);
+
+  pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
+  g_assert_nonnull (pixbuf);
+
+  g_object_unref (loader);
+  g_free (contents);
+}
+
 int
 main (int argc, char **argv)
 {
@@ -217,6 +252,7 @@ main (int argc, char **argv)
   g_test_add_func ("/pixbuf/jpeg/at_size", test_at_size);
   g_test_add_func ("/pixbuf/jpeg/issue70", test_jpeg_markers);
   g_test_add_func ("/pixbuf/jpeg/issue205", test_jpeg_fbfbfbfb);
+  g_test_add_func ("/pixbuf/jpeg/issue209", test_jpeg_no_eoi);
 
   return g_test_run ();
 }

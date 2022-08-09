@@ -879,7 +879,6 @@ gdk_pixbuf__jpeg_image_stop_load (gpointer data, GError **error)
 				src->buffer[src->skip_next] = (JOCTET) 0xFF;
 				src->buffer[src->skip_next + 1] = (JOCTET) JPEG_EOI;
 				src->pub.next_input_byte = src->buffer + src->skip_next;
-				src->pub.bytes_in_buffer = 2;
 
 				gdk_pixbuf__jpeg_image_load_lines (context, NULL);
 			}
