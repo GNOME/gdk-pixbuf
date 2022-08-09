@@ -1090,6 +1090,8 @@ gdk_pixbuf__jpeg_image_load_increment (gpointer data,
 			jpeg_save_markers (cinfo, JPEG_COM, 0xffff);
 			rc = jpeg_read_header (cinfo, TRUE);
 			context->src_initialized = TRUE;
+
+                        cinfo->mem->max_memory_to_use = 100 * 1024 * 1024;
 			
 			if (rc == JPEG_SUSPENDED)
 				continue;
