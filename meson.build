@@ -249,35 +249,14 @@ elif builtin_loaders.contains('none')
   builtin_loaders = []
 endif
 
+is_msvc_like = cc.get_argument_syntax() == 'msvc'
 # Loader dependencies
 enabled_loaders = []
 loaders_deps = []
 
 png_opt = get_option('png')
 if not png_opt.disabled()
-  png_dep = dependency('libpng', required: false)
-
-  if not png_dep.found() and cc.has_header('png.h')
-    # MSVC: First look for the DLL + import .lib build of libpng,
-    # which is normally libpngxx.lib, when libpng's pkg-config can't
-    # be found, which is quite normal on MSVC.
-    foreach png: [ 'libpng16', 'libpng15', 'libpng14', 'libpng12', 'libpng13', 'libpng10' ]
-      png_dep = cc.find_library(png, required: false)
-      if png_dep.found()
-        break
-      endif
-    endforeach
-
-    # If we still can't find libpng, try looking for the static libpng.lib,
-    # which means we need to ensure we have the static zlib .lib as well
-    if not png_dep.found()
-      png_dep = cc.find_library('libpng', required: false)
-      zlib_dep = cc.find_library('zlib', required: false)
-      if png_dep.found() and zlib_dep.found()
-        loaders_deps += zlib_dep
-      endif
-    endif
-  endif
+  png_dep = dependency(is_msvc_like ? 'png' : 'libpng', required: false)
 
   # Finally, look for the dependency in a fallback subproject if allowed by
   # the --wrap-mode option. We don't directly call subproject() here because
@@ -315,16 +294,7 @@ endif
 # Don't check and build the jpeg loader if native_windows_loaders is true
 jpeg_opt = get_option('jpeg')
 if not jpeg_opt.disabled() and not native_windows_loaders
-  jpeg_dep = dependency('libjpeg', required: false)
-
-  if not jpeg_dep.found() and cc.has_header('jpeglib.h')
-    jpeg_dep = cc.find_library('jpeg', required: false)
-    if cc.get_id() == 'msvc' and not jpeg_dep.found()
-      # The IJG JPEG library builds the .lib file as libjpeg.lib in its MSVC build system,
-      # so look for it as well when jpeg.lib cannot be found
-      jpeg_dep = cc.find_library('libjpeg', required: false)
-    endif
-  endif
+  jpeg_dep = dependency(is_msvc_like ? 'jpeg' : 'libjpeg', required: false)
 
   # Finally, look for the dependency in a fallback
   if not jpeg_dep.found()
@@ -355,23 +325,9 @@ endif
 # Don't check and build the tiff loader if native_windows_loaders is true
 tiff_opt = get_option('tiff')
 if not tiff_opt.disabled() and not native_windows_loaders
-  tiff_dep = dependency('libtiff-4', required: false)
-  if not tiff_dep.found() and cc.has_header('tiff.h')
-    # First look for the DLL builds of libtiff, then the static builds
-    tiff_dep = cc.find_library('libtiff_i', required: false)
-
-    if not tiff_dep.found()
-      # For the static lib, zlib and libjpeg .lib's have been looked for first, and
-      # they are optional for libtiff
-      tiff_dep = cc.find_library('libtiff', required: false)
-    endif
-  endif
-
   # We currently don't have a fallback subproject, but this handles error
   # reporting if tiff_opt is enabled.
-  if not tiff_dep.found()
-    tiff_dep = dependency('libtiff-4', required: tiff_opt)
-  endif
+  tiff_dep = dependency(is_msvc_like ? 'tiff' : 'libtiff-4', required: tiff_opt)
 
   if tiff_dep.found()
     enabled_loaders += 'tiff'
