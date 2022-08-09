@@ -382,7 +382,7 @@ endif
 # Determine whether we enable application bundle relocation support, and we use
 # this always on Windows
 if host_system == 'windows'
-  relocatable = true
+  relocatable = (get_option('default_library') != 'static')
 else
   relocatable = get_option('relocatable')
 endif
@@ -447,7 +447,7 @@ summary('MediaLib', use_medialib, section: 'Build')
 summary('Introspection', build_gir, section: 'Build')
 summary('Documentation', build_docs, section: 'Build')
 summary('Manual pages', get_option('man'), section: 'Build')
-summary('Relocatable', get_option('relocatable'), section: 'Build')
+summary('Relocatable', relocatable, section: 'Build')
 summary('Build tests', get_option('tests'), section: 'Build')
 summary('Installed tests', get_option('installed_tests'), section: 'Build')
 
