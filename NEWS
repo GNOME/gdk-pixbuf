@@ -1,3 +1,14 @@
+2.42.9 (stable)
+===
+
+- Fix the check for maximum value of LZW initial code size [#136, Robert Ancell]
+- Use CMake for dependencies on Windows/MSVC [!131, Chun-Wei Fan]
+- Add option for building tests [!132]
+- Move man pages to reStructuredText [!134]
+- Disable relocation when built as a static libary on Windows [!136, Hesham Essam]
+- Update wrap file for libjpeg-turbo [!138, Georges Basile Stavracas Neto]
+- Limit the memory size when loading image data [#205, Sam Ezeh]
+
 2.42.8 (stable)
 ===
 
