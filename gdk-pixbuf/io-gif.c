@@ -499,8 +499,8 @@ gif_prepare_lzw (GifContext *context)
 		/*g_message (_("GIF: EOF / read error on image data\n"));*/
 		return -1;
 	}
-        
-        if (context->lzw_set_code_size > 12) {
+
+        if (context->lzw_set_code_size >= 12) {
                 g_set_error_literal (context->error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
