@@ -30,7 +30,7 @@ option('introspection',
        value: 'auto',
        yield: true)
 option('man',
-       description: 'Whether to generate man pages (requires xlstproc)',
+       description: 'Whether to generate man pages (requires rst2man)',
        type: 'boolean',
        value: true)
 option('relocatable',
