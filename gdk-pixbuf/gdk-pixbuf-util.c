@@ -48,7 +48,7 @@
  * If `substitute_color` is `FALSE`, then the (`r`, `g`, `b`) arguments
  * will be ignored.
  *
- * Return value: (transfer full): A newly-created pixbuf
+ * Returns: (transfer full) (nullable): A newly-created pixbuf
  **/
 GdkPixbuf *
 gdk_pixbuf_add_alpha (const GdkPixbuf *pixbuf,
@@ -285,7 +285,7 @@ gdk_pixbuf_saturate_and_pixelate (const GdkPixbuf *src,
  * If an orientation option/tag is present, the appropriate transform
  * will be performed so that the pixbuf is oriented correctly.
  *
- * Return value: (transfer full) (nullable): A newly-created pixbuf
+ * Return: (transfer full) (nullable): A newly-created pixbuf
  *
  * Since: 2.12
  **/
