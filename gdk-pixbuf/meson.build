@@ -272,6 +272,7 @@ gdkpixbuf_dep = declare_dependency(
   dependencies: gdk_pixbuf_deps,
   sources: [ gdkpixbuf_enum_h, built_girs ],
 )
+meson.override_dependency('gdk-pixbuf-2.0', gdkpixbuf_dep)
 
 # Now check if we are building loaders as installed shared modules
 # We do this here because shared modules depend on libgdk-pixbuf
