@@ -1,17 +1,17 @@
 # Swedish messages for gdk-pixbuf.
-# Copyright © 1999-2020 Free Software Foundation, Inc.
+# Copyright © 1999-2023 Free Software Foundation, Inc.
 # Tomas Ögren <stric@ing.umu.se>, 1999.
 # Christian Rose <menthos@menthos.com>, 2000, 2001, 2002, 2003, 2004, 2005.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016, 2017, 2018, 2019, 2020.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023.
 # Sebastian Rasmussen <sebras@gmail.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
-"POT-Creation-Date: 2020-11-10 02:27+0000\n"
-"PO-Revision-Date: 2020-11-28 23:11+0100\n"
+"POT-Creation-Date: 2022-07-11 14:00+0000\n"
+"PO-Revision-Date: 2023-03-10 21:48+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -19,20 +19,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:175 gdk-pixbuf/gdk-pixbuf-io.c:1125
-#: gdk-pixbuf/gdk-pixbuf-io.c:1387
+#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1130
+#: gdk-pixbuf/gdk-pixbuf-io.c:1403
 #, c-format
 msgid "Failed to open file “%s”: %s"
 msgstr "Misslyckades med att öppna filen ”%s”: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:188 gdk-pixbuf/gdk-pixbuf-io.c:992
+#: gdk-pixbuf/gdk-pixbuf-animation.c:198 gdk-pixbuf/gdk-pixbuf-io.c:991
 #, c-format
 msgid "Image file “%s” contains no data"
 msgstr "Bildfilen ”%s” innehåller inga data"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:226
+#: gdk-pixbuf/gdk-pixbuf-animation.c:236
 #, c-format
 msgid ""
 "Failed to load animation “%s”: reason not known, probably a corrupt "
@@ -41,8 +41,8 @@ msgstr ""
 "Misslyckades med att läsa in animeringen ”%s”: anledningen är okänd, "
 "troligtvis en trasig animeringsfil"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:294 gdk-pixbuf/gdk-pixbuf-io.c:1161
-#: gdk-pixbuf/gdk-pixbuf-io.c:1439
+#: gdk-pixbuf/gdk-pixbuf-animation.c:304 gdk-pixbuf/gdk-pixbuf-io.c:1166
+#: gdk-pixbuf/gdk-pixbuf-io.c:1455
 #, c-format
 msgid ""
 "Failed to load image “%s”: reason not known, probably a corrupt image file"
@@ -50,85 +50,85 @@ msgstr ""
 "Misslyckades med att läsa in bilden ”%s”: anledningen är okänd, troligtvis "
 "en trasig bildfil"
 
-#: gdk-pixbuf/gdk-pixbuf.c:237
+#: gdk-pixbuf/gdk-pixbuf.c:248
 msgid "Number of Channels"
 msgstr "Antal kanaler"
 
-#: gdk-pixbuf/gdk-pixbuf.c:238
+#: gdk-pixbuf/gdk-pixbuf.c:249
 msgid "The number of samples per pixel"
 msgstr "Antalet samplingar per bildpunkt"
 
-#: gdk-pixbuf/gdk-pixbuf.c:247
+#: gdk-pixbuf/gdk-pixbuf.c:264
 msgid "Colorspace"
 msgstr "Färgrymd"
 
-#: gdk-pixbuf/gdk-pixbuf.c:248
+#: gdk-pixbuf/gdk-pixbuf.c:265
 msgid "The colorspace in which the samples are interpreted"
 msgstr "Färgrymden i vilken samplingarna tolkas"
 
-#: gdk-pixbuf/gdk-pixbuf.c:256
+#: gdk-pixbuf/gdk-pixbuf.c:277
 msgid "Has Alpha"
 msgstr "Har alfa"
 
-#: gdk-pixbuf/gdk-pixbuf.c:257
+#: gdk-pixbuf/gdk-pixbuf.c:278
 msgid "Whether the pixbuf has an alpha channel"
 msgstr "Huruvida pixbufen har en alfakanal"
 
-#: gdk-pixbuf/gdk-pixbuf.c:270
+#: gdk-pixbuf/gdk-pixbuf.c:291
 msgid "Bits per Sample"
 msgstr "Bitar per sampling"
 
-#: gdk-pixbuf/gdk-pixbuf.c:271
+#: gdk-pixbuf/gdk-pixbuf.c:292
 msgid "The number of bits per sample"
 msgstr "Antalet bitar per sampling"
 
-#: gdk-pixbuf/gdk-pixbuf.c:280
+#: gdk-pixbuf/gdk-pixbuf.c:305
 msgid "Width"
 msgstr "Bredd"
 
-#: gdk-pixbuf/gdk-pixbuf.c:281
+#: gdk-pixbuf/gdk-pixbuf.c:306
 msgid "The number of columns of the pixbuf"
 msgstr "Antalet kolumner i pixbufen"
 
-#: gdk-pixbuf/gdk-pixbuf.c:290
+#: gdk-pixbuf/gdk-pixbuf.c:319
 msgid "Height"
 msgstr "Höjd"
 
-#: gdk-pixbuf/gdk-pixbuf.c:291
+#: gdk-pixbuf/gdk-pixbuf.c:320
 msgid "The number of rows of the pixbuf"
 msgstr "Antalet rader i pixbufen"
 
-#: gdk-pixbuf/gdk-pixbuf.c:307
+#: gdk-pixbuf/gdk-pixbuf.c:337
 msgid "Rowstride"
 msgstr "Radlängd"
 
-#: gdk-pixbuf/gdk-pixbuf.c:308
+#: gdk-pixbuf/gdk-pixbuf.c:338
 msgid ""
 "The number of bytes between the start of a row and the start of the next row"
 msgstr "Antal byte mellan början på en rad och början på nästa rad"
 
-#: gdk-pixbuf/gdk-pixbuf.c:317
+#: gdk-pixbuf/gdk-pixbuf.c:351
 msgid "Pixels"
 msgstr "Bildpunkter"
 
-#: gdk-pixbuf/gdk-pixbuf.c:318
+#: gdk-pixbuf/gdk-pixbuf.c:352
 msgid "A pointer to the pixel data of the pixbuf"
 msgstr "En pekare till pixbufens bildpunktsdata"
 
-#: gdk-pixbuf/gdk-pixbuf.c:332
+#: gdk-pixbuf/gdk-pixbuf.c:366
 msgid "Pixel Bytes"
 msgstr "Bildpunktsbyte"
 
-#: gdk-pixbuf/gdk-pixbuf.c:333
+#: gdk-pixbuf/gdk-pixbuf.c:367
 msgid "Readonly pixel data"
 msgstr "Skrivskyddade bildpunktsdata"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:812
+#: gdk-pixbuf/gdk-pixbuf-io.c:808
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Kan inte läsa in bildinläsningsmodulen: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:827
+#: gdk-pixbuf/gdk-pixbuf-io.c:825
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it’s "
@@ -137,53 +137,53 @@ msgstr ""
 "Bildinläsningsmodulen %s exporterar inte rätt gränssnitt; den kanske är från "
 "en annan version av gdk-pixbuf?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:836 gdk-pixbuf/gdk-pixbuf-io.c:879
+#: gdk-pixbuf/gdk-pixbuf-io.c:835 gdk-pixbuf/gdk-pixbuf-io.c:878
 #, c-format
 msgid "Image type “%s” is not supported"
 msgstr "Bildtypen ”%s” stöds inte"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:964
+#: gdk-pixbuf/gdk-pixbuf-io.c:963
 #, c-format
 msgid "Couldn’t recognize the image file format for file “%s”"
 msgstr "Kunde inte känna igen bildfilformatet på filen ”%s”"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:972
+#: gdk-pixbuf/gdk-pixbuf-io.c:971
 msgid "Unrecognized image file format"
 msgstr "Okänt bildfilformat"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1172
+#: gdk-pixbuf/gdk-pixbuf-io.c:1177
 #, c-format
 msgid "Failed to load image “%s”: %s"
 msgstr "Misslyckades med att läsa in bilden ”%s”: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2242 gdk-pixbuf/io-gdip-utils.c:840
+#: gdk-pixbuf/gdk-pixbuf-io.c:2245 gdk-pixbuf/io-gdip-utils.c:840
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Fel vid skrivning till bildfil: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2284 gdk-pixbuf/gdk-pixbuf-io.c:2405
+#: gdk-pixbuf/gdk-pixbuf-io.c:2287 gdk-pixbuf/gdk-pixbuf-io.c:2408
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "Detta bygge av gdk-pixbuf stöder inte sparande av bildformatet: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2315
+#: gdk-pixbuf/gdk-pixbuf-io.c:2318
 msgid "Insufficient memory to save image to callback"
-msgstr "Inte tillräckligt med minne för att spara bild till återuppringning"
+msgstr "För lite minne för att spara bild till återuppringning"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2328
+#: gdk-pixbuf/gdk-pixbuf-io.c:2331
 msgid "Failed to open temporary file"
 msgstr "Misslyckades med att öppna temporär fil"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2351
+#: gdk-pixbuf/gdk-pixbuf-io.c:2354
 msgid "Failed to read from temporary file"
 msgstr "Misslyckades med att läsa från temporär fil"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2561
+#: gdk-pixbuf/gdk-pixbuf-io.c:2576
 #, c-format
 msgid "Failed to open “%s” for writing: %s"
 msgstr "Misslyckades med att öppna ”%s” för skrivning: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2587
+#: gdk-pixbuf/gdk-pixbuf-io.c:2602
 #, c-format
 msgid ""
 "Failed to close “%s” while writing image, all data may not have been saved: "
@@ -192,15 +192,15 @@ msgstr ""
 "Misslyckades med att stänga ”%s” när bilden skrevs, all data kanske inte har "
 "sparats: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2808 gdk-pixbuf/gdk-pixbuf-io.c:2860
+#: gdk-pixbuf/gdk-pixbuf-io.c:2836 gdk-pixbuf/gdk-pixbuf-io.c:2891
 msgid "Insufficient memory to save image into a buffer"
-msgstr "Inte tillräckligt med minne för att spara bild till en buffert"
+msgstr "För lite minne för att spara bild till en buffert"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2906
+#: gdk-pixbuf/gdk-pixbuf-io.c:2937
 msgid "Error writing to image stream"
 msgstr "Fel vid skrivning till bildström"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:406
+#: gdk-pixbuf/gdk-pixbuf-loader.c:416
 #, c-format
 msgid ""
 "Internal error: Image loader module “%s” failed to complete an operation, "
@@ -209,7 +209,7 @@ msgstr ""
 "Internt fel: Bildinläsningsmodulen ”%s” misslyckades med att färdigställa en "
 "åtgärd, men gav inte en anledning till misslyckandet"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:448
+#: gdk-pixbuf/gdk-pixbuf-loader.c:458
 #, c-format
 msgid "Incremental loading of image type “%s” is not supported"
 msgstr "Inkrementell inläsning av bildtypen ”%s” stöds inte"
@@ -222,20 +222,20 @@ msgstr "Slinga"
 msgid "Whether the animation should loop when it reaches the end"
 msgstr "Huruvida animationen ska börja om då den når slutet"
 
-#: gdk-pixbuf/gdk-pixdata.c:165
+#: gdk-pixbuf/gdk-pixdata.c:178
 msgid "Image header corrupt"
 msgstr "Bildhuvudet är trasigt"
 
-#: gdk-pixbuf/gdk-pixdata.c:170
+#: gdk-pixbuf/gdk-pixdata.c:183
 msgid "Image format unknown"
 msgstr "Bildformatet är okänt"
 
-#: gdk-pixbuf/gdk-pixdata.c:175 gdk-pixbuf/gdk-pixdata.c:470
-#: gdk-pixbuf/gdk-pixdata.c:480 gdk-pixbuf/gdk-pixdata.c:576
+#: gdk-pixbuf/gdk-pixdata.c:188 gdk-pixbuf/gdk-pixdata.c:491
+#: gdk-pixbuf/gdk-pixdata.c:501 gdk-pixbuf/gdk-pixdata.c:597
 msgid "Image pixel data corrupt"
 msgstr "Bildpunktsdata är trasigt"
 
-#: gdk-pixbuf/gdk-pixdata.c:492
+#: gdk-pixbuf/gdk-pixdata.c:513
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
@@ -254,7 +254,7 @@ msgstr "Ogiltigt huvud i animation"
 #: gdk-pixbuf/io-ani.c:347 gdk-pixbuf/io-ani.c:369 gdk-pixbuf/io-ani.c:453
 #: gdk-pixbuf/io-ani.c:480 gdk-pixbuf/io-ani.c:531 gdk-pixbuf/io-ani.c:607
 msgid "Not enough memory to load animation"
-msgstr "Inte tillräckligt med minne för att läsa in animation"
+msgstr "För lite minne för att läsa in animation"
 
 #: gdk-pixbuf/io-ani.c:387 gdk-pixbuf/io-ani.c:413 gdk-pixbuf/io-ani.c:432
 msgid "Malformed chunk in animation"
@@ -277,7 +277,7 @@ msgstr "BMP-bilden har felaktig huvuddata"
 
 #: gdk-pixbuf/io-bmp.c:242 gdk-pixbuf/io-bmp.c:498
 msgid "Not enough memory to load bitmap image"
-msgstr "Inte tillräckligt med minne för att läsa in bild"
+msgstr "För lite minne för att läsa in bitmappsbild"
 
 #: gdk-pixbuf/io-bmp.c:333
 msgid "BMP image has unsupported header size"
@@ -306,7 +306,6 @@ msgid "Premature end-of-file encountered"
 msgstr "För tidigt filslut påträffades"
 
 #: gdk-pixbuf/io-bmp.c:1313
-#, c-format
 msgid "Error while decoding colormap"
 msgstr "Fel vid avkodning av färgkarta"
 
@@ -332,7 +331,7 @@ msgctxt "image format"
 msgid "EMF"
 msgstr "EMF"
 
-#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1043
+#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1037
 msgctxt "image format"
 msgid "GIF"
 msgstr "GIF"
@@ -342,7 +341,7 @@ msgctxt "image format"
 msgid "Windows icon"
 msgstr "Windows-ikon"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1382
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1391
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value “%s” could not be "
@@ -351,7 +350,7 @@ msgstr ""
 "JPEG-kvaliteten måste vara ett värde mellan 0 och 100; värdet ”%s” kunde "
 "inte tolkas."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1398
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1407
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value “%d” is not allowed."
@@ -359,12 +358,12 @@ msgstr ""
 "JPEG-kvaliteten måste vara ett värde mellan 0 och 100; värdet ”%d” är inte "
 "tillåtet."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1682
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1691
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
 
-#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1086
+#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1087
 msgctxt "image format"
 msgid "TIFF"
 msgstr "TIFF"
@@ -416,29 +415,29 @@ msgstr "WMF"
 msgid "Failure reading GIF: %s"
 msgstr "Misslyckades med att läsa GIF: %s"
 
-#: gdk-pixbuf/io-gif.c:381 gdk-pixbuf/io-gif.c:854 gdk-pixbuf/io-gif.c:907
-#: gdk-pixbuf/io-gif.c:980
+#: gdk-pixbuf/io-gif.c:381 gdk-pixbuf/io-gif.c:848 gdk-pixbuf/io-gif.c:901
+#: gdk-pixbuf/io-gif.c:974
 msgid "Not enough memory to load GIF file"
-msgstr "Inte tillräckligt med minne för att läsa in GIF-fil"
+msgstr "För lite minne för att läsa in GIF-fil"
 
 #: gdk-pixbuf/io-gif.c:507
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "GIF-bilden är trasig (felaktig LZW-komprimering)"
 
-#: gdk-pixbuf/io-gif.c:536
+#: gdk-pixbuf/io-gif.c:543
 msgid "File does not appear to be a GIF file"
 msgstr "Filen verkar inte vara en GIF-fil"
 
-#: gdk-pixbuf/io-gif.c:551
+#: gdk-pixbuf/io-gif.c:558
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "Version %s av filformatet GIF stöds inte"
 
-#: gdk-pixbuf/io-gif.c:586
+#: gdk-pixbuf/io-gif.c:587
 msgid "Resulting GIF image has zero size"
 msgstr "Resulterande GIF-bild har storleken noll"
 
-#: gdk-pixbuf/io-gif.c:664
+#: gdk-pixbuf/io-gif.c:657
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -446,15 +445,15 @@ msgstr ""
 "GIF-bilden har ingen global färgkarta, och en bildruta i den saknar lokal "
 "färgkarta."
 
-#: gdk-pixbuf/io-gif.c:867 gdk-pixbuf/io-gif.c:992
+#: gdk-pixbuf/io-gif.c:861 gdk-pixbuf/io-gif.c:986
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr "GIF-filen saknade en del data (den kanske klipptes på något sätt?)"
 
-#: gdk-pixbuf/io-gif.c:926
+#: gdk-pixbuf/io-gif.c:920
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF-bilden var trunkerad eller ofullständig."
 
-#: gdk-pixbuf/io-gif.c:933
+#: gdk-pixbuf/io-gif.c:927
 msgid "Not all frames of the GIF image were loaded."
 msgstr "Alla bildrutor i GIF-bilden lästes inte in."
 
@@ -481,7 +480,7 @@ msgstr "Ogiltigt huvud i ikon (%s)"
 #: gdk-pixbuf/io-ico.c:268 gdk-pixbuf/io-ico.c:355 gdk-pixbuf/io-ico.c:461
 #: gdk-pixbuf/io-ico.c:504 gdk-pixbuf/io-ico.c:532
 msgid "Not enough memory to load icon"
-msgstr "Inte tillräckligt med minne för att läsa in ikon"
+msgstr "För lite minne för att läsa in ikon"
 
 #: gdk-pixbuf/io-ico.c:386
 msgid "Invalid header in icon"
@@ -497,7 +496,7 @@ msgstr "Ikontypen stöds inte"
 
 #: gdk-pixbuf/io-ico.c:583
 msgid "Not enough memory to load ICO file"
-msgstr "Inte tillräckligt med minne för att läsa in ICO-fil"
+msgstr "För lite minne för att läsa in ICO-fil"
 
 #: gdk-pixbuf/io-ico.c:629
 msgid "ICO image was truncated or incomplete."
@@ -521,34 +520,34 @@ msgstr "Djupet stöds inte för ICO-fil: %d"
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Fel vid tolkning av JPEG-bildfil (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:637
+#: gdk-pixbuf/io-jpeg.c:638
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
 msgstr ""
-"Inte tillräckligt med minne för att läsa in bild, försök att avsluta några "
-"program för att frigöra minne"
+"För lite minne för att läsa in bild, försök att avsluta några program för "
+"att frigöra minne"
 
-#: gdk-pixbuf/io-jpeg.c:710 gdk-pixbuf/io-jpeg.c:947
+#: gdk-pixbuf/io-jpeg.c:711 gdk-pixbuf/io-jpeg.c:956
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "JPEG-färgrymden stöds inte (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:825 gdk-pixbuf/io-jpeg.c:1142 gdk-pixbuf/io-jpeg.c:1489
-#: gdk-pixbuf/io-jpeg.c:1499
+#: gdk-pixbuf/io-jpeg.c:834 gdk-pixbuf/io-jpeg.c:1151 gdk-pixbuf/io-jpeg.c:1498
+#: gdk-pixbuf/io-jpeg.c:1508
 msgid "Couldn’t allocate memory for loading JPEG file"
 msgstr "Kunde inte allokera minne för inläsning av JPEG-fil"
 
-#: gdk-pixbuf/io-jpeg.c:1100
+#: gdk-pixbuf/io-jpeg.c:1109
 msgid "Transformed JPEG has zero width or height."
 msgstr "Transformerad JPEG har bredden eller höjden noll."
 
-#: gdk-pixbuf/io-jpeg.c:1126
+#: gdk-pixbuf/io-jpeg.c:1135
 #, c-format
 msgid "Unsupported number of color components (%d)"
 msgstr "Antalet färgkomponenter stöds inte (%d)"
 
-#: gdk-pixbuf/io-jpeg.c:1419
+#: gdk-pixbuf/io-jpeg.c:1428
 #, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."
@@ -556,7 +555,7 @@ msgstr ""
 "x-dpi för JPEG måste vara ett värde mellan 1 och 65535; värdet ”%s” är inte "
 "tillåtet."
 
-#: gdk-pixbuf/io-jpeg.c:1440
+#: gdk-pixbuf/io-jpeg.c:1449
 #, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."
@@ -564,7 +563,7 @@ msgstr ""
 "y-dpi för JPEG måste vara ett värde mellan 1 och 65535; värdet ”%s” är inte "
 "tillåtet."
 
-#: gdk-pixbuf/io-jpeg.c:1454
+#: gdk-pixbuf/io-jpeg.c:1463
 #, c-format
 msgid "Color profile has invalid length “%u”."
 msgstr "Färgprofilen har en ogiltig längd ”%u”."
@@ -597,7 +596,7 @@ msgstr "Ödesdigert fel i PNG-bildfil: %s"
 
 #: gdk-pixbuf/io-png.c:329
 msgid "Insufficient memory to load PNG file"
-msgstr "Inte tillräckligt med minne för att läsa in PNG-fil"
+msgstr "För lite minne för att läsa in PNG-fil"
 
 #: gdk-pixbuf/io-png.c:498 gdk-pixbuf/io-png.c:519
 msgid "Couldn’t allocate memory for loading PNG"
@@ -609,8 +608,8 @@ msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
-"Inte tillräckligt med minne för att lagra en %lu × %lu stor bild; försök att "
-"avsluta några program för att frigöra minne"
+"För lite minne för att lagra en %lu × %lu stor bild; försök att avsluta "
+"några program för att frigöra minne"
 
 #: gdk-pixbuf/io-png.c:791
 msgid "Fatal error reading PNG image file"
@@ -720,7 +719,7 @@ msgstr "Kan inte allokera minne för inläsning av PNM-bild"
 
 #: gdk-pixbuf/io-pnm.c:835
 msgid "Insufficient memory to load PNM context struct"
-msgstr "Inte tillräckligt med minne för att läsa in PNM-sammanhangsstruktur"
+msgstr "För lite minne för att läsa in PNM-sammanhangsstruktur"
 
 #: gdk-pixbuf/io-pnm.c:892
 msgid "Unexpected end of PNM image data"
@@ -728,7 +727,7 @@ msgstr "Oväntat slut på PNM-bilddata"
 
 #: gdk-pixbuf/io-pnm.c:1020
 msgid "Insufficient memory to load PNM file"
-msgstr "Inte tillräckligt med minne för att läsa in PNM-fil"
+msgstr "För lite minne för att läsa in PNM-fil"
 
 #: gdk-pixbuf/io-pnm.c:1103
 msgctxt "image format"
@@ -827,72 +826,72 @@ msgctxt "image format"
 msgid "Targa"
 msgstr "Targa"
 
-#: gdk-pixbuf/io-tiff.c:116
+#: gdk-pixbuf/io-tiff.c:117
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Kunde inte få tag i bildbredden (felaktig TIFF-fil)"
 
-#: gdk-pixbuf/io-tiff.c:124
+#: gdk-pixbuf/io-tiff.c:125
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Kunde inte få tag i bildhöjden (felaktig TIFF-fil)"
 
-#: gdk-pixbuf/io-tiff.c:132
+#: gdk-pixbuf/io-tiff.c:133
 msgid "Width or height of TIFF image is zero"
 msgstr "Bredden eller höjden på TIFF-bilden är noll"
 
-#: gdk-pixbuf/io-tiff.c:140 gdk-pixbuf/io-tiff.c:150
+#: gdk-pixbuf/io-tiff.c:141 gdk-pixbuf/io-tiff.c:151
 msgid "Dimensions of TIFF image too large"
 msgstr "TIFF-bildens dimensioner är för stora"
 
-#: gdk-pixbuf/io-tiff.c:176 gdk-pixbuf/io-tiff.c:188 gdk-pixbuf/io-tiff.c:584
+#: gdk-pixbuf/io-tiff.c:177 gdk-pixbuf/io-tiff.c:189 gdk-pixbuf/io-tiff.c:585
 msgid "Insufficient memory to open TIFF file"
-msgstr "Inte tillräckligt med minne för att öppna TIFF-fil"
+msgstr "För lite minne för att öppna TIFF-fil"
 
-#: gdk-pixbuf/io-tiff.c:286
+#: gdk-pixbuf/io-tiff.c:287
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Misslyckades med att läsa in RGB-data från TIFF-fil"
 
-#: gdk-pixbuf/io-tiff.c:377
+#: gdk-pixbuf/io-tiff.c:378
 msgid "Failed to open TIFF image"
 msgstr "Misslyckades med att öppna TIFF-bild"
 
-#: gdk-pixbuf/io-tiff.c:515 gdk-pixbuf/io-tiff.c:527
+#: gdk-pixbuf/io-tiff.c:516 gdk-pixbuf/io-tiff.c:528
 msgid "Failed to load TIFF image"
 msgstr "Misslyckades med att läsa in TIFF-bild"
 
-#: gdk-pixbuf/io-tiff.c:759
+#: gdk-pixbuf/io-tiff.c:760
 msgid "Failed to save TIFF image"
 msgstr "Misslyckades med att spara TIFF-bild"
 
-#: gdk-pixbuf/io-tiff.c:820
+#: gdk-pixbuf/io-tiff.c:821
 msgid "TIFF compression doesn’t refer to a valid codec."
 msgstr "TIFF-komprimering refererar inte till en giltig kodek."
 
-#: gdk-pixbuf/io-tiff.c:850
+#: gdk-pixbuf/io-tiff.c:851
 #, c-format
 msgid "Color profile has invalid length %d."
 msgstr "Färgprofilen har en ogiltig längd %d."
 
-#: gdk-pixbuf/io-tiff.c:865
+#: gdk-pixbuf/io-tiff.c:866
 msgid "TIFF bits-per-sample doesn’t contain a supported value."
 msgstr "bits-per-sample för TIFF innehåller inte ett värde som stöds."
 
-#: gdk-pixbuf/io-tiff.c:946
+#: gdk-pixbuf/io-tiff.c:947
 msgid "Failed to write TIFF data"
 msgstr "Misslyckades med att skriva TIFF-data"
 
-#: gdk-pixbuf/io-tiff.c:964
+#: gdk-pixbuf/io-tiff.c:965
 #, c-format
 msgid "TIFF x-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
 "x-dpi för TIFF måste vara större än noll; värdet ”%s” är inte tillåtet."
 
-#: gdk-pixbuf/io-tiff.c:976
+#: gdk-pixbuf/io-tiff.c:977
 #, c-format
 msgid "TIFF y-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
 "y-dpi för TIFF måste vara större än noll; värdet ”%s” är inte tillåtet."
 
-#: gdk-pixbuf/io-tiff.c:1017
+#: gdk-pixbuf/io-tiff.c:1018
 msgid "Couldn’t write to TIFF file"
 msgstr "Kunde inte skriva till TIFF-fil"
 
@@ -902,7 +901,7 @@ msgstr "Ogiltig XBM-fil"
 
 #: gdk-pixbuf/io-xbm.c:331
 msgid "Insufficient memory to load XBM image file"
-msgstr "Inte tillräckligt med minne för att läsa in XBM-bildfil"
+msgstr "För lite minne för att läsa in XBM-bildfil"
 
 #: gdk-pixbuf/io-xbm.c:482
 msgid "Failed to write to temporary file when loading XBM image"
