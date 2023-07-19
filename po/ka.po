@@ -1,30 +1,30 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Georgian translation for gdk-pixbuf.
+# Copyright (C) 2023 gdk-pixbuf's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gdk-pixbuf package.
+# Ekaterine Papava <papava.e@gtu.ge>, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
-"POT-Creation-Date: 2022-07-15 21:09+0000\n"
-"PO-Revision-Date: 2022-07-28 21:09+0200\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2023-01-25 17:23+0000\n"
+"PO-Revision-Date: 2023-07-19 06:08+0200\n"
+"Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
+"Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1130
-#: gdk-pixbuf/gdk-pixbuf-io.c:1403
+#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1129
+#: gdk-pixbuf/gdk-pixbuf-io.c:1402
 #, c-format
 msgid "Failed to open file “%s”: %s"
 msgstr "ფაილის (%s) გახსნა შეუძლებელია: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:198 gdk-pixbuf/gdk-pixbuf-io.c:991
+#: gdk-pixbuf/gdk-pixbuf-animation.c:198 gdk-pixbuf/gdk-pixbuf-io.c:990
 #, c-format
 msgid "Image file “%s” contains no data"
 msgstr "გამოსახულების ფაილი მონაცემებს არ შეიცავს: %s"
@@ -35,13 +35,17 @@ msgid ""
 "Failed to load animation “%s”: reason not known, probably a corrupt "
 "animation file"
 msgstr ""
+"ანიმაციის \"%s\" ჩატვირთვა შეუძლებელია: მიზეზი უცნობია. ალბათ ანიმაციის "
+"ფაილი დაზიანებულია"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:304 gdk-pixbuf/gdk-pixbuf-io.c:1166
-#: gdk-pixbuf/gdk-pixbuf-io.c:1455
+#: gdk-pixbuf/gdk-pixbuf-animation.c:304 gdk-pixbuf/gdk-pixbuf-io.c:1165
+#: gdk-pixbuf/gdk-pixbuf-io.c:1454
 #, c-format
 msgid ""
 "Failed to load image “%s”: reason not known, probably a corrupt image file"
 msgstr ""
+"გამოსახულების \"%s\" ჩატვირთვა შეუძლებელია: მიზეზი უცნობია. ალბათ "
+"გამოსახულების ფაილი დაზიანებულია"
 
 #: gdk-pixbuf/gdk-pixbuf.c:248
 msgid "Number of Channels"
@@ -57,7 +61,7 @@ msgstr "ფერების სივრცე"
 
 #: gdk-pixbuf/gdk-pixbuf.c:265
 msgid "The colorspace in which the samples are interpreted"
-msgstr ""
+msgstr "ფერების სივრცე, რომლებშიც სემპლების ინტერპრეტაცია ხდება"
 
 #: gdk-pixbuf/gdk-pixbuf.c:277
 msgid "Has Alpha"
@@ -99,6 +103,7 @@ msgstr ""
 msgid ""
 "The number of bytes between the start of a row and the start of the next row"
 msgstr ""
+"ბაიტების რაოდენობა მწკრივის დასაწყისსა და შემდეგი მწკრივის დასაწყისს შორის"
 
 #: gdk-pixbuf/gdk-pixbuf.c:351
 msgid "Pixels"
@@ -106,7 +111,7 @@ msgstr "პიქსელი"
 
 #: gdk-pixbuf/gdk-pixbuf.c:352
 msgid "A pointer to the pixel data of the pixbuf"
-msgstr ""
+msgstr "მაჩვენებელი Pixbuf-ის პიქსელის მონაცემებზე"
 
 #: gdk-pixbuf/gdk-pixbuf.c:366
 msgid "Pixel Bytes"
@@ -116,76 +121,82 @@ msgstr "პიქსელის ბაიტები"
 msgid "Readonly pixel data"
 msgstr "პიქსელის მხოლოდ-კითხვადი მონაცემები"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:808
+#: gdk-pixbuf/gdk-pixbuf-io.c:807
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "გამოსახულების ჩამტვირთავი მოდულის (%s) ჩატვირთვის შეცდომა: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:825
+#: gdk-pixbuf/gdk-pixbuf-io.c:824
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it’s "
 "from a different gdk-pixbuf version?"
 msgstr ""
+"გამოსახულებების-ჩამტვირთავ მოდულს %s ნორმალური ინტერფეისი არ გამოაქვს. gdk-"
+"pixbuf-ის სხვა ვერსიის ხომ არაა?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:835 gdk-pixbuf/gdk-pixbuf-io.c:878
+#: gdk-pixbuf/gdk-pixbuf-io.c:834 gdk-pixbuf/gdk-pixbuf-io.c:877
 #, c-format
 msgid "Image type “%s” is not supported"
 msgstr "გამოსახულების ტიპი მხარდაუჭერელია: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:963
+#: gdk-pixbuf/gdk-pixbuf-io.c:962
 #, c-format
 msgid "Couldn’t recognize the image file format for file “%s”"
-msgstr ""
+msgstr "გამოსახულების ფაილის ფორმატი ფაილისთვის \"%s\" უცნობია"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:971
+#: gdk-pixbuf/gdk-pixbuf-io.c:970
 msgid "Unrecognized image file format"
 msgstr "გამოსახულების უცნობი ფორმატი \"%d\""
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1177
+#: gdk-pixbuf/gdk-pixbuf-io.c:1176
 #, c-format
 msgid "Failed to load image “%s”: %s"
 msgstr "გამოსახულების (%s) ჩატვირთვის შეცდომა: \"%s\""
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2245 gdk-pixbuf/io-gdip-utils.c:840
+#: gdk-pixbuf/gdk-pixbuf-io.c:2244 gdk-pixbuf/io-gdip-utils.c:840
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "გამოსახულების ფაილის  ჩაწერის შეცდომა:\"%s\""
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2287 gdk-pixbuf/gdk-pixbuf-io.c:2408
+#: gdk-pixbuf/gdk-pixbuf-io.c:2286 gdk-pixbuf/gdk-pixbuf-io.c:2407
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
+"Gdk-pixbuf-ის ამ აგებას ამ გამოსახულების ფორმატში შენახვის მხარდაჭერა არ "
+"გააჩნია: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2318
+#: gdk-pixbuf/gdk-pixbuf-io.c:2317
 msgid "Insufficient memory to save image to callback"
-msgstr ""
+msgstr "არასაკმარისი მეხსიერება გამოსახულების უკუგამოძახებაში შესანახად"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2331
+#: gdk-pixbuf/gdk-pixbuf-io.c:2330
 msgid "Failed to open temporary file"
 msgstr "დროებითი ფაილის შექმნის შეცდომა"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2354
+#: gdk-pixbuf/gdk-pixbuf-io.c:2353
 msgid "Failed to read from temporary file"
 msgstr "დროებითი ფაილიდან წაკითხვის შეცდომა"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2576
+#: gdk-pixbuf/gdk-pixbuf-io.c:2575
 #, c-format
 msgid "Failed to open “%s” for writing: %s"
 msgstr "%s-ის ჩაწერისთვის გახსნა შეუძლებელია: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2602
+#: gdk-pixbuf/gdk-pixbuf-io.c:2601
 #, c-format
 msgid ""
 "Failed to close “%s” while writing image, all data may not have been saved: "
 "%s"
 msgstr ""
+"\"%s\"-ის დახურვის შეცდომა გამოსახულების ჩაწერისას. შეიძლება ყველა მონაცემი "
+"შენახული არაა: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2836 gdk-pixbuf/gdk-pixbuf-io.c:2891
+#: gdk-pixbuf/gdk-pixbuf-io.c:2835 gdk-pixbuf/gdk-pixbuf-io.c:2890
 msgid "Insufficient memory to save image into a buffer"
-msgstr ""
+msgstr "არასაკმარისი მეხსიერება გამოსახულების ბუფერში შესანახად"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2937
+#: gdk-pixbuf/gdk-pixbuf-io.c:2936
 msgid "Error writing to image stream"
 msgstr "გამოსახულების ნაკადში ჩაწერის შეცდომა"
 
@@ -195,11 +206,13 @@ msgid ""
 "Internal error: Image loader module “%s” failed to complete an operation, "
 "but didn’t give a reason for the failure"
 msgstr ""
+"შიდა შეცდომა: გამოსახულების ჩამტვირთავი მოდულის \"%s\" ოპერაციის დასრულების "
+"შეცდომა. მიზეზი გადმოცემული არ იყო"
 
 #: gdk-pixbuf/gdk-pixbuf-loader.c:458
 #, c-format
 msgid "Incremental loading of image type “%s” is not supported"
-msgstr ""
+msgstr "გამოსახულების ტიპის \"%s\" ინკრემენტული ჩატვირთვა მხარდაჭერილი არაა"
 
 #: gdk-pixbuf/gdk-pixbuf-simple-anim.c:162
 msgid "Loop"
@@ -207,7 +220,7 @@ msgstr "მარყუჟი"
 
 #: gdk-pixbuf/gdk-pixbuf-simple-anim.c:163
 msgid "Whether the animation should loop when it reaches the end"
-msgstr ""
+msgstr "ანიმაციის მარყუჟი, როცა ის ბოლოს მიაღწევს"
 
 #: gdk-pixbuf/gdk-pixdata.c:178
 msgid "Image header corrupt"
@@ -226,12 +239,12 @@ msgstr "გამოსახულების პიქსელის მო�
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "გამოსახულებს ბუფერისთვის %u ბაიტის გამოყოფის შეცდომა"
+msgstr[1] "გამოსახულებს ბუფერისთვის %u ბაიტის გამოყოფის შეცდომა"
 
 #: gdk-pixbuf/io-ani.c:239
 msgid "Unexpected icon chunk in animation"
-msgstr ""
+msgstr "ანიმაციაში აღმოჩენილია მოულოდნელი ხატულის ნაგლეჯი"
 
 #: gdk-pixbuf/io-ani.c:337 gdk-pixbuf/io-ani.c:395 gdk-pixbuf/io-ani.c:421
 #: gdk-pixbuf/io-ani.c:444 gdk-pixbuf/io-ani.c:471 gdk-pixbuf/io-ani.c:558
@@ -249,7 +262,7 @@ msgstr "ანიმაციის არასწორი ნაწილი"
 
 #: gdk-pixbuf/io-ani.c:629
 msgid "ANI image was truncated or incomplete."
-msgstr ""
+msgstr "ANI გამოსახულება წაკვეთილი ან დაუსრულებელია."
 
 #: gdk-pixbuf/io-ani.c:670
 msgctxt "image format"
@@ -260,23 +273,23 @@ msgstr "Windows -ის ანიმირებული კურსორი"
 #: gdk-pixbuf/io-bmp.c:403 gdk-pixbuf/io-bmp.c:428 gdk-pixbuf/io-bmp.c:463
 #: gdk-pixbuf/io-bmp.c:485 gdk-pixbuf/io-bmp.c:563
 msgid "BMP image has bogus header data"
-msgstr ""
+msgstr "BMP გამოსახულების თავსართის მონაცემები ბუნდოვანია"
 
 #: gdk-pixbuf/io-bmp.c:242 gdk-pixbuf/io-bmp.c:498
 msgid "Not enough memory to load bitmap image"
-msgstr ""
+msgstr "არასაკმარისი მეხსიერება ბიტური რუკის გამოსახულების ჩასატვირთად"
 
 #: gdk-pixbuf/io-bmp.c:333
 msgid "BMP image has unsupported header size"
-msgstr ""
+msgstr "BMP გამოსახულების თავსართის ზომა მხარდაუჭერელია"
 
 #: gdk-pixbuf/io-bmp.c:343
 msgid "BMP image has unsupported depth"
-msgstr ""
+msgstr "BMP გამოსახულების სიღრმე მხარდაუჭერელია"
 
 #: gdk-pixbuf/io-bmp.c:358
 msgid "BMP image has oversize palette"
-msgstr ""
+msgstr "BMP გამოსახულების პალიტრა დაშვებულ ზომაზე დიდია"
 
 #: gdk-pixbuf/io-bmp.c:390
 msgid "Topdown BMP images cannot be compressed"
@@ -284,28 +297,28 @@ msgstr ""
 
 #: gdk-pixbuf/io-bmp.c:415
 msgid "BMP image width too large"
-msgstr ""
+msgstr "BMP გამოსახულების სიგანე მეტისმეტად დიდია"
 
 #: gdk-pixbuf/io-bmp.c:792 gdk-pixbuf/io-png.c:564 gdk-pixbuf/io-pnm.c:722
 #: gdk-pixbuf/io-pnm.c:879
 msgid "Premature end-of-file encountered"
-msgstr ""
+msgstr "აღმოჩენილია ფაილის მოულოდნელი დასასრული"
 
 #: gdk-pixbuf/io-bmp.c:1313
 msgid "Error while decoding colormap"
-msgstr ""
+msgstr "ფერების რუკის გაშიფვრის შეცდომა"
 
 #: gdk-pixbuf/io-bmp.c:1376 gdk-pixbuf/io-bmp.c:1388
 msgid "Image is too wide for BMP format."
-msgstr ""
+msgstr "გამოსახულება BMP ფორმატისთვის მეტისმეტად განიერია."
 
 #: gdk-pixbuf/io-bmp.c:1421
 msgid "Couldn’t allocate memory for saving BMP file"
-msgstr ""
+msgstr "BMP ფაილის შესანახად მეხსიერების გამოყოფა შეუძლებელია"
 
 #: gdk-pixbuf/io-bmp.c:1462
 msgid "Couldn’t write to BMP file"
-msgstr ""
+msgstr "BMP ფაილში ჩაწერის შეცდომა"
 
 #: gdk-pixbuf/io-bmp.c:1515 gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
@@ -327,20 +340,24 @@ msgctxt "image format"
 msgid "Windows icon"
 msgstr "Windows icon"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1391
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1394
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value “%s” could not be "
 "parsed."
 msgstr ""
+"JPEG ხარისხის მნიშვნელობა 0-100 დიაპაზონიდან უნდა იყოს. მნიშვნელობა \"%s\" "
+"არასწორია."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1407
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1410
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value “%d” is not allowed."
 msgstr ""
+"JPEG ხარისხის მნიშვნელობა 0-100 დიაპაზონიდან უნდა იყოს. მნიშვნელობა \"%d\" "
+"დაუშვებელია."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1691
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1694
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
@@ -373,7 +390,7 @@ msgstr "ნაკადიდან წაკითხვის შეცდო�
 
 #: gdk-pixbuf/io-gdip-utils.c:620
 msgid "Couldn’t load bitmap"
-msgstr ""
+msgstr "ბიტური რუკის ჩატვირთვის შეცდომა"
 
 #: gdk-pixbuf/io-gdip-utils.c:776
 msgid "Couldn’t load metafile"
@@ -381,7 +398,7 @@ msgstr "მეტაფაილის ჩატვირთვის შეც�
 
 #: gdk-pixbuf/io-gdip-utils.c:881
 msgid "Unsupported image format for GDI+"
-msgstr ""
+msgstr "მხარდაუჭერელი გამოსახულების ფორმატი GDI+-სთვის"
 
 #: gdk-pixbuf/io-gdip-utils.c:888
 msgid "Couldn’t save"
@@ -400,51 +417,53 @@ msgstr "GIF-ის წაკითხვის შეცდომა: %s"
 #: gdk-pixbuf/io-gif.c:381 gdk-pixbuf/io-gif.c:848 gdk-pixbuf/io-gif.c:901
 #: gdk-pixbuf/io-gif.c:974
 msgid "Not enough memory to load GIF file"
-msgstr ""
+msgstr "GIF ფაილის ჩასატვირთად მეხსიერება საკმარისი არაა"
 
 #: gdk-pixbuf/io-gif.c:507
 msgid "GIF image is corrupt (incorrect LZW compression)"
-msgstr ""
+msgstr "GIF გამოსახულება დაზიანებულია (არასწორი LZW შეკუმშვა)"
 
 #: gdk-pixbuf/io-gif.c:543
 msgid "File does not appear to be a GIF file"
-msgstr ""
+msgstr "ფაილი GIF ფაილს არ ჰგავს"
 
 #: gdk-pixbuf/io-gif.c:558
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
-msgstr ""
+msgstr "GIF ფაილის %s ვერსია მხარდაჭერილი არაა"
 
 #: gdk-pixbuf/io-gif.c:587
 msgid "Resulting GIF image has zero size"
-msgstr ""
+msgstr "მიღებულ GIF გამოსახულების ზომა ნულოვანია"
 
 #: gdk-pixbuf/io-gif.c:657
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
 msgstr ""
+"GIF გამოსახულებას გლობალური ფერების რუკა არ გააჩნია და ლოკალურ ფერების "
+"რუკაში კადრი არ აქვს."
 
 #: gdk-pixbuf/io-gif.c:861 gdk-pixbuf/io-gif.c:986
 msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
-msgstr ""
+msgstr "GIF ფაილს რაღაც მონაცემები აკლია (შეიძლება წაიკვეთა?)"
 
 #: gdk-pixbuf/io-gif.c:920
 msgid "GIF image was truncated or incomplete."
-msgstr ""
+msgstr "GIF გამოსახულება წაკვეთილი ან დაუსრულებელია."
 
 #: gdk-pixbuf/io-gif.c:927
 msgid "Not all frames of the GIF image were loaded."
-msgstr ""
+msgstr "GIF ფაილის ყველა კადრი არ ჩატვირთულა."
 
 #: gdk-pixbuf/io-icns.c:363
 #, c-format
 msgid "Error reading ICNS image: %s"
-msgstr ""
+msgstr "ICNS გამოსახულების წაკითხვის შეცდომა: %s"
 
 #: gdk-pixbuf/io-icns.c:380 gdk-pixbuf/io-icns.c:461
 msgid "Could not decode ICNS file"
-msgstr ""
+msgstr "ICNS ფაილის გაშიფვრის შეცდომა"
 
 #: gdk-pixbuf/io-icns.c:517
 msgctxt "image format"
@@ -488,12 +507,12 @@ msgstr "ICO ფორმატში შესანახად გამოს
 
 #: gdk-pixbuf/io-ico.c:1081
 msgid "Cursor hotspot outside image"
-msgstr ""
+msgstr "კურსორის ცხელი წერტილი გამოსახულების გარეთაა"
 
 #: gdk-pixbuf/io-ico.c:1104
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
-msgstr ""
+msgstr "ICO ფაილის მხარდაუჭერელი სიღრმე: %d"
 
 #: gdk-pixbuf/io-jpeg.c:129
 #, c-format
@@ -505,75 +524,78 @@ msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
 msgstr ""
+"გამოსახულების ჩასატვირთად მეხსიერება საკმარისი არაა. მეხსიერების "
+"გასათავისუფლებლად სცადეთ არასაჭირო აპლიკაციები გამორთოთ"
 
 #: gdk-pixbuf/io-jpeg.c:711 gdk-pixbuf/io-jpeg.c:956
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
-msgstr ""
+msgstr "მხარდაუჭერელი JPEG ფერების სივრცე (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:834 gdk-pixbuf/io-jpeg.c:1151 gdk-pixbuf/io-jpeg.c:1498
-#: gdk-pixbuf/io-jpeg.c:1508
+#: gdk-pixbuf/io-jpeg.c:834 gdk-pixbuf/io-jpeg.c:1154 gdk-pixbuf/io-jpeg.c:1501
+#: gdk-pixbuf/io-jpeg.c:1511
 msgid "Couldn’t allocate memory for loading JPEG file"
 msgstr "JPEG ფაილის ჩასატვირთად საჭირო მეხსიერების გამოყოფა შეუძლებელია"
 
-#: gdk-pixbuf/io-jpeg.c:1109
+#: gdk-pixbuf/io-jpeg.c:1112
 msgid "Transformed JPEG has zero width or height."
-msgstr ""
+msgstr "გადაყვანილ JPEG ფაილის სიგრძე ან სიმაღლე ნულოვანია."
 
-#: gdk-pixbuf/io-jpeg.c:1135
+#: gdk-pixbuf/io-jpeg.c:1138
 #, c-format
 msgid "Unsupported number of color components (%d)"
-msgstr ""
+msgstr "ფერის კომპონენტების რაოდენობა (%d) მხარდაჭერილი არაა"
 
-#: gdk-pixbuf/io-jpeg.c:1428
+#: gdk-pixbuf/io-jpeg.c:1431
 #, c-format
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
 
-#: gdk-pixbuf/io-jpeg.c:1449
+#: gdk-pixbuf/io-jpeg.c:1452
 #, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
 
-#: gdk-pixbuf/io-jpeg.c:1463
+#: gdk-pixbuf/io-jpeg.c:1466
 #, c-format
 msgid "Color profile has invalid length “%u”."
-msgstr ""
+msgstr "ფერის პროფილის სიგრძე, \"%u\", არასწორია."
 
 #: gdk-pixbuf/io-png.c:63
 msgid "Bits per channel of PNG image is invalid."
-msgstr ""
+msgstr "PNG გამოსახულების ბიტების რაოდენობა თითოეული არხისთვის არასწორია."
 
 #: gdk-pixbuf/io-png.c:144 gdk-pixbuf/io-png.c:703
 msgid "Transformed PNG has zero width or height."
-msgstr ""
+msgstr "გადაყვანილ PNG ფაილის სიგრძე ან სიმაღლე ნულოვანია."
 
 #: gdk-pixbuf/io-png.c:152
 msgid "Bits per channel of transformed PNG is not 8."
-msgstr ""
+msgstr "გადაყვანილი PNG-ის ბიტები/არხზე რვის ტოლი არაა."
 
 #: gdk-pixbuf/io-png.c:161
 msgid "Transformed PNG not RGB or RGBA."
-msgstr ""
+msgstr "გადაყვანილი PNG არც RGB-ა, არც RGBA."
 
 #: gdk-pixbuf/io-png.c:170
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
+"გადაყვანილი PNG ფაილის არხების რაოდენობა მხარდაჭერილი არაა. უნდა იყოს 3 ან 4."
 
 #: gdk-pixbuf/io-png.c:191
 #, c-format
 msgid "Fatal error in PNG image file: %s"
-msgstr ""
+msgstr "ფატალური შეცდომა PNG ფაილში: %s"
 
 #: gdk-pixbuf/io-png.c:329
 msgid "Insufficient memory to load PNG file"
-msgstr ""
+msgstr "PNG ფაილის ჩასატვირთად მეხსიერება საკმარისი არაა"
 
 #: gdk-pixbuf/io-png.c:498 gdk-pixbuf/io-png.c:519
 msgid "Couldn’t allocate memory for loading PNG"
-msgstr ""
+msgstr "PNG ფაილის ჩასატვირთად საჭირო მეხსიერების გამოყოფა შეუძლებელია"
 
 #: gdk-pixbuf/io-png.c:716
 #, c-format
@@ -581,15 +603,17 @@ msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
+"%lu-ის %lu გამოსახულების მიმართ შესანახად მეხსიერება საკმარისი არაა. "
+"მეხსიერების გასათავისუფლებლად ზოგიერთი პროგრამის დახურვა შეგიძლიათ, სცადოთ"
 
 #: gdk-pixbuf/io-png.c:791
 msgid "Fatal error reading PNG image file"
-msgstr ""
+msgstr "ფატალური შეცდომა PNG ფაილის კითხვისას"
 
 #: gdk-pixbuf/io-png.c:840
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
-msgstr ""
+msgstr "ფატალური შეცდომა PNG ფაილის კითხვისას: %s"
 
 #: gdk-pixbuf/io-png.c:937
 #, c-format
@@ -597,33 +621,40 @@ msgid ""
 "Invalid key “%s”. Keys for PNG text chunks must have at least 1 and at most "
 "79 characters."
 msgstr ""
+"არასწორი გასაღები '%s'. PNG-ის ტექსტის ნაგლეჯები 1-79 სიმბოლოს სიგრძის უნდა "
+"იყოს."
 
 #: gdk-pixbuf/io-png.c:950
 #, c-format
 msgid "Invalid key “%s”. Keys for PNG text chunks must be ASCII characters."
 msgstr ""
+"გასაღები \"%s\" არასწორია. PNG-ის ტექსტის ნაგლეჯები ASCII სიმბოლოებისგან "
+"უნდა შედგებოდეს."
 
 #: gdk-pixbuf/io-png.c:980
 #, c-format
 msgid ""
 "Value for PNG text chunk '%s' cannot be converted to ISO-8859-1 encoding."
 msgstr ""
+"PNG-ის ტექსტის ნაგლეჯის '%s' მნიშვნელობის ISO-8859-1 კოდირებაში გადაყვანა "
+"შეუძლებელია."
 
 #: gdk-pixbuf/io-png.c:992
 #, c-format
 msgid "Color profile has invalid length %d"
-msgstr ""
+msgstr "ფერის პროფილის სიგრძე, \"%d\", არასწორია"
 
 #: gdk-pixbuf/io-png.c:1004
 #, c-format
 msgid ""
 "PNG compression level must be a value between 0 and 9; value “%s” is invalid"
 msgstr ""
+"PNG-ის შეკუმშვის დონე 0-9 შუალედში უნდა იყოს. მნიშვნელობა \"%s\" არასწორია"
 
 #: gdk-pixbuf/io-png.c:1018
 #, c-format
 msgid "PNG %s must be greater than zero; value “%s” is not allowed"
-msgstr ""
+msgstr "PNG %s ნულზე მეტი უნდა იყოს. მნიშვნელობა \"%s\" მისაღები არაა"
 
 #: gdk-pixbuf/io-png.c:1246
 msgctxt "image format"
@@ -632,67 +663,69 @@ msgstr "PNG"
 
 #: gdk-pixbuf/io-pnm.c:247
 msgid "PNM loader expected to find an integer, but didn’t"
-msgstr ""
+msgstr "PNM ჩამტვირთავს მთელი რიცხვი სჭირდებოდა, მაგრამ ნურას უკაცრავად"
 
 #: gdk-pixbuf/io-pnm.c:279
 msgid "PNM file has an incorrect initial byte"
-msgstr ""
+msgstr "PNM ფაილის საწყისი ბაიტი არასწორია"
 
 #: gdk-pixbuf/io-pnm.c:309
 msgid "PNM file is not in a recognized PNM subformat"
-msgstr ""
+msgstr "PNM ფაილი ცნობილ PNM ქვეფორმატში არაა"
 
 #: gdk-pixbuf/io-pnm.c:334
 msgid "PNM file has an invalid width"
-msgstr ""
+msgstr "PNM ფაილის სიგანე არასწორია"
 
 #: gdk-pixbuf/io-pnm.c:342
 msgid "PNM file has an image width of 0"
-msgstr ""
+msgstr "PNM ფაილის სიგანე ნულოვანია"
 
 #: gdk-pixbuf/io-pnm.c:363
 msgid "PNM file has an invalid height"
-msgstr ""
+msgstr "PNM ფაილის სიმაღლე არასწორია"
 
 #: gdk-pixbuf/io-pnm.c:371
 msgid "PNM file has an image height of 0"
-msgstr ""
+msgstr "PNM ფაილის სიმაღლე ნულოვანია"
 
 #: gdk-pixbuf/io-pnm.c:394
 msgid "Maximum color value in PNM file is 0"
-msgstr ""
+msgstr "PNM ფაილში მაქსიმალური ფერის მნიშვნელობა ნულის ტოლია"
 
 #: gdk-pixbuf/io-pnm.c:402
 msgid "Maximum color value in PNM file is too large"
-msgstr ""
+msgstr "PNM ფაილში მაქსიმალური ფერის მნიშვნელობა მეტისმეტად დიდია"
 
 #: gdk-pixbuf/io-pnm.c:442 gdk-pixbuf/io-pnm.c:472 gdk-pixbuf/io-pnm.c:517
 msgid "Raw PNM image type is invalid"
-msgstr ""
+msgstr "დაუმუშავებელი PNM გამოსახულების ტიპი არასწორია"
 
 #: gdk-pixbuf/io-pnm.c:667
 msgid "PNM image loader does not support this PNM subformat"
-msgstr ""
+msgstr "PNG ფაილის ჩამტვირთავს ამ PNM ქვეფორმატის მხარდაჭერა არ გააჩნია"
 
 #: gdk-pixbuf/io-pnm.c:754 gdk-pixbuf/io-pnm.c:991
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr ""
+"დაუმუშავებელ PNM ფორმატებს სემპლის მონაცემებამდე ზუსტად ერთი გამოტოვება "
+"სჭირდება"
 
 #: gdk-pixbuf/io-pnm.c:781
 msgid "Cannot allocate memory for loading PNM image"
-msgstr ""
+msgstr "PNM გამოსახულების ჩასატვირთად მეხსიერების გამოყოფა შეუძლებელია"
 
 #: gdk-pixbuf/io-pnm.c:835
 msgid "Insufficient memory to load PNM context struct"
-msgstr ""
+msgstr "PNM კონტექსტის სტრუქტურის მეხსიერება საკმარისი არაა"
 
 #: gdk-pixbuf/io-pnm.c:892
 msgid "Unexpected end of PNM image data"
-msgstr ""
+msgstr "PNM გამოსახულების მონაცემების მოულოდნელი დასასრული"
 
 #: gdk-pixbuf/io-pnm.c:1020
 msgid "Insufficient memory to load PNM file"
-msgstr ""
+msgstr "PNM ფაილის ჩასატვირთად მეხსიერება საკმარისი არაა"
 
 #: gdk-pixbuf/io-pnm.c:1103
 msgctxt "image format"
@@ -701,49 +734,49 @@ msgstr "PNM/PBM/PGM/PPM"
 
 #: gdk-pixbuf/io-qtif.c:126
 msgid "Input file descriptor is NULL."
-msgstr ""
+msgstr "შეყვანის ფაილის დესკრიპტორი ნულოვანია."
 
 #: gdk-pixbuf/io-qtif.c:141
 msgid "Failed to read QTIF header"
-msgstr ""
+msgstr "QTIF თავსართის წაკითხვის შეცდომა"
 
 #: gdk-pixbuf/io-qtif.c:150 gdk-pixbuf/io-qtif.c:187 gdk-pixbuf/io-qtif.c:449
 #, c-format
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "QTIF ატომის ზომა მეტისმეტად დიდია (%d ბაიტი)"
+msgstr[1] "QTIF ატომის ზომა მეტისმეტად დიდია (%d ბაიტი)"
 
 #: gdk-pixbuf/io-qtif.c:173
 #, c-format
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ფაილის წაკითხვის ბუფერისთვის %d ბაიტის გამოყოფის შეცდომა"
+msgstr[1] "ფაილის წაკითხვის ბუფერისთვის %d ბაიტის გამოყოფის შეცდომა"
 
 #: gdk-pixbuf/io-qtif.c:201
 #, c-format
 msgid "File error when reading QTIF atom: %s"
-msgstr ""
+msgstr "ფაილის შეცდომა QTIF ატომის წაკითხვისას: %s"
 
 #: gdk-pixbuf/io-qtif.c:238
 #, c-format
 msgid "Failed to skip the next %d byte with seek()."
 msgid_plural "Failed to skip the next %d bytes with seek()."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "შეცდომა seek()-ით შემდეგი %d ბაიტის გამოტოვების მცდელობისას."
+msgstr[1] "შეცდომა seek()-ით შემდეგი %d ბაიტის გამოტოვების მცდელობისას."
 
 #: gdk-pixbuf/io-qtif.c:269
 msgid "Failed to allocate QTIF context structure."
-msgstr ""
+msgstr "QTIF კონტექსტის სტრუქტურის გამოყოფის შეცდომა."
 
 #: gdk-pixbuf/io-qtif.c:329
 msgid "Failed to create GdkPixbufLoader object."
-msgstr ""
+msgstr "GdkPixbufLoader ობიექტის შექმნის შეცდომა."
 
 #: gdk-pixbuf/io-qtif.c:424
 msgid "Failed to find an image data atom."
-msgstr ""
+msgstr "გამოსახულების მონაცემის ატომის აღმოჩენა შეუძლებელია."
 
 #: gdk-pixbuf/io-qtif.c:599
 msgctxt "image format"
@@ -752,39 +785,39 @@ msgstr "QuickTime"
 
 #: gdk-pixbuf/io-tga.c:346
 msgid "Cannot allocate colormap"
-msgstr ""
+msgstr "ფერების რუკის გამოყოფის შეცდომა"
 
 #: gdk-pixbuf/io-tga.c:371
 msgid "Cannot allocate new pixbuf"
-msgstr ""
+msgstr "ახალი pixbuf-ის გამოყოფის შეცდომა"
 
 #: gdk-pixbuf/io-tga.c:519
 msgid "Unexpected bitdepth for colormap entries"
-msgstr ""
+msgstr "ფერის რუკის ჩანაწერების მოულოდნელი ბიტური სიღრმე"
 
 #: gdk-pixbuf/io-tga.c:535
 msgid "Pseudocolor image does not contain a colormap"
-msgstr ""
+msgstr "ფსევდოფერიანი გამოსახულება ფერების რუკას არ შეიცავს"
 
 #: gdk-pixbuf/io-tga.c:578
 msgid "Cannot allocate TGA header memory"
-msgstr ""
+msgstr "TGA თავსართის მეხსიერების გამოყოფის შეცდომა"
 
 #: gdk-pixbuf/io-tga.c:609
 msgid "TGA image has invalid dimensions"
-msgstr ""
+msgstr "TGA გამოსახულების ზომები არასწორია"
 
 #: gdk-pixbuf/io-tga.c:615 gdk-pixbuf/io-tga.c:622
 msgid "TGA image type not supported"
-msgstr ""
+msgstr "TGA გამოსახულების ტიპი მხარდაჭერილი არაა"
 
 #: gdk-pixbuf/io-tga.c:650
 msgid "Cannot allocate memory for TGA context struct"
-msgstr ""
+msgstr "TGA კონტექსტის სტრუქტურისთვის მეხსიერების გამოყოფა შეუძლებელია"
 
 #: gdk-pixbuf/io-tga.c:712
 msgid "TGA image was truncated or incomplete."
-msgstr ""
+msgstr "TGA გამოსახულება წაკვეთილი ან დაუსრულებელია."
 
 #: gdk-pixbuf/io-tga.c:764
 msgctxt "image format"
@@ -793,23 +826,23 @@ msgstr "Targa"
 
 #: gdk-pixbuf/io-tiff.c:117
 msgid "Could not get image width (bad TIFF file)"
-msgstr ""
+msgstr "გამოსახულების სიგანის მიღება შეუძლებელია (არასწორი TIFF ფაილი)"
 
 #: gdk-pixbuf/io-tiff.c:125
 msgid "Could not get image height (bad TIFF file)"
-msgstr ""
+msgstr "გამოსახულების სიმაღლის მიღება შეუძლებელია (არასწორი TIFF ფაილი)"
 
 #: gdk-pixbuf/io-tiff.c:133
 msgid "Width or height of TIFF image is zero"
-msgstr ""
+msgstr "TIFF გამოსახულების სიმაღლე ან სიგანე ნულის ტოლია"
 
 #: gdk-pixbuf/io-tiff.c:141 gdk-pixbuf/io-tiff.c:151
 msgid "Dimensions of TIFF image too large"
-msgstr ""
+msgstr "TIFF გამოსახულების ზომები მეტისმეტად დიდია"
 
 #: gdk-pixbuf/io-tiff.c:177 gdk-pixbuf/io-tiff.c:189 gdk-pixbuf/io-tiff.c:585
 msgid "Insufficient memory to open TIFF file"
-msgstr ""
+msgstr "TIFF ფაილის ჩასატვირთად მეხსიერება საკმარისი არაა"
 
 #: gdk-pixbuf/io-tiff.c:287
 msgid "Failed to load RGB data from TIFF file"
@@ -829,20 +862,20 @@ msgstr "TIFF გამოსახულების ჩაწერის შ�
 
 #: gdk-pixbuf/io-tiff.c:821
 msgid "TIFF compression doesn’t refer to a valid codec."
-msgstr ""
+msgstr "TIFF შეკუმშვა სწორ კოდეკს არ შეიცავს."
 
 #: gdk-pixbuf/io-tiff.c:851
 #, c-format
 msgid "Color profile has invalid length %d."
-msgstr ""
+msgstr "ფერის პროფილის სიგრძე, \"%d\", არასწორია."
 
 #: gdk-pixbuf/io-tiff.c:866
 msgid "TIFF bits-per-sample doesn’t contain a supported value."
-msgstr ""
+msgstr "TIFF-ის ბიტები-სემპლისთვის მხარდაჭერილ მნიშვნელობას არ შეიცავს."
 
 #: gdk-pixbuf/io-tiff.c:947
 msgid "Failed to write TIFF data"
-msgstr ""
+msgstr "TIFF მონაცემების ჩაწერის შეცდომა"
 
 #: gdk-pixbuf/io-tiff.c:965
 #, c-format
@@ -856,19 +889,19 @@ msgstr ""
 
 #: gdk-pixbuf/io-tiff.c:1018
 msgid "Couldn’t write to TIFF file"
-msgstr ""
+msgstr "TIFF ფაილში ჩაწერის შეცდომა"
 
 #: gdk-pixbuf/io-xbm.c:320
 msgid "Invalid XBM file"
-msgstr ""
+msgstr "არასწორი XBM ფაილი"
 
 #: gdk-pixbuf/io-xbm.c:331
 msgid "Insufficient memory to load XBM image file"
-msgstr ""
+msgstr "XBM ფაილის ჩასატვირთად მეხსიერება საკმარისი არაა"
 
 #: gdk-pixbuf/io-xbm.c:482
 msgid "Failed to write to temporary file when loading XBM image"
-msgstr ""
+msgstr "XBM გამოსახულების ჩატვირთვისას დროებითი ფაილის ჩაწერის შეცდომა"
 
 #: gdk-pixbuf/io-xbm.c:521
 msgctxt "image format"
@@ -877,43 +910,43 @@ msgstr "XBM"
 
 #: gdk-pixbuf/io-xpm.c:472
 msgid "No XPM header found"
-msgstr ""
+msgstr "XPM თავსართი ვერ ვიპოვე"
 
 #: gdk-pixbuf/io-xpm.c:481 gdk-pixbuf/io-xpm.c:507
 msgid "Invalid XPM header"
-msgstr ""
+msgstr "არასწორი XPM თავსართი"
 
 #: gdk-pixbuf/io-xpm.c:489
 msgid "XPM file has image width <= 0"
-msgstr ""
+msgstr "XPM გამოსახულების სიგანე ფაილში <= 0"
 
 #: gdk-pixbuf/io-xpm.c:497
 msgid "XPM file has image height <= 0"
-msgstr ""
+msgstr "XPM გამოსახულების სიმაღლე ფაილში <= 0"
 
 #: gdk-pixbuf/io-xpm.c:514
 msgid "XPM has invalid number of chars per pixel"
-msgstr ""
+msgstr "XPM ფაილში თითოეული პიქსელისთვის სიმბოლოების რაოდენობა არასწორია"
 
 #: gdk-pixbuf/io-xpm.c:523
 msgid "XPM file has invalid number of colors"
-msgstr ""
+msgstr "XPM ფაილში ფერების რაოდენობა არასწორია"
 
 #: gdk-pixbuf/io-xpm.c:535 gdk-pixbuf/io-xpm.c:544 gdk-pixbuf/io-xpm.c:593
 msgid "Cannot allocate memory for loading XPM image"
-msgstr ""
+msgstr "XPM გამოსახულების ჩასატვირთად მეხსიერების გამოყოფა შეუძლებელია"
 
 #: gdk-pixbuf/io-xpm.c:558
 msgid "Cannot read XPM colormap"
-msgstr ""
+msgstr "XPM ფერების რუკის წაკიტხვა შეუძლებელია"
 
 #: gdk-pixbuf/io-xpm.c:610
 msgid "Dimensions do not match data"
-msgstr ""
+msgstr "ზომები მონაცემებს არ ემთხვევა"
 
 #: gdk-pixbuf/io-xpm.c:806
 msgid "Failed to write to temporary file when loading XPM image"
-msgstr ""
+msgstr "XPM გამოსახულების ჩატვირთვისას დროებითი ფაილის ჩაწერის შეცდომა"
 
 #: gdk-pixbuf/io-xpm.c:845
 msgctxt "image format"
