@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gdk-pixbuf\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
-"POT-Creation-Date: 2023-01-25 17:23+0000\n"
-"PO-Revision-Date: 2023-07-19 06:08+0200\n"
+"POT-Creation-Date: 2023-07-19 04:10+0000\n"
+"PO-Revision-Date: 2023-08-18 19:47+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
@@ -97,7 +97,7 @@ msgstr "Pixbuf-ის მწკრივების რიცხვი"
 
 #: gdk-pixbuf/gdk-pixbuf.c:337
 msgid "Rowstride"
-msgstr ""
+msgstr "ადგილი სტრიქონებს შორის"
 
 #: gdk-pixbuf/gdk-pixbuf.c:338
 msgid ""
@@ -293,7 +293,7 @@ msgstr "BMP გამოსახულების პალიტრა და
 
 #: gdk-pixbuf/io-bmp.c:390
 msgid "Topdown BMP images cannot be compressed"
-msgstr ""
+msgstr "გადაბრუნებული BMP ფორმატის მქონე გამოსახულებების შეკუმშვა შეუძლებელია"
 
 #: gdk-pixbuf/io-bmp.c:415
 msgid "BMP image width too large"
@@ -551,12 +551,16 @@ msgstr "ფერის კომპონენტების რაოდე�
 msgid ""
 "JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
+"JPEG-ის x-dpi თვისების მნიშვნელობა 1-65535 დიაპაზონიდან უნდა იყოს. "
+"მნიშვნელობა \"%s\" დაუშვებელია."
 
 #: gdk-pixbuf/io-jpeg.c:1452
 #, c-format
 msgid ""
 "JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
+"JPEG-ის y-dpi თვისების მნიშვნელობა 1-65535 დიაპაზონიდან უნდა იყოს. "
+"მნიშვნელობა \"%s\" დაუშვებელია."
 
 #: gdk-pixbuf/io-jpeg.c:1466
 #, c-format
@@ -881,11 +885,15 @@ msgstr "TIFF მონაცემების ჩაწერის შეც�
 #, c-format
 msgid "TIFF x-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
+"TIFF-ის x-dpi თვისების მნიშვნელობა ნულზე მეტი უნდა იყოს. მნიშვნელობა \"%s\" "
+"დაუშვებელია."
 
 #: gdk-pixbuf/io-tiff.c:977
 #, c-format
 msgid "TIFF y-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
+"TIFF-ის y-dpi თვისების მნიშვნელობა ნულზე მეტი უნდა იყოს. მნიშვნელობა \"%s\" "
+"დაუშვებელია."
 
 #: gdk-pixbuf/io-tiff.c:1018
 msgid "Couldn’t write to TIFF file"
