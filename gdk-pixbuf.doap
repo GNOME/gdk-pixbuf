@@ -8,8 +8,8 @@
   <shortdesc xml:lang="en">An image loading library</shortdesc>
   <description>GdkPixbuf is a library for loading, saving, and transforming image data in various formats, like PNG, JPEG, and TIFF</description>
 
-  <homepage rdf:resource="http://www.gtk.org" />
-  <mailing-list rdf:resource="https://mail.gnome.org/mailman/listinfo/gtk-devel-list" />
+  <homepage rdf:resource="https://www.gtk.org" />
+  <developer-forum rdf:resource="https://discourse.gnome.org/c/platform/5" />
   <download-page rdf:resource="https://download.gnome.org/sources/gdk-pixbuf/" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues/new" />
   <category rdf:resource="http://api.gnome.org/doap-extensions#core" />
