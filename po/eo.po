@@ -4,373 +4,370 @@
 # Antono VASILJEV <antono.vasiljev@gmail.com>, 2007.
 # Guillaume SAVATON <llumeao@gmail.com>, 2007.
 # Tiffany ANTOPOLSKI <tiffany.antopolski@gmail.com>, 2011.
-# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2010, 2011, 2017.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2010-2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+2-eo-20070615\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
-"pixbuf&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-26 06:51+0000\n"
-"PO-Revision-Date: 2017-06-10 21:50+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
+"POT-Creation-Date: 2022-07-11 14:00+0000\n"
+"PO-Revision-Date: 2023-09-20 23:39+0200\n"
 "Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
 "Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 42.0\n"
 "X-Project-Style: gnome\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:156 gdk-pixbuf/gdk-pixbuf-io.c:1070
-#: gdk-pixbuf/gdk-pixbuf-io.c:1330
+#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1130
+#: gdk-pixbuf/gdk-pixbuf-io.c:1403
 #, c-format
-msgid "Failed to open file '%s': %s"
-msgstr "Malsukcesis malfermi la dosieron '%s': %s"
+msgid "Failed to open file “%s”: %s"
+msgstr "Malsukcesis malfermi la dosieron “%s”: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:169 gdk-pixbuf/gdk-pixbuf-io.c:955
+#: gdk-pixbuf/gdk-pixbuf-animation.c:198 gdk-pixbuf/gdk-pixbuf-io.c:991
 #, c-format
-msgid "Image file '%s' contains no data"
-msgstr "Bilda dosiero '%s' enhavas neniun datumon"
+msgid "Image file “%s” contains no data"
+msgstr "Bilda dosiero “%s” enhavas neniun datumon"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:207
+#: gdk-pixbuf/gdk-pixbuf-animation.c:236
 #, c-format
 msgid ""
-"Failed to load animation '%s': reason not known, probably a corrupt "
+"Failed to load animation “%s”: reason not known, probably a corrupt "
 "animation file"
 msgstr ""
-"Malsukcesis ŝargi animacion '%s': kialo nekonata, eble korupta animacia "
+"Malsukcesis ŝargi animacion “%s”: kialo nekonata, eble korupta animacia "
 "dosiero"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:275 gdk-pixbuf/gdk-pixbuf-io.c:1106
-#: gdk-pixbuf/gdk-pixbuf-io.c:1382
+#: gdk-pixbuf/gdk-pixbuf-animation.c:304 gdk-pixbuf/gdk-pixbuf-io.c:1166
+#: gdk-pixbuf/gdk-pixbuf-io.c:1455
 #, c-format
 msgid ""
-"Failed to load image '%s': reason not known, probably a corrupt image file"
+"Failed to load image “%s”: reason not known, probably a corrupt image file"
 msgstr ""
-"Malsukcesis ŝargi bildon '%s': kialo nekonata, eble korupta bilda dosiero"
+"Malsukcesis ŝargi bildon “%s”: kialo nekonata, eble korupta bilda dosiero"
 
-#: gdk-pixbuf/gdk-pixbuf.c:166
+#: gdk-pixbuf/gdk-pixbuf.c:248
 msgid "Number of Channels"
-msgstr ""
+msgstr "Nombro da kanaloj"
 
-#: gdk-pixbuf/gdk-pixbuf.c:167
-#, fuzzy
-#| msgid "XPM has invalid number of chars per pixel"
+#: gdk-pixbuf/gdk-pixbuf.c:249
 msgid "The number of samples per pixel"
-msgstr "XPM havas nevalidan nombron de bajtoj per bildero"
+msgstr "La nombro da specimenoj per pikselo"
 
-#: gdk-pixbuf/gdk-pixbuf.c:176
+#: gdk-pixbuf/gdk-pixbuf.c:264
 msgid "Colorspace"
-msgstr ""
+msgstr "Kolorspaco"
 
-#: gdk-pixbuf/gdk-pixbuf.c:177
+#: gdk-pixbuf/gdk-pixbuf.c:265
 msgid "The colorspace in which the samples are interpreted"
-msgstr ""
+msgstr "La kolorspaco en kiu la provaĵoj estas interpretitaj"
 
-#: gdk-pixbuf/gdk-pixbuf.c:185
+#: gdk-pixbuf/gdk-pixbuf.c:277
 msgid "Has Alpha"
-msgstr ""
+msgstr "Havas alfon"
 
-#: gdk-pixbuf/gdk-pixbuf.c:186
+#: gdk-pixbuf/gdk-pixbuf.c:278
 msgid "Whether the pixbuf has an alpha channel"
-msgstr ""
+msgstr "Ĉu la pixbuf havas alfa-kanalon"
 
-#: gdk-pixbuf/gdk-pixbuf.c:199
+#: gdk-pixbuf/gdk-pixbuf.c:291
 msgid "Bits per Sample"
-msgstr ""
+msgstr "Bitoj per specimeno"
 
-#: gdk-pixbuf/gdk-pixbuf.c:200
+#: gdk-pixbuf/gdk-pixbuf.c:292
 msgid "The number of bits per sample"
-msgstr ""
+msgstr "La nombro da bitoj per specimeno"
 
-#: gdk-pixbuf/gdk-pixbuf.c:209
+#: gdk-pixbuf/gdk-pixbuf.c:305
 msgid "Width"
-msgstr ""
+msgstr "Larĝo"
 
-#: gdk-pixbuf/gdk-pixbuf.c:210
+#: gdk-pixbuf/gdk-pixbuf.c:306
 msgid "The number of columns of the pixbuf"
-msgstr ""
+msgstr "La nombro da kolumnoj de la pixbuf"
 
-#: gdk-pixbuf/gdk-pixbuf.c:219
+#: gdk-pixbuf/gdk-pixbuf.c:319
 msgid "Height"
-msgstr ""
+msgstr "Alto"
 
-#: gdk-pixbuf/gdk-pixbuf.c:220
+#: gdk-pixbuf/gdk-pixbuf.c:320
 msgid "The number of rows of the pixbuf"
-msgstr ""
+msgstr "La nombro da vicoj de la pixbuf"
 
-#: gdk-pixbuf/gdk-pixbuf.c:236
+#: gdk-pixbuf/gdk-pixbuf.c:337
 msgid "Rowstride"
-msgstr ""
+msgstr "Vicopaŝado"
 
-#: gdk-pixbuf/gdk-pixbuf.c:237
+#: gdk-pixbuf/gdk-pixbuf.c:338
 msgid ""
 "The number of bytes between the start of a row and the start of the next row"
 msgstr ""
+"La nombro da bajtoj inter la komenco de vico kaj la komenco de la sekva vico"
 
-#: gdk-pixbuf/gdk-pixbuf.c:246
+#: gdk-pixbuf/gdk-pixbuf.c:351
 msgid "Pixels"
-msgstr ""
+msgstr "Rastrumeroj"
 
-#: gdk-pixbuf/gdk-pixbuf.c:247
+#: gdk-pixbuf/gdk-pixbuf.c:352
 msgid "A pointer to the pixel data of the pixbuf"
-msgstr ""
+msgstr "Montrilo al la pikselaj datumoj de la pixbuf"
 
-#: gdk-pixbuf/gdk-pixbuf.c:261
+#: gdk-pixbuf/gdk-pixbuf.c:366
 msgid "Pixel Bytes"
-msgstr ""
+msgstr "Pikselaj bajtoj"
 
-#: gdk-pixbuf/gdk-pixbuf.c:262
+#: gdk-pixbuf/gdk-pixbuf.c:367
 msgid "Readonly pixel data"
-msgstr ""
+msgstr "Datenoj por nur legado de pikseloj"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:775
+#: gdk-pixbuf/gdk-pixbuf-io.c:808
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Ne eblas ŝargi la modulon por bildoŝargo: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:790
+#: gdk-pixbuf/gdk-pixbuf-io.c:825
 #, c-format
 msgid ""
-"Image-loading module %s does not export the proper interface; perhaps it's "
+"Image-loading module %s does not export the proper interface; perhaps it’s "
 "from a different gdk-pixbuf version?"
 msgstr ""
-"Bildoŝarga modulo %s ne elsportas la taŭgan interfacon; Ĉu ĝi eble apartenas "
-"al alia versio de gdk-pixbuf?"
+"Bild-ŝarĝa modulo %s ne elportas la taŭgan interfacon; Ĉu ĝi eble estas de "
+"malsama versio de gdk-pixbuf?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:799 gdk-pixbuf/gdk-pixbuf-io.c:842
+#: gdk-pixbuf/gdk-pixbuf-io.c:835 gdk-pixbuf/gdk-pixbuf-io.c:878
 #, c-format
-msgid "Image type '%s' is not supported"
-msgstr "Bildotipo '%s' ne estas subtenata"
+msgid "Image type “%s” is not supported"
+msgstr "Bildotipo “%s” ne estas subtenata"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:927
+#: gdk-pixbuf/gdk-pixbuf-io.c:963
 #, c-format
-msgid "Couldn't recognize the image file format for file '%s'"
-msgstr "Ne eblis rekoni la bildan dosierformaton por dosiero '%s'"
+msgid "Couldn’t recognize the image file format for file “%s”"
+msgstr "Ne eblis rekoni la bilddosierformaton por dosiero “%s”"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:935
+#: gdk-pixbuf/gdk-pixbuf-io.c:971
 msgid "Unrecognized image file format"
 msgstr "Nerekonata bilda dosierformato"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1117
+#: gdk-pixbuf/gdk-pixbuf-io.c:1177
 #, c-format
-msgid "Failed to load image '%s': %s"
-msgstr "Malsukcesis ŝargi la bildon '%s': %s"
+msgid "Failed to load image “%s”: %s"
+msgstr "Malsukcesis ŝargi la bildon “%s”: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2152 gdk-pixbuf/io-gdip-utils.c:838
+#: gdk-pixbuf/gdk-pixbuf-io.c:2245 gdk-pixbuf/io-gdip-utils.c:840
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Eraro dum skribado de la bilddosiero: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2194 gdk-pixbuf/gdk-pixbuf-io.c:2315
+#: gdk-pixbuf/gdk-pixbuf-io.c:2287 gdk-pixbuf/gdk-pixbuf-io.c:2408
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
 "Ĉi tiu konstruo de gdk-pixbuf ne subtenas konservadon de la bildformato: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2225
+#: gdk-pixbuf/gdk-pixbuf-io.c:2318
 msgid "Insufficient memory to save image to callback"
 msgstr "Nesufiĉa memoro por konservi bildon al revoko"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2238
+#: gdk-pixbuf/gdk-pixbuf-io.c:2331
 msgid "Failed to open temporary file"
 msgstr "Malsukcesis malfermi dumtempan dosieron"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2261
+#: gdk-pixbuf/gdk-pixbuf-io.c:2354
 msgid "Failed to read from temporary file"
 msgstr "Malsukcesis legi dumtempan dosieron"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2471
+#: gdk-pixbuf/gdk-pixbuf-io.c:2576
 #, c-format
-msgid "Failed to open '%s' for writing: %s"
-msgstr "Malsukcesis malfermi '%s' por skribado: %s"
+msgid "Failed to open “%s” for writing: %s"
+msgstr "Malsukcesis malfermi “%s” por skribado: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2497
+#: gdk-pixbuf/gdk-pixbuf-io.c:2602
 #, c-format
 msgid ""
-"Failed to close '%s' while writing image, all data may not have been saved: "
+"Failed to close “%s” while writing image, all data may not have been saved: "
 "%s"
 msgstr ""
-"Malsukcesis fermi '%s' dum skribado de bildo, eble ne ĉiuj datumoj estis "
+"Malsukcesis fermi “%s” dum skribado de bildo, eble ne ĉiuj datumoj estis "
 "konservitaj: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2718 gdk-pixbuf/gdk-pixbuf-io.c:2770
+#: gdk-pixbuf/gdk-pixbuf-io.c:2836 gdk-pixbuf/gdk-pixbuf-io.c:2891
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Nesufiĉa memoro por konservi bildon en bufron"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2816
+#: gdk-pixbuf/gdk-pixbuf-io.c:2937
 msgid "Error writing to image stream"
 msgstr "Eraro dum skribado de bildo-fluo"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:382
+#: gdk-pixbuf/gdk-pixbuf-loader.c:416
 #, c-format
 msgid ""
-"Internal error: Image loader module '%s' failed to complete an operation, "
-"but didn't give a reason for the failure"
+"Internal error: Image loader module “%s” failed to complete an operation, "
+"but didn’t give a reason for the failure"
 msgstr ""
-"Interna eraro: bildŝarga modulo '%s' malsukcesis plenumi operacion, sed ne "
-"donis kialon pri la malsukceso"
+"Interna eraro: la modulo de bildŝargilo \"%s\" malsukcesis kompletigi "
+"operacion, sed ne donis kialon por la malsukceso"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:424
+#: gdk-pixbuf/gdk-pixbuf-loader.c:458
 #, c-format
-msgid "Incremental loading of image type '%s' is not supported"
-msgstr "Alkrementa ŝargado de bildtipo '%s' ne estas subtenata"
-
-#: gdk-pixbuf/gdk-pixbuf-simple-anim.c:161
-msgid "Loop"
-msgstr ""
+msgid "Incremental loading of image type “%s” is not supported"
+msgstr "Pliiga ŝarĝo de bildotipo “%s” ne estas subtenata"
 
 #: gdk-pixbuf/gdk-pixbuf-simple-anim.c:162
-msgid "Whether the animation should loop when it reaches the end"
-msgstr ""
+msgid "Loop"
+msgstr "Iteracio"
 
-#: gdk-pixbuf/gdk-pixdata.c:165
+#: gdk-pixbuf/gdk-pixbuf-simple-anim.c:163
+msgid "Whether the animation should loop when it reaches the end"
+msgstr "Ĉu la animacio devus iteracii kiam ĝi atingas la finon"
+
+#: gdk-pixbuf/gdk-pixdata.c:178
 msgid "Image header corrupt"
 msgstr "Bildkapo difektita"
 
-#: gdk-pixbuf/gdk-pixdata.c:170
+#: gdk-pixbuf/gdk-pixdata.c:183
 msgid "Image format unknown"
 msgstr "Bilda formato nekonata"
 
-#: gdk-pixbuf/gdk-pixdata.c:175 gdk-pixbuf/gdk-pixdata.c:467
-#: gdk-pixbuf/gdk-pixdata.c:477 gdk-pixbuf/gdk-pixdata.c:573
+#: gdk-pixbuf/gdk-pixdata.c:188 gdk-pixbuf/gdk-pixdata.c:491
+#: gdk-pixbuf/gdk-pixdata.c:501 gdk-pixbuf/gdk-pixdata.c:597
 msgid "Image pixel data corrupt"
 msgstr "Bilderaj datumoj de bildo difektitaj"
 
-#: gdk-pixbuf/gdk-pixdata.c:489
+#: gdk-pixbuf/gdk-pixdata.c:513
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
 msgstr[0] "malsukcesis krei bildbufron de %u bajto"
 msgstr[1] "malsukcesis krei bildbufron de %u bajtoj"
 
-#: gdk-pixbuf/io-ani.c:242
+#: gdk-pixbuf/io-ani.c:239
 msgid "Unexpected icon chunk in animation"
 msgstr "Neatendita piktograma bloko en animacio"
 
-#: gdk-pixbuf/io-ani.c:340 gdk-pixbuf/io-ani.c:398 gdk-pixbuf/io-ani.c:424
-#: gdk-pixbuf/io-ani.c:447 gdk-pixbuf/io-ani.c:474 gdk-pixbuf/io-ani.c:561
+#: gdk-pixbuf/io-ani.c:337 gdk-pixbuf/io-ani.c:395 gdk-pixbuf/io-ani.c:421
+#: gdk-pixbuf/io-ani.c:444 gdk-pixbuf/io-ani.c:471 gdk-pixbuf/io-ani.c:558
 msgid "Invalid header in animation"
 msgstr "Nevalida kapo en animacio"
 
-#: gdk-pixbuf/io-ani.c:350 gdk-pixbuf/io-ani.c:372 gdk-pixbuf/io-ani.c:456
-#: gdk-pixbuf/io-ani.c:483 gdk-pixbuf/io-ani.c:534 gdk-pixbuf/io-ani.c:606
+#: gdk-pixbuf/io-ani.c:347 gdk-pixbuf/io-ani.c:369 gdk-pixbuf/io-ani.c:453
+#: gdk-pixbuf/io-ani.c:480 gdk-pixbuf/io-ani.c:531 gdk-pixbuf/io-ani.c:607
 msgid "Not enough memory to load animation"
 msgstr "Ne sufiĉa memoro por ŝargi animacion"
 
-#: gdk-pixbuf/io-ani.c:390 gdk-pixbuf/io-ani.c:416 gdk-pixbuf/io-ani.c:435
+#: gdk-pixbuf/io-ani.c:387 gdk-pixbuf/io-ani.c:413 gdk-pixbuf/io-ani.c:432
 msgid "Malformed chunk in animation"
 msgstr "Misformita bloko en animacio"
 
-#: gdk-pixbuf/io-ani.c:628
-#| msgid "GIF image was truncated or incomplete."
+#: gdk-pixbuf/io-ani.c:629
 msgid "ANI image was truncated or incomplete."
 msgstr "ANI-bildo estis distranĉite aŭ nekompleta."
 
-#: gdk-pixbuf/io-ani.c:669
+#: gdk-pixbuf/io-ani.c:670
 msgctxt "image format"
 msgid "Windows animated cursor"
-msgstr ""
+msgstr "Vindoza animata kursoro"
 
-#: gdk-pixbuf/io-bmp.c:227 gdk-pixbuf/io-bmp.c:265 gdk-pixbuf/io-bmp.c:372
-#: gdk-pixbuf/io-bmp.c:399 gdk-pixbuf/io-bmp.c:424 gdk-pixbuf/io-bmp.c:528
+#: gdk-pixbuf/io-bmp.c:231 gdk-pixbuf/io-bmp.c:269 gdk-pixbuf/io-bmp.c:376
+#: gdk-pixbuf/io-bmp.c:403 gdk-pixbuf/io-bmp.c:428 gdk-pixbuf/io-bmp.c:463
+#: gdk-pixbuf/io-bmp.c:485 gdk-pixbuf/io-bmp.c:563
 msgid "BMP image has bogus header data"
 msgstr "BMP-bildo havas falsajn kapdatumojn"
 
-#: gdk-pixbuf/io-bmp.c:238 gdk-pixbuf/io-bmp.c:464
+#: gdk-pixbuf/io-bmp.c:242 gdk-pixbuf/io-bmp.c:498
 msgid "Not enough memory to load bitmap image"
 msgstr "Ne sufiĉe da memoro por ŝargi rastruman bildon"
 
-#: gdk-pixbuf/io-bmp.c:329
+#: gdk-pixbuf/io-bmp.c:333
 msgid "BMP image has unsupported header size"
 msgstr "BMP-bildo havas nesubtenatan kapgrandon"
 
-#: gdk-pixbuf/io-bmp.c:339
-#| msgid "BMP image has unsupported header size"
+#: gdk-pixbuf/io-bmp.c:343
 msgid "BMP image has unsupported depth"
 msgstr "BMP-bildo havas nesubtenatan kapgrandon"
 
-#: gdk-pixbuf/io-bmp.c:354
-#| msgid "BMP image has bogus header data"
+#: gdk-pixbuf/io-bmp.c:358
 msgid "BMP image has oversize palette"
 msgstr "BMP-bildo havas falsajn kapdatumojn"
 
-#: gdk-pixbuf/io-bmp.c:386
+#: gdk-pixbuf/io-bmp.c:390
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Supremalsuprenaj BMP-bildoj ne kunpremeblas"
 
-#: gdk-pixbuf/io-bmp.c:411
+#: gdk-pixbuf/io-bmp.c:415
 msgid "BMP image width too large"
-msgstr ""
+msgstr "BMP-bilda larĝo estas tro granda"
 
-#: gdk-pixbuf/io-bmp.c:753 gdk-pixbuf/io-png.c:533 gdk-pixbuf/io-pnm.c:721
+#: gdk-pixbuf/io-bmp.c:792 gdk-pixbuf/io-png.c:564 gdk-pixbuf/io-pnm.c:722
+#: gdk-pixbuf/io-pnm.c:879
 msgid "Premature end-of-file encountered"
 msgstr "Atigis tro frue dosierfinon"
 
-#: gdk-pixbuf/io-bmp.c:1282
-#, c-format
+#: gdk-pixbuf/io-bmp.c:1313
 msgid "Error while decoding colormap"
-msgstr ""
+msgstr "Eraro dum malkodado de kolormapo"
 
-#: gdk-pixbuf/io-bmp.c:1345 gdk-pixbuf/io-bmp.c:1357
+#: gdk-pixbuf/io-bmp.c:1376 gdk-pixbuf/io-bmp.c:1388
 msgid "Image is too wide for BMP format."
-msgstr ""
+msgstr "Bildo estas tro larĝa por BMP-formato."
 
-#: gdk-pixbuf/io-bmp.c:1390
-msgid "Couldn't allocate memory for saving BMP file"
-msgstr "Ne eblis atribui memoron por konservi BMP-dosieron"
+#: gdk-pixbuf/io-bmp.c:1421
+msgid "Couldn’t allocate memory for saving BMP file"
+msgstr "Ne eblis asigni memoron por konservi BMP-dosieron"
 
-#: gdk-pixbuf/io-bmp.c:1431
-msgid "Couldn't write to BMP file"
+#: gdk-pixbuf/io-bmp.c:1462
+msgid "Couldn’t write to BMP file"
 msgstr "Ne eblis skribi en BMP-dosiero"
 
-#: gdk-pixbuf/io-bmp.c:1484 gdk-pixbuf/io-gdip-bmp.c:83
+#: gdk-pixbuf/io-bmp.c:1515 gdk-pixbuf/io-gdip-bmp.c:83
 msgctxt "image format"
 msgid "BMP"
-msgstr ""
+msgstr "BMP"
 
-#: gdk-pixbuf/io-gdip-emf.c:60
+#: gdk-pixbuf/io-gdip-emf.c:61
 msgctxt "image format"
 msgid "EMF"
-msgstr ""
+msgstr "EMF"
 
-#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1728
+#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1037
 msgctxt "image format"
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
-#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1398
+#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1412
 msgctxt "image format"
 msgid "Windows icon"
-msgstr ""
+msgstr "Vindoza piktogramo"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1312
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1391
 #, c-format
 msgid ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"JPEG quality must be a value between 0 and 100; value “%s” could not be "
 "parsed."
 msgstr ""
-"JPEG-kvalito devas esti valoro inter 0 kaj 100; valoro '%s' ne estis "
-"analizebla."
+"JPEG-kvalito devas esti valoro inter 0 kaj 100; valoro “%s” ne povis esti "
+"analizita."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1328
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1407
 #, c-format
 msgid ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+"JPEG quality must be a value between 0 and 100; value “%d” is not allowed."
 msgstr ""
-"JPEG-kvalito devas esti valoro inter 0 kaj 100; valoro '%d' ne estas "
-"permesata."
+"JPEG-kvalito devas esti valoro inter 0 kaj 100; valoro “%d” ne estas "
+"permesita."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1612
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1691
 msgctxt "image format"
 msgid "JPEG"
-msgstr ""
+msgstr "JPEG"
 
-#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1037
+#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1087
 msgctxt "image format"
 msgid "TIFF"
-msgstr ""
+msgstr "TIFF"
 
 #: gdk-pixbuf/io-gdip-utils.c:155
 #, c-format
@@ -393,86 +390,55 @@ msgstr "Ne eblis serĉi fluon: %s"
 msgid "Could not read from stream: %s"
 msgstr "Ne eblis legi de fluon: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:618
-msgid "Couldn't load bitmap"
-msgstr "Ne eblis legi rastruman bildon"
+#: gdk-pixbuf/io-gdip-utils.c:620
+msgid "Couldn’t load bitmap"
+msgstr "Ne eblis ŝargi rastruman bildon"
 
-#: gdk-pixbuf/io-gdip-utils.c:774
-msgid "Couldn't load metafile"
+#: gdk-pixbuf/io-gdip-utils.c:776
+msgid "Couldn’t load metafile"
 msgstr "Ne eblis ŝargi metadosieron"
 
-#: gdk-pixbuf/io-gdip-utils.c:879
+#: gdk-pixbuf/io-gdip-utils.c:881
 msgid "Unsupported image format for GDI+"
 msgstr "Nesubtenata bildformato por GDI+"
 
-#: gdk-pixbuf/io-gdip-utils.c:886
-msgid "Couldn't save"
+#: gdk-pixbuf/io-gdip-utils.c:888
+msgid "Couldn’t save"
 msgstr "Ne eblis konservi"
 
-#: gdk-pixbuf/io-gdip-wmf.c:59
+#: gdk-pixbuf/io-gdip-wmf.c:60
 msgctxt "image format"
 msgid "WMF"
-msgstr ""
+msgstr "WMF"
 
-#: gdk-pixbuf/io-gif.c:221
+#: gdk-pixbuf/io-gif.c:158
 #, c-format
 msgid "Failure reading GIF: %s"
 msgstr "Malsukceso dum legado de GIF: %s"
 
-#: gdk-pixbuf/io-gif.c:496 gdk-pixbuf/io-gif.c:1503 gdk-pixbuf/io-gif.c:1677
-msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
-msgstr ""
-"Al GIF-dosiero kelkaj datumoj mankis (ĉu ĝi eble estas iel distranĉite?)"
-
-#: gdk-pixbuf/io-gif.c:505
-#, c-format
-msgid "Internal error in the GIF loader (%s)"
-msgstr "Interna eraro en la GIF-ŝargilo (%s)"
-
-#: gdk-pixbuf/io-gif.c:579
-msgid "Stack overflow"
-msgstr "Staktroo"
-
-#: gdk-pixbuf/io-gif.c:639
-msgid "GIF image loader cannot understand this image."
-msgstr "GIF-bilda ŝargilo ne povas kompreni ĉi tiun bildon."
-
-#: gdk-pixbuf/io-gif.c:668
-msgid "Bad code encountered"
-msgstr "Renkontis malbonan kodon"
-
-#: gdk-pixbuf/io-gif.c:678
-msgid "Circular table entry in GIF file"
-msgstr "Cikla tabelelemento en GIF-dosiero"
-
-#: gdk-pixbuf/io-gif.c:866 gdk-pixbuf/io-gif.c:1489 gdk-pixbuf/io-gif.c:1542
-#: gdk-pixbuf/io-gif.c:1665
+#: gdk-pixbuf/io-gif.c:381 gdk-pixbuf/io-gif.c:848 gdk-pixbuf/io-gif.c:901
+#: gdk-pixbuf/io-gif.c:974
 msgid "Not enough memory to load GIF file"
 msgstr "Ne sufiĉa memoro por ŝargi GIF-dosieron"
 
-#: gdk-pixbuf/io-gif.c:960
-msgid "Not enough memory to composite a frame in GIF file"
-msgstr "Ne sufiĉa memoro por sintezi kadron en GIF-dosiero"
-
-#: gdk-pixbuf/io-gif.c:1132
+#: gdk-pixbuf/io-gif.c:507
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "GIF-bildo estas difektita (nekorekta LZW-kunpremo)"
 
-#: gdk-pixbuf/io-gif.c:1182
+#: gdk-pixbuf/io-gif.c:543
 msgid "File does not appear to be a GIF file"
 msgstr "Dosiero ŝajnas ne estis GIF-dosiero"
 
-#: gdk-pixbuf/io-gif.c:1194
+#: gdk-pixbuf/io-gif.c:558
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "Versio %s de la GIF-dosierformato ne estas subtenata"
 
-#: gdk-pixbuf/io-gif.c:1241
-#| msgid "Image has zero width"
+#: gdk-pixbuf/io-gif.c:587
 msgid "Resulting GIF image has zero size"
 msgstr "GIF-bildo havas nulan larĝon"
 
-#: gdk-pixbuf/io-gif.c:1320
+#: gdk-pixbuf/io-gif.c:657
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -480,104 +446,83 @@ msgstr ""
 "GIF-bildo ne havas ĝeneralan kolormapon, kaj kadro en ĝi ne havas lokan "
 "kolormapon."
 
-#: gdk-pixbuf/io-gif.c:1565
+#: gdk-pixbuf/io-gif.c:861 gdk-pixbuf/io-gif.c:986
+msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
+msgstr ""
+"Al GIF-dosiero kelkaj datumoj mankis (ĉu ĝi eble estas iel distranĉite?)"
+
+#: gdk-pixbuf/io-gif.c:920
 msgid "GIF image was truncated or incomplete."
 msgstr "GIF-bildo estis distranĉite aŭ nekompleta."
 
-#: gdk-pixbuf/io-gif.c:1572
+#: gdk-pixbuf/io-gif.c:927
 msgid "Not all frames of the GIF image were loaded."
-msgstr ""
+msgstr "Ne ĉiuj kadroj de la GIF-bildo estis ŝarĝitaj."
 
-#: gdk-pixbuf/io-icns.c:358
+#: gdk-pixbuf/io-icns.c:363
 #, c-format
 msgid "Error reading ICNS image: %s"
 msgstr "Eraro dum legado de ICNS-bildo: %s"
 
-#: gdk-pixbuf/io-icns.c:375 gdk-pixbuf/io-icns.c:452
+#: gdk-pixbuf/io-icns.c:380 gdk-pixbuf/io-icns.c:461
 msgid "Could not decode ICNS file"
 msgstr "Ne eblas malkodi ICNS-dosieron"
 
-#: gdk-pixbuf/io-icns.c:511
+#: gdk-pixbuf/io-icns.c:517
 msgctxt "image format"
 msgid "MacOS X icon"
-msgstr ""
+msgstr "MacOS-X-piktogramo"
 
-#: gdk-pixbuf/io-ico.c:232 gdk-pixbuf/io-ico.c:246 gdk-pixbuf/io-ico.c:329
-#: gdk-pixbuf/io-ico.c:340 gdk-pixbuf/io-ico.c:419 gdk-pixbuf/io-ico.c:444
+#: gdk-pixbuf/io-ico.c:238 gdk-pixbuf/io-ico.c:252 gdk-pixbuf/io-ico.c:342
+#: gdk-pixbuf/io-ico.c:426 gdk-pixbuf/io-ico.c:451
 #, c-format
-#| msgid "Invalid header in icon"
 msgid "Invalid header in icon (%s)"
 msgstr "Nevalida kapo en piktogramo (%s)"
 
-#: gdk-pixbuf/io-ico.c:262 gdk-pixbuf/io-ico.c:350 gdk-pixbuf/io-ico.c:454
-#: gdk-pixbuf/io-ico.c:497 gdk-pixbuf/io-ico.c:525
+#: gdk-pixbuf/io-ico.c:268 gdk-pixbuf/io-ico.c:355 gdk-pixbuf/io-ico.c:461
+#: gdk-pixbuf/io-ico.c:504 gdk-pixbuf/io-ico.c:532
 msgid "Not enough memory to load icon"
 msgstr "Sen sufiĉe da memoro por ŝargi piktogramon"
 
-#: gdk-pixbuf/io-ico.c:380
+#: gdk-pixbuf/io-ico.c:386
+msgid "Invalid header in icon"
+msgstr "Nevalida kapo en piktogramo"
+
+#: gdk-pixbuf/io-ico.c:387
 msgid "Compressed icons are not supported"
 msgstr "Densigitaj piktogramoj ne estas subtenataj"
 
-#: gdk-pixbuf/io-ico.c:482
+#: gdk-pixbuf/io-ico.c:489
 msgid "Unsupported icon type"
 msgstr "Nesubtenata piktograma tipo"
 
-#: gdk-pixbuf/io-ico.c:574
+#: gdk-pixbuf/io-ico.c:583
 msgid "Not enough memory to load ICO file"
 msgstr "Sen sufiĉa memoro por ŝargi ICO-dosieron"
 
-#: gdk-pixbuf/io-ico.c:1056
+#: gdk-pixbuf/io-ico.c:629
+msgid "ICO image was truncated or incomplete."
+msgstr "ICO-bildo estis distranĉita aŭ nekompleta."
+
+#: gdk-pixbuf/io-ico.c:1070
 msgid "Image too large to be saved as ICO"
 msgstr "Bildo tro granda por esti konservata kiel ICO"
 
-#: gdk-pixbuf/io-ico.c:1067
+#: gdk-pixbuf/io-ico.c:1081
 msgid "Cursor hotspot outside image"
 msgstr "Kursora aktivpunkto ekster bildo"
 
-#: gdk-pixbuf/io-ico.c:1090
+#: gdk-pixbuf/io-ico.c:1104
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Nesubtenata profundo por ICO-dosiero: %d"
 
-#: gdk-pixbuf/io-jasper.c:73
-msgid "Couldn't allocate memory for stream"
-msgstr "Ne eblis atribui memoron por fluo"
-
-#: gdk-pixbuf/io-jasper.c:124
-msgid "Couldn't decode image"
-msgstr "Ne eblis malkodi bildon"
-
-#: gdk-pixbuf/io-jasper.c:142
-msgid "Transformed JPEG2000 has zero width or height"
-msgstr "Transformita JPEG2000 havas nulan larĝon aŭ alton"
-
-#: gdk-pixbuf/io-jasper.c:158
-msgid "Image type currently not supported"
-msgstr "Bilda tipo nuntempe ne subtenata"
-
-#: gdk-pixbuf/io-jasper.c:170 gdk-pixbuf/io-jasper.c:178
-msgid "Couldn't allocate memory for color profile"
-msgstr "Ne eblis atribui memoron por kolorprofilo"
-
-#: gdk-pixbuf/io-jasper.c:204
-msgid "Insufficient memory to open JPEG 2000 file"
-msgstr "Nesufiĉa memoro por malfermi JPEG2000-dosieron"
-
-#: gdk-pixbuf/io-jasper.c:283
-msgid "Couldn't allocate memory to buffer image data"
-msgstr "Ne eblis atribui memoron por bufri bildo-datumon"
-
-#: gdk-pixbuf/io-jasper.c:327
-msgctxt "image format"
-msgid "JPEG 2000"
-msgstr ""
-
-#: gdk-pixbuf/io-jpeg.c:124
+#: gdk-pixbuf/io-jpeg.c:129
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Eraro interpretante JPEG-bilddosieron (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:615
+#: gdk-pixbuf/io-jpeg.c:638
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
@@ -585,81 +530,82 @@ msgstr ""
 "Nesufiĉa memoro por ŝargi bildon, klopodu eliri el kelkaj aplikaĵoj por "
 "liberigi memoron"
 
-#: gdk-pixbuf/io-jpeg.c:684 gdk-pixbuf/io-jpeg.c:897
+#: gdk-pixbuf/io-jpeg.c:711 gdk-pixbuf/io-jpeg.c:956
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Nesubtenata JPEG-kolorspaco (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:796 gdk-pixbuf/io-jpeg.c:1077 gdk-pixbuf/io-jpeg.c:1419
-#: gdk-pixbuf/io-jpeg.c:1429
-msgid "Couldn't allocate memory for loading JPEG file"
-msgstr "Ne eblis atribui memoron por ŝargi JPEG-dosieron"
+#: gdk-pixbuf/io-jpeg.c:834 gdk-pixbuf/io-jpeg.c:1151 gdk-pixbuf/io-jpeg.c:1498
+#: gdk-pixbuf/io-jpeg.c:1508
+msgid "Couldn’t allocate memory for loading JPEG file"
+msgstr "Ne eblis asigni memoron por ŝarĝi JPEG-dosieron"
 
-#: gdk-pixbuf/io-jpeg.c:1051
+#: gdk-pixbuf/io-jpeg.c:1109
 msgid "Transformed JPEG has zero width or height."
 msgstr "Transformita JPEG havas nulan larĝon aŭ alton."
 
-#: gdk-pixbuf/io-jpeg.c:1349
+#: gdk-pixbuf/io-jpeg.c:1135
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid "Unsupported number of color components (%d)"
+msgstr "Nesubtenata nombro da kolorkomponentoj (%d)"
+
+#: gdk-pixbuf/io-jpeg.c:1428
+#, c-format
 msgid ""
-"JPEG x-dpi must be a value between 1 and 65535; value '%s' is not allowed."
+"JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
-"JPEG x-dpi devas esti valoro inter 1 kaj 65535; valoro '%s' ne estas "
-"permesata."
+"JPEG x-dpi devas esti valoro inter 1 kaj 65535; valoro “%s” ne estas "
+"permesita."
 
-#: gdk-pixbuf/io-jpeg.c:1370
+#: gdk-pixbuf/io-jpeg.c:1449
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgid ""
-"JPEG y-dpi must be a value between 1 and 65535; value '%s' is not allowed."
+"JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
-"JPEG y-dpi devas esti valoro inter 1 kaj 65535; valoro '%s' ne estas "
-"permesata."
+"JPEG y-dpi devas esti valoro inter 1 kaj 65535; valoro “%s” ne estas "
+"permesita."
 
-#: gdk-pixbuf/io-jpeg.c:1384
+#: gdk-pixbuf/io-jpeg.c:1463
 #, c-format
-#| msgid "Color profile has invalid length %d."
-msgid "Color profile has invalid length '%u'."
-msgstr "Kolor-profilo havas nevalidan longon '%u'."
+msgid "Color profile has invalid length “%u”."
+msgstr "Kolorprofilo havas nevalidan longon “%u”."
 
-#: gdk-pixbuf/io-png.c:54
+#: gdk-pixbuf/io-png.c:63
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Bitoj per kanalo de PNG-bildo estas nevalidaj."
 
-#: gdk-pixbuf/io-png.c:135 gdk-pixbuf/io-png.c:673
+#: gdk-pixbuf/io-png.c:144 gdk-pixbuf/io-png.c:703
 msgid "Transformed PNG has zero width or height."
 msgstr "Transformita PNG havas nulan larĝon aŭ alton."
 
-#: gdk-pixbuf/io-png.c:143
+#: gdk-pixbuf/io-png.c:152
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Bitoj por kanalo de transformita PNG ne estas 8."
 
-#: gdk-pixbuf/io-png.c:152
+#: gdk-pixbuf/io-png.c:161
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Transformita PNG nek RVB nek RVBA."
 
-#: gdk-pixbuf/io-png.c:161
+#: gdk-pixbuf/io-png.c:170
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
 "Transformita PNG havas nesubtenatan nombron de kanaloj, devas esti 3 aŭ 4."
 
-#: gdk-pixbuf/io-png.c:182
+#: gdk-pixbuf/io-png.c:191
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Fatala eraro en PNG-bilddosiero: %s"
 
-#: gdk-pixbuf/io-png.c:320
+#: gdk-pixbuf/io-png.c:329
 msgid "Insufficient memory to load PNG file"
 msgstr "Nesufiĉa memoro por ŝargi PNG-dosieron"
 
-#: gdk-pixbuf/io-png.c:688
+#: gdk-pixbuf/io-png.c:498 gdk-pixbuf/io-png.c:519
+msgid "Couldn’t allocate memory for loading PNG"
+msgstr "Ne eblis asigni memoron por ŝarĝi PNG"
+
+#: gdk-pixbuf/io-png.c:716
 #, c-format
-#| msgid ""
-#| "Insufficient memory to store a %ld by %ld image; try exiting some "
-#| "applications to reduce memory usage"
 msgid ""
 "Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
@@ -667,145 +613,129 @@ msgstr ""
 "Nesufiĉa memoro por konservi %lu foje %lu bildon; klopodu eliri kelkajn "
 "aplikaĵojn por redukti memoruzon"
 
-#: gdk-pixbuf/io-png.c:766
+#: gdk-pixbuf/io-png.c:791
 msgid "Fatal error reading PNG image file"
 msgstr "Fatala eraro dum legado de PNG-bilddosiero"
 
-#: gdk-pixbuf/io-png.c:816
+#: gdk-pixbuf/io-png.c:840
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Fatala eraro dum legado de PNG-bilddosiero: %s"
 
-#: gdk-pixbuf/io-png.c:908
-msgid ""
-"Keys for PNG text chunks must have at least 1 and at most 79 characters."
-msgstr "Ŝlosiloj por PNG-tekstblokoj havu minimume 1 kaj maksimume 79 signojn."
-
-#: gdk-pixbuf/io-png.c:917
-msgid "Keys for PNG text chunks must be ASCII characters."
-msgstr "Ŝlosiloj por PNG-tekstblokoj estu Askiaj signoj."
-
-#: gdk-pixbuf/io-png.c:931 gdk-pixbuf/io-tiff.c:801
-#, c-format
-msgid "Color profile has invalid length %d."
-msgstr "Kolor-profilo havas nevalidan longon %d."
-
-#: gdk-pixbuf/io-png.c:944
+#: gdk-pixbuf/io-png.c:937
 #, c-format
 msgid ""
-"PNG compression level must be a value between 0 and 9; value '%s' could not "
-"be parsed."
+"Invalid key “%s”. Keys for PNG text chunks must have at least 1 and at most "
+"79 characters."
 msgstr ""
-"PNG-kunprema nivelo estu valoro inter 0 kaj 9; valoro '%s' ne estis "
-"analizebla."
+"Nevalida ŝlosilo “%s”. Ŝlosiloj por PNG-tekstopartoj devas havi almenaŭ 1 "
+"kaj maksimume 79 signojn."
 
-#: gdk-pixbuf/io-png.c:957
+#: gdk-pixbuf/io-png.c:950
+#, c-format
+msgid "Invalid key “%s”. Keys for PNG text chunks must be ASCII characters."
+msgstr ""
+"Nevalida ŝlosilo “%s”. Ŝlosiloj por PNG-tekstopartoj devas esti ASCII-signoj."
+
+#: gdk-pixbuf/io-png.c:980
 #, c-format
 msgid ""
-"PNG compression level must be a value between 0 and 9; value '%d' is not "
-"allowed."
+"Value for PNG text chunk '%s' cannot be converted to ISO-8859-1 encoding."
 msgstr ""
-"PNG-kunprema nivelo estu valoro inter 0 kaj 9; valoro '%d' ne estas "
-"permesata."
+"Valoro por PNG-tekstbloko '%s' ne povas esti konvertita al ISO-8859-1-kodigo."
 
-#: gdk-pixbuf/io-png.c:976
+#: gdk-pixbuf/io-png.c:992
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgid "PNG x-dpi must be greater than zero; value '%s' is not allowed."
-msgstr ""
-"PNG x-dpi devas esti pli grando ol nulo; valoro '%s' ne estas permesata."
+msgid "Color profile has invalid length %d"
+msgstr "Kolorprofilo havas nevalidan longon %d"
 
-#: gdk-pixbuf/io-png.c:996
+#: gdk-pixbuf/io-png.c:1004
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
+msgid ""
+"PNG compression level must be a value between 0 and 9; value “%s” is invalid"
 msgstr ""
-"PNG y-dpi devas esti pli grando ol nulo; valoro '%s' ne estas permesata."
+"PNG-kunprema nivelo devas esti valoro inter 0 kaj 9; valoro “%s” estas "
+"nevalida"
 
-#: gdk-pixbuf/io-png.c:1045
+#: gdk-pixbuf/io-png.c:1018
 #, c-format
-msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
-msgstr ""
-"Valoro por PNG-tekstbloko %s ne estas konvertebla al kodigo ISO-8859-1."
+msgid "PNG %s must be greater than zero; value “%s” is not allowed"
+msgstr "PNG %s devas esti pli granda ol nulo; valoro “%s” ne estas permesita"
 
-#: gdk-pixbuf/io-png.c:1230
+#: gdk-pixbuf/io-png.c:1246
 msgctxt "image format"
 msgid "PNG"
-msgstr ""
+msgstr "PNG"
 
-#: gdk-pixbuf/io-pnm.c:246
-msgid "PNM loader expected to find an integer, but didn't"
-msgstr "PNM-ŝargilo supozis trovi entjeron, tamen ne trovis"
+#: gdk-pixbuf/io-pnm.c:247
+msgid "PNM loader expected to find an integer, but didn’t"
+msgstr "PNM-ŝargilo atendis trovi entjeron, sed ne faris"
 
-#: gdk-pixbuf/io-pnm.c:278
+#: gdk-pixbuf/io-pnm.c:279
 msgid "PNM file has an incorrect initial byte"
 msgstr "PNM-dosiero havas nekorektan komencan bajton"
 
-#: gdk-pixbuf/io-pnm.c:308
+#: gdk-pixbuf/io-pnm.c:309
 msgid "PNM file is not in a recognized PNM subformat"
 msgstr "PNM-dosiero ne estas en rekonata PNM-subformato"
 
-#: gdk-pixbuf/io-pnm.c:333
-#| msgid "PNM file has an image width of 0"
+#: gdk-pixbuf/io-pnm.c:334
 msgid "PNM file has an invalid width"
 msgstr "PNM-dosiero havas nevalidan bildlarĝon"
 
-#: gdk-pixbuf/io-pnm.c:341
+#: gdk-pixbuf/io-pnm.c:342
 msgid "PNM file has an image width of 0"
 msgstr "PNM-dosiero havas bildlarĝon de 0"
 
-#: gdk-pixbuf/io-pnm.c:362
-#| msgid "PNM file has an image height of 0"
+#: gdk-pixbuf/io-pnm.c:363
 msgid "PNM file has an invalid height"
 msgstr "PNM-dosiero havas nevalidan bildalton"
 
-#: gdk-pixbuf/io-pnm.c:370
+#: gdk-pixbuf/io-pnm.c:371
 msgid "PNM file has an image height of 0"
 msgstr "PNM-dosiero havas bildalton de 0"
 
-#: gdk-pixbuf/io-pnm.c:393
+#: gdk-pixbuf/io-pnm.c:394
 msgid "Maximum color value in PNM file is 0"
 msgstr "Maksimuma kolora valoro en PNM-dosiero estas 0"
 
-#: gdk-pixbuf/io-pnm.c:401
+#: gdk-pixbuf/io-pnm.c:402
 msgid "Maximum color value in PNM file is too large"
 msgstr "Maksimuma kolora valoro en PNM-dosiero estas tro granda"
 
-#: gdk-pixbuf/io-pnm.c:441 gdk-pixbuf/io-pnm.c:471 gdk-pixbuf/io-pnm.c:516
+#: gdk-pixbuf/io-pnm.c:442 gdk-pixbuf/io-pnm.c:472 gdk-pixbuf/io-pnm.c:517
 msgid "Raw PNM image type is invalid"
 msgstr "Kruda PNM-bildtipo estas nevalida"
 
-#: gdk-pixbuf/io-pnm.c:666
+#: gdk-pixbuf/io-pnm.c:667
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "PNM-bildŝargilo ne subtenas ĉi tiun PNM-subformaton"
 
-#: gdk-pixbuf/io-pnm.c:753 gdk-pixbuf/io-pnm.c:980
+#: gdk-pixbuf/io-pnm.c:754 gdk-pixbuf/io-pnm.c:991
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr ""
 "Krudaj PNM-formatoj bezonas ekzakte unu spaceto antaŭ ekzemplaj datumoj"
 
-#: gdk-pixbuf/io-pnm.c:780
+#: gdk-pixbuf/io-pnm.c:781
 msgid "Cannot allocate memory for loading PNM image"
 msgstr "Ne eblas krei memoron por ŝargi PNM-bildon"
 
-#: gdk-pixbuf/io-pnm.c:830
+#: gdk-pixbuf/io-pnm.c:835
 msgid "Insufficient memory to load PNM context struct"
 msgstr "Nesufiĉa memoro por ŝargi PNM-kuntekstan strukturon"
 
-#: gdk-pixbuf/io-pnm.c:881
+#: gdk-pixbuf/io-pnm.c:892
 msgid "Unexpected end of PNM image data"
 msgstr "Neatendita fino de PNM-bilddatumoj"
 
-#: gdk-pixbuf/io-pnm.c:1009
+#: gdk-pixbuf/io-pnm.c:1020
 msgid "Insufficient memory to load PNM file"
 msgstr "Nesufiĉa memoro por ŝargi PNM-dosiero"
 
-#: gdk-pixbuf/io-pnm.c:1093
+#: gdk-pixbuf/io-pnm.c:1103
 msgctxt "image format"
 msgid "PNM/PBM/PGM/PPM"
-msgstr ""
+msgstr "PNM/PBM/PGM/PPM"
 
 #: gdk-pixbuf/io-qtif.c:126
 msgid "Input file descriptor is NULL."
@@ -815,18 +745,18 @@ msgstr "Eniga dosiernumero estas NUL."
 msgid "Failed to read QTIF header"
 msgstr "Legado de QTIF-kapo malsukcesis"
 
-#: gdk-pixbuf/io-qtif.c:150 gdk-pixbuf/io-qtif.c:187 gdk-pixbuf/io-qtif.c:454
-#, fuzzy, c-format
+#: gdk-pixbuf/io-qtif.c:150 gdk-pixbuf/io-qtif.c:187 gdk-pixbuf/io-qtif.c:449
+#, c-format
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
-msgstr[0] "Atomogrando de QTIF estas tro granda (%d bajtoj)"
+msgstr[0] "Atomogrando de QTIF estas tro granda (%d bajto)"
 msgstr[1] "Atomogrando de QTIF estas tro granda (%d bajtoj)"
 
 #: gdk-pixbuf/io-qtif.c:173
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
-msgstr[0] "Malsukcesis atribui %d bajtojn por dosier-lega bufro"
+msgstr[0] "Malsukcesis atribui %d bajton por dosier-lega bufro"
 msgstr[1] "Malsukcesis atribui %d bajtojn por dosier-lega bufro"
 
 #: gdk-pixbuf/io-qtif.c:201
@@ -841,192 +771,250 @@ msgid_plural "Failed to skip the next %d bytes with seek()."
 msgstr[0] "Transsalto de sekva %d bajtoj per seek() malsukcesis."
 msgstr[1] "Transsalto de sekvaj %d bajtoj per seek() malsukcesis."
 
-#: gdk-pixbuf/io-qtif.c:265
+#: gdk-pixbuf/io-qtif.c:269
 msgid "Failed to allocate QTIF context structure."
 msgstr "Malsukcesis atribui QTIF-kunteksto-strukturon."
 
-#: gdk-pixbuf/io-qtif.c:325
+#: gdk-pixbuf/io-qtif.c:329
 msgid "Failed to create GdkPixbufLoader object."
 msgstr "Malsukcesis krei GdkPixbufLoader-objekton."
 
-#: gdk-pixbuf/io-qtif.c:429
+#: gdk-pixbuf/io-qtif.c:424
 msgid "Failed to find an image data atom."
 msgstr "Malsukcesis trovi bilddatuman atomon."
 
-#: gdk-pixbuf/io-qtif.c:613
+#: gdk-pixbuf/io-qtif.c:599
 msgctxt "image format"
 msgid "QuickTime"
-msgstr ""
+msgstr "QuickTime"
 
-#: gdk-pixbuf/io-tga.c:333
-#, fuzzy
-#| msgid "Cannot allocate colormap entries"
+#: gdk-pixbuf/io-tga.c:346
 msgid "Cannot allocate colormap"
-msgstr "Ne eblas atribui kolormapajn elementojn"
+msgstr "Ne povas asigni kolormapon"
 
-#: gdk-pixbuf/io-tga.c:358
+#: gdk-pixbuf/io-tga.c:371
 msgid "Cannot allocate new pixbuf"
 msgstr "Ne eblas atribui novan bilderbufron"
 
-#: gdk-pixbuf/io-tga.c:506
+#: gdk-pixbuf/io-tga.c:519
 msgid "Unexpected bitdepth for colormap entries"
 msgstr "Neatendita bitprofundo por kolormapaj elementoj"
 
-#: gdk-pixbuf/io-tga.c:522
+#: gdk-pixbuf/io-tga.c:535
 msgid "Pseudocolor image does not contain a colormap"
-msgstr ""
+msgstr "Pseŭdokolorbildo ne enhavas kolormapon"
 
-#: gdk-pixbuf/io-tga.c:565
+#: gdk-pixbuf/io-tga.c:578
 msgid "Cannot allocate TGA header memory"
 msgstr "Ne eblas atribui TGA-kapan memoron"
 
-#: gdk-pixbuf/io-tga.c:596
+#: gdk-pixbuf/io-tga.c:609
 msgid "TGA image has invalid dimensions"
 msgstr "TGA-bildo havas nevalidajn dimensiojn"
 
-#: gdk-pixbuf/io-tga.c:602 gdk-pixbuf/io-tga.c:609
+#: gdk-pixbuf/io-tga.c:615 gdk-pixbuf/io-tga.c:622
 msgid "TGA image type not supported"
 msgstr "TGA-bildtipo ne subtenata"
 
-#: gdk-pixbuf/io-tga.c:634
+#: gdk-pixbuf/io-tga.c:650
 msgid "Cannot allocate memory for TGA context struct"
 msgstr "Ne eblas atribui memoron por TGA-kunteksta strukturo"
 
-#: gdk-pixbuf/io-tga.c:695
-#| msgid "GIF image was truncated or incomplete."
+#: gdk-pixbuf/io-tga.c:712
 msgid "TGA image was truncated or incomplete."
 msgstr "TGA-bildo estis distranĉite aŭ nekompleta."
 
-#: gdk-pixbuf/io-tga.c:747
+#: gdk-pixbuf/io-tga.c:764
 msgctxt "image format"
 msgid "Targa"
-msgstr ""
+msgstr "Targa"
 
-#: gdk-pixbuf/io-tiff.c:107
+#: gdk-pixbuf/io-tiff.c:117
 msgid "Could not get image width (bad TIFF file)"
 msgstr "Ne eblas akiri bildlarĝon (malbona TIFF-dosiero)"
 
-#: gdk-pixbuf/io-tiff.c:115
+#: gdk-pixbuf/io-tiff.c:125
 msgid "Could not get image height (bad TIFF file)"
 msgstr "Ne eblas akiri bildalton (malbona TIFF-dosiero)"
 
-#: gdk-pixbuf/io-tiff.c:123
+#: gdk-pixbuf/io-tiff.c:133
 msgid "Width or height of TIFF image is zero"
 msgstr "Larĝo aŭ alto de TIFF-bildo estas nulo"
 
-#: gdk-pixbuf/io-tiff.c:132 gdk-pixbuf/io-tiff.c:141
+#: gdk-pixbuf/io-tiff.c:141 gdk-pixbuf/io-tiff.c:151
 msgid "Dimensions of TIFF image too large"
 msgstr "Dimensioj de TIFF-bildo tro grandaj"
 
-#: gdk-pixbuf/io-tiff.c:165 gdk-pixbuf/io-tiff.c:177 gdk-pixbuf/io-tiff.c:535
+#: gdk-pixbuf/io-tiff.c:177 gdk-pixbuf/io-tiff.c:189 gdk-pixbuf/io-tiff.c:585
 msgid "Insufficient memory to open TIFF file"
 msgstr "Sen sufiĉa memoro por malfermi TIFF-dosieron"
 
-#: gdk-pixbuf/io-tiff.c:275
+#: gdk-pixbuf/io-tiff.c:287
 msgid "Failed to load RGB data from TIFF file"
 msgstr "Malsukcesis ŝargi RVB-datumojn el TIFF-dosiero"
 
-#: gdk-pixbuf/io-tiff.c:337
+#: gdk-pixbuf/io-tiff.c:378
 msgid "Failed to open TIFF image"
 msgstr "Malsukcesis malfermi TIFF-bildon"
 
-#: gdk-pixbuf/io-tiff.c:471 gdk-pixbuf/io-tiff.c:484
+#: gdk-pixbuf/io-tiff.c:516 gdk-pixbuf/io-tiff.c:528
 msgid "Failed to load TIFF image"
 msgstr "Malsukcesis ŝargi TIFF-bildon"
 
-#: gdk-pixbuf/io-tiff.c:710
+#: gdk-pixbuf/io-tiff.c:760
 msgid "Failed to save TIFF image"
 msgstr "Malsukcesis registri TIFF-bildon"
 
-#: gdk-pixbuf/io-tiff.c:771
-msgid "TIFF compression doesn't refer to a valid codec."
+#: gdk-pixbuf/io-tiff.c:821
+msgid "TIFF compression doesn’t refer to a valid codec."
 msgstr "TIFF-densigo ne referencas al valida kodeko."
 
-#: gdk-pixbuf/io-tiff.c:816
-msgid "TIFF bits-per-sample doesn't contain a supported value."
-msgstr ""
+#: gdk-pixbuf/io-tiff.c:851
+#, c-format
+msgid "Color profile has invalid length %d."
+msgstr "Kolor-profilo havas nevalidan longon %d."
 
-#: gdk-pixbuf/io-tiff.c:897
+#: gdk-pixbuf/io-tiff.c:866
+msgid "TIFF bits-per-sample doesn’t contain a supported value."
+msgstr "TIFF-bitoj per specimeno ne enhavas subtenata valoro."
+
+#: gdk-pixbuf/io-tiff.c:947
 msgid "Failed to write TIFF data"
 msgstr "Malsukcesis skribi TIFF-datumojn"
 
-#: gdk-pixbuf/io-tiff.c:915
+#: gdk-pixbuf/io-tiff.c:965
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgid "TIFF x-dpi must be greater than zero; value '%s' is not allowed."
+msgid "TIFF x-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
-"TIFF x-dpi devas esti pli grando ol nulo; valoro '%s' ne estas permesata."
+"TIFF x-dpi devas esti pli grando ol nulo; valoro “%s” ne estas permesata."
 
-#: gdk-pixbuf/io-tiff.c:927
+#: gdk-pixbuf/io-tiff.c:977
 #, c-format
-#| msgid ""
-#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
-msgid "TIFF y-dpi must be greater than zero; value '%s' is not allowed."
+msgid "TIFF y-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
-"TIFF y-dpi devas esti pli grando ol nulo; valoro '%s' ne estas permesata."
+"TIFF y-dpi devas esti pli grando ol nulo; valoro “%s” ne estas permesata."
 
-#: gdk-pixbuf/io-tiff.c:968
-msgid "Couldn't write to TIFF file"
-msgstr "Ne eblis skribi en TIFF-dosiero"
+#: gdk-pixbuf/io-tiff.c:1018
+msgid "Couldn’t write to TIFF file"
+msgstr "Ne eblis skribi en TIFF-dosieron"
 
-#: gdk-pixbuf/io-xbm.c:318
+#: gdk-pixbuf/io-xbm.c:320
 msgid "Invalid XBM file"
 msgstr "Nevalida XBM-dosiero"
 
-#: gdk-pixbuf/io-xbm.c:328
+#: gdk-pixbuf/io-xbm.c:331
 msgid "Insufficient memory to load XBM image file"
 msgstr "Sen sufiĉa memoro por ŝargi XBM-an bildan dosieron"
 
-#: gdk-pixbuf/io-xbm.c:476
+#: gdk-pixbuf/io-xbm.c:482
 msgid "Failed to write to temporary file when loading XBM image"
 msgstr "Malsukcesis skribi en dumtempan dosieron dum ŝargado de XBM-bildo"
 
-#: gdk-pixbuf/io-xbm.c:515
+#: gdk-pixbuf/io-xbm.c:521
 msgctxt "image format"
 msgid "XBM"
-msgstr ""
+msgstr "XBM"
 
-#: gdk-pixbuf/io-xpm.c:469
+#: gdk-pixbuf/io-xpm.c:472
 msgid "No XPM header found"
 msgstr "Neniu XPM-kapo trovita"
 
-#: gdk-pixbuf/io-xpm.c:478
+#: gdk-pixbuf/io-xpm.c:481 gdk-pixbuf/io-xpm.c:507
 msgid "Invalid XPM header"
 msgstr "Nevalida XPM-kapo"
 
-#: gdk-pixbuf/io-xpm.c:486
+#: gdk-pixbuf/io-xpm.c:489
 msgid "XPM file has image width <= 0"
 msgstr "XPM-dosiero havas bildlarĝon <= 0"
 
-#: gdk-pixbuf/io-xpm.c:494
+#: gdk-pixbuf/io-xpm.c:497
 msgid "XPM file has image height <= 0"
 msgstr "XPM-dosiero havas bildalton <= 0"
 
-#: gdk-pixbuf/io-xpm.c:502
+#: gdk-pixbuf/io-xpm.c:514
 msgid "XPM has invalid number of chars per pixel"
 msgstr "XPM havas nevalidan nombron de bajtoj per bildero"
 
-#: gdk-pixbuf/io-xpm.c:511
+#: gdk-pixbuf/io-xpm.c:523
 msgid "XPM file has invalid number of colors"
 msgstr "XPM-dosiero havas nevalidan nombron de koloroj"
 
-#: gdk-pixbuf/io-xpm.c:523 gdk-pixbuf/io-xpm.c:532 gdk-pixbuf/io-xpm.c:584
+#: gdk-pixbuf/io-xpm.c:535 gdk-pixbuf/io-xpm.c:544 gdk-pixbuf/io-xpm.c:593
 msgid "Cannot allocate memory for loading XPM image"
 msgstr "Ne eblas atribui memoron por ŝargi XPM-bildon"
 
-#: gdk-pixbuf/io-xpm.c:546
+#: gdk-pixbuf/io-xpm.c:558
 msgid "Cannot read XPM colormap"
 msgstr "Ne eblas legi XPM-kolormapon"
 
-#: gdk-pixbuf/io-xpm.c:778
+#: gdk-pixbuf/io-xpm.c:610
+msgid "Dimensions do not match data"
+msgstr "Dimensioj ne kongruas kun datumoj"
+
+#: gdk-pixbuf/io-xpm.c:806
 msgid "Failed to write to temporary file when loading XPM image"
 msgstr "Malsukcesis skribi en dumtempan dosieron dum ŝargado de XPM-bildo"
 
-#: gdk-pixbuf/io-xpm.c:817
+#: gdk-pixbuf/io-xpm.c:845
 msgctxt "image format"
 msgid "XPM"
-msgstr ""
+msgstr "XPM"
+
+#, c-format
+#~ msgid "Internal error in the GIF loader (%s)"
+#~ msgstr "Interna eraro en la GIF-ŝargilo (%s)"
+
+#~ msgid "Stack overflow"
+#~ msgstr "Staktroo"
+
+#~ msgid "GIF image loader cannot understand this image."
+#~ msgstr "GIF-bilda ŝargilo ne povas kompreni ĉi tiun bildon."
+
+#~ msgid "Bad code encountered"
+#~ msgstr "Renkontis malbonan kodon"
+
+#~ msgid "Circular table entry in GIF file"
+#~ msgstr "Cikla tabelelemento en GIF-dosiero"
+
+#~ msgid "Not enough memory to composite a frame in GIF file"
+#~ msgstr "Ne sufiĉa memoro por sintezi kadron en GIF-dosiero"
+
+#~ msgid "Couldn't allocate memory for stream"
+#~ msgstr "Ne eblis atribui memoron por fluo"
+
+#~ msgid "Couldn't decode image"
+#~ msgstr "Ne eblis malkodi bildon"
+
+#~ msgid "Transformed JPEG2000 has zero width or height"
+#~ msgstr "Transformita JPEG2000 havas nulan larĝon aŭ alton"
+
+#~ msgid "Image type currently not supported"
+#~ msgstr "Bilda tipo nuntempe ne subtenata"
+
+#~ msgid "Couldn't allocate memory for color profile"
+#~ msgstr "Ne eblis atribui memoron por kolorprofilo"
+
+#~ msgid "Insufficient memory to open JPEG 2000 file"
+#~ msgstr "Nesufiĉa memoro por malfermi JPEG2000-dosieron"
+
+#~ msgid "Couldn't allocate memory to buffer image data"
+#~ msgstr "Ne eblis atribui memoron por bufri bildo-datumon"
+
+#, c-format
+#~ msgid ""
+#~ "PNG compression level must be a value between 0 and 9; value '%s' could "
+#~ "not be parsed."
+#~ msgstr ""
+#~ "PNG-kunprema nivelo estu valoro inter 0 kaj 9; valoro '%s' ne estis "
+#~ "analizebla."
+
+#, c-format
+#~| msgid ""
+#~| "JPEG quality must be a value between 0 and 100; value '%d' is not "
+#~| "allowed."
+#~ msgid "PNG y-dpi must be greater than zero; value '%s' is not allowed."
+#~ msgstr ""
+#~ "PNG y-dpi devas esti pli grando ol nulo; valoro '%s' ne estas permesata."
 
 #~ msgid "Unsupported animation type"
 #~ msgstr "Nesubtenata animacia tipo"
