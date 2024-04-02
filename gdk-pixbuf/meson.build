@@ -12,19 +12,19 @@ loaders = {
   },
   'bmp': {
     'sources': [ 'io-bmp.c' ],
-    'enabled': not native_windows_loaders,
+    'enabled': enabled_loaders.contains('bmp') and not native_windows_loaders,
   },
   'gif': {
     'sources': [ 'io-gif.c', 'io-gif-animation.c', 'lzw.c' ],
-    'enabled': not native_windows_loaders,
+    'enabled': enabled_loaders.contains('gif') and not native_windows_loaders,
   },
   'ico': {
     'sources': [ 'io-ico.c' ],
-    'enabled': not native_windows_loaders,
+    'enabled': enabled_loaders.contains('ico') and not native_windows_loaders,
   },
   'ani': {
     'sources': [ 'io-ani.c', 'io-ani-animation.c' ],
-    'enabled': true,
+    'enabled': enabled_loaders.contains('ani'),
   },
   'jpeg': {
     'sources': [ 'io-jpeg.c' ],
@@ -32,7 +32,7 @@ loaders = {
   },
   'pnm': {
     'sources': [ 'io-pnm.c' ],
-    'enabled': true,
+    'enabled': enabled_loaders.contains('pnm'),
   },
   'tiff': {
     'sources': [ 'io-tiff.c' ],
@@ -40,23 +40,23 @@ loaders = {
   },
   'xpm': {
     'sources': [ 'io-xpm.c' ],
-    'enabled': true,
+    'enabled': enabled_loaders.contains('xpm'),
   },
   'xbm': {
     'sources': [ 'io-xbm.c' ],
-    'enabled': true,
+    'enabled': enabled_loaders.contains('xbm'),
   },
   'tga': {
     'sources': [ 'io-tga.c', 'gdk-pixbuf-buffer-queue.c' ],
-    'enabled': true,
+    'enabled': enabled_loaders.contains('tga'),
   },
   'icns': {
     'sources': [ 'io-icns.c' ],
-    'enabled': true,
+    'enabled': enabled_loaders.contains('icns'),
   },
   'qtif': {
     'sources': [ 'io-qtif.c' ],
-    'enabled': true,
+    'enabled': enabled_loaders.contains('qtif'),
   },
 }
 
