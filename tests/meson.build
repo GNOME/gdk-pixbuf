@@ -71,11 +71,12 @@ installed_tests = {
   'pixbuf-construction': { 'suites': ['conform'], },
   'animation': {
     'suites': ['format'],
+    'skip': not (enabled_loaders.contains('ani') and enabled_loaders_contains('gif')),
   },
   'cve-2015-4491': {
     'suites': ['security'],
     'needs_resources': true,
-    'skip': no_resources,
+    'skip': no_resources or not enabled_loaders.contains('bmp'),
   },
   'pixbuf-fail': { 'suites': ['conform', 'slow'], },
   'pixbuf-icon-serialize': { 'suites': ['conform'], },
@@ -112,9 +113,11 @@ installed_tests = {
   'pixbuf-scale-two-step': { 'suites': ['ops'], },
   'pixbuf-short-gif-write': {
     'suites': ['format'],
+    'skip': not enabled_loaders.contains('gif'),
   },
   'pixbuf-gif-circular-table': {
     'suites': ['format'],
+    'skip': not enabled_loaders.contains('gif'),
   },
   'pixbuf-save': { 'suites': ['io'] },
   'pixbuf-readonly-to-mutable': { 'suites': ['conform'], },
@@ -122,7 +125,10 @@ installed_tests = {
     'suites': ['ops'],
     'skip': not enabled_loaders.contains('png'),
   },
-  'pixbuf-area-updated': { 'suites': ['slow'], },
+  'pixbuf-area-updated': {
+    'suites': ['slow'],
+    'skip': not (enabled_loaders.contains('ico') and enabled_loaders.contains('gif')),
+  },
 }
 
 test_data = [
