@@ -1,0 +1,924 @@
+# Kabyle translation for gdk-pixbuf.
+# Copyright (C) 2024 gdk-pixbuf's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gdk-pixbuf package.
+# Rachida SACI <rgebbid@gmail.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gdk-pixbuf master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues/new\n"
+"POT-Creation-Date: 2024-03-14 17:12+0000\n"
+"PO-Revision-Date: 2024-04-12 17:45+0200\n"
+"Last-Translator: sa\n"
+"Language-Team: Kabyle <kab@li.org>\n"
+"Language: kab\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1129
+#: gdk-pixbuf/gdk-pixbuf-io.c:1402
+#, c-format
+msgid "Failed to open file “%s”: %s"
+msgstr "Yecceḍ ulday n ufaylu \"%s\": %s"
+
+#: gdk-pixbuf/gdk-pixbuf-animation.c:198 gdk-pixbuf/gdk-pixbuf-io.c:990
+#, c-format
+msgid "Image file “%s” contains no data"
+msgstr "Afaylu n tugna \"%s\" ulac deg-s isefka"
+
+#: gdk-pixbuf/gdk-pixbuf-animation.c:236
+#, c-format
+msgid ""
+"Failed to load animation “%s”: reason not known, probably a corrupt "
+"animation file"
+msgstr ""
+"Yecceḍ usali n yimrayen \"%s\": ssebba d tarussint, ahat afaylu n umray "
+"yerreẓ"
+
+#: gdk-pixbuf/gdk-pixbuf-animation.c:304 gdk-pixbuf/gdk-pixbuf-io.c:1165
+#: gdk-pixbuf/gdk-pixbuf-io.c:1454
+#, c-format
+msgid ""
+"Failed to load image “%s”: reason not known, probably a corrupt image file"
+msgstr ""
+"Yecceḍ usali n tugna \"%s\": ssebba d tarussint, ahat afaylu n umray yerreẓ"
+
+#: gdk-pixbuf/gdk-pixbuf.c:248
+msgid "Number of Channels"
+msgstr "Amḍan n yibuda"
+
+#: gdk-pixbuf/gdk-pixbuf.c:249
+msgid "The number of samples per pixel"
+msgstr "Amḍan n tlemmicen s yipiksilen"
+
+#: gdk-pixbuf/gdk-pixbuf.c:264
+msgid "Colorspace"
+msgstr "Tallunt n yiniten"
+
+#: gdk-pixbuf/gdk-pixbuf.c:265
+msgid "The colorspace in which the samples are interpreted"
+msgstr "Tallunt n yini anida ttwasegzunt tlemmicin"
+
+#: gdk-pixbuf/gdk-pixbuf.c:277
+msgid "Has Alpha"
+msgstr "Γur-s Alfa"
+
+#: gdk-pixbuf/gdk-pixbuf.c:278
+msgid "Whether the pixbuf has an alpha channel"
+msgstr "Ma yella pixbuf ɣur-s abadu alfa"
+
+#: gdk-pixbuf/gdk-pixbuf.c:291
+msgid "Bits per Sample"
+msgstr "Ibiten i yal talemmict"
+
+#: gdk-pixbuf/gdk-pixbuf.c:292
+msgid "The number of bits per sample"
+msgstr "Amḍan n yibiten s tlemmict"
+
+#: gdk-pixbuf/gdk-pixbuf.c:305
+msgid "Width"
+msgstr "Tehri"
+
+#: gdk-pixbuf/gdk-pixbuf.c:306
+msgid "The number of columns of the pixbuf"
+msgstr "Amḍan n tgejda n pixbuf"
+
+#: gdk-pixbuf/gdk-pixbuf.c:319
+msgid "Height"
+msgstr "Teɣzi"
+
+#: gdk-pixbuf/gdk-pixbuf.c:320
+msgid "The number of rows of the pixbuf"
+msgstr "Amḍan n yizirigen n pixbuf"
+
+#: gdk-pixbuf/gdk-pixbuf.c:337
+msgid "Rowstride"
+msgstr "Rowstride"
+
+#: gdk-pixbuf/gdk-pixbuf.c:338
+msgid ""
+"The number of bytes between the start of a row and the start of the next row"
+msgstr "Amḍan n yibiten gar beddu n yizirig akked beddu n yizirig sdat"
+
+#: gdk-pixbuf/gdk-pixbuf.c:351
+msgid "Pixels"
+msgstr "Ipiksilen"
+
+#: gdk-pixbuf/gdk-pixbuf.c:352
+msgid "A pointer to the pixel data of the pixbuf"
+msgstr "Asewwaṛ ɣer yisefka n yipiksilen n pixbuf"
+
+#: gdk-pixbuf/gdk-pixbuf.c:366
+msgid "Pixel Bytes"
+msgstr "Ibiten n yipiksilen"
+
+#: gdk-pixbuf/gdk-pixbuf.c:367
+msgid "Readonly pixel data"
+msgstr "Isefka n yipiksilen i tɣuri kan"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:807
+#, c-format
+msgid "Unable to load image-loading module: %s: %s"
+msgstr "D awezɣi ad d-yali uzegrir n usali n tugna: %s: %s"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:824
+#, c-format
+msgid ""
+"Image-loading module %s does not export the proper interface; perhaps it’s "
+"from a different gdk-pixbuf version?"
+msgstr ""
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:834 gdk-pixbuf/gdk-pixbuf-io.c:877
+#, c-format
+msgid "Image type “%s” is not supported"
+msgstr "Anaw n tugna \"%s\" ur yettwasefrak ara"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:962
+#, c-format
+msgid "Couldn’t recognize the image file format for file “%s”"
+msgstr "Yegguma ad yeddes umasal n yifuyla n tugna i ufaylu \"%s\""
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:970
+msgid "Unrecognized image file format"
+msgstr "Amasal n yifuyla n tugna ur nettwasuddas ara"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:1176
+#, c-format
+msgid "Failed to load image “%s”: %s"
+msgstr "Yecceḍ usali n tugna \"%s\": %s"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:2244 gdk-pixbuf/io-gdip-utils.c:840
+#, c-format
+msgid "Error writing to image file: %s"
+msgstr "Tuccḍa deg tira ɣer ufaylu n tugna: %s"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:2286 gdk-pixbuf/gdk-pixbuf-io.c:2407
+#, c-format
+msgid "This build of gdk-pixbuf does not support saving the image format: %s"
+msgstr ""
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:2317
+msgid "Insufficient memory to save image to callback"
+msgstr ""
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:2330
+msgid "Failed to open temporary file"
+msgstr "Yecceḍ ulday n ufaylu askudan"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:2353
+msgid "Failed to read from temporary file"
+msgstr "Tecceḍ tɣuri seg ufaylu askudan"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:2575
+#, c-format
+msgid "Failed to open “%s” for writing: %s"
+msgstr "Yecceḍ ulday n \"%s\" i tira n: %s"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:2601
+#, c-format
+msgid ""
+"Failed to close “%s” while writing image, all data may not have been saved: "
+"%s"
+msgstr ""
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:2835 gdk-pixbuf/gdk-pixbuf-io.c:2890
+msgid "Insufficient memory to save image into a buffer"
+msgstr ""
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:2936
+msgid "Error writing to image stream"
+msgstr "Tuccḍa deg tira ɣer usuddem n tugna"
+
+#: gdk-pixbuf/gdk-pixbuf-loader.c:416
+#, c-format
+msgid ""
+"Internal error: Image loader module “%s” failed to complete an operation, "
+"but didn’t give a reason for the failure"
+msgstr ""
+
+#: gdk-pixbuf/gdk-pixbuf-loader.c:458
+#, c-format
+msgid "Incremental loading of image type “%s” is not supported"
+msgstr ""
+
+#: gdk-pixbuf/gdk-pixbuf-simple-anim.c:162
+msgid "Loop"
+msgstr "Taneddict"
+
+#: gdk-pixbuf/gdk-pixbuf-simple-anim.c:163
+msgid "Whether the animation should loop when it reaches the end"
+msgstr ""
+
+#: gdk-pixbuf/gdk-pixdata.c:178
+msgid "Image header corrupt"
+msgstr "Aqerru n tugna yerreẓ"
+
+#: gdk-pixbuf/gdk-pixdata.c:183
+msgid "Image format unknown"
+msgstr "Amasal n tugna d arussin"
+
+#: gdk-pixbuf/gdk-pixdata.c:188 gdk-pixbuf/gdk-pixdata.c:491
+#: gdk-pixbuf/gdk-pixdata.c:501 gdk-pixbuf/gdk-pixdata.c:597
+msgid "Image pixel data corrupt"
+msgstr "Isefka n yipiksilen n tugan yerreẓ"
+
+#: gdk-pixbuf/gdk-pixdata.c:513
+#, c-format
+msgid "failed to allocate image buffer of %u byte"
+msgid_plural "failed to allocate image buffer of %u bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: gdk-pixbuf/io-ani.c:239
+msgid "Unexpected icon chunk in animation"
+msgstr ""
+
+#: gdk-pixbuf/io-ani.c:337 gdk-pixbuf/io-ani.c:395 gdk-pixbuf/io-ani.c:421
+#: gdk-pixbuf/io-ani.c:444 gdk-pixbuf/io-ani.c:471 gdk-pixbuf/io-ani.c:558
+msgid "Invalid header in animation"
+msgstr "Aqerru arameɣtu deg umray"
+
+#: gdk-pixbuf/io-ani.c:347 gdk-pixbuf/io-ani.c:369 gdk-pixbuf/io-ani.c:453
+#: gdk-pixbuf/io-ani.c:480 gdk-pixbuf/io-ani.c:531 gdk-pixbuf/io-ani.c:607
+msgid "Not enough memory to load animation"
+msgstr "Ulac aṭas n tkatut i usali n umray"
+
+#: gdk-pixbuf/io-ani.c:387 gdk-pixbuf/io-ani.c:413 gdk-pixbuf/io-ani.c:432
+msgid "Malformed chunk in animation"
+msgstr ""
+
+#: gdk-pixbuf/io-ani.c:629
+msgid "ANI image was truncated or incomplete."
+msgstr ""
+
+#: gdk-pixbuf/io-ani.c:670
+msgctxt "image format"
+msgid "Windows animated cursor"
+msgstr "Taḥnaccaḍt n Windows i yettembiwilen"
+
+#: gdk-pixbuf/io-bmp.c:231 gdk-pixbuf/io-bmp.c:269 gdk-pixbuf/io-bmp.c:376
+#: gdk-pixbuf/io-bmp.c:403 gdk-pixbuf/io-bmp.c:428 gdk-pixbuf/io-bmp.c:463
+#: gdk-pixbuf/io-bmp.c:485 gdk-pixbuf/io-bmp.c:563
+msgid "BMP image has bogus header data"
+msgstr "Tugna BMP ɣur-s yir isefka n uqerru"
+
+#: gdk-pixbuf/io-bmp.c:242 gdk-pixbuf/io-bmp.c:498
+msgid "Not enough memory to load bitmap image"
+msgstr "Ulac aṭas n tkatut i usali n tugna bitmap"
+
+#: gdk-pixbuf/io-bmp.c:333
+msgid "BMP image has unsupported header size"
+msgstr "Tugna BMP ɣur-s teɣzi n uqerru ur yettwasefraken ara"
+
+#: gdk-pixbuf/io-bmp.c:343
+msgid "BMP image has unsupported depth"
+msgstr "Tugna BMP ɣur-s talqayt ur yettwasefraken ara"
+
+#: gdk-pixbuf/io-bmp.c:358
+msgid "BMP image has oversize palette"
+msgstr ""
+
+#: gdk-pixbuf/io-bmp.c:390
+msgid "Topdown BMP images cannot be compressed"
+msgstr ""
+
+#: gdk-pixbuf/io-bmp.c:415
+msgid "BMP image width too large"
+msgstr "Teɣzi n tugna BMP hrawet aṭas"
+
+#: gdk-pixbuf/io-bmp.c:792 gdk-pixbuf/io-png.c:564 gdk-pixbuf/io-pnm.c:722
+#: gdk-pixbuf/io-pnm.c:879
+msgid "Premature end-of-file encountered"
+msgstr ""
+
+#: gdk-pixbuf/io-bmp.c:1313
+msgid "Error while decoding colormap"
+msgstr ""
+
+#: gdk-pixbuf/io-bmp.c:1376 gdk-pixbuf/io-bmp.c:1388
+msgid "Image is too wide for BMP format."
+msgstr ""
+
+#: gdk-pixbuf/io-bmp.c:1421
+msgid "Couldn’t allocate memory for saving BMP file"
+msgstr ""
+
+#: gdk-pixbuf/io-bmp.c:1462
+msgid "Couldn’t write to BMP file"
+msgstr "Yegguma ad yaru ɣer ufaylu BMP"
+
+#: gdk-pixbuf/io-bmp.c:1515 gdk-pixbuf/io-gdip-bmp.c:83
+msgctxt "image format"
+msgid "BMP"
+msgstr "BMP"
+
+#: gdk-pixbuf/io-gdip-emf.c:61
+msgctxt "image format"
+msgid "EMF"
+msgstr "EMF"
+
+#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1037
+msgctxt "image format"
+msgid "GIF"
+msgstr "GIF"
+
+#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1412
+msgctxt "image format"
+msgid "Windows icon"
+msgstr "Tignit n Windows"
+
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1394
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value “%s” could not be "
+"parsed."
+msgstr ""
+
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1410
+#, c-format
+msgid ""
+"JPEG quality must be a value between 0 and 100; value “%d” is not allowed."
+msgstr ""
+
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1694
+msgctxt "image format"
+msgid "JPEG"
+msgstr "JPEG"
+
+#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1087
+msgctxt "image format"
+msgid "TIFF"
+msgstr "TIFF"
+
+#: gdk-pixbuf/io-gdip-utils.c:155
+#, c-format
+msgid "Could not allocate memory: %s"
+msgstr "YEgguma ad isideg takatut: %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:180 gdk-pixbuf/io-gdip-utils.c:294
+#: gdk-pixbuf/io-gdip-utils.c:334
+#, c-format
+msgid "Could not create stream: %s"
+msgstr "Yegguma ad yernu asuddem: %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:194
+#, c-format
+msgid "Could not seek stream: %s"
+msgstr "Yegguma ad yesleḍ asuddem: %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:206
+#, c-format
+msgid "Could not read from stream: %s"
+msgstr "Yegguma ad d-iɣer seg usuddem: %s"
+
+#: gdk-pixbuf/io-gdip-utils.c:620
+msgid "Couldn’t load bitmap"
+msgstr "Yegguma ad d-isali bitmap"
+
+#: gdk-pixbuf/io-gdip-utils.c:776
+msgid "Couldn’t load metafile"
+msgstr ""
+
+#: gdk-pixbuf/io-gdip-utils.c:881
+msgid "Unsupported image format for GDI+"
+msgstr ""
+
+#: gdk-pixbuf/io-gdip-utils.c:888
+msgid "Couldn’t save"
+msgstr "Yegguma ad issekles"
+
+#: gdk-pixbuf/io-gdip-wmf.c:60
+msgctxt "image format"
+msgid "WMF"
+msgstr "WMF"
+
+#: gdk-pixbuf/io-gif.c:158
+#, c-format
+msgid "Failure reading GIF: %s"
+msgstr "Terreẓ tɣuri n GIF: %s"
+
+#: gdk-pixbuf/io-gif.c:381 gdk-pixbuf/io-gif.c:848 gdk-pixbuf/io-gif.c:901
+#: gdk-pixbuf/io-gif.c:974
+msgid "Not enough memory to load GIF file"
+msgstr "Ulac aṭas n tkatut i usali n ufaylu GIF"
+
+#: gdk-pixbuf/io-gif.c:507
+msgid "GIF image is corrupt (incorrect LZW compression)"
+msgstr "Tugna GIF terreẓ (akussem LZW yerreẓ)"
+
+#: gdk-pixbuf/io-gif.c:543
+msgid "File does not appear to be a GIF file"
+msgstr "Afaylu ur yettban ara d afaylu GIF"
+
+#: gdk-pixbuf/io-gif.c:558
+#, c-format
+msgid "Version %s of the GIF file format is not supported"
+msgstr "Lqem %s n umasal n yifuyla GIF ur yettwasefrak ara"
+
+#: gdk-pixbuf/io-gif.c:587
+msgid "Resulting GIF image has zero size"
+msgstr "Tugna GIF i d-yeffɣen teɣzi-s d tilemt"
+
+#: gdk-pixbuf/io-gif.c:657
+msgid ""
+"GIF image has no global colormap, and a frame inside it has no local "
+"colormap."
+msgstr ""
+
+#: gdk-pixbuf/io-gif.c:861 gdk-pixbuf/io-gif.c:986
+msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
+msgstr ""
+
+#: gdk-pixbuf/io-gif.c:920
+msgid "GIF image was truncated or incomplete."
+msgstr ""
+
+#: gdk-pixbuf/io-gif.c:927
+msgid "Not all frames of the GIF image were loaded."
+msgstr "MAčči akk iktaren n tugniwin GIF ttwasalayen."
+
+#: gdk-pixbuf/io-icns.c:363
+#, c-format
+msgid "Error reading ICNS image: %s"
+msgstr "Tuccḍa deg tɣuri n tugna ICNS: %s"
+
+#: gdk-pixbuf/io-icns.c:380 gdk-pixbuf/io-icns.c:461
+msgid "Could not decode ICNS file"
+msgstr "Yegguma ad as-yekkes ustengel i ufaylu ICNS"
+
+#: gdk-pixbuf/io-icns.c:517
+msgctxt "image format"
+msgid "MacOS X icon"
+msgstr "Tignit n MacOS X"
+
+#: gdk-pixbuf/io-ico.c:238 gdk-pixbuf/io-ico.c:252 gdk-pixbuf/io-ico.c:342
+#: gdk-pixbuf/io-ico.c:426 gdk-pixbuf/io-ico.c:451
+#, c-format
+msgid "Invalid header in icon (%s)"
+msgstr "Yir aqerru deg tignit (%s)"
+
+#: gdk-pixbuf/io-ico.c:268 gdk-pixbuf/io-ico.c:355 gdk-pixbuf/io-ico.c:461
+#: gdk-pixbuf/io-ico.c:504 gdk-pixbuf/io-ico.c:532
+msgid "Not enough memory to load icon"
+msgstr "Ulac aṭas n tkatut i usali n tignit"
+
+#: gdk-pixbuf/io-ico.c:386
+msgid "Invalid header in icon"
+msgstr "Yir aqerru deg tignit"
+
+#: gdk-pixbuf/io-ico.c:387
+msgid "Compressed icons are not supported"
+msgstr "Tignitin n uskussem ur ttwasefrakent ara"
+
+#: gdk-pixbuf/io-ico.c:489
+msgid "Unsupported icon type"
+msgstr "Anaw n tignit ur yettwasefrak ara"
+
+#: gdk-pixbuf/io-ico.c:583
+msgid "Not enough memory to load ICO file"
+msgstr "Ulac aṭas n tkatut i usali n ufaylu ICO"
+
+#: gdk-pixbuf/io-ico.c:629
+msgid "ICO image was truncated or incomplete."
+msgstr "Tugna ICO tettwagzem neɣ d tarummidt."
+
+#: gdk-pixbuf/io-ico.c:1070
+msgid "Image too large to be saved as ICO"
+msgstr "Tugna hrawet aṭas i wakken ad tettusklas am ICO"
+
+#: gdk-pixbuf/io-ico.c:1081
+msgid "Cursor hotspot outside image"
+msgstr "Agaz n tuqqna n teḥnaccaḍt beṛṛa n tugna"
+
+#: gdk-pixbuf/io-ico.c:1104
+#, c-format
+msgid "Unsupported depth for ICO file: %d"
+msgstr ""
+
+#: gdk-pixbuf/io-jpeg.c:129
+#, c-format
+msgid "Error interpreting JPEG image file (%s)"
+msgstr ""
+
+#: gdk-pixbuf/io-jpeg.c:638
+msgid ""
+"Insufficient memory to load image, try exiting some applications to free "
+"memory"
+msgstr ""
+
+#: gdk-pixbuf/io-jpeg.c:711 gdk-pixbuf/io-jpeg.c:956
+#, c-format
+msgid "Unsupported JPEG color space (%s)"
+msgstr ""
+
+#: gdk-pixbuf/io-jpeg.c:834 gdk-pixbuf/io-jpeg.c:1154 gdk-pixbuf/io-jpeg.c:1501
+#: gdk-pixbuf/io-jpeg.c:1511
+msgid "Couldn’t allocate memory for loading JPEG file"
+msgstr ""
+
+#: gdk-pixbuf/io-jpeg.c:1112
+msgid "Transformed JPEG has zero width or height."
+msgstr ""
+
+#: gdk-pixbuf/io-jpeg.c:1138
+#, c-format
+msgid "Unsupported number of color components (%d)"
+msgstr ""
+
+#: gdk-pixbuf/io-jpeg.c:1431
+#, c-format
+msgid ""
+"JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."
+msgstr ""
+
+#: gdk-pixbuf/io-jpeg.c:1452
+#, c-format
+msgid ""
+"JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."
+msgstr ""
+
+#: gdk-pixbuf/io-jpeg.c:1466
+#, c-format
+msgid "Color profile has invalid length “%u”."
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:63
+msgid "Bits per channel of PNG image is invalid."
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:144 gdk-pixbuf/io-png.c:703
+msgid "Transformed PNG has zero width or height."
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:152
+msgid "Bits per channel of transformed PNG is not 8."
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:161
+msgid "Transformed PNG not RGB or RGBA."
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:170
+msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:191
+#, c-format
+msgid "Fatal error in PNG image file: %s"
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:329
+msgid "Insufficient memory to load PNG file"
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:498 gdk-pixbuf/io-png.c:519
+msgid "Couldn’t allocate memory for loading PNG"
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:716
+#, c-format
+msgid ""
+"Insufficient memory to store a %lu by %lu image; try exiting some "
+"applications to reduce memory usage"
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:791
+msgid "Fatal error reading PNG image file"
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:840
+#, c-format
+msgid "Fatal error reading PNG image file: %s"
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:937
+#, c-format
+msgid ""
+"Invalid key “%s”. Keys for PNG text chunks must have at least 1 and at most "
+"79 characters."
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:950
+#, c-format
+msgid "Invalid key “%s”. Keys for PNG text chunks must be ASCII characters."
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:980
+#, c-format
+msgid ""
+"Value for PNG text chunk '%s' cannot be converted to ISO-8859-1 encoding."
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:992
+#, c-format
+msgid "Color profile has invalid length %d"
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:1004
+#, c-format
+msgid ""
+"PNG compression level must be a value between 0 and 9; value “%s” is invalid"
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:1018
+#, c-format
+msgid "PNG %s must be greater than zero; value “%s” is not allowed"
+msgstr ""
+
+#: gdk-pixbuf/io-png.c:1246
+msgctxt "image format"
+msgid "PNG"
+msgstr "PNG"
+
+#: gdk-pixbuf/io-pnm.c:247
+msgid "PNM loader expected to find an integer, but didn’t"
+msgstr ""
+
+#: gdk-pixbuf/io-pnm.c:279
+msgid "PNM file has an incorrect initial byte"
+msgstr "Afaylu PNM ɣur-s ibiten imezwura d irimeɣta"
+
+#: gdk-pixbuf/io-pnm.c:309
+msgid "PNM file is not in a recognized PNM subformat"
+msgstr "Afaylu PNM mačči d amasal arnaw PNM yettwasuddsen"
+
+#: gdk-pixbuf/io-pnm.c:334
+msgid "PNM file has an invalid width"
+msgstr "Afaylu PNM ɣur-s tehri tarameɣtut"
+
+#: gdk-pixbuf/io-pnm.c:342
+msgid "PNM file has an image width of 0"
+msgstr "Afaylu PNM ɣur-s tehri n tugna d 0"
+
+#: gdk-pixbuf/io-pnm.c:363
+msgid "PNM file has an invalid height"
+msgstr "Afaylu PNM ɣur-s teɣzi tarameɣtut"
+
+#: gdk-pixbuf/io-pnm.c:371
+msgid "PNM file has an image height of 0"
+msgstr "Afaylu PNM ɣur-s teɣzi n tugna d 0"
+
+#: gdk-pixbuf/io-pnm.c:394
+msgid "Maximum color value in PNM file is 0"
+msgstr "Azal n yini afellay deg ufaylu PNM d 0"
+
+#: gdk-pixbuf/io-pnm.c:402
+msgid "Maximum color value in PNM file is too large"
+msgstr "Azal n yini afellay deg ufaylu PNM ɣezzif aṭas"
+
+#: gdk-pixbuf/io-pnm.c:442 gdk-pixbuf/io-pnm.c:472 gdk-pixbuf/io-pnm.c:517
+msgid "Raw PNM image type is invalid"
+msgstr "Anaw n tugna PNM arewway d arameɣtu"
+
+#: gdk-pixbuf/io-pnm.c:667
+msgid "PNM image loader does not support this PNM subformat"
+msgstr ""
+
+#: gdk-pixbuf/io-pnm.c:754 gdk-pixbuf/io-pnm.c:991
+msgid "Raw PNM formats require exactly one whitespace before sample data"
+msgstr ""
+
+#: gdk-pixbuf/io-pnm.c:781
+msgid "Cannot allocate memory for loading PNM image"
+msgstr ""
+
+#: gdk-pixbuf/io-pnm.c:835
+msgid "Insufficient memory to load PNM context struct"
+msgstr ""
+
+#: gdk-pixbuf/io-pnm.c:892
+msgid "Unexpected end of PNM image data"
+msgstr ""
+
+#: gdk-pixbuf/io-pnm.c:1020
+msgid "Insufficient memory to load PNM file"
+msgstr ""
+
+#: gdk-pixbuf/io-pnm.c:1103
+msgctxt "image format"
+msgid "PNM/PBM/PGM/PPM"
+msgstr "PNM/PBM/PGM/PPM"
+
+#: gdk-pixbuf/io-qtif.c:126
+msgid "Input file descriptor is NULL."
+msgstr "Anaglam n yifuyla n unekcum d ILEM."
+
+#: gdk-pixbuf/io-qtif.c:141
+msgid "Failed to read QTIF header"
+msgstr "Tecceḍ tɣuri n uqerru QTIF"
+
+#: gdk-pixbuf/io-qtif.c:150 gdk-pixbuf/io-qtif.c:187 gdk-pixbuf/io-qtif.c:449
+#, c-format
+msgid "QTIF atom size too large (%d byte)"
+msgid_plural "QTIF atom size too large (%d bytes)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: gdk-pixbuf/io-qtif.c:173
+#, c-format
+msgid "Failed to allocate %d byte for file read buffer"
+msgid_plural "Failed to allocate %d bytes for file read buffer"
+msgstr[0] ""
+msgstr[1] ""
+
+#: gdk-pixbuf/io-qtif.c:201
+#, c-format
+msgid "File error when reading QTIF atom: %s"
+msgstr "Tuccḍa n ufaylu lawan n tɣuri n ubelkim QTIF: %s"
+
+#: gdk-pixbuf/io-qtif.c:238
+#, c-format
+msgid "Failed to skip the next %d byte with seek()."
+msgid_plural "Failed to skip the next %d bytes with seek()."
+msgstr[0] ""
+msgstr[1] ""
+
+#: gdk-pixbuf/io-qtif.c:269
+msgid "Failed to allocate QTIF context structure."
+msgstr "YEcceḍ usideg n tɣessa n usatal QTIF."
+
+#: gdk-pixbuf/io-qtif.c:329
+msgid "Failed to create GdkPixbufLoader object."
+msgstr "Tecceḍ tmerna n tɣawsa n GdkPixbufLoader ."
+
+#: gdk-pixbuf/io-qtif.c:424
+msgid "Failed to find an image data atom."
+msgstr "Tecceḍ tifin n ubelkim n yisefka n tugna."
+
+#: gdk-pixbuf/io-qtif.c:599
+msgctxt "image format"
+msgid "QuickTime"
+msgstr "QuickTime"
+
+#: gdk-pixbuf/io-tga.c:346
+msgid "Cannot allocate colormap"
+msgstr ""
+
+#: gdk-pixbuf/io-tga.c:371
+msgid "Cannot allocate new pixbuf"
+msgstr ""
+
+#: gdk-pixbuf/io-tga.c:519
+msgid "Unexpected bitdepth for colormap entries"
+msgstr ""
+
+#: gdk-pixbuf/io-tga.c:535
+msgid "Pseudocolor image does not contain a colormap"
+msgstr ""
+
+#: gdk-pixbuf/io-tga.c:578
+msgid "Cannot allocate TGA header memory"
+msgstr ""
+
+#: gdk-pixbuf/io-tga.c:609
+msgid "TGA image has invalid dimensions"
+msgstr ""
+
+#: gdk-pixbuf/io-tga.c:615 gdk-pixbuf/io-tga.c:622
+msgid "TGA image type not supported"
+msgstr ""
+
+#: gdk-pixbuf/io-tga.c:650
+msgid "Cannot allocate memory for TGA context struct"
+msgstr ""
+
+#: gdk-pixbuf/io-tga.c:712
+msgid "TGA image was truncated or incomplete."
+msgstr ""
+
+#: gdk-pixbuf/io-tga.c:764
+msgctxt "image format"
+msgid "Targa"
+msgstr ""
+
+#: gdk-pixbuf/io-tiff.c:117
+msgid "Could not get image width (bad TIFF file)"
+msgstr "D awezɣi wawway n tehri n tugna (yir afaylu TIFF)"
+
+#: gdk-pixbuf/io-tiff.c:125
+msgid "Could not get image height (bad TIFF file)"
+msgstr "D awezɣi wawway n teɣzi n tugna (yir afaylu TIFF)"
+
+#: gdk-pixbuf/io-tiff.c:133
+msgid "Width or height of TIFF image is zero"
+msgstr "Tehri neɣ teɣzi n tugna TIFF d ilem"
+
+#: gdk-pixbuf/io-tiff.c:141 gdk-pixbuf/io-tiff.c:151
+msgid "Dimensions of TIFF image too large"
+msgstr ""
+
+#: gdk-pixbuf/io-tiff.c:177 gdk-pixbuf/io-tiff.c:189 gdk-pixbuf/io-tiff.c:585
+msgid "Insufficient memory to open TIFF file"
+msgstr ""
+
+#: gdk-pixbuf/io-tiff.c:287
+msgid "Failed to load RGB data from TIFF file"
+msgstr ""
+
+#: gdk-pixbuf/io-tiff.c:378
+msgid "Failed to open TIFF image"
+msgstr "Yecceḍ ulday n tugna TIFF"
+
+#: gdk-pixbuf/io-tiff.c:516 gdk-pixbuf/io-tiff.c:528
+msgid "Failed to load TIFF image"
+msgstr "Yecceḍ usali n tugna TIFF"
+
+#: gdk-pixbuf/io-tiff.c:760
+msgid "Failed to save TIFF image"
+msgstr "Yecceḍ usekles n tugna TIFF"
+
+#: gdk-pixbuf/io-tiff.c:821
+msgid "TIFF compression doesn’t refer to a valid codec."
+msgstr "Askussem n TIFF ur yuɣal ara ɣer codec ameɣtu."
+
+#: gdk-pixbuf/io-tiff.c:851
+#, c-format
+msgid "Color profile has invalid length %d."
+msgstr "Teɣzi %d n umaɣnu n yini d tarameɣtut."
+
+#: gdk-pixbuf/io-tiff.c:866
+msgid "TIFF bits-per-sample doesn’t contain a supported value."
+msgstr ""
+
+#: gdk-pixbuf/io-tiff.c:947
+msgid "Failed to write TIFF data"
+msgstr "Tecceḍ tira n yisefka TIFF"
+
+#: gdk-pixbuf/io-tiff.c:965
+#, c-format
+msgid "TIFF x-dpi must be greater than zero; value “%s” is not allowed."
+msgstr ""
+
+#: gdk-pixbuf/io-tiff.c:977
+#, c-format
+msgid "TIFF y-dpi must be greater than zero; value “%s” is not allowed."
+msgstr ""
+
+#: gdk-pixbuf/io-tiff.c:1018
+msgid "Couldn’t write to TIFF file"
+msgstr "Yegguma ad yaru i ufaylu TIFF"
+
+#: gdk-pixbuf/io-xbm.c:320
+msgid "Invalid XBM file"
+msgstr "Afaylu XBM d arameɣtu"
+
+#: gdk-pixbuf/io-xbm.c:331
+msgid "Insufficient memory to load XBM image file"
+msgstr ""
+
+#: gdk-pixbuf/io-xbm.c:482
+msgid "Failed to write to temporary file when loading XBM image"
+msgstr ""
+
+#: gdk-pixbuf/io-xbm.c:521
+msgctxt "image format"
+msgid "XBM"
+msgstr "XBM"
+
+#: gdk-pixbuf/io-xpm.c:472
+msgid "No XPM header found"
+msgstr "Ulac aqerru XPM i yettwafen"
+
+#: gdk-pixbuf/io-xpm.c:481 gdk-pixbuf/io-xpm.c:507
+msgid "Invalid XPM header"
+msgstr "Aqerru XPM d arameɣtu"
+
+#: gdk-pixbuf/io-xpm.c:489
+msgid "XPM file has image width <= 0"
+msgstr "Afaylu XPM ɣur-s tehri n tugna <= 0"
+
+#: gdk-pixbuf/io-xpm.c:497
+msgid "XPM file has image height <= 0"
+msgstr "Afaylu XPM ɣur-s teɣzi n tugna <= 0"
+
+#: gdk-pixbuf/io-xpm.c:514
+msgid "XPM has invalid number of chars per pixel"
+msgstr ""
+
+#: gdk-pixbuf/io-xpm.c:523
+msgid "XPM file has invalid number of colors"
+msgstr ""
+
+#: gdk-pixbuf/io-xpm.c:535 gdk-pixbuf/io-xpm.c:544 gdk-pixbuf/io-xpm.c:593
+msgid "Cannot allocate memory for loading XPM image"
+msgstr ""
+
+#: gdk-pixbuf/io-xpm.c:558
+msgid "Cannot read XPM colormap"
+msgstr ""
+
+#: gdk-pixbuf/io-xpm.c:610
+msgid "Dimensions do not match data"
+msgstr ""
+
+#: gdk-pixbuf/io-xpm.c:806
+msgid "Failed to write to temporary file when loading XPM image"
+msgstr ""
+
+#: gdk-pixbuf/io-xpm.c:845
+msgctxt "image format"
+msgid "XPM"
+msgstr "XPM"
