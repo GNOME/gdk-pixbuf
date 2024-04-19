@@ -1,3 +1,10 @@
+2.42.11 (stable)
+===
+
+- Disable fringe loaders by default
+- Introspection fixes [#146]
+- Translation updates
+
 2.42.10 (stable)
 ===
 
