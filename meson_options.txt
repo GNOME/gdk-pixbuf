@@ -10,6 +10,14 @@ option('jpeg',
        description: 'Enable JPEG loader (requires libjpeg), disabled on Windows if "native_windows_loaders" is used',
        type: 'feature',
        value: 'enabled')
+option('gif',
+       description: 'Enable GIF loader, disabled on Windows if "native_windows_loaders" is used',
+       type: 'feature',
+       value: 'enabled')
+option('others',
+       description: 'Enable other loaders, which are weakly maintained',
+       type: 'feature',
+       value: 'disabled')
 option('builtin_loaders',
        description: 'Comma-separated list of loaders to build into gdk-pixbuf',
        type: 'array',
