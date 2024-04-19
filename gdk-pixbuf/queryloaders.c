@@ -488,6 +488,8 @@ int main (int argc, char **argv)
         else
                 g_print ("%s\n", contents->str);
 
+        g_string_free (contents, TRUE);
+
         g_free (pixbuf_libdir);
 
         return 0;
