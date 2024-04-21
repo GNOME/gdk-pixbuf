@@ -13,17 +13,13 @@ if enabled_loaders.contains('png') and host_system != 'windows'
     output: 'resources.c',
     command: [
       gen_resources,
-      '--glib-compile-resources=@0@'.format(glib_compile_resources.full_path()),
-      '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
-      '--loaders=@0@'.format(loaders_cache.full_path()),
-      '--sourcedir=@0@'.format(meson.current_source_dir()),
+      '--glib-compile-resources', glib_compile_resources,
+      '--pixdata', gdk_pixbuf_pixdata,
+      '--loaders', loaders_cache,
+      '--sourcedir', meson.current_source_dir(),
       '--source',
       '@INPUT@',
       '@OUTPUT@',
-    ],
-    depends: [
-      gdk_pixbuf_pixdata,
-      loaders_cache,
     ],
   )
 
@@ -32,17 +28,13 @@ if enabled_loaders.contains('png') and host_system != 'windows'
     output: 'resources.h',
     command: [
       gen_resources,
-      '--glib-compile-resources=@0@'.format(glib_compile_resources.full_path()),
-      '--pixdata=@0@'.format(gdk_pixbuf_pixdata.full_path()),
-      '--loaders=@0@'.format(loaders_cache.full_path()),
-      '--sourcedir=@0@'.format(meson.current_source_dir()),
+      '--glib-compile-resources', glib_compile_resources,
+      '--pixdata', gdk_pixbuf_pixdata,
+      '--loaders', loaders_cache,
+      '--sourcedir', meson.current_source_dir(),
       '--header',
       '@INPUT@',
       '@OUTPUT@',
-    ],
-    depends: [
-      gdk_pixbuf_pixdata,
-      loaders_cache,
     ],
   )
   no_resources = false
@@ -192,8 +184,8 @@ foreach test_name, test_data: installed_tests
     output: test_name + '.test',
     command: [
       gen_installed_test,
-      '--testbindir="@0@"'.format(installed_test_bindir),
-      '--testbin=@0@'.format(test_name),
+      '--testbindir', installed_test_bindir,
+      '--testbin', test_name,
       '@OUTPUT@',
     ],
     install: get_option('installed_tests'),
