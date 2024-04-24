@@ -24,6 +24,8 @@ meson setup --buildtype debug \
     -Dpng=enabled \
     -Djpeg=enabled \
     -Dtiff=enabled \
+    -Dgif=enabled \
+    -Dothers=enabled \
     -Dman=false \
     _build
 
