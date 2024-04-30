@@ -445,7 +445,7 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
 	}
         else if (context->chunk_id == TAG_INAM) 
 	{
-		if (!context->animation) 
+		if (!context->animation || context->title)
 		{
 			g_set_error_literal (error,
                                              GDK_PIXBUF_ERROR,
@@ -472,7 +472,7 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
 	}
         else if (context->chunk_id == TAG_IART) 
 	{
-		if (!context->animation) 
+		if (!context->animation || context->author)
 		{
 			g_set_error_literal (error,
                                              GDK_PIXBUF_ERROR,
