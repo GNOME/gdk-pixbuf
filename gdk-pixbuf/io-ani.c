@@ -295,6 +295,15 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
         
         if (context->chunk_id == TAG_anih) 
 	{
+		if (context->animation)
+		{
+			g_set_error_literal (error,
+                                             GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                             _("Invalid header in animation"));
+			return FALSE;
+		}
+
 		context->HeaderSize = read_int32 (context);
 		context->NumFrames = read_int32 (context);
 		context->NumSteps = read_int32 (context);
