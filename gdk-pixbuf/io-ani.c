@@ -295,6 +295,14 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
         
         if (context->chunk_id == TAG_anih) 
 	{
+		if (context->chunk_size < 36)
+		{
+			g_set_error_literal (error,
+                                             GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                             _("Malformed chunk in animation"));
+			return FALSE;
+		}
 		if (context->animation)
 		{
 			g_set_error_literal (error,
