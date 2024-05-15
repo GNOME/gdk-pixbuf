@@ -1,3 +1,13 @@
+2.42.12 (stable)
+===
+
+- Fix a build failure (Christian Heusel)
+- Fix occasional build failures (Benjamin Gilbert)
+- ani: Reject files with multiple INA or IART chunks (Benjamin Gilbert)
+- ani: Reject files with multiple anih chunks (Benjamin Gilbert, CVE-2022-48622)
+- ani: validate chunk size (Benjamin Gilbert)
+- Translation updates
+
 2.42.11 (stable)
 ===
 
