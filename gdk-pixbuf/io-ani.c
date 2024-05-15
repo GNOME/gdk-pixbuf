@@ -295,6 +295,23 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
         
         if (context->chunk_id == TAG_anih) 
 	{
+		if (context->chunk_size < 36)
+		{
+			g_set_error_literal (error,
+                                             GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                             _("Malformed chunk in animation"));
+			return FALSE;
+		}
+		if (context->animation)
+		{
+			g_set_error_literal (error,
+                                             GDK_PIXBUF_ERROR,
+                                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                                             _("Invalid header in animation"));
+			return FALSE;
+		}
+
 		context->HeaderSize = read_int32 (context);
 		context->NumFrames = read_int32 (context);
 		context->NumSteps = read_int32 (context);
@@ -436,7 +453,7 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
 	}
         else if (context->chunk_id == TAG_INAM) 
 	{
-		if (!context->animation) 
+		if (!context->animation || context->title)
 		{
 			g_set_error_literal (error,
                                              GDK_PIXBUF_ERROR,
@@ -463,7 +480,7 @@ ani_load_chunk (AniLoaderContext *context, GError **error)
 	}
         else if (context->chunk_id == TAG_IART) 
 	{
-		if (!context->animation) 
+		if (!context->animation || context->author)
 		{
 			g_set_error_literal (error,
                                              GDK_PIXBUF_ERROR,
