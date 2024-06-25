@@ -2155,6 +2155,8 @@ gdk_pixbuf_get_file_info_finish (GAsyncResult         *async_result,
  * program's C source.
  *
  * Returns: (nullable): A newly-created pixbuf
+ * 
+ * Deprecated: 2.44: Don't use XPM
  **/
 GdkPixbuf *
 gdk_pixbuf_new_from_xpm_data (const char **data)

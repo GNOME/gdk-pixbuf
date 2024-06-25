@@ -290,10 +290,11 @@ GdkPixbuf *gdk_pixbuf_new_from_bytes (GBytes *data,
 				      int width, int height,
 				      int rowstride);
 
-GDK_PIXBUF_AVAILABLE_IN_ALL
+#ifndef GDK_PIXBUF_DISABLE_DEPRECATED
+
+GDK_PIXBUF_DEPRECATED_IN_2_44
 GdkPixbuf *gdk_pixbuf_new_from_xpm_data (const char **data);
 
-#ifndef GDK_PIXBUF_DISABLE_DEPRECATED
 GDK_PIXBUF_DEPRECATED_IN_2_32
 GdkPixbuf* gdk_pixbuf_new_from_inline	(gint          data_length,
 					 const guint8 *data,
