@@ -1361,7 +1361,6 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
        guchar *ptr;
        guchar *pixels = NULL;
        JSAMPROW *jbuf;
-       int y = 0;
        volatile int quality = 75; /* default; must be between 0 and 100 */
        int i, j;
        int w, h = 0;
@@ -1608,7 +1607,6 @@ real_save_jpeg (GdkPixbuf          *pixbuf,
                }
 
                i++;
-               y++;
 
        }
 
