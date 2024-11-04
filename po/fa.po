@@ -2,14 +2,14 @@
 # Copyright (C) 2000, 2002, 2003, 2004, 2005 Sharif FarsiWeb, Inc.
 # Roozbeh Pournader <roozbeh@farsiweb.info>, 2000, 2002, 2003, 2004, 2005.
 # Meelad Zakaria <meelad@bamdad.org>, 2005.
-# Danial Behzadi <dani.behzi@ubuntu.com>, 2022.
+# Danial Behzadi <dani.behzi@ubuntu.com>, 2022-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gtk+ 2.6\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
-"POT-Creation-Date: 2022-07-11 14:00+0000\n"
-"PO-Revision-Date: 2022-07-12 14:53+0430\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues/new\n"
+"POT-Creation-Date: 2024-09-03 21:05+0000\n"
+"PO-Revision-Date: 2024-11-04 12:37+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <farsi@lists.sharif.edu>\n"
 "Language: fa\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.4.4\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1130
-#: gdk-pixbuf/gdk-pixbuf-io.c:1403
+#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1129
+#: gdk-pixbuf/gdk-pixbuf-io.c:1402
 #, c-format
 msgid "Failed to open file “%s”: %s"
 msgstr "شکست در گشودن پروندهٔ «%s»: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:198 gdk-pixbuf/gdk-pixbuf-io.c:991
+#: gdk-pixbuf/gdk-pixbuf-animation.c:198 gdk-pixbuf/gdk-pixbuf-io.c:990
 #, c-format
 msgid "Image file “%s” contains no data"
 msgstr "پروندهٔ تصویری «%s» شامل هیچ داده‌ای نیست"
@@ -38,8 +38,8 @@ msgid ""
 msgstr ""
 "شکست در بار کردن پویانمایی «%s»: دلیل نامعلوم، احتمالاً پروندهٔ پویانمایی خراب"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:304 gdk-pixbuf/gdk-pixbuf-io.c:1166
-#: gdk-pixbuf/gdk-pixbuf-io.c:1455
+#: gdk-pixbuf/gdk-pixbuf-animation.c:304 gdk-pixbuf/gdk-pixbuf-io.c:1165
+#: gdk-pixbuf/gdk-pixbuf-io.c:1454
 #, c-format
 msgid "Failed to load image “%s”: reason not known, probably a corrupt image file"
 msgstr "شکست در بار کردن تصویر «%s»: دلیل نامعلوم، احتمالاً پروندهٔ تصویری خراب"
@@ -50,7 +50,7 @@ msgstr "تعداد کانال‌ها"
 
 #: gdk-pixbuf/gdk-pixbuf.c:249
 msgid "The number of samples per pixel"
-msgstr "تعداد نمونه‌ها بر پیکسل"
+msgstr "تعداد نمونه‌ها به ازای تصدانه"
 
 #: gdk-pixbuf/gdk-pixbuf.c:264
 msgid "Colorspace"
@@ -103,26 +103,26 @@ msgstr "تعداد بایت‌ها بین شروع یک ردیف و شروع ر�
 
 #: gdk-pixbuf/gdk-pixbuf.c:351
 msgid "Pixels"
-msgstr "پیکسل"
+msgstr "تصدانه"
 
 #: gdk-pixbuf/gdk-pixbuf.c:352
 msgid "A pointer to the pixel data of the pixbuf"
-msgstr "اشاره‌گری به داده‌های پیکسلی pixbuf"
+msgstr "اشاره‌گری به داده‌های تصدانه‌ای pixbuf"
 
 #: gdk-pixbuf/gdk-pixbuf.c:366
 msgid "Pixel Bytes"
-msgstr "بایت پیکسلی"
+msgstr "بایت تصدانه‌ای"
 
 #: gdk-pixbuf/gdk-pixbuf.c:367
 msgid "Readonly pixel data"
-msgstr "داده‌های پیکسلی فقط خواندنی"
+msgstr "داده‌های تصدانه‌ای فقط خواندنی"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:808
+#: gdk-pixbuf/gdk-pixbuf-io.c:807
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "نمی‌توان پیمانهٔ تصویربارکن را بار کرد: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:825
+#: gdk-pixbuf/gdk-pixbuf-io.c:824
 #, c-format
 msgid ""
 "Image-loading module %s does not export the proper interface; perhaps it’s from "
@@ -131,64 +131,64 @@ msgstr ""
 "پیمانهٔ بار کردن تصویر %s رابط مناسب را صادر نمی‌کند؛ شاید از نگارش دیگری از gdk-"
 "pixbuf است؟"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:835 gdk-pixbuf/gdk-pixbuf-io.c:878
+#: gdk-pixbuf/gdk-pixbuf-io.c:834 gdk-pixbuf/gdk-pixbuf-io.c:877
 #, c-format
 msgid "Image type “%s” is not supported"
 msgstr "گونهٔ تصویری «%s» پشتیبانی نمی‌شود"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:963
+#: gdk-pixbuf/gdk-pixbuf-io.c:962
 #, c-format
 msgid "Couldn’t recognize the image file format for file “%s”"
 msgstr "نتوانست قالب پروندهٔ تصویری را برای پروندهٔ «%s» تشخیص دهد"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:971
+#: gdk-pixbuf/gdk-pixbuf-io.c:970
 msgid "Unrecognized image file format"
 msgstr "قالب پروندهٔ تصویری ناشناخته"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1177
+#: gdk-pixbuf/gdk-pixbuf-io.c:1176
 #, c-format
 msgid "Failed to load image “%s”: %s"
 msgstr "شکست در بار کردن تصویر «%s»: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2245 gdk-pixbuf/io-gdip-utils.c:840
+#: gdk-pixbuf/gdk-pixbuf-io.c:2244 gdk-pixbuf/io-gdip-utils.c:840
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "خطا در نوشتن در پروندهٔ تصویر: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2287 gdk-pixbuf/gdk-pixbuf-io.c:2408
+#: gdk-pixbuf/gdk-pixbuf-io.c:2286 gdk-pixbuf/gdk-pixbuf-io.c:2407
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr "این ساخت gdk-pixbuf از ذخیرهٔ این قالب تصویری پشتیبانی نمی‌کند: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2318
+#: gdk-pixbuf/gdk-pixbuf-io.c:2317
 msgid "Insufficient memory to save image to callback"
 msgstr "حافظهٔ ناکافی برای ذخیرهٔ تصویر به پاسخ"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2331
+#: gdk-pixbuf/gdk-pixbuf-io.c:2330
 msgid "Failed to open temporary file"
 msgstr "گشودن پروندهٔ موقت شکست خورد"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2354
+#: gdk-pixbuf/gdk-pixbuf-io.c:2353
 msgid "Failed to read from temporary file"
 msgstr "خواندن از پروندهٔ موقت شکست خورد"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2576
+#: gdk-pixbuf/gdk-pixbuf-io.c:2575
 #, c-format
 msgid "Failed to open “%s” for writing: %s"
 msgstr "شکست در گشودن پروندهٔ «%s» برای نوشتن: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2602
+#: gdk-pixbuf/gdk-pixbuf-io.c:2601
 #, c-format
 msgid ""
 "Failed to close “%s” while writing image, all data may not have been saved: %s"
 msgstr ""
 "شکست در بستن «%s» هنگام نوشتن تصویر. ممکن است تمامی داده‌ها ذخیره نشده باشند: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2836 gdk-pixbuf/gdk-pixbuf-io.c:2891
+#: gdk-pixbuf/gdk-pixbuf-io.c:2835 gdk-pixbuf/gdk-pixbuf-io.c:2890
 msgid "Insufficient memory to save image into a buffer"
 msgstr "حافظه برای ذخیره کردن تصویر در میان‌گیر کافی نیست"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2937
+#: gdk-pixbuf/gdk-pixbuf-io.c:2936
 msgid "Error writing to image stream"
 msgstr "خطا در نوشتن روی جریان تصویر"
 
@@ -225,7 +225,7 @@ msgstr "قالب تصویر نامعلوم است"
 #: gdk-pixbuf/gdk-pixdata.c:188 gdk-pixbuf/gdk-pixdata.c:491
 #: gdk-pixbuf/gdk-pixdata.c:501 gdk-pixbuf/gdk-pixdata.c:597
 msgid "Image pixel data corrupt"
-msgstr "داده‌های نقطه‌ای تصویر خراب است"
+msgstr "داده‌های تصدانه‌ای تصویر خراب است"
 
 #: gdk-pixbuf/gdk-pixdata.c:513
 #, c-format
@@ -237,25 +237,27 @@ msgstr[0] "شکست در تخصیص میانگیر تصویر %Iu بایتی"
 msgid "Unexpected icon chunk in animation"
 msgstr "تکه ‌نقشک غیرمنتظره در پویانمایی"
 
-#: gdk-pixbuf/io-ani.c:337 gdk-pixbuf/io-ani.c:395 gdk-pixbuf/io-ani.c:421
-#: gdk-pixbuf/io-ani.c:444 gdk-pixbuf/io-ani.c:471 gdk-pixbuf/io-ani.c:558
-msgid "Invalid header in animation"
-msgstr "سرصفحهٔ نامعتبر در پویانمایی"
-
-#: gdk-pixbuf/io-ani.c:347 gdk-pixbuf/io-ani.c:369 gdk-pixbuf/io-ani.c:453
-#: gdk-pixbuf/io-ani.c:480 gdk-pixbuf/io-ani.c:531 gdk-pixbuf/io-ani.c:607
-msgid "Not enough memory to load animation"
-msgstr "حافظه برای بار کردن پویانمایی کافی نیست"
-
-#: gdk-pixbuf/io-ani.c:387 gdk-pixbuf/io-ani.c:413 gdk-pixbuf/io-ani.c:432
+#: gdk-pixbuf/io-ani.c:303 gdk-pixbuf/io-ani.c:404 gdk-pixbuf/io-ani.c:430
+#: gdk-pixbuf/io-ani.c:449
 msgid "Malformed chunk in animation"
 msgstr "تکهٔ معیوب در پویانمایی"
 
-#: gdk-pixbuf/io-ani.c:629
+#: gdk-pixbuf/io-ani.c:311 gdk-pixbuf/io-ani.c:354 gdk-pixbuf/io-ani.c:412
+#: gdk-pixbuf/io-ani.c:438 gdk-pixbuf/io-ani.c:461 gdk-pixbuf/io-ani.c:488
+#: gdk-pixbuf/io-ani.c:575
+msgid "Invalid header in animation"
+msgstr "سرصفحهٔ نامعتبر در پویانمایی"
+
+#: gdk-pixbuf/io-ani.c:364 gdk-pixbuf/io-ani.c:386 gdk-pixbuf/io-ani.c:470
+#: gdk-pixbuf/io-ani.c:497 gdk-pixbuf/io-ani.c:548 gdk-pixbuf/io-ani.c:624
+msgid "Not enough memory to load animation"
+msgstr "حافظه برای بار کردن پویانمایی کافی نیست"
+
+#: gdk-pixbuf/io-ani.c:646
 msgid "ANI image was truncated or incomplete."
 msgstr "تصویر ANI قطع شده یا ناقص است."
 
-#: gdk-pixbuf/io-ani.c:670
+#: gdk-pixbuf/io-ani.c:687
 msgctxt "image format"
 msgid "Windows animated cursor"
 msgstr "مکان‌نمای پویا پنجره"
@@ -331,18 +333,18 @@ msgctxt "image format"
 msgid "Windows icon"
 msgstr "نقشک ویندوز"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1391
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1394
 #, c-format
 msgid ""
 "JPEG quality must be a value between 0 and 100; value “%s” could not be parsed."
 msgstr "کیفیت JPEG باید مقداری بین ۰ و ۱۰۰ باشد. مقدار «%s» نتوانست تجزیه شود."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1407
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1410
 #, c-format
 msgid "JPEG quality must be a value between 0 and 100; value “%d” is not allowed."
 msgstr "کیفیت JPEG باید مقداری بین ۰ و ۱۰۰ باشد. مقدار «%Id» مجاز نیست."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1691
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1694
 msgctxt "image format"
 msgid "JPEG"
 msgstr "JPEG"
@@ -515,33 +517,33 @@ msgstr ""
 msgid "Unsupported JPEG color space (%s)"
 msgstr "فضای رنگ JPEG پشتیبانی نمی‌شود (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:834 gdk-pixbuf/io-jpeg.c:1151 gdk-pixbuf/io-jpeg.c:1498
-#: gdk-pixbuf/io-jpeg.c:1508
+#: gdk-pixbuf/io-jpeg.c:834 gdk-pixbuf/io-jpeg.c:1154 gdk-pixbuf/io-jpeg.c:1501
+#: gdk-pixbuf/io-jpeg.c:1511
 msgid "Couldn’t allocate memory for loading JPEG file"
 msgstr "نتوانست برای بار کردن پروندهٔ JPEG حافظه تخصیص دهد"
 
-#: gdk-pixbuf/io-jpeg.c:1109
+#: gdk-pixbuf/io-jpeg.c:1112
 msgid "Transformed JPEG has zero width or height."
 msgstr "پروندهٔ JPEG تبدیل شده پهنا یا بلندای صفر دارد."
 
-#: gdk-pixbuf/io-jpeg.c:1135
+#: gdk-pixbuf/io-jpeg.c:1138
 #, c-format
 msgid "Unsupported number of color components (%d)"
 msgstr "تعداد مولفه‌های رنگی پشتیبانی نشده (%Id)"
 
-#: gdk-pixbuf/io-jpeg.c:1428
+#: gdk-pixbuf/io-jpeg.c:1431
 #, c-format
 msgid "JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
 "نقطه در اینچ افقی JPEG باید مقداری بین ۱ و ۶۵۵۳۵ باشد. مقدار «%s» مجاز نیست."
 
-#: gdk-pixbuf/io-jpeg.c:1449
+#: gdk-pixbuf/io-jpeg.c:1452
 #, c-format
 msgid "JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
 "نقطه در اینچ عمودی JPEG باید مقداری بین ۱ و ۶۵۵۳۵ باشد. مقدار «%s» مجاز نیست."
 
-#: gdk-pixbuf/io-jpeg.c:1463
+#: gdk-pixbuf/io-jpeg.c:1466
 #, c-format
 msgid "Color profile has invalid length “%u”."
 msgstr "نمایهٔ رنگی طولی نامعتبر دارد «%Iu»."
@@ -898,7 +900,7 @@ msgstr "ارتفاع تصویر پروندهٔ XPM کمتر یا مساوی صف
 
 #: gdk-pixbuf/io-xpm.c:514
 msgid "XPM has invalid number of chars per pixel"
-msgstr "تعداد نویسه بر نقطهٔ XPM نامعتبر است"
+msgstr "تعداد نویسه بر تصدانهٔ XPM نامعتبر است"
 
 #: gdk-pixbuf/io-xpm.c:523
 msgid "XPM file has invalid number of colors"
