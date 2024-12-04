@@ -30,6 +30,17 @@
 
 #include <glycin.h>
 
+static gboolean
+should_run_unsandboxed (void)
+{
+  if (strcmp (g_get_prgname (), "gdk-pixbuf-thumbnailer") == 0)
+    {
+      g_debug ("In gdk-pixbuf-thumbnailer. Assuming external sandbox.");
+      return TRUE;
+    }
+
+  return FALSE;
+}
 
 typedef struct _GlycinContext GlycinContext;
 struct _GlycinContext
@@ -161,6 +172,10 @@ load_pixbuf_with_glycin (GFile   *file,
   GdkPixbuf *pixbuf = NULL;
 
   loader = gly_loader_new (file);
+
+  if (should_run_unsandboxed ())
+    gly_loader_set_sandbox_selector (loader, GLY_SANDBOX_SELECTOR_NOT_SANDBOXED);
+
   image = gly_loader_load (loader, error);
   if (!image)
     goto done;
