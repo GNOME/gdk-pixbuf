@@ -1209,6 +1209,8 @@ gdk_pixbuf__png_is_save_option_supported (const gchar *option_key)
         return FALSE;
 }
 
+#ifndef NO_MODULE_ENTRIES
+
 #ifndef INCLUDE_png
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
 #else
@@ -1249,3 +1251,5 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 	info->flags = GDK_PIXBUF_FORMAT_WRITABLE | GDK_PIXBUF_FORMAT_THREADSAFE;
 	info->license = "LGPL";
 }
+
+#endif
