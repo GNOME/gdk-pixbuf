@@ -257,7 +257,6 @@ loaders_deps = []
 png_opt = get_option('png')
 if not png_opt.disabled()
   png_dep = dependency(is_msvc_like ? 'png' : 'libpng', required: false)
-
   # Finally, look for the dependency in a fallback subproject if allowed by
   # the --wrap-mode option. We don't directly call subproject() here because
   # that will bypass --wrap-mode and cause issues for distro packagers.
@@ -278,8 +277,9 @@ endif
 glycin_opt = get_option('glycin')
 if not glycin_opt.disabled()
   glycin_dep = dependency('glycin-1', required: true)
+  glycin_png_dep = dependency('libpng', required: true)
   enabled_loaders += 'glycin'
-  loaders_deps += glycin_dep
+  loaders_deps += [ glycin_dep, glycin_png_dep ]
 endif
 
 gif_opt = get_option('gif')
