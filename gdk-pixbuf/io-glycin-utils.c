@@ -21,6 +21,10 @@
 #include "config.h"
 
 #include <stdint.h>
+#include <stdio.h>
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
 
 #include <gio/gio.h>
 #include <errno.h>
@@ -194,6 +198,44 @@ done:
   return pixbuf;
 }
 
+#ifdef HAVE_READLINK
+static GdkPixbuf *
+gdk_pixbuf__glycin_image_load (FILE *f, GError **error)
+{
+  char proc_path[256];
+  char filename[256] = { 0, };
+  ssize_t s;
+  GFile *file;
+  GdkPixbuf *pixbuf;
+
+  g_snprintf (proc_path, sizeof (proc_path), "/proc/%u/fd/%d", getpid (), fileno (f));
+  s = readlink (proc_path, filename, sizeof (filename));
+
+  if (s < 0)
+    {
+      g_set_error_literal (error,
+                           G_IO_ERROR, G_IO_ERROR_FAILED,
+                           "Failed to get the filename");
+      return NULL;
+    }
+  else if (s == sizeof (filename))
+    {
+      g_set_error_literal (error,
+                           G_IO_ERROR, G_IO_ERROR_FAILED,
+                           "Filename too long");
+      return NULL;
+    }
+
+  file = g_file_new_for_path (filename);
+
+  pixbuf = load_pixbuf_with_glycin (file, error);
+
+  g_object_unref (file);
+
+  return pixbuf;
+}
+#endif
+
 static gboolean
 gdk_pixbuf__glycin_image_stop_load (gpointer   data,
                                     GError   **error)
@@ -261,6 +303,9 @@ gdk_pixbuf__glycin_image_load_increment (gpointer       data,
 void
 glycin_fill_vtable (GdkPixbufModule *module)
 {
+#ifdef HAVE_READLINK
+  module->load = gdk_pixbuf__glycin_image_load;
+#endif
   module->begin_load = gdk_pixbuf__glycin_image_begin_load;
   module->stop_load = gdk_pixbuf__glycin_image_stop_load;
   module->load_increment = gdk_pixbuf__glycin_image_load_increment;
