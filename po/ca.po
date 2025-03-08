@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: gtk+ 2.8.2\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
 "POT-Creation-Date: 2020-11-10 02:27+0000\n"
-"PO-Revision-Date: 2020-12-21 13:40+0100\n"
+"PO-Revision-Date: 2025-03-08 13:40+0100\n"
 "Last-Translator: Miquel-Àngel Burgos i Fradeja <miquel.angel.burgos@gmail."
 "com>\n"
 "Language-Team: Catalan <Catalan <info@softcatala.org>>\n"
@@ -128,7 +128,7 @@ msgstr "Amplària fila"
 msgid ""
 "The number of bytes between the start of a row and the start of the next row"
 msgstr ""
-"El nombre de bits entre el començament d'una fila i el començament de la "
+"El nombre de bytes entre el començament d'una fila i el començament de la "
 "següent"
 
 #: gdk-pixbuf/gdk-pixbuf.c:317
@@ -625,7 +625,7 @@ msgstr "No hi ha memòria suficient per a carregar el fitxer PNG"
 
 #: gdk-pixbuf/io-png.c:498 gdk-pixbuf/io-png.c:519
 msgid "Couldn’t allocate memory for loading PNG"
-msgstr "No es pot obtenir memòria per a carregar el fitxer JPEG"
+msgstr "No es pot obtenir memòria per a carregar el fitxer PNG"
 
 #: gdk-pixbuf/io-png.c:716
 #, c-format
@@ -922,7 +922,7 @@ msgstr ""
 #, c-format
 msgid "TIFF y-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
-"TIFF x-dpi ha de tenir un valor major de zero; el valor «%s» no és permès."
+"TIFF y-dpi ha de tenir un valor major de zero; el valor «%s» no és permès."
 
 #: gdk-pixbuf/io-tiff.c:1017
 msgid "Couldn’t write to TIFF file"
@@ -979,7 +979,7 @@ msgstr "No es pot llegir el mapa de color d'XPM"
 
 #: gdk-pixbuf/io-xpm.c:610
 msgid "Dimensions do not match data"
-msgstr "Les dimensions de la imatge TIFF són massa grans"
+msgstr "Les dimensions no coincideixen amb les dades"
 
 #: gdk-pixbuf/io-xpm.c:806
 msgid "Failed to write to temporary file when loading XPM image"
