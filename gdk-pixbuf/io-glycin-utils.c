@@ -180,6 +180,13 @@ load_pixbuf_with_glycin (GFile   *file,
   if (should_run_unsandboxed ())
     gly_loader_set_sandbox_selector (loader, GLY_SANDBOX_SELECTOR_NOT_SANDBOXED);
 
+  gly_loader_set_accepted_memory_formats (loader, GLY_MEMORY_SELECTION_B8G8R8A8 |
+                                                  GLY_MEMORY_SELECTION_A8R8G8B8 |
+                                                  GLY_MEMORY_SELECTION_R8G8B8A8 |
+                                                  GLY_MEMORY_SELECTION_A8B8G8R8 |
+                                                  GLY_MEMORY_SELECTION_R8G8B8 |
+                                                  GLY_MEMORY_SELECTION_B8G8R8);
+
   image = gly_loader_load (loader, error);
   if (!image)
     goto done;
