@@ -2209,7 +2209,9 @@ gdk_pixbuf_get_file_info_finish (GAsyncResult         *async_result,
  *
  * Returns: (nullable): A newly-created pixbuf
  * 
- * Deprecated: 2.44: Don't use XPM
+ * Deprecated: 2.44: Use [ctor@GdkPixbuf.Pixbuf.new_from_stream] with
+ *   a [class@Gio.MemoryInputStream], making sure to handle errors in
+ *   case the XPM format loader is not available
  **/
 GdkPixbuf *
 gdk_pixbuf_new_from_xpm_data (const char **data)
