@@ -17,7 +17,6 @@
 #ifndef __GDK_PIXDATA_H__
 #define __GDK_PIXDATA_H__
 
-#ifndef GDK_PIXBUF_DISABLE_DEPRECATED
 #include        <gdk-pixbuf/gdk-pixbuf.h>
 
 G_BEGIN_DECLS
@@ -159,7 +158,5 @@ GString*	gdk_pixdata_to_csource	(GdkPixdata		*pixdata,
 
 
 G_END_DECLS
-
-#endif /* GDK_PIXBUF_DISABLE_DEPRECATED */
 
 #endif /* __GDK_PIXDATA_H__ */
