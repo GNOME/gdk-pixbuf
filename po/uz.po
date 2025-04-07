@@ -6,48 +6,121 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: uz@cyrillic\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
-"pixbuf\n"
-"POT-Creation-Date: 2012-02-04 18:44-0500\n"
-"PO-Revision-Date: 2008-12-28 09:44+0500\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues/new\n"
+"POT-Creation-Date: 2024-09-03 21:05+0000\n"
+"PO-Revision-Date: 2025-04-07 08:52+0500\n"
 "Last-Translator: Nurali Abdurahmonov <mavnur@gmail.com>\n"
 "Language-Team: Uzbek\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:146 gdk-pixbuf/gdk-pixbuf-io.c:1083
-#: gdk-pixbuf/gdk-pixbuf-io.c:1349
+#: gdk-pixbuf/gdk-pixbuf-animation.c:185 gdk-pixbuf/gdk-pixbuf-io.c:1129
+#: gdk-pixbuf/gdk-pixbuf-io.c:1402
 #, c-format
-msgid "Failed to open file '%s': %s"
-msgstr "'%s' faylini ochib boʻlmadi: %s"
+msgid "Failed to open file “%s”: %s"
+msgstr "“%s” faylini ochib bo‘lmadi: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:159 gdk-pixbuf/gdk-pixbuf-io.c:1095
+#: gdk-pixbuf/gdk-pixbuf-animation.c:198 gdk-pixbuf/gdk-pixbuf-io.c:990
 #, c-format
-msgid "Image file '%s' contains no data"
-msgstr "'%s' rasm fayli hech qanday maʼlumotga ega emas"
+msgid "Image file “%s” contains no data"
+msgstr "“%s” rasm faylida maʼlumotlar yoʻq"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:201 gdk-pixbuf/gdk-pixbuf-io.c:1131
-#: gdk-pixbuf/gdk-pixbuf-io.c:1401
-#, c-format
-msgid ""
-"Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr ""
-"'%s' rasmini yuklab boʻlmadi: sababi nomaʼlum, balki fayl buzuq boʻlishi "
-"mumkin"
-
-#: gdk-pixbuf/gdk-pixbuf-animation.c:234
+#: gdk-pixbuf/gdk-pixbuf-animation.c:236
 #, c-format
 msgid ""
-"Failed to load animation '%s': reason not known, probably a corrupt "
+"Failed to load animation “%s”: reason not known, probably a corrupt "
 "animation file"
 msgstr ""
 "'%s' : animatsiyasini yuklab boʻlmadi: sababi nomaʼlum, balki fayl buzuq "
 "boʻlishi mumkin"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:809
+#: gdk-pixbuf/gdk-pixbuf-animation.c:304 gdk-pixbuf/gdk-pixbuf-io.c:1165
+#: gdk-pixbuf/gdk-pixbuf-io.c:1454
+#, c-format
+msgid ""
+"Failed to load image “%s”: reason not known, probably a corrupt image file"
+msgstr ""
+"'%s' rasmini yuklab boʻlmadi: sababi nomaʼlum, balki fayl buzuq boʻlishi "
+"mumkin"
+
+#: gdk-pixbuf/gdk-pixbuf.c:248
+msgid "Number of Channels"
+msgstr "Kanallar soni"
+
+#: gdk-pixbuf/gdk-pixbuf.c:249
+msgid "The number of samples per pixel"
+msgstr "Bir piksel uchun namunalar soni"
+
+#: gdk-pixbuf/gdk-pixbuf.c:264
+msgid "Colorspace"
+msgstr "Rang maydoni"
+
+#: gdk-pixbuf/gdk-pixbuf.c:265
+msgid "The colorspace in which the samples are interpreted"
+msgstr "Namunalar talqin qilinadigan rang maydoni"
+
+#: gdk-pixbuf/gdk-pixbuf.c:277
+msgid "Has Alpha"
+msgstr "Alfa bor"
+
+#: gdk-pixbuf/gdk-pixbuf.c:278
+msgid "Whether the pixbuf has an alpha channel"
+msgstr "Pixbufda alfa kanali bormi"
+
+#: gdk-pixbuf/gdk-pixbuf.c:291
+msgid "Bits per Sample"
+msgstr "Bitta namuna uchun"
+
+#: gdk-pixbuf/gdk-pixbuf.c:292
+msgid "The number of bits per sample"
+msgstr "Bitta namunadagi bitlar soni"
+
+#: gdk-pixbuf/gdk-pixbuf.c:305
+msgid "Width"
+msgstr "Kengligi"
+
+#: gdk-pixbuf/gdk-pixbuf.c:306
+msgid "The number of columns of the pixbuf"
+msgstr "Pixbuf ustunlari soni"
+
+#: gdk-pixbuf/gdk-pixbuf.c:319
+msgid "Height"
+msgstr "Balandligi"
+
+#: gdk-pixbuf/gdk-pixbuf.c:320
+msgid "The number of rows of the pixbuf"
+msgstr "Pixbuf qatorlari soni"
+
+#: gdk-pixbuf/gdk-pixbuf.c:337
+msgid "Rowstride"
+msgstr "Rowstride"
+
+#: gdk-pixbuf/gdk-pixbuf.c:338
+msgid ""
+"The number of bytes between the start of a row and the start of the next row"
+msgstr "Qator boshi va keyingi qator boshi orasidagi baytlar soni"
+
+#: gdk-pixbuf/gdk-pixbuf.c:351
+msgid "Pixels"
+msgstr "Piksellar"
+
+#: gdk-pixbuf/gdk-pixbuf.c:352
+msgid "A pointer to the pixel data of the pixbuf"
+msgstr "Pixbufning piksel ma'lumotlariga ko'rsatgich"
+
+#: gdk-pixbuf/gdk-pixbuf.c:366
+msgid "Pixel Bytes"
+msgstr "Piksel bayt"
+
+#: gdk-pixbuf/gdk-pixbuf.c:367
+msgid "Readonly pixel data"
+msgstr "Faqat o'qish uchun piksel ma'lumotlari"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:807
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
 msgstr "Rasm yuklash modulini yuklab boʻlmadi: %s: %s"
@@ -55,866 +128,861 @@ msgstr "Rasm yuklash modulini yuklab boʻlmadi: %s: %s"
 #: gdk-pixbuf/gdk-pixbuf-io.c:824
 #, c-format
 msgid ""
-"Image-loading module %s does not export the proper interface; perhaps it's "
+"Image-loading module %s does not export the proper interface; perhaps it’s "
 "from a different gdk-pixbuf version?"
 msgstr ""
+"Rasmni yuklash moduli %s tegishli interfeysni eksport qilmaydi; ehtimol u "
+"boshqa gdk-pixbuf versiyasidandir?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:833 gdk-pixbuf/gdk-pixbuf-io.c:884
+#: gdk-pixbuf/gdk-pixbuf-io.c:834 gdk-pixbuf/gdk-pixbuf-io.c:877
 #, c-format
-msgid "Image type '%s' is not supported"
+msgid "Image type “%s” is not supported"
 msgstr "'%s' rasm turi qoʻllanilmaydi"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:964
+#: gdk-pixbuf/gdk-pixbuf-io.c:962
 #, c-format
-msgid "Couldn't recognize the image file format for file '%s'"
+msgid "Couldn’t recognize the image file format for file “%s”"
 msgstr "'%s' faylidagi rasm formatini aniqlab boʻlmadi"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:972
+#: gdk-pixbuf/gdk-pixbuf-io.c:970
 msgid "Unrecognized image file format"
 msgstr "Nomaʼlum rasm formati"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1140
+#: gdk-pixbuf/gdk-pixbuf-io.c:1176
 #, c-format
-msgid "Failed to load image '%s': %s"
+msgid "Failed to load image “%s”: %s"
 msgstr "'%s' rasmi yuklanmadi: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2028 gdk-pixbuf/io-gdip-utils.c:888
+#: gdk-pixbuf/gdk-pixbuf-io.c:2244 gdk-pixbuf/io-gdip-utils.c:840
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Rasm fayliga yozishda xatolik yuz berdi: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2073 gdk-pixbuf/gdk-pixbuf-io.c:2203
+#: gdk-pixbuf/gdk-pixbuf-io.c:2286 gdk-pixbuf/gdk-pixbuf-io.c:2407
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
 msgstr ""
+"Ushbu gdk-pixbuf qurilmasi rasm formatini saqlashni qo‘llab-quvvatlamaydi: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2107
+#: gdk-pixbuf/gdk-pixbuf-io.c:2317
 msgid "Insufficient memory to save image to callback"
-msgstr ""
+msgstr "Rasmni qayta qo'ng'iroq qilish uchun saqlash uchun xotira yetarli emas"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2120
+#: gdk-pixbuf/gdk-pixbuf-io.c:2330
 msgid "Failed to open temporary file"
 msgstr "Vaqtinchalik faylni ochib boʻlmadi"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2146
+#: gdk-pixbuf/gdk-pixbuf-io.c:2353
 msgid "Failed to read from temporary file"
 msgstr "Vaqtinchalik fayldan oʻqib boʻlmadi"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2399
+#: gdk-pixbuf/gdk-pixbuf-io.c:2575
 #, c-format
-msgid "Failed to open '%s' for writing: %s"
+msgid "Failed to open “%s” for writing: %s"
 msgstr "'%s' faylini yozish uchun ochib boʻlmadi: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2425
+#: gdk-pixbuf/gdk-pixbuf-io.c:2601
 #, c-format
 msgid ""
-"Failed to close '%s' while writing image, all data may not have been saved: "
+"Failed to close “%s” while writing image, all data may not have been saved: "
 "%s"
 msgstr ""
+"Rasm yozish paytida “%s” yopilmadi, barcha maʼlumotlar saqlanmagan boʻlishi "
+"mumkin: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2646 gdk-pixbuf/gdk-pixbuf-io.c:2698
+#: gdk-pixbuf/gdk-pixbuf-io.c:2835 gdk-pixbuf/gdk-pixbuf-io.c:2890
 msgid "Insufficient memory to save image into a buffer"
 msgstr "Rasmni buferga saqlash uchun xotira yetishmaydi"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2744
+#: gdk-pixbuf/gdk-pixbuf-io.c:2936
 msgid "Error writing to image stream"
-msgstr ""
+msgstr "Rasm oqimiga yozishda xatolik yuz berdi"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:395
+#: gdk-pixbuf/gdk-pixbuf-loader.c:416
 #, c-format
 msgid ""
-"Internal error: Image loader module '%s' failed to complete an operation, "
-"but didn't give a reason for the failure"
+"Internal error: Image loader module “%s” failed to complete an operation, "
+"but didn’t give a reason for the failure"
 msgstr ""
+"Ichki xato: “%s” tasvir yuklash moduli operatsiyani yakunlay olmadi, lekin "
+"xato sababini ko‘rsatmadi"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:437
+#: gdk-pixbuf/gdk-pixbuf-loader.c:458
 #, c-format
-msgid "Incremental loading of image type '%s' is not supported"
-msgstr ""
+msgid "Incremental loading of image type “%s” is not supported"
+msgstr "'%s' rasm turi qoʻllanilmaydi"
 
-#: gdk-pixbuf/gdk-pixdata.c:160
+#: gdk-pixbuf/gdk-pixbuf-simple-anim.c:162
+msgid "Loop"
+msgstr "Loop"
+
+#: gdk-pixbuf/gdk-pixbuf-simple-anim.c:163
+msgid "Whether the animation should loop when it reaches the end"
+msgstr "Animatsiya oxiriga yetganda aylanish kerakmi"
+
+#: gdk-pixbuf/gdk-pixdata.c:178
 msgid "Image header corrupt"
 msgstr "Rasm saravhasi buzuq"
 
-#: gdk-pixbuf/gdk-pixdata.c:165
+#: gdk-pixbuf/gdk-pixdata.c:183
 msgid "Image format unknown"
 msgstr "Rasm formati nomaʼlum"
 
-#: gdk-pixbuf/gdk-pixdata.c:170 gdk-pixbuf/gdk-pixdata.c:502
+#: gdk-pixbuf/gdk-pixdata.c:188 gdk-pixbuf/gdk-pixdata.c:491
+#: gdk-pixbuf/gdk-pixdata.c:501 gdk-pixbuf/gdk-pixdata.c:597
 msgid "Image pixel data corrupt"
 msgstr "Rasmning piksel maʼlumotlari xato"
 
-#: gdk-pixbuf/gdk-pixdata.c:446
+#: gdk-pixbuf/gdk-pixdata.c:513
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u baytlik rasm buferini ajratib boʻlmadi"
+msgstr[1] "%u baytlik rasm buferini ajratib boʻlmadi"
 
-#: gdk-pixbuf/io-ani.c:244
+#: gdk-pixbuf/io-ani.c:239
 msgid "Unexpected icon chunk in animation"
-msgstr ""
+msgstr "Animatsiyadagi kutilmagan piktogramma qismi"
 
-#: gdk-pixbuf/io-ani.c:337
-msgid "Unsupported animation type"
-msgstr "Qoʻllanilmaydigan animatsiya turi"
+#: gdk-pixbuf/io-ani.c:303 gdk-pixbuf/io-ani.c:404 gdk-pixbuf/io-ani.c:430
+#: gdk-pixbuf/io-ani.c:449
+msgid "Malformed chunk in animation"
+msgstr "Animatsiyada noto‘g‘ri shakllangan bo‘lak"
 
-#: gdk-pixbuf/io-ani.c:348 gdk-pixbuf/io-ani.c:406 gdk-pixbuf/io-ani.c:432
-#: gdk-pixbuf/io-ani.c:455 gdk-pixbuf/io-ani.c:482 gdk-pixbuf/io-ani.c:569
+#: gdk-pixbuf/io-ani.c:311 gdk-pixbuf/io-ani.c:354 gdk-pixbuf/io-ani.c:412
+#: gdk-pixbuf/io-ani.c:438 gdk-pixbuf/io-ani.c:461 gdk-pixbuf/io-ani.c:488
+#: gdk-pixbuf/io-ani.c:575
 msgid "Invalid header in animation"
-msgstr ""
+msgstr "Animatsiyadagi sarlavha noto‘g‘ri"
 
-#: gdk-pixbuf/io-ani.c:358 gdk-pixbuf/io-ani.c:380 gdk-pixbuf/io-ani.c:464
-#: gdk-pixbuf/io-ani.c:491 gdk-pixbuf/io-ani.c:542 gdk-pixbuf/io-ani.c:614
+#: gdk-pixbuf/io-ani.c:364 gdk-pixbuf/io-ani.c:386 gdk-pixbuf/io-ani.c:470
+#: gdk-pixbuf/io-ani.c:497 gdk-pixbuf/io-ani.c:548 gdk-pixbuf/io-ani.c:624
 msgid "Not enough memory to load animation"
 msgstr "Animatsiyani yuklash uchun xotira yetishmaydi"
 
-#: gdk-pixbuf/io-ani.c:398 gdk-pixbuf/io-ani.c:424 gdk-pixbuf/io-ani.c:443
-msgid "Malformed chunk in animation"
-msgstr ""
+#: gdk-pixbuf/io-ani.c:646
+msgid "ANI image was truncated or incomplete."
+msgstr "ANI tasviri kesilgan yoki toʻliq boʻlmagan."
 
-#: gdk-pixbuf/io-ani.c:711
-msgid "The ANI image format"
-msgstr "ANI rasm formati"
+#: gdk-pixbuf/io-ani.c:687
+msgctxt "image format"
+msgid "Windows animated cursor"
+msgstr "Windows animatsion kursor"
 
-#: gdk-pixbuf/io-bmp.c:229 gdk-pixbuf/io-bmp.c:266 gdk-pixbuf/io-bmp.c:337
-#: gdk-pixbuf/io-bmp.c:369 gdk-pixbuf/io-bmp.c:392 gdk-pixbuf/io-bmp.c:495
+#: gdk-pixbuf/io-bmp.c:231 gdk-pixbuf/io-bmp.c:269 gdk-pixbuf/io-bmp.c:376
+#: gdk-pixbuf/io-bmp.c:403 gdk-pixbuf/io-bmp.c:428 gdk-pixbuf/io-bmp.c:463
+#: gdk-pixbuf/io-bmp.c:485 gdk-pixbuf/io-bmp.c:563
 msgid "BMP image has bogus header data"
-msgstr ""
+msgstr "BMP tasvirida soxta sarlavha ma'lumotlari mavjud"
 
-#: gdk-pixbuf/io-bmp.c:240 gdk-pixbuf/io-bmp.c:432
+#: gdk-pixbuf/io-bmp.c:242 gdk-pixbuf/io-bmp.c:498
 msgid "Not enough memory to load bitmap image"
-msgstr ""
+msgstr "Bitmap tasvirni yuklash uchun xotira yetarli emas"
 
-#: gdk-pixbuf/io-bmp.c:318
+#: gdk-pixbuf/io-bmp.c:333
 msgid "BMP image has unsupported header size"
-msgstr ""
+msgstr "BMP tasviri qoʻllab-quvvatlanmaydigan sarlavha hajmiga ega"
 
-#: gdk-pixbuf/io-bmp.c:356
+#: gdk-pixbuf/io-bmp.c:343
+msgid "BMP image has unsupported depth"
+msgstr "BMP tasviri qoʻllab-quvvatlanmaydigan chuqurlikka ega"
+
+#: gdk-pixbuf/io-bmp.c:358
+msgid "BMP image has oversize palette"
+msgstr "BMP tasviri katta hajmli palitraga ega"
+
+#: gdk-pixbuf/io-bmp.c:390
 msgid "Topdown BMP images cannot be compressed"
-msgstr ""
+msgstr "Yuqoridan pastga BMP tasvirlarni siqib bo'lmaydi"
 
-#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:707
+#: gdk-pixbuf/io-bmp.c:415
+msgid "BMP image width too large"
+msgstr "BMP tasvir kengligi juda katta"
+
+#: gdk-pixbuf/io-bmp.c:792 gdk-pixbuf/io-png.c:564 gdk-pixbuf/io-pnm.c:722
+#: gdk-pixbuf/io-pnm.c:879
 msgid "Premature end-of-file encountered"
-msgstr ""
+msgstr "Faylning muddatidan oldin tugashiga duch keldi"
 
-#: gdk-pixbuf/io-bmp.c:1328
-msgid "Couldn't allocate memory for saving BMP file"
-msgstr ""
+#: gdk-pixbuf/io-bmp.c:1313
+msgid "Error while decoding colormap"
+msgstr "Rang xaritasini dekodlashda xatolik yuz berdi"
 
-#: gdk-pixbuf/io-bmp.c:1369
-msgid "Couldn't write to BMP file"
-msgstr ""
+#: gdk-pixbuf/io-bmp.c:1376 gdk-pixbuf/io-bmp.c:1388
+msgid "Image is too wide for BMP format."
+msgstr "Rasm BMP formati uchun juda keng."
 
-#: gdk-pixbuf/io-bmp.c:1422 gdk-pixbuf/io-gdip-bmp.c:82
-msgid "The BMP image format"
-msgstr ""
+#: gdk-pixbuf/io-bmp.c:1421
+msgid "Couldn’t allocate memory for saving BMP file"
+msgstr "Meta-faylni yuklab boʻlmadi"
 
-#: gdk-pixbuf/io-gdip-emf.c:59
-msgid "The EMF image format"
-msgstr "EMF rasm formati"
+#: gdk-pixbuf/io-bmp.c:1462
+msgid "Couldn’t write to BMP file"
+msgstr "BMP fayliga yozib boʻlmadi"
 
-#: gdk-pixbuf/io-gdip-gif.c:80 gdk-pixbuf/io-gif.c:1699
-msgid "The GIF image format"
-msgstr ""
+#: gdk-pixbuf/io-bmp.c:1515 gdk-pixbuf/io-gdip-bmp.c:83
+msgctxt "image format"
+msgid "BMP"
+msgstr "BMP"
 
-#: gdk-pixbuf/io-gdip-ico.c:59 gdk-pixbuf/io-ico.c:1271
-msgid "The ICO image format"
-msgstr ""
+#: gdk-pixbuf/io-gdip-emf.c:61
+msgctxt "image format"
+msgid "EMF"
+msgstr "EMF"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:53 gdk-pixbuf/io-jpeg.c:1139
+#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1037
+msgctxt "image format"
+msgid "GIF"
+msgstr "GIF"
+
+#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1412
+msgctxt "image format"
+msgid "Windows icon"
+msgstr "Windows belgisi"
+
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1394
 #, c-format
 msgid ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"JPEG quality must be a value between 0 and 100; value “%s” could not be "
 "parsed."
 msgstr ""
+"JPEG sifati 0 dan 100 gacha bo'lgan qiymat bo'lishi kerak; “%s” qiymatini "
+"tahlil qilib bo‘lmadi."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:68 gdk-pixbuf/io-jpeg.c:1154
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1410
 #, c-format
 msgid ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+"JPEG quality must be a value between 0 and 100; value “%d” is not allowed."
 msgstr ""
+"JPEG sifati 0 dan 100 gacha bo'lgan qiymat bo'lishi kerak; “%d” qiymatiga "
+"ruxsat berilmagan."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:136 gdk-pixbuf/io-jpeg.c:1316
-msgid "The JPEG image format"
-msgstr ""
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1694
+msgctxt "image format"
+msgid "JPEG"
+msgstr "JPEG"
 
-#: gdk-pixbuf/io-gdip-utils.c:154
+#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1087
+msgctxt "image format"
+msgid "TIFF"
+msgstr "TIFF"
+
+#: gdk-pixbuf/io-gdip-utils.c:155
 #, c-format
 msgid "Could not allocate memory: %s"
-msgstr ""
+msgstr "Xotira ajratilmadi: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
-#: gdk-pixbuf/io-gdip-utils.c:333
+#: gdk-pixbuf/io-gdip-utils.c:180 gdk-pixbuf/io-gdip-utils.c:294
+#: gdk-pixbuf/io-gdip-utils.c:334
 #, c-format
 msgid "Could not create stream: %s"
 msgstr "Quyidagi oqimni yaratib boʻlmadi: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:193
+#: gdk-pixbuf/io-gdip-utils.c:194
 #, c-format
 msgid "Could not seek stream: %s"
-msgstr ""
+msgstr "Translatsiyani qidirib bo‘lmadi: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:205
+#: gdk-pixbuf/io-gdip-utils.c:206
 #, c-format
 msgid "Could not read from stream: %s"
 msgstr "Quyidagi oqimdan oʻqib boʻlmadi: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:617 gdk-pixbuf/io-gdip-utils.c:752
-msgid "Couldn't load bitmap"
-msgstr ""
-
-#: gdk-pixbuf/io-gdip-utils.c:774
-msgid "Couldn't load metafile"
+#: gdk-pixbuf/io-gdip-utils.c:620
+msgid "Couldn’t load bitmap"
 msgstr "Meta-faylni yuklab boʻlmadi"
 
-#: gdk-pixbuf/io-gdip-utils.c:933
+#: gdk-pixbuf/io-gdip-utils.c:776
+msgid "Couldn’t load metafile"
+msgstr "Meta-faylni yuklab boʻlmadi"
+
+#: gdk-pixbuf/io-gdip-utils.c:881
 msgid "Unsupported image format for GDI+"
 msgstr "GDI+ uchun qoʻllanilmaydigan rasm formati"
 
-#: gdk-pixbuf/io-gdip-utils.c:940
-msgid "Couldn't save"
+#: gdk-pixbuf/io-gdip-utils.c:888
+msgid "Couldn’t save"
 msgstr "Saqlab boʻlmadi"
 
-#: gdk-pixbuf/io-gdip-wmf.c:58
-msgid "The WMF image format"
-msgstr "WMF rasm formati"
+#: gdk-pixbuf/io-gdip-wmf.c:60
+msgctxt "image format"
+msgid "WMF"
+msgstr "WMF"
 
-#: gdk-pixbuf/io-gif.c:221
+#: gdk-pixbuf/io-gif.c:158
 #, c-format
 msgid "Failure reading GIF: %s"
-msgstr ""
+msgstr "GIF o‘qilmadi: %s"
 
-#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1482 gdk-pixbuf/io-gif.c:1648
-msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
-msgstr ""
-
-#: gdk-pixbuf/io-gif.c:504
-#, c-format
-msgid "Internal error in the GIF loader (%s)"
-msgstr ""
-
-#: gdk-pixbuf/io-gif.c:578
-msgid "Stack overflow"
-msgstr ""
-
-#: gdk-pixbuf/io-gif.c:638
-msgid "GIF image loader cannot understand this image."
-msgstr ""
-
-#: gdk-pixbuf/io-gif.c:667
-msgid "Bad code encountered"
-msgstr ""
-
-#: gdk-pixbuf/io-gif.c:677
-msgid "Circular table entry in GIF file"
-msgstr ""
-
-#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1468 gdk-pixbuf/io-gif.c:1521
-#: gdk-pixbuf/io-gif.c:1636
+#: gdk-pixbuf/io-gif.c:381 gdk-pixbuf/io-gif.c:848 gdk-pixbuf/io-gif.c:901
+#: gdk-pixbuf/io-gif.c:974
 msgid "Not enough memory to load GIF file"
-msgstr ""
+msgstr "GIF faylini yuklash uchun xotira yetarli emas"
 
-#: gdk-pixbuf/io-gif.c:959
-msgid "Not enough memory to composite a frame in GIF file"
-msgstr ""
-
-#: gdk-pixbuf/io-gif.c:1131
+#: gdk-pixbuf/io-gif.c:507
 msgid "GIF image is corrupt (incorrect LZW compression)"
-msgstr ""
+msgstr "GIF tasviri buzilgan (noto'g'ri LZW siqish)"
 
-#: gdk-pixbuf/io-gif.c:1181
+#: gdk-pixbuf/io-gif.c:543
 msgid "File does not appear to be a GIF file"
-msgstr ""
+msgstr "Fayl GIF fayli emas"
 
-#: gdk-pixbuf/io-gif.c:1193
+#: gdk-pixbuf/io-gif.c:558
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
-msgstr ""
+msgstr "GIF fayl formatining %s-versiyasi qo‘llab-quvvatlanmaydi"
 
-#: gdk-pixbuf/io-gif.c:1302
+#: gdk-pixbuf/io-gif.c:587
+msgid "Resulting GIF image has zero size"
+msgstr "Natijadagi GIF tasviri nolga teng"
+
+#: gdk-pixbuf/io-gif.c:657
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
 msgstr ""
+"GIF rasmida global rang xaritasi yo'q va uning ichidagi ramkada mahalliy "
+"rang xaritasi yo'q."
 
-#: gdk-pixbuf/io-gif.c:1543
-msgid "GIF image was truncated or incomplete."
+#: gdk-pixbuf/io-gif.c:861 gdk-pixbuf/io-gif.c:986
+msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
 msgstr ""
+"GIF faylida ba'zi ma'lumotlar yo'q edi (ehtimol u qandaydir tarzda "
+"kesilganmi?)"
 
-#: gdk-pixbuf/io-icns.c:347
+#: gdk-pixbuf/io-gif.c:920
+msgid "GIF image was truncated or incomplete."
+msgstr "GIF tasviri kesilgan yoki toʻliq boʻlmagan."
+
+#: gdk-pixbuf/io-gif.c:927
+msgid "Not all frames of the GIF image were loaded."
+msgstr "GIF tasvirining barcha ramkalari yuklanmagan."
+
+#: gdk-pixbuf/io-icns.c:363
 #, c-format
 msgid "Error reading ICNS image: %s"
-msgstr ""
+msgstr "ICNS rasmini oʻqishda xatolik yuz berdi: %s"
 
-#: gdk-pixbuf/io-icns.c:364
+#: gdk-pixbuf/io-icns.c:380 gdk-pixbuf/io-icns.c:461
 msgid "Could not decode ICNS file"
-msgstr ""
+msgstr "ICNS faylini dekodlab boʻlmadi"
 
-#: gdk-pixbuf/io-icns.c:397
-msgid "The ICNS image format"
-msgstr ""
+#: gdk-pixbuf/io-icns.c:517
+msgctxt "image format"
+msgid "MacOS X icon"
+msgstr "MacOS X belgisi"
 
-#: gdk-pixbuf/io-ico.c:228 gdk-pixbuf/io-ico.c:242 gdk-pixbuf/io-ico.c:291
-#: gdk-pixbuf/io-ico.c:302 gdk-pixbuf/io-ico.c:395
-msgid "Invalid header in icon"
-msgstr ""
+#: gdk-pixbuf/io-ico.c:238 gdk-pixbuf/io-ico.c:252 gdk-pixbuf/io-ico.c:342
+#: gdk-pixbuf/io-ico.c:426 gdk-pixbuf/io-ico.c:451
+#, c-format
+msgid "Invalid header in icon (%s)"
+msgstr "Belgidagi sarlavha noto‘g‘ri (%s)"
 
-#: gdk-pixbuf/io-ico.c:257 gdk-pixbuf/io-ico.c:312 gdk-pixbuf/io-ico.c:405
-#: gdk-pixbuf/io-ico.c:458 gdk-pixbuf/io-ico.c:488
+#: gdk-pixbuf/io-ico.c:268 gdk-pixbuf/io-ico.c:355 gdk-pixbuf/io-ico.c:461
+#: gdk-pixbuf/io-ico.c:504 gdk-pixbuf/io-ico.c:532
 msgid "Not enough memory to load icon"
-msgstr ""
+msgstr "Belgini yuklash uchun xotira yetarli emas"
 
-#: gdk-pixbuf/io-ico.c:338
+#: gdk-pixbuf/io-ico.c:386
+msgid "Invalid header in icon"
+msgstr "Belgidagi sarlavha noto‘g‘ri"
+
+#: gdk-pixbuf/io-ico.c:387
 msgid "Compressed icons are not supported"
-msgstr ""
+msgstr "Siqilgan piktogrammalar qo'llab-quvvatlanmaydi"
 
-#: gdk-pixbuf/io-ico.c:358
-msgid "Icon has zero width"
-msgstr ""
-
-#: gdk-pixbuf/io-ico.c:368
-msgid "Icon has zero height"
-msgstr ""
-
-#: gdk-pixbuf/io-ico.c:443
+#: gdk-pixbuf/io-ico.c:489
 msgid "Unsupported icon type"
-msgstr ""
+msgstr "Qo'llab-quvvatlanmaydigan belgi turi"
 
-#: gdk-pixbuf/io-ico.c:537
+#: gdk-pixbuf/io-ico.c:583
 msgid "Not enough memory to load ICO file"
-msgstr ""
+msgstr "ICO faylini yuklash uchun xotira yetarli emas"
 
-#: gdk-pixbuf/io-ico.c:1002
+#: gdk-pixbuf/io-ico.c:629
+msgid "ICO image was truncated or incomplete."
+msgstr "ICO tasviri kesilgan yoki toʻliq boʻlmagan."
+
+#: gdk-pixbuf/io-ico.c:1070
 msgid "Image too large to be saved as ICO"
-msgstr ""
+msgstr "Rasm ICO sifatida saqlash uchun juda katta"
 
-#: gdk-pixbuf/io-ico.c:1013
+#: gdk-pixbuf/io-ico.c:1081
 msgid "Cursor hotspot outside image"
-msgstr ""
+msgstr "Kursorning kirish nuqtasi tasvir tashqarisi"
 
-#: gdk-pixbuf/io-ico.c:1036
+#: gdk-pixbuf/io-ico.c:1104
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
-msgstr ""
+msgstr "ICO fayli uchun qoʻllab-quvvatlanmaydigan chuqurlik: %d"
 
-#: gdk-pixbuf/io-jasper.c:74
-msgid "Couldn't allocate memory for stream"
-msgstr ""
-
-#: gdk-pixbuf/io-jasper.c:104
-msgid "Couldn't decode image"
-msgstr ""
-
-#: gdk-pixbuf/io-jasper.c:122
-msgid "Transformed JPEG2000 has zero width or height"
-msgstr ""
-
-#: gdk-pixbuf/io-jasper.c:136
-msgid "Image type currently not supported"
-msgstr ""
-
-#: gdk-pixbuf/io-jasper.c:148 gdk-pixbuf/io-jasper.c:156
-msgid "Couldn't allocate memory for color profile"
-msgstr ""
-
-#: gdk-pixbuf/io-jasper.c:182
-msgid "Insufficient memory to open JPEG 2000 file"
-msgstr ""
-
-#: gdk-pixbuf/io-jasper.c:261
-msgid "Couldn't allocate memory to buffer image data"
-msgstr ""
-
-#: gdk-pixbuf/io-jasper.c:305
-msgid "The JPEG 2000 image format"
-msgstr ""
-
-#: gdk-pixbuf/io-jpeg.c:116
+#: gdk-pixbuf/io-jpeg.c:129
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
-msgstr ""
+msgstr "JPEG rasm faylini talqin qilishda xatolik yuz berdi (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:527
+#: gdk-pixbuf/io-jpeg.c:638
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
 msgstr ""
+"Rasmni yuklash uchun xotira yetarli emas, xotirani boʻshatish uchun baʼzi "
+"ilovalardan chiqib koʻring"
 
-#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:781
+#: gdk-pixbuf/io-jpeg.c:711 gdk-pixbuf/io-jpeg.c:956
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
-msgstr ""
+msgstr "Qo'llab-quvvatlanmaydigan JPEG rang maydoni (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:680 gdk-pixbuf/io-jpeg.c:950 gdk-pixbuf/io-jpeg.c:1183
-#: gdk-pixbuf/io-jpeg.c:1192
-msgid "Couldn't allocate memory for loading JPEG file"
-msgstr ""
-
-#: gdk-pixbuf/io-jpeg.c:925
-msgid "Transformed JPEG has zero width or height."
-msgstr ""
-
-#: gdk-pixbuf/io-pcx.c:186
-msgid "Couldn't allocate memory for header"
-msgstr ""
-
-#: gdk-pixbuf/io-pcx.c:201 gdk-pixbuf/io-pcx.c:559
-msgid "Couldn't allocate memory for context buffer"
-msgstr ""
-
-#: gdk-pixbuf/io-pcx.c:600
-msgid "Image has invalid width and/or height"
-msgstr ""
-
-#: gdk-pixbuf/io-pcx.c:612 gdk-pixbuf/io-pcx.c:673
-msgid "Image has unsupported bpp"
-msgstr ""
-
-#: gdk-pixbuf/io-pcx.c:617 gdk-pixbuf/io-pcx.c:625
-#, c-format
-msgid "Image has unsupported number of %d-bit planes"
-msgstr ""
-
-#: gdk-pixbuf/io-pcx.c:641
-msgid "Couldn't create new pixbuf"
-msgstr ""
-
-#: gdk-pixbuf/io-pcx.c:649
-msgid "Couldn't allocate memory for line data"
-msgstr ""
-
-#: gdk-pixbuf/io-pcx.c:656
-#, fuzzy
-msgid "Couldn't allocate memory for PCX image"
+#: gdk-pixbuf/io-jpeg.c:834 gdk-pixbuf/io-jpeg.c:1154 gdk-pixbuf/io-jpeg.c:1501
+#: gdk-pixbuf/io-jpeg.c:1511
+msgid "Couldn’t allocate memory for loading JPEG file"
 msgstr "Meta-faylni yuklab boʻlmadi"
 
-#: gdk-pixbuf/io-pcx.c:703
-msgid "Didn't get all lines of PCX image"
+#: gdk-pixbuf/io-jpeg.c:1112
+msgid "Transformed JPEG has zero width or height."
+msgstr "O'zgartirilgan JPEG kengligi yoki balandligi nolga teng."
+
+#: gdk-pixbuf/io-jpeg.c:1138
+#, c-format
+msgid "Unsupported number of color components (%d)"
+msgstr "Rang komponentlarining qoʻllab-quvvatlanmaydigan soni (%d)"
+
+#: gdk-pixbuf/io-jpeg.c:1431
+#, c-format
+msgid ""
+"JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
+"JPEG x-dpi qiymati 1 va 65535 oralig'ida bo'lishi kerak; “%s” qiymatiga "
+"ruxsat berilmagan."
 
-#: gdk-pixbuf/io-pcx.c:710
-msgid "No palette found at end of PCX data"
+#: gdk-pixbuf/io-jpeg.c:1452
+#, c-format
+msgid ""
+"JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."
 msgstr ""
+"JPEG y-dpi 1 dan 65535 gacha bo'lgan qiymat bo'lishi kerak; “%s” qiymatiga "
+"ruxsat berilmagan."
 
-#: gdk-pixbuf/io-pcx.c:755
-msgid "The PCX image format"
-msgstr ""
+#: gdk-pixbuf/io-jpeg.c:1466
+#, c-format
+msgid "Color profile has invalid length “%u”."
+msgstr "Rang profilining uzunligi “%u” yaroqsiz."
 
-#: gdk-pixbuf/io-pixdata.c:148
-msgid "Transformed pixbuf has zero width or height."
-msgstr ""
-
-#: gdk-pixbuf/io-pixdata.c:186
-#, fuzzy
-msgid "The GdkPixdata format"
-msgstr "XPM rasm formati"
-
-#: gdk-pixbuf/io-png.c:54
+#: gdk-pixbuf/io-png.c:63
 msgid "Bits per channel of PNG image is invalid."
-msgstr ""
+msgstr "PNG tasvirining har bir kanali uchun bitlar yaroqsiz."
 
-#: gdk-pixbuf/io-png.c:135 gdk-pixbuf/io-png.c:641
+#: gdk-pixbuf/io-png.c:144 gdk-pixbuf/io-png.c:703
 msgid "Transformed PNG has zero width or height."
-msgstr ""
-
-#: gdk-pixbuf/io-png.c:143
-msgid "Bits per channel of transformed PNG is not 8."
-msgstr ""
+msgstr "O'zgartirilgan PNG kengligi yoki balandligi nolga teng."
 
 #: gdk-pixbuf/io-png.c:152
-msgid "Transformed PNG not RGB or RGBA."
-msgstr ""
+msgid "Bits per channel of transformed PNG is not 8."
+msgstr "O'zgartirilgan PNG kanali uchun bitlar 8 emas."
 
 #: gdk-pixbuf/io-png.c:161
+msgid "Transformed PNG not RGB or RGBA."
+msgstr "RGB yoki RGBA emas, o'zgartirilgan PNG."
+
+#: gdk-pixbuf/io-png.c:170
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
+"Oʻzgartirilgan PNG formatida qoʻllab-quvvatlanmaydigan kanallar soni 3 yoki "
+"4 ta boʻlishi kerak."
 
-#: gdk-pixbuf/io-png.c:182
+#: gdk-pixbuf/io-png.c:191
 #, c-format
 msgid "Fatal error in PNG image file: %s"
-msgstr ""
+msgstr "PNG rasm faylida jiddiy xatolik: %s"
 
-#: gdk-pixbuf/io-png.c:315
+#: gdk-pixbuf/io-png.c:329
 msgid "Insufficient memory to load PNG file"
-msgstr ""
+msgstr "PNG faylini yuklash uchun xotira yetarli emas"
 
-#: gdk-pixbuf/io-png.c:656
+#: gdk-pixbuf/io-png.c:498 gdk-pixbuf/io-png.c:519
+msgid "Couldn’t allocate memory for loading PNG"
+msgstr "Meta-faylni yuklab boʻlmadi"
+
+#: gdk-pixbuf/io-png.c:716
 #, c-format
 msgid ""
-"Insufficient memory to store a %ld by %ld image; try exiting some "
+"Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
+"%lu x %lu tasvirni saqlash uchun xotira yetarli emas; xotiradan "
+"foydalanishni kamaytirish uchun ba'zi ilovalardan chiqishga harakat qiling"
 
-#: gdk-pixbuf/io-png.c:719
+#: gdk-pixbuf/io-png.c:791
 msgid "Fatal error reading PNG image file"
-msgstr ""
+msgstr "PNG rasm faylini oʻqishda jiddiy xato"
 
-#: gdk-pixbuf/io-png.c:768
+#: gdk-pixbuf/io-png.c:840
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
-msgstr ""
+msgstr "PNG rasm faylini oʻqishda jiddiy xatolik: %s"
 
-#: gdk-pixbuf/io-png.c:862
-msgid ""
-"Keys for PNG text chunks must have at least 1 and at most 79 characters."
-msgstr ""
-
-#: gdk-pixbuf/io-png.c:871
-msgid "Keys for PNG text chunks must be ASCII characters."
-msgstr ""
-
-#: gdk-pixbuf/io-png.c:885 gdk-pixbuf/io-tiff.c:737
-#, c-format
-msgid "Color profile has invalid length %d."
-msgstr ""
-
-#: gdk-pixbuf/io-png.c:898
+#: gdk-pixbuf/io-png.c:937
 #, c-format
 msgid ""
-"PNG compression level must be a value between 0 and 9; value '%s' could not "
-"be parsed."
+"Invalid key “%s”. Keys for PNG text chunks must have at least 1 and at most "
+"79 characters."
 msgstr ""
+"“%s” kaliti noto‘g‘ri. PNG matn qismlari uchun kalitlar kamida 1 va koʻpi "
+"bilan 79 ta belgidan iborat boʻlishi kerak."
 
-#: gdk-pixbuf/io-png.c:911
+#: gdk-pixbuf/io-png.c:950
+#, c-format
+msgid "Invalid key “%s”. Keys for PNG text chunks must be ASCII characters."
+msgstr ""
+"“%s” kaliti noto‘g‘ri. PNG matn qismlari uchun kalitlar ASCII belgilar "
+"boʻlishi kerak."
+
+#: gdk-pixbuf/io-png.c:980
 #, c-format
 msgid ""
-"PNG compression level must be a value between 0 and 9; value '%d' is not "
-"allowed."
+"Value for PNG text chunk '%s' cannot be converted to ISO-8859-1 encoding."
 msgstr ""
+"“%s” PNG matn qismi qiymatini ISO-8859-1 kodlashiga aylantirib bo‘lmaydi."
 
-#: gdk-pixbuf/io-png.c:959
+#: gdk-pixbuf/io-png.c:992
 #, c-format
-msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
-msgstr ""
+msgid "Color profile has invalid length %d"
+msgstr "Rang profilining uzunligi %d yaroqsiz"
 
-#: gdk-pixbuf/io-png.c:1122
-msgid "The PNG image format"
+#: gdk-pixbuf/io-png.c:1004
+#, c-format
+msgid ""
+"PNG compression level must be a value between 0 and 9; value “%s” is invalid"
 msgstr ""
+"PNG siqish darajasi 0 dan 9 gacha bo'lgan qiymat bo'lishi kerak; “%s” "
+"qiymati noto‘g‘ri"
 
-#: gdk-pixbuf/io-pnm.c:248
-msgid "PNM loader expected to find an integer, but didn't"
-msgstr ""
+#: gdk-pixbuf/io-png.c:1018
+#, c-format
+msgid "PNG %s must be greater than zero; value “%s” is not allowed"
+msgstr "PNG %s noldan katta boʻlishi kerak; “%s” qiymatiga ruxsat berilmagan"
 
-#: gdk-pixbuf/io-pnm.c:280
+#: gdk-pixbuf/io-png.c:1246
+msgctxt "image format"
+msgid "PNG"
+msgstr "PNG"
+
+#: gdk-pixbuf/io-pnm.c:247
+msgid "PNM loader expected to find an integer, but didn’t"
+msgstr "PNM yuklovchisi butun sonni topishini kutgan, ammo topilmadi"
+
+#: gdk-pixbuf/io-pnm.c:279
 msgid "PNM file has an incorrect initial byte"
-msgstr ""
+msgstr "PNM faylida noto'g'ri boshlang'ich bayt mavjud"
 
-#: gdk-pixbuf/io-pnm.c:310
+#: gdk-pixbuf/io-pnm.c:309
 msgid "PNM file is not in a recognized PNM subformat"
-msgstr ""
+msgstr "PNM fayli tan olingan PNM quyi formatida emas"
 
-#: gdk-pixbuf/io-pnm.c:335
+#: gdk-pixbuf/io-pnm.c:334
+msgid "PNM file has an invalid width"
+msgstr "PNM faylining kengligi yaroqsiz"
+
+#: gdk-pixbuf/io-pnm.c:342
 msgid "PNM file has an image width of 0"
-msgstr ""
+msgstr "PNM faylining tasvir kengligi 0 ga teng"
 
-#: gdk-pixbuf/io-pnm.c:356
+#: gdk-pixbuf/io-pnm.c:363
+msgid "PNM file has an invalid height"
+msgstr "PNM faylining balandligi yaroqsiz"
+
+#: gdk-pixbuf/io-pnm.c:371
 msgid "PNM file has an image height of 0"
-msgstr ""
+msgstr "PNM faylida tasvir balandligi 0 ga teng"
 
-#: gdk-pixbuf/io-pnm.c:379
+#: gdk-pixbuf/io-pnm.c:394
 msgid "Maximum color value in PNM file is 0"
-msgstr ""
+msgstr "PNM faylidagi maksimal rang qiymati 0 ga teng"
 
-#: gdk-pixbuf/io-pnm.c:387
+#: gdk-pixbuf/io-pnm.c:402
 msgid "Maximum color value in PNM file is too large"
-msgstr ""
+msgstr "PNM faylidagi maksimal rang qiymati juda katta"
 
-#: gdk-pixbuf/io-pnm.c:427 gdk-pixbuf/io-pnm.c:457 gdk-pixbuf/io-pnm.c:502
+#: gdk-pixbuf/io-pnm.c:442 gdk-pixbuf/io-pnm.c:472 gdk-pixbuf/io-pnm.c:517
 msgid "Raw PNM image type is invalid"
-msgstr ""
+msgstr "Raw PNM tasvir turi yaroqsiz"
 
-#: gdk-pixbuf/io-pnm.c:652
+#: gdk-pixbuf/io-pnm.c:667
 msgid "PNM image loader does not support this PNM subformat"
-msgstr ""
+msgstr "PNM tasvir yuklagichi ushbu PNM subformatini qo‘llab-quvvatlamaydi"
 
-#: gdk-pixbuf/io-pnm.c:739 gdk-pixbuf/io-pnm.c:966
+#: gdk-pixbuf/io-pnm.c:754 gdk-pixbuf/io-pnm.c:991
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr ""
+"Raw PNM formatlari namuna maʼlumotlaridan oldin aynan bitta boʻshliqni talab "
+"qiladi"
 
-#: gdk-pixbuf/io-pnm.c:766
+#: gdk-pixbuf/io-pnm.c:781
 msgid "Cannot allocate memory for loading PNM image"
-msgstr ""
+msgstr "PNM tasvirini yuklash uchun xotira ajratilmadi"
 
-#: gdk-pixbuf/io-pnm.c:816
+#: gdk-pixbuf/io-pnm.c:835
 msgid "Insufficient memory to load PNM context struct"
-msgstr ""
+msgstr "PNM kontekst strukturasini yuklash uchun xotira yetarli emas"
 
-#: gdk-pixbuf/io-pnm.c:867
+#: gdk-pixbuf/io-pnm.c:892
 msgid "Unexpected end of PNM image data"
-msgstr ""
+msgstr "PNM tasvir maʼlumotlarining kutilmagan tugashi"
 
-#: gdk-pixbuf/io-pnm.c:995
+#: gdk-pixbuf/io-pnm.c:1020
 msgid "Insufficient memory to load PNM file"
-msgstr ""
+msgstr "PNM faylini yuklash uchun xotira yetarli emas"
 
-#: gdk-pixbuf/io-pnm.c:1079
-msgid "The PNM/PBM/PGM/PPM image format family"
-msgstr ""
+#: gdk-pixbuf/io-pnm.c:1103
+msgctxt "image format"
+msgid "PNM/PBM/PGM/PPM"
+msgstr "PNM/PBM/PGM/PPM"
 
-#: gdk-pixbuf/io-qtif.c:128
+#: gdk-pixbuf/io-qtif.c:126
 msgid "Input file descriptor is NULL."
-msgstr ""
+msgstr "Kirish fayli deskriptori NULL."
 
-#: gdk-pixbuf/io-qtif.c:143
-#, fuzzy
+#: gdk-pixbuf/io-qtif.c:141
 msgid "Failed to read QTIF header"
-msgstr "Sarlavha yozishda xatolik yuz berdi\n"
+msgstr "QTIF sarlavhasini o‘qib bo‘lmadi"
 
-#: gdk-pixbuf/io-qtif.c:152 gdk-pixbuf/io-qtif.c:189 gdk-pixbuf/io-qtif.c:460
+#: gdk-pixbuf/io-qtif.c:150 gdk-pixbuf/io-qtif.c:187 gdk-pixbuf/io-qtif.c:449
 #, c-format
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "QTIF atom hajmi juda katta (%d bayt)"
+msgstr[1] "QTIF atom hajmi juda katta (%d bayt)"
 
-#: gdk-pixbuf/io-qtif.c:175
+#: gdk-pixbuf/io-qtif.c:173
 #, c-format
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Fayl o‘qish buferi uchun %d bayt ajratilmadi"
+msgstr[1] "Fayl o‘qish buferi uchun %d bayt ajratilmadi"
 
-#: gdk-pixbuf/io-qtif.c:206
+#: gdk-pixbuf/io-qtif.c:201
 #, c-format
 msgid "File error when reading QTIF atom: %s"
-msgstr ""
+msgstr "QTIF atomini o'qishda fayl xatosi: %s"
 
-#: gdk-pixbuf/io-qtif.c:243
+#: gdk-pixbuf/io-qtif.c:238
 #, c-format
 msgid "Failed to skip the next %d byte with seek()."
 msgid_plural "Failed to skip the next %d bytes with seek()."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "seek() bilan keyingi %d baytni o‘tkazib yuborib bo‘lmadi."
+msgstr[1] "seek() bilan keyingi %d baytni oʻtkazib yuborib boʻlmadi."
 
-#: gdk-pixbuf/io-qtif.c:270
+#: gdk-pixbuf/io-qtif.c:269
 msgid "Failed to allocate QTIF context structure."
-msgstr ""
+msgstr "QTIF kontekst tuzilishini ajratib bo‘lmadi."
 
-#: gdk-pixbuf/io-qtif.c:330
-#, fuzzy
+#: gdk-pixbuf/io-qtif.c:329
 msgid "Failed to create GdkPixbufLoader object."
-msgstr "Jild indeksini yozishda xatolik yuz berdi\n"
+msgstr "GdkPixbufLoader obyektini yaratib bo‘lmadi."
 
-#: gdk-pixbuf/io-qtif.c:434
-#, fuzzy
+#: gdk-pixbuf/io-qtif.c:424
 msgid "Failed to find an image data atom."
-msgstr "'%s' rasmi yuklanmadi: %s"
+msgstr "Rasm maʼlumotlari atomini topib boʻlmadi."
 
-#: gdk-pixbuf/io-qtif.c:619
-#, fuzzy
-msgid "The QTIF image format"
-msgstr "ANI rasm formati"
-
-#: gdk-pixbuf/io-ras.c:125
-msgid "RAS image has bogus header data"
-msgstr ""
-
-#: gdk-pixbuf/io-ras.c:147
-msgid "RAS image has unknown type"
-msgstr ""
-
-#: gdk-pixbuf/io-ras.c:155
-msgid "unsupported RAS image variation"
-msgstr ""
-
-#: gdk-pixbuf/io-ras.c:170 gdk-pixbuf/io-ras.c:199
-msgid "Not enough memory to load RAS image"
-msgstr ""
-
-#: gdk-pixbuf/io-ras.c:544
-msgid "The Sun raster image format"
-msgstr ""
-
-#: gdk-pixbuf/io-tga.c:153
-msgid "Cannot allocate memory for IOBuffer struct"
-msgstr ""
-
-#: gdk-pixbuf/io-tga.c:172
-msgid "Cannot allocate memory for IOBuffer data"
-msgstr ""
-
-#: gdk-pixbuf/io-tga.c:183
-msgid "Cannot realloc IOBuffer data"
-msgstr ""
-
-#: gdk-pixbuf/io-tga.c:213
-msgid "Cannot allocate temporary IOBuffer data"
-msgstr ""
+#: gdk-pixbuf/io-qtif.c:599
+msgctxt "image format"
+msgid "QuickTime"
+msgstr "QuickTime"
 
 #: gdk-pixbuf/io-tga.c:346
+msgid "Cannot allocate colormap"
+msgstr "Rang xaritasini ajratib bo'lmadi"
+
+#: gdk-pixbuf/io-tga.c:371
 msgid "Cannot allocate new pixbuf"
-msgstr ""
+msgstr "Yangi pixbufni ajratib bo'lmadi"
 
-#: gdk-pixbuf/io-tga.c:685
-msgid "Image is corrupted or truncated"
-msgstr ""
-
-#: gdk-pixbuf/io-tga.c:692
-msgid "Cannot allocate colormap structure"
-msgstr ""
-
-#: gdk-pixbuf/io-tga.c:699
-msgid "Cannot allocate colormap entries"
-msgstr ""
-
-#: gdk-pixbuf/io-tga.c:721
+#: gdk-pixbuf/io-tga.c:519
 msgid "Unexpected bitdepth for colormap entries"
-msgstr ""
+msgstr "Rang xaritasi yozuvlari uchun kutilmagan bit chuqurligi"
 
-#: gdk-pixbuf/io-tga.c:739
+#: gdk-pixbuf/io-tga.c:535
+msgid "Pseudocolor image does not contain a colormap"
+msgstr "Pseudocolor tasvirda rang xaritasi mavjud emas"
+
+#: gdk-pixbuf/io-tga.c:578
 msgid "Cannot allocate TGA header memory"
-msgstr ""
+msgstr "TGA sarlavhasi xotirasini ajratib bo'lmadi"
 
-#: gdk-pixbuf/io-tga.c:772
+#: gdk-pixbuf/io-tga.c:609
 msgid "TGA image has invalid dimensions"
-msgstr ""
+msgstr "TGA tasvirining oʻlchamlari yaroqsiz"
 
-#: gdk-pixbuf/io-tga.c:778 gdk-pixbuf/io-tga.c:787 gdk-pixbuf/io-tga.c:797
-#: gdk-pixbuf/io-tga.c:807 gdk-pixbuf/io-tga.c:814
+#: gdk-pixbuf/io-tga.c:615 gdk-pixbuf/io-tga.c:622
 msgid "TGA image type not supported"
-msgstr ""
+msgstr "TGA tasvir turi qo'llab-quvvatlanmaydi"
 
-#: gdk-pixbuf/io-tga.c:861
+#: gdk-pixbuf/io-tga.c:650
 msgid "Cannot allocate memory for TGA context struct"
-msgstr ""
+msgstr "TGA kontekst strukturasi uchun xotirani ajratib bo‘lmaydi"
 
-#: gdk-pixbuf/io-tga.c:926
-msgid "Excess data in file"
-msgstr ""
+#: gdk-pixbuf/io-tga.c:712
+msgid "TGA image was truncated or incomplete."
+msgstr "TGA tasviri kesilgan yoki toʻliq boʻlmagan."
 
-#: gdk-pixbuf/io-tga.c:1007
-msgid "The Targa image format"
-msgstr ""
+#: gdk-pixbuf/io-tga.c:764
+msgctxt "image format"
+msgid "Targa"
+msgstr "Targa"
 
-#: gdk-pixbuf/io-tiff.c:164
+#: gdk-pixbuf/io-tiff.c:117
 msgid "Could not get image width (bad TIFF file)"
-msgstr ""
+msgstr "Tasvir kengligi olinmadi (yomon TIFF fayli)"
 
-#: gdk-pixbuf/io-tiff.c:171
+#: gdk-pixbuf/io-tiff.c:125
 msgid "Could not get image height (bad TIFF file)"
-msgstr ""
+msgstr "Tasvir balandligini olinmadi (yomon TIFF fayli)"
 
-#: gdk-pixbuf/io-tiff.c:179
+#: gdk-pixbuf/io-tiff.c:133
 msgid "Width or height of TIFF image is zero"
-msgstr ""
+msgstr "TIFF tasvirining kengligi yoki balandligi nolga teng"
 
-#: gdk-pixbuf/io-tiff.c:188 gdk-pixbuf/io-tiff.c:197
+#: gdk-pixbuf/io-tiff.c:141 gdk-pixbuf/io-tiff.c:151
 msgid "Dimensions of TIFF image too large"
-msgstr ""
+msgstr "TIFF tasvirining oʻlchamlari juda katta"
 
-#: gdk-pixbuf/io-tiff.c:221 gdk-pixbuf/io-tiff.c:233 gdk-pixbuf/io-tiff.c:560
+#: gdk-pixbuf/io-tiff.c:177 gdk-pixbuf/io-tiff.c:189 gdk-pixbuf/io-tiff.c:585
 msgid "Insufficient memory to open TIFF file"
-msgstr ""
+msgstr "TIFF faylini ochish uchun xotira yetarli emas"
 
-#: gdk-pixbuf/io-tiff.c:294
+#: gdk-pixbuf/io-tiff.c:287
 msgid "Failed to load RGB data from TIFF file"
-msgstr ""
+msgstr "TIFF faylidan RGB maʼlumotlarini yuklab boʻlmadi"
 
-#: gdk-pixbuf/io-tiff.c:350
+#: gdk-pixbuf/io-tiff.c:378
 msgid "Failed to open TIFF image"
-msgstr ""
+msgstr "TIFF tasvirini ochib bo‘lmadi"
 
-#: gdk-pixbuf/io-tiff.c:362 gdk-pixbuf/io-tiff.c:777
-msgid "TIFFClose operation failed"
-msgstr ""
-
-#: gdk-pixbuf/io-tiff.c:492 gdk-pixbuf/io-tiff.c:505
+#: gdk-pixbuf/io-tiff.c:516 gdk-pixbuf/io-tiff.c:528
 msgid "Failed to load TIFF image"
-msgstr ""
+msgstr "TIFF tasvirini yuklab bo‘lmadi"
 
-#: gdk-pixbuf/io-tiff.c:691
+#: gdk-pixbuf/io-tiff.c:760
 msgid "Failed to save TIFF image"
-msgstr ""
+msgstr "TIFF tasvirini saqlab bo‘lmadi"
 
-#: gdk-pixbuf/io-tiff.c:726
-msgid "TIFF compression doesn't refer to a valid codec."
-msgstr ""
+#: gdk-pixbuf/io-tiff.c:821
+msgid "TIFF compression doesn’t refer to a valid codec."
+msgstr "TIFF siqish haqiqiy kodekga ishora qilmaydi."
 
-#: gdk-pixbuf/io-tiff.c:766
+#: gdk-pixbuf/io-tiff.c:851
+#, c-format
+msgid "Color profile has invalid length %d."
+msgstr "Rang profilining uzunligi %d yaroqsiz."
+
+#: gdk-pixbuf/io-tiff.c:866
+msgid "TIFF bits-per-sample doesn’t contain a supported value."
+msgstr ""
+"Namuna boshiga TIFF bitlari qo‘llab-quvvatlanadigan qiymatni o‘z ichiga "
+"olmaydi."
+
+#: gdk-pixbuf/io-tiff.c:947
 msgid "Failed to write TIFF data"
-msgstr ""
+msgstr "TIFF maʼlumotlarini yozib boʻlmadi"
 
-#: gdk-pixbuf/io-tiff.c:813
-msgid "Couldn't write to TIFF file"
+#: gdk-pixbuf/io-tiff.c:965
+#, c-format
+msgid "TIFF x-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
+"TIFF x-dpi noldan katta bo'lishi kerak; “%s” qiymatiga ruxsat berilmagan."
 
-#: gdk-pixbuf/io-tiff.c:868
-msgid "The TIFF image format"
+#: gdk-pixbuf/io-tiff.c:977
+#, c-format
+msgid "TIFF y-dpi must be greater than zero; value “%s” is not allowed."
 msgstr ""
+"TIFF y-dpi noldan katta bo'lishi kerak; “%s” qiymatiga ruxsat berilmagan."
 
-#: gdk-pixbuf/io-wbmp.c:245
-msgid "Image has zero width"
-msgstr ""
+#: gdk-pixbuf/io-tiff.c:1018
+msgid "Couldn’t write to TIFF file"
+msgstr "TIFF fayliga yozib boʻlmadi"
 
-#: gdk-pixbuf/io-wbmp.c:263
-msgid "Image has zero height"
-msgstr ""
-
-#: gdk-pixbuf/io-wbmp.c:274
-msgid "Not enough memory to load image"
-msgstr ""
-
-#: gdk-pixbuf/io-wbmp.c:333
-msgid "Couldn't save the rest"
-msgstr ""
-
-#: gdk-pixbuf/io-wbmp.c:374
-msgid "The WBMP image format"
-msgstr ""
-
-#: gdk-pixbuf/io-xbm.c:296
+#: gdk-pixbuf/io-xbm.c:320
 msgid "Invalid XBM file"
-msgstr ""
+msgstr "Yaroqsiz XBM fayli"
 
-#: gdk-pixbuf/io-xbm.c:306
+#: gdk-pixbuf/io-xbm.c:331
 msgid "Insufficient memory to load XBM image file"
-msgstr ""
+msgstr "XBM tasvir faylini yuklash uchun xotira yetarli emas"
 
-#: gdk-pixbuf/io-xbm.c:454
+#: gdk-pixbuf/io-xbm.c:482
 msgid "Failed to write to temporary file when loading XBM image"
-msgstr ""
+msgstr "XBM tasvirini yuklashda vaqtinchalik faylga yozib bo‘lmadi"
 
-#: gdk-pixbuf/io-xbm.c:493
-msgid "The XBM image format"
-msgstr ""
+#: gdk-pixbuf/io-xbm.c:521
+msgctxt "image format"
+msgid "XBM"
+msgstr "XBM"
 
-#: gdk-pixbuf/io-xpm.c:469
+#: gdk-pixbuf/io-xpm.c:472
 msgid "No XPM header found"
-msgstr ""
+msgstr "XPM sarlavhasi topilmadi"
 
-#: gdk-pixbuf/io-xpm.c:478
+#: gdk-pixbuf/io-xpm.c:481 gdk-pixbuf/io-xpm.c:507
 msgid "Invalid XPM header"
-msgstr ""
+msgstr "XPM sarlavhasi yaroqsiz"
 
-#: gdk-pixbuf/io-xpm.c:486
+#: gdk-pixbuf/io-xpm.c:489
 msgid "XPM file has image width <= 0"
-msgstr ""
+msgstr "XPM fayli tasvir kengligi <= 0"
 
-#: gdk-pixbuf/io-xpm.c:494
+#: gdk-pixbuf/io-xpm.c:497
 msgid "XPM file has image height <= 0"
-msgstr ""
+msgstr "XPM faylida tasvir balandligi <= 0"
 
-#: gdk-pixbuf/io-xpm.c:502
+#: gdk-pixbuf/io-xpm.c:514
 msgid "XPM has invalid number of chars per pixel"
-msgstr ""
+msgstr "XPM har bir piksel uchun yaroqsiz belgilar soniga ega"
 
-#: gdk-pixbuf/io-xpm.c:511
+#: gdk-pixbuf/io-xpm.c:523
 msgid "XPM file has invalid number of colors"
-msgstr ""
+msgstr "XPM faylida ranglar soni yaroqsiz"
 
-#: gdk-pixbuf/io-xpm.c:523 gdk-pixbuf/io-xpm.c:532 gdk-pixbuf/io-xpm.c:584
+#: gdk-pixbuf/io-xpm.c:535 gdk-pixbuf/io-xpm.c:544 gdk-pixbuf/io-xpm.c:593
 msgid "Cannot allocate memory for loading XPM image"
-msgstr ""
+msgstr "XPM tasvirini yuklash uchun xotirani ajratib bo‘lmadi"
 
-#: gdk-pixbuf/io-xpm.c:546
+#: gdk-pixbuf/io-xpm.c:558
 msgid "Cannot read XPM colormap"
-msgstr ""
+msgstr "XPM rang xaritasini o‘qib bo‘lmaydi"
 
-#: gdk-pixbuf/io-xpm.c:778
+#: gdk-pixbuf/io-xpm.c:610
+msgid "Dimensions do not match data"
+msgstr "O'lchamlar ma'lumotlarga mos kelmaydi"
+
+#: gdk-pixbuf/io-xpm.c:806
 msgid "Failed to write to temporary file when loading XPM image"
-msgstr ""
+msgstr "XPM tasvirini yuklashda vaqtinchalik faylga yozib bo‘lmadi"
 
-#: gdk-pixbuf/io-xpm.c:817
-msgid "The XPM image format"
-msgstr "XPM rasm formati"
+#: gdk-pixbuf/io-xpm.c:845
+msgctxt "image format"
+msgid "XPM"
+msgstr "XPM"
+
+#~ msgid "Unsupported animation type"
+#~ msgstr "Qoʻllanilmaydigan animatsiya turi"
+
+#~ msgid "The ANI image format"
+#~ msgstr "ANI rasm formati"
+
+#~ msgid "The EMF image format"
+#~ msgstr "EMF rasm formati"
+
+#~ msgid "The WMF image format"
+#~ msgstr "WMF rasm formati"
+
+#, fuzzy
+#~ msgid "The GdkPixdata format"
+#~ msgstr "XPM rasm formati"
+
+#, fuzzy
+#~ msgid "The QTIF image format"
+#~ msgstr "ANI rasm formati"
+
+#~ msgid "The XPM image format"
+#~ msgstr "XPM rasm formati"
