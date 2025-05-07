@@ -406,7 +406,9 @@ if not meson.is_cross_build()
   if get_option('tests')
     subdir('tests')
   endif
-  subdir('thumbnailer')
+  if get_option('thumbnailer').enabled()
+    subdir('thumbnailer')
+  endif
 endif
 
 # Documentation
@@ -428,6 +430,7 @@ endif
 summary('Shared modules', build_modules, section: 'Loaders')
 summary('Enabled loaders', enabled_loaders, section: 'Loaders')
 summary('Builtin loaders', builtin_loaders, section: 'Loaders')
+summary('Thumbnailer', get_option('thumbnailer').enabled(), section: 'Loaders')
 
 summary('Debugging', get_option('debug'), section: 'Build')
 summary('Optimization', get_option('optimization'), section: 'Build')

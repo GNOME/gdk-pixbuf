@@ -65,4 +65,7 @@ option('gio_sniffing',
        description: 'Perform file type detection using GIO (Unused on MacOS and Windows)',
        type: 'boolean',
        value: true)
-
+option('thumbnailer',
+       description: 'Build the thumbnailer',
+       type: 'feature',
+       value: 'enabled')
