@@ -25,6 +25,9 @@
 #include "io-glycin-utils.h"
 
 
+#define NO_MODULE_ENTRIES
+#include "io-png.c"
+
 #ifndef INCLUDE_glycin
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
 #else
@@ -34,6 +37,11 @@
 MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 {
   glycin_fill_vtable (module);
+
+  /* We borrow the saving code from the png loader */
+  module->save = gdk_pixbuf__png_image_save;
+  module->save_to_callback = gdk_pixbuf__png_image_save_to_callback;
+  module->is_save_option_supported = gdk_pixbuf__png_is_save_option_supported;
 }
 
 MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
@@ -56,6 +64,6 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
   info->description = NC_("image format", "PNG");
   info->mime_types = (gchar **) mime_types;
   info->extensions = (gchar **) extensions;
-  info->flags = GDK_PIXBUF_FORMAT_THREADSAFE;
+  info->flags = GDK_PIXBUF_FORMAT_WRITABLE | GDK_PIXBUF_FORMAT_THREADSAFE;
   info->license = "LGPL";
 }

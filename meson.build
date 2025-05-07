@@ -278,8 +278,9 @@ endif
 glycin_opt = get_option('glycin')
 if not glycin_opt.disabled()
   glycin_dep = dependency('glycin-1', version: '>= 1.3.alpha', required: true)
+  glycin_png_dep = dependency('libpng', required: true)
   enabled_loaders += 'glycin'
-  loaders_deps += glycin_dep
+  loaders_deps += [ glycin_dep, glycin_png_dep ]
 endif
 
 gif_opt = get_option('gif')
