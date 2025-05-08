@@ -26,6 +26,7 @@ meson setup --buildtype debug \
     -Dtiff=enabled \
     -Dgif=enabled \
     -Dothers=enabled \
+    -Dglycin=disabled \
     -Dman=false \
     _build
 

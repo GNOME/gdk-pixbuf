@@ -8,7 +8,7 @@ stages:
 variables:
   CCACHE_DIR: _ccache
   COMMON_MESON_FLAGS: "-Dwerror=true -Dglib:werror=false"
-  LOADERS_FLAGS: "-Dpng=enabled -Djpeg=enabled -Dtiff=enabled -Dgif=enabled -Dothers=enabled"
+  LOADERS_FLAGS: "-Dpng=enabled -Djpeg=enabled -Dtiff=enabled -Dgif=enabled -Dothers=enabled -Dglycin=disabled"
   MESON_TEST_TIMEOUT_MULTIPLIER: 3
   FEDORA_IMAGE: "registry.gitlab.gnome.org/gnome/gdk-pixbuf/fedora:v4"
 
