@@ -14,6 +14,10 @@ option('gif',
        description: 'Enable GIF loader, disabled on Windows if "native_windows_loaders" is used',
        type: 'feature',
        value: 'enabled')
+option('glycin',
+       description: 'Enable Glycin loader (requires glycin)',
+       type: 'feature',
+       value: 'enabled')
 option('others',
        description: 'Enable other loaders, which are weakly maintained',
        type: 'feature',
@@ -21,7 +25,7 @@ option('others',
 option('builtin_loaders',
        description: 'Comma-separated list of loaders to build into gdk-pixbuf',
        type: 'array',
-       choices: ['all', 'none', 'windows', 'png', 'bmp', 'gif', 'ico', 'ani', 'jpeg', 'pnm', 'tiff', 'xpm', 'xbm', 'tga', 'icns', 'qtif'],
+       choices: ['all', 'none', 'windows', 'png', 'bmp', 'gif', 'ico', 'ani', 'jpeg', 'pnm', 'tiff', 'xpm', 'xbm', 'tga', 'icns', 'qtif', 'glycin'],
        value: ['png', 'jpeg'])
 option('gtk_doc',
        description: 'Whether to generate the API reference',
@@ -61,4 +65,7 @@ option('gio_sniffing',
        description: 'Perform file type detection using GIO (Unused on MacOS and Windows)',
        type: 'boolean',
        value: true)
-
+option('thumbnailer',
+       description: 'Build the thumbnailer',
+       type: 'feature',
+       value: 'enabled')

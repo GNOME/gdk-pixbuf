@@ -103,6 +103,10 @@ if cc.has_function('setrlimit', prefix: '#include <sys/time.h>\n#include <sys/re
   gdk_pixbuf_conf.set('HAVE_SETRLIMIT', 1)
 endif
 
+if cc.has_function('readlink', prefix: '#include <unistd.h>')
+  gdk_pixbuf_conf.set('HAVE_READLINK', 1)
+endif
+
 # We use links() because sigsetjmp() is often a macro hidden behind other macros
 gdk_pixbuf_conf.set('HAVE_SIGSETJMP',
   cc.links('''#define _POSIX_SOURCE
@@ -275,6 +279,14 @@ if not png_opt.disabled()
   endif
 endif
 
+glycin_opt = get_option('glycin')
+if not glycin_opt.disabled()
+  glycin_dep = dependency('glycin-1', version: '>= 1.3.alpha', required: true)
+  glycin_png_dep = dependency('libpng', required: true)
+  enabled_loaders += 'glycin'
+  loaders_deps += [ glycin_dep, glycin_png_dep ]
+endif
+
 gif_opt = get_option('gif')
 if not gif_opt.disabled()
   enabled_loaders += 'gif'
@@ -394,7 +406,9 @@ if not meson.is_cross_build()
   if get_option('tests')
     subdir('tests')
   endif
-  subdir('thumbnailer')
+  if get_option('thumbnailer').enabled()
+    subdir('thumbnailer')
+  endif
 endif
 
 # Documentation
@@ -416,6 +430,7 @@ endif
 summary('Shared modules', build_modules, section: 'Loaders')
 summary('Enabled loaders', enabled_loaders, section: 'Loaders')
 summary('Builtin loaders', builtin_loaders, section: 'Loaders')
+summary('Thumbnailer', get_option('thumbnailer').enabled(), section: 'Loaders')
 
 summary('Debugging', get_option('debug'), section: 'Build')
 summary('Optimization', get_option('optimization'), section: 'Build')

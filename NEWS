@@ -1,3 +1,21 @@
+2.42.13
+===
+
+- Make the thumbnailer optional
+- Add a glycin loader. Glycin is a sandboxed image loading framework that
+  is written in rust, and supports more image formats than gdk-pixbuf ever
+  did. On Linux, we recommend that you build gdk-pixbuf with *only* the
+  glycin loaders, and rely on glycin for thumbnailers too. Like this:
+
+  meson configure -Dpng=disabled                \
+                  -Dtiff=disabled               \
+                  -Djpeg=disabled               \
+                  -Dgif=disabled                \
+                  -Dothers=disabled             \
+                  -Dglycin=enabled              \
+                  -Dbuiltin_loaders='glycin'    \
+                  -Dthumbnailer=disabled
+
 2.42.12 (stable)
 ===
 

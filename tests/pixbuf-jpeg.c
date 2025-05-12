@@ -187,7 +187,15 @@ test_jpeg_fbfbfbfb (void)
 
   g_test_message ("Load JPEG with size 0xfbfbfbfb (issue: 250)");
 
-  g_file_get_contents (g_test_get_filename (G_TEST_DIST, "issue205.jpg", NULL), &contents, &size, &error);
+  if (!g_file_get_contents (g_test_get_filename (G_TEST_DIST, "issue205.jpg", NULL), &contents, &size, &error))
+    {
+      if (g_error_matches (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY))
+        {
+          g_test_skip ("not enough memory for this test");
+          return;
+        }
+    }
+
   g_assert_no_error (error);
 
   loader = gdk_pixbuf_loader_new ();

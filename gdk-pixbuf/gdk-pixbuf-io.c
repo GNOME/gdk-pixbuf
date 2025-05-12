@@ -659,6 +659,24 @@ gdk_pixbuf_io_init_builtin (void)
         /* Except the gdip-png loader which normally isn't built at all even */
         load_one_builtin_module (png);
 #endif
+#ifdef INCLUDE_glycin
+        load_one_builtin_module (avif);
+        load_one_builtin_module (bmp);
+        load_one_builtin_module (dds);
+        load_one_builtin_module (gif);
+        load_one_builtin_module (heic);
+        load_one_builtin_module (ico);
+        load_one_builtin_module (jpeg);
+        load_one_builtin_module (jxl);
+        load_one_builtin_module (openexr);
+        load_one_builtin_module (png);
+        load_one_builtin_module (pnm);
+        load_one_builtin_module (qoi);
+        load_one_builtin_module (raw);
+        load_one_builtin_module (tga);
+        load_one_builtin_module (tiff);
+        load_one_builtin_module (webp);
+#endif
 
 #undef load_one_builtin_module
 }
@@ -703,6 +721,22 @@ module (gdip_gif);
 module (gdip_jpeg);
 module (gdip_png);
 module (gdip_tiff);
+module (glycin_avif);
+module (glycin_bmp);
+module (glycin_raw);
+module (glycin_dds);
+module (glycin_qoi);
+module (glycin_gif);
+module (glycin_heic);
+module (glycin_ico);
+module (glycin_jpeg);
+module (glycin_jxl);
+module (glycin_openexr);
+module (glycin_png);
+module (glycin_pnm);
+module (glycin_tga);
+module (glycin_tiff);
+module (glycin_webp);
 
 #undef module
 
@@ -737,6 +771,24 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
 #endif
 #ifdef INCLUDE_gdip_png
         try_module (png,gdip_png);
+#endif
+#ifdef INCLUDE_glycin
+        try_module (avif,glycin_avif);
+        try_module (bmp,glycin_bmp);
+        try_module (raw,glycin_raw);
+        try_module (dds,glycin_dds);
+        try_module (qoi,glycin_qoi);
+        try_module (gif,glycin_gif);
+        try_module (heic,glycin_heic);
+        try_module (ico,glycin_ico);
+        try_module (jpeg,glycin_jpeg);
+        try_module (jxl,glycin_jxl);
+        try_module (openexr,glycin_openexr);
+        try_module (png,glycin_png);
+        try_module (pnm,glycin_pnm);
+        try_module (tga,glycin_tga);
+        try_module (tiff,glycin_tiff);
+        try_module (webp,glycin_webp);
 #endif
 #ifdef INCLUDE_png
         try_module (png,png);
@@ -812,6 +864,7 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
 
                 image_module->module = module;        
         
+
                 if (g_module_symbol (module, "fill_vtable", &sym)) {
                         fill_vtable = (GdkPixbufModuleFillVtableFunc) sym;
                         (* fill_vtable) (image_module);

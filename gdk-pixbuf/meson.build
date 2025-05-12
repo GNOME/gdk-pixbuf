@@ -193,6 +193,29 @@ if native_windows_loaders
   endif
 endif
 
+# List of formats supported by the glycin-based loader(s)
+glycin_loader_formats = [ 'avif', 'bmp', 'raw', 'dds', 'qoi', 'gif', 'heic', 'ico', 'jpeg', 'jxl', 'openexr', 'png', 'pnm', 'tga', 'tiff', 'webp' ]
+glycin_base_loader_sources = [ 'io-glycin-utils.c' ]
+
+# Build the glycin loaders as static modules, if requested
+if builtin_loaders.contains('glycin') or builtin_all_loaders
+  cflag_for_included_loader = ['-DINCLUDE_glycin']
+  included_loaders_cflags += cflag_for_included_loader
+  glycin_loader_sources = glycin_base_loader_sources
+  foreach loader: glycin_loader_formats
+    glycin_loader_sources += 'io-glycin-@0@.c'.format(loader)
+  endforeach
+
+  mod = static_library('staticpixbufloader-glycin',
+                       glycin_loader_sources,
+                       gdkpixbuf_enum_h,
+                       dependencies: loaders_deps + gdk_pixbuf_deps,
+                       include_directories: [ root_inc, gdk_pixbuf_inc ],
+                       c_args: common_cflags + gdk_pixbuf_cflags + cflag_for_included_loader)
+
+  included_loaders_deps += declare_dependency(link_with: mod)
+endif
+
 # The main gdk-pixbuf shared library
 gdkpixbuf = library('gdk_pixbuf-2.0',
                     sources: [
