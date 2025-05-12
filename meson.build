@@ -103,6 +103,10 @@ if cc.has_function('setrlimit', prefix: '#include <sys/time.h>\n#include <sys/re
   gdk_pixbuf_conf.set('HAVE_SETRLIMIT', 1)
 endif
 
+if cc.has_function('readlink', prefix: '#include <unistd.h>')
+  gdk_pixbuf_conf.set('HAVE_READLINK', 1)
+endif
+
 # We use links() because sigsetjmp() is often a macro hidden behind other macros
 gdk_pixbuf_conf.set('HAVE_SIGSETJMP',
   cc.links('''#define _POSIX_SOURCE
