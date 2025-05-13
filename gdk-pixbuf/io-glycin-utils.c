@@ -37,7 +37,7 @@
 static gboolean
 should_run_unsandboxed (void)
 {
-  if (strcmp (g_get_prgname (), "gdk-pixbuf-thumbnailer") == 0)
+  if (g_strcmp0 (g_get_prgname (), "gdk-pixbuf-thumbnailer") == 0)
     {
       g_debug ("In gdk-pixbuf-thumbnailer. Assuming external sandbox.");
       return TRUE;
