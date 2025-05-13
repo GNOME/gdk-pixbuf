@@ -252,8 +252,11 @@ int main (int argc, char **argv)
 	if (g_option_context_parse (context, &argc, &argv, &error) == FALSE) {
 		g_warning ("Couldn't parse command-line options: %s", error->message);
 		g_error_free (error);
+		g_option_context_free (context);
 		return 1;
 	}
+
+	g_option_context_free (context);
 
 	/* Set fatal warnings if required */
 	if (g_fatal_warnings) {
