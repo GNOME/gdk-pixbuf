@@ -16,6 +16,11 @@
                   -Dbuiltin_loaders='glycin'    \
                   -Dthumbnailer=disabled
 
+  Note that this change has some potential for fallout: use of gdk-pixbuf
+  (e.g. for pixdata conversions) will fail if bubblewrap sandboxing is not
+  available (as is the case in many build systems). The recommendation is
+  to simply stop using pixdata as a format for resources, and just use png.
+
 2.42.12 (stable)
 ===
 
