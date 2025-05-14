@@ -17,7 +17,7 @@ option('gif',
 option('glycin',
        description: 'Enable Glycin loader (requires glycin)',
        type: 'feature',
-       value: 'enabled')
+       value: 'auto')
 option('others',
        description: 'Enable other loaders, which are weakly maintained',
        type: 'feature',
