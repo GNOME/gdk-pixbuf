@@ -53,6 +53,8 @@ main (int   argc,
   guint8 *data;
   guint data_len;
 
+  g_set_prgname ("gdk-pixbuf-pixdata");
+
   /* parse args and do fast exits */
   parse_args (&argc, &argv);
 
