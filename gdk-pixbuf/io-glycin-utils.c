@@ -172,7 +172,7 @@ load_pixbuf_with_glycin (GFile   *file,
 {
   GlyLoader *loader;
   GlyImage *image;
-  GlyFrame *frame;
+  GlyFrame *frame = NULL;
   GdkPixbuf *pixbuf = NULL;
 
   loader = gly_loader_new (file);
