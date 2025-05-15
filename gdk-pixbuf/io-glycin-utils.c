@@ -137,8 +137,7 @@ convert_glycin_frame_to_pixbuf (GlyFrame  *frame,
 
     default:
       g_set_error (error,
-                   G_IO_ERROR,
-                   G_IO_ERROR_FAILED,
+                   GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION,
                    "Glycin memory format %u not handled", format);
       return NULL;
     }
@@ -174,6 +173,7 @@ load_pixbuf_with_glycin (GFile   *file,
   GlyImage *image;
   GlyFrame *frame = NULL;
   GdkPixbuf *pixbuf = NULL;
+  GError *local_error = NULL;
 
   loader = gly_loader_new (file);
 
@@ -187,20 +187,37 @@ load_pixbuf_with_glycin (GFile   *file,
                                                   GLY_MEMORY_SELECTION_R8G8B8 |
                                                   GLY_MEMORY_SELECTION_B8G8R8);
 
-  image = gly_loader_load (loader, error);
+  image = gly_loader_load (loader, &local_error);
   if (!image)
     goto done;
 
-  frame = gly_image_next_frame (image, error);
+  frame = gly_image_next_frame (image, &local_error);
   if (!frame)
     goto done;
 
-  pixbuf = convert_glycin_frame_to_pixbuf (frame, error);
+  pixbuf = convert_glycin_frame_to_pixbuf (frame, &local_error);
 
 done:
   g_clear_object (&loader);
   g_clear_object (&image);
   g_clear_object (&frame);
+
+  if (g_error_matches (local_error, GLY_LOADER_ERROR, GLY_LOADER_ERROR_FAILED))
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                           local_error->message);
+      g_clear_error (&local_error);
+    }
+  else if (g_error_matches (local_error, GLY_LOADER_ERROR, GLY_LOADER_ERROR_UNKNOWN_IMAGE_FORMAT))
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+                           local_error->message);
+      g_clear_error (&local_error);
+    }
+  else if (local_error)
+    {
+      g_propagate_error (error, local_error);
+    }
 
   return pixbuf;
 }
