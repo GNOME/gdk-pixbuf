@@ -123,6 +123,15 @@ run_gif_test (gconstpointer data)
 
   frames = g_key_file_get_string_list (config_file, "config", "frames", NULL, &error);
   g_assert_no_error (error);
+
+  if (frames[1] != NULL &&
+      strcmp (G_OBJECT_TYPE_NAME (animation), "GdkPixbufNonAnim") == 0)
+    {
+      g_test_message ("gif loader without animation support, only testing first frame");
+      g_free (frames[1]);
+      frames[1] = NULL;
+    }
+
   animation_time.tv_sec = 0;
   animation_time.tv_usec = 0;
   for (i = 0; frames[i]; i++)
@@ -143,11 +152,14 @@ run_gif_test (gconstpointer data)
       delay_time = gdk_pixbuf_animation_iter_get_delay_time (iter);
       g_time_val_add (&animation_time, gdk_pixbuf_animation_iter_get_delay_time (iter) * 1000);
 
-      if (g_key_file_has_key (config_file, frame, "delay", &error))
-        expected_delay_time = g_key_file_get_integer (config_file, frame, "delay", &error) * 10;
-      g_assert_no_error (error);
+      if (strcmp (G_OBJECT_TYPE_NAME (animation), "GdkPixbufNonAnim") != 0)
+        {
+          if (g_key_file_has_key (config_file, frame, "delay", &error))
+            expected_delay_time = g_key_file_get_integer (config_file, frame, "delay", &error) * 10;
+          g_assert_no_error (error);
 
-      g_assert_cmpint (delay_time, ==, expected_delay_time);
+          g_assert_cmpint (delay_time, ==, expected_delay_time);
+        }
 
       pixbuf = gdk_pixbuf_animation_iter_get_pixbuf (iter);
 
@@ -189,6 +201,7 @@ main (int argc, char **argv)
   GError *error = NULL;
 
   g_test_init (&argc, &argv, NULL);
+  g_test_set_nonfatal_assertions ();
 
   path = g_build_filename (g_test_get_dir (G_TEST_DIST), "test-images", "gif-test-suite", "TESTS", NULL);
   g_file_get_contents (path, &contents, NULL, &error);
