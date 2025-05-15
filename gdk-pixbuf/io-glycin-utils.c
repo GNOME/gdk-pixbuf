@@ -43,6 +43,13 @@ should_run_unsandboxed (void)
       return TRUE;
     }
 
+  if (g_strcmp0 (g_get_prgname (), "gdk-pixbuf-csource") == 0 ||
+      g_strcmp0 (g_get_prgname (), "gdk-pixbuf-pixdata") == 0)
+    {
+      g_debug ("In %s. Not using sandboxing in build tools.", g_get_prgname ());
+      return TRUE;
+    }
+
   return FALSE;
 }
 

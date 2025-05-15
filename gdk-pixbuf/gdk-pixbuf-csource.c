@@ -77,6 +77,8 @@ main (int   argc,
   GError *error = NULL;
   gchar *infilename;
 
+  g_set_prgname ("gdk-pixbuf-csource");
+
   /* parse args and do fast exits */
   parse_args (&argc, &argv);
 
