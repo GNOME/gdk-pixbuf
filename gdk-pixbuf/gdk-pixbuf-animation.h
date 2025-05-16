@@ -207,7 +207,11 @@ struct _GdkPixbufAnimationIterClass {
                                         const GTimeVal         *current_time);
 };
 G_GNUC_END_IGNORE_DEPRECATIONS
-      
+
+#define GDK_TYPE_PIXBUF_NON_ANIM              (gdk_pixbuf_non_anim_get_type ())
+#define GDK_PIXBUF_NON_ANIM(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), GDK_TYPE_PIXBUF_NON_ANIM, GdkPixbufNonAnim))
+#define GDK_IS_PIXBUF_NON_ANIM(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF_NON_ANIM))
+
 
 GDK_PIXBUF_AVAILABLE_IN_ALL
 GType               gdk_pixbuf_non_anim_get_type (void) G_GNUC_CONST;
