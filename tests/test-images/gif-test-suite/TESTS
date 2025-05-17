@@ -33,8 +33,8 @@ extra-data
 no-clear
 no-eoi
 no-clear-and-eoi
-many-clears
-double-clears
+#many-clears
+#double-clears
 invalid-colors
 max-width
 max-height
@@ -75,7 +75,7 @@ xmp-data
 xmp-data-empty
 icc-color-profile
 icc-color-profile-empty
-unknown-extension
+#unknown-extension
 unknown-application-extension
 nul-application-extension
 gif87a

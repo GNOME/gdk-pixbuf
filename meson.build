@@ -279,11 +279,14 @@ if not png_opt.disabled()
   endif
 endif
 
-glycin_dep = dependency('glycin-1', version: '>= 1.3.alpha', required: get_option('glycin'))
+glycin_dep = dependency('glycin-1', version: '>= 1.2', required: get_option('glycin'))
 if glycin_dep.found()
   glycin_png_dep = dependency('libpng', required: true)
   enabled_loaders += 'glycin'
   loaders_deps += [ glycin_dep, glycin_png_dep ]
+  if cc.has_function('gly_loader_set_accepted_memory_formats', dependencies: glycin_dep)
+    gdk_pixbuf_conf.set('HAVE_GLY_LOADER_SET_ACCEPTED_MEMORY_FORMATS', 1)
+  endif
 endif
 
 gif_opt = get_option('gif')

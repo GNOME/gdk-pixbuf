@@ -57,9 +57,6 @@
 typedef struct _GdkPixbufNonAnim GdkPixbufNonAnim;
 typedef struct _GdkPixbufNonAnimClass GdkPixbufNonAnimClass;
 
-#define GDK_TYPE_PIXBUF_NON_ANIM              (gdk_pixbuf_non_anim_get_type ())
-#define GDK_PIXBUF_NON_ANIM(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), GDK_TYPE_PIXBUF_NON_ANIM, GdkPixbufNonAnim))
-#define GDK_IS_PIXBUF_NON_ANIM(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF_NON_ANIM))
 
 #define GDK_PIXBUF_NON_ANIM_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), GDK_TYPE_PIXBUF_NON_ANIM, GdkPixbufNonAnimClass))
 #define GDK_IS_PIXBUF_NON_ANIM_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), GDK_TYPE_PIXBUF_NON_ANIM))
