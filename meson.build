@@ -279,7 +279,7 @@ if not png_opt.disabled()
   endif
 endif
 
-glycin_dep = dependency('glycin-1', version: '>= 1.2', required: get_option('glycin'))
+glycin_dep = dependency('glycin-2', version: '>= 2.0.alpha', required: get_option('glycin'))
 if glycin_dep.found()
   glycin_png_dep = dependency('libpng', required: true)
   enabled_loaders += 'glycin'
