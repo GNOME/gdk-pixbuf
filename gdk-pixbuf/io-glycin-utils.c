@@ -181,6 +181,7 @@ load_pixbuf_with_glycin (GFile   *file,
   GlyFrame *frame = NULL;
   GdkPixbuf *pixbuf = NULL;
   GError *local_error = NULL;
+  char **keys;
 
   loader = gly_loader_new (file);
 
@@ -205,6 +206,20 @@ load_pixbuf_with_glycin (GFile   *file,
     goto done;
 
   pixbuf = convert_glycin_frame_to_pixbuf (frame, &local_error);
+
+  keys = gly_image_get_metadata_keys (image);
+  if (keys)
+    {
+      for (gsize i = 0; keys[i]; i++)
+        {
+          char *value = gly_image_get_metadata_key_value (image, keys[i]);
+          char *key = g_strconcat ("tEXt::", keys[i], NULL);
+          gdk_pixbuf_set_option (pixbuf, key, value);
+          g_free (key);
+          g_free (value);
+        }
+      g_strfreev (keys);
+    }
 
 done:
   g_clear_object (&loader);
