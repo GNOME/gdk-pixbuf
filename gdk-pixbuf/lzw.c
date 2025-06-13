@@ -208,7 +208,7 @@ lzw_decoder_feed (LZWDecoder *self,
                                 /* Invalid code received - just stop here */
                                 if (self->code >= self->code_table_size) {
                                         self->last_code = self->eoi_code;
-                                        return output_length;
+                                        return n_written;
                                 }
 
                                 /* Convert codeword into indexes */
