@@ -11,8 +11,6 @@ pixdata_toml = configure_file(input: 'gdk-pixdata.toml.in', output: 'gdk-pixdata
 
 gidocgen = find_program('gi-docgen', required: get_option('documentation'))
 
-docs_dir = gdk_pixbuf_datadir / 'doc'
-
 expand_content_md_files = [
   'scaling-compositing.md',
 ]
@@ -37,7 +35,7 @@ if build_docs
     depend_files: [ expand_content_md_files ],
     build_by_default: true,
     install: true,
-    install_dir: docs_dir,
+    install_dir: gdk_pixbuf_docsdir,
   )
 
   custom_target('gdk-pixdata-doc',
@@ -56,7 +54,7 @@ if build_docs
     ],
     build_by_default: true,
     install: true,
-    install_dir: docs_dir,
+    install_dir: gdk_pixbuf_docsdir,
   )
 endif
 

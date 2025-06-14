@@ -47,14 +47,15 @@ darwin_versions = ['@0@'.format(current + 1), '@0@.@1@'.format(current + 1, gdk_
 
 # Paths
 gdk_pixbuf_prefix = get_option('prefix')
-gdk_pixbuf_libdir = join_paths(gdk_pixbuf_prefix, get_option('libdir'))
-gdk_pixbuf_bindir = join_paths(gdk_pixbuf_prefix, get_option('bindir'))
-gdk_pixbuf_includedir = join_paths(gdk_pixbuf_prefix, get_option('includedir'))
-gdk_pixbuf_datadir = join_paths(gdk_pixbuf_prefix, get_option('datadir'))
-gdk_pixbuf_mandir = join_paths(gdk_pixbuf_prefix, get_option('mandir'))
-gdk_pixbuf_localedir = join_paths(gdk_pixbuf_prefix, get_option('localedir'))
-gdk_pixbuf_libexecdir = join_paths(gdk_pixbuf_prefix, get_option('libexecdir'))
-gdk_pixbuf_loaderdir = join_paths(gdk_pixbuf_libdir, 'gdk-pixbuf-@0@/@1@/loaders'.format(gdk_pixbuf_api_version, gdk_pixbuf_binary_version))
+gdk_pixbuf_libdir = gdk_pixbuf_prefix / get_option('libdir')
+gdk_pixbuf_bindir = gdk_pixbuf_prefix / get_option('bindir')
+gdk_pixbuf_includedir = gdk_pixbuf_prefix / get_option('includedir')
+gdk_pixbuf_datadir = gdk_pixbuf_prefix / get_option('datadir')
+gdk_pixbuf_mandir = gdk_pixbuf_prefix / get_option('mandir')
+gdk_pixbuf_localedir = gdk_pixbuf_prefix / get_option('localedir')
+gdk_pixbuf_libexecdir = gdk_pixbuf_prefix / get_option('libexecdir')
+gdk_pixbuf_loaderdir = gdk_pixbuf_libdir / 'gdk-pixbuf-@0@/@1@/loaders'.format(gdk_pixbuf_api_version, gdk_pixbuf_binary_version)
+gdk_pixbuf_docsdir = gdk_pixbuf_datadir / 'doc'
 
 # Dependencies
 glib_req_version = '>= 2.56.0'
@@ -428,23 +429,38 @@ if not meson.is_subproject()
   meson.add_dist_script('build-aux/dist.py')
 endif
 
-summary('Shared modules', build_modules, section: 'Loaders')
-summary('Enabled loaders', enabled_loaders, section: 'Loaders')
-summary('Builtin loaders', builtin_loaders, section: 'Loaders')
-summary('Thumbnailer', get_option('thumbnailer').enabled(), section: 'Loaders')
+summary({
+    'prefix': gdk_pixbuf_prefix,
+    'libdir': gdk_pixbuf_libdir,
+    'datadir': gdk_pixbuf_datadir,
+    'libexecdir': gdk_pixbuf_libdir,
+    'docdir': gdk_pixbuf_docsdir,
+  },
+  section: 'Directories',
+)
 
-summary('Debugging', get_option('debug'), section: 'Build')
-summary('Optimization', get_option('optimization'), section: 'Build')
-summary('GIO MIME sniffing', use_gio_mime, section: 'Build')
-summary('MediaLib', use_medialib, section: 'Build')
-summary('Introspection', build_gir, section: 'Build')
-summary('Documentation', build_docs, section: 'Build')
-summary('Manual pages', get_option('man'), section: 'Build')
-summary('Relocatable', relocatable, section: 'Build')
-summary('Build tests', get_option('tests'), section: 'Build')
-summary('Installed tests', get_option('installed_tests'), section: 'Build')
+summary({
+    'Shared modules': build_modules,
+    'Enabled loaders': enabled_loaders,
+    'Builtin loaders': builtin_loaders,
+    'Thumbnailer': get_option('thumbnailer').enabled(),
+  },
+  section: 'Loaders',
+  bool_yn: true,
+)
 
-summary('prefix', gdk_pixbuf_prefix, section: 'Directories')
-summary('libdir', gdk_pixbuf_libdir, section: 'Directories')
-summary('datadir', gdk_pixbuf_datadir, section: 'Directories')
-summary('libexecdir', gdk_pixbuf_libdir, section: 'Directories')
+summary({
+    'Debugging': get_option('debug'),
+    'Optimization': get_option('optimization'),
+    'GIO MIME sniffing': use_gio_mime,
+    'MediaLib': use_medialib,
+    'Introspection': build_gir,
+    'Documentation': build_docs,
+    'Manual pages': get_option('man'),
+    'Relocatable': relocatable,
+    'Build tests': get_option('tests'),
+    'Installed tests': get_option('installed_tests'),
+  },
+  section: 'Build',
+  bool_yn: true,
+)
