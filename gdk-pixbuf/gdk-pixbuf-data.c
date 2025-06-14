@@ -35,9 +35,11 @@
  * @width: Width of the image in pixels, must be > 0
  * @height: Height of the image in pixels, must be > 0
  * @rowstride: Distance in bytes between row starts
- * @destroy_fn: (scope async) (allow-none): Function used to free the data when the pixbuf's reference count
- * drops to zero, or %NULL if the data should not be freed
- * @destroy_fn_data: (closure): Closure data to pass to the destroy notification function
+ * @destroy_fn: (scope async) (closure destroy_fn_data) (nullable): Function
+ *   used to free the data when the pixbuf's reference count
+ *   drops to zero, or `NULL` if the data should not be freed
+ * @destroy_fn_data: (nullable): Closure data to pass to the destroy
+ *   notification function
  * 
  * Creates a new #GdkPixbuf out of in-memory image data.
  *

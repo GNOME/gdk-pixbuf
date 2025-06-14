@@ -78,13 +78,10 @@ GDK_PIXBUF_AVAILABLE_IN_2_28
 GdkPixbufAnimation *gdk_pixbuf_animation_new_from_resource(const char        *resource_path,
                                                           GError            **error);
 
-#ifndef GDK_PIXBUF_DISABLE_DEPRECATED
-
 GDK_PIXBUF_DEPRECATED_IN_2_0_FOR(g_object_ref)
 GdkPixbufAnimation *gdk_pixbuf_animation_ref             (GdkPixbufAnimation *animation);
 GDK_PIXBUF_DEPRECATED_IN_2_0_FOR(g_object_unref)
 void                gdk_pixbuf_animation_unref           (GdkPixbufAnimation *animation);
-#endif
 
 GDK_PIXBUF_AVAILABLE_IN_ALL
 int                 gdk_pixbuf_animation_get_width       (GdkPixbufAnimation *animation);

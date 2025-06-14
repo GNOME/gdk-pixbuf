@@ -52,9 +52,6 @@
  * function will compute an optimal rowstride so that rendering can be
  * performed with an efficient algorithm.
  *
- * As a special case, you can use the [`ctor@GdkPixbuf.Pixbuf.new_from_xpm_data`]
- * function to create a pixbuf from inline XPM image data.
- * 
  * You can also copy an existing pixbuf with the [method@Pixbuf.copy]
  * function. This is not the same as just acquiring a reference to
  * the old pixbuf instance: the copy function will actually duplicate

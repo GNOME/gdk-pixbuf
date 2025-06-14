@@ -2208,6 +2208,10 @@ gdk_pixbuf_get_file_info_finish (GAsyncResult         *async_result,
  * program's C source.
  *
  * Returns: (nullable): A newly-created pixbuf
+ * 
+ * Deprecated: 2.44: Use [ctor@GdkPixbuf.Pixbuf.new_from_stream] with
+ *   a [class@Gio.MemoryInputStream], making sure to handle errors in
+ *   case the XPM format loader is not available
  **/
 GdkPixbuf *
 gdk_pixbuf_new_from_xpm_data (const char **data)
@@ -2749,14 +2753,14 @@ gdk_pixbuf_save_to_callback    (GdkPixbuf  *pixbuf,
 
 /**
  * gdk_pixbuf_save_to_callbackv:
- * @pixbuf: a `GdkPixbuf`.
- * @save_func: (scope call): a function that is called to save each block of data that
- *   the save routine generates.
- * @user_data: (closure): user data to pass to the save function.
- * @type: name of file format.
+ * @pixbuf: a `GdkPixbuf`
+ * @save_func: (scope call) (closure user_data): a function that is called to
+ *   save each block of data that the save routine generates
+ * @user_data: user data to pass to the save function
+ * @type: name of file format
  * @option_keys: (array zero-terminated=1) (element-type utf8) (nullable): name of options to set
  * @option_values: (array zero-terminated=1) (element-type utf8) (nullable): values for named options
- * @error: (allow-none): return location for error, or `NULL`
+ * @error: return location for error, or `NULL`
  *
  * Vector version of `gdk_pixbuf_save_to_callback()`.
  *
@@ -2810,7 +2814,7 @@ gdk_pixbuf_save_to_callbackv   (GdkPixbuf  *pixbuf,
  *   to the new buffer.
  * @buffer_size: location to receive the size of the new buffer.
  * @type: name of file format.
- * @error: (allow-none): return location for error, or `NULL`
+ * @error: return location for error, or `NULL`
  * @...: list of key-value save options
  *
  * Saves pixbuf to a new buffer in format `type`, which is currently "jpeg",
