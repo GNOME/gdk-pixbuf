@@ -1,4 +1,4 @@
-FROM fedora:36
+FROM fedora:41
 
 RUN dnf -y install \
         ccache \
@@ -8,10 +8,10 @@ RUN dnf -y install \
         gcc-c++ \
         gettext \
         gettext-devel \
+        gi-docgen \
         git \
         glib2-devel \
         gobject-introspection-devel \
-        gtk-doc \
         itstool \
         jasper-devel \
         lcov \
@@ -27,6 +27,7 @@ RUN dnf -y install \
         python3-markdown \
         python3-pip \
         python3-pygments \
+        python3-setuptools \
         python3-toml \
         python3-typogrify \
         python3-wheel \
@@ -35,7 +36,7 @@ RUN dnf -y install \
         which \
  && dnf clean all
 
-RUN pip3 install meson==0.56
+RUN pip3 install meson==1.0
 
 ARG HOST_USER_ID=5555
 ENV HOST_USER_ID ${HOST_USER_ID}
