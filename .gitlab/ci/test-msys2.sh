@@ -28,6 +28,7 @@ meson setup --buildtype debug \
     -Dothers=enabled \
     -Dglycin=disabled \
     -Dman=false \
+    -Ddocumentation=false \
     _build
 
 meson compile -C _build

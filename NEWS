@@ -20,6 +20,13 @@
   (e.g. for pixdata conversions) will fail if bubblewrap sandboxing is not
   available (as is the case in many build systems). The recommendation is
   to simply stop using pixdata as a format for resources, and just use png.
+- Deprecate "gtk_doc" configuration option; to conform with the rest of the
+  GNOME core libraries, use "documentation" instead
+- Remove the long-since deprecated "docs" configuration option
+- Require Meson 1.0 to build gdk-pixbuf
+- Deprecate the XPM-related API; the XPM loader is disabled by default,
+  and we have better API for loading those kinds of assets, though nobody
+  should be shipping XPM files in 2025
 
 2.42.12 (stable)
 ===

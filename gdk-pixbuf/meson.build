@@ -398,7 +398,6 @@ pkgconfig.generate(
   name: 'GdkPixbuf',
   description: 'Image loading and scaling',
   variables: [
-    'bindir=${prefix}/@0@'.format(get_option('bindir')),
     'gdk_pixbuf_binary_version=@0@'.format(gdk_pixbuf_binary_version),
     'gdk_pixbuf_binarydir=${libdir}/@0@/@1@'.format(gdk_pixbuf_api_name, gdk_pixbuf_binary_version),
     'gdk_pixbuf_moduledir=${gdk_pixbuf_binarydir}/loaders',

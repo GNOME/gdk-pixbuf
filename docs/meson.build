@@ -1,6 +1,6 @@
 gidocgen_dep = dependency('gi-docgen',
   version: '>= 2021.1',
-  required: get_option('gtk_doc'),
+  required: get_option('documentation'),
 )
 
 
@@ -9,19 +9,13 @@ toml_conf.set('VERSION', meson.project_version())
 pixbuf_toml = configure_file(input: 'gdk-pixbuf.toml.in', output: 'gdk-pixbuf.toml', configuration: toml_conf)
 pixdata_toml = configure_file(input: 'gdk-pixdata.toml.in', output: 'gdk-pixdata.toml', configuration: toml_conf)
 
-gidocgen = find_program('gi-docgen', required: get_option('gtk_doc'))
-
-docs_dir = gdk_pixbuf_datadir / 'doc'
+gidocgen = find_program('gi-docgen', required: get_option('documentation'))
 
 expand_content_md_files = [
   'scaling-compositing.md',
 ]
 
-build_docs = get_option('gtk_doc')
-if get_option('docs')
-  warning('The docs option is deprecated; use -Dgtk_doc=true')
-  build_docs = true
-endif
+build_docs = get_option('documentation')
 
 if build_docs
   custom_target('gdk-pixbuf-doc',
@@ -41,7 +35,7 @@ if build_docs
     depend_files: [ expand_content_md_files ],
     build_by_default: true,
     install: true,
-    install_dir: docs_dir,
+    install_dir: gdk_pixbuf_docsdir,
   )
 
   custom_target('gdk-pixdata-doc',
@@ -60,7 +54,7 @@ if build_docs
     ],
     build_by_default: true,
     install: true,
-    install_dir: docs_dir,
+    install_dir: gdk_pixbuf_docsdir,
   )
 endif
 
