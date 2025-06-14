@@ -38,11 +38,6 @@ option('documentation',
        type: 'boolean',
        value: true,
        yield: true)
-option('docs',
-       description: 'Whether to generate the whole documentation (see: gtk_doc and man options) [Deprecated]',
-       deprecated: 'documentation',
-       type: 'boolean',
-       value: false)
 option('introspection',
        description: 'Whether to generate the API introspection data (requires GObject-Introspection)',
        type: 'feature',

@@ -414,7 +414,6 @@ if not meson.is_cross_build()
 endif
 
 # Documentation
-build_docs = get_option('gtk_doc') or get_option('docs')
 subdir('docs')
 
 if not meson.is_cross_build()
