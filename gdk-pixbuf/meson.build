@@ -209,6 +209,7 @@ if enabled_loaders.contains('glycin')
     'pnm',
     'qoi',
     'raw',
+    'svg',
     'tga',
     'tiff',
     'webp'
