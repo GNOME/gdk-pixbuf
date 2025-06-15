@@ -6,7 +6,7 @@ project('gdk-pixbuf', 'c',
     'warning_level=1',
     'c_std=gnu99',
   ],
-  meson_version: '>= 1.0',
+  meson_version: '>= 1.1',
 )
 
 add_project_arguments([ '-D_POSIX_C_SOURCE=200809L', '-D_DEFAULT_SOURCE', '-D_XOPEN_SOURCE=700' ], language: 'c')
@@ -244,6 +244,13 @@ gdk_pixbuf_conf.set('USE_GMODULE', build_modules)
 
 # Check which loaders should be built into gdk-pixbuf
 builtin_loaders = get_option('builtin_loaders')
+if builtin_loaders.contains('default')
+  if host_machine.system() == 'linux'
+    builtin_loaders = ['glycin']
+  else
+    builtin_loaders = ['png','jpeg']
+  endif
+endif
 
 # If 'all' is specified for builtin_loaders, build all
 # buildable loaders into gdk-pixbuf
@@ -259,7 +266,8 @@ is_msvc_like = cc.get_argument_syntax() == 'msvc'
 enabled_loaders = []
 loaders_deps = []
 
-png_opt = get_option('png')
+png_opt = get_option('png').disable_auto_if(host_machine.system() == 'linux')
+
 if not png_opt.disabled()
   png_dep = dependency(is_msvc_like ? 'png' : 'libpng', required: false)
 
@@ -280,7 +288,8 @@ if not png_opt.disabled()
   endif
 endif
 
-glycin_dep = dependency('glycin-2', version: '>= 2.0.alpha', required: get_option('glycin'))
+glycin_opt = get_option('glycin').enable_auto_if(host_machine.system() == 'linux')
+glycin_dep = dependency('glycin-2', version: '>= 2.0.alpha', required: glycin_opt)
 if glycin_dep.found()
   glycin_png_dep = dependency('libpng', required: true)
   enabled_loaders += 'glycin'
@@ -290,7 +299,7 @@ if glycin_dep.found()
   endif
 endif
 
-gif_opt = get_option('gif')
+gif_opt = get_option('gif').disable_auto_if(host_machine.system() == 'linux')
 if not gif_opt.disabled()
   enabled_loaders += 'gif'
 endif
@@ -328,7 +337,7 @@ if native_windows_loaders
 endif
 
 # Don't check and build the jpeg loader if native_windows_loaders is true
-jpeg_opt = get_option('jpeg')
+jpeg_opt = get_option('jpeg').disable_auto_if(host_machine.system() == 'linux')
 if not jpeg_opt.disabled() and not native_windows_loaders
   jpeg_dep = dependency(is_msvc_like ? 'jpeg' : 'libjpeg', required: false)
 
@@ -359,7 +368,7 @@ if not jpeg_opt.disabled() and not native_windows_loaders
 endif
 
 # Don't check and build the tiff loader if native_windows_loaders is true
-tiff_opt = get_option('tiff')
+tiff_opt = get_option('tiff').disable_auto_if(host_machine.system() == 'linux')
 if not tiff_opt.disabled() and not native_windows_loaders
   # We currently don't have a fallback subproject, but this handles error
   # reporting if tiff_opt is enabled.

@@ -1,7 +1,7 @@
 option('png',
        description: 'Enable PNG loader (requires libpng)',
        type: 'feature',
-       value: 'enabled')
+       value: 'auto')
 option('tiff',
        description: 'Enable TIFF loader (requires libtiff), disabled on Windows if "native_windows_loaders" is used',
        type: 'feature',
@@ -9,11 +9,11 @@ option('tiff',
 option('jpeg',
        description: 'Enable JPEG loader (requires libjpeg), disabled on Windows if "native_windows_loaders" is used',
        type: 'feature',
-       value: 'enabled')
+       value: 'auto')
 option('gif',
        description: 'Enable GIF loader, disabled on Windows if "native_windows_loaders" is used',
        type: 'feature',
-       value: 'enabled')
+       value: 'auto')
 option('glycin',
        description: 'Enable Glycin loader (requires glycin)',
        type: 'feature',
@@ -25,8 +25,8 @@ option('others',
 option('builtin_loaders',
        description: 'Comma-separated list of loaders to build into gdk-pixbuf',
        type: 'array',
-       choices: ['all', 'none', 'windows', 'png', 'bmp', 'gif', 'ico', 'ani', 'jpeg', 'pnm', 'tiff', 'xpm', 'xbm', 'tga', 'icns', 'qtif', 'glycin'],
-       value: ['png', 'jpeg'])
+       choices: ['default', 'all', 'none', 'windows', 'png', 'bmp', 'gif', 'ico', 'ani', 'jpeg', 'pnm', 'tiff', 'xpm', 'xbm', 'tga', 'icns', 'qtif', 'glycin'],
+       value: ['default'])
 option('gtk_doc',
        description: 'Whether to generate the API reference',
        deprecated: 'documentation',
