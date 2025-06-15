@@ -1,65 +1,5 @@
 subdir('pixops')
 
-# Loaders
-#  - sources: additional source files
-#  - c_args: additional C compiler arguments
-#  - enabled: condition for building
-
-loaders = {
-  'png': {
-    'sources': [ 'io-png.c' ],
-    'enabled': enabled_loaders.contains('png'),
-  },
-  'bmp': {
-    'sources': [ 'io-bmp.c' ],
-    'enabled': enabled_loaders.contains('bmp') and not native_windows_loaders,
-  },
-  'gif': {
-    'sources': [ 'io-gif.c', 'io-gif-animation.c', 'lzw.c' ],
-    'enabled': enabled_loaders.contains('gif') and not native_windows_loaders,
-  },
-  'ico': {
-    'sources': [ 'io-ico.c' ],
-    'enabled': enabled_loaders.contains('ico') and not native_windows_loaders,
-  },
-  'ani': {
-    'sources': [ 'io-ani.c', 'io-ani-animation.c' ],
-    'enabled': enabled_loaders.contains('ani'),
-  },
-  'jpeg': {
-    'sources': [ 'io-jpeg.c' ],
-    'enabled': enabled_loaders.contains('jpeg'),
-  },
-  'pnm': {
-    'sources': [ 'io-pnm.c' ],
-    'enabled': enabled_loaders.contains('pnm'),
-  },
-  'tiff': {
-    'sources': [ 'io-tiff.c' ],
-    'enabled': enabled_loaders.contains('tiff'),
-  },
-  'xpm': {
-    'sources': [ 'io-xpm.c' ],
-    'enabled': enabled_loaders.contains('xpm'),
-  },
-  'xbm': {
-    'sources': [ 'io-xbm.c' ],
-    'enabled': enabled_loaders.contains('xbm'),
-  },
-  'tga': {
-    'sources': [ 'io-tga.c', 'gdk-pixbuf-buffer-queue.c' ],
-    'enabled': enabled_loaders.contains('tga'),
-  },
-  'icns': {
-    'sources': [ 'io-icns.c' ],
-    'enabled': enabled_loaders.contains('icns'),
-  },
-  'qtif': {
-    'sources': [ 'io-qtif.c' ],
-    'enabled': enabled_loaders.contains('qtif'),
-  },
-}
-
 gdk_pixbuf_inc = include_directories('.')
 
 gdk_pixbuf_cflags = [
@@ -147,26 +87,6 @@ endif
 # Check if we need to build loaders as built-in functionality
 included_loaders_cflags = []
 included_loaders_deps = []
-
-foreach name, loader: loaders
-  sources = loader.get('sources', [])
-  cond = loader.get('enabled', true)
-  cflags = loader.get('c_args', [])
-
-  if cond and (builtin_loaders.contains(name) or builtin_all_loaders)
-    cflag_for_included_loader = ['-DINCLUDE_@0@'.format(name)]
-    included_loaders_cflags += cflag_for_included_loader
-
-    mod = static_library('staticpixbufloader-@0@'.format(name),
-                         sources,
-                         gdkpixbuf_enum_h,
-                         dependencies: loaders_deps + gdk_pixbuf_deps,
-                         include_directories: [ root_inc, gdk_pixbuf_inc ],
-                         c_args: common_cflags + gdk_pixbuf_cflags + cflags + cflag_for_included_loader)
-
-    included_loaders_deps += declare_dependency(link_with: mod)
-  endif
-endforeach
 
 # List of formats supported by the native Windows components-based loader(s)
 windows_native_loader_formats = [ 'bmp', 'emf', 'gif', 'ico', 'jpeg', 'tiff', 'wmf' ]
@@ -303,34 +223,6 @@ meson.override_dependency('gdk-pixbuf-2.0', gdkpixbuf_dep)
 # We do this here because shared modules depend on libgdk-pixbuf
 dynamic_loaders = []
 dynamic_loaders_dep = []
-
-foreach name, loader: loaders
-  sources = loader.get('sources', [])
-  cond = loader.get('enabled', true)
-  cflags = loader.get('c_args', [])
-  name_suffix = []
-
-  # FIXME: workaround for https://gitlab.gnome.org/GNOME/glib/issues/1413
-  if host_system == 'darwin'
-    name_suffix = 'so'
-  endif
-
-  if cond and not (builtin_loaders.contains(name) or builtin_all_loaders)
-    mod = shared_module('pixbufloader-@0@'.format(name),
-                        sources,
-                        gdkpixbuf_enum_h,
-                        dependencies: loaders_deps + gdk_pixbuf_deps + [ gdkpixbuf_dep ],
-                        include_directories: [ root_inc, gdk_pixbuf_inc ],
-                        c_args: common_cflags + gdk_pixbuf_cflags + cflags,
-                        name_suffix: name_suffix,
-                        install: true,
-                        install_dir: gdk_pixbuf_loaderdir)
-
-    # We need the path to build loaders.cache for tests
-    dynamic_loaders += mod.full_path()
-    dynamic_loaders_dep += mod
-  endif
-endforeach
 
 # Build the loaders using native Windows components as dynamic modules, if requested
 if native_windows_loaders
