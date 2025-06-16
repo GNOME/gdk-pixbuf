@@ -678,6 +678,16 @@ gdk_pixbuf_io_init_builtin (void)
         load_one_builtin_module (tiff);
         load_one_builtin_module (webp);
 #endif
+#ifdef INCLUDE_android
+	load_one_builtin_module (jpeg);
+	load_one_builtin_module (png);
+	load_one_builtin_module (gif);
+	load_one_builtin_module (webp);
+	load_one_builtin_module (bmp);
+	load_one_builtin_module (ico);
+	load_one_builtin_module (wbmp);
+	load_one_builtin_module (heif);
+#endif
 
 #undef load_one_builtin_module
 }
@@ -739,6 +749,14 @@ module (glycin_svg);
 module (glycin_tga);
 module (glycin_tiff);
 module (glycin_webp);
+module (android_jpeg);
+module (android_png);
+module (android_gif);
+module (android_webp);
+module (android_bmp);
+module (android_ico);
+module (android_wbmp);
+module (android_heif);
 
 #undef module
 
@@ -792,6 +810,16 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
         try_module (tga,     glycin_tga);
         try_module (tiff,    glycin_tiff);
         try_module (webp,    glycin_webp);
+#endif
+#ifdef INCLUDE_android
+	try_module (jpeg,android_jpeg);
+	try_module (png,android_png);
+	try_module (gif,android_gif);
+	try_module (webp,android_webp);
+	try_module (bmp,android_bmp);
+	try_module (ico,android_ico);
+	try_module (wbmp,android_wbmp);
+	try_module (heif,android_heif);
 #endif
 #ifdef INCLUDE_png
         try_module (png,png);

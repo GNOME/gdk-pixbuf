@@ -338,6 +338,17 @@ if native_windows_loaders
   enabled_loaders += 'gdiplus'
 endif
 
+if host_system == 'android'
+  native_android_loaders = get_option('native_android_loaders')
+else
+  native_android_loaders = false
+endif
+
+if native_android_loaders
+  loaders_deps += cc.find_library('jnigraphics')
+  enabled_loaders += 'android'
+endif
+
 # Don't check and build the jpeg loader if native_windows_loaders is true
 jpeg_opt = get_option('jpeg').disable_auto_if(host_machine.system() == 'linux')
 if not jpeg_opt.disabled() and not native_windows_loaders
