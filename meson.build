@@ -145,6 +145,7 @@ elif cc.get_id() == 'gcc' or cc.get_id() == 'clang'
     '-Wno-int-conversion',
     '-Wno-uninitialized',
     '-Wno-discarded-qualifiers',
+    '-Werror=undef',
     '-Werror=implicit',
     '-Werror=nonnull',
     '-Werror=init-self',
