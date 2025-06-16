@@ -258,6 +258,16 @@
  */
 #define GDK_PIXBUF_VERSION_2_40 (G_ENCODE_VERSION (2, 40))
 
+/**
+ * GDK_PIXBUF_VERSION_2_44:
+ *
+ * A macro that evaluates to the 2.44 version of GdkPixbuf,
+ * in a format that can be used by the C pre-processor.
+ *
+ * Since: 2.44
+ */
+#define GDK_PIXBUF_VERSION_2_44 (G_ENCODE_VERSION (2, 44))
+
 #ifndef __GTK_DOC_IGNORE__
 #if (GDK_PIXBUF_MINOR % 2)
 #define GDK_PIXBUF_VERSION_CUR_STABLE (G_ENCODE_VERSION (GDK_PIXBUF_MAJOR, GDK_PIXBUF_MINOR + 1))
