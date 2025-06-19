@@ -195,7 +195,25 @@ endif
 
 if enabled_loaders.contains('glycin')
   # List of formats supported by the glycin-based loader(s)
-  glycin_loader_formats = [ 'avif', 'bmp', 'raw', 'dds', 'qoi', 'gif', 'heic', 'ico', 'jpeg', 'jxl', 'openexr', 'png', 'pnm', 'tga', 'tiff', 'webp' ]
+  glycin_loader_formats = [
+    'avif',
+    'bmp',
+    'dds',
+    'gif',
+    'heic',
+    'ico',
+    'jpeg',
+    'jxl',
+    'openexr',
+    'png',
+    'pnm',
+    'qoi',
+    'raw',
+    'svg',
+    'tga',
+    'tiff',
+    'webp'
+  ]
   glycin_base_loader_sources = [ 'io-glycin-utils.c' ]
 
   # Build the glycin loaders as static modules, if requested
