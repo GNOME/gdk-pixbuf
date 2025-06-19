@@ -16,7 +16,7 @@ variables:
   COMMON_MESON_FLAGS: "-Dwerror=true -Dglib:werror=false"
   LOADERS_FLAGS: "-Dpng=enabled -Djpeg=enabled -Dtiff=enabled -Dgif=enabled -Dothers=enabled -Dglycin=disabled"
   MESON_TEST_TIMEOUT_MULTIPLIER: 3
-  FEDORA_IMAGE: "registry.gitlab.gnome.org/gnome/gdk-pixbuf/fedora:v5"
+  FEDORA_IMAGE: "registry.gitlab.gnome.org/gnome/gdk-pixbuf/fedora:v6"
 
 .only-default:
   only:
@@ -70,7 +70,7 @@ macos:
   tags:
     - macos
   before_script:
-    - pip3 install --user meson==0.60.1
+    - pip3 install --user meson==1.5
     - pip3 install --user ninja
     - export PATH=/Users/gitlabrunner/Library/Python/3.7/bin:$PATH
   script:
