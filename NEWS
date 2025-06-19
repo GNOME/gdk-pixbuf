@@ -1,3 +1,14 @@
+2.43.3 (development)
+===
+
+- Use the glycin loader for svg as well.
+- Change the default build options to be 'auto' for all loader options.
+  On Linux, we build only the glycin loader, unless overwritten.
+- Change the default value for the builtin_loaders option to 'default'.
+  On Linux, we interpret 'default' as 'glycin'. On other platforms, we
+  interpret it as 'png,jpeg' (which was the previous default value).
+- Require Meson 1.5 to build gdk-pixbuf
+
 2.43.2 (development)
 ===
 
