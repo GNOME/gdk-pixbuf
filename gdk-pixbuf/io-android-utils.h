@@ -24,6 +24,7 @@
 #include <android/bitmap.h>
 
 #include "gdk-pixbuf-io.h"
+#include "gdk-pixbuf-animation.h"
 
 void gdk_pixbuf__android_fill_vtable (GdkPixbufModule *module);
 
