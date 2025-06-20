@@ -217,6 +217,9 @@ GdkPixbufAnimation* gdk_pixbuf_non_anim_new (GdkPixbuf *pixbuf);
 
 #endif /* GDK_PIXBUF_ENABLE_BACKEND */
 
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GdkPixbufAnimation, g_object_unref)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GdkPixbufAnimationIter, g_object_unref)
+
 G_END_DECLS
 
 #endif /* GDK_PIXBUF_ANIMATION_H */

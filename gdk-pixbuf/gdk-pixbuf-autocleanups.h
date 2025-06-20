@@ -24,14 +24,4 @@
 #error "Only <gdk-pixbuf/gdk-pixbuf.h> can be included directly."
 #endif
 
-#ifdef G_DEFINE_AUTOPTR_CLEANUP_FUNC
-
-G_DEFINE_AUTOPTR_CLEANUP_FUNC(GdkPixbuf, g_object_unref)
-G_DEFINE_AUTOPTR_CLEANUP_FUNC(GdkPixbufAnimation, g_object_unref)
-G_DEFINE_AUTOPTR_CLEANUP_FUNC(GdkPixbufAnimationIter, g_object_unref)
-G_DEFINE_AUTOPTR_CLEANUP_FUNC(GdkPixbufLoader, g_object_unref)
-G_DEFINE_AUTOPTR_CLEANUP_FUNC(GdkPixbufSimpleAnim, g_object_unref)
-
-#endif
-
 #endif /* GDK_PIXBUF_AUTOCLEANUPS_H */

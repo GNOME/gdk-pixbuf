@@ -64,7 +64,8 @@ void                 gdk_pixbuf_simple_anim_set_loop      (GdkPixbufSimpleAnim *
 GDK_PIXBUF_AVAILABLE_IN_ALL
 gboolean             gdk_pixbuf_simple_anim_get_loop      (GdkPixbufSimpleAnim *animation);
 
-G_END_DECLS
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GdkPixbufSimpleAnim, g_object_unref)
 
+G_END_DECLS
 
 #endif  /* GDK_PIXBUF_SIMPLE_ANIM_H */

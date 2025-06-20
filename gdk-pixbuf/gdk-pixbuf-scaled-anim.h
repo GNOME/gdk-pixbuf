@@ -40,6 +40,8 @@ GdkPixbufScaledAnim *_gdk_pixbuf_scaled_anim_new (GdkPixbufAnimation *anim,
                                                   gdouble             yscale,
                                                   gdouble             tscale);
 
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GdkPixbufScaledAnim, g_object_unref)
+
 G_END_DECLS
 
 #endif  /* GDK_PIXBUF_SCALED_ANIM_H */
