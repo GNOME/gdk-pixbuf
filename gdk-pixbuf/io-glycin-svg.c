@@ -20,8 +20,6 @@
 
 #include "config.h"
 
-#include <glib/gi18n-lib.h>
-
 #include "io-glycin-utils.h"
 
 

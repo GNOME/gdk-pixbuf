@@ -20,8 +20,6 @@
 
 #include "config.h"
 
-#include <glib/gi18n-lib.h>
-
 #include "io-glycin-utils.h"
 
 
@@ -59,7 +57,7 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 
   info->name = "tga";
   info->signature = (GdkPixbufModulePattern *) signature;
-  info->description = NC_("image format", "Targa");
+  info->description = "Targa";
   info->mime_types = (gchar **) mime_types;
   info->extensions = (gchar **) extensions;
   info->flags = GDK_PIXBUF_FORMAT_THREADSAFE;
