@@ -56,6 +56,7 @@ should_run_unsandboxed (void)
 typedef struct _GlycinContext GlycinContext;
 struct _GlycinContext
 {
+  GdkPixbufModuleSizeFunc size_func;
   GdkPixbufModulePreparedFunc prepared_func;
   GdkPixbufModuleUpdatedFunc updated_func;
   gpointer user_data;
@@ -81,6 +82,7 @@ gdk_pixbuf__glycin_image_begin_load (GdkPixbufModuleSizeFunc       size_func,
   g_assert (updated_func != NULL);
 
   context = g_new (GlycinContext, 1);
+  context->size_func = size_func;
   context->prepared_func = prepared_func;
   context->updated_func = updated_func;
   context->user_data = user_data;
@@ -173,14 +175,18 @@ convert_glycin_frame_to_pixbuf (GlyFrame  *frame,
 }
 
 static GdkPixbuf *
-load_pixbuf_with_glycin (GFile   *file,
-                         GError **error)
+load_pixbuf_with_glycin (GFile                    *file,
+                         GdkPixbufModuleSizeFunc   size_func,
+                         gpointer                  user_data,
+                         GError                  **error)
 {
   GlyLoader *loader;
   GlyImage *image;
+  GlyFrameRequest *request = NULL;
   GlyFrame *frame = NULL;
   GdkPixbuf *pixbuf = NULL;
   GError *local_error = NULL;
+  int width, height;
   char **keys;
 
   loader = gly_loader_new (file);
@@ -201,7 +207,16 @@ load_pixbuf_with_glycin (GFile   *file,
   if (!image)
     goto done;
 
-  frame = gly_image_next_frame (image, &local_error);
+  width = gly_image_get_width (image);
+  height = gly_image_get_height (image);
+  if (size_func)
+    size_func (&width, &height, user_data);
+
+  request = gly_frame_request_new ();
+
+  gly_frame_request_set_scale (request, width, height);
+
+  frame = gly_image_get_specific_frame (image, request, &local_error);
   if (!frame)
     goto done;
 
@@ -224,6 +239,7 @@ load_pixbuf_with_glycin (GFile   *file,
 done:
   g_clear_object (&loader);
   g_clear_object (&image);
+  g_clear_object (&request);
   g_clear_object (&frame);
 
   if (g_error_matches (local_error, GLY_LOADER_ERROR, GLY_LOADER_ERROR_FAILED))
@@ -274,9 +290,7 @@ gdk_pixbuf__glycin_image_load (FILE *f, GError **error)
       return NULL;
     }
 
-  file = g_file_new_for_path (filename);
-
-  pixbuf = load_pixbuf_with_glycin (file, error);
+  pixbuf = load_pixbuf_with_glycin (file, NULL, NULL, error);
 
   g_object_unref (file);
 
@@ -298,7 +312,10 @@ gdk_pixbuf__glycin_image_stop_load (gpointer   data,
 
   if (context->all_ok)
     {
-      GdkPixbuf *pixbuf = load_pixbuf_with_glycin (context->file, error);
+      GdkPixbuf *pixbuf = load_pixbuf_with_glycin (context->file,
+                                                   context->size_func,
+                                                   context->user_data,
+                                                   error);
 
       if (pixbuf != NULL)
         {
