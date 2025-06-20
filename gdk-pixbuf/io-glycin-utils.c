@@ -28,7 +28,6 @@
 
 #include <gio/gio.h>
 #include <errno.h>
-#include <glib/gi18n-lib.h>
 #include "gdk-pixbuf-core.h"
 #include "gdk-pixbuf-io.h"
 
