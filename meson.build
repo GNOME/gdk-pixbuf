@@ -197,6 +197,9 @@ if host_machine.system() == 'darwin'
   gdk_pixbuf_conf.set('OS_DARWIN', 1)
 endif
 
+android_opt = get_option('android').disable_auto_if(host_system != 'android')
+jnigraphics_dep = cc.find_library('jnigraphics', required: android_opt)
+
 # On non-Windows/macOS/android systems we always required shared-mime-info and GIO
 # shared_mime_dep = []
 shared_mime_dep = []
@@ -243,11 +246,22 @@ else
 endif
 gdk_pixbuf_conf.set('USE_GMODULE', build_modules)
 
+# Loader dependencies
+enabled_loaders = []
+loaders_deps = []
+
+if jnigraphics_dep.found()
+  loaders_deps += jnigraphics_dep
+  enabled_loaders += 'android'
+endif
+
 # Check which loaders should be built into gdk-pixbuf
 builtin_loaders = get_option('builtin_loaders')
 if builtin_loaders.contains('default')
   if host_machine.system() == 'linux'
     builtin_loaders = ['glycin']
+  elif enabled_loaders.contains('android')
+    # android loaders are always builtin
   else
     builtin_loaders = ['png','jpeg']
   endif
@@ -263,11 +277,8 @@ elif builtin_loaders.contains('none')
 endif
 
 is_msvc_like = cc.get_argument_syntax() == 'msvc'
-# Loader dependencies
-enabled_loaders = []
-loaders_deps = []
 
-png_opt = get_option('png').disable_auto_if(host_machine.system() == 'linux')
+png_opt = get_option('png').disable_auto_if(host_machine.system() == 'linux' or enabled_loaders.contains('android'))
 
 if not png_opt.disabled()
   png_dep = dependency(is_msvc_like ? 'png' : 'libpng', required: false)
@@ -301,7 +312,7 @@ if glycin_dep.found()
   endif
 endif
 
-gif_opt = get_option('gif').disable_auto_if(host_machine.system() == 'linux')
+gif_opt = get_option('gif').disable_auto_if(host_machine.system() == 'linux' or enabled_loaders.contains('android'))
 if not gif_opt.disabled()
   enabled_loaders += 'gif'
 endif
@@ -338,19 +349,8 @@ if native_windows_loaders
   enabled_loaders += 'gdiplus'
 endif
 
-if host_system == 'android'
-  native_android_loaders = get_option('native_android_loaders')
-else
-  native_android_loaders = false
-endif
-
-if native_android_loaders
-  loaders_deps += cc.find_library('jnigraphics')
-  enabled_loaders += 'android'
-endif
-
 # Don't check and build the jpeg loader if native_windows_loaders is true
-jpeg_opt = get_option('jpeg').disable_auto_if(host_machine.system() == 'linux')
+jpeg_opt = get_option('jpeg').disable_auto_if(host_machine.system() == 'linux' or enabled_loaders.contains('android'))
 if not jpeg_opt.disabled() and not native_windows_loaders
   jpeg_dep = dependency(is_msvc_like ? 'jpeg' : 'libjpeg', required: false)
 

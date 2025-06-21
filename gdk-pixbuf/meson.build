@@ -193,9 +193,9 @@ if native_windows_loaders
   endif
 endif
 
-if native_android_loaders
-  if not enabled_loaders.contains('all')
-    builtin_loaders += 'android' # for the summary
+if enabled_loaders.contains('android')
+  if not builtin_loaders.contains('all')
+    builtin_loaders += 'android' # always builtin, for the summary
   endif
   included_loaders_cflags += ['-DINCLUDE_android']
   android_loader_formats = [ 'jpeg', 'png', 'gif', 'webp', 'bmp', 'ico', 'wbmp', 'heif' ]

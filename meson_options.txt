@@ -18,6 +18,10 @@ option('glycin',
        description: 'Enable Glycin loader (requires glycin)',
        type: 'feature',
        value: 'auto')
+option('android',
+       description: 'Enable Android ImageDecoder loader. It provides loaders for JPEG, PNG, GIF, WEBP, BMP, ICO, WBMP, and HEIF images',
+       type: 'feature',
+       value: 'auto')
 option('others',
        description: 'Enable other loaders, which are weakly maintained',
        type: 'feature',
@@ -55,10 +59,6 @@ option('native_windows_loaders',
        description: 'Use Windows system components to handle BMP, EMF, GIF, ICO, JPEG, TIFF and WMF images, overriding jpeg and tiff.  To build this into gdk-pixbuf, pass in windows" with the other loaders to build in or use "all" with the builtin_loaders option',
        type: 'boolean',
        value: false)
-option('native_android_loaders',
-       description: 'Use Androids ImageDecoder API to decode JPEG, PNG, GIF, WEBP, BMP, ICO, WBMP, and HEIF images',
-       type: 'boolean',
-       value: true)
 option('tests',
        description: 'Build the test suite',
        type: 'boolean',
