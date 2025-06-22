@@ -289,6 +289,8 @@ gdk_pixbuf__glycin_image_load (FILE *f, GError **error)
       return NULL;
     }
 
+  file = g_file_new_for_path (filename);
+
   pixbuf = load_pixbuf_with_glycin (file, NULL, NULL, error);
 
   g_object_unref (file);
