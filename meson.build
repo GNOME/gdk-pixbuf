@@ -301,12 +301,10 @@ if not png_opt.disabled()
 endif
 
 glycin_opt = get_option('glycin').enable_auto_if(host_machine.system() == 'linux')
-glycin_dep = dependency('glycin-2', version: '>= 2.0.alpha', required: glycin_opt)
+glycin_dep = dependency('glycin-2', version: '>= 2.0.alpha.2', required: glycin_opt)
 if glycin_dep.found()
-  glycin_png_dep = dependency('libpng', required: true)
-  glycin_jpeg_dep = dependency('libjpeg', required: true)
   enabled_loaders += 'glycin'
-  loaders_deps += [ glycin_dep, glycin_png_dep, glycin_jpeg_dep ]
+  loaders_deps += [ glycin_dep ]
 endif
 
 gif_opt = get_option('gif').disable_auto_if(host_machine.system() == 'linux' or enabled_loaders.contains('android'))
