@@ -193,6 +193,28 @@ if native_windows_loaders
   endif
 endif
 
+if enabled_loaders.contains('android')
+  if not builtin_loaders.contains('all')
+    builtin_loaders += 'android' # always builtin, for the summary
+  endif
+  included_loaders_cflags += ['-DINCLUDE_android']
+  android_loader_formats = [ 'jpeg', 'png', 'gif', 'webp', 'bmp', 'ico', 'wbmp', 'heif' ]
+  android_base_loader_sources = [ 'io-android-utils.c' ]
+  android_loader_sources = android_base_loader_sources
+  foreach loader: android_loader_formats
+    android_loader_sources += 'io-android-@0@.c'.format(loader)
+  endforeach
+
+  mod = static_library('staticpixbufloader-android',
+                       android_loader_sources,
+                       gdkpixbuf_enum_h,
+                       dependencies: loaders_deps + gdk_pixbuf_deps,
+                       include_directories: [ root_inc, gdk_pixbuf_inc ],
+                       c_args: common_cflags + gdk_pixbuf_cflags)
+
+  included_loaders_deps += declare_dependency(link_with: mod)
+endif
+
 if enabled_loaders.contains('glycin')
   # List of formats supported by the glycin-based loader(s)
   glycin_loader_formats = [

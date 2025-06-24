@@ -18,6 +18,10 @@ option('glycin',
        description: 'Enable Glycin loader (requires glycin)',
        type: 'feature',
        value: 'auto')
+option('android',
+       description: 'Enable Android ImageDecoder loader. It provides loaders for JPEG, PNG, GIF, WEBP, BMP, ICO, WBMP, and HEIF images',
+       type: 'feature',
+       value: 'auto')
 option('others',
        description: 'Enable other loaders, which are weakly maintained',
        type: 'feature',
