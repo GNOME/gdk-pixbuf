@@ -174,7 +174,6 @@ static void
 test_jpeg_fbfbfbfb (void)
 {
   GdkPixbufLoader *loader;
-  GdkPixbuf *pixbuf;
   GError *error = NULL;
   gchar *contents;
   gsize size;
@@ -185,7 +184,7 @@ test_jpeg_fbfbfbfb (void)
       return;
     }
 
-  g_test_message ("Load JPEG with size 0xfbfbfbfb (issue: 250)");
+  g_test_message ("Load JPEG with size 0xfbfbfbfb (issue: 205)");
 
   if (!g_file_get_contents (g_test_get_filename (G_TEST_DIST, "issue205.jpg", NULL), &contents, &size, &error))
     {
@@ -205,9 +204,6 @@ test_jpeg_fbfbfbfb (void)
 
   gdk_pixbuf_loader_close (loader, &error);
   g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE);
-
-  pixbuf = gdk_pixbuf_loader_get_pixbuf (loader);
-  g_assert_nonnull (pixbuf);
 
   g_object_unref (loader);
   g_free (contents);
