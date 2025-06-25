@@ -3172,7 +3172,7 @@ save_to_stream_thread (GTask                 *task,
 }
 
 /**
- * gdk_pixbuf_save_to_streamv_async:
+ * gdk_pixbuf_save_to_streamv_async: (finish-func gdk_pixbuf_save_to_stream_finish)
  * @pixbuf: a `GdkPixbuf`
  * @stream: a `GOutputStream` to which to save the pixbuf
  * @type: name of file format
@@ -3230,7 +3230,7 @@ gdk_pixbuf_save_to_streamv_async (GdkPixbuf           *pixbuf,
 }
 
 /**
- * gdk_pixbuf_save_to_stream_async:
+ * gdk_pixbuf_save_to_stream_async: (finish-func gdk_pixbuf_save_to_stream_finish)
  * @pixbuf: a `GdkPixbuf`
  * @stream: a `GOutputStream` to which to save the pixbuf
  * @type: name of file format
