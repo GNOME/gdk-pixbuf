@@ -93,6 +93,7 @@ typedef struct {
 	gsize			 icc_profile_size_allocated;
 } JpegExifContext;
 
+#ifndef NO_MODULE_ENTRIES
 static GdkPixbuf *gdk_pixbuf__jpeg_image_load (FILE *f, GError **error);
 static gpointer gdk_pixbuf__jpeg_image_begin_load (GdkPixbufModuleSizeFunc           func0,
                                                    GdkPixbufModulePreparedFunc func1, 
@@ -105,6 +106,7 @@ static gboolean gdk_pixbuf__jpeg_image_load_increment(gpointer context,
                                                       GError **error);
 static gboolean gdk_pixbuf__jpeg_image_load_lines (JpegProgContext  *context,
                                                    GError          **error);
+#endif
 
 static void
 fatal_error_handler (j_common_ptr cinfo)
@@ -143,6 +145,7 @@ output_message_handler (j_common_ptr cinfo)
   /* do nothing */
 }
 
+#ifndef NO_MODULE_ENTRIES
 /* explode gray image data from jpeg library into rgb components in pixbuf */
 static void
 explode_gray_into_buf (struct jpeg_decompress_struct *cinfo,
@@ -549,7 +552,9 @@ jpeg_destroy_exif_context (JpegExifContext *context)
 {
 	g_free (context->icc_profile);
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 /* Shared library entry point */
 static GdkPixbuf *
 gdk_pixbuf__real_jpeg_image_load (FILE *f, struct jpeg_decompress_struct *cinfo, GError **error)
@@ -721,7 +726,9 @@ out:
 
 	return pixbuf;
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 static GdkPixbuf *
 gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 {
@@ -729,10 +736,11 @@ gdk_pixbuf__jpeg_image_load (FILE *f, GError **error)
 
         return gdk_pixbuf__real_jpeg_image_load (f, &cinfo, error);
 }
-
+#endif /* !NO_MODULE_ENTRIES */
 
 /**** Progressive image loading handling *****/
 
+#ifndef NO_MODULE_ENTRIES
 /* these routines required because we are acting as a source manager for */
 /* libjpeg. */
 static void
@@ -759,7 +767,6 @@ fill_input_buffer (j_decompress_ptr cinfo)
 	return FALSE;
 }
 
-
 static void
 skip_input_data (j_decompress_ptr cinfo, long num_bytes)
 {
@@ -776,14 +783,14 @@ skip_input_data (j_decompress_ptr cinfo, long num_bytes)
 		src->skip_next = num_bytes - num_can_do;
 	}
 }
+#endif /* !NO_MODULE_ENTRIES */
 
- 
+#ifndef NO_MODULE_ENTRIES
 /* 
  * func - called when we have pixmap created (but no image data)
  * user_data - passed as arg 1 to func
  * return context (opaque to user)
  */
-
 static gpointer
 gdk_pixbuf__jpeg_image_begin_load (GdkPixbufModuleSizeFunc size_func,
 				   GdkPixbufModulePreparedFunc prepared_func, 
@@ -849,7 +856,9 @@ gdk_pixbuf__jpeg_image_begin_load (GdkPixbufModuleSizeFunc size_func,
         
 	return (gpointer) context;
 }
+#endif /* NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 /*
  * context - returned from image_begin_load
  *
@@ -913,8 +922,9 @@ gdk_pixbuf__jpeg_image_stop_load (gpointer data, GError **error)
 
         return retval;
 }
+#endif /* !NO_MODULE_ENTRIES */
 
-
+#ifndef NO_MODULE_ENTRIES
 static gboolean
 gdk_pixbuf__jpeg_image_load_lines (JpegProgContext  *context,
                                    GError          **error)
@@ -972,8 +982,9 @@ gdk_pixbuf__jpeg_image_load_lines (JpegProgContext  *context,
 
         return TRUE;
 }
+#endif /* NO_MODULE_ENTRIES */
 
-
+#ifndef NO_MODULE_ENTRIES
 /*
  * context - from image_begin_load
  * buf - new image data
@@ -1273,6 +1284,7 @@ out:
 	jpeg_destroy_exif_context (&exif_context);
 	return retval;
 }
+#endif /* !NO_MODULE_ENTRIES */
 
 /* Save */
 
