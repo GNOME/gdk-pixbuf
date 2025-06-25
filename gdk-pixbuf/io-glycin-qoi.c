@@ -37,15 +37,15 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 {
   static const GdkPixbufModulePattern signature[] = {
-    { "\x89PNG\r\n\x1a\x0a", NULL, 100 }, /* PNG */
     { NULL, NULL, 0 }
   };
   static const gchar *mime_types[] = {
-    "image/png",
+    "image/x-qoi",
+    "image/qoi",
     NULL
   };
   static const gchar *extensions[] = {
-    "png",
+    "qoi",
     NULL
   };
 
