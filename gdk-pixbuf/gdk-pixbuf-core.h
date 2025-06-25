@@ -514,7 +514,8 @@ gboolean gdk_pixbuf_copy_options (GdkPixbuf *src_pixbuf,
                                   GdkPixbuf *dest_pixbuf);
 
 
-G_END_DECLS
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(GdkPixbuf, g_object_unref)
 
+G_END_DECLS
 
 #endif /* GDK_PIXBUF_CORE_H */

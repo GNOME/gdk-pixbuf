@@ -106,8 +106,8 @@ gboolean             gdk_pixbuf_loader_close         (GdkPixbufLoader *loader,
 GDK_PIXBUF_AVAILABLE_IN_2_2
 GdkPixbufFormat     *gdk_pixbuf_loader_get_format    (GdkPixbufLoader *loader);
 
+G_DEFINE_AUTOPTR_CLEANUP_FUNC(GdkPixbufLoader, g_object_unref)
+
 G_END_DECLS
 
 #endif
-
-
