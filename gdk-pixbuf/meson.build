@@ -93,7 +93,6 @@ gdk_pixbuf_features_h = configure_file(input: 'gdk-pixbuf-features.h.in',
 gdkpixbuf_headers = [
   'gdk-pixbuf.h',
   'gdk-pixbuf-animation.h',
-  'gdk-pixbuf-autocleanups.h',
   'gdk-pixbuf-core.h',
   'gdk-pixbuf-io.h',
   'gdk-pixbuf-loader.h',
