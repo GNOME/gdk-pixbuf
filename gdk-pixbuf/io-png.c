@@ -40,6 +40,7 @@
 
 #define DEFAULT_FILL_COLOR 0x979899ff
 
+#ifndef NO_MODULE_ENTRIES
 static gboolean
 setup_png_transformations(png_structp png_read_ptr, png_infop png_info_ptr,
                           GError **error,
@@ -172,6 +173,7 @@ setup_png_transformations(png_structp png_read_ptr, png_infop png_info_ptr,
         }
         return TRUE;
 }
+#endif /* !NO_MODULE_ENTRIES */
 
 static void
 png_simple_error_callback(png_structp png_save_ptr,
@@ -207,6 +209,7 @@ png_simple_warning_callback(png_structp png_save_ptr,
          */
 }
 
+#ifndef NO_MODULE_ENTRIES
 static gboolean
 png_text_to_pixbuf_option (png_text   text_ptr,
                            gchar    **key,
@@ -239,19 +242,25 @@ png_text_to_pixbuf_option (png_text   text_ptr,
                 return FALSE;
         }
 }
+#endif /* NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 static png_voidp
 png_malloc_callback (png_structp o, png_size_t size)
 {
         return g_try_malloc (size);
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 static void
 png_free_callback (png_structp o, png_voidp x)
 {
         g_free (x);
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 /* Shared library entry point */
 static GdkPixbuf *
 gdk_pixbuf__png_image_load (FILE *f, GError **error)
@@ -382,29 +391,40 @@ gdk_pixbuf__png_image_load (FILE *f, GError **error)
 
         return pixbuf;
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 /* I wish these avoided the setjmp()/longjmp() crap in libpng instead
    just allow you to change the error reporting. */
 static void png_error_callback  (png_structp png_read_ptr,
                                  png_const_charp error_msg);
+#endif
 
+#ifndef NO_MODULE_ENTRIES
 static void png_warning_callback (png_structp png_read_ptr,
                                   png_const_charp warning_msg);
+#endif
 
+#ifndef NO_MODULE_ENTRIES
 /* Called at the start of the progressive load */
 static void png_info_callback   (png_structp png_read_ptr,
                                  png_infop   png_info_ptr);
+#endif
 
+#ifndef NO_MODULE_ENTRIES
 /* Called for each row; note that you will get duplicate row numbers
    for interlaced PNGs */
 static void png_row_callback   (png_structp png_read_ptr,
                                 png_bytep   new_row,
                                 png_uint_32 row_num,
                                 int pass_num);
+#endif
 
+#ifndef NO_MODULE_ENTRIES
 /* Called after reading the entire image */
 static void png_end_callback   (png_structp png_read_ptr,
                                 png_infop   png_info_ptr);
+#endif
 
 typedef struct _LoadContext LoadContext;
 
@@ -440,6 +460,7 @@ struct _LoadContext {
         GError **error;
 };
 
+#ifndef NO_MODULE_ENTRIES
 static gpointer
 gdk_pixbuf__png_image_begin_load (GdkPixbufModuleSizeFunc size_func,
                                   GdkPixbufModulePreparedFunc prepared_func,
@@ -543,7 +564,9 @@ gdk_pixbuf__png_image_begin_load (GdkPixbufModuleSizeFunc size_func,
         
         return lc;
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 static gboolean
 gdk_pixbuf__png_image_stop_load (gpointer context, GError **error)
 {
@@ -570,7 +593,9 @@ gdk_pixbuf__png_image_stop_load (gpointer context, GError **error)
 
         return retval;
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 static gboolean
 gdk_pixbuf__png_image_load_increment(gpointer context,
                                      const guchar *buf, guint size,
@@ -650,7 +675,9 @@ gdk_pixbuf__png_image_load_increment(gpointer context,
                 return TRUE;
         }
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 /* Called at the start of the progressive load, once we have image info */
 static void
 png_info_callback   (png_structp png_read_ptr,
@@ -765,7 +792,9 @@ png_info_callback   (png_structp png_read_ptr,
 
         return;
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 /* Called for each row; note that you will get duplicate row numbers
    for interlaced PNGs */
 static void
@@ -806,7 +835,9 @@ png_row_callback   (png_structp png_read_ptr,
 
         png_progressive_combine_row(lc->png_read_ptr, old_row, new_row);
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 /* Called after reading the entire image */
 static void
 png_end_callback   (png_structp png_read_ptr,
@@ -819,7 +850,9 @@ png_end_callback   (png_structp png_read_ptr,
         if (lc->fatal_error_occurred)
                 return;
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 static void
 png_error_callback(png_structp png_read_ptr,
                    png_const_charp error_msg)
@@ -843,7 +876,9 @@ png_error_callback(png_structp png_read_ptr,
 
         longjmp (png_jmpbuf(png_read_ptr), 1);
 }
+#endif /* !NO_MODULE_ENTRIES */
 
+#ifndef NO_MODULE_ENTRIES
 static void
 png_warning_callback (png_structp png_read_ptr,
                       png_const_charp warning_msg)
@@ -855,7 +890,7 @@ png_warning_callback (png_structp png_read_ptr,
          * location.
          */
 }
-
+#endif /* !NO_MODULE_ENTRIES */
 
 /* Save */
 
