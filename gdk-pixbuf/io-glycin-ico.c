@@ -23,6 +23,35 @@
 #include "io-glycin-utils.h"
 
 
+static gboolean
+gdk_pixbuf__ico_image_save (FILE       *f,
+                            GdkPixbuf  *pixbuf,
+                            char      **keys,
+                            char      **values,
+                            GError    **error)
+{
+  return glycin_image_save ("image/vnd.microsoft.icon", f, NULL, NULL,
+                            pixbuf, NULL, NULL, error);
+}
+
+static gboolean
+gdk_pixbuf__ico_image_save_to_callback (GdkPixbufSaveFunc   save_func,
+                                        gpointer            user_data,
+                                        GdkPixbuf          *pixbuf,
+                                        gchar             **keys,
+                                        gchar             **values,
+                                        GError            **error)
+{
+  return glycin_image_save ("image/vnd.microsoft.icon", NULL, save_func, user_data,
+                            pixbuf, NULL, NULL, error);
+}
+
+static gboolean
+gdk_pixbuf__ico_is_save_option_supported (const gchar *option_key)
+{
+  return FALSE;
+}
+
 #ifndef INCLUDE_glycin
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
 #else
@@ -32,6 +61,10 @@
 MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 {
   glycin_fill_vtable (module);
+
+  module->save = gdk_pixbuf__ico_image_save;
+  module->save_to_callback = gdk_pixbuf__ico_image_save_to_callback;
+  module->is_save_option_supported = gdk_pixbuf__ico_is_save_option_supported;
 }
 
 MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
@@ -63,6 +96,6 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
   info->description = "Windows icon";
   info->mime_types = (gchar **) mime_types;
   info->extensions = (gchar **) extensions;
-  info->flags = GDK_PIXBUF_FORMAT_THREADSAFE;
+  info->flags = GDK_PIXBUF_FORMAT_WRITABLE | GDK_PIXBUF_FORMAT_THREADSAFE;
   info->license = "LGPL";
 }

@@ -301,15 +301,10 @@ if not png_opt.disabled()
 endif
 
 glycin_opt = get_option('glycin').enable_auto_if(host_machine.system() == 'linux')
-glycin_dep = dependency('glycin-2', version: '>= 2.0.alpha', required: glycin_opt)
+glycin_dep = dependency('glycin-2', version: '>= 2.0.alpha.2', required: glycin_opt)
 if glycin_dep.found()
-  glycin_png_dep = dependency('libpng', required: true)
-  glycin_jpeg_dep = dependency('libjpeg', required: true)
   enabled_loaders += 'glycin'
-  loaders_deps += [ glycin_dep, glycin_png_dep, glycin_jpeg_dep ]
-  if cc.has_function('gly_loader_set_accepted_memory_formats', dependencies: glycin_dep)
-    gdk_pixbuf_conf.set('HAVE_GLY_LOADER_SET_ACCEPTED_MEMORY_FORMATS', 1)
-  endif
+  loaders_deps += [ glycin_dep ]
 endif
 
 gif_opt = get_option('gif').disable_auto_if(host_machine.system() == 'linux' or enabled_loaders.contains('android'))

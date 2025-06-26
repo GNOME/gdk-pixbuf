@@ -22,9 +22,83 @@
 
 #include "io-glycin-utils.h"
 
+static void
+filter_keys (char  **keys,
+             char  **values,
+             char ***_keys,
+             char ***_values)
+{
+  guint length;
 
-#define NO_MODULE_ENTRIES
-#include "io-png.c"
+  if (!keys)
+    return;
+
+  length = g_strv_length (keys);
+
+  *_keys = g_new0 (char *, length + 1);
+  *_values = g_new0 (char *, length + 1);
+
+  for (int i = 0, j = 0; i < length; i++)
+    {
+      if (g_str_has_prefix (keys[i], "tEXt::"))
+        {
+          (*_keys)[j] = keys[i] + strlen ("tEXt::");
+          (*_values)[j] = values[j];
+          j++;
+        }
+    }
+}
+
+static gboolean
+gdk_pixbuf__png_image_save (FILE       *f,
+                            GdkPixbuf  *pixbuf,
+                            char      **keys,
+                            char      **values,
+                            GError    **error)
+{
+  char **filtered_keys = NULL;
+  char **filtered_values = NULL;
+  gboolean ret;
+
+  filter_keys (keys, values, &filtered_keys, &filtered_values);
+
+  ret = glycin_image_save ("image/png", f, NULL, NULL,
+                           pixbuf, filtered_keys, filtered_values, error);
+
+  g_free (filtered_keys);
+  g_free (filtered_values);
+
+  return ret;
+}
+
+static gboolean
+gdk_pixbuf__png_image_save_to_callback (GdkPixbufSaveFunc   save_func,
+                                        gpointer            user_data,
+                                        GdkPixbuf          *pixbuf,
+                                        gchar             **keys,
+                                        gchar             **values,
+                                        GError            **error)
+{
+  char **filtered_keys = NULL;
+  char **filtered_values = NULL;
+  gboolean ret;
+
+  filter_keys (keys, values, &filtered_keys, &filtered_values);
+
+  ret = glycin_image_save ("image/png", NULL, save_func, user_data,
+                           pixbuf, filtered_keys, filtered_values, error);
+
+  g_free (filtered_keys);
+  g_free (filtered_values);
+
+  return ret;
+}
+
+static gboolean
+gdk_pixbuf__png_is_save_option_supported (const gchar *option_key)
+{
+  return g_str_has_prefix (option_key, "tEXt::");
+}
 
 #ifndef INCLUDE_glycin
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
@@ -36,7 +110,6 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 {
   glycin_fill_vtable (module);
 
-  /* We borrow the saving code from the png loader */
   module->save = gdk_pixbuf__png_image_save;
   module->save_to_callback = gdk_pixbuf__png_image_save_to_callback;
   module->is_save_option_supported = gdk_pixbuf__png_is_save_option_supported;

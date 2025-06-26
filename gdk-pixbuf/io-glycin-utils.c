@@ -193,14 +193,12 @@ load_pixbuf_with_glycin (GFile                    *file,
   if (should_run_unsandboxed ())
     gly_loader_set_sandbox_selector (loader, GLY_SANDBOX_SELECTOR_NOT_SANDBOXED);
 
-#ifdef HAVE_GLY_LOADER_SET_ACCEPTED_MEMORY_FORMATS
   gly_loader_set_accepted_memory_formats (loader, GLY_MEMORY_SELECTION_B8G8R8A8 |
                                                   GLY_MEMORY_SELECTION_A8R8G8B8 |
                                                   GLY_MEMORY_SELECTION_R8G8B8A8 |
                                                   GLY_MEMORY_SELECTION_A8B8G8R8 |
                                                   GLY_MEMORY_SELECTION_R8G8B8 |
                                                   GLY_MEMORY_SELECTION_B8G8R8);
-#endif
 
   image = gly_loader_load (loader, &local_error);
   if (!image)
@@ -262,14 +260,13 @@ done:
 }
 
 #ifdef HAVE_READLINK
-static GdkPixbuf *
-gdk_pixbuf__glycin_image_load (FILE *f, GError **error)
+static GFile *
+g_file_from_file (FILE    *f,
+                  GError **error)
 {
   char proc_path[256];
   char filename[256] = { 0, };
   ssize_t s;
-  GFile *file;
-  GdkPixbuf *pixbuf;
 
   g_snprintf (proc_path, sizeof (proc_path), "/proc/%u/fd/%d", getpid (), fileno (f));
   s = readlink (proc_path, filename, sizeof (filename));
@@ -289,15 +286,35 @@ gdk_pixbuf__glycin_image_load (FILE *f, GError **error)
       return NULL;
     }
 
-  file = g_file_new_for_path (filename);
+  return g_file_new_for_path (filename);
+}
+#else
+static GFile *
+g_file_from_file (FILE    *f,
+                  GError **error)
+{
+  g_set_error_literal (error,
+                       G_IO_ERROR, G_IO_ERROR_FAILED,
+                       "Failed to wrap FILE in GFile");
+  return NULL;
+}
+#endif
+
+static GdkPixbuf *
+gdk_pixbuf__glycin_image_load (FILE *f, GError **error)
+{
+  GFile *file;
+  GdkPixbuf *pixbuf;
+
+  file = g_file_from_file (f, error);
+  if (!file)
+    return NULL;
 
   pixbuf = load_pixbuf_with_glycin (file, NULL, NULL, error);
-
   g_object_unref (file);
 
   return pixbuf;
 }
-#endif
 
 static gboolean
 gdk_pixbuf__glycin_image_stop_load (gpointer   data,
@@ -366,12 +383,106 @@ gdk_pixbuf__glycin_image_load_increment (gpointer       data,
   return TRUE;
 }
 
+gboolean
+glycin_image_save (const char         *mimetype,
+                   FILE               *f,
+                   GdkPixbufSaveFunc   save_func,
+                   gpointer            user_data,
+                   GdkPixbuf          *pixbuf,
+                   char              **keys,
+                   char              **values,
+                   GError            **error)
+{
+  GBytes *texture;
+  guchar *data;
+  gsize length;
+  guint width, height;
+  GlyMemoryFormat format;
+  GlyNewImage *new_image;
+  GlyCreator *creator;
+  GlyEncodedImage *encoded_image;
+  GBytes *binary_data;
+  gboolean res;
+  const char *image_data;
+
+  data = gdk_pixbuf_get_pixels (pixbuf);
+  length = gdk_pixbuf_get_byte_length (pixbuf);
+  width = gdk_pixbuf_get_width (pixbuf);
+  height = gdk_pixbuf_get_height (pixbuf);
+  format = gdk_pixbuf_get_n_channels (pixbuf) == 3
+             ? GLY_MEMORY_R8G8B8
+             : GLY_MEMORY_R8G8B8A8;
+
+  texture = g_bytes_new (data, length);
+  new_image = gly_new_image_new (width, height, format, texture);
+  g_bytes_unref (texture);
+
+  if (!new_image)
+    {
+      g_set_error_literal (error,
+                           GDK_PIXBUF_ERROR,
+                           GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION,
+                           "Failed to create a GlyNewImage");
+      return FALSE;
+    }
+
+  if (keys)
+    {
+      for (int i = 0; keys[i]; i++)
+        gly_new_image_add_metadata_key_value (new_image, keys[i], values[i]);
+    }
+
+  creator = gly_creator_new (mimetype);
+  encoded_image = gly_creator_create (creator, new_image);
+  g_object_unref (creator);
+  g_object_unref (new_image);
+
+  if (!encoded_image)
+    {
+      g_set_error_literal (error,
+                           GDK_PIXBUF_ERROR,
+                           GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION,
+                           "Failed to create a GlyEncodedImage");
+      return FALSE;
+    }
+
+  binary_data = gly_encoded_image_get_data (encoded_image);
+  image_data = g_bytes_get_data (binary_data, &length);
+
+  if (f)
+    {
+      GFile *file = g_file_from_file (f, error);
+
+      if (!file)
+        res = FALSE;
+      else
+        {
+          res = g_file_replace_contents (file,
+                                         image_data, length,
+                                         NULL,
+                                         FALSE,
+                                         G_FILE_CREATE_NONE,
+                                         NULL,
+                                         NULL,
+                                         error);
+          g_object_unref (file);
+        }
+    }
+  else
+    {
+      res = save_func (image_data, length, error, user_data);
+    }
+
+  g_bytes_unref (binary_data);
+  g_object_unref (encoded_image);
+
+  return res;
+}
+
 void
 glycin_fill_vtable (GdkPixbufModule *module)
 {
-#ifdef HAVE_READLINK
   module->load = gdk_pixbuf__glycin_image_load;
-#endif
   module->begin_load = gdk_pixbuf__glycin_image_begin_load;
   module->stop_load = gdk_pixbuf__glycin_image_stop_load;
   module->load_increment = gdk_pixbuf__glycin_image_load_increment;

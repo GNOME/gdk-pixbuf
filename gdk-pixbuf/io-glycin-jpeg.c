@@ -23,8 +23,34 @@
 #include "io-glycin-utils.h"
 
 
-#define NO_MODULE_ENTRIES
-#include "io-jpeg.c"
+static gboolean
+gdk_pixbuf__jpeg_image_save (FILE       *f,
+                             GdkPixbuf  *pixbuf,
+                             char      **keys,
+                             char      **values,
+                             GError    **error)
+{
+  return glycin_image_save ("image/jpeg", f, NULL, NULL,
+                            pixbuf, NULL, NULL, error);
+}
+
+static gboolean
+gdk_pixbuf__jpeg_image_save_to_callback (GdkPixbufSaveFunc   save_func,
+                                         gpointer            user_data,
+                                         GdkPixbuf          *pixbuf,
+                                         gchar             **keys,
+                                         gchar             **values,
+                                         GError            **error)
+{
+  return glycin_image_save ("image/jpeg", NULL, save_func, user_data,
+                            pixbuf, NULL, NULL, error);
+}
+
+static gboolean
+gdk_pixbuf__jpeg_is_save_option_supported (const gchar *option_key)
+{
+  return FALSE;
+}
 
 #ifndef INCLUDE_glycin
 #define MODULE_ENTRY(function) G_MODULE_EXPORT void function
@@ -36,7 +62,6 @@ MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
 {
   glycin_fill_vtable (module);
 
-  /* We borrow the saving code from the jpeg loader */
   module->save = gdk_pixbuf__jpeg_image_save;
   module->save_to_callback = gdk_pixbuf__jpeg_image_save_to_callback;
   module->is_save_option_supported = gdk_pixbuf__jpeg_is_save_option_supported;
