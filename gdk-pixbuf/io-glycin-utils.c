@@ -427,6 +427,15 @@ glycin_image_save (const char         *mimetype,
         gly_creator_add_metadata_key_value (creator, keys[i], values[i]);
     }
 
+  if (icc_profile)
+    gly_new_frame_set_color_icc_profile (frame, icc_profile);
+
+  if (quality != -1)
+    gly_creator_set_encoding_quality (creator, quality);
+
+  if (compression != -1)
+    gly_creator_set_encoding_compression (creator, compression);
+
   encoded_image = gly_creator_create (creator, error);
 
   g_object_unref (creator);
