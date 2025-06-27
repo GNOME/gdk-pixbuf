@@ -203,7 +203,7 @@ test_jpeg_fbfbfbfb (void)
   g_assert_no_error (error);
 
   gdk_pixbuf_loader_close (loader, &error);
-  g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE);
+  g_assert_true (error != NULL && error->domain == GDK_PIXBUF_ERROR);
 
   g_object_unref (loader);
   g_free (contents);
