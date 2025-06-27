@@ -22,31 +22,96 @@
 
 #include "io-glycin-utils.h"
 
-static void
-filter_keys (char  **keys,
-             char  **values,
-             char ***_keys,
-             char ***_values)
+static gboolean
+filter_keys (char    **keys,
+             char    **values,
+             char   ***out_keys,
+             char   ***out_values,
+             GBytes  **icc_bytes,
+             int      *compression,
+             GError  **error)
 {
+  char **filtered_keys = NULL;
+  char **filtered_values = NULL;
+  guchar *icc_data = NULL;
+  gsize icc_length = 0;
   guint length;
 
   if (!keys)
-    return;
+    return TRUE;
 
   length = g_strv_length (keys);
 
-  *_keys = g_new0 (char *, length + 1);
-  *_values = g_new0 (char *, length + 1);
+  filtered_keys = g_new0 (char *, length + 1);
+  filtered_values = g_new0 (char *, length + 1);
 
   for (int i = 0, j = 0; i < length; i++)
     {
       if (g_str_has_prefix (keys[i], "tEXt::"))
         {
-          (*_keys)[j] = keys[i] + strlen ("tEXt::");
-          (*_values)[j] = values[j];
+          filtered_keys[j] = keys[i] + strlen ("tEXt::");
+          filtered_values[j] = values[j];
           j++;
         }
+      else if (strcmp (keys[i], "icc-profile") == 0)
+        {
+          icc_data = g_base64_decode (values[i], &icc_length);
+          if (icc_length < 127)
+            {
+              g_set_error (error,
+                           GDK_PIXBUF_ERROR,
+                           GDK_PIXBUF_ERROR_BAD_OPTION,
+                           "Color profile has invalid length %lu",
+                           icc_length);
+              g_free (icc_data);
+              g_free (filtered_keys);
+              g_free (filtered_values);
+              return FALSE;
+            }
+        }
+      else if (strcmp (keys[i], "compression") == 0)
+        {
+          char *endp = NULL;
+
+          *compression = strtol (values[i], &endp, 10);
+          if ((endp && *endp != '\0') || *compression < 0 || *compression > 9)
+            {
+              g_set_error (error,
+                           GDK_PIXBUF_ERROR,
+                           GDK_PIXBUF_ERROR_BAD_OPTION,
+                           "PNG compression level must be a value between 0 and 9; value “%s” is invalid",
+                           values[i]);
+              g_free (icc_data);
+              g_free (filtered_keys);
+              g_free (filtered_values);
+              return FALSE;
+            }
+
+          *compression *= 11;
+        }
+      else
+        {
+          g_set_error (error,
+                       GDK_PIXBUF_ERROR,
+                       GDK_PIXBUF_ERROR_BAD_OPTION,
+                       "Unhandled key while saving: %s", keys[i]);
+          g_free (icc_data);
+          g_free (filtered_keys);
+          g_free (filtered_values);
+          return FALSE;
+        }
     }
+
+  if (filtered_keys[0])
+    {
+      *out_keys = filtered_keys;
+      *out_values = filtered_values;
+    }
+
+  if (icc_data)
+    *icc_bytes = g_bytes_new_take (icc_data, icc_length);
+
+  return TRUE;
 }
 
 static gboolean
@@ -58,13 +123,25 @@ gdk_pixbuf__png_image_save (FILE       *f,
 {
   char **filtered_keys = NULL;
   char **filtered_values = NULL;
+  GBytes *icc_data = NULL;
+  int compression = -1;
   gboolean ret;
 
-  filter_keys (keys, values, &filtered_keys, &filtered_values);
+  if (!filter_keys (keys, values,
+                    &filtered_keys, &filtered_values,
+                    &icc_data,
+                    &compression,
+                    error))
+    return FALSE;
 
   ret = glycin_image_save ("image/png", f, NULL, NULL,
-                           pixbuf, filtered_keys, filtered_values, NULL, -1, -1, error);
+                           pixbuf,
+                           filtered_keys, filtered_values,
+                           icc_data,
+                           -1, compression,
+                           error);
 
+  g_clear_pointer (&icc_data, g_bytes_unref);
   g_free (filtered_keys);
   g_free (filtered_values);
 
@@ -81,13 +158,25 @@ gdk_pixbuf__png_image_save_to_callback (GdkPixbufSaveFunc   save_func,
 {
   char **filtered_keys = NULL;
   char **filtered_values = NULL;
+  GBytes *icc_data = NULL;
+  int compression = -1;
   gboolean ret;
 
-  filter_keys (keys, values, &filtered_keys, &filtered_values);
+  if (!filter_keys (keys, values,
+                    &filtered_keys, &filtered_values,
+                    &icc_data,
+                    &compression,
+                    error))
+    return FALSE;
 
   ret = glycin_image_save ("image/png", NULL, save_func, user_data,
-                           pixbuf, filtered_keys, filtered_values, NULL, -1, -1, error);
+                           pixbuf,
+                           filtered_keys, filtered_values,
+                           icc_data,
+                           -1, compression,
+                           error);
 
+  g_clear_pointer (&icc_data, g_bytes_unref);
   g_free (filtered_keys);
   g_free (filtered_values);
 
@@ -97,7 +186,12 @@ gdk_pixbuf__png_image_save_to_callback (GdkPixbufSaveFunc   save_func,
 static gboolean
 gdk_pixbuf__png_is_save_option_supported (const gchar *option_key)
 {
-  return g_str_has_prefix (option_key, "tEXt::");
+  if (option_key == NULL)
+    return FALSE;
+
+  return strcmp (option_key, "icc-profile") == 0 ||
+         strcmp (option_key, "compression") == 0 ||
+         strncmp (option_key, "tEXt::", strlen ("tEXt::")) == 0;
 }
 
 #ifndef INCLUDE_glycin

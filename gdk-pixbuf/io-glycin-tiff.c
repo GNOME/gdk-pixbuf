@@ -22,6 +22,52 @@
 
 #include "io-glycin-utils.h"
 
+
+static gboolean
+filter_keys (char   **keys,
+             char   **values,
+             GBytes **icc_bytes,
+             GError **error)
+{
+  guchar *icc_data = NULL;
+  gsize icc_length = 0;
+
+  if (!keys)
+    return TRUE;
+
+  for (int i = 0; keys[i]; i++)
+    {
+      if (strcmp (keys[i], "icc-profile") == 0)
+        {
+          icc_data = g_base64_decode (values[i], &icc_length);
+          if (icc_length < 127)
+            {
+              g_set_error (error,
+                           GDK_PIXBUF_ERROR,
+                           GDK_PIXBUF_ERROR_BAD_OPTION,
+                           "Color profile has invalid length %lu",
+                           icc_length);
+              g_free (icc_data);
+              return FALSE;
+            }
+        }
+      else
+        {
+          g_set_error (error,
+                       GDK_PIXBUF_ERROR,
+                       GDK_PIXBUF_ERROR_BAD_OPTION,
+                       "Unhandled key while saving: %s", keys[i]);
+          g_free (icc_data);
+          return FALSE;
+        }
+    }
+
+  if (icc_data)
+    *icc_bytes = g_bytes_new_take (icc_data, icc_length);
+
+  return TRUE;
+}
+
 static gboolean
 gdk_pixbuf__tiff_image_save (FILE       *f,
                              GdkPixbuf  *pixbuf,
@@ -29,8 +75,22 @@ gdk_pixbuf__tiff_image_save (FILE       *f,
                              char      **values,
                              GError    **error)
 {
-  return glycin_image_save ("image/tiff", f, NULL, NULL,
-                            pixbuf, NULL, NULL, NULL, -1, -1, error);
+  GBytes *icc_data = NULL;
+  gboolean ret;
+
+  if (!filter_keys (keys, values, &icc_data, error))
+    return FALSE;
+
+  ret = glycin_image_save ("image/tiff", f, NULL, NULL,
+                           pixbuf,
+                           NULL, NULL,
+                           icc_data,
+                           -1, -1,
+                           error);
+
+  g_clear_pointer (&icc_data, g_bytes_unref);
+
+  return ret;
 }
 
 static gboolean
@@ -41,14 +101,31 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                                          gchar             **values,
                                          GError            **error)
 {
-  return glycin_image_save ("image/tiff", NULL, save_func, user_data,
-                            pixbuf, NULL, NULL, NULL, -1, -1, error);
+  GBytes *icc_data = NULL;
+  gboolean ret;
+
+  if (!filter_keys (keys, values, &icc_data, error))
+    return FALSE;
+
+  ret = glycin_image_save ("image/tiff", NULL, save_func, user_data,
+                           pixbuf,
+                           NULL, NULL,
+                           icc_data,
+                           -1, -1,
+                           error);
+
+  g_clear_pointer (&icc_data, g_bytes_unref);
+
+  return ret;
 }
 
 static gboolean
 gdk_pixbuf__tiff_is_save_option_supported (const gchar *option_key)
 {
-  return FALSE;
+  if (option_key == NULL)
+    return FALSE;
+
+  return strcmp (option_key, "icc-profile") == 0;
 }
 
 #ifndef INCLUDE_glycin
