@@ -398,7 +398,7 @@ glycin_image_save (const char         *mimetype,
 {
   GBytes *data;
   gsize length;
-  guint width, height;
+  guint width, height, stride;
   GlyMemoryFormat format;
   GlyCreator *creator;
   GlyNewFrame *frame;
@@ -414,12 +414,24 @@ glycin_image_save (const char         *mimetype,
   data = gdk_pixbuf_read_pixel_bytes (pixbuf);
   width = gdk_pixbuf_get_width (pixbuf);
   height = gdk_pixbuf_get_height (pixbuf);
+  stride = gdk_pixbuf_get_rowstride (pixbuf);
   format = gdk_pixbuf_get_n_channels (pixbuf) == 3
              ? GLY_MEMORY_R8G8B8
              : GLY_MEMORY_R8G8B8A8;
 
-  frame = gly_creator_add_frame (creator, width, height, format, data);
+  frame = gly_creator_add_frame_with_stride (creator,
+                                             width, height,
+                                             stride,
+                                             format,
+                                             data,
+                                             error);
   g_bytes_unref (data);
+
+  if (!frame)
+    {
+      g_object_unref (creator);
+      return FALSE;
+    }
 
   if (keys)
     {
