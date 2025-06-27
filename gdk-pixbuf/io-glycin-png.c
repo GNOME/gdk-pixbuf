@@ -63,7 +63,7 @@ gdk_pixbuf__png_image_save (FILE       *f,
   filter_keys (keys, values, &filtered_keys, &filtered_values);
 
   ret = glycin_image_save ("image/png", f, NULL, NULL,
-                           pixbuf, filtered_keys, filtered_values, error);
+                           pixbuf, filtered_keys, filtered_values, NULL, -1, -1, error);
 
   g_free (filtered_keys);
   g_free (filtered_values);
@@ -86,7 +86,7 @@ gdk_pixbuf__png_image_save_to_callback (GdkPixbufSaveFunc   save_func,
   filter_keys (keys, values, &filtered_keys, &filtered_values);
 
   ret = glycin_image_save ("image/png", NULL, save_func, user_data,
-                           pixbuf, filtered_keys, filtered_values, error);
+                           pixbuf, filtered_keys, filtered_values, NULL, -1, -1, error);
 
   g_free (filtered_keys);
   g_free (filtered_values);

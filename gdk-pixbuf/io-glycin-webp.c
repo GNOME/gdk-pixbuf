@@ -29,9 +29,9 @@ gdk_pixbuf__webp_image_save (FILE       *f,
                              char      **keys,
                              char      **values,
                              GError    **error)
-{ 
+{
   return glycin_image_save ("image/webp", f, NULL, NULL,
-                            pixbuf, NULL, NULL, error);
+                            pixbuf, NULL, NULL, NULL, -1, -1, error);
 }
 
 static gboolean
@@ -43,7 +43,7 @@ gdk_pixbuf__webp_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                                          GError            **error)
 {
   return glycin_image_save ("image/webp", NULL, save_func, user_data,
-                            pixbuf, NULL, NULL, error);
+                            pixbuf, NULL, NULL, NULL, -1, -1, error);
 }
 
 static gboolean

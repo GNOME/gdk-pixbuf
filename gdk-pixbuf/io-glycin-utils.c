@@ -391,6 +391,9 @@ glycin_image_save (const char         *mimetype,
                    GdkPixbuf          *pixbuf,
                    char              **keys,
                    char              **values,
+                   GBytes             *icc_profile,
+                   int                 quality,
+                   int                 compression,
                    GError            **error)
 {
   GBytes *data;

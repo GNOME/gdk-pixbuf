@@ -31,7 +31,7 @@ gdk_pixbuf__bmp_image_save (FILE       *f,
                             GError    **error)
 {
   return glycin_image_save ("image/bmp", f, NULL, NULL,
-                            pixbuf, NULL, NULL, error);
+                            pixbuf, NULL, NULL, NULL, -1, -1, error);
 }
 
 static gboolean
@@ -43,7 +43,7 @@ gdk_pixbuf__bmp_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                                         GError            **error)
 {
   return glycin_image_save ("image/bmp", NULL, save_func, user_data,
-                            pixbuf, NULL, NULL, error);
+                            pixbuf, NULL, NULL, NULL, -1, -1, error);
 }
 
 static gboolean
