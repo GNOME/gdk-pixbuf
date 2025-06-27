@@ -391,60 +391,58 @@ glycin_image_save (const char         *mimetype,
                    GdkPixbuf          *pixbuf,
                    char              **keys,
                    char              **values,
+                   GBytes             *icc_profile,
+                   int                 quality,
+                   int                 compression,
                    GError            **error)
 {
-  GBytes *texture;
-  guchar *data;
+  GBytes *data;
   gsize length;
   guint width, height;
   GlyMemoryFormat format;
-  GlyNewImage *new_image;
   GlyCreator *creator;
+  GlyNewFrame *frame;
   GlyEncodedImage *encoded_image;
   GBytes *binary_data;
   gboolean res;
   const char *image_data;
 
-  data = gdk_pixbuf_get_pixels (pixbuf);
-  length = gdk_pixbuf_get_byte_length (pixbuf);
+  creator = gly_creator_new (mimetype, error);
+  if (!creator)
+    return FALSE;
+
+  data = gdk_pixbuf_read_pixel_bytes (pixbuf);
   width = gdk_pixbuf_get_width (pixbuf);
   height = gdk_pixbuf_get_height (pixbuf);
   format = gdk_pixbuf_get_n_channels (pixbuf) == 3
              ? GLY_MEMORY_R8G8B8
              : GLY_MEMORY_R8G8B8A8;
 
-  texture = g_bytes_new (data, length);
-  new_image = gly_new_image_new (width, height, format, texture);
-  g_bytes_unref (texture);
-
-  if (!new_image)
-    {
-      g_set_error_literal (error,
-                           GDK_PIXBUF_ERROR,
-                           GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION,
-                           "Failed to create a GlyNewImage");
-      return FALSE;
-    }
+  frame = gly_creator_add_frame (creator, width, height, format, data);
+  g_bytes_unref (data);
 
   if (keys)
     {
       for (int i = 0; keys[i]; i++)
-        gly_new_image_add_metadata_key_value (new_image, keys[i], values[i]);
+        gly_creator_add_metadata_key_value (creator, keys[i], values[i]);
     }
 
-  creator = gly_creator_new (mimetype);
-  encoded_image = gly_creator_create (creator, new_image);
+  if (icc_profile)
+    gly_new_frame_set_color_icc_profile (frame, icc_profile);
+
+  if (quality != -1)
+    gly_creator_set_encoding_quality (creator, quality);
+
+  if (compression != -1)
+    gly_creator_set_encoding_compression (creator, compression);
+
+  encoded_image = gly_creator_create (creator, error);
+
   g_object_unref (creator);
-  g_object_unref (new_image);
+  g_object_unref (frame);
 
   if (!encoded_image)
-    {
-      g_set_error_literal (error,
-                           GDK_PIXBUF_ERROR,
-                           GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION,
-                           "Failed to create a GlyEncodedImage");
-      return FALSE;
-    }
+    return FALSE;
 
   binary_data = gly_encoded_image_get_data (encoded_image);
   image_data = g_bytes_get_data (binary_data, &length);
