@@ -9,7 +9,8 @@
   interpret it as 'png,jpeg' (which was the previous default value).
 - Require Meson 1.5 to build gdk-pixbuf
 - Use glycin for saving. The following formats are supported:
-  png, jpeg, tiff, webp, ico, bmp
+  png, jpeg, tiff, webp, ico, bmp. For png, jpeg and tiff, the most
+  common options are supported when saving.
 
 2.43.2 (development)
 ===
