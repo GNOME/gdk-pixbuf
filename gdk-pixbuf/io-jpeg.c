@@ -359,6 +359,7 @@ jpeg_parse_exif_app2_segment (JpegExifContext *context, jpeg_saved_marker_ptr ma
 		context->icc_profile = g_new (gchar, chunk_size);
 		/* copy the segment data to the profile space */
 		memcpy (context->icc_profile, marker->data + 14, chunk_size);
+                ret = TRUE;
 		goto out;
 	}
 
@@ -380,12 +381,15 @@ jpeg_parse_exif_app2_segment (JpegExifContext *context, jpeg_saved_marker_ptr ma
 	/* copy the segment data to the profile space */
 	memcpy (context->icc_profile + offset, marker->data + 14, chunk_size);
 
-	/* it's now this big plus the new data we've just copied */
-	context->icc_profile_size += chunk_size;
+        context->icc_profile_size = MAX (context->icc_profile_size, offset + chunk_size);
 
 	/* success */
 	ret = TRUE;
 out:
+        if (!ret) {
+                g_free (context->icc_profile);
+                context->icc_profile = NULL;
+        }
 	return ret;
 }
 
