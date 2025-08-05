@@ -145,6 +145,7 @@ static-scan:
     - meson setup ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _scan_build
     - ninja -C _scan_build scan-build
   artifacts:
+    when: always
     paths:
       - _scan_build/meson-logs
   allow_failure: true
@@ -164,6 +165,7 @@ asan-build:
     - meson compile -C _build
     - .gitlab/scripts/run-tests.sh _build
   artifacts:
+    when: always
     paths:
       - _build/meson-logs
   allow_failure: true
@@ -174,6 +176,7 @@ pages:
   script:
     - mv _reference public
   artifacts:
+    when: on_success
     paths:
       - public
   only:
