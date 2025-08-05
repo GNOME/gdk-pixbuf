@@ -157,8 +157,10 @@ asan-build:
   stage: analysis
   needs: []
   variables:
+    CC: clang
+    SANITIZE_FLAGS: -Db_sanitize=address -Db_lundef=false -Dintrospection=disabled -Ddocumentation=false
   script:
-    - CC=clang meson setup ${LOADERS_FLAGS} --buildtype=debugoptimized -Db_sanitize=address -Db_lundef=false -Dintrospection=disabled _build
+    - meson setup ${LOADERS_FLAGS} ${SANITIZE_FLAGS} _build
     - meson compile -C _build
     - .gitlab/scripts/run-tests.sh _build
   artifacts:
