@@ -108,6 +108,7 @@ convert_glycin_frame_to_pixbuf (GlyFrame  *frame,
   guchar *data;
   int R, G, B, A;
   int bpp;
+  gboolean has_alpha;
   GlyMemoryFormat format;
 
   format = gly_frame_get_memory_format (frame);
@@ -152,7 +153,8 @@ convert_glycin_frame_to_pixbuf (GlyFrame  *frame,
 
   bytes = gly_frame_get_buf_bytes (frame);
   data = g_bytes_get_data (bytes, NULL);
-  pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8,
+  has_alpha = A == -1 ? FALSE : TRUE;
+  pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, has_alpha, 8,
                            gly_frame_get_width (frame),
                            gly_frame_get_height (frame));
 
@@ -161,12 +163,19 @@ convert_glycin_frame_to_pixbuf (GlyFrame  *frame,
       guchar *src = data + y * gly_frame_get_stride (frame);
       guchar *dst = gdk_pixbuf_get_pixels (pixbuf) + y * gdk_pixbuf_get_rowstride (pixbuf);
 
-      for (gsize x = 0; x < gly_frame_get_width (frame); x++, src += bpp, dst += 4)
+      for (gsize x = 0; x < gly_frame_get_width (frame); x++, src += bpp)
         {
+          if (has_alpha)
+            {
+              dst += 4;
+              dst[3] = src[A];
+            }
+          else
+            dst += 3;
+
           dst[0] = src[R];
           dst[1] = src[G];
           dst[2] = src[B];
-          dst[3] = A != -1 ? src[A] : 0xff;
         }
     }
 
