@@ -189,8 +189,8 @@ asan-build:
   needs: ['container:fedora']
   variables:
     EXTRA_MESON_FLAGS: "--buildtype=debug -Ddocumentation=false -Dintrospection=disabled"
+    ASAN_OPTIONS: allocator_may_return_null=1
   script:
-    - export PATH="$HOME/.local/bin:$PATH"
     - meson setup
         ${COMMON_MESON_FLAGS}
         ${LOADERS_FLAGS}
@@ -211,7 +211,6 @@ ubsan-build:
   variables:
     EXTRA_MESON_FLAGS: "--buildtype=debug -Ddocumentation=false -Dintrospection=disabled"
   script:
-    - export PATH="$HOME/.local/bin:$PATH"
     - meson setup
         ${COMMON_MESON_FLAGS}
         ${LOADERS_FLAGS}
