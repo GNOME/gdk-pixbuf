@@ -1481,10 +1481,10 @@ make_storage_invalid (GdkPixbuf *pixbuf)
         char *buf;
         gsize bufsize = 3;
 
-        buf = g_new0(char, bufsize);
+        buf = g_new0 (char, bufsize);
 
         pixbuf->storage = STORAGE_BYTES;
-        pixbuf->s.bytes.bytes = g_bytes_new_with_free_func (buf, bufsize, g_free, NULL);
+        pixbuf->s.bytes.bytes = g_bytes_new_take (buf, bufsize);
 
         pixbuf->colorspace = GDK_COLORSPACE_RGB;
         pixbuf->n_channels = 3;
