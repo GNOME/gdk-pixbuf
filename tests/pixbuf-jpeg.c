@@ -95,6 +95,7 @@ test_bug_775218 (void)
 
   ref = gdk_pixbuf_new_from_file (g_test_get_filename (G_TEST_DIST, "bug775218.jpg", NULL), &error);
   g_assert_error (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE);
+  g_error_free (error);
   g_clear_object (&ref);
 }
 
@@ -205,8 +206,9 @@ test_jpeg_fbfbfbfb (void)
   g_assert_no_error (error);
 
   gdk_pixbuf_loader_close (loader, &error);
-  g_assert_true (error != NULL && error->domain == GDK_PIXBUF_ERROR);
+  _g_assert_error_domain (error, GDK_PIXBUF_ERROR);
 
+  g_error_free (error);
   g_object_unref (loader);
   g_free (contents);
 }
