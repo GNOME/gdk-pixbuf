@@ -99,13 +99,6 @@ gdk_pixbuf__glycin_image_begin_load (GdkPixbufModuleSizeFunc       size_func,
   return context;
 }
 
-static void
-drop_frame (guchar   *pixels,
-            gpointer  data)
-{
-  g_object_unref (data);
-}
-
 static GdkPixbuf *
 convert_glycin_frame_to_pixbuf (GlyFrame *frame)
 {
@@ -115,15 +108,13 @@ convert_glycin_frame_to_pixbuf (GlyFrame *frame)
   bytes = gly_frame_get_buf_bytes (frame);
   format = gly_frame_get_memory_format (frame);
 
-  return gdk_pixbuf_new_from_data (g_bytes_get_data (bytes, NULL),
-                                   GDK_COLORSPACE_RGB,
-                                   gly_memory_format_has_alpha (format),
-                                   8,
-                                   gly_frame_get_width (frame),
-                                   gly_frame_get_height (frame),
-                                   gly_frame_get_stride (frame),
-                                   drop_frame,
-                                   g_object_ref (frame));
+  return gdk_pixbuf_new_from_bytes (bytes,
+                                    GDK_COLORSPACE_RGB,
+                                    gly_memory_format_has_alpha (format),
+                                    8,
+                                    gly_frame_get_width (frame),
+                                    gly_frame_get_height (frame),
+                                    gly_frame_get_stride (frame));
 }
 
 static GdkPixbuf *
