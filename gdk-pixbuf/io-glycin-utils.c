@@ -99,87 +99,31 @@ gdk_pixbuf__glycin_image_begin_load (GdkPixbufModuleSizeFunc       size_func,
   return context;
 }
 
-static GdkPixbuf *
-convert_glycin_frame_to_pixbuf (GlyFrame  *frame,
-                                GError   **error)
+static void
+drop_frame (guchar   *pixels,
+            gpointer  data)
 {
-  GdkPixbuf *pixbuf;
+  g_object_unref (data);
+}
+
+static GdkPixbuf *
+convert_glycin_frame_to_pixbuf (GlyFrame *frame)
+{
   GBytes *bytes;
-  guchar *data;
-  int R, G, B, A;
-  int bpp;
-  gboolean has_alpha;
   GlyMemoryFormat format;
 
-  format = gly_frame_get_memory_format (frame);
-  switch ((int) format)
-    {
-    case GLY_MEMORY_B8G8R8A8:
-      B = 0; G = 1; R = 2; A = 3;
-      bpp = 4;
-      break;
-
-    case GLY_MEMORY_A8R8G8B8:
-      A = 0; R = 1; G = 2; B = 3;
-      bpp = 4;
-      break;
-
-    case GLY_MEMORY_R8G8B8A8:
-      R = 0; G = 1; B = 2; A = 3;
-      bpp = 4;
-      break;
-
-    case GLY_MEMORY_A8B8G8R8:
-      A = 0; B = 1; G = 2; R = 3;
-      bpp = 4;
-      break;
-
-    case GLY_MEMORY_R8G8B8:
-      R = 0; G = 1; B = 2; A = -1;
-      bpp = 3;
-      break;
-
-    case GLY_MEMORY_B8G8R8:
-      B = 0; G = 1; R = 2; A = -1;
-      bpp = 3;
-      break;
-
-    default:
-      g_set_error (error,
-                   GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION,
-                   "Glycin memory format %u not handled", format);
-      return NULL;
-    }
-
   bytes = gly_frame_get_buf_bytes (frame);
-  data = g_bytes_get_data (bytes, NULL);
-  has_alpha = A == -1 ? FALSE : TRUE;
-  pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, has_alpha, 8,
-                           gly_frame_get_width (frame),
-                           gly_frame_get_height (frame));
+  format = gly_frame_get_memory_format (frame);
 
-  for (gsize y = 0; y < gly_frame_get_height (frame); y++)
-    {
-      guchar *src = data + y * gly_frame_get_stride (frame);
-      guchar *dst = gdk_pixbuf_get_pixels (pixbuf) + y * gdk_pixbuf_get_rowstride (pixbuf);
-
-      for (gsize x = 0; x < gly_frame_get_width (frame); x++, src += bpp)
-        {
-          if (has_alpha)
-            {
-              dst += 4;
-              dst[3] = src[A];
-            }
-          else
-            dst += 3;
-
-          dst[0] = src[R];
-          dst[1] = src[G];
-          dst[2] = src[B];
-        }
-    }
-
-  return pixbuf;
+  return gdk_pixbuf_new_from_data (g_bytes_get_data (bytes, NULL),
+                                   GDK_COLORSPACE_RGB,
+                                   gly_memory_format_has_alpha (format),
+                                   8,
+                                   gly_frame_get_width (frame),
+                                   gly_frame_get_height (frame),
+                                   gly_frame_get_stride (frame),
+                                   drop_frame,
+                                   g_object_ref (frame));
 }
 
 static GdkPixbuf *
@@ -202,12 +146,8 @@ load_pixbuf_with_glycin (GFile                    *file,
   if (should_run_unsandboxed ())
     gly_loader_set_sandbox_selector (loader, GLY_SANDBOX_SELECTOR_NOT_SANDBOXED);
 
-  gly_loader_set_accepted_memory_formats (loader, GLY_MEMORY_SELECTION_B8G8R8A8 |
-                                                  GLY_MEMORY_SELECTION_A8R8G8B8 |
-                                                  GLY_MEMORY_SELECTION_R8G8B8A8 |
-                                                  GLY_MEMORY_SELECTION_A8B8G8R8 |
-                                                  GLY_MEMORY_SELECTION_R8G8B8 |
-                                                  GLY_MEMORY_SELECTION_B8G8R8);
+  gly_loader_set_accepted_memory_formats (loader, GLY_MEMORY_SELECTION_R8G8B8A8 |
+                                                  GLY_MEMORY_SELECTION_R8G8B8);
 
   image = gly_loader_load (loader, &local_error);
   if (!image)
@@ -226,7 +166,7 @@ load_pixbuf_with_glycin (GFile                    *file,
   if (!frame)
     goto done;
 
-  pixbuf = convert_glycin_frame_to_pixbuf (frame, &local_error);
+  pixbuf = convert_glycin_frame_to_pixbuf (frame);
 
   keys = gly_image_get_metadata_keys (image);
   if (keys)
