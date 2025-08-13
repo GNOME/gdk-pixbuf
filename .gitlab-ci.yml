@@ -199,7 +199,7 @@ asan-build:
         -Db_lundef=false
         _build
     - meson compile -C _build
-    - meson test -C _build
+    - meson test --no-suite=slow -C _build
 
 ubsan-build:
   extends:
@@ -219,7 +219,7 @@ ubsan-build:
         -Db_lundef=false
         _build
     - meson compile -C _build
-    - meson test -C _build
+    - meson test --no-suite=slow -C _build
 
 static-scan:
   extends:
