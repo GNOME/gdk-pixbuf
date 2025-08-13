@@ -19,6 +19,7 @@ RUN dnf -y install \
         libjpeg-turbo-devel \
         libpng-devel \
         libtiff-devel \
+        libubsan \
         libX11-devel \
         meson \
         python3 \
