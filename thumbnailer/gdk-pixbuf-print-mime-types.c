@@ -23,25 +23,30 @@
 
 int main (int argc, char **argv)
 {
-	GSList *formats, *l;
+	GSList *formats;
+	GSList *all_mime_types = NULL;
 	GString *s;
 
 	formats = gdk_pixbuf_get_formats ();
-	s = g_string_new (NULL);
-	for (l = formats; l != NULL; l = l->next) {
+	for (GSList *l = formats; l != NULL; l = l->next) {
 		GdkPixbufFormat *format = l->data;
 		char **mime_types;
-		guint i;
 
 		mime_types = gdk_pixbuf_format_get_mime_types (format);
-		for (i = 0; mime_types[i] != NULL; i++) {
-			g_string_append (s, mime_types[i]);
-			g_string_append (s, ";");
-		}
-
+		for (guint i = 0; mime_types[i] != NULL; i++)
+			all_mime_types = g_slist_prepend (all_mime_types, g_strdup (mime_types[i]));
 		g_strfreev (mime_types);
 	}
 	g_slist_free (formats);
+
+	all_mime_types = g_slist_sort (all_mime_types, (GCompareFunc)strcmp);
+
+	s = g_string_new (NULL);
+	for (GSList *l = all_mime_types; l != NULL; l = l->next) {
+		g_string_append (s, l->data);
+		g_string_append (s, ";");
+	}
+	g_slist_free_full (all_mime_types, g_free);
 
 	g_print ("%s", s->str);
 	g_string_free (s, TRUE);
