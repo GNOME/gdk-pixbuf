@@ -31,11 +31,13 @@ test_no_construct_properties (void)
   g_assert_cmpint (gdk_pixbuf_get_height (pixbuf), ==, 1);
 
   g_object_get (pixbuf, "pixel-bytes", &bytes, NULL);
-  g_assert (bytes != NULL);
+  g_assert_nonnull (bytes);
   g_bytes_unref (bytes);
 
   g_object_get (pixbuf, "pixels", &pixels, NULL);
   g_assert (pixels != NULL);
+
+  g_object_unref (pixbuf);
 }
 
 #define WIDTH 10

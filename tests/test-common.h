@@ -43,6 +43,12 @@ void add_test_for_all_images (const gchar   *prefix,
                               AddTestFunc    add_test_func);
 
 
+#define _g_assert_error_domain(err, dom)        G_STMT_START { \
+                                                  if (!err || (err)->domain != dom) \
+                                                    g_assertion_message_error (G_LOG_DOMAIN, __FILE__, __LINE__, G_STRFUNC, \
+                                                                               #err, err, dom, 0); \
+                                                } G_STMT_END
+
 G_END_DECLS
 
 #endif  /* __TEST_COMMON_H__ */

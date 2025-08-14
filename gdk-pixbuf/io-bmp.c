@@ -128,12 +128,12 @@ static void DumpBIH(unsigned char *BIH)
 
 struct headerpair {
 	guint32 size;
-	gint32 width;
-	gint32 height;
+	guint32 width;
+	guint32 height;
 	guint depth;
 	guint Negative;		/* Negative = 1 -> top down BMP,
 				   Negative = 0 -> bottom up BMP */
-	guint  n_colors;
+	guint n_colors;
 };
 
 /* Data needed for the "state" during decompression */
@@ -180,10 +180,10 @@ struct bmp_progressive_state {
 	struct headerpair Header;	/* Decoded (BE->CPU) header */
 
 	/* Bit masks, shift amounts, and significant bits for BI_BITFIELDS coding */
-	int r_mask, r_shift, r_bits;
-	int g_mask, g_shift, g_bits;
-	int b_mask, b_shift, b_bits;
-	int a_mask, a_shift, a_bits;
+	unsigned int r_mask, r_shift, r_bits;
+	unsigned int g_mask, g_shift, g_bits;
+	unsigned int b_mask, b_shift, b_bits;
+	unsigned int a_mask, a_shift, a_bits;
 
 	GdkPixbuf *pixbuf;	/* Our "target" */
 };
@@ -206,15 +206,18 @@ static gboolean gdk_pixbuf__bmp_image_load_increment(gpointer data,
  * Does it by hand instead of dereferencing a simple (gint *) cast due to
  * alignment constraints many platforms.
  */
-static int
-lsb_32 (guchar *src)
+static unsigned int
+lsb_32 (unsigned char *src)
 {
-	return src[0] | (src[1] << 8) | (src[2] << 16) | (src[3] << 24);
+	return src[0] |
+               ((unsigned int) src[1] << 8) |
+               ((unsigned int) src[2] << 16) |
+               ((unsigned int) src[3] << 24);
 }
 
 /* Same as above, but for 16-bit little-endian integers. */
-static short
-lsb_16 (guchar *src)
+static unsigned short
+lsb_16 (unsigned char *src)
 {
 	return src[0] | (src[1] << 8);
 }
@@ -253,12 +256,15 @@ decode_bitmasks (guchar *buf,
 		 struct bmp_progressive_state *State, 
 		 GError **error);
 
-static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
-                             struct bmp_progressive_state *State,
-                             GError **error)
+static gboolean
+DecodeHeader (unsigned char *BFH,
+              unsigned char *BIH,
+              struct bmp_progressive_state *State,
+              GError **error)
 {
-	gint clrUsed;
-	guint bytesPerPixel;
+	unsigned int clrUsed;
+        unsigned int maxDepth;
+	unsigned int bytesPerPixel;
 
 	/* First check for the two first bytes content. A sane
 	   BMP file must start with bytes 0x42 0x4D.  */
@@ -335,35 +341,38 @@ static gboolean DecodeHeader(unsigned char *BFH, unsigned char *BIH,
 		return FALSE;
 	}
 
-        if (State->Header.depth > 32)
-          {
+        if (State->Header.depth > 32) {
 		g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
                                      _("BMP image has unsupported depth"));
 		State->read_state = READ_STATE_ERROR;
 		return FALSE;
-          }
+        }
+
+        maxDepth = 1UL << State->Header.depth;
 
 	if (State->Header.size == 12)
-		clrUsed = 1 << State->Header.depth;
+		clrUsed = maxDepth;
 	else
-		clrUsed = (int) (BIH[35] << 24) + (BIH[34] << 16) + (BIH[33] << 8) + (BIH[32]);
+		clrUsed = ((unsigned int) BIH[35] << 24)
+                        + ((unsigned int) BIH[34] << 16)
+                        + ((unsigned int) BIH[33] << 8)
+                        + ((unsigned int) BIH[32]);
 
-        if (clrUsed > (1 << State->Header.depth))
-          {
+        if (clrUsed > maxDepth) {
 		g_set_error_literal (error,
                                      GDK_PIXBUF_ERROR,
                                      GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
                                      _("BMP image has oversize palette"));
 		State->read_state = READ_STATE_ERROR;
 		return FALSE;
-          }
+        }
 
 	if (clrUsed != 0)
 		State->Header.n_colors = clrUsed;
 	else
-            State->Header.n_colors = (1 << State->Header.depth);
+                State->Header.n_colors = maxDepth;
 
 	State->Type = State->Header.depth;	/* This may be less trivial someday */
 
@@ -623,7 +632,7 @@ static gboolean DecodeColormap (guchar *buff,
 
 /* Finds the lowest set bit and the number of set bits */
 static void
-find_bits (int n, int *lowest, int *n_set)
+find_bits (unsigned int n, unsigned int *lowest, unsigned int *n_set)
 {
 	unsigned int i;
 
@@ -639,18 +648,28 @@ find_bits (int n, int *lowest, int *n_set)
 
 /* Decodes the bitmasks for BI_BITFIELDS coding */
 static gboolean
-decode_bitmasks (guchar *buf,
+decode_bitmasks (unsigned char *buf,
 		 struct bmp_progressive_state *State, 
 		 GError **error)
 {
         State->a_mask = State->a_shift = State->a_bits = 0;
-	State->r_mask = buf[0] | (buf[1] << 8) | (buf[2] << 16) | (buf[3] << 24);
+
+	State->r_mask = buf[0] |
+                        ((unsigned int) buf[1] << 8) |
+                        ((unsigned int) buf[2] << 16) |
+                        ((unsigned int) buf[3] << 24);
 	buf += 4;
 
-	State->g_mask = buf[0] | (buf[1] << 8) | (buf[2] << 16) | (buf[3] << 24);
+	State->g_mask = buf[0] |
+                        ((unsigned int) buf[1] << 8) |
+                        ((unsigned int) buf[2] << 16) |
+                        ((unsigned int) buf[3] << 24);
 	buf += 4;
 
-	State->b_mask = buf[0] | (buf[1] << 8) | (buf[2] << 16) | (buf[3] << 24);
+	State->b_mask = buf[0] |
+                        ((unsigned int) buf[1] << 8) |
+                        ((unsigned int) buf[2] << 16) |
+                        ((unsigned int) buf[3] << 24);
 
 	find_bits (State->r_mask, &State->r_shift, &State->r_bits);
 	find_bits (State->g_mask, &State->g_shift, &State->g_bits);
@@ -659,7 +678,10 @@ decode_bitmasks (guchar *buf,
         /* extended v3, v4 and v5 have an alpha mask */
         if (State->Header.size == 56 || State->Header.size == 108 || State->Header.size == 124) {
 	      buf += 4;
-	      State->a_mask = buf[0] | (buf[1] << 8) | (buf[2] << 16) | (buf[3] << 24);
+	      State->a_mask = buf[0] |
+                              ((unsigned int) buf[1] << 8) |
+                              ((unsigned int) buf[2] << 16) |
+                              ((unsigned int) buf[3] << 24);
 	      find_bits (State->a_mask, &State->a_shift, &State->a_bits);
         }
 
@@ -821,10 +843,10 @@ static void OneLine32(struct bmp_progressive_state *context)
 	src = context->buff;
 
 	if (context->Compressed == BI_BITFIELDS) {
-		int r_lshift, r_rshift;
-		int g_lshift, g_rshift;
-		int b_lshift, b_rshift;
-		int a_lshift, a_rshift;
+		unsigned int r_lshift, r_rshift;
+		unsigned int g_lshift, g_rshift;
+		unsigned int b_lshift, b_rshift;
+		unsigned int a_lshift, a_rshift;
 
 		r_lshift = 8 - context->r_bits;
 		g_lshift = 8 - context->g_bits;
@@ -839,7 +861,10 @@ static void OneLine32(struct bmp_progressive_state *context)
 		for (i = 0; i < context->Header.width; i++) {
 			unsigned int v, r, g, b, a;
 
-			v = src[0] | (src[1] << 8) | (src[2] << 16) | (src[3] << 24);
+			v = src[0] |
+                            ((unsigned int) src[1] << 8) |
+                            ((unsigned int) src[2] << 16) |
+                            ((unsigned int) src[3] << 24);
 
 			r = (v & context->r_mask) >> context->r_shift;
 			g = (v & context->g_mask) >> context->g_shift;
@@ -850,13 +875,13 @@ static void OneLine32(struct bmp_progressive_state *context)
 			*pixels++ = (g << g_lshift) | (g >> g_rshift);
 			*pixels++ = (b << b_lshift) | (b >> b_rshift);
                         if (context->a_bits)
-			  *pixels++ = (a << a_lshift) | (a >> a_rshift);
+			        *pixels++ = (a << a_lshift) | (a >> a_rshift);
                         else
-                          *pixels++ = 0xff;
+                                *pixels++ = 0xff;
 
 			src += 4;
 		}
-	} else
+	} else {
 		for (i = 0; i < context->Header.width; i++) {
 			*pixels++ = src[2];
 			*pixels++ = src[1];
@@ -865,6 +890,7 @@ static void OneLine32(struct bmp_progressive_state *context)
 
 			src += 4;
 		}
+        }
 }
 
 static void OneLine24(struct bmp_progressive_state *context)
@@ -906,9 +932,9 @@ static void OneLine16(struct bmp_progressive_state *context)
 	src = context->buff;
 
 	if (context->Compressed == BI_BITFIELDS) {
-		int r_lshift, r_rshift;
-		int g_lshift, g_rshift;
-		int b_lshift, b_rshift;
+		unsigned int r_lshift, r_rshift;
+		unsigned int g_lshift, g_rshift;
+		unsigned int b_lshift, b_rshift;
 
 		r_lshift = 8 - context->r_bits;
 		g_lshift = 8 - context->g_bits;
@@ -919,9 +945,9 @@ static void OneLine16(struct bmp_progressive_state *context)
 		b_rshift = context->b_bits - b_lshift;
 
 		for (i = 0; i < context->Header.width; i++) {
-			int v, r, g, b;
+			unsigned int v, r, g, b;
 
-			v = (int) src[0] | ((int) src[1] << 8);
+			v = (unsigned int) src[0] | ((unsigned int) src[1] << 8);
 
 			r = (v & context->r_mask) >> context->r_shift;
 			g = (v & context->g_mask) >> context->g_shift;
@@ -933,11 +959,11 @@ static void OneLine16(struct bmp_progressive_state *context)
 
 			src += 2;
 		}
-	} else
+	} else {
 		for (i = 0; i < context->Header.width; i++) {
-			int v, r, g, b;
+			unsigned int v, r, g, b;
 
-			v = src[0] | (src[1] << 8);
+			v = (unsigned int) src[0] | ((unsigned int) src[1] << 8);
 
 			r = (v >> 10) & 0x1f;
 			g = (v >> 5) & 0x1f;
@@ -949,6 +975,7 @@ static void OneLine16(struct bmp_progressive_state *context)
 
 			src += 2;
 		}
+        }
 }
 
 static void OneLine8(struct bmp_progressive_state *context)

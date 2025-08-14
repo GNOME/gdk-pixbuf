@@ -998,9 +998,9 @@ scale_line (int *weights, int n_x, int n_y, guchar *dest, int dest_x,
 	    int x_step, int src_width, int check_size, guint32 color1,
 	    guint32 color2)
 {
-  int x = x_init;
+  gint64 x = x_init;
   int i, j;
-  const int n_xy = n_x * n_y;
+  const gint64 n_xy = n_x * n_y;
 
   while (dest < dest_end)
     {
@@ -1013,12 +1013,12 @@ scale_line (int *weights, int n_x, int n_y, guchar *dest, int dest_x,
       if (src_has_alpha)
 	{
 	  unsigned int r = 0, g = 0, b = 0, a = 0;
-	  for (i=0; i<n_y; i++)
+	  for (i = 0; i < n_y; i++)
 	    {
 	      guchar *q = src[i] + x_scaled * src_channels;
 	      int *line_weights  = pixel_weights + n_x * i;
 	      
-	      for (j=0; j<n_x; j++)
+	      for (j = 0; j < n_x; j++)
 		{
 		  unsigned int ta;
 		  
@@ -1059,12 +1059,12 @@ scale_line (int *weights, int n_x, int n_y, guchar *dest, int dest_x,
       else
 	{
 	  unsigned int r = 0, g = 0, b = 0;
-	  for (i=0; i<n_y; i++)
+	  for (i = 0; i < n_y; i++)
 	    {
 	      guchar *q = src[i] + x_scaled * src_channels;
 	      int *line_weights  = pixel_weights + n_x * i;
 	      
-	      for (j=0; j<n_x; j++)
+	      for (j = 0; j < n_x; j++)
 		{
 		  unsigned int ta = line_weights[j];
 		  
@@ -1334,7 +1334,7 @@ pixops_process (guchar         *dest_buf,
    */
 #define MYDIV(a,b) ((a) > 0 ? (a) / (b) : ((a) - (b) + 1) / (b))    /* Division so that -1/5 = -1 */
 
-  run_end_x = (((src_width - filter->x.n + 1) << SCALE_SHIFT) - scaled_x_offset);
+  run_end_x = (((src_width - (gint64) filter->x.n + 1) << SCALE_SHIFT) - scaled_x_offset);
   run_end_index = MYDIV (run_end_x + x_step - 1, x_step) - render_x0;
   run_end_index = MIN (run_end_index, render_x1 - render_x0);
 

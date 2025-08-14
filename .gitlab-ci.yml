@@ -1,10 +1,16 @@
 include:
+  - project: 'Infrastructure/freedesktop-ci-templates'
+    ref: '707b49ef'
+    file:
+      - 'templates/fedora.yml'
   - component: "gitlab.gnome.org/GNOME/citemplates/release-service@master"
     inputs:
       job-stage: "build"
       dist-job-name: "release-build"
 
 stages:
+  - prepare
+  - check
   - build
   - analysis
   - docs
@@ -12,55 +18,229 @@ stages:
 
 # Common variables
 variables:
+  FDO_UPSTREAM_REPO: GNOME/gdk-pixbuf
   CCACHE_DIR: _ccache
   COMMON_MESON_FLAGS: "-Dwerror=true -Dglib:werror=false"
   LOADERS_FLAGS: "-Dpng=enabled -Djpeg=enabled -Dtiff=enabled -Dgif=enabled -Dothers=enabled -Dglycin=disabled"
   MESON_TEST_TIMEOUT_MULTIPLIER: 3
-  FEDORA_IMAGE: "registry.gitlab.gnome.org/gnome/gdk-pixbuf/fedora:v6"
 
-.only-default:
-  only:
-    - branches
-  except:
-    - tags
+workflow:
+  rules:
+    # run merge request pipelines
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    # do not run branch pipelines if corresponding merge requests exist...
+    # (this avoids duplicate pipelines)
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    # ...but otherwise run branch pipelines
+    - if: $CI_COMMIT_BRANCH
+    # run tag pipelines
+    - if: $CI_COMMIT_TAG
 
-.build-linux:
-  extends: .only-default
-  before_script:
-    - mkdir -p _ccache
-  script:
-    - meson setup ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _build .
-    - meson compile -C _build
-    - .gitlab/scripts/run-tests.sh _build
+default:
+  retry:
+    max: 2
+    when:
+      - 'runner_system_failure'
+      - 'stuck_or_timeout_failure'
+      - 'scheduler_failure'
+      - 'api_failure'
+  interruptible: true
+
+.container.fedora:
+  variables:
+    BASE_TAG: '2025-08-13.0'
+    FDO_DISTRIBUTION_VERSION: 42
+    FDO_DISTRIBUTION_TAG: "x86_64-${BASE_TAG}"
+    FDO_DISTRIBUTION_PACKAGES:
+        ccache
+        clang
+        clang-analyzer
+        clang-format
+        gcc
+        gcc-c++
+        gettext
+        gettext-devel
+        gi-docgen
+        git
+        glib2-devel
+        gobject-introspection-devel
+        itstool
+        jasper-devel
+        lcov
+        libasan
+        libjpeg-turbo-devel
+        libpng-devel
+        libtiff-devel
+        libubsan
+        libX11-devel
+        meson
+        python3
+        python3-docutils
+        python3-jinja2
+        python3-markdown
+        python3-pip
+        python3-pygments
+        python3-setuptools
+        python3-toml
+        python3-typogrify
+        python3-wheel
+        redhat-rpm-config
+        shared-mime-info
+
+.distribution.fedora:
+  extends:
+    - .fdo.distribution-image@fedora
+    - .container.fedora
+
+container:fedora:
+  extends:
+    - .container.fedora
+    - .fdo.container-build@fedora@x86_64
+  # DNS issues can cause this to fail
+  retry:
+    max: 2
+    exit_codes: 137
+  stage: prepare
+
+.test-runner:
   artifacts:
+    name: "gdk-pixbuf-${CI_COMMIT_REF_NAME}"
     when: always
-    name: "gdk-pixbuf-${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
-    paths:
-      - "${CI_PROJECT_DIR}/_build/meson-logs"
-      - "${CI_PROJECT_DIR}/_build/report-${CI_JOB_NAME}.xml"
     reports:
       junit:
-        - "${CI_PROJECT_DIR}/_build/report-${CI_JOB_NAME}.xml"
+        - "${CI_PROJECT_DIR}/_build/meson-logs/testlog.junit.xml"
+    paths:
+      - "${CI_PROJECT_DIR}/_build/meson-logs"
+      - "${CI_PROJECT_DIR}/_build/meson-dist"
+
+.dist-runner:
+  artifacts:
+    name: "gdk-pixbuf-dist-${CI_COMMIT_REF_NAME}"
+    when: always
+    paths:
+      - "${CI_PROJECT_DIR}/public-dist"
+
+.scan-runner:
+  artifacts:
+    name: "gdk-pixbuf-scan-${CI_COMMIT_REF_NAME}"
+    when: always
+    paths:
+      - "${CI_PROJECT_DIR}/_scan_build/meson-logs"
+      - "${CI_PROJECT_DIR}/_static_scan"
+
+.build-fedora-default:
+  extends:
+    - .distribution.fedora
   cache:
     key: "$CI_JOB_NAME"
     paths:
       - _ccache/
 
 style-check-diff:
-  extends: .only-default
-  image: $FEDORA_IMAGE
-  stage: .pre
+  extends:
+    - .build-fedora-default
+  needs: ['container:fedora']
+  stage: check
   allow_failure: true
   script:
     - .gitlab/scripts/run-style-check-diff.sh
 
-meson-fedora-x86_64:
+fedora-x86_64:
+  extends:
+    - .test-runner
+    - .build-fedora-default
   stage: build
-  extends: .build-linux
-  image: ${FEDORA_IMAGE}
-  needs: []
+  needs: ["container:fedora"]
+  variables:
+    EXTRA_MESON_FLAGS: "--buildtype=debug --default-library=both"
+  script:
+    - meson setup ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${EXTRA_MESON_FLAGS} _build
+    - meson compile -C _build
+    - meson test -C _build
 
-macos:
+release-build:
+  extends:
+    - .dist-runner
+    - .build-fedora-default
+  stage: build
+  needs: ['container:fedora']
+  variables:
+    EXTRA_MESON_FLAGS: "--buildtype=release"
+  script:
+    - mkdir _install
+    - git config --global --add safe.directory $CI_PROJECT_DIR
+    - meson setup
+            --prefix=${CI_PROJECT_DIR}/_install
+            ${COMMON_MESON_FLAGS}
+            ${LOADERS_FLAGS}
+            ${EXTRA_MESON_FLAGS}
+            _build
+    - meson compile -C _build
+    - meson dist -C _build
+    - cp -r "_build/meson-dist" "${CI_PROJECT_DIR}/public-dist/"
+
+asan-build:
+  extends:
+    - .test-runner
+    - .build-fedora-default
+  tags: [ asan ]
+  stage: analysis
+  needs: ['container:fedora']
+  variables:
+    EXTRA_MESON_FLAGS: "--buildtype=debug -Ddocumentation=false -Dintrospection=disabled"
+    ASAN_OPTIONS: allocator_may_return_null=1
+  script:
+    - meson setup
+        ${COMMON_MESON_FLAGS}
+        ${LOADERS_FLAGS}
+        ${EXTRA_MESON_FLAGS}
+        -Db_sanitize=address
+        -Db_lundef=false
+        _build
+    - meson compile -C _build
+    - meson test --no-suite=slow -C _build
+
+ubsan-build:
+  extends:
+    - .test-runner
+    - .build-fedora-default
+  tags: [ asan ]
+  stage: analysis
+  needs: ['container:fedora']
+  variables:
+    EXTRA_MESON_FLAGS: "--buildtype=debug -Ddocumentation=false -Dintrospection=disabled"
+  script:
+    - meson setup
+        ${COMMON_MESON_FLAGS}
+        ${LOADERS_FLAGS}
+        ${EXTRA_MESON_FLAGS}
+        -Db_sanitize=undefined
+        -Db_lundef=false
+        _build
+    - meson compile -C _build
+    - meson test --no-suite=slow -C _build
+
+static-scan:
+  extends:
+    - .scan-runner
+    - .build-fedora-default
+  tags: [ asan ]
+  stage: analysis
+  needs: ['container:fedora']
+  variables:
+    EXTRA_MESON_FLAGS: "--buildtype=debug -Dintrospection=disabled -Ddocumentation=false"
+  script:
+    - CC=clang meson setup
+        ${COMMON_MESON_FLAGS}
+        ${LOADERS_FLAGS}
+        ${EXTRA_MESON_FLAGS}
+        _scan_build
+    - ninja -C _scan_build scan-build
+    - cp -r _scan_build/meson-logs/scanbuild _static_scan
+  allow_failure: true
+
+macos-build:
   stage: build
   needs: []
   only:
@@ -69,12 +249,18 @@ macos:
     - tags
   tags:
     - macos
+  variables:
+    EXTRA_MESON_FLAGS: "-Dintrospection=disabled -Dinstalled_tests=false -Dman=false -Ddocumentation=false"
   before_script:
     - pip3 install --user meson==1.5
     - pip3 install --user ninja
     - export PATH=/Users/gitlabrunner/Library/Python/3.7/bin:$PATH
   script:
-    - meson setup ${LOADERS_FLAGS} -Dintrospection=disabled -Dinstalled_tests=false -Dman=false -Dgtk_doc=false _build
+    - meson setup
+        ${COMMON_MESON_FLAGS}
+        ${LOADERS_FLAGS}
+        ${EXTRA_MESON_FLAGS}
+        _build
     - meson compile -C _build
   artifacts:
     when: always
@@ -82,7 +268,7 @@ macos:
       - "${CI_PROJECT_DIR}/_build/meson-logs"
   allow_failure: true
 
-msys2-mingw64:
+msys2-mingw64-build:
   stage: build
   needs: []
   tags:
@@ -99,33 +285,20 @@ msys2-mingw64:
     paths:
       - _build/meson-logs
 
-release-build:
-  stage: build
-  image: ${FEDORA_IMAGE}
-  needs: []
-  variables:
-    BUILD_OPTS: "-Dbuildtype=release"
-    MESON_BUILD_DIR: "_build"
-  script:
-    - git config --global --add safe.directory $CI_PROJECT_DIR
-    - meson setup ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} ${MESON_BUILD_DIR} .
-    - meson compile -C ${MESON_BUILD_DIR}
-    - meson dist -C ${MESON_BUILD_DIR}
-    - cp -r "${MESON_BUILD_DIR}/meson-dist" "${CI_PROJECT_DIR}/public-dist/"
-  artifacts:
-    name: "${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}"
-    when: "always"
-    paths:
-      - "public-dist"
-
 reference:
+  extends:
+    - .build-fedora-default
+  tags: [ asan ]
+  needs: ['container:fedora']
   stage: docs
-  image: ${FEDORA_IMAGE}
-  needs: []
   variables:
-    BUILD_OPTS: "-Dbuildtype=release -Dgtk_doc=true"
+    EXTRA_MESON_FLAGS: "-Dbuildtype=release -Dintrospection=enabled -Ddocumentation=true"
   script:
-    - meson setup ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _build .
+    - meson setup
+        ${COMMON_MESON_FLAGS}
+        ${LOADERS_FLAGS}
+        ${EXTRA_MESON_FLAGS}
+        _build
     - meson compile -C _build
     - mkdir -p _reference
     - mv _build/docs/gdk-pixbuf/ _reference/gdk-pixbuf/
@@ -135,43 +308,14 @@ reference:
     paths:
       - _reference
 
-static-scan:
-  image: $FEDORA_IMAGE
-  stage: analysis
-  needs: []
-  variables:
-    BUILD_OPTS: "--buildtype=debug"
-  script:
-    - meson setup ${COMMON_MESON_FLAGS} ${LOADERS_FLAGS} ${BUILD_OPTS} _scan_build
-    - ninja -C _scan_build scan-build
-  artifacts:
-    paths:
-      - _scan_build/meson-logs
-  allow_failure: true
-
-# Run tests with the address sanitizer. We need to turn off introspection,
-# since it is incompatible with asan
-asan-build:
-  image: $FEDORA_IMAGE
-  tags: [ asan ]
-  stage: analysis
-  needs: []
-  variables:
-  script:
-    - CC=clang meson setup ${LOADERS_FLAGS} --buildtype=debugoptimized -Db_sanitize=address -Db_lundef=false -Dintrospection=disabled _build
-    - meson compile -C _build
-    - .gitlab/scripts/run-tests.sh _build
-  artifacts:
-    paths:
-      - _build/meson-logs
-  allow_failure: true
-
 pages:
   stage: deploy
-  needs: ["reference"]
+  needs: ["reference", "static-scan"]
   script:
     - mv _reference public
+    - mv _static_scan public/static-scan/
   artifacts:
+    when: on_success
     paths:
       - public
   only:
