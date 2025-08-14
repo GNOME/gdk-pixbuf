@@ -1323,20 +1323,26 @@ gdk_pixbuf__ico_image_save (FILE          *f,
 			gint64 out;
 			if (strcmp (*kiter, "depth") == 0) {
 				if (!ascii_strtoll (*viter, 1, 32,
-				                    &out, error))
+				                    &out, error)) {
+                                        free_entry (icon);
 					return FALSE;
+                                }
 				icon->depth = out;
 			}
 			else if (strcmp (*kiter, "x_hot") == 0) {
 				if (!ascii_strtoll (*viter, G_MININT, G_MAXINT,
-				                    &out, error))
+				                    &out, error)) {
+                                        free_entry (icon);
 					return FALSE;
+                                }
 				hot_x = out;
 			}
 			else if (strcmp (*kiter, "y_hot") == 0) {
 				if (!ascii_strtoll (*viter, G_MININT, G_MAXINT,
-				                    &out, error))
+				                    &out, error)) {
+                                        free_entry (icon);
 					return FALSE;
+                                }
 				hot_y = out;
 			}
 
