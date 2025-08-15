@@ -140,6 +140,8 @@ load_pixbuf_with_glycin (GFile                    *file,
   gly_loader_set_accepted_memory_formats (loader, GLY_MEMORY_SELECTION_R8G8B8A8 |
                                                   GLY_MEMORY_SELECTION_R8G8B8);
 
+  gly_loader_set_apply_transformations (loader, FALSE);
+
   image = gly_loader_load (loader, &local_error);
   if (!image)
     goto done;
@@ -158,6 +160,14 @@ load_pixbuf_with_glycin (GFile                    *file,
     goto done;
 
   pixbuf = convert_glycin_frame_to_pixbuf (frame);
+
+  if (strcmp (gly_image_get_mime_type (image), "image/jpeg") == 0)
+    {
+      char value[64];
+      g_snprintf (value, sizeof (value), "%u",
+                  gly_image_get_transformation_orientation (image));
+      gdk_pixbuf_set_option (pixbuf, "orientation", value);
+    }
 
   keys = gly_image_get_metadata_keys (image);
   if (keys)
