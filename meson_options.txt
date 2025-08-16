@@ -74,4 +74,4 @@ option('gio_sniffing',
 option('thumbnailer',
        description: 'Build the thumbnailer',
        type: 'feature',
-       value: 'enabled')
+       value: 'auto')
