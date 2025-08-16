@@ -107,6 +107,11 @@ filter_keys (char    **keys,
       *out_keys = filtered_keys;
       *out_values = filtered_values;
     }
+  else
+    {
+      g_free (filtered_keys);
+      g_free (filtered_values);
+    }
 
   if (icc_data)
     *icc_bytes = g_bytes_new_take (icc_data, icc_length);
