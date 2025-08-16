@@ -426,7 +426,8 @@ if not meson.is_cross_build()
   if get_option('tests')
     subdir('tests')
   endif
-  if get_option('thumbnailer').enabled()
+  thumbnailer_opt = get_option('thumbnailer').disable_auto_if(host_machine.system() == 'linux')
+  if thumbnailer_opt.enabled()
     subdir('thumbnailer')
   endif
 endif
