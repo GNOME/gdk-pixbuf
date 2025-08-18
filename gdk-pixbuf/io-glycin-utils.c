@@ -131,6 +131,7 @@ load_pixbuf_with_glycin (GFile                    *file,
   GError *local_error = NULL;
   int width, height;
   char **keys;
+  char value[64];
 
   loader = gly_loader_new (file);
 
@@ -161,13 +162,9 @@ load_pixbuf_with_glycin (GFile                    *file,
 
   pixbuf = convert_glycin_frame_to_pixbuf (frame);
 
-  if (strcmp (gly_image_get_mime_type (image), "image/jpeg") == 0)
-    {
-      char value[64];
-      g_snprintf (value, sizeof (value), "%u",
-                  gly_image_get_transformation_orientation (image));
-      gdk_pixbuf_set_option (pixbuf, "orientation", value);
-    }
+  g_snprintf (value, sizeof (value), "%u",
+              gly_image_get_transformation_orientation (image));
+  gdk_pixbuf_set_option (pixbuf, "orientation", value);
 
   keys = gly_image_get_metadata_keys (image);
   if (keys)
