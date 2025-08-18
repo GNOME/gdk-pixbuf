@@ -358,6 +358,9 @@ glycin_image_save (const char         *mimetype,
   if (!creator)
     return FALSE;
 
+  if (should_run_unsandboxed ())
+    gly_creator_set_sandbox_selector (creator, GLY_SANDBOX_SELECTOR_NOT_SANDBOXED);
+
   data = gdk_pixbuf_read_pixel_bytes (pixbuf);
   width = gdk_pixbuf_get_width (pixbuf);
   height = gdk_pixbuf_get_height (pixbuf);
