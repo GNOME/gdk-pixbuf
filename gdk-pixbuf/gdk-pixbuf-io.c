@@ -695,16 +695,17 @@ gdk_pixbuf_io_init_builtin (void)
 static gboolean
 gdk_pixbuf_io_init (void)
 {
+#ifdef USE_GMODULE
 	char *module_file;
-	gboolean ret;
+
+	module_file = gdk_pixbuf_get_module_file ();
+	gdk_pixbuf_io_init_modules (module_file, NULL);
+	g_free (module_file);
+#endif
 
 	gdk_pixbuf_io_init_builtin ();
-#ifdef USE_GMODULE
-	module_file = gdk_pixbuf_get_module_file ();
-#endif
-	ret = gdk_pixbuf_io_init_modules (module_file, NULL);
-	g_free (module_file);
-	return ret;
+
+	return file_formats != NULL;
 }
 
 #define module(type) \
