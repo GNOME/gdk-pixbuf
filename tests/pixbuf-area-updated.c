@@ -38,6 +38,8 @@ typedef struct {
     GdkPixbuf *pixbuf; /* current content of the frame */
 } FrameData;
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
 /* Auxiliary function, returns numeric representation of pixel.
  * For RGB format it is rrggbb(in hex), for RGBA - rrggbbaa. */
 static guint32

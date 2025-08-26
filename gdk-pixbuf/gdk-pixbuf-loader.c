@@ -324,10 +324,14 @@ gdk_pixbuf_loader_prepare (GdkPixbuf          *pixbuf,
         gint width, height;
         g_return_if_fail (pixbuf != NULL);
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
         width = anim ? gdk_pixbuf_animation_get_width (anim) :
                 gdk_pixbuf_get_width (pixbuf);
         height = anim ? gdk_pixbuf_animation_get_height (anim) :
                 gdk_pixbuf_get_height (pixbuf);
+
+G_GNUC_END_IGNORE_DEPRECATIONS
 
         if (!priv->size_fixed) 
                 {
@@ -361,9 +365,12 @@ gdk_pixbuf_loader_prepare (GdkPixbuf          *pixbuf,
                         g_free (original_height_str);
                 }
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
                 anim = gdk_pixbuf_non_anim_new (pixbuf);
+G_GNUC_END_IGNORE_DEPRECATIONS
         }
-  
+
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 	if (priv->needs_scale && width != 0 && height != 0) {
 		priv->animation  = GDK_PIXBUF_ANIMATION (_gdk_pixbuf_scaled_anim_new (anim,
                                          (double) priv->width / width,
@@ -373,6 +380,7 @@ gdk_pixbuf_loader_prepare (GdkPixbuf          *pixbuf,
 	}
 	else
         	priv->animation = anim;
+G_GNUC_END_IGNORE_DEPRECATIONS
   
         if (!priv->needs_scale)
                 g_signal_emit (loader, pixbuf_loader_signals[AREA_PREPARED], 0);
@@ -388,6 +396,7 @@ gdk_pixbuf_loader_update (GdkPixbuf *pixbuf,
 {
         GdkPixbufLoaderPrivate *priv = GDK_PIXBUF_LOADER (loader)->priv;
   
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
         if (!priv->needs_scale)
                 g_signal_emit (loader,
                                pixbuf_loader_signals[AREA_UPDATED],
@@ -396,6 +405,7 @@ gdk_pixbuf_loader_update (GdkPixbuf *pixbuf,
                                /* sanity check in here.  Defend against an errant loader */
                                MIN (width, gdk_pixbuf_animation_get_width (priv->animation)),
                                MIN (height, gdk_pixbuf_animation_get_height (priv->animation)));
+G_GNUC_END_IGNORE_DEPRECATIONS
 }
 
 /* Defense against broken loaders; DO NOT take this as a GError example! */
@@ -766,10 +776,12 @@ gdk_pixbuf_loader_get_pixbuf (GdkPixbufLoader *loader)
   
         priv = loader->priv;
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
         if (priv->animation)
                 return gdk_pixbuf_animation_get_static_image (priv->animation);
         else
                 return NULL;
+G_GNUC_END_IGNORE_DEPRECATIONS
 }
 
 /**

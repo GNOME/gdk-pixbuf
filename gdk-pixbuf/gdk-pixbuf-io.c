@@ -47,6 +47,8 @@
 #include <mach-o/dyld.h>
 #endif
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
 /**
  * GdkPixbufModule:
  * @module_name: the name of the module, usually the same as the

@@ -70,6 +70,8 @@
 #define BitSet(byte, bit)  (((byte) & (bit)) == (bit))
 #define LM_to_uint(a,b)         (((b)<<8)|(a))
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
 
 
 typedef unsigned char CMap[3][MAXCOLORMAPSIZE];
