@@ -1,3 +1,16 @@
+2.43.5 (development)
+===
+
+- The animation-related APIs have been deprecated
+- jpeg: Fix a crash related to icc data (CVE-2025-7345)
+- glycin: Save jpeg without alpha
+- glycin: Simplify wrapping code and avoid a copy
+- glycin: Support exif orientation
+- glycin: Set sandbox mode for saving
+- Plug some memory leaks
+- build: Disabled the thumbnailer by default on Linux
+- Prefer builtin modules
+
 2.43.3 (development)
 ===
 
