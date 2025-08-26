@@ -51,17 +51,18 @@ GType gdk_pixbuf_simple_anim_get_type (void) G_GNUC_CONST;
 GDK_PIXBUF_AVAILABLE_IN_ALL
 GType gdk_pixbuf_simple_anim_iter_get_type (void) G_GNUC_CONST;
 
-GDK_PIXBUF_AVAILABLE_IN_2_8
+GDK_PIXBUF_DEPRECATED_IN_2_44
 GdkPixbufSimpleAnim *gdk_pixbuf_simple_anim_new           (gint   width, 
                                                            gint   height,
                                                            gfloat rate);
-GDK_PIXBUF_AVAILABLE_IN_2_8
+
+GDK_PIXBUF_DEPRECATED_IN_2_44
 void                 gdk_pixbuf_simple_anim_add_frame     (GdkPixbufSimpleAnim *animation,
                                                            GdkPixbuf           *pixbuf);
-GDK_PIXBUF_AVAILABLE_IN_ALL
+GDK_PIXBUF_DEPRECATED_IN_2_44
 void                 gdk_pixbuf_simple_anim_set_loop      (GdkPixbufSimpleAnim *animation,
                                                            gboolean             loop);
-GDK_PIXBUF_AVAILABLE_IN_ALL
+GDK_PIXBUF_DEPRECATED_IN_2_44
 gboolean             gdk_pixbuf_simple_anim_get_loop      (GdkPixbufSimpleAnim *animation);
 
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (GdkPixbufSimpleAnim, g_object_unref)
