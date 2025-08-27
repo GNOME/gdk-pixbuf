@@ -26,6 +26,7 @@
 #include "gdk-pixbuf-io.h"
 #include "gdk-pixbuf-scaled-anim.h"
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 
 struct _GdkPixbufScaledAnimClass
 {

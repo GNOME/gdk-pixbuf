@@ -23,6 +23,8 @@
 #include "test-common.h"
 #include <string.h>
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
 const gchar *
 get_test_path (const gchar *filename)
 {

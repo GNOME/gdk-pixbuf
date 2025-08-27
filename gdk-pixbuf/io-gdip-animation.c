@@ -25,6 +25,8 @@
 #include "io-gdip-native.h"
 #include "io-gdip-animation.h"
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
 static void gdk_pixbuf_gdip_anim_finalize   (GObject        *object);
 
 static gboolean                gdk_pixbuf_gdip_anim_is_static_image  (GdkPixbufAnimation *animation);

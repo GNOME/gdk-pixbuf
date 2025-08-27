@@ -27,6 +27,8 @@
 #include "io-gif-animation.h"
 #include "lzw.h"
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
 static void gdk_pixbuf_gif_anim_finalize   (GObject        *object);
 
 static gboolean                gdk_pixbuf_gif_anim_is_static_image  (GdkPixbufAnimation *animation);

@@ -32,6 +32,8 @@
 #include "gdk-pixbuf-private.h"
 #include "gdk-pixbuf-simple-anim.h"
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
 struct _GdkPixbufSimpleAnimClass
 {
         GdkPixbufAnimationClass parent_class;
