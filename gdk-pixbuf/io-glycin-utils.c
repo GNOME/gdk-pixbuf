@@ -33,6 +33,8 @@
 
 #include <glycin.h>
 
+/* {{{ Utilities */
+
 static gboolean
 should_run_unsandboxed (void)
 {
@@ -52,52 +54,49 @@ should_run_unsandboxed (void)
   return FALSE;
 }
 
-typedef struct _GlycinContext GlycinContext;
-struct _GlycinContext
+#ifdef HAVE_READLINK
+static GFile *
+g_file_from_file (FILE    *f,
+                  GError **error)
 {
-  GdkPixbufModuleSizeFunc size_func;
-  GdkPixbufModulePreparedFunc prepared_func;
-  GdkPixbufModuleUpdatedFunc updated_func;
-  gpointer user_data;
+  char proc_path[256];
+  char filename[256] = { 0, };
+  ssize_t s;
 
-  GFile *file;
-  GIOStream *iostream;
-  gboolean all_ok;
-};
+  g_snprintf (proc_path, sizeof (proc_path), "/proc/%u/fd/%d", getpid (), fileno (f));
+  s = readlink (proc_path, filename, sizeof (filename));
 
-static gpointer
-gdk_pixbuf__glycin_image_begin_load (GdkPixbufModuleSizeFunc       size_func,
-                                     GdkPixbufModulePreparedFunc   prepared_func,
-                                     GdkPixbufModuleUpdatedFunc    updated_func,
-                                     gpointer                      user_data,
-                                     GError                      **error)
-{
-  GlycinContext *context;
-  GFile *file;
-  GFileIOStream *iostream;
-
-  g_assert (size_func != NULL);
-  g_assert (prepared_func != NULL);
-  g_assert (updated_func != NULL);
-
-  context = g_new (GlycinContext, 1);
-  context->size_func = size_func;
-  context->prepared_func = prepared_func;
-  context->updated_func = updated_func;
-  context->user_data = user_data;
-  context->all_ok = TRUE;
-  file = g_file_new_tmp ("gdk-pixbuf-glycin-tmp.XXXXXX", &iostream, error);
-  if (file == NULL)
+  if (s < 0)
     {
-      g_free (context);
+      g_set_error_literal (error,
+                           G_IO_ERROR, G_IO_ERROR_FAILED,
+                           "Failed to get the filename");
+      return NULL;
+    }
+  else if (s == sizeof (filename))
+    {
+      g_set_error_literal (error,
+                           G_IO_ERROR, G_IO_ERROR_FAILED,
+                           "Filename too long");
       return NULL;
     }
 
-  context->file = file;
-  context->iostream = G_IO_STREAM (iostream);
-
-  return context;
+  return g_file_new_for_path (filename);
 }
+#else
+static GFile *
+g_file_from_file (FILE    *f,
+                  GError **error)
+{
+  g_set_error_literal (error,
+                       G_IO_ERROR, G_IO_ERROR_FAILED,
+                       "Failed to wrap FILE in GFile");
+  return NULL;
+}
+#endif
+
+/* }}} */
+/* {{{ Loading */
 
 static GdkPixbuf *
 convert_glycin_frame_to_pixbuf (GlyFrame *frame)
@@ -206,46 +205,55 @@ done:
   return pixbuf;
 }
 
-#ifdef HAVE_READLINK
-static GFile *
-g_file_from_file (FILE    *f,
-                  GError **error)
+/* }}} */
+/* {{{ Vfuncs */
+
+typedef struct _GlycinContext GlycinContext;
+struct _GlycinContext
 {
-  char proc_path[256];
-  char filename[256] = { 0, };
-  ssize_t s;
+  GdkPixbufModuleSizeFunc size_func;
+  GdkPixbufModulePreparedFunc prepared_func;
+  GdkPixbufModuleUpdatedFunc updated_func;
+  gpointer user_data;
 
-  g_snprintf (proc_path, sizeof (proc_path), "/proc/%u/fd/%d", getpid (), fileno (f));
-  s = readlink (proc_path, filename, sizeof (filename));
+  GFile *file;
+  GIOStream *iostream;
+  gboolean all_ok;
+};
 
-  if (s < 0)
+static gpointer
+gdk_pixbuf__glycin_image_begin_load (GdkPixbufModuleSizeFunc       size_func,
+                                     GdkPixbufModulePreparedFunc   prepared_func,
+                                     GdkPixbufModuleUpdatedFunc    updated_func,
+                                     gpointer                      user_data,
+                                     GError                      **error)
+{
+  GlycinContext *context;
+  GFile *file;
+  GFileIOStream *iostream;
+
+  g_assert (size_func != NULL);
+  g_assert (prepared_func != NULL);
+  g_assert (updated_func != NULL);
+
+  context = g_new (GlycinContext, 1);
+  context->size_func = size_func;
+  context->prepared_func = prepared_func;
+  context->updated_func = updated_func;
+  context->user_data = user_data;
+  context->all_ok = TRUE;
+  file = g_file_new_tmp ("gdk-pixbuf-glycin-tmp.XXXXXX", &iostream, error);
+  if (file == NULL)
     {
-      g_set_error_literal (error,
-                           G_IO_ERROR, G_IO_ERROR_FAILED,
-                           "Failed to get the filename");
+      g_free (context);
       return NULL;
     }
-  else if (s == sizeof (filename))
-    {
-      g_set_error_literal (error,
-                           G_IO_ERROR, G_IO_ERROR_FAILED,
-                           "Filename too long");
-      return NULL;
-    }
 
-  return g_file_new_for_path (filename);
+  context->file = file;
+  context->iostream = G_IO_STREAM (iostream);
+
+  return context;
 }
-#else
-static GFile *
-g_file_from_file (FILE    *f,
-                  GError **error)
-{
-  g_set_error_literal (error,
-                       G_IO_ERROR, G_IO_ERROR_FAILED,
-                       "Failed to wrap FILE in GFile");
-  return NULL;
-}
-#endif
 
 static GdkPixbuf *
 gdk_pixbuf__glycin_image_load (FILE *f, GError **error)
@@ -447,3 +455,7 @@ glycin_fill_vtable (GdkPixbufModule *module)
   module->stop_load = gdk_pixbuf__glycin_image_stop_load;
   module->load_increment = gdk_pixbuf__glycin_image_load_increment;
 }
+
+/* }}} */
+
+/* vim:set foldmethod=marker: */
