@@ -435,6 +435,8 @@ if not meson.is_cross_build()
   if not thumbnailer_opt.disabled()
     subdir('thumbnailer')
   endif
+else
+  thumbnailer_opt = disabler()
 endif
 
 # Documentation
