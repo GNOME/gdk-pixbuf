@@ -40,7 +40,7 @@ option('gtk_doc',
 option('documentation',
        description: 'Build the API reference (requires gi-docgen)',
        type: 'boolean',
-       value: true,
+       value: false,
        yield: true)
 option('introspection',
        description: 'Whether to generate the API introspection data (requires GObject-Introspection)',
