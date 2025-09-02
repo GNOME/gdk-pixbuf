@@ -3,7 +3,6 @@ gidocgen_dep = dependency('gi-docgen',
   required: get_option('documentation'),
 )
 
-
 toml_conf = configuration_data()
 toml_conf.set('VERSION', meson.project_version())
 pixbuf_toml = configure_file(input: 'gdk-pixbuf.toml.in', output: 'gdk-pixbuf.toml', configuration: toml_conf)
@@ -16,6 +15,10 @@ expand_content_md_files = [
 ]
 
 build_docs = get_option('documentation')
+
+if build_docs and not build_gir
+  error('API reference requires introspection.')
+endif
 
 if build_docs
   custom_target('gdk-pixbuf-doc',
