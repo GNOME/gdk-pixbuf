@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: gtk+ 2.8.2\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues\n"
 "POT-Creation-Date: 2020-11-10 02:27+0000\n"
-"PO-Revision-Date: 2025-03-08 13:40+0100\n"
+"PO-Revision-Date: 2025-09-05 13:40+0100\n"
 "Last-Translator: Miquel-Àngel Burgos i Fradeja <miquel.angel.burgos@gmail."
 "com>\n"
 "Language-Team: Catalan <Catalan <info@softcatala.org>>\n"
@@ -94,7 +94,7 @@ msgstr "Té alfa"
 
 #: gdk-pixbuf/gdk-pixbuf.c:257
 msgid "Whether the pixbuf has an alpha channel"
-msgstr "Si el pixbuf té una canal alfa"
+msgstr "Si el pixbuf té un canal alfa"
 
 #: gdk-pixbuf/gdk-pixbuf.c:270
 msgid "Bits per Sample"
@@ -448,7 +448,7 @@ msgstr "No hi ha memòria suficient per a carregar el fitxer GIF"
 
 #: gdk-pixbuf/io-gif.c:507
 msgid "GIF image is corrupt (incorrect LZW compression)"
-msgstr "La imatge GIF està malmesa (la compressió LZW és incorrecte)"
+msgstr "La imatge GIF està malmesa (la compressió LZW és incorrecta)"
 
 #: gdk-pixbuf/io-gif.c:536
 msgid "File does not appear to be a GIF file"
