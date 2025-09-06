@@ -30,6 +30,7 @@
 #include <errno.h>
 #include "gdk-pixbuf-core.h"
 #include "gdk-pixbuf-io.h"
+#include "gdk-pixbuf-animation.h"
 
 #include <glycin.h>
 
@@ -95,9 +96,6 @@ g_file_from_file (FILE    *f,
 }
 #endif
 
-/* }}} */
-/* {{{ Loading */
-
 static GdkPixbuf *
 convert_glycin_frame_to_pixbuf (GlyFrame *frame)
 {
@@ -115,6 +113,269 @@ convert_glycin_frame_to_pixbuf (GlyFrame *frame)
                                     gly_frame_get_height (frame),
                                     gly_frame_get_stride (frame));
 }
+
+/* }}} */
+/* {{{ Animations */
+
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+static gint64
+timeval_to_usec (const GTimeVal *timeval)
+{
+  return timeval->tv_sec * G_USEC_PER_SEC + timeval->tv_usec;
+}
+
+typedef struct {
+  GdkPixbuf *pixbuf;
+  gint64 delay; // usec
+} GdkPixbufGlycinFrame;
+
+static void
+gdk_pixbuf_glycin_frame_clear (GdkPixbufGlycinFrame *frame)
+{
+  g_object_unref (frame->pixbuf);
+}
+
+#define GDK_PIXBUF_TYPE_GLYCIN_ANIMATION (gdk_pixbuf_glycin_animation_get_type ())
+#define GDK_PIXBUF_TYPE_GLYCIN_ANIMATION_ITER (gdk_pixbuf_glycin_animation_iter_get_type ())
+G_DECLARE_FINAL_TYPE (GdkPixbufGlycinAnimation, gdk_pixbuf_glycin_animation, GDK_PIXBUF, GLYCIN_ANIMATION, GdkPixbufAnimation)
+G_DECLARE_FINAL_TYPE (GdkPixbufGlycinAnimationIter, gdk_pixbuf_glycin_animation_iter, GDK_PIXBUF, GLYCIN_ANIMATION_ITER, GdkPixbufAnimationIter)
+
+struct _GdkPixbufGlycinAnimation
+{
+  GdkPixbufAnimation parent_instance;
+  gint32 width, height;
+
+  GlyImage *image;
+  GArray *decoded;
+};
+
+struct _GdkPixbufGlycinAnimationIter
+{
+  GdkPixbufAnimationIter parent_instance;
+
+  GdkPixbufGlycinAnimation *animation;
+  guint idx;
+  gint64 time;
+  gboolean on_last_frame;
+};
+
+G_DEFINE_FINAL_TYPE (GdkPixbufGlycinAnimation, gdk_pixbuf_glycin_animation, GDK_TYPE_PIXBUF_ANIMATION)
+G_DEFINE_FINAL_TYPE (GdkPixbufGlycinAnimationIter, gdk_pixbuf_glycin_animation_iter, GDK_TYPE_PIXBUF_ANIMATION_ITER)
+
+static void
+gdk_pixbuf_glycin_animation_finalize (GObject *object)
+{
+  GdkPixbufGlycinAnimation *self = (GdkPixbufGlycinAnimation *) object;
+
+  g_array_unref (self->decoded);
+  g_object_unref (self->image);
+
+  G_OBJECT_CLASS (gdk_pixbuf_glycin_animation_parent_class)->finalize (object);
+}
+
+static gboolean
+gdk_pixbuf_glycin_animation_is_static_image (G_GNUC_UNUSED GdkPixbufAnimation *animation)
+{
+  return FALSE;
+}
+
+static GdkPixbuf *
+gdk_pixbuf_glycin_animation_get_static_image (GdkPixbufAnimation *animation)
+{
+  GdkPixbufGlycinAnimation *self = (GdkPixbufGlycinAnimation *) animation;
+
+  if (self->decoded->len >= 1)
+    return g_array_index (self->decoded, GdkPixbufGlycinFrame, 0).pixbuf;
+  else
+    return NULL;
+}
+
+static void
+gdk_pixbuf_glycin_animation_get_size (GdkPixbufAnimation *animation,
+                                      int                *width,
+                                      int                *height)
+{
+  GdkPixbufGlycinAnimation *self = (GdkPixbufGlycinAnimation *) animation;
+
+  if (width)
+    *width = self->width;
+  if (height)
+    *height = self->height;
+}
+
+static GdkPixbufAnimationIter *
+gdk_pixbuf_glycin_animation_get_iter (GdkPixbufAnimation *animation,
+                                      const GTimeVal     *start_time)
+{
+  GdkPixbufGlycinAnimation *self = (GdkPixbufGlycinAnimation *) animation;
+  GdkPixbufGlycinAnimationIter *iter;
+
+  if (self->decoded->len > 0)
+    {
+      iter = g_object_new (GDK_PIXBUF_TYPE_GLYCIN_ANIMATION_ITER, NULL);
+      iter->animation = g_object_ref (self);
+      iter->idx = 0;
+      iter->time = timeval_to_usec (start_time);
+      iter->on_last_frame = FALSE;
+    }
+  else
+    iter = NULL;
+
+  return (GdkPixbufAnimationIter *) iter;
+}
+
+static void
+gdk_pixbuf_glycin_animation_class_init (GdkPixbufGlycinAnimationClass *klass)
+{
+  GObjectClass *object_class = (GObjectClass *) klass;
+  GdkPixbufAnimationClass *animation_class = (GdkPixbufAnimationClass *) klass;
+
+  object_class->finalize = gdk_pixbuf_glycin_animation_finalize;
+  animation_class->is_static_image = gdk_pixbuf_glycin_animation_is_static_image;
+  animation_class->get_static_image = gdk_pixbuf_glycin_animation_get_static_image;
+  animation_class->get_size = gdk_pixbuf_glycin_animation_get_size;
+  animation_class->get_iter = gdk_pixbuf_glycin_animation_get_iter;
+}
+
+static void
+gdk_pixbuf_glycin_animation_init (GdkPixbufGlycinAnimation *self)
+{
+  self->width = -1;
+  self->height = -1;
+  self->image = NULL;
+  self->decoded = g_array_new (FALSE, FALSE, sizeof (GdkPixbufGlycinFrame));
+  g_array_set_clear_func (self->decoded,
+                          (GDestroyNotify) gdk_pixbuf_glycin_frame_clear);
+}
+
+static void
+gdk_pixbuf_glycin_animation_iter_finalize (GObject *object)
+{
+  GdkPixbufGlycinAnimationIter *self = (GdkPixbufGlycinAnimationIter *) object;
+
+  g_object_unref (self->animation);
+
+  G_OBJECT_CLASS (gdk_pixbuf_glycin_animation_iter_parent_class)->finalize (object);
+}
+
+static int
+gdk_pixbuf_glycin_animation_iter_get_delay_time (GdkPixbufAnimationIter *iter)
+{
+  GdkPixbufGlycinAnimationIter *self = (GdkPixbufGlycinAnimationIter *) iter;
+  int delay_time;
+
+  if (self->on_last_frame)
+    return -1;
+
+  delay_time = g_array_index (self->animation->decoded, GdkPixbufGlycinFrame, self->idx).delay / 1000; /* usec to millis */
+
+  return delay_time;
+}
+
+static GdkPixbuf *
+gdk_pixbuf_glycin_animation_iter_get_pixbuf (GdkPixbufAnimationIter *iter)
+{
+  GdkPixbufGlycinAnimationIter *self = (GdkPixbufGlycinAnimationIter *) iter;
+
+  return g_array_index (self->animation->decoded, GdkPixbufGlycinFrame, self->idx).pixbuf;
+}
+
+static gboolean
+gdk_pixbuf_glycin_animation_iter_on_currently_loading_frame (G_GNUC_UNUSED GdkPixbufAnimationIter *iter)
+{
+  return FALSE;
+}
+
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+static gboolean
+gdk_pixbuf_glycin_animation_iter_advance (GdkPixbufAnimationIter *iter,
+                                          const GTimeVal         *current_time)
+{
+  GdkPixbufGlycinAnimationIter *self = (GdkPixbufGlycinAnimationIter *) iter;
+  gint64 new_time;
+  gboolean retval;
+
+  if (self->on_last_frame)
+    return FALSE;
+
+  new_time = timeval_to_usec (current_time);
+
+  retval = FALSE;
+  while ((self->time + g_array_index (self->animation->decoded, GdkPixbufGlycinFrame, self->idx).delay) < new_time)
+    {
+      if (self->animation->decoded->len <= self->idx + 1) // currently on last decoded frame
+        {
+          GlyFrame *gly_frame;
+          GdkPixbufGlycinFrame frame;
+
+          gly_frame = gly_image_next_frame (self->animation->image, NULL);
+          if (!gly_frame)
+            return FALSE;
+
+          frame.pixbuf = convert_glycin_frame_to_pixbuf (gly_frame);
+          frame.delay = gly_frame_get_delay (gly_frame);
+          g_array_append_val (self->animation->decoded, frame);
+
+          g_object_unref (gly_frame);
+        }
+
+      self->time += g_array_index (self->animation->decoded, GdkPixbufGlycinFrame, self->idx).delay;
+      self->idx++;
+      retval = TRUE;
+    }
+
+  return retval;
+}
+G_GNUC_END_IGNORE_DEPRECATIONS
+
+static void
+gdk_pixbuf_glycin_animation_iter_class_init (GdkPixbufGlycinAnimationIterClass *klass)
+{
+  GObjectClass *object_class = (GObjectClass *) klass;
+  GdkPixbufAnimationIterClass *iter_class = (GdkPixbufAnimationIterClass *) klass;
+
+  object_class->finalize = gdk_pixbuf_glycin_animation_iter_finalize;
+
+  iter_class->get_delay_time = gdk_pixbuf_glycin_animation_iter_get_delay_time;
+  iter_class->get_pixbuf = gdk_pixbuf_glycin_animation_iter_get_pixbuf;
+  iter_class->on_currently_loading_frame = gdk_pixbuf_glycin_animation_iter_on_currently_loading_frame;
+  iter_class->advance = gdk_pixbuf_glycin_animation_iter_advance;
+}
+
+static void
+gdk_pixbuf_glycin_animation_iter_init (GdkPixbufGlycinAnimationIter *self)
+{
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+  GTimeVal current;
+
+  g_get_current_time (&current);
+  self->time = timeval_to_usec (&current);
+G_GNUC_END_IGNORE_DEPRECATIONS
+
+  self->animation = NULL;
+  self->idx = 0;
+  self->on_last_frame = FALSE;
+}
+
+static GdkPixbufGlycinAnimation *
+gdk_pixbuf_glycin_animation_new (GlyImage *image,
+                                 gint32    width,
+                                 gint32    height)
+{
+  GdkPixbufGlycinAnimation *self;
+
+  self = g_object_new (GDK_PIXBUF_TYPE_GLYCIN_ANIMATION, NULL);
+  self->width = width;
+  self->height = height;
+  self->image = g_object_ref (image);
+
+  return self;
+}
+
+G_GNUC_END_IGNORE_DEPRECATIONS
+
+/* }}} */
+/* {{{ Loading */
 
 static GdkPixbuf *
 load_pixbuf_with_glycin (GFile                    *file,
@@ -152,7 +413,6 @@ load_pixbuf_with_glycin (GFile                    *file,
     size_func (&width, &height, user_data);
 
   request = gly_frame_request_new ();
-
   gly_frame_request_set_scale (request, width, height);
 
   frame = gly_image_get_specific_frame (image, request, &local_error);
@@ -203,6 +463,97 @@ done:
     }
 
   return pixbuf;
+}
+
+static GdkPixbufAnimation *
+load_animation_with_glycin (GFile                    *file,
+                            GdkPixbufModuleSizeFunc   size_func,
+                            gpointer                  user_data,
+                            GError                  **error)
+{
+  GlyLoader *loader;
+  GlyImage *image;
+  GlyFrameRequest *request = NULL;
+  GlyFrame *gly_frame = NULL;
+  GdkPixbufAnimation *animation = NULL;
+  GError *local_error = NULL;
+  int width, height;
+  GdkPixbuf *pixbuf = NULL;
+
+  loader = gly_loader_new (file);
+
+  if (should_run_unsandboxed ())
+    gly_loader_set_sandbox_selector (loader, GLY_SANDBOX_SELECTOR_NOT_SANDBOXED);
+
+  gly_loader_set_accepted_memory_formats (loader, GLY_MEMORY_SELECTION_R8G8B8A8 |
+                                                  GLY_MEMORY_SELECTION_R8G8B8);
+
+  gly_loader_set_apply_transformations (loader, FALSE);
+
+  image = gly_loader_load (loader, &local_error);
+  if (!image)
+    goto done;
+
+  width = gly_image_get_width (image);
+  height = gly_image_get_height (image);
+  if (size_func)
+    size_func (&width, &height, user_data);
+
+  request = gly_frame_request_new ();
+  gly_frame_request_set_scale (request, width, height);
+
+  gly_frame = gly_image_get_specific_frame (image, request, &local_error);
+  if (!gly_frame)
+    goto done;
+
+  pixbuf = convert_glycin_frame_to_pixbuf (gly_frame);
+
+  if (gly_frame_get_delay (gly_frame) != 0)
+    {
+      GdkPixbufGlycinFrame frame;
+      GdkPixbufGlycinAnimation *gly_anim;
+
+      gly_anim = gdk_pixbuf_glycin_animation_new (image, width, height);
+      frame.pixbuf = g_steal_pointer (&pixbuf);
+      frame.delay = gly_frame_get_delay (gly_frame);
+
+      g_array_append_val (gly_anim->decoded, frame);
+
+      animation = (GdkPixbufAnimation *) gly_anim;
+    }
+  else
+    {
+
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+      animation = gdk_pixbuf_non_anim_new (g_steal_pointer (&pixbuf));
+G_GNUC_END_IGNORE_DEPRECATIONS
+    }
+
+done:
+  g_clear_object (&loader);
+  g_clear_object (&image);
+  g_clear_object (&request);
+  g_clear_object (&gly_frame);
+  g_clear_object (&pixbuf);
+
+  if (g_error_matches (local_error, GLY_LOADER_ERROR, GLY_LOADER_ERROR_FAILED))
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                           local_error->message);
+      g_clear_error (&local_error);
+    }
+  else if (g_error_matches (local_error, GLY_LOADER_ERROR, GLY_LOADER_ERROR_UNKNOWN_IMAGE_FORMAT))
+    {
+      g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+                           local_error->message);
+      g_clear_error (&local_error);
+    }
+  else if (local_error)
+    {
+      g_propagate_error (error, local_error);
+    }
+
+  return animation;
 }
 
 /* }}} */
@@ -285,23 +636,30 @@ gdk_pixbuf__glycin_image_stop_load (gpointer   data,
 
   if (context->all_ok)
     {
-      GdkPixbuf *pixbuf = load_pixbuf_with_glycin (context->file,
-                                                   context->size_func,
-                                                   context->user_data,
-                                                   error);
+      GdkPixbufAnimation *animation;
 
-      if (pixbuf != NULL)
+      animation = load_animation_with_glycin (context->file,
+                                              context->size_func,
+                                              context->user_data,
+                                              error);
+      if (animation)
         {
+          GdkPixbuf *pixbuf;
+
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+          pixbuf = gdk_pixbuf_animation_get_static_image (animation);
+G_GNUC_END_IGNORE_DEPRECATIONS
+
           (* context->prepared_func) (pixbuf,
-                                      NULL,
+                                      animation,
                                       context->user_data);
           (* context->updated_func) (pixbuf,
                                      0, 0,
                                      gdk_pixbuf_get_width (pixbuf),
                                      gdk_pixbuf_get_height (pixbuf),
                                      context->user_data);
-          g_object_unref (pixbuf);
 
+          g_object_unref (animation);
           retval = TRUE;
         }
     }
@@ -447,6 +805,23 @@ glycin_image_save (const char         *mimetype,
   return res;
 }
 
+static GdkPixbufAnimation *
+gdk_pixbuf__glycin_image_load_animation (FILE    *f,
+                                         GError **error)
+{
+  GFile *file;
+  GdkPixbufAnimation *animation;
+
+  file = g_file_from_file (f, error);
+  if (!file)
+    return NULL;
+
+  animation = load_animation_with_glycin (file, NULL, NULL, error);
+  g_object_unref (file);
+
+  return animation;
+}
+
 void
 glycin_fill_vtable (GdkPixbufModule *module)
 {
@@ -454,6 +829,7 @@ glycin_fill_vtable (GdkPixbufModule *module)
   module->begin_load = gdk_pixbuf__glycin_image_begin_load;
   module->stop_load = gdk_pixbuf__glycin_image_stop_load;
   module->load_increment = gdk_pixbuf__glycin_image_load_increment;
+  module->load_animation = gdk_pixbuf__glycin_image_load_animation;
 }
 
 /* }}} */
