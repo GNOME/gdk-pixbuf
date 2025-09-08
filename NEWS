@@ -1,3 +1,11 @@
+2.44.0
+===
+
+- build: Fix cross-building
+- build: Don't build documentation by default
+- glycin: Implement animation
+- Translation updates
+
 2.43.5 (development)
 ===
 
