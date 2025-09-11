@@ -525,7 +525,7 @@ load_animation_with_glycin (GFile                    *file,
     {
 
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-      animation = gdk_pixbuf_non_anim_new (g_steal_pointer (&pixbuf));
+      animation = gdk_pixbuf_non_anim_new (pixbuf);
 G_GNUC_END_IGNORE_DEPRECATIONS
     }
 
