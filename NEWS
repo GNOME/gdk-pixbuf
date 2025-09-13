@@ -1,3 +1,9 @@
+2.44.1
+===
+
+- Re-enable animation tests [!236]
+- Fix leak in load_animation_with_glycin [!237]
+
 2.44.0
 ===
 
