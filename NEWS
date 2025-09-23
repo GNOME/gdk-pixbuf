@@ -1,3 +1,9 @@
+2.44.2
+===
+
+- glycin: Ignore unknowns keys when saving [!239]
+- Translation updates
+
 2.44.1
 ===
 
