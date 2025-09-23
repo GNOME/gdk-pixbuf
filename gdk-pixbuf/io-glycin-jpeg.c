@@ -69,12 +69,7 @@ filter_keys (char    **keys,
         }
       else
         {
-          g_set_error (error,
-                       GDK_PIXBUF_ERROR,
-                       GDK_PIXBUF_ERROR_BAD_OPTION,
-                       "Unhandled key while saving: %s", keys[i]);
-          g_free (icc_data);
-          return FALSE;
+          g_warning ("Unrecognized parameter (%s) passed to JPEG saver.", keys[i]);
         }
     }
 

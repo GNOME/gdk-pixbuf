@@ -91,14 +91,7 @@ filter_keys (char    **keys,
         }
       else
         {
-          g_set_error (error,
-                       GDK_PIXBUF_ERROR,
-                       GDK_PIXBUF_ERROR_BAD_OPTION,
-                       "Unhandled key while saving: %s", keys[i]);
-          g_free (icc_data);
-          g_free (filtered_keys);
-          g_free (filtered_values);
-          return FALSE;
+          g_warning ("Unrecognized parameter “%s” passed to the PNG saver", keys[i]);
         }
     }
 
