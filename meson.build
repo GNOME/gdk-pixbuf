@@ -160,6 +160,7 @@ elif cc.get_id() == 'gcc' or cc.get_id() == 'clang'
     '-Werror=int-to-pointer-cast',
     '-Werror=pointer-to-int-cast',
     '-Werror=empty-body',
+    '-Werror=tautological-unsigned-zero-compare',
   ]
 
   # Ensure we have the correct bit packing on Windows
