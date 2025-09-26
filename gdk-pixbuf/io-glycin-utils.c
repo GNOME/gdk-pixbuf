@@ -127,6 +127,7 @@ timeval_to_usec (const GTimeVal *timeval)
 typedef struct {
   GdkPixbuf *pixbuf;
   gint64 delay; // usec
+  gboolean is_last_frame;
 } GdkPixbufGlycinFrame;
 
 static void
@@ -156,7 +157,6 @@ struct _GdkPixbufGlycinAnimationIter
   GdkPixbufGlycinAnimation *animation;
   guint idx;
   gint64 time;
-  gboolean on_last_frame;
 };
 
 G_DEFINE_FINAL_TYPE (GdkPixbufGlycinAnimation, gdk_pixbuf_glycin_animation, GDK_TYPE_PIXBUF_ANIMATION)
@@ -216,7 +216,6 @@ gdk_pixbuf_glycin_animation_get_iter (GdkPixbufAnimation *animation,
       iter->animation = g_object_ref (self);
       iter->idx = 0;
       iter->time = timeval_to_usec (start_time);
-      iter->on_last_frame = FALSE;
     }
   else
     iter = NULL;
@@ -264,9 +263,6 @@ gdk_pixbuf_glycin_animation_iter_get_delay_time (GdkPixbufAnimationIter *iter)
   GdkPixbufGlycinAnimationIter *self = (GdkPixbufGlycinAnimationIter *) iter;
   int delay_time;
 
-  if (self->on_last_frame)
-    return -1;
-
   delay_time = g_array_index (self->animation->decoded, GdkPixbufGlycinFrame, self->idx).delay / 1000; /* usec to millis */
 
   return delay_time;
@@ -293,38 +289,67 @@ gdk_pixbuf_glycin_animation_iter_advance (GdkPixbufAnimationIter *iter,
 {
   GdkPixbufGlycinAnimationIter *self = (GdkPixbufGlycinAnimationIter *) iter;
   gint64 new_time;
-  gboolean retval;
-
-  if (self->on_last_frame)
-    return FALSE;
 
   new_time = timeval_to_usec (current_time);
 
-  retval = FALSE;
   while ((self->time + g_array_index (self->animation->decoded, GdkPixbufGlycinFrame, self->idx).delay) < new_time)
     {
-      if (self->animation->decoded->len <= self->idx + 1) // currently on last decoded frame
-        {
-          GlyFrame *gly_frame;
-          GdkPixbufGlycinFrame frame;
+      self->time += g_array_index (self->animation->decoded, GdkPixbufGlycinFrame, self->idx).delay;
 
-          gly_frame = gly_image_next_frame (self->animation->image, NULL);
-          if (!gly_frame)
+      if (self->idx + 1 < self->animation->decoded->len)
+        {
+          self->idx++;
+        }
+      else if (g_array_index (self->animation->decoded, GdkPixbufGlycinFrame, self->idx).is_last_frame)
+        {
+          if (self->idx == 0)
             return FALSE;
 
-          frame.pixbuf = convert_glycin_frame_to_pixbuf (gly_frame);
-          frame.delay = gly_frame_get_delay (gly_frame);
-          g_array_append_val (self->animation->decoded, frame);
-
-          g_object_unref (gly_frame);
+          self->idx = 0;
         }
+      else
+        {
+          GlyFrameRequest *request;
+          GlyFrame *gly_frame;
+          GError *error = NULL;
 
-      self->time += g_array_index (self->animation->decoded, GdkPixbufGlycinFrame, self->idx).delay;
-      self->idx++;
-      retval = TRUE;
+          request = gly_frame_request_new ();
+          gly_frame_request_set_loop_animation (request, FALSE);
+          gly_frame = gly_image_get_specific_frame (self->animation->image,
+                                                    request,
+                                                    &error);
+          g_object_unref (request);
+
+          if (gly_frame)
+            {
+              GdkPixbufGlycinFrame frame;
+
+              frame.pixbuf = convert_glycin_frame_to_pixbuf (gly_frame);
+              frame.delay = gly_frame_get_delay (gly_frame);
+              frame.is_last_frame = FALSE;
+              g_array_append_val (self->animation->decoded, frame);
+              g_object_unref (gly_frame);
+
+              self->idx++;
+            }
+          else if (g_error_matches (error, GLY_LOADER_ERROR, GLY_LOADER_ERROR_NO_MORE_FRAMES))
+            {
+              g_array_index (self->animation->decoded, GdkPixbufGlycinFrame, self->idx).is_last_frame = TRUE;
+
+              g_error_free (error);
+              self->idx = 0;
+
+              return FALSE;
+            }
+          else
+            {
+              g_error_free (error);
+              return FALSE;
+            }
+        }
     }
 
-  return retval;
+  return TRUE;
 }
 G_GNUC_END_IGNORE_DEPRECATIONS
 
@@ -354,7 +379,6 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
   self->animation = NULL;
   self->idx = 0;
-  self->on_last_frame = FALSE;
 }
 
 static GdkPixbufGlycinAnimation *
@@ -516,6 +540,7 @@ load_animation_with_glycin (GFile                    *file,
       gly_anim = gdk_pixbuf_glycin_animation_new (image, width, height);
       frame.pixbuf = g_steal_pointer (&pixbuf);
       frame.delay = gly_frame_get_delay (gly_frame);
+      frame.is_last_frame = FALSE;
 
       g_array_append_val (gly_anim->decoded, frame);
 
