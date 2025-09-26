@@ -259,7 +259,7 @@ glycin_opt = get_option('glycin').enable_auto_if(host_machine.system() == 'linux
 if glycin_opt.disabled()
   glycin_dep = disabler()
 else
-  glycin_dep = dependency('glycin-2', version: '>= 2.0.beta.3', required: glycin_opt)
+  glycin_dep = dependency('glycin-2', version: '>= 2.0.1', required: glycin_opt)
 endif
 
 # Check which loaders should be built into gdk-pixbuf
