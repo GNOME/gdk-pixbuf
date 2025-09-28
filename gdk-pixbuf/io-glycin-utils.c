@@ -25,6 +25,7 @@
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
+#include <string.h>
 
 #include <gio/gio.h>
 #include <errno.h>
@@ -602,12 +603,33 @@ gdk_pixbuf__glycin_image_stop_load (gpointer   data,
                                         error);
       if (pixbuf)
         {
+          GBytes *bytes;
+          const guchar *gly_data;
+          gsize len;
+
+          bytes = gdk_pixbuf_read_pixel_bytes (pixbuf);
+          gly_data = g_bytes_get_data (bytes, &len);
+          g_assert (gdk_pixbuf_read_pixels (pixbuf) == gly_data);
+
           (* context->prepared_func) (pixbuf, animation, context->user_data);
+
+          if (gdk_pixbuf_read_pixels (pixbuf) != gly_data)
+            {
+              guchar *pixbuf_data;
+
+              g_warning ("pixbuf was mutated in the prepare callback");
+
+              pixbuf_data = gdk_pixbuf_get_pixels (pixbuf);
+              memcpy (pixbuf_data, gly_data, len);
+            }
+          g_bytes_unref (bytes);
+
           (* context->updated_func) (pixbuf,
                                      0, 0,
                                      gdk_pixbuf_get_width (pixbuf),
                                      gdk_pixbuf_get_height (pixbuf),
                                      context->user_data);
+
           if (animation)
             g_object_unref (animation);
           g_object_unref (pixbuf);
