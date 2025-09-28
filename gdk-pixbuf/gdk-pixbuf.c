@@ -837,12 +837,17 @@ downgrade_to_pixels (const GdkPixbuf *pixbuf)
 
         case STORAGE_BYTES: {
                 GdkPixbuf *mut_pixbuf = (GdkPixbuf *) pixbuf;
+                gconstpointer *data;
                 gsize len;
                 Pixels pixels;
 
-                pixels.pixels = g_bytes_unref_to_data (pixbuf->s.bytes.bytes, &len);
+                data = g_bytes_get_data (pixbuf->s.bytes.bytes, &len);
+
+                pixels.pixels = g_memdup2 (data, len);
                 pixels.destroy_fn = free_buffer;
                 pixels.destroy_fn_data = NULL;
+
+                g_bytes_unref (pixbuf->s.bytes.bytes);
 
                 mut_pixbuf->storage = STORAGE_PIXELS;
                 mut_pixbuf->s.pixels = pixels;
