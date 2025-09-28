@@ -25,6 +25,7 @@
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
+#include <string.h>
 
 #include <gio/gio.h>
 #include <errno.h>
@@ -314,6 +315,7 @@ gdk_pixbuf_glycin_animation_iter_advance (GdkPixbufAnimationIter *iter,
           GError *error = NULL;
 
           request = gly_frame_request_new ();
+          gly_frame_request_set_scale (request, self->animation->width, self->animation->height);
           gly_frame_request_set_loop_animation (request, FALSE);
           gly_frame = gly_image_get_specific_frame (self->animation->image,
                                                     request,
@@ -405,12 +407,13 @@ static GdkPixbuf *
 load_pixbuf_with_glycin (GFile                    *file,
                          GdkPixbufModuleSizeFunc   size_func,
                          gpointer                  user_data,
+                         GdkPixbufAnimation      **animation,
                          GError                  **error)
 {
   GlyLoader *loader;
   GlyImage *image;
   GlyFrameRequest *request = NULL;
-  GlyFrame *frame = NULL;
+  GlyFrame *gly_frame = NULL;
   GdkPixbuf *pixbuf = NULL;
   GError *local_error = NULL;
   int width, height;
@@ -437,13 +440,18 @@ load_pixbuf_with_glycin (GFile                    *file,
     size_func (&width, &height, user_data);
 
   request = gly_frame_request_new ();
-  gly_frame_request_set_scale (request, width, height);
 
-  frame = gly_image_get_specific_frame (image, request, &local_error);
-  if (!frame)
+  /* FIXME: Handle zero-size request and abort loading */
+  if (width > 0 && height > 0)
+    gly_frame_request_set_scale (request, width, height);
+
+  gly_frame = gly_image_get_specific_frame (image, request, &local_error);
+  if (!gly_frame)
     goto done;
 
-  pixbuf = convert_glycin_frame_to_pixbuf (frame);
+  pixbuf = convert_glycin_frame_to_pixbuf (gly_frame);
+  width = gdk_pixbuf_get_width (pixbuf);
+  height = gdk_pixbuf_get_height (pixbuf);
 
   g_snprintf (value, sizeof (value), "%u",
               gly_image_get_transformation_orientation (image));
@@ -463,11 +471,27 @@ load_pixbuf_with_glycin (GFile                    *file,
       g_strfreev (keys);
     }
 
+  if (animation && gly_frame_get_delay (gly_frame) != 0)
+    {
+      GdkPixbufGlycinFrame frame;
+      GdkPixbufGlycinAnimation *anim;
+
+      anim = gdk_pixbuf_glycin_animation_new (image, width, height);
+      frame.pixbuf = g_object_ref (pixbuf);
+      frame.delay = gly_frame_get_delay (gly_frame);
+      frame.is_last_frame = FALSE;
+      g_array_append_val (anim->decoded, frame);
+
+      *animation = (GdkPixbufAnimation *) anim;
+    }
+  else if (animation)
+    *animation = NULL;
+
 done:
   g_clear_object (&loader);
   g_clear_object (&image);
   g_clear_object (&request);
-  g_clear_object (&frame);
+  g_clear_object (&gly_frame);
 
   if (g_error_matches (local_error, GLY_LOADER_ERROR, GLY_LOADER_ERROR_FAILED))
     {
@@ -487,98 +511,6 @@ done:
     }
 
   return pixbuf;
-}
-
-static GdkPixbufAnimation *
-load_animation_with_glycin (GFile                    *file,
-                            GdkPixbufModuleSizeFunc   size_func,
-                            gpointer                  user_data,
-                            GError                  **error)
-{
-  GlyLoader *loader;
-  GlyImage *image;
-  GlyFrameRequest *request = NULL;
-  GlyFrame *gly_frame = NULL;
-  GdkPixbufAnimation *animation = NULL;
-  GError *local_error = NULL;
-  int width, height;
-  GdkPixbuf *pixbuf = NULL;
-
-  loader = gly_loader_new (file);
-
-  if (should_run_unsandboxed ())
-    gly_loader_set_sandbox_selector (loader, GLY_SANDBOX_SELECTOR_NOT_SANDBOXED);
-
-  gly_loader_set_accepted_memory_formats (loader, GLY_MEMORY_SELECTION_R8G8B8A8 |
-                                                  GLY_MEMORY_SELECTION_R8G8B8);
-
-  gly_loader_set_apply_transformations (loader, FALSE);
-
-  image = gly_loader_load (loader, &local_error);
-  if (!image)
-    goto done;
-
-  width = gly_image_get_width (image);
-  height = gly_image_get_height (image);
-  if (size_func)
-    size_func (&width, &height, user_data);
-
-  request = gly_frame_request_new ();
-  gly_frame_request_set_scale (request, width, height);
-
-  gly_frame = gly_image_get_specific_frame (image, request, &local_error);
-  if (!gly_frame)
-    goto done;
-
-  pixbuf = convert_glycin_frame_to_pixbuf (gly_frame);
-
-  if (gly_frame_get_delay (gly_frame) != 0)
-    {
-      GdkPixbufGlycinFrame frame;
-      GdkPixbufGlycinAnimation *gly_anim;
-
-      gly_anim = gdk_pixbuf_glycin_animation_new (image, width, height);
-      frame.pixbuf = g_steal_pointer (&pixbuf);
-      frame.delay = gly_frame_get_delay (gly_frame);
-      frame.is_last_frame = FALSE;
-
-      g_array_append_val (gly_anim->decoded, frame);
-
-      animation = (GdkPixbufAnimation *) gly_anim;
-    }
-  else
-    {
-
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-      animation = gdk_pixbuf_non_anim_new (pixbuf);
-G_GNUC_END_IGNORE_DEPRECATIONS
-    }
-
-done:
-  g_clear_object (&loader);
-  g_clear_object (&image);
-  g_clear_object (&request);
-  g_clear_object (&gly_frame);
-  g_clear_object (&pixbuf);
-
-  if (g_error_matches (local_error, GLY_LOADER_ERROR, GLY_LOADER_ERROR_FAILED))
-    {
-      g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
-                           local_error->message);
-      g_clear_error (&local_error);
-    }
-  else if (g_error_matches (local_error, GLY_LOADER_ERROR, GLY_LOADER_ERROR_UNKNOWN_IMAGE_FORMAT))
-    {
-      g_set_error_literal (error, GDK_PIXBUF_ERROR, GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
-                           local_error->message);
-      g_clear_error (&local_error);
-    }
-  else if (local_error)
-    {
-      g_propagate_error (error, local_error);
-    }
-
-  return animation;
 }
 
 /* }}} */
@@ -641,7 +573,7 @@ gdk_pixbuf__glycin_image_load (FILE *f, GError **error)
   if (!file)
     return NULL;
 
-  pixbuf = load_pixbuf_with_glycin (file, NULL, NULL, error);
+  pixbuf = load_pixbuf_with_glycin (file, NULL, NULL, NULL, error);
   g_object_unref (file);
 
   return pixbuf;
@@ -661,30 +593,46 @@ gdk_pixbuf__glycin_image_stop_load (gpointer   data,
 
   if (context->all_ok)
     {
+      GdkPixbuf *pixbuf;
       GdkPixbufAnimation *animation;
 
-      animation = load_animation_with_glycin (context->file,
-                                              context->size_func,
-                                              context->user_data,
-                                              error);
-      if (animation)
+      pixbuf = load_pixbuf_with_glycin (context->file,
+                                        context->size_func,
+                                        context->user_data,
+                                        &animation,
+                                        error);
+      if (pixbuf)
         {
-          GdkPixbuf *pixbuf;
+          GBytes *bytes;
+          const guchar *gly_data;
+          gsize len;
 
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-          pixbuf = gdk_pixbuf_animation_get_static_image (animation);
-G_GNUC_END_IGNORE_DEPRECATIONS
+          bytes = gdk_pixbuf_read_pixel_bytes (pixbuf);
+          gly_data = g_bytes_get_data (bytes, &len);
+          g_assert (gdk_pixbuf_read_pixels (pixbuf) == gly_data);
 
-          (* context->prepared_func) (pixbuf,
-                                      animation,
-                                      context->user_data);
+          (* context->prepared_func) (pixbuf, animation, context->user_data);
+
+          if (gdk_pixbuf_read_pixels (pixbuf) != gly_data)
+            {
+              guchar *pixbuf_data;
+
+              g_warning ("pixbuf was mutated in the prepare callback");
+
+              pixbuf_data = gdk_pixbuf_get_pixels (pixbuf);
+              memcpy (pixbuf_data, gly_data, len);
+            }
+          g_bytes_unref (bytes);
+
           (* context->updated_func) (pixbuf,
                                      0, 0,
                                      gdk_pixbuf_get_width (pixbuf),
                                      gdk_pixbuf_get_height (pixbuf),
                                      context->user_data);
 
-          g_object_unref (animation);
+          if (animation)
+            g_object_unref (animation);
+          g_object_unref (pixbuf);
           retval = TRUE;
         }
     }
@@ -835,14 +783,25 @@ gdk_pixbuf__glycin_image_load_animation (FILE    *f,
                                          GError **error)
 {
   GFile *file;
-  GdkPixbufAnimation *animation;
+  GdkPixbufAnimation *animation = NULL;
+  GdkPixbuf *pixbuf;
 
   file = g_file_from_file (f, error);
   if (!file)
     return NULL;
 
-  animation = load_animation_with_glycin (file, NULL, NULL, error);
+  pixbuf = load_pixbuf_with_glycin (file, NULL, NULL, &animation, error);
   g_object_unref (file);
+
+  if (!pixbuf)
+    return NULL;
+
+  if (!animation)
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+    animation = gdk_pixbuf_non_anim_new (pixbuf);
+G_GNUC_END_IGNORE_DEPRECATIONS
+
+  g_object_unref (pixbuf);
 
   return animation;
 }
