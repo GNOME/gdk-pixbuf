@@ -50,7 +50,7 @@ filter_keys (char    **keys,
       if (g_str_has_prefix (keys[i], "tEXt::"))
         {
           filtered_keys[j] = keys[i] + strlen ("tEXt::");
-          filtered_values[j] = values[j];
+          filtered_values[j] = values[i];
           j++;
         }
       else if (strcmp (keys[i], "icc-profile") == 0)
