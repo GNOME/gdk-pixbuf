@@ -52,6 +52,8 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
   };
   static const gchar * extensions[] = {
     "svg",
+    "svgz",
+    "svg.gz",
     NULL
   };
 
