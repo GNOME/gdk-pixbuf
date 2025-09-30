@@ -1,3 +1,12 @@
+2.44.3
+===
+
+- glycin: Fix an off-by-one-error in option handling
+- glycin: Handle outdated uses of the prepare callback
+- glycin: Consolidate image and animation loading
+- glycin: Handle animations better, using new glycin API
+- build: Require glycin 2.0.1
+
 2.44.2
 ===
 
