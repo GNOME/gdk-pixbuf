@@ -128,6 +128,8 @@ G_GNUC_END_IGNORE_DEPRECATIONS
  * Modules supporting animations must derive a type from 
  * #GdkPixbufAnimation, providing suitable implementations of the 
  * virtual functions.
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 typedef struct _GdkPixbufAnimationClass GdkPixbufAnimationClass;
 
@@ -176,6 +178,8 @@ G_GNUC_END_IGNORE_DEPRECATIONS
  * Modules supporting animations must derive a type from 
  * #GdkPixbufAnimationIter, providing suitable implementations of the 
  * virtual functions.
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 typedef struct _GdkPixbufAnimationIterClass GdkPixbufAnimationIterClass;
 
