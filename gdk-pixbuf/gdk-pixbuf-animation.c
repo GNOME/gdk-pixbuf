@@ -47,6 +47,8 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS
  * To display an animation you don't need to understand its
  * representation, however; you just ask `GdkPixbuf` what should
  * be displayed at a given point in time.
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 
 /**
@@ -54,6 +56,8 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS
  *
  * An opaque object representing an iterator which points to a
  * certain position in an animation.
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 
 typedef struct _GdkPixbufNonAnim GdkPixbufNonAnim;
@@ -159,6 +163,8 @@ noop_updated_notify (GdkPixbuf *pixbuf,
  * Possible errors are in the `GDK_PIXBUF_ERROR` and `G_FILE_ERROR` domains.
  *
  * Return value: (transfer full) (nullable): A newly-created animation
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 GdkPixbufAnimation *
 gdk_pixbuf_animation_new_from_file (const gchar  *filename,
@@ -330,9 +336,11 @@ fail_begin_load:
  * Same as gdk_pixbuf_animation_new_from_file()
  *
  * Return value: A newly-created animation with a reference count of 1, or `NULL`
- * if any of several error conditions ocurred:  the file could not be opened,
- * there was no loader for the file's format, there was not enough memory to
- * allocate the image buffer, or the image file contained invalid data.
+ *   if any of several error conditions ocurred:  the file could not be opened,
+ *   there was no loader for the file's format, there was not enough memory to
+ *   allocate the image buffer, or the image file contained invalid data.
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 GdkPixbufAnimation *
 gdk_pixbuf_animation_new_from_file_utf8 (const gchar  *filename,
@@ -364,6 +372,8 @@ gdk_pixbuf_animation_new_from_file_utf8 (const gchar  *filename,
  * Return value: (transfer full) (nullable): A newly-created animation
  *
  * Since: 2.28
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 GdkPixbufAnimation *
 gdk_pixbuf_animation_new_from_stream (GInputStream  *stream,
@@ -456,6 +466,8 @@ animation_new_from_stream_thread (GTask        *task,
  * result of the operation.
  *
  * Since: 2.28
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  **/
 void
 gdk_pixbuf_animation_new_from_stream_async (GInputStream        *stream,
@@ -486,6 +498,8 @@ gdk_pixbuf_animation_new_from_stream_async (GInputStream        *stream,
  * Return value: (transfer full) (nullable): the newly created animation
  *
  * Since: 2.28
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  **/
 GdkPixbufAnimation *
 gdk_pixbuf_animation_new_from_stream_finish (GAsyncResult  *async_result,
@@ -513,6 +527,8 @@ gdk_pixbuf_animation_new_from_stream_finish (GAsyncResult  *async_result,
  * Return value: (transfer full) (nullable): A newly-created animation
  *
  * Since: 2.28
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 GdkPixbufAnimation *
 gdk_pixbuf_animation_new_from_resource (const gchar  *resource_path,
@@ -580,6 +596,8 @@ gdk_pixbuf_animation_unref (GdkPixbufAnimation *animation)
  * the image.
  *
  * Return value: `TRUE` if the "animation" was really just an image
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 gboolean
 gdk_pixbuf_animation_is_static_image (GdkPixbufAnimation *animation)
@@ -606,6 +624,8 @@ gdk_pixbuf_animation_is_static_image (GdkPixbufAnimation *animation)
  * return `NULL`.
  *
  * Return value: (transfer none): unanimated image representing the animation
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 GdkPixbuf*
 gdk_pixbuf_animation_get_static_image (GdkPixbufAnimation *animation)
@@ -622,6 +642,8 @@ gdk_pixbuf_animation_get_static_image (GdkPixbufAnimation *animation)
  * Queries the width of the bounding box of a pixbuf animation.
  *
  * Return value: Width of the bounding box of the animation.
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 gint
 gdk_pixbuf_animation_get_width (GdkPixbufAnimation *animation)
@@ -644,6 +666,8 @@ gdk_pixbuf_animation_get_width (GdkPixbufAnimation *animation)
  * Queries the height of the bounding box of a pixbuf animation.
  *
  * Return value: Height of the bounding box of the animation.
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 gint
 gdk_pixbuf_animation_get_height (GdkPixbufAnimation *animation)
@@ -701,6 +725,8 @@ gdk_pixbuf_animation_get_height (GdkPixbufAnimation *animation)
  * A delay time of -1 is possible, indicating "infinite".
  *
  * Return value: (transfer full): an iterator to move over the animation
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 GdkPixbufAnimationIter*
 gdk_pixbuf_animation_get_iter (GdkPixbufAnimation *animation,
@@ -746,6 +772,8 @@ gdk_pixbuf_animation_iter_init (GdkPixbufAnimationIter *iter)
  * for GIF images is currently 20 milliseconds.
  *
  * Return value: delay time in milliseconds (thousandths of a second)
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 gint
 gdk_pixbuf_animation_iter_get_delay_time (GdkPixbufAnimationIter *iter)
@@ -777,6 +805,8 @@ gdk_pixbuf_animation_iter_get_delay_time (GdkPixbufAnimationIter *iter)
  * recycled as you advance the iterator.
  *
  * Return value: (transfer none): the pixbuf to be displayed
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 GdkPixbuf*
 gdk_pixbuf_animation_iter_get_pixbuf (GdkPixbufAnimationIter *iter)
@@ -799,6 +829,8 @@ gdk_pixbuf_animation_iter_get_pixbuf (GdkPixbufAnimationIter *iter)
  * you will need to redraw the screen for the updated area.
  *
  * Return value: `TRUE` if the frame we're on is partially loaded, or the last frame
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 gboolean
 gdk_pixbuf_animation_iter_on_currently_loading_frame (GdkPixbufAnimationIter *iter)
@@ -837,6 +869,8 @@ gdk_pixbuf_animation_iter_on_currently_loading_frame (GdkPixbufAnimationIter *it
  * and update the display with the new pixbuf.
  *
  * Returns: `TRUE` if the image may need updating
+ *
+ * Deprecated: 2.44: Use a different image loading library for animatable assets
  */
 gboolean
 gdk_pixbuf_animation_iter_advance (GdkPixbufAnimationIter *iter,
