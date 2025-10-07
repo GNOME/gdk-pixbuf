@@ -49,14 +49,14 @@ default:
 
 .container.fedora:
   variables:
-    BASE_TAG: '2025-08-13.0'
+    BASE_TAG: '2025-10-07.0'
     FDO_DISTRIBUTION_VERSION: 42
     FDO_DISTRIBUTION_TAG: "x86_64-${BASE_TAG}"
     FDO_DISTRIBUTION_PACKAGES:
         ccache
         clang
         clang-analyzer
-        clang-format
+        clang-tools-extra
         gcc
         gcc-c++
         gettext
