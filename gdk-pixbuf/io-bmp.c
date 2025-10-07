@@ -129,7 +129,7 @@ static void DumpBIH(unsigned char *BIH)
 struct headerpair {
 	guint32 size;
 	guint32 width;
-	guint32 height;
+	gint32 height;
 	guint depth;
 	guint Negative;		/* Negative = 1 -> top down BMP,
 				   Negative = 0 -> bottom up BMP */
