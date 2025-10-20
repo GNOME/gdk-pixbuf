@@ -527,6 +527,7 @@ struct _GlycinContext
   GFile *file;
   GIOStream *iostream;
   gboolean all_ok;
+  gboolean is_svg;
 };
 
 static gpointer
@@ -550,6 +551,7 @@ gdk_pixbuf__glycin_image_begin_load (GdkPixbufModuleSizeFunc       size_func,
   context->updated_func = updated_func;
   context->user_data = user_data;
   context->all_ok = TRUE;
+  context->is_svg = FALSE;
   file = g_file_new_tmp ("gdk-pixbuf-glycin-tmp.XXXXXX", &iostream, error);
   if (file == NULL)
     {
@@ -559,6 +561,23 @@ gdk_pixbuf__glycin_image_begin_load (GdkPixbufModuleSizeFunc       size_func,
 
   context->file = file;
   context->iostream = G_IO_STREAM (iostream);
+
+  return context;
+}
+
+static gpointer
+gdk_pixbuf__glycin_svg_begin_load (GdkPixbufModuleSizeFunc       size_func,
+                                   GdkPixbufModulePreparedFunc   prepared_func,
+                                   GdkPixbufModuleUpdatedFunc    updated_func,
+                                   gpointer                      user_data,
+                                   GError                      **error)
+{
+  GlycinContext *context;
+
+  context = gdk_pixbuf__glycin_image_begin_load (size_func, prepared_func, updated_func, user_data, error);
+
+  if (context)
+    context->is_svg = TRUE;
 
   return context;
 }
@@ -595,6 +614,30 @@ gdk_pixbuf__glycin_image_stop_load (gpointer   data,
     {
       GdkPixbuf *pixbuf;
       GdkPixbufAnimation *animation;
+
+      if (context->is_svg)
+        {
+          GFileInfo *info;
+          gboolean is_gzip = FALSE;
+
+          info = g_file_query_info (context->file, "standard::content-type", 0, NULL, NULL);
+          is_gzip = g_strcmp0 (g_file_info_get_content_type (info), "application/gzip") == 0;
+          g_object_unref (info);
+
+          if (is_gzip)
+            {
+              char *name = g_strconcat (g_file_peek_path (context->file), ".svgz", NULL);
+              GFile *file = g_file_new_for_path (name);
+              g_free (name);
+              if (!g_file_move (context->file, file, 0, NULL, NULL, NULL, error))
+                {
+                  g_object_unref (file);
+                  return FALSE;
+                }
+              g_set_object (&context->file, file);
+              g_object_unref (file);
+            }
+        }
 
       pixbuf = load_pixbuf_with_glycin (context->file,
                                         context->size_func,
@@ -810,7 +853,10 @@ void
 glycin_fill_vtable (GdkPixbufModule *module)
 {
   module->load = gdk_pixbuf__glycin_image_load;
-  module->begin_load = gdk_pixbuf__glycin_image_begin_load;
+  if (strcmp (module->module_name, "svg") == 0)
+    module->begin_load = gdk_pixbuf__glycin_svg_begin_load;
+  else
+    module->begin_load = gdk_pixbuf__glycin_image_begin_load;
   module->stop_load = gdk_pixbuf__glycin_image_stop_load;
   module->load_increment = gdk_pixbuf__glycin_image_load_increment;
   module->load_animation = gdk_pixbuf__glycin_image_load_animation;
