@@ -1,3 +1,11 @@
+2.44.4
+===
+
+- glycin: Make svgz work
+- glycin: Support saving avif
+- docs: Add deprecation tags for GdkPixbufAnimation
+- bmp: Fix loading of bottom-up images
+
 2.44.3
 ===
 
