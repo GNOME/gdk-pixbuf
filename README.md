@@ -19,6 +19,10 @@ a well-known location, in order to load a file format.
 GdkPixbuf is used by the [GTK](https://www.gtk.org) toolkit for loading
 graphical assets.
 
+**NOTE**: GdkPixbuf should be used to load UI assets in trusted scenarios;
+you should not be using it to load arbitrary images. We recommend using
+projects like [Glycin](https://gitlab.gnome.org/GNOME/glycin) instead.
+
 ## Building GdkPixbuf
 
 ### Requirements
