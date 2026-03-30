@@ -409,14 +409,13 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 /* }}} */
 /* {{{ Loading */
 
-static GdkPixbuf *
-load_pixbuf_with_glycin (GFile                    *file,
-                         GdkPixbufModuleSizeFunc   size_func,
-                         gpointer                  user_data,
-                         GdkPixbufAnimation      **animation,
-                         GError                  **error)
+GdkPixbuf *
+glycin_load_pixbuf (GlyLoader *loader,
+                    GdkPixbufModuleSizeFunc size_func,
+                    gpointer user_data,
+                    GdkPixbufAnimation **animation,
+                    GError **error)
 {
-  GlyLoader *loader;
   GlyImage *image;
   GlyFrameRequest *request = NULL;
   GlyFrame *gly_frame = NULL;
@@ -425,8 +424,6 @@ load_pixbuf_with_glycin (GFile                    *file,
   int width, height;
   char **keys;
   char value[64];
-
-  loader = gly_loader_new (file);
 
   if (should_run_unsandboxed ())
     gly_loader_set_sandbox_selector (loader, GLY_SANDBOX_SELECTOR_NOT_SANDBOXED);
@@ -494,7 +491,6 @@ load_pixbuf_with_glycin (GFile                    *file,
     *animation = NULL;
 
 done:
-  g_clear_object (&loader);
   g_clear_object (&image);
   g_clear_object (&request);
   g_clear_object (&gly_frame);
@@ -518,6 +514,23 @@ done:
     }
 
   return pixbuf;
+}
+
+static GdkPixbuf *
+load_pixbuf_with_glycin (GFile *file,
+                         GdkPixbufModuleSizeFunc size_func,
+                         gpointer user_data,
+                         GdkPixbufAnimation **animation,
+                         GError **error)
+{
+        GlyLoader *loader;
+        GdkPixbuf *pixbuf;
+
+        loader = gly_loader_new (file);
+        pixbuf = glycin_load_pixbuf (loader, size_func, user_data, animation, error);
+        g_clear_object (&loader);
+
+        return pixbuf;
 }
 
 /* }}} */

@@ -15,3 +15,10 @@ gboolean glycin_image_save (const char         *mimetype,
                             int                 quality,
                             int                 compression,
                             GError            **error);
+
+struct _GlyLoader;
+GdkPixbuf *glycin_load_pixbuf (struct _GlyLoader *loader,
+                               GdkPixbufModuleSizeFunc size_func,
+                               gpointer user_data,
+                               GdkPixbufAnimation **animation,
+                               GError **error);
