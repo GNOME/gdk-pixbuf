@@ -334,6 +334,12 @@ if not others_opt.disabled()
   ]
 endif
 
+if not get_option('legacy_xpm').disabled()
+  enabled_loaders += [
+    'xpm',
+  ]
+endif
+
 # On Windows, check whether we are building the native Windows loaders
 # (it is an "all-or-nothing" option for BMP, EMF, GIF, ICO, JPEG, TIFF and WMF)
 # Note that we currently do not use the native Windows loaders to handle PNG and
