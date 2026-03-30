@@ -630,6 +630,18 @@ gdk_pixbuf__real_jpeg_image_load (FILE *f, struct jpeg_decompress_struct *cinfo,
 	cinfo->do_fancy_upsampling = FALSE;
 	cinfo->do_block_smoothing = FALSE;
 
+        /* Reject unsupported component counts */
+        if (cinfo->output_components != 3 && cinfo->output_components != 4 &&
+            !(cinfo->output_components == 1 &&
+              cinfo->out_color_space == JCS_GRAYSCALE)) {
+                g_set_error (error,
+                             GDK_PIXBUF_ERROR,
+                             GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+                             _("Unsupported number of color components (%d)"),
+                             cinfo->output_components);
+                goto out;
+        }
+
 	pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, 
 				 cinfo->out_color_components == 4 ? TRUE : FALSE, 
 				 8,
