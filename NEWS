@@ -1,3 +1,16 @@
+2.44.6
+===
+
+- build: Add a legacy_xpm option to build the old xpm loader
+- xpm: Rename the old xpm loader to legacy-xpm, and use it
+  for gdk_pixbuf_new_from_xpm_data if it is available.
+  Note that the old loader will only be used for this purpose.
+  xpm files still get loaded with glycin
+- jpeg: Reject data with an unsupported number of components
+- Update contribution guidelines
+- glycin: Fix an issue with looping animations
+- Do not accidentally query loaders from the host
+
 2.44.5
 ===
 
