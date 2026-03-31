@@ -75,3 +75,7 @@ option('thumbnailer',
        description: 'Build the thumbnailer',
        type: 'feature',
        value: 'auto')
+option('legacy_xpm',
+       description: 'Enable legacy XPM loader, used for gdk_pixbuf_new_from_xpm_data',
+       type: 'feature',
+       value: 'disabled')
