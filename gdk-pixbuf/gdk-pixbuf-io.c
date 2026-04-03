@@ -631,7 +631,7 @@ gdk_pixbuf_io_init_builtin (void)
         load_one_builtin_module (tiff);
 #endif
 #ifdef INCLUDE_xpm
-        load_one_builtin_module (xpm);
+        load_one_builtin_module (legacy-xpm);
 #endif
 #ifdef INCLUDE_xbm
         load_one_builtin_module (xbm);
@@ -857,7 +857,7 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
         try_module (tiff,tiff);
 #endif
 #ifdef INCLUDE_xpm
-        try_module (xpm,xpm);
+        try_module (legacy-xpm,xpm);
 #endif
 #ifdef INCLUDE_xbm
         try_module (xbm,xbm);
