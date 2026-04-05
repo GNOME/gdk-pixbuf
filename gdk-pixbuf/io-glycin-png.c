@@ -61,7 +61,7 @@ filter_keys (char    **keys,
               g_set_error (error,
                            GDK_PIXBUF_ERROR,
                            GDK_PIXBUF_ERROR_BAD_OPTION,
-                           "Color profile has invalid length %lu",
+                           "Color profile has invalid length %" G_GSIZE_FORMAT,
                            icc_length);
               g_free (icc_data);
               g_free (filtered_keys);
