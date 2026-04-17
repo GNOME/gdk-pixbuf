@@ -21,7 +21,6 @@ variables:
   FDO_UPSTREAM_REPO: GNOME/gdk-pixbuf
   CCACHE_DIR: _ccache
   COMMON_MESON_FLAGS: "-Dwerror=true -Dglib:werror=false"
-  LOADERS_NO_GLYCIN_FLAGS: "-Dpng=enabled -Djpeg=enabled -Dtiff=enabled -Dgif=enabled -Dothers=enabled -Dglycin=disabled"
   MESON_TEST_TIMEOUT_MULTIPLIER: 3
 
 workflow:
@@ -147,19 +146,6 @@ style-check-diff:
   script:
     - .gitlab/scripts/run-style-check-diff.sh
 
-fedora-noglycin-x86_64:
-  extends:
-    - .test-runner
-    - .build-fedora-default
-  stage: build
-  needs: ["container:fedora"]
-  variables:
-    EXTRA_MESON_FLAGS: "--buildtype=debug --default-library=both"
-  script:
-    - meson setup ${COMMON_MESON_FLAGS} ${LOADERS_NO_GLYCIN_FLAGS} ${EXTRA_MESON_FLAGS} _build
-    - meson compile -C _build
-    - meson test -C _build
-
 fedora-x86_64:
   extends:
     - .test-runner
@@ -206,7 +192,6 @@ asan-build-noglycin:
   script:
     - meson setup
         ${COMMON_MESON_FLAGS}
-        ${LOADERS_NO_GLYCIN_FLAGS}
         ${EXTRA_MESON_FLAGS}
         -Db_sanitize=address
         -Db_lundef=false
@@ -246,7 +231,6 @@ ubsan-build-noglycin:
   script:
     - meson setup
         ${COMMON_MESON_FLAGS}
-        ${LOADERS_NO_GLYCIN_FLAGS}
         ${EXTRA_MESON_FLAGS}
         -Db_sanitize=undefined
         -Db_lundef=false
@@ -285,7 +269,6 @@ static-scan:
   script:
     - CC=clang meson setup
         ${COMMON_MESON_FLAGS}
-        ${LOADERS_NO_GLYCIN_FLAGS}
         ${EXTRA_MESON_FLAGS}
         _scan_build
     - ninja -C _scan_build scan-build
@@ -310,7 +293,6 @@ macos-build:
   script:
     - meson setup
         ${COMMON_MESON_FLAGS}
-        ${LOADERS_NO_GLYCIN_FLAGS}
         ${EXTRA_MESON_FLAGS}
         _build
     - meson compile -C _build
@@ -348,7 +330,6 @@ reference:
   script:
     - meson setup
         ${COMMON_MESON_FLAGS}
-        ${LOADERS_NO_GLYCIN_FLAGS}
         ${EXTRA_MESON_FLAGS}
         _build
     - meson compile -C _build
