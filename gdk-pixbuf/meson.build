@@ -6,57 +6,9 @@ subdir('pixops')
 #  - enabled: condition for building
 
 loaders = {
-  'png': {
-    'sources': [ 'io-png.c' ],
-    'enabled': enabled_loaders.contains('png'),
-  },
-  'bmp': {
-    'sources': [ 'io-bmp.c' ],
-    'enabled': enabled_loaders.contains('bmp') and not native_windows_loaders,
-  },
-  'gif': {
-    'sources': [ 'io-gif.c', 'io-gif-animation.c', 'lzw.c' ],
-    'enabled': enabled_loaders.contains('gif') and not native_windows_loaders,
-  },
-  'ico': {
-    'sources': [ 'io-ico.c' ],
-    'enabled': enabled_loaders.contains('ico') and not native_windows_loaders,
-  },
-  'ani': {
-    'sources': [ 'io-ani.c', 'io-ani-animation.c' ],
-    'enabled': enabled_loaders.contains('ani'),
-  },
-  'jpeg': {
-    'sources': [ 'io-jpeg.c' ],
-    'enabled': enabled_loaders.contains('jpeg'),
-  },
-  'pnm': {
-    'sources': [ 'io-pnm.c' ],
-    'enabled': enabled_loaders.contains('pnm'),
-  },
-  'tiff': {
-    'sources': [ 'io-tiff.c' ],
-    'enabled': enabled_loaders.contains('tiff'),
-  },
   'xpm': {
     'sources': [ 'io-xpm.c' ],
     'enabled': enabled_loaders.contains('xpm'),
-  },
-  'xbm': {
-    'sources': [ 'io-xbm.c' ],
-    'enabled': enabled_loaders.contains('xbm'),
-  },
-  'tga': {
-    'sources': [ 'io-tga.c', 'gdk-pixbuf-buffer-queue.c' ],
-    'enabled': enabled_loaders.contains('tga'),
-  },
-  'icns': {
-    'sources': [ 'io-icns.c' ],
-    'enabled': enabled_loaders.contains('icns'),
-  },
-  'qtif': {
-    'sources': [ 'io-qtif.c' ],
-    'enabled': enabled_loaders.contains('qtif'),
   },
 }
 

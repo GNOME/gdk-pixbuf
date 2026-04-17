@@ -836,10 +836,11 @@ MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
 		NULL
 	};
 	static const gchar *extensions[] = {
+		"xpm",
 		NULL
 	};
 
-	info->name = "legacy-xpm";
+	info->name = "xpm";
 	info->signature = (GdkPixbufModulePattern *) signature;
 	info->description = NC_("image format", "XPM");
 	info->mime_types = (gchar **) mime_types;

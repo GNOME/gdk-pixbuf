@@ -606,45 +606,6 @@ gdk_pixbuf_io_init_builtin (void)
         else                                                                           \
                 g_free (__builtin_module);                              } G_STMT_END
 
-#ifdef INCLUDE_ani
-        load_one_builtin_module (ani);
-#endif
-#ifdef INCLUDE_png
-        load_one_builtin_module (png);
-#endif
-#ifdef INCLUDE_bmp
-        load_one_builtin_module (bmp);
-#endif
-#ifdef INCLUDE_gif
-        load_one_builtin_module (gif);
-#endif
-#ifdef INCLUDE_ico
-        load_one_builtin_module (ico);
-#endif
-#ifdef INCLUDE_jpeg
-        load_one_builtin_module (jpeg);
-#endif
-#ifdef INCLUDE_pnm
-        load_one_builtin_module (pnm);
-#endif
-#ifdef INCLUDE_tiff
-        load_one_builtin_module (tiff);
-#endif
-#ifdef INCLUDE_xpm
-        load_one_builtin_module (legacy-xpm);
-#endif
-#ifdef INCLUDE_xbm
-        load_one_builtin_module (xbm);
-#endif
-#ifdef INCLUDE_tga
-        load_one_builtin_module (tga);
-#endif
-#ifdef INCLUDE_icns
-        load_one_builtin_module (icns);
-#endif
-#ifdef INCLUDE_qtif
-        load_one_builtin_module (qtif);
-#endif
 #ifdef INCLUDE_gdiplus
         /* We don't bother having the GDI+ loaders individually selectable
          * for building in or not.
@@ -716,19 +677,6 @@ gdk_pixbuf_io_init (void)
   extern void _gdk_pixbuf__##type##_fill_info   (GdkPixbufFormat *info);   \
   extern void _gdk_pixbuf__##type##_fill_vtable (GdkPixbufModule *module)
 
-module (png);
-module (jpeg);
-module (gif);
-module (ico);
-module (ani);
-module (xpm);
-module (tiff);
-module (pnm);
-module (bmp);
-module (xbm);
-module (tga);
-module (icns);
-module (qtif);
 module (gdip_ico);
 module (gdip_wmf);
 module (gdip_emf);
@@ -832,44 +780,8 @@ gdk_pixbuf_load_module_unlocked (GdkPixbufModule *image_module,
 	try_module (wbmp,android_wbmp);
 	try_module (heif,android_heif);
 #endif
-#ifdef INCLUDE_png
-        try_module (png,png);
-#endif
-#ifdef INCLUDE_bmp
-        try_module (bmp,bmp);
-#endif
-#ifdef INCLUDE_gif
-        try_module (gif,gif);
-#endif
-#ifdef INCLUDE_ico
-        try_module (ico,ico);
-#endif
-#ifdef INCLUDE_ani
-        try_module (ani,ani);
-#endif
-#ifdef INCLUDE_jpeg
-        try_module (jpeg,jpeg);
-#endif
-#ifdef INCLUDE_pnm
-        try_module (pnm,pnm);
-#endif
-#ifdef INCLUDE_tiff
-        try_module (tiff,tiff);
-#endif
 #ifdef INCLUDE_xpm
         try_module (legacy-xpm,xpm);
-#endif
-#ifdef INCLUDE_xbm
-        try_module (xbm,xbm);
-#endif
-#ifdef INCLUDE_tga
-        try_module (tga,tga);
-#endif
-#ifdef INCLUDE_icns
-        try_module (icns,icns);
-#endif
-#ifdef INCLUDE_qtif
-        try_module (qtif,qtif);
 #endif
 
 #undef try_module
