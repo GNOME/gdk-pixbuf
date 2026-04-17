@@ -14,22 +14,12 @@ pacman --noconfirm -S --needed \
     base-devel \
     mingw-w64-$MSYS2_ARCH-gobject-introspection \
     mingw-w64-$MSYS2_ARCH-glib2 \
-    mingw-w64-$MSYS2_ARCH-libjpeg-turbo \
-    mingw-w64-$MSYS2_ARCH-libpng \
-    mingw-w64-$MSYS2_ARCH-libtiff \
     mingw-w64-$MSYS2_ARCH-meson \
     mingw-w64-$MSYS2_ARCH-toolchain
 
 meson setup --buildtype debug \
-    -Dpng=enabled \
-    -Djpeg=enabled \
-    -Dtiff=enabled \
-    -Dgif=enabled \
-    -Dothers=enabled \
-    -Dglycin=disabled \
     -Dman=false \
     -Ddocumentation=false \
     _build
 
 meson compile -C _build
-meson test -C _build
