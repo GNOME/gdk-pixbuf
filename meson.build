@@ -348,7 +348,7 @@ if not meson.is_cross_build()
     subdir('tests')
   endif
   thumbnailer_opt = get_option('thumbnailer').disable_auto_if(glycin_dep.found())
-  if not thumbnailer_opt.disabled()
+  if thumbnailer_opt.enabled()
     subdir('thumbnailer')
   endif
 else
