@@ -1,3 +1,11 @@
+2.45.0 (development)
+===
+
+- Drop all legacy loaders. We only include 'native' loaders now:
+  * GDI on Windows
+  * AImageDecoder on Android
+  * glycin on Linux, macOS
+
 2.44.6
 ===
 
