@@ -20,6 +20,7 @@
 
 #include "config.h"
 
+#include <math.h>
 #include <stdint.h>
 #include <stdio.h>
 #ifdef HAVE_UNISTD_H
@@ -420,6 +421,9 @@ load_pixbuf_with_glycin (GFile                    *file,
   GlyImage *image;
   GlyFrameRequest *request = NULL;
   GlyFrame *gly_frame = NULL;
+  GlyFrameDetails *gly_frame_details = NULL;
+  GlyPixelDensity *gly_pixel_density = NULL;
+  GlyPixelDensity *gly_pixel_density_dpi = NULL;
   GdkPixbuf *pixbuf = NULL;
   GError *local_error = NULL;
   int width, height;
@@ -477,6 +481,23 @@ load_pixbuf_with_glycin (GFile                    *file,
       g_strfreev (keys);
     }
 
+  gly_frame_details = gly_frame_get_details (gly_frame);
+  gly_pixel_density = gly_frame_details_get_pixel_density (gly_frame_details);
+
+  if (gly_pixel_density)
+    {
+          gly_pixel_density_dpi = gly_pixel_density_convert (gly_pixel_density,
+                                                             GLY_PHYSICAL_DIMENSION_UNIT_INCH);
+
+          g_snprintf (value, sizeof (value), "%d",
+                      (int) round (gly_pixel_density_get_x_value (gly_pixel_density_dpi)));
+          gdk_pixbuf_set_option (pixbuf, "x-dpi", value);
+
+          g_snprintf (value, sizeof (value), "%d",
+                      (int) round (gly_pixel_density_get_y_value (gly_pixel_density_dpi)));
+          gdk_pixbuf_set_option (pixbuf, "y-dpi", value);
+    }
+
   if (animation && gly_frame_get_delay (gly_frame) != 0)
     {
       GdkPixbufGlycinFrame frame;
@@ -498,6 +519,9 @@ done:
   g_clear_object (&image);
   g_clear_object (&request);
   g_clear_object (&gly_frame);
+  g_clear_object (&gly_frame_details);
+  g_clear_object (&gly_pixel_density);
+  g_clear_object (&gly_pixel_density_dpi);
 
   if (g_error_matches (local_error, GLY_LOADER_ERROR, GLY_LOADER_ERROR_FAILED))
     {
