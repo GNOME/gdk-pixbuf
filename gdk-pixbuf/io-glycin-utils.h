@@ -14,4 +14,6 @@ gboolean glycin_image_save (const char         *mimetype,
                             GBytes             *icc_profile,
                             int                 quality,
                             int                 compression,
+                            int                 x_dpi,
+                            int                 y_dpi,
                             GError            **error);

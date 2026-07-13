@@ -754,6 +754,8 @@ glycin_image_save (const char         *mimetype,
                    GBytes             *icc_profile,
                    int                 quality,
                    int                 compression,
+                   int                 x_dpi,
+                   int                 y_dpi,
                    GError            **error)
 {
   GBytes *data;
@@ -810,6 +812,16 @@ glycin_image_save (const char         *mimetype,
 
   if (compression != -1)
     gly_creator_set_encoding_compression (creator, compression);
+
+  if (x_dpi > 0 && y_dpi > 0)
+  {
+    GlyPixelDensity *pixel_density = gly_pixel_density_new ((double) x_dpi,
+                                                            GLY_PHYSICAL_DIMENSION_UNIT_INCH,
+                                                            (double) y_dpi,
+                                                            GLY_PHYSICAL_DIMENSION_UNIT_INCH);
+    gly_new_frame_set_pixel_density (frame, pixel_density);
+    g_object_unref (pixel_density);
+  }
 
   encoded_image = gly_creator_create (creator, error);
 
