@@ -73,6 +73,7 @@ gdk_pixbuf__avif_image_save (FILE       *f,
                             NULL, NULL,
                             NULL,
                             quality, -1,
+                            0, 0,
                             error);
 }
 
@@ -94,6 +95,7 @@ gdk_pixbuf__avif_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                             NULL, NULL,
                             NULL,
                             quality, -1,
+                            0, 0,
                             error);
 }
 
