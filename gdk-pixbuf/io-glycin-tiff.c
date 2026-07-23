@@ -149,7 +149,9 @@ gdk_pixbuf__tiff_is_save_option_supported (const gchar *option_key)
   if (option_key == NULL)
     return FALSE;
 
-  return strcmp (option_key, "icc-profile") == 0;
+  return strcmp (option_key, "icc-profile") == 0 ||
+         strcmp (option_key, "x-dpi") == 0 ||
+         strcmp (option_key, "y-dpi") == 0;
 }
 
 #ifndef INCLUDE_glycin
