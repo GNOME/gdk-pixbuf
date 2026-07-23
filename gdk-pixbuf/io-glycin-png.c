@@ -221,6 +221,8 @@ gdk_pixbuf__png_is_save_option_supported (const gchar *option_key)
 
   return strcmp (option_key, "icc-profile") == 0 ||
          strcmp (option_key, "compression") == 0 ||
+         strcmp (option_key, "x-dpi") == 0 ||
+         strcmp (option_key, "y-dpi") == 0 ||
          strncmp (option_key, "tEXt::", strlen ("tEXt::")) == 0;
 }
 
