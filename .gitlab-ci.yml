@@ -49,14 +49,17 @@ default:
 
 .container.fedora:
   variables:
-    BASE_TAG: '2025-12-12.0'
+    BASE_TAG: '2026-07-23.2'
     FDO_DISTRIBUTION_VERSION: 43
     FDO_DISTRIBUTION_TAG: "x86_64-${BASE_TAG}"
     FDO_DISTRIBUTION_PACKAGES:
+        cargo
         ccache
         clang
         clang-analyzer
         clang-tools-extra
+        cmake
+        fontconfig-devel
         gcc
         gcc-c++
         gettext
@@ -64,7 +67,6 @@ default:
         gi-docgen
         git
         glib2-devel
-        glycin-devel
         gobject-introspection-devel
         itstool
         jasper-devel
@@ -72,6 +74,7 @@ default:
         libasan
         libjpeg-turbo-devel
         libpng-devel
+        libseccomp-devel
         libtiff-devel
         libubsan
         libX11-devel
@@ -87,7 +90,16 @@ default:
         python3-typogrify
         python3-wheel
         redhat-rpm-config
+        rust
         shared-mime-info
+    FDO_DISTRIBUTION_EXEC: |
+        git clone https://gitlab.gnome.org/GNOME/glycin.git
+        cd glycin
+        git checkout 0b93d6cb0a3353e6729df2a6ddabcae4794f2b05
+        meson setup -Dlibglycin-gtk4=false -Dtests=false -Dloaders=glycin-image-rs -Dglycin-thumbnailer=false -Dintrospection=false -Dvapi=false --prefix=/usr builddir
+        meson install -C builddir
+        cd ..
+        rm -rf glycin
 
 .distribution.fedora:
   extends:
