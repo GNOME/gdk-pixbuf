@@ -337,6 +337,18 @@ msys2-mingw64-build:
     paths:
       - _build/meson-logs
 
+msvc-build:
+  stage: build
+  needs:
+  tags:
+    - win32-ps
+  script:
+    - .gitlab/ci/test-msvc.bat ${COMMON_MESON_FLAGS}
+  artifacts:
+    when: always
+    paths:
+      - "$CI_PROJECT_DIR/_build/meson-logs"
+
 reference:
   extends:
     - .build-fedora-default
