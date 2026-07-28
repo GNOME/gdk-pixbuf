@@ -53,6 +53,7 @@ test_scale (gconstpointer data)
     {
       g_clear_error (&error);
       g_test_skip ("format not supported");
+      g_object_unref (ref);
       return;
     }
 
