@@ -389,6 +389,8 @@ out:
         if (!ret) {
                 g_free (context->icc_profile);
                 context->icc_profile = NULL;
+                context->icc_profile_size = 0;
+                context->icc_profile_size_allocated = 0;
         }
 	return ret;
 }
