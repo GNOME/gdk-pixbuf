@@ -20,6 +20,7 @@
 
 #include "config.h"
 
+#include <math.h>
 #include <stdint.h>
 #include <stdio.h>
 #ifdef HAVE_UNISTD_H
@@ -420,6 +421,9 @@ load_pixbuf_with_glycin (GFile                    *file,
   GlyImage *image;
   GlyFrameRequest *request = NULL;
   GlyFrame *gly_frame = NULL;
+  GlyFrameDetails *gly_frame_details = NULL;
+  GlyPixelDensity *gly_pixel_density = NULL;
+  GlyPixelDensity *gly_pixel_density_dpi = NULL;
   GdkPixbuf *pixbuf = NULL;
   GError *local_error = NULL;
   int width, height;
@@ -477,6 +481,23 @@ load_pixbuf_with_glycin (GFile                    *file,
       g_strfreev (keys);
     }
 
+  gly_frame_details = gly_frame_get_details (gly_frame);
+  gly_pixel_density = gly_frame_details_get_pixel_density (gly_frame_details);
+
+  if (gly_pixel_density)
+    {
+          gly_pixel_density_dpi = gly_pixel_density_convert (gly_pixel_density,
+                                                             GLY_PHYSICAL_DIMENSION_UNIT_INCH);
+
+          g_snprintf (value, sizeof (value), "%d",
+                      (int) round (gly_pixel_density_get_x_value (gly_pixel_density_dpi)));
+          gdk_pixbuf_set_option (pixbuf, "x-dpi", value);
+
+          g_snprintf (value, sizeof (value), "%d",
+                      (int) round (gly_pixel_density_get_y_value (gly_pixel_density_dpi)));
+          gdk_pixbuf_set_option (pixbuf, "y-dpi", value);
+    }
+
   if (animation && gly_frame_get_delay (gly_frame) != 0)
     {
       GdkPixbufGlycinFrame frame;
@@ -498,6 +519,9 @@ done:
   g_clear_object (&image);
   g_clear_object (&request);
   g_clear_object (&gly_frame);
+  g_clear_object (&gly_frame_details);
+  g_clear_object (&gly_pixel_density);
+  g_clear_object (&gly_pixel_density_dpi);
 
   if (g_error_matches (local_error, GLY_LOADER_ERROR, GLY_LOADER_ERROR_FAILED))
     {
@@ -730,6 +754,8 @@ glycin_image_save (const char         *mimetype,
                    GBytes             *icc_profile,
                    int                 quality,
                    int                 compression,
+                   int                 x_dpi,
+                   int                 y_dpi,
                    GError            **error)
 {
   GBytes *data;
@@ -786,6 +812,16 @@ glycin_image_save (const char         *mimetype,
 
   if (compression != -1)
     gly_creator_set_encoding_compression (creator, compression);
+
+  if (x_dpi > 0 && y_dpi > 0)
+  {
+    GlyPixelDensity *pixel_density = gly_pixel_density_new ((double) x_dpi,
+                                                            GLY_PHYSICAL_DIMENSION_UNIT_INCH,
+                                                            (double) y_dpi,
+                                                            GLY_PHYSICAL_DIMENSION_UNIT_INCH);
+    gly_new_frame_set_pixel_density (frame, pixel_density);
+    g_object_unref (pixel_density);
+  }
 
   encoded_image = gly_creator_create (creator, error);
 

@@ -28,6 +28,8 @@ filter_keys (char    **keys,
              char    **values,
              GBytes  **icc_bytes,
              int      *quality,
+             int      *x_dpi,
+             int      *y_dpi,
              GError  **error)
 {
   guchar *icc_data = NULL;
@@ -67,6 +69,26 @@ filter_keys (char    **keys,
               return FALSE;
             }
         }
+      else if (strcmp (keys[i], "x-dpi") == 0 || strcmp (keys[i], "y-dpi") == 0)
+        {
+          gboolean is_horizontal = strcmp (keys[i], "x-dpi") == 0;
+          char *endptr = NULL;
+
+          int dpi = strtol (values[i], &endptr, 10);
+
+          if (endptr == values[i] || dpi <= 0)
+            {
+              g_warning ("Values for key %s must be greater than zero; value “%s” is not allowed",
+                         keys[i],
+                         values[i]);
+            }
+
+          if (is_horizontal) {
+                  *x_dpi = dpi;
+          } else {
+                  *y_dpi = dpi;
+          }
+        }
       else
         {
           g_warning ("Unrecognized parameter (%s) passed to JPEG saver.", keys[i]);
@@ -88,9 +110,11 @@ gdk_pixbuf__jpeg_image_save (FILE       *f,
 {
   GBytes *icc_data = NULL;
   int quality = -1;
+  int x_dpi = 0;
+  int y_dpi = 0;
   gboolean ret;
 
-  if (!filter_keys (keys, values, &icc_data, &quality, error))
+  if (!filter_keys (keys, values, &icc_data, &quality, &x_dpi, &y_dpi, error))
     return FALSE;
 
   ret = glycin_image_save ("image/jpeg", f, NULL, NULL,
@@ -98,6 +122,7 @@ gdk_pixbuf__jpeg_image_save (FILE       *f,
                            NULL, NULL,
                            icc_data,
                            quality, -1,
+                           x_dpi, y_dpi,
                            error);
 
   g_clear_pointer (&icc_data, g_bytes_unref);
@@ -115,9 +140,11 @@ gdk_pixbuf__jpeg_image_save_to_callback (GdkPixbufSaveFunc   save_func,
 {
   GBytes *icc_data = NULL;
   int quality = -1;
+  int x_dpi = 0;
+  int y_dpi = 0;
   gboolean ret;
 
-  if (!filter_keys (keys, values, &icc_data, &quality, error))
+  if (!filter_keys (keys, values, &icc_data, &quality, &x_dpi, &y_dpi, error))
     return FALSE;
 
   ret = glycin_image_save ("image/jpeg", NULL, save_func, user_data,
@@ -125,6 +152,7 @@ gdk_pixbuf__jpeg_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                            NULL, NULL,
                            icc_data,
                            quality, -1,
+                           x_dpi, y_dpi,
                            error);
 
   g_clear_pointer (&icc_data, g_bytes_unref);
@@ -139,7 +167,9 @@ gdk_pixbuf__jpeg_is_save_option_supported (const gchar *option_key)
     return FALSE;
 
   return strcmp (option_key, "icc-profile") == 0 ||
-         strcmp (option_key, "quality") == 0;
+         strcmp (option_key, "quality") == 0 ||
+         strcmp (option_key, "x-dpi") == 0 ||
+         strcmp (option_key, "y-dpi") == 0;
 }
 
 #ifndef INCLUDE_glycin

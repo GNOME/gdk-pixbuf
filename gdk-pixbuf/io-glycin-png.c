@@ -29,6 +29,8 @@ filter_keys (char    **keys,
              char   ***out_values,
              GBytes  **icc_bytes,
              int      *compression,
+             int      *x_dpi,
+             int      *y_dpi,
              GError  **error)
 {
   char **filtered_keys = NULL;
@@ -89,6 +91,26 @@ filter_keys (char    **keys,
 
           *compression *= 11;
         }
+      else if (strcmp (keys[i], "x-dpi") == 0 || strcmp (keys[i], "y-dpi") == 0)
+        {
+          gboolean is_horizontal = strcmp (keys[i], "x-dpi") == 0;
+          char *endptr = NULL;
+
+          int dpi = strtol (values[i], &endptr, 10);
+
+          if (endptr == values[i] || dpi <= 0)
+            {
+              g_warning ("Values for key %s must be greater than zero; value “%s” is not allowed",
+                         keys[i],
+                         values[i]);
+            }
+
+          if (is_horizontal) {
+                  *x_dpi = dpi;
+          } else {
+                  *y_dpi = dpi;
+          }
+        }
       else
         {
           g_warning ("Unrecognized parameter “%s” passed to the PNG saver", keys[i]);
@@ -123,12 +145,16 @@ gdk_pixbuf__png_image_save (FILE       *f,
   char **filtered_values = NULL;
   GBytes *icc_data = NULL;
   int compression = -1;
+  int x_dpi = 0;
+  int y_dpi = 0;
   gboolean ret;
 
   if (!filter_keys (keys, values,
                     &filtered_keys, &filtered_values,
                     &icc_data,
                     &compression,
+                    &x_dpi,
+                    &y_dpi,
                     error))
     return FALSE;
 
@@ -137,6 +163,7 @@ gdk_pixbuf__png_image_save (FILE       *f,
                            filtered_keys, filtered_values,
                            icc_data,
                            -1, compression,
+                           x_dpi, y_dpi,
                            error);
 
   g_clear_pointer (&icc_data, g_bytes_unref);
@@ -158,12 +185,16 @@ gdk_pixbuf__png_image_save_to_callback (GdkPixbufSaveFunc   save_func,
   char **filtered_values = NULL;
   GBytes *icc_data = NULL;
   int compression = -1;
+  int x_dpi = 0;
+  int y_dpi = 0;
   gboolean ret;
 
   if (!filter_keys (keys, values,
                     &filtered_keys, &filtered_values,
                     &icc_data,
                     &compression,
+                    &x_dpi,
+                    &y_dpi,
                     error))
     return FALSE;
 
@@ -172,6 +203,7 @@ gdk_pixbuf__png_image_save_to_callback (GdkPixbufSaveFunc   save_func,
                            filtered_keys, filtered_values,
                            icc_data,
                            -1, compression,
+                           x_dpi, y_dpi,
                            error);
 
   g_clear_pointer (&icc_data, g_bytes_unref);
@@ -189,6 +221,8 @@ gdk_pixbuf__png_is_save_option_supported (const gchar *option_key)
 
   return strcmp (option_key, "icc-profile") == 0 ||
          strcmp (option_key, "compression") == 0 ||
+         strcmp (option_key, "x-dpi") == 0 ||
+         strcmp (option_key, "y-dpi") == 0 ||
          strncmp (option_key, "tEXt::", strlen ("tEXt::")) == 0;
 }
 
