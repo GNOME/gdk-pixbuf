@@ -1,5 +1,12 @@
+2.44.8
+======
+
+- glycin: Support x-/y-dpi options for png, tiff and jpeg
+- Translation updates
+
 2.44.7
 ===
+
 - xpm: Fix loading the xpm module if built-in
 - glycin: Fix the build on 32bit
 - glycin: Use fwrite to avoid problems with saving
