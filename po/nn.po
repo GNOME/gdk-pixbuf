@@ -3,350 +3,474 @@
 # Copyright (C) 1998-2002, 2003, 2004 Free Software Foundation, Inc.
 #
 # Kjartan Maraas <kmaraas@gnome.org>, 1998-2001.
-# Roy-Magne Mo <rmo@sunnmore.net>, 2001-2002.
+# Roy-Magne Mo <rmo@sunnmore.net>, 2001-2002, 2026.
 # Åsmund Skjæveland <aasmunds@fys.uio.no>, 2003, 2004.
 # Eskild Hustvedt <eskildh@gnome.org>, 2008, 2009.
 # Åsmund Skjæveland <aasmunds@ulrik.uio.no>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gdk-"
-"pixbuf\n"
-"POT-Creation-Date: 2012-02-04 18:44-0500\n"
-"PO-Revision-Date: 2009-01-22 11:03+0100\n"
-"Last-Translator: Åsmund Skjæveland <aasmunds@ulrik.uio.no>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gdk-pixbuf/issues/new\n"
+"POT-Creation-Date: 2026-08-20 11:42+0000\n"
+"PO-Revision-Date: 2026-09-15 22:53+0200\n"
+"Last-Translator: Roy-Magne Mo <rmo@sunnmore.net>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.2\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:146 gdk-pixbuf/gdk-pixbuf-io.c:1083
-#: gdk-pixbuf/gdk-pixbuf-io.c:1349
+#: gdk-pixbuf/gdk-pixbuf-animation.c:190 gdk-pixbuf/gdk-pixbuf-io.c:1224
+#: gdk-pixbuf/gdk-pixbuf-io.c:1497
 #, c-format
-msgid "Failed to open file '%s': %s"
-msgstr "Klarte ikkje å opna fila «%s»: %s"
+#| msgid "Failed to open file '%s': %s"
+msgid "Failed to open file “%s”: %s"
+msgstr "Klarte ikkje opne fila «%s»: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:159 gdk-pixbuf/gdk-pixbuf-io.c:1095
+#: gdk-pixbuf/gdk-pixbuf-animation.c:203 gdk-pixbuf/gdk-pixbuf-io.c:1085
 #, c-format
-msgid "Image file '%s' contains no data"
-msgstr "Biletefila «%s» inneheld ikkje data"
+#| msgid "Image file '%s' contains no data"
+msgid "Image file “%s” contains no data"
+msgstr "Biletfila «%s» inneheld ingen data"
 
-#: gdk-pixbuf/gdk-pixbuf-animation.c:201 gdk-pixbuf/gdk-pixbuf-io.c:1131
-#: gdk-pixbuf/gdk-pixbuf-io.c:1401
+#: gdk-pixbuf/gdk-pixbuf-animation.c:241
 #, c-format
+#| msgid ""
+#| "Failed to load animation '%s': reason not known, probably a corrupt "
+#| "animation file"
 msgid ""
-"Failed to load image '%s': reason not known, probably a corrupt image file"
-msgstr ""
-"Klarte ikkje å lasta biletet «%s». Årsaken er ukjent, men truleg ei øydelagt "
-"biletefil"
-
-#: gdk-pixbuf/gdk-pixbuf-animation.c:234
-#, c-format
-msgid ""
-"Failed to load animation '%s': reason not known, probably a corrupt "
+"Failed to load animation “%s”: reason not known, probably a corrupt "
 "animation file"
 msgstr ""
-"Klarte ikkje å lasta animasjonen «%s». Årsaken er ukjent, men truleg ei "
-"øydelagt animasjonsfil"
+"Klarte ikkje laste animasjonen «%s»: ukjend grunn, truleg ei skadd "
+"animasjonsfil"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:809
+#: gdk-pixbuf/gdk-pixbuf-animation.c:309 gdk-pixbuf/gdk-pixbuf-io.c:1260
+#: gdk-pixbuf/gdk-pixbuf-io.c:1549
+#, c-format
+#| msgid ""
+#| "Failed to load image '%s': reason not known, probably a corrupt image file"
+msgid ""
+"Failed to load image “%s”: reason not known, probably a corrupt image file"
+msgstr ""
+"Klarte ikkje laste biletet «%s»: ukjend grunn, truleg ei skadd biletfil"
+
+#: gdk-pixbuf/gdk-pixbuf.c:248
+msgid "Number of Channels"
+msgstr "Tal på kanalar"
+
+#: gdk-pixbuf/gdk-pixbuf.c:249
+#| msgid "XPM has invalid number of chars per pixel"
+msgid "The number of samples per pixel"
+msgstr "Talet på fargekomponentar per piksel"
+
+#: gdk-pixbuf/gdk-pixbuf.c:264
+msgid "Colorspace"
+msgstr "Fargerom"
+
+#: gdk-pixbuf/gdk-pixbuf.c:265
+msgid "The colorspace in which the samples are interpreted"
+msgstr "Fargerommet som fargekomponentane vert tolka i"
+
+#: gdk-pixbuf/gdk-pixbuf.c:277
+msgid "Has Alpha"
+msgstr "Har alfa"
+
+#: gdk-pixbuf/gdk-pixbuf.c:278
+msgid "Whether the pixbuf has an alpha channel"
+msgstr "Om pixbuf har ein alfakanal"
+
+#: gdk-pixbuf/gdk-pixbuf.c:291
+msgid "Bits per Sample"
+msgstr "Bit per fargekomponent"
+
+#: gdk-pixbuf/gdk-pixbuf.c:292
+msgid "The number of bits per sample"
+msgstr "Talet på bit per fargekomponent"
+
+#: gdk-pixbuf/gdk-pixbuf.c:305
+msgid "Width"
+msgstr "Breidd"
+
+#: gdk-pixbuf/gdk-pixbuf.c:306
+msgid "The number of columns of the pixbuf"
+msgstr "Talet på kolonnar i pixbufen"
+
+#: gdk-pixbuf/gdk-pixbuf.c:319
+msgid "Height"
+msgstr "Høgd"
+
+#: gdk-pixbuf/gdk-pixbuf.c:320
+msgid "The number of rows of the pixbuf"
+msgstr "Talet på rader i pixbufen"
+
+#: gdk-pixbuf/gdk-pixbuf.c:337
+msgid "Rowstride"
+msgstr "Radstride"
+
+#: gdk-pixbuf/gdk-pixbuf.c:338
+msgid ""
+"The number of bytes between the start of a row and the start of the next row"
+msgstr "Talet på bytes mellom starten på ei rad og starten på neste rad"
+
+#: gdk-pixbuf/gdk-pixbuf.c:351
+msgid "Pixels"
+msgstr "Pikslar"
+
+#: gdk-pixbuf/gdk-pixbuf.c:352
+msgid "A pointer to the pixel data of the pixbuf"
+msgstr "Ein peikar til pikseldataa til pixbufen"
+
+#: gdk-pixbuf/gdk-pixbuf.c:366
+msgid "Pixel Bytes"
+msgstr "Piksel Bytes"
+
+#: gdk-pixbuf/gdk-pixbuf.c:367
+msgid "Readonly pixel data"
+msgstr "Skriveverna-pikseldata"
+
+#: gdk-pixbuf/gdk-pixbuf-io.c:901
 #, c-format
 msgid "Unable to load image-loading module: %s: %s"
-msgstr "Ikkje i stand til å lasta biletelastingsmodul: %s: %s"
+msgstr "Ikkje i stand til å laste biletelastingsmodul: %s: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:824
-#, fuzzy, c-format
+#: gdk-pixbuf/gdk-pixbuf-io.c:919
+#, c-format
 msgid ""
-"Image-loading module %s does not export the proper interface; perhaps it's "
+"Image-loading module %s does not export the proper interface; perhaps it’s "
 "from a different gdk-pixbuf version?"
 msgstr ""
-"Biletelastingsmodulen %s eksporterer ikkje rett grensesnitt. Kanskje han er "
-"frå ein annan GTK+-versjon?"
+"Biletinnlastingsmodulen %s eksporterer ikkje det rette grensesnittet. "
+"Kanskje han er frå ein annan versjon av gdk-pixbuf?"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:833 gdk-pixbuf/gdk-pixbuf-io.c:884
+#: gdk-pixbuf/gdk-pixbuf-io.c:929 gdk-pixbuf/gdk-pixbuf-io.c:972
 #, c-format
-msgid "Image type '%s' is not supported"
-msgstr "Biletetypen «%s» er ikkje støtta"
+#| msgid "Image type '%s' is not supported"
+msgid "Image type “%s” is not supported"
+msgstr "Bilettypen «%s» er ikkje støtta"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:964
+#: gdk-pixbuf/gdk-pixbuf-io.c:1057
 #, c-format
-msgid "Couldn't recognize the image file format for file '%s'"
-msgstr "Klarte ikkje å kjenna att biletefilformatet på fila «%s»"
+#| msgid "Couldn't recognize the image file format for file '%s'"
+msgid "Couldn’t recognize the image file format for file “%s”"
+msgstr "Klarte ikkje kjenne att biletformatet til fila «%s»"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:972
+#: gdk-pixbuf/gdk-pixbuf-io.c:1065
 msgid "Unrecognized image file format"
 msgstr "Ukjent biletefilformat"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:1140
+#: gdk-pixbuf/gdk-pixbuf-io.c:1271
 #, c-format
-msgid "Failed to load image '%s': %s"
-msgstr "Klarte ikkje å lasta biletet «%s»: %s"
+#| msgid "Failed to load image '%s': %s"
+msgid "Failed to load image “%s”: %s"
+msgstr "Klarte ikkje laste biletet «%s»: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2028 gdk-pixbuf/io-gdip-utils.c:888
+#: gdk-pixbuf/gdk-pixbuf-io.c:2346 gdk-pixbuf/io-gdip-utils.c:840
 #, c-format
 msgid "Error writing to image file: %s"
 msgstr "Feil under skriving av biletefil: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2073 gdk-pixbuf/gdk-pixbuf-io.c:2203
+#: gdk-pixbuf/gdk-pixbuf-io.c:2388 gdk-pixbuf/gdk-pixbuf-io.c:2509
 #, c-format
 msgid "This build of gdk-pixbuf does not support saving the image format: %s"
-msgstr "Denne utgåva av gdk-pixbuf kan ikkje lagra bileteformatet: %s"
+msgstr "Denne utgåva av gdk-pixbuf kan ikkje lagre bileteformatet: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2107
+#: gdk-pixbuf/gdk-pixbuf-io.c:2419
 msgid "Insufficient memory to save image to callback"
-msgstr "Ikkje nok minne til å lagra bilete til tilbakekall"
+msgstr "Ikkje nok minne til å lagre biletet til ein callback"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2120
+#: gdk-pixbuf/gdk-pixbuf-io.c:2432
 msgid "Failed to open temporary file"
-msgstr "Klarte ikkje opna mellombels fil"
+msgstr "Klarte ikkje opne mellombels fil"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2146
+#: gdk-pixbuf/gdk-pixbuf-io.c:2455
 msgid "Failed to read from temporary file"
-msgstr "Klarte ikkje å lesa frå mellombels fil"
+msgstr "Klarte ikkje lese frå mellombels fil"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2399
+#: gdk-pixbuf/gdk-pixbuf-io.c:2677
 #, c-format
-msgid "Failed to open '%s' for writing: %s"
-msgstr "Klarte ikkje å opna «%s» for å skriva: %s"
+#| msgid "Failed to open '%s' for writing: %s"
+msgid "Failed to open “%s” for writing: %s"
+msgstr "Klarte ikkje opne «%s» for skriving: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2425
+#: gdk-pixbuf/gdk-pixbuf-io.c:2703
 #, c-format
+#| msgid ""
+#| "Failed to close '%s' while writing image, all data may not have been "
+#| "saved: %s"
 msgid ""
-"Failed to close '%s' while writing image, all data may not have been saved: "
+"Failed to close “%s” while writing image, all data may not have been saved: "
 "%s"
 msgstr ""
-"Klarte ikkje å lukka «%s» medan biletet vart skrive. Det er ikkje sikkert at "
+"Klarte ikkje lukke «%s» under skriving av biletet. Det er ikkje sikkert at "
 "alle data vart lagra: %s"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2646 gdk-pixbuf/gdk-pixbuf-io.c:2698
+#: gdk-pixbuf/gdk-pixbuf-io.c:2937 gdk-pixbuf/gdk-pixbuf-io.c:2992
 msgid "Insufficient memory to save image into a buffer"
-msgstr "Ikkje nok minne til å lagra biletet til eit buffer"
+msgstr "Ikkje nok minne til å lagre biletet i ein buffer"
 
-#: gdk-pixbuf/gdk-pixbuf-io.c:2744
+#: gdk-pixbuf/gdk-pixbuf-io.c:3038
 msgid "Error writing to image stream"
 msgstr "Feil under skriving av biletefil"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:395
+#: gdk-pixbuf/gdk-pixbuf-loader.c:426
 #, c-format
+#| msgid ""
+#| "Internal error: Image loader module '%s' failed to complete an operation, "
+#| "but didn't give a reason for the failure"
 msgid ""
-"Internal error: Image loader module '%s' failed to complete an operation, "
-"but didn't give a reason for the failure"
+"Internal error: Image loader module “%s” failed to complete an operation, "
+"but didn’t give a reason for the failure"
 msgstr ""
-"Intern feil: Modul for lasting av bileta «%s» klarte ikkje å fullutføra ein "
-"operasjon, men ga inga årsak for feilen"
+"Intern feil: Biletinnlastingsmodulen «%s» klarte ikkje fullføre ein "
+"operasjon, men gav ikkje noka årsak til feilen"
 
-#: gdk-pixbuf/gdk-pixbuf-loader.c:437
+#: gdk-pixbuf/gdk-pixbuf-loader.c:468
 #, c-format
-msgid "Incremental loading of image type '%s' is not supported"
-msgstr "Stegvis lasting av biletetypen «%s» er ikkje støtta"
+#| msgid "Incremental loading of image type '%s' is not supported"
+msgid "Incremental loading of image type “%s” is not supported"
+msgstr "Stegvis lasting av bilettypen «%s» er ikkje støtta"
 
-#: gdk-pixbuf/gdk-pixdata.c:160
+#: gdk-pixbuf/gdk-pixbuf-simple-anim.c:166
+msgid "Loop"
+msgstr "Løkke"
+
+#: gdk-pixbuf/gdk-pixbuf-simple-anim.c:167
+msgid "Whether the animation should loop when it reaches the end"
+msgstr "Om animasjonen skal gå i loop når han når slutten"
+
+#: gdk-pixbuf/gdk-pixdata.c:178
 msgid "Image header corrupt"
 msgstr "Øydelagt biletehovud"
 
-#: gdk-pixbuf/gdk-pixdata.c:165
+#: gdk-pixbuf/gdk-pixdata.c:183
 msgid "Image format unknown"
 msgstr "Ukjent bileteformat"
 
-#: gdk-pixbuf/gdk-pixdata.c:170 gdk-pixbuf/gdk-pixdata.c:502
+#: gdk-pixbuf/gdk-pixdata.c:188 gdk-pixbuf/gdk-pixdata.c:491
+#: gdk-pixbuf/gdk-pixdata.c:501 gdk-pixbuf/gdk-pixdata.c:597
 msgid "Image pixel data corrupt"
-msgstr "Øydelagte pikseldata i biletet"
+msgstr "Øydelagde pikseldata i biletet"
 
-#: gdk-pixbuf/gdk-pixdata.c:446
+#: gdk-pixbuf/gdk-pixdata.c:513
 #, c-format
 msgid "failed to allocate image buffer of %u byte"
 msgid_plural "failed to allocate image buffer of %u bytes"
-msgstr[0] "klarte ikkje å setja av eit mellomlager på %u byte til biletet"
-msgstr[1] "klarte ikkje å setja av eit mellomlager på %u byte til biletet"
+msgstr[0] "klarte ikkje tildele eit biletmellomlager på %u byte"
+msgstr[1] "klarte ikkje setje av eit mellomlager på %u byte til biletet"
 
-#: gdk-pixbuf/io-ani.c:244
+#: gdk-pixbuf/io-ani.c:239
 msgid "Unexpected icon chunk in animation"
 msgstr "Uventa ikondel i animasjon"
 
-#: gdk-pixbuf/io-ani.c:337
-msgid "Unsupported animation type"
-msgstr "Animasjonstypen er ikkje støtta"
-
-#: gdk-pixbuf/io-ani.c:348 gdk-pixbuf/io-ani.c:406 gdk-pixbuf/io-ani.c:432
-#: gdk-pixbuf/io-ani.c:455 gdk-pixbuf/io-ani.c:482 gdk-pixbuf/io-ani.c:569
-msgid "Invalid header in animation"
-msgstr "Ugyldig hovud i animasjonen"
-
-#: gdk-pixbuf/io-ani.c:358 gdk-pixbuf/io-ani.c:380 gdk-pixbuf/io-ani.c:464
-#: gdk-pixbuf/io-ani.c:491 gdk-pixbuf/io-ani.c:542 gdk-pixbuf/io-ani.c:614
-msgid "Not enough memory to load animation"
-msgstr "Ikkje nok minne til å lasta animasjon"
-
-#: gdk-pixbuf/io-ani.c:398 gdk-pixbuf/io-ani.c:424 gdk-pixbuf/io-ani.c:443
+#: gdk-pixbuf/io-ani.c:303 gdk-pixbuf/io-ani.c:404 gdk-pixbuf/io-ani.c:430
+#: gdk-pixbuf/io-ani.c:449
 msgid "Malformed chunk in animation"
 msgstr "Feil i ein del av animasjonen"
 
-#: gdk-pixbuf/io-ani.c:711
-msgid "The ANI image format"
-msgstr "Bileteformatet ANI"
+#: gdk-pixbuf/io-ani.c:311 gdk-pixbuf/io-ani.c:354 gdk-pixbuf/io-ani.c:412
+#: gdk-pixbuf/io-ani.c:438 gdk-pixbuf/io-ani.c:461 gdk-pixbuf/io-ani.c:488
+#: gdk-pixbuf/io-ani.c:575
+msgid "Invalid header in animation"
+msgstr "Ugyldig hovud i animasjonen"
 
-#: gdk-pixbuf/io-bmp.c:229 gdk-pixbuf/io-bmp.c:266 gdk-pixbuf/io-bmp.c:337
-#: gdk-pixbuf/io-bmp.c:369 gdk-pixbuf/io-bmp.c:392 gdk-pixbuf/io-bmp.c:495
+#: gdk-pixbuf/io-ani.c:364 gdk-pixbuf/io-ani.c:386 gdk-pixbuf/io-ani.c:470
+#: gdk-pixbuf/io-ani.c:497 gdk-pixbuf/io-ani.c:548 gdk-pixbuf/io-ani.c:624
+msgid "Not enough memory to load animation"
+msgstr "Ikkje nok minne til å laste animasjon"
+
+#: gdk-pixbuf/io-ani.c:646
+#| msgid "GIF image was truncated or incomplete."
+msgid "ANI image was truncated or incomplete."
+msgstr "ANI-biletet vart avkorta eller er ufullstendig."
+
+#: gdk-pixbuf/io-ani.c:687
+msgctxt "image format"
+msgid "Windows animated cursor"
+msgstr "Windows-animert markør"
+
+#: gdk-pixbuf/io-bmp.c:234 gdk-pixbuf/io-bmp.c:275 gdk-pixbuf/io-bmp.c:385
+#: gdk-pixbuf/io-bmp.c:412 gdk-pixbuf/io-bmp.c:437 gdk-pixbuf/io-bmp.c:472
+#: gdk-pixbuf/io-bmp.c:494 gdk-pixbuf/io-bmp.c:572
 msgid "BMP image has bogus header data"
 msgstr "BMP-biletet har ugyldige data i hovudet"
 
-#: gdk-pixbuf/io-bmp.c:240 gdk-pixbuf/io-bmp.c:432
+#: gdk-pixbuf/io-bmp.c:245 gdk-pixbuf/io-bmp.c:507
 msgid "Not enough memory to load bitmap image"
-msgstr "Ikkje nok minne til å lasta punktbilete"
+msgstr "Ikkje nok minne til å laste punktbilete"
 
-#: gdk-pixbuf/io-bmp.c:318
+#: gdk-pixbuf/io-bmp.c:339
 msgid "BMP image has unsupported header size"
 msgstr "BMP-biletet har ein storleik på biletehovudet som ikkje er støtta"
 
-#: gdk-pixbuf/io-bmp.c:356
+#: gdk-pixbuf/io-bmp.c:348
+#| msgid "BMP image has unsupported header size"
+msgid "BMP image has unsupported depth"
+msgstr "BMP-biletet har ei djupn som ikkje er støtta"
+
+#: gdk-pixbuf/io-bmp.c:367
+#| msgid "BMP image has bogus header data"
+msgid "BMP image has oversize palette"
+msgstr "BMP-biletet har for stor palett"
+
+#: gdk-pixbuf/io-bmp.c:399
 msgid "Topdown BMP images cannot be compressed"
 msgstr "Topdown BMP-bileta kan ikkje komprimerast"
 
-#: gdk-pixbuf/io-bmp.c:716 gdk-pixbuf/io-pnm.c:707
+#: gdk-pixbuf/io-bmp.c:424
+msgid "BMP image width too large"
+msgstr "BMP-biletebreidda er for stor"
+
+#: gdk-pixbuf/io-bmp.c:814 gdk-pixbuf/io-png.c:587 gdk-pixbuf/io-pnm.c:722
+#: gdk-pixbuf/io-pnm.c:879
 msgid "Premature end-of-file encountered"
 msgstr "Fila sluttar for tidleg"
 
-#: gdk-pixbuf/io-bmp.c:1328
-msgid "Couldn't allocate memory for saving BMP file"
-msgstr "Kunne ikkje tildela minne for lagring av BMP-fil"
+#: gdk-pixbuf/io-bmp.c:1340
+msgid "Error while decoding colormap"
+msgstr "Feil under dekoding av fargekart"
 
-#: gdk-pixbuf/io-bmp.c:1369
-msgid "Couldn't write to BMP file"
-msgstr "Kunne ikkje skriva til BMP-fil"
+#: gdk-pixbuf/io-bmp.c:1403 gdk-pixbuf/io-bmp.c:1415
+msgid "Image is too wide for BMP format."
+msgstr "Biletet er for breitt for BMP-formatet."
 
-#: gdk-pixbuf/io-bmp.c:1422 gdk-pixbuf/io-gdip-bmp.c:82
-msgid "The BMP image format"
-msgstr "Bileteformatet BMP"
+#: gdk-pixbuf/io-bmp.c:1448
+#| msgid "Couldn't allocate memory for saving BMP file"
+msgid "Couldn’t allocate memory for saving BMP file"
+msgstr "Klarte ikkje tildele minne for å lagre BMP-fil"
 
-#: gdk-pixbuf/io-gdip-emf.c:59
-msgid "The EMF image format"
-msgstr "Bileteformatet EMF"
+#: gdk-pixbuf/io-bmp.c:1489
+#| msgid "Couldn't write to BMP file"
+msgid "Couldn’t write to BMP file"
+msgstr "Klarte ikkje skrive til BMP-fil"
 
-#: gdk-pixbuf/io-gdip-gif.c:80 gdk-pixbuf/io-gif.c:1699
-msgid "The GIF image format"
-msgstr "GIF-bileteformatet"
+#: gdk-pixbuf/io-bmp.c:1542 gdk-pixbuf/io-gdip-bmp.c:83
+msgctxt "image format"
+msgid "BMP"
+msgstr "BMP"
 
-#: gdk-pixbuf/io-gdip-ico.c:59 gdk-pixbuf/io-ico.c:1271
-msgid "The ICO image format"
-msgstr "ICO-bileteformatet"
+#: gdk-pixbuf/io-gdip-emf.c:61
+msgctxt "image format"
+msgid "EMF"
+msgstr "EMF"
 
-#: gdk-pixbuf/io-gdip-jpeg.c:53 gdk-pixbuf/io-jpeg.c:1139
+#: gdk-pixbuf/io-gdip-gif.c:81 gdk-pixbuf/io-gif.c:1039
+msgctxt "image format"
+msgid "GIF"
+msgstr "GIF"
+
+#: gdk-pixbuf/io-gdip-ico.c:60 gdk-pixbuf/io-ico.c:1418
+msgctxt "image format"
+msgid "Windows icon"
+msgstr "Windows-ikon"
+
+#: gdk-pixbuf/io-gdip-jpeg.c:54 gdk-pixbuf/io-jpeg.c:1423
 #, c-format
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%s' could not be "
+#| "parsed."
 msgid ""
-"JPEG quality must be a value between 0 and 100; value '%s' could not be "
+"JPEG quality must be a value between 0 and 100; value “%s” could not be "
 "parsed."
 msgstr ""
-"JPEG-kvalitet må vera eit tal mellom 0 og 100. Verdien «%s» kan ikkje "
-"tolkast."
+"JPEG-kvalitet må vere ein verdi mellom 0 og 100; verdien «%s» kunne ikkje "
+"analyserast."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:68 gdk-pixbuf/io-jpeg.c:1154
+#: gdk-pixbuf/io-gdip-jpeg.c:69 gdk-pixbuf/io-jpeg.c:1439
 #, c-format
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
 msgid ""
-"JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+"JPEG quality must be a value between 0 and 100; value “%d” is not allowed."
 msgstr ""
-"JPEG-kvalitet må vera eit tal mellom 0 og 100. Verdien «%d» er ikkje tillate."
+"JPEG-kvalitet må vere ein verdi mellom 0 og 100; verdien «%d» er ikkje "
+"tillaten."
 
-#: gdk-pixbuf/io-gdip-jpeg.c:136 gdk-pixbuf/io-jpeg.c:1316
-msgid "The JPEG image format"
-msgstr "JPEG-bileteformatet"
+#: gdk-pixbuf/io-gdip-jpeg.c:147 gdk-pixbuf/io-jpeg.c:1724
+msgctxt "image format"
+msgid "JPEG"
+msgstr "JPEG"
 
-#: gdk-pixbuf/io-gdip-utils.c:154
+#: gdk-pixbuf/io-gdip-tiff.c:83 gdk-pixbuf/io-tiff.c:1087
+msgctxt "image format"
+msgid "TIFF"
+msgstr "TIFF"
+
+#: gdk-pixbuf/io-gdip-utils.c:155
 #, c-format
 msgid "Could not allocate memory: %s"
-msgstr "Klarte ikkje setja av minne: %s"
+msgstr "Klarte ikkje tildele minne: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:179 gdk-pixbuf/io-gdip-utils.c:293
-#: gdk-pixbuf/io-gdip-utils.c:333
+#: gdk-pixbuf/io-gdip-utils.c:180 gdk-pixbuf/io-gdip-utils.c:294
+#: gdk-pixbuf/io-gdip-utils.c:334
 #, c-format
 msgid "Could not create stream: %s"
-msgstr "Klarte ikkje oppretta straum: %s"
+msgstr "Klarte ikkje opprette straum: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:193
+#: gdk-pixbuf/io-gdip-utils.c:194
 #, c-format
 msgid "Could not seek stream: %s"
-msgstr "Klarte ikkje søka i straum: %s"
+msgstr "Klarte ikkje søkje i straumen: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:205
+#: gdk-pixbuf/io-gdip-utils.c:206
 #, c-format
 msgid "Could not read from stream: %s"
-msgstr "Klarte ikkje lesa frå straum: %s"
+msgstr "Klarte ikkje lese frå straum: %s"
 
-#: gdk-pixbuf/io-gdip-utils.c:617 gdk-pixbuf/io-gdip-utils.c:752
-msgid "Couldn't load bitmap"
-msgstr "Klarte ikkje lasta punktbilete"
+#: gdk-pixbuf/io-gdip-utils.c:620
+#| msgid "Couldn't load bitmap"
+msgid "Couldn’t load bitmap"
+msgstr "Klarte ikkje laste punktbiletet"
 
-#: gdk-pixbuf/io-gdip-utils.c:774
-msgid "Couldn't load metafile"
-msgstr "Klarte ikkje lasta metafil"
+#: gdk-pixbuf/io-gdip-utils.c:776
+#| msgid "Couldn't load metafile"
+msgid "Couldn’t load metafile"
+msgstr "Klarte ikkje laste metafil"
 
-#: gdk-pixbuf/io-gdip-utils.c:933
+#: gdk-pixbuf/io-gdip-utils.c:881
 msgid "Unsupported image format for GDI+"
 msgstr "Ikkje støtta bileteformat for GDI+"
 
-#: gdk-pixbuf/io-gdip-utils.c:940
-msgid "Couldn't save"
-msgstr "Klarte ikkje lagra"
+#: gdk-pixbuf/io-gdip-utils.c:888
+#| msgid "Couldn't save"
+msgid "Couldn’t save"
+msgstr "Klarte ikkje lagre"
 
-#: gdk-pixbuf/io-gdip-wmf.c:58
-msgid "The WMF image format"
-msgstr "WMF-bileteformatet"
+#: gdk-pixbuf/io-gdip-wmf.c:60
+msgctxt "image format"
+msgid "WMF"
+msgstr "WMF"
 
-#: gdk-pixbuf/io-gif.c:221
+#: gdk-pixbuf/io-gif.c:160
 #, c-format
 msgid "Failure reading GIF: %s"
-msgstr "Klarte ikkje å lesa GIF: %s"
+msgstr "Klarte ikkje lese GIF: %s"
 
-#: gdk-pixbuf/io-gif.c:495 gdk-pixbuf/io-gif.c:1482 gdk-pixbuf/io-gif.c:1648
-msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
-msgstr "GIF-fil manglar data (Har fila vorte kutta?)"
-
-#: gdk-pixbuf/io-gif.c:504
-#, c-format
-msgid "Internal error in the GIF loader (%s)"
-msgstr "Intern feil i GIF-lastaren (%s)"
-
-#: gdk-pixbuf/io-gif.c:578
-msgid "Stack overflow"
-msgstr "Stabeloverflyt"
-
-#: gdk-pixbuf/io-gif.c:638
-msgid "GIF image loader cannot understand this image."
-msgstr "Lastar for GIF-bileta forstår ikkje dette bilete."
-
-#: gdk-pixbuf/io-gif.c:667
-msgid "Bad code encountered"
-msgstr "Fann ugyldig kode"
-
-#: gdk-pixbuf/io-gif.c:677
-msgid "Circular table entry in GIF file"
-msgstr "Sirkulær tabelloppføring i GIF-fila"
-
-#: gdk-pixbuf/io-gif.c:865 gdk-pixbuf/io-gif.c:1468 gdk-pixbuf/io-gif.c:1521
-#: gdk-pixbuf/io-gif.c:1636
+#: gdk-pixbuf/io-gif.c:383 gdk-pixbuf/io-gif.c:850 gdk-pixbuf/io-gif.c:903
+#: gdk-pixbuf/io-gif.c:976
 msgid "Not enough memory to load GIF file"
-msgstr "Ikkje nok minne til å lasta GIF-fila"
+msgstr "Ikkje nok minne til å laste GIF-fila"
 
-#: gdk-pixbuf/io-gif.c:959
-msgid "Not enough memory to composite a frame in GIF file"
-msgstr "Ikkje nok minne til å setja saman ei ramme i GIF-fila"
-
-#: gdk-pixbuf/io-gif.c:1131
+#: gdk-pixbuf/io-gif.c:509
 msgid "GIF image is corrupt (incorrect LZW compression)"
 msgstr "GIF-biletet er øydelagt (ikkje rett LZW-kompresjon)"
 
-#: gdk-pixbuf/io-gif.c:1181
+#: gdk-pixbuf/io-gif.c:545
 msgid "File does not appear to be a GIF file"
-msgstr "Fila ser ikkje ut til å vera ei GIF-fil"
+msgstr "Fila ser ikkje ut til å vere ei GIF-fil"
 
-#: gdk-pixbuf/io-gif.c:1193
+#: gdk-pixbuf/io-gif.c:560
 #, c-format
 msgid "Version %s of the GIF file format is not supported"
 msgstr "Versjon %s av GIF-filformatet er ikkje støtta"
 
-#: gdk-pixbuf/io-gif.c:1302
+#: gdk-pixbuf/io-gif.c:589
+#| msgid "Image has zero width"
+msgid "Resulting GIF image has zero size"
+msgstr "Resultat-GIF-biletet har null storleik"
+
+#: gdk-pixbuf/io-gif.c:659
 msgid ""
 "GIF image has no global colormap, and a frame inside it has no local "
 "colormap."
@@ -354,602 +478,752 @@ msgstr ""
 "GIF-biletet har ikkje noko globalt fargekart, og ei ramme inni det har ikkje "
 "noko lokalt fargekart."
 
-#: gdk-pixbuf/io-gif.c:1543
-msgid "GIF image was truncated or incomplete."
-msgstr "GIF-biletet var avkutta eller ufullstendig."
+#: gdk-pixbuf/io-gif.c:863 gdk-pixbuf/io-gif.c:988
+msgid "GIF file was missing some data (perhaps it was truncated somehow?)"
+msgstr "GIF-fil manglar data (Har fila vorte kutta?)"
 
-#: gdk-pixbuf/io-icns.c:347
+#: gdk-pixbuf/io-gif.c:922
+msgid "GIF image was truncated or incomplete."
+msgstr "GIF-biletet vart avkorta eller er ufullstendig."
+
+#: gdk-pixbuf/io-gif.c:929
+msgid "Not all frames of the GIF image were loaded."
+msgstr "Ikkje alle rammer av GIF-biletet vart lada."
+
+#: gdk-pixbuf/io-icns.c:363
 #, c-format
 msgid "Error reading ICNS image: %s"
 msgstr "Fatal feil under lesing av ICNS-biletefil: %s"
 
-#: gdk-pixbuf/io-icns.c:364
+#: gdk-pixbuf/io-icns.c:380 gdk-pixbuf/io-icns.c:461
 msgid "Could not decode ICNS file"
-msgstr "Kunne ikkje dekode ICNS-fil"
+msgstr "Klarte ikkje dekode ICNS-fil"
 
-#: gdk-pixbuf/io-icns.c:397
-msgid "The ICNS image format"
-msgstr "ICNS-bileteformatet"
+#: gdk-pixbuf/io-icns.c:517
+msgctxt "image format"
+msgid "MacOS X icon"
+msgstr "MacOS X-ikon"
 
-#: gdk-pixbuf/io-ico.c:228 gdk-pixbuf/io-ico.c:242 gdk-pixbuf/io-ico.c:291
-#: gdk-pixbuf/io-ico.c:302 gdk-pixbuf/io-ico.c:395
+#: gdk-pixbuf/io-ico.c:238 gdk-pixbuf/io-ico.c:252 gdk-pixbuf/io-ico.c:342
+#: gdk-pixbuf/io-ico.c:426 gdk-pixbuf/io-ico.c:451
+#, c-format
+#| msgid "Invalid header in icon"
+msgid "Invalid header in icon (%s)"
+msgstr "Ugyldig hovud i ikonet (%s)"
+
+#: gdk-pixbuf/io-ico.c:268 gdk-pixbuf/io-ico.c:355 gdk-pixbuf/io-ico.c:461
+#: gdk-pixbuf/io-ico.c:504 gdk-pixbuf/io-ico.c:532
+msgid "Not enough memory to load icon"
+msgstr "Ikkje nok minne til å laste ikonet"
+
+#: gdk-pixbuf/io-ico.c:386
 msgid "Invalid header in icon"
 msgstr "Ugyldig hovud i ikon"
 
-#: gdk-pixbuf/io-ico.c:257 gdk-pixbuf/io-ico.c:312 gdk-pixbuf/io-ico.c:405
-#: gdk-pixbuf/io-ico.c:458 gdk-pixbuf/io-ico.c:488
-msgid "Not enough memory to load icon"
-msgstr "Ikkje nok minne til å lasta ikonet"
-
-#: gdk-pixbuf/io-ico.c:338
+#: gdk-pixbuf/io-ico.c:387
 msgid "Compressed icons are not supported"
 msgstr "Komprimerte ikon er ikkje støtta"
 
-#: gdk-pixbuf/io-ico.c:358
-msgid "Icon has zero width"
-msgstr "Ikonet har breidde null"
-
-#: gdk-pixbuf/io-ico.c:368
-msgid "Icon has zero height"
-msgstr "Ikonet har høgde null"
-
-#: gdk-pixbuf/io-ico.c:443
+#: gdk-pixbuf/io-ico.c:489
 msgid "Unsupported icon type"
 msgstr "Ikontypen er ikkje støtta"
 
-#: gdk-pixbuf/io-ico.c:537
+#: gdk-pixbuf/io-ico.c:583
 msgid "Not enough memory to load ICO file"
-msgstr "Ikkje nok minne til å lasta ICO-fila"
+msgstr "Ikkje nok minne til å laste ICO-fila"
 
-#: gdk-pixbuf/io-ico.c:1002
+#: gdk-pixbuf/io-ico.c:629
+#| msgid "GIF image was truncated or incomplete."
+msgid "ICO image was truncated or incomplete."
+msgstr "ICO-biletet vart avkorta eller er ufullstendig."
+
+#: gdk-pixbuf/io-ico.c:1070
 msgid "Image too large to be saved as ICO"
 msgstr "Biletet er for stort til å lagrast som ICO"
 
-#: gdk-pixbuf/io-ico.c:1013
+#: gdk-pixbuf/io-ico.c:1081
 msgid "Cursor hotspot outside image"
 msgstr "Peikarpunktet utanfor biletet"
 
-#: gdk-pixbuf/io-ico.c:1036
+#: gdk-pixbuf/io-ico.c:1104
 #, c-format
 msgid "Unsupported depth for ICO file: %d"
 msgstr "Djupna til biletet er for djup for ei ICO-fil: %d"
 
-#: gdk-pixbuf/io-jasper.c:74
-msgid "Couldn't allocate memory for stream"
-msgstr "Kan ikkje setja av minne til straum"
-
-#: gdk-pixbuf/io-jasper.c:104
-msgid "Couldn't decode image"
-msgstr "Kunne ikkje dekode bilete"
-
-#: gdk-pixbuf/io-jasper.c:122
-msgid "Transformed JPEG2000 has zero width or height"
-msgstr "Transformert JPEG2000 har null breidde eller høgde."
-
-#: gdk-pixbuf/io-jasper.c:136
-msgid "Image type currently not supported"
-msgstr "Biletetypen er ikkje støtta"
-
-#: gdk-pixbuf/io-jasper.c:148 gdk-pixbuf/io-jasper.c:156
-msgid "Couldn't allocate memory for color profile"
-msgstr "Kan ikkje setja av minne til fargeprofil"
-
-#: gdk-pixbuf/io-jasper.c:182
-msgid "Insufficient memory to open JPEG 2000 file"
-msgstr "Ikkje nok minne til å opna JPEG2000-biletet"
-
-#: gdk-pixbuf/io-jasper.c:261
-msgid "Couldn't allocate memory to buffer image data"
-msgstr "Kan ikkje setja av minne til å hurtiflagra biletdata"
-
-#: gdk-pixbuf/io-jasper.c:305
-msgid "The JPEG 2000 image format"
-msgstr "JPEG2000-bileteformatet"
-
-#: gdk-pixbuf/io-jpeg.c:116
+#: gdk-pixbuf/io-jpeg.c:131
 #, c-format
 msgid "Error interpreting JPEG image file (%s)"
 msgstr "Feil under tolking av JPEG-biletefil (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:527
+#: gdk-pixbuf/io-jpeg.c:642 gdk-pixbuf/io-jpeg.c:1167
+#, c-format
+#| msgid "Unsupported JPEG color space (%s)"
+msgid "Unsupported number of color components (%d)"
+msgstr "Ikkje støtta tal på fargekomponentar (%d)"
+
+#: gdk-pixbuf/io-jpeg.c:661
 msgid ""
 "Insufficient memory to load image, try exiting some applications to free "
 "memory"
 msgstr ""
-"Ikkje nok minne til å lasta biletet. Prøv å avslutta nokon program for  "
-"frigjera minne"
+"Ikkje nok minne til å laste biletet. Prøv å avslutte nokre program for å "
+"frigjere minne"
 
-#: gdk-pixbuf/io-jpeg.c:568 gdk-pixbuf/io-jpeg.c:781
+#: gdk-pixbuf/io-jpeg.c:734 gdk-pixbuf/io-jpeg.c:984
 #, c-format
 msgid "Unsupported JPEG color space (%s)"
 msgstr "Ustøtta JPEG-fargerom (%s)"
 
-#: gdk-pixbuf/io-jpeg.c:680 gdk-pixbuf/io-jpeg.c:950 gdk-pixbuf/io-jpeg.c:1183
-#: gdk-pixbuf/io-jpeg.c:1192
-msgid "Couldn't allocate memory for loading JPEG file"
-msgstr "Kan ikkje setja av minne til å lasta JPEG-bilete"
+#: gdk-pixbuf/io-jpeg.c:859 gdk-pixbuf/io-jpeg.c:1183 gdk-pixbuf/io-jpeg.c:1530
+#: gdk-pixbuf/io-jpeg.c:1540
+#| msgid "Couldn't allocate memory for loading JPEG file"
+msgid "Couldn’t allocate memory for loading JPEG file"
+msgstr "Klarte ikkje tildele minne for innlasting av JPEG-fil"
 
-#: gdk-pixbuf/io-jpeg.c:925
+#: gdk-pixbuf/io-jpeg.c:1141
 msgid "Transformed JPEG has zero width or height."
 msgstr "Transformert JPEG har breidd eller storleik lik null."
 
-#: gdk-pixbuf/io-pcx.c:186
-msgid "Couldn't allocate memory for header"
-msgstr "Kan ikkje setja av minne til hovud"
-
-#: gdk-pixbuf/io-pcx.c:201 gdk-pixbuf/io-pcx.c:559
-msgid "Couldn't allocate memory for context buffer"
-msgstr "Kan ikkje setja av minne til kontekstmellomlager"
-
-#: gdk-pixbuf/io-pcx.c:600
-msgid "Image has invalid width and/or height"
-msgstr "Biletet har ugyldig høgde og/eller breidde"
-
-#: gdk-pixbuf/io-pcx.c:612 gdk-pixbuf/io-pcx.c:673
-msgid "Image has unsupported bpp"
-msgstr "Biletet har eit ustøtta tal på bitar per piksel"
-
-#: gdk-pixbuf/io-pcx.c:617 gdk-pixbuf/io-pcx.c:625
+#: gdk-pixbuf/io-jpeg.c:1460
 #, c-format
-msgid "Image has unsupported number of %d-bit planes"
-msgstr "Biletet har eit ustøtta tal på %d-bit-plan"
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid ""
+"JPEG x-dpi must be a value between 1 and 65535; value “%s” is not allowed."
+msgstr ""
+"JPEG x-dpi må vere ein verdi mellom 1 og 65535; verdien «%s» er ikkje "
+"tillaten."
 
-#: gdk-pixbuf/io-pcx.c:641
-msgid "Couldn't create new pixbuf"
-msgstr "Kan ikkje laga nytt pixbuf"
+#: gdk-pixbuf/io-jpeg.c:1481
+#, c-format
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid ""
+"JPEG y-dpi must be a value between 1 and 65535; value “%s” is not allowed."
+msgstr ""
+"JPEG y-dpi må vere ein verdi mellom 1 og 65535; verdien «%s» er ikkje "
+"tillaten."
 
-#: gdk-pixbuf/io-pcx.c:649
-msgid "Couldn't allocate memory for line data"
-msgstr "Kan ikkje setja av minne til linjedata"
+#: gdk-pixbuf/io-jpeg.c:1495
+#, c-format
+msgid "Color profile has invalid length “%u”."
+msgstr "Fargeprofilen har ugyldig lengd «%u»."
 
-#: gdk-pixbuf/io-pcx.c:656
-#, fuzzy
-msgid "Couldn't allocate memory for PCX image"
-msgstr "Kan ikkje setja av minne til hovud"
-
-#: gdk-pixbuf/io-pcx.c:703
-msgid "Didn't get all lines of PCX image"
-msgstr "Fekk ikkje alle linjene i PCX-biletet"
-
-#: gdk-pixbuf/io-pcx.c:710
-msgid "No palette found at end of PCX data"
-msgstr "Fann ikkje nokon palett på slutten av PCX-data"
-
-#: gdk-pixbuf/io-pcx.c:755
-msgid "The PCX image format"
-msgstr "Bileteformatet PCX"
-
-#: gdk-pixbuf/io-pixdata.c:148
-#, fuzzy
-msgid "Transformed pixbuf has zero width or height."
-msgstr "Transformert PNG har null breidde eller høgde."
-
-#: gdk-pixbuf/io-pixdata.c:186
-#, fuzzy
-msgid "The GdkPixdata format"
-msgstr "GIF-bileteformatet"
-
-#: gdk-pixbuf/io-png.c:54
+#: gdk-pixbuf/io-png.c:64
 msgid "Bits per channel of PNG image is invalid."
 msgstr "Talet på bitar per kanal i PNG-biletet er ugyldig."
 
-#: gdk-pixbuf/io-png.c:135 gdk-pixbuf/io-png.c:641
+#: gdk-pixbuf/io-png.c:145 gdk-pixbuf/io-png.c:730
 msgid "Transformed PNG has zero width or height."
-msgstr "Transformert PNG har null breidde eller høgde."
+msgstr "Det transformerte PNG-biletet har breidd eller høgd lik null."
 
-#: gdk-pixbuf/io-png.c:143
+#: gdk-pixbuf/io-png.c:153
 msgid "Bits per channel of transformed PNG is not 8."
 msgstr "Bitar per kanal i transformert PNG er ikkje 8."
 
-#: gdk-pixbuf/io-png.c:152
+#: gdk-pixbuf/io-png.c:162
 msgid "Transformed PNG not RGB or RGBA."
 msgstr "Transformert PNG er ikkje RGB eller RGBA."
 
-#: gdk-pixbuf/io-png.c:161
+#: gdk-pixbuf/io-png.c:171
 msgid "Transformed PNG has unsupported number of channels, must be 3 or 4."
 msgstr ""
-"Transformert PNG har eit tal på kanalar som ikkje er støtta. Må vera 3 eller "
-"4."
+"Transformert PNG har eit tal på kanalar som ikkje er støtta. Må vere 3 eller"
+" 4."
 
-#: gdk-pixbuf/io-png.c:182
+#: gdk-pixbuf/io-png.c:193
 #, c-format
 msgid "Fatal error in PNG image file: %s"
 msgstr "Fatal feil i PNG-biletefil: %s"
 
-#: gdk-pixbuf/io-png.c:315
+#: gdk-pixbuf/io-png.c:338
 msgid "Insufficient memory to load PNG file"
-msgstr "Ikkje nok minne til å lasta PNG-fil"
+msgstr "Ikkje nok minne til å laste PNG-fil"
 
-#: gdk-pixbuf/io-png.c:656
+#: gdk-pixbuf/io-png.c:519 gdk-pixbuf/io-png.c:540
+#| msgid "Couldn't allocate memory for loading JPEG file"
+msgid "Couldn’t allocate memory for loading PNG"
+msgstr "Klarte ikkje tildele minne for å laste PNG"
+
+#: gdk-pixbuf/io-png.c:743
 #, c-format
+#| msgid ""
+#| "Insufficient memory to store a %ld by %ld image; try exiting some "
+#| "applications to reduce memory usage"
 msgid ""
-"Insufficient memory to store a %ld by %ld image; try exiting some "
+"Insufficient memory to store a %lu by %lu image; try exiting some "
 "applications to reduce memory usage"
 msgstr ""
-"Ikkje nok minne til å lagra eit %ld x %ld-bilete. Prøv å avslutta nokon "
-"program for å frigjera minne"
+"Ikkje nok minne til å lagre eit %lu × %lu-bilete. Prøv å avslutte nokre "
+"program for å frigjere minne"
 
-#: gdk-pixbuf/io-png.c:719
+#: gdk-pixbuf/io-png.c:820
 msgid "Fatal error reading PNG image file"
 msgstr "Fatal feil under lesing av PNG-biletefil"
 
-#: gdk-pixbuf/io-png.c:768
+#: gdk-pixbuf/io-png.c:873
 #, c-format
 msgid "Fatal error reading PNG image file: %s"
 msgstr "Fatal feil under lesing av PNG-biletefil: %s"
 
-#: gdk-pixbuf/io-png.c:862
+#: gdk-pixbuf/io-png.c:972
+#, c-format
+#| msgid ""
+#| "Keys for PNG text chunks must have at least 1 and at most 79 characters."
 msgid ""
-"Keys for PNG text chunks must have at least 1 and at most 79 characters."
-msgstr "Nøklane til PNG-tekstbitar må ha mellom 1 og 79 teikn."
-
-#: gdk-pixbuf/io-png.c:871
-msgid "Keys for PNG text chunks must be ASCII characters."
-msgstr "Nøklane til PNG-tekstbitar må vera ASCII-teikn."
-
-#: gdk-pixbuf/io-png.c:885 gdk-pixbuf/io-tiff.c:737
-#, c-format
-msgid "Color profile has invalid length %d."
+"Invalid key “%s”. Keys for PNG text chunks must have at least 1 and at most "
+"79 characters."
 msgstr ""
+"Ugyldig nøkkel «%s». Nøklar for PNG-tekstblokker må ha minst 1 og høgst 79 "
+"teikn."
 
-#: gdk-pixbuf/io-png.c:898
+#: gdk-pixbuf/io-png.c:985
 #, c-format
+#| msgid "Keys for PNG text chunks must be ASCII characters."
+msgid "Invalid key “%s”. Keys for PNG text chunks must be ASCII characters."
+msgstr "Ugyldig nøkkel «%s». Nøklar for PNG-tekstblokker må vere ASCII-teikn."
+
+#: gdk-pixbuf/io-png.c:1015
+#, c-format
+#| msgid ""
+#| "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
 msgid ""
-"PNG compression level must be a value between 0 and 9; value '%s' could not "
-"be parsed."
+"Value for PNG text chunk '%s' cannot be converted to ISO-8859-1 encoding."
 msgstr ""
-"Nivået til PNG-komprimeringa må vera ein verdi mello 0 og 9; verdi «%s» kan "
-"ikkje brukast."
+"Verdien for PNG-tekstblokka «%s» kan ikkje konverterast til "
+"ISO-8859-1-koding."
 
-#: gdk-pixbuf/io-png.c:911
+#: gdk-pixbuf/io-png.c:1027
 #, c-format
+msgid "Color profile has invalid length %d"
+msgstr "Fargeprofilen har ugyldig lengd %d"
+
+#: gdk-pixbuf/io-png.c:1039
+#, c-format
+#| msgid ""
+#| "PNG compression level must be a value between 0 and 9; value '%d' is not "
+#| "allowed."
 msgid ""
-"PNG compression level must be a value between 0 and 9; value '%d' is not "
-"allowed."
+"PNG compression level must be a value between 0 and 9; value “%s” is invalid"
 msgstr ""
-"Nivået på PNG-komprimering må vera ein verdi mellom 0 og 9; verdien «%d» er "
-"ikkje tillat."
+"PNG-komprimeringsnivået må vere eit tal mellom 0 og 9; verdien «%s» er "
+"ugyldig"
 
-#: gdk-pixbuf/io-png.c:959
+#: gdk-pixbuf/io-png.c:1053
 #, c-format
-msgid "Value for PNG text chunk %s cannot be converted to ISO-8859-1 encoding."
-msgstr ""
-"Verdi for PNG-tekstbit %s kan ikkje konverterast til ISO-8859-1-koding."
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid "PNG %s must be greater than zero; value “%s” is not allowed"
+msgstr "PNG %s må vere større enn null; verdien «%s» er ikkje tillaten"
 
-#: gdk-pixbuf/io-png.c:1122
-msgid "The PNG image format"
-msgstr "PNG-bileteformatet"
+#: gdk-pixbuf/io-png.c:1283
+msgctxt "image format"
+msgid "PNG"
+msgstr "PNG"
 
-#: gdk-pixbuf/io-pnm.c:248
-msgid "PNM loader expected to find an integer, but didn't"
-msgstr "PNG-lastaren fann ikkje venta heiltal"
+#: gdk-pixbuf/io-pnm.c:247
+#| msgid "PNM loader expected to find an integer, but didn't"
+msgid "PNM loader expected to find an integer, but didn’t"
+msgstr "PNM-lastaren venta eit heiltal, men fann ikkje noko"
 
-#: gdk-pixbuf/io-pnm.c:280
+#: gdk-pixbuf/io-pnm.c:279
 msgid "PNM file has an incorrect initial byte"
-msgstr "PNM-fila har ein feil i den fyrste byten."
+msgstr "PNM-fila har ein feil i den første byten"
 
-#: gdk-pixbuf/io-pnm.c:310
+#: gdk-pixbuf/io-pnm.c:309
 msgid "PNM file is not in a recognized PNM subformat"
-msgstr "PNM-fila er ikkje i eit gjenkjent underformat av PNM"
+msgstr "PNM-fila er ikkje i eit kjent PNM-underformat"
 
-#: gdk-pixbuf/io-pnm.c:335
+#: gdk-pixbuf/io-pnm.c:334
+#| msgid "PNM file has an image width of 0"
+msgid "PNM file has an invalid width"
+msgstr "PNM-fila har ei ugyldig breidd"
+
+#: gdk-pixbuf/io-pnm.c:342
 msgid "PNM file has an image width of 0"
-msgstr "PNM-fila har ei biletebreidde på 0"
+msgstr "PNM-fila har ei biletbreidd på 0"
 
-#: gdk-pixbuf/io-pnm.c:356
+#: gdk-pixbuf/io-pnm.c:363
+#| msgid "PNM file has an image height of 0"
+msgid "PNM file has an invalid height"
+msgstr "PNM-fila har ei ugyldig høgd"
+
+#: gdk-pixbuf/io-pnm.c:371
 msgid "PNM file has an image height of 0"
-msgstr "PNM-fila har ei biletehøgde på 0"
+msgstr "PNM-fila har ei bilethøgd på 0"
 
-#: gdk-pixbuf/io-pnm.c:379
+#: gdk-pixbuf/io-pnm.c:394
 msgid "Maximum color value in PNM file is 0"
 msgstr "Største fargeverdi i PNM-fila er 0"
 
-#: gdk-pixbuf/io-pnm.c:387
+#: gdk-pixbuf/io-pnm.c:402
 msgid "Maximum color value in PNM file is too large"
 msgstr "Største fargeverdi i PNM-fila er for stor"
 
-#: gdk-pixbuf/io-pnm.c:427 gdk-pixbuf/io-pnm.c:457 gdk-pixbuf/io-pnm.c:502
+#: gdk-pixbuf/io-pnm.c:442 gdk-pixbuf/io-pnm.c:472 gdk-pixbuf/io-pnm.c:517
 msgid "Raw PNM image type is invalid"
 msgstr "Rå PNM-biletetype er ugyldig"
 
-#: gdk-pixbuf/io-pnm.c:652
+#: gdk-pixbuf/io-pnm.c:667
 msgid "PNM image loader does not support this PNM subformat"
 msgstr "PNM-biletelastaren støttar ikkje dette underformatet av PNM"
 
-#: gdk-pixbuf/io-pnm.c:739 gdk-pixbuf/io-pnm.c:966
+#: gdk-pixbuf/io-pnm.c:754 gdk-pixbuf/io-pnm.c:991
 msgid "Raw PNM formats require exactly one whitespace before sample data"
 msgstr "Rå PNM-format krev nøyaktig eitt blankt teikn før datablokka"
 
-#: gdk-pixbuf/io-pnm.c:766
+#: gdk-pixbuf/io-pnm.c:781
 msgid "Cannot allocate memory for loading PNM image"
-msgstr "Kan ikkje tildela minne for lasting av PNM-bilete"
+msgstr "Kan ikkje tildele minne for lasting av PNM-bilete"
 
-#: gdk-pixbuf/io-pnm.c:816
+#: gdk-pixbuf/io-pnm.c:835
 msgid "Insufficient memory to load PNM context struct"
-msgstr "Ikkje nok minne til å lasta PNM-kontekststruktur"
+msgstr "Ikkje nok minne til å laste PNM-kontekststruktur"
 
-#: gdk-pixbuf/io-pnm.c:867
+#: gdk-pixbuf/io-pnm.c:892
 msgid "Unexpected end of PNM image data"
 msgstr "Uventa slutt på PNM-biletedata"
 
-#: gdk-pixbuf/io-pnm.c:995
+#: gdk-pixbuf/io-pnm.c:1020
 msgid "Insufficient memory to load PNM file"
-msgstr "Ikkje nok minne til å lasta PNM-fila"
+msgstr "Ikkje nok minne til å laste PNM-fila"
 
-#: gdk-pixbuf/io-pnm.c:1079
-msgid "The PNM/PBM/PGM/PPM image format family"
-msgstr "PNM/PBM/PGM/PPM-bileteformatfamilien"
+#: gdk-pixbuf/io-pnm.c:1103
+msgctxt "image format"
+msgid "PNM/PBM/PGM/PPM"
+msgstr "PNM/PBM/PGM/PPM"
 
-#: gdk-pixbuf/io-qtif.c:128
+#: gdk-pixbuf/io-qtif.c:126
 msgid "Input file descriptor is NULL."
-msgstr ""
+msgstr "Inndatafilskildrar er NULL."
 
-#: gdk-pixbuf/io-qtif.c:143
-#, fuzzy
+#: gdk-pixbuf/io-qtif.c:141
 msgid "Failed to read QTIF header"
-msgstr "Klarte ikkje skriva hovud\n"
+msgstr "Klarte ikkje lese QTIF-hovudet"
 
-#: gdk-pixbuf/io-qtif.c:152 gdk-pixbuf/io-qtif.c:189 gdk-pixbuf/io-qtif.c:460
+#: gdk-pixbuf/io-qtif.c:150 gdk-pixbuf/io-qtif.c:187 gdk-pixbuf/io-qtif.c:449
 #, c-format
 msgid "QTIF atom size too large (%d byte)"
 msgid_plural "QTIF atom size too large (%d bytes)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "QTIF atomstorleik for stor (%d byte)"
+msgstr[1] "QTIF-atomstorleik for stor (%d bytes)"
 
-#: gdk-pixbuf/io-qtif.c:175
-#, fuzzy, c-format
+#: gdk-pixbuf/io-qtif.c:173
+#, c-format
 msgid "Failed to allocate %d byte for file read buffer"
 msgid_plural "Failed to allocate %d bytes for file read buffer"
-msgstr[0] "klarte ikkje å setja av eit mellomlager på %u byte til biletet"
-msgstr[1] "klarte ikkje å setja av eit mellomlager på %u byte til biletet"
+msgstr[0] "Klarte ikkje tildele %d byte til fil-lesebuffer"
+msgstr[1] "Klarte ikkje tildele %d byte til fil lesebuffer"
 
-#: gdk-pixbuf/io-qtif.c:206
-#, fuzzy, c-format
+#: gdk-pixbuf/io-qtif.c:201
+#, c-format
 msgid "File error when reading QTIF atom: %s"
-msgstr "Klarte ikkje å lesa GIF: %s"
+msgstr "Filfeil ved lesing av QTIF-atom: %s"
 
-#: gdk-pixbuf/io-qtif.c:243
+#: gdk-pixbuf/io-qtif.c:238
 #, c-format
 msgid "Failed to skip the next %d byte with seek()."
 msgid_plural "Failed to skip the next %d bytes with seek()."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Klarte ikkje hoppe over neste %d byte med seek()."
+msgstr[1] "Klarte ikkje hoppe over dei neste %d bytesa med seek()."
 
-#: gdk-pixbuf/io-qtif.c:270
-#, fuzzy
+#: gdk-pixbuf/io-qtif.c:269
 msgid "Failed to allocate QTIF context structure."
-msgstr "Kan ikkje tildela minne for TGA-kontekststruktur"
+msgstr "Klarte ikkje tildele QTIF-kontekststruktur."
 
-#: gdk-pixbuf/io-qtif.c:330
-#, fuzzy
+#: gdk-pixbuf/io-qtif.c:329
 msgid "Failed to create GdkPixbufLoader object."
-msgstr "Klarte ikkje skriva mappeindeks\n"
+msgstr "Klarte ikkje opprette GdkPixbufLoader-objektet."
 
-#: gdk-pixbuf/io-qtif.c:434
-#, fuzzy
+#: gdk-pixbuf/io-qtif.c:424
 msgid "Failed to find an image data atom."
-msgstr "Klarte ikkje å opna TIFF-biletet"
+msgstr "Klarte ikkje finne eit biletdata-atom."
 
-#: gdk-pixbuf/io-qtif.c:619
-#, fuzzy
-msgid "The QTIF image format"
-msgstr "TIFF-bileteformatet"
-
-#: gdk-pixbuf/io-ras.c:125
-msgid "RAS image has bogus header data"
-msgstr "RAS-biletet har ugyldige data i headeren"
-
-#: gdk-pixbuf/io-ras.c:147
-msgid "RAS image has unknown type"
-msgstr "RAS-biletet har ukjent type"
-
-#: gdk-pixbuf/io-ras.c:155
-msgid "unsupported RAS image variation"
-msgstr "Biletevariasjonen i RAS-biletet er ikkje støtta"
-
-#: gdk-pixbuf/io-ras.c:170 gdk-pixbuf/io-ras.c:199
-msgid "Not enough memory to load RAS image"
-msgstr "Ikkje nok minne til å lasta RAS-bilete"
-
-#: gdk-pixbuf/io-ras.c:544
-msgid "The Sun raster image format"
-msgstr "Sun raster-bileteformat"
-
-#: gdk-pixbuf/io-tga.c:153
-msgid "Cannot allocate memory for IOBuffer struct"
-msgstr "Kan ikkje tildela minne for IOBuffer-struct"
-
-#: gdk-pixbuf/io-tga.c:172
-msgid "Cannot allocate memory for IOBuffer data"
-msgstr "Kan ikkje tildela minne for IOBuffer-data"
-
-#: gdk-pixbuf/io-tga.c:183
-msgid "Cannot realloc IOBuffer data"
-msgstr "Kan ikkje køyra realloc for IOBuffer-data"
-
-#: gdk-pixbuf/io-tga.c:213
-msgid "Cannot allocate temporary IOBuffer data"
-msgstr "Kan ikkje tildela mellombelse IOBuffer-data"
+#: gdk-pixbuf/io-qtif.c:599
+msgctxt "image format"
+msgid "QuickTime"
+msgstr "QuickTime"
 
 #: gdk-pixbuf/io-tga.c:346
+#| msgid "Cannot allocate colormap entries"
+msgid "Cannot allocate colormap"
+msgstr "Kan ikkje tildele fargekart"
+
+#: gdk-pixbuf/io-tga.c:371
 msgid "Cannot allocate new pixbuf"
-msgstr "Kan ikkje tildela ny pixbuf"
+msgstr "Kan ikkje tildele ny pixbuf"
 
-#: gdk-pixbuf/io-tga.c:685
-#, fuzzy
-msgid "Image is corrupted or truncated"
-msgstr "GIF-biletet var avkutta eller ufullstendig."
-
-#: gdk-pixbuf/io-tga.c:692
-msgid "Cannot allocate colormap structure"
-msgstr "Kan ikkje tildela struktur for fargekart"
-
-#: gdk-pixbuf/io-tga.c:699
-msgid "Cannot allocate colormap entries"
-msgstr "Kan ikkje tildela fargekartoppføringar"
-
-#: gdk-pixbuf/io-tga.c:721
+#: gdk-pixbuf/io-tga.c:519
 msgid "Unexpected bitdepth for colormap entries"
-msgstr "Uventa mange bits i fargekartoppføringar"
+msgstr "Uventa bitdjupn for oppføringane i fargekartet"
 
-#: gdk-pixbuf/io-tga.c:739
+#: gdk-pixbuf/io-tga.c:535
+msgid "Pseudocolor image does not contain a colormap"
+msgstr "Pseudofarga bilete inneheld ikkje eit fargekart"
+
+#: gdk-pixbuf/io-tga.c:578
 msgid "Cannot allocate TGA header memory"
-msgstr "Kan ikkje tildela minne for TGA-hovud"
+msgstr "Kan ikkje tildele minne for TGA-hovud"
 
-#: gdk-pixbuf/io-tga.c:772
+#: gdk-pixbuf/io-tga.c:609
 msgid "TGA image has invalid dimensions"
 msgstr "TGA-bilete har ugyldige dimensjonar"
 
-#: gdk-pixbuf/io-tga.c:778 gdk-pixbuf/io-tga.c:787 gdk-pixbuf/io-tga.c:797
-#: gdk-pixbuf/io-tga.c:807 gdk-pixbuf/io-tga.c:814
+#: gdk-pixbuf/io-tga.c:615 gdk-pixbuf/io-tga.c:622
 msgid "TGA image type not supported"
 msgstr "TGA-biletetypen er ikkje støtta"
 
-#: gdk-pixbuf/io-tga.c:861
+#: gdk-pixbuf/io-tga.c:650
 msgid "Cannot allocate memory for TGA context struct"
-msgstr "Kan ikkje tildela minne for TGA-kontekststruktur"
+msgstr "Kan ikkje tildele minne for TGA-kontekststruktur"
 
-#: gdk-pixbuf/io-tga.c:926
-msgid "Excess data in file"
-msgstr "Overflødige data i fila"
+#: gdk-pixbuf/io-tga.c:712
+#| msgid "GIF image was truncated or incomplete."
+msgid "TGA image was truncated or incomplete."
+msgstr "TGA-biletet vart avkorta eller er ufullstendig."
 
-#: gdk-pixbuf/io-tga.c:1007
-msgid "The Targa image format"
-msgstr "Targa-bileteformatet"
+#: gdk-pixbuf/io-tga.c:764
+msgctxt "image format"
+msgid "Targa"
+msgstr "Targa"
 
-#: gdk-pixbuf/io-tiff.c:164
+#: gdk-pixbuf/io-tiff.c:117
 msgid "Could not get image width (bad TIFF file)"
-msgstr "Kan ikkje finna biletebreidda (ugyldig TIFF-fil)"
+msgstr "Kan ikkje finne biletbreidda (ugyldig TIFF-fil)"
 
-#: gdk-pixbuf/io-tiff.c:171
+#: gdk-pixbuf/io-tiff.c:125
 msgid "Could not get image height (bad TIFF file)"
-msgstr "Kan ikkje finna biletehøgda (ugyldig TIFF-fil)"
+msgstr "Kan ikkje finne bilethøgda (ugyldig TIFF-fil)"
 
-#: gdk-pixbuf/io-tiff.c:179
+#: gdk-pixbuf/io-tiff.c:133
 msgid "Width or height of TIFF image is zero"
 msgstr "Breidda eller høgda til TIFF-biletet er null"
 
-#: gdk-pixbuf/io-tiff.c:188 gdk-pixbuf/io-tiff.c:197
+#: gdk-pixbuf/io-tiff.c:141 gdk-pixbuf/io-tiff.c:151
 msgid "Dimensions of TIFF image too large"
-msgstr "TIFF-bildet er for stort"
+msgstr "TIFF-biletet har for store mål"
 
-#: gdk-pixbuf/io-tiff.c:221 gdk-pixbuf/io-tiff.c:233 gdk-pixbuf/io-tiff.c:560
+#: gdk-pixbuf/io-tiff.c:177 gdk-pixbuf/io-tiff.c:189 gdk-pixbuf/io-tiff.c:585
 msgid "Insufficient memory to open TIFF file"
-msgstr "Ikkje nok minne til å opna TIFF-biletet"
+msgstr "Ikkje nok minne til å opne TIFF-biletet"
 
-#: gdk-pixbuf/io-tiff.c:294
+#: gdk-pixbuf/io-tiff.c:287
 msgid "Failed to load RGB data from TIFF file"
-msgstr "Klarte ikkje å lasta RGB-data frå TIFF-fila"
+msgstr "Klarte ikkje laste RGB-data frå TIFF-fila"
 
-#: gdk-pixbuf/io-tiff.c:350
+#: gdk-pixbuf/io-tiff.c:378
 msgid "Failed to open TIFF image"
-msgstr "Klarte ikkje å opna TIFF-biletet"
+msgstr "Klarte ikkje opne TIFF-biletet"
 
-#: gdk-pixbuf/io-tiff.c:362 gdk-pixbuf/io-tiff.c:777
-msgid "TIFFClose operation failed"
-msgstr "TIFFClose-operasjonen feila"
-
-#: gdk-pixbuf/io-tiff.c:492 gdk-pixbuf/io-tiff.c:505
+#: gdk-pixbuf/io-tiff.c:516 gdk-pixbuf/io-tiff.c:528
 msgid "Failed to load TIFF image"
-msgstr "Klarte ikkje å lasta TIFF-bilete"
+msgstr "Klarte ikkje laste TIFF-bilete"
 
 #
-#: gdk-pixbuf/io-tiff.c:691
+#: gdk-pixbuf/io-tiff.c:760
 msgid "Failed to save TIFF image"
-msgstr "Klarte ikkje å lagra TIFF-bilete"
+msgstr "Klarte ikkje lagre TIFF-bilete"
 
-#: gdk-pixbuf/io-tiff.c:726
-msgid "TIFF compression doesn't refer to a valid codec."
-msgstr ""
+#: gdk-pixbuf/io-tiff.c:821
+msgid "TIFF compression doesn’t refer to a valid codec."
+msgstr "TIFF-komprimering viser ikkje til ein gyldig kodek."
+
+#: gdk-pixbuf/io-tiff.c:851
+#, c-format
+msgid "Color profile has invalid length %d."
+msgstr "Fargeprofilen har ugyldig lengd %d."
+
+#: gdk-pixbuf/io-tiff.c:866
+msgid "TIFF bits-per-sample doesn’t contain a supported value."
+msgstr "TIFF-verdien bits-per-sample er ikkje støtta."
 
 #
-#: gdk-pixbuf/io-tiff.c:766
+#: gdk-pixbuf/io-tiff.c:947
 msgid "Failed to write TIFF data"
-msgstr "Klarte ikkje å lagra TIFF-data"
+msgstr "Klarte ikkje lagre TIFF-data"
 
-#: gdk-pixbuf/io-tiff.c:813
-msgid "Couldn't write to TIFF file"
-msgstr "Kunne ikkje skriva til TIFF-fil"
+#: gdk-pixbuf/io-tiff.c:965
+#, c-format
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid "TIFF x-dpi must be greater than zero; value “%s” is not allowed."
+msgstr "TIFF x-dpi må vere større enn null; verdien «%s» er ikkje tillaten."
 
-#: gdk-pixbuf/io-tiff.c:868
-msgid "The TIFF image format"
-msgstr "TIFF-bileteformatet"
+#: gdk-pixbuf/io-tiff.c:977
+#, c-format
+#| msgid ""
+#| "JPEG quality must be a value between 0 and 100; value '%d' is not allowed."
+msgid "TIFF y-dpi must be greater than zero; value “%s” is not allowed."
+msgstr "TIFF y-dpi må vere større enn null; verdien «%s» er ikkje tillaten."
 
-#: gdk-pixbuf/io-wbmp.c:245
-msgid "Image has zero width"
-msgstr "Biletet har null breidde"
+#: gdk-pixbuf/io-tiff.c:1018
+#| msgid "Couldn't write to TIFF file"
+msgid "Couldn’t write to TIFF file"
+msgstr "Klarte ikkje skrive til TIFF-fil"
 
-#: gdk-pixbuf/io-wbmp.c:263
-msgid "Image has zero height"
-msgstr "Biletet har null høgde"
-
-#: gdk-pixbuf/io-wbmp.c:274
-msgid "Not enough memory to load image"
-msgstr "Ikkje nok minne til å lasta bilete"
-
-#: gdk-pixbuf/io-wbmp.c:333
-msgid "Couldn't save the rest"
-msgstr "Kunne ikkje lagra resten"
-
-#: gdk-pixbuf/io-wbmp.c:374
-msgid "The WBMP image format"
-msgstr "WBMP-bileteformatet"
-
-#: gdk-pixbuf/io-xbm.c:296
+#: gdk-pixbuf/io-xbm.c:320
 msgid "Invalid XBM file"
 msgstr "Ugyldig XBM-fil"
 
-#: gdk-pixbuf/io-xbm.c:306
+#: gdk-pixbuf/io-xbm.c:331
 msgid "Insufficient memory to load XBM image file"
-msgstr "Ikkje nok minne itl å lasta XBM-biletefil"
+msgstr "Ikkje nok minne til å laste XBM-biletefila"
 
-#: gdk-pixbuf/io-xbm.c:454
+#: gdk-pixbuf/io-xbm.c:482
 msgid "Failed to write to temporary file when loading XBM image"
-msgstr "Klarte ikkje å skriva mellombels fil medan XBM-fil vart lasta"
+msgstr "Klarte ikkje skrive mellombels fil medan XBM-fil vart lasta"
 
-#: gdk-pixbuf/io-xbm.c:493
-msgid "The XBM image format"
-msgstr "XBM-bileteformatet"
+#: gdk-pixbuf/io-xbm.c:521
+msgctxt "image format"
+msgid "XBM"
+msgstr "XBM"
 
-#: gdk-pixbuf/io-xpm.c:469
+#: gdk-pixbuf/io-xpm.c:472
 msgid "No XPM header found"
 msgstr "Fann ikkje noko XBM-hovud"
 
-#: gdk-pixbuf/io-xpm.c:478
+#: gdk-pixbuf/io-xpm.c:481 gdk-pixbuf/io-xpm.c:507
 msgid "Invalid XPM header"
 msgstr "Ugyldig XPM-hovud"
 
-#: gdk-pixbuf/io-xpm.c:486
+#: gdk-pixbuf/io-xpm.c:489
 msgid "XPM file has image width <= 0"
-msgstr "XBM-biletet har breidde mindre enn eller lik null"
+msgstr "XPM-fila har ei biletbreidd på 0 eller mindre"
 
-#: gdk-pixbuf/io-xpm.c:494
+#: gdk-pixbuf/io-xpm.c:497
 msgid "XPM file has image height <= 0"
-msgstr "XBM-biletet har høgde mindre enn eller lik null"
+msgstr "XPM-fila har ei bilethøgd på 0 eller mindre"
 
-#: gdk-pixbuf/io-xpm.c:502
+#: gdk-pixbuf/io-xpm.c:514
 msgid "XPM has invalid number of chars per pixel"
 msgstr "XPM-fila har ugyldig tal på teikn per piksel"
 
-#: gdk-pixbuf/io-xpm.c:511
+#: gdk-pixbuf/io-xpm.c:523
 msgid "XPM file has invalid number of colors"
 msgstr "XPM-fila har ikkje gyldig tal fargar"
 
-#: gdk-pixbuf/io-xpm.c:523 gdk-pixbuf/io-xpm.c:532 gdk-pixbuf/io-xpm.c:584
+#: gdk-pixbuf/io-xpm.c:535 gdk-pixbuf/io-xpm.c:544 gdk-pixbuf/io-xpm.c:593
 msgid "Cannot allocate memory for loading XPM image"
-msgstr "Kan ikkje tildela minne for lasting av XPM-bilete"
+msgstr "Kan ikkje tildele minne for lasting av XPM-bilete"
 
-#: gdk-pixbuf/io-xpm.c:546
+#: gdk-pixbuf/io-xpm.c:558
 msgid "Cannot read XPM colormap"
-msgstr "Kan ikkje lesa fargekart for XPM"
+msgstr "Kan ikkje lese fargekart for XPM"
 
-#: gdk-pixbuf/io-xpm.c:778
+#: gdk-pixbuf/io-xpm.c:610
+#| msgid "Dimensions of TIFF image too large"
+msgid "Dimensions do not match data"
+msgstr "Dimensjonane samsvarar ikkje med data"
+
+#: gdk-pixbuf/io-xpm.c:806
 msgid "Failed to write to temporary file when loading XPM image"
-msgstr "Klarte ikkje å skriva til mellombels fil medan XPM-fila vart lasta"
+msgstr "Klarte ikkje skrive til mellombels fil medan XPM-fila vart lasta"
 
-#: gdk-pixbuf/io-xpm.c:817
-msgid "The XPM image format"
-msgstr "XPM-bileteformatet"
+#: gdk-pixbuf/io-xpm.c:844
+msgctxt "image format"
+msgid "XPM"
+msgstr "XPM"
+
+#~ msgid "Unsupported animation type"
+#~ msgstr "Animasjonstypen er ikkje støtta"
+
+#~ msgid "The ANI image format"
+#~ msgstr "Bileteformatet ANI"
+
+#~ msgid "The BMP image format"
+#~ msgstr "Bileteformatet BMP"
+
+#~ msgid "The EMF image format"
+#~ msgstr "Bileteformatet EMF"
+
+#~ msgid "The GIF image format"
+#~ msgstr "GIF-bileteformatet"
+
+#~ msgid "The ICO image format"
+#~ msgstr "ICO-bileteformatet"
+
+#~ msgid "The JPEG image format"
+#~ msgstr "JPEG-bileteformatet"
+
+#~ msgid "The WMF image format"
+#~ msgstr "WMF-bileteformatet"
+
+#, c-format
+#~ msgid "Internal error in the GIF loader (%s)"
+#~ msgstr "Intern feil i GIF-lastaren (%s)"
+
+#~ msgid "Stack overflow"
+#~ msgstr "Stabeloverflyt"
+
+#~ msgid "GIF image loader cannot understand this image."
+#~ msgstr "Lastar for GIF-bileta forstår ikkje dette bilete."
+
+#~ msgid "Bad code encountered"
+#~ msgstr "Fann ugyldig kode"
+
+#~ msgid "Circular table entry in GIF file"
+#~ msgstr "Sirkulær tabelloppføring i GIF-fila"
+
+#~ msgid "Not enough memory to composite a frame in GIF file"
+#~ msgstr "Ikkje nok minne til å setja saman ei ramme i GIF-fila"
+
+#~ msgid "The ICNS image format"
+#~ msgstr "ICNS-bileteformatet"
+
+#~ msgid "Icon has zero width"
+#~ msgstr "Ikonet har breidde null"
+
+#~ msgid "Icon has zero height"
+#~ msgstr "Ikonet har høgde null"
+
+#~ msgid "Couldn't allocate memory for stream"
+#~ msgstr "Kan ikkje setja av minne til straum"
+
+#~ msgid "Couldn't decode image"
+#~ msgstr "Kunne ikkje dekode bilete"
+
+#~ msgid "Transformed JPEG2000 has zero width or height"
+#~ msgstr "Transformert JPEG2000 har null breidde eller høgde."
+
+#~ msgid "Image type currently not supported"
+#~ msgstr "Biletetypen er ikkje støtta"
+
+#~ msgid "Couldn't allocate memory for color profile"
+#~ msgstr "Kan ikkje setja av minne til fargeprofil"
+
+#~ msgid "Insufficient memory to open JPEG 2000 file"
+#~ msgstr "Ikkje nok minne til å opna JPEG2000-biletet"
+
+#~ msgid "Couldn't allocate memory to buffer image data"
+#~ msgstr "Kan ikkje setja av minne til å hurtiflagra biletdata"
+
+#~ msgid "The JPEG 2000 image format"
+#~ msgstr "JPEG2000-bileteformatet"
+
+#~ msgid "Couldn't allocate memory for header"
+#~ msgstr "Kan ikkje setja av minne til hovud"
+
+#~ msgid "Couldn't allocate memory for context buffer"
+#~ msgstr "Kan ikkje setja av minne til kontekstmellomlager"
+
+#~ msgid "Image has invalid width and/or height"
+#~ msgstr "Biletet har ugyldig høgde og/eller breidde"
+
+#~ msgid "Image has unsupported bpp"
+#~ msgstr "Biletet har eit ustøtta tal på bitar per piksel"
+
+#, c-format
+#~ msgid "Image has unsupported number of %d-bit planes"
+#~ msgstr "Biletet har eit ustøtta tal på %d-bit-plan"
+
+#~ msgid "Couldn't create new pixbuf"
+#~ msgstr "Kan ikkje laga nytt pixbuf"
+
+#~ msgid "Couldn't allocate memory for line data"
+#~ msgstr "Kan ikkje setja av minne til linjedata"
+
+#, fuzzy
+#~ msgid "Couldn't allocate memory for PCX image"
+#~ msgstr "Kan ikkje setja av minne til hovud"
+
+#~ msgid "Didn't get all lines of PCX image"
+#~ msgstr "Fekk ikkje alle linjene i PCX-biletet"
+
+#~ msgid "No palette found at end of PCX data"
+#~ msgstr "Fann ikkje nokon palett på slutten av PCX-data"
+
+#~ msgid "The PCX image format"
+#~ msgstr "Bileteformatet PCX"
+
+#, fuzzy
+#~ msgid "Transformed pixbuf has zero width or height."
+#~ msgstr "Transformert PNG har null breidde eller høgde."
+
+#, fuzzy
+#~ msgid "The GdkPixdata format"
+#~ msgstr "GIF-bileteformatet"
+
+#, c-format
+#~ msgid ""
+#~ "PNG compression level must be a value between 0 and 9; value '%s' could "
+#~ "not be parsed."
+#~ msgstr ""
+#~ "Nivået til PNG-komprimeringa må vera ein verdi mello 0 og 9; verdi «%s» "
+#~ "kan ikkje brukast."
+
+#~ msgid "The PNG image format"
+#~ msgstr "PNG-bileteformatet"
+
+#~ msgid "The PNM/PBM/PGM/PPM image format family"
+#~ msgstr "PNM/PBM/PGM/PPM-bileteformatfamilien"
+
+#, fuzzy
+#~ msgid "The QTIF image format"
+#~ msgstr "TIFF-bileteformatet"
+
+#~ msgid "RAS image has bogus header data"
+#~ msgstr "RAS-biletet har ugyldige data i headeren"
+
+#~ msgid "RAS image has unknown type"
+#~ msgstr "RAS-biletet har ukjent type"
+
+#~ msgid "unsupported RAS image variation"
+#~ msgstr "Biletevariasjonen i RAS-biletet er ikkje støtta"
+
+#~ msgid "Not enough memory to load RAS image"
+#~ msgstr "Ikkje nok minne til å lasta RAS-bilete"
+
+#~ msgid "The Sun raster image format"
+#~ msgstr "Sun raster-bileteformat"
+
+#~ msgid "Cannot allocate memory for IOBuffer struct"
+#~ msgstr "Kan ikkje tildela minne for IOBuffer-struct"
+
+#~ msgid "Cannot allocate memory for IOBuffer data"
+#~ msgstr "Kan ikkje tildela minne for IOBuffer-data"
+
+#~ msgid "Cannot realloc IOBuffer data"
+#~ msgstr "Kan ikkje køyra realloc for IOBuffer-data"
+
+#~ msgid "Cannot allocate temporary IOBuffer data"
+#~ msgstr "Kan ikkje tildela mellombelse IOBuffer-data"
+
+#, fuzzy
+#~ msgid "Image is corrupted or truncated"
+#~ msgstr "GIF-biletet var avkutta eller ufullstendig."
+
+#~ msgid "Cannot allocate colormap structure"
+#~ msgstr "Kan ikkje tildela struktur for fargekart"
+
+#~ msgid "Excess data in file"
+#~ msgstr "Overflødige data i fila"
+
+#~ msgid "The Targa image format"
+#~ msgstr "Targa-bileteformatet"
+
+#~ msgid "TIFFClose operation failed"
+#~ msgstr "TIFFClose-operasjonen feila"
+
+#~ msgid "The TIFF image format"
+#~ msgstr "TIFF-bileteformatet"
+
+#~ msgid "Image has zero height"
+#~ msgstr "Biletet har null høgde"
+
+#~ msgid "Not enough memory to load image"
+#~ msgstr "Ikkje nok minne til å lasta bilete"
+
+#~ msgid "Couldn't save the rest"
+#~ msgstr "Kunne ikkje lagra resten"
+
+#~ msgid "The WBMP image format"
+#~ msgstr "WBMP-bileteformatet"
+
+#~ msgid "The XBM image format"
+#~ msgstr "XBM-bileteformatet"
+
+#~ msgid "The XPM image format"
+#~ msgstr "XPM-bileteformatet"
 
 # TRN: Kva er "paletted" data?
 #~ msgid "Couldn't allocate memory for paletted data"
