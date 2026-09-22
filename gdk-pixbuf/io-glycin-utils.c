@@ -30,6 +30,7 @@
 
 #include <gio/gio.h>
 #include <errno.h>
+
 #include "gdk-pixbuf-core.h"
 #include "gdk-pixbuf-io.h"
 #include "gdk-pixbuf-animation.h"
@@ -85,6 +86,51 @@ g_file_from_file (FILE    *f,
     }
 
   return g_file_new_for_path (filename);
+}
+
+#elif defined (G_OS_WIN32)
+
+#if (defined (HAVE__SET_THREAD_LOCAL_INVALID_PARAMETER_HANDLER) || \
+     defined (HAVE__SET_INVALID_PARAMETER_HANDLER)) && \
+    defined (HAVE__CRT_SET_REPORT_MODE)
+#define USE_INVALID_PARAMETER_HANDLER
+
+/*
+ * This is the (empty) invalid parameter handler
+ * that is used for Visual C++ 2005 (and later) builds
+ * so that we can use this instead of the system automatically
+ * aborting the process, when calling _get_osfhandle(), _fileno()
+ * and so on with an invalid file descriptor or FILE*.
+ *
+ * This is necessary so that we can continue without obstructing the
+ * code flow when we try to obtain a GFile* from a FILE* on Windows,
+ * which is needed for Glycin to operate.
+ *
+ * Please see https://learn.microsoft.com/en-us/cpp/c-runtime-library/parameter-validation?view=msvc-170
+ * for an explanation on this.
+ */
+static void
+dummy_invalid_param_handler (const wchar_t *expression,
+                             const wchar_t *function,
+                             const wchar_t *file,
+                             unsigned int   line,
+                             uintptr_t      pReserved)
+{
+}
+
+#ifndef HAVE__SET_THREAD_LOCAL_INVALID_PARAMETER_HANDLER
+#define _set_thread_local_invalid_parameter_handler _set_invalid_parameter_handler
+#endif
+#endif
+
+static GFile *
+g_file_from_file (FILE    *f,
+                  GError **error)
+{
+  g_set_error_literal (error,
+                       G_IO_ERROR, G_IO_ERROR_FAILED,
+                       "Failed to wrap FILE in GFile");
+  return NULL;
 }
 #else
 static GFile *
