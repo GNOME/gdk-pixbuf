@@ -261,6 +261,19 @@ if glycin_opt.disabled()
   glycin_dep = disabler()
 else
   glycin_dep = dependency('glycin-2', version: '>= 2.2.alpha.7', required: glycin_opt)
+  if host_machine.system() == 'windows'
+    # Check whether we support overriding the invalid parameter handler on Windows for _get_osfhandle(),
+    # _fileno(), etc. We use these functions to create a GFile* from a FILE* on Windows
+    if cc.has_function('_set_thread_local_invalid_parameter_handler', prefix: '#include <stdlib.h>')
+      gdk_pixbuf_conf.set('HAVE__SET_THREAD_LOCAL_INVALID_PARAMETER_HANDLER', 1)
+    endif
+    if cc.has_function('_set_invalid_parameter_handler', prefix: '#include <stdlib.h>')
+      gdk_pixbuf_conf.set('HAVE__SET_INVALID_PARAMETER_HANDLER', 1)
+    endif
+    if cc.has_header_symbol('crtdbg.h', '_CrtSetReportMode')
+      gdk_pixbuf_conf.set('HAVE__CRT_SET_REPORT_MODE', 1)
+    endif
+  endif
 endif
 
 # Check which loaders should be built into gdk-pixbuf
