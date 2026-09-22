@@ -31,6 +31,14 @@
 #include <gio/gio.h>
 #include <errno.h>
 
+#ifdef G_OS_WIN32
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <crtdbg.h>
+#include <io.h> /* _fileno() */
+#include <stdlib.h> /* _set_[thread_local_]invalid_parameter_handler() */
+#endif
+
 #include "gdk-pixbuf-core.h"
 #include "gdk-pixbuf-io.h"
 #include "gdk-pixbuf-animation.h"
@@ -127,9 +135,84 @@ static GFile *
 g_file_from_file (FILE    *f,
                   GError **error)
 {
-  g_set_error_literal (error,
-                       G_IO_ERROR, G_IO_ERROR_FAILED,
-                       "Failed to wrap FILE in GFile");
+  HANDLE h_file = INVALID_HANDLE_VALUE;
+  int fd;
+  gboolean cont = TRUE;
+
+#ifdef USE_INVALID_PARAMETER_HANDLER
+  /* use the dummy invalid parameter handler to override the default invalid parameter_handler */
+  _invalid_parameter_handler old_handler =
+    _set_thread_local_invalid_parameter_handler (dummy_invalid_param_handler);
+  /* Disable the message box for assertions */
+  int old_report_mode = _CrtSetReportMode(_CRT_ASSERT, 0);
+#endif
+
+  fd = _fileno (f);
+  if (fd == -1)
+    {
+      g_set_error_literal (error,
+                           G_IO_ERROR, G_IO_ERROR_FAILED,
+                           "Failed to get the fd");
+      cont = FALSE;
+    }
+
+  if (cont)
+    {
+      h_file = (HANDLE)_get_osfhandle (fd);
+      if (h_file == INVALID_HANDLE_VALUE)
+        {
+          g_set_error_literal (error,
+                               G_IO_ERROR, G_IO_ERROR_FAILED,
+                               "Failed to get the file HANDLE");
+          cont = FALSE;
+        }
+    }
+
+#ifdef USE_INVALID_PARAMETER_HANDLER
+  /* Restore any existing parameter_handler that was overridden just now*/
+  _set_thread_local_invalid_parameter_handler (old_handler);
+  /* Restore the message box for assertions */
+  _CrtSetReportMode(_CRT_ASSERT, old_report_mode);
+#endif
+
+  if (h_file != INVALID_HANDLE_VALUE)
+    {
+      GFile *file = NULL;
+      int path_size = 0;
+      wchar_t *path_w;
+      wchar_t blah[3];
+      char *path = NULL;
+
+      path_size = GetFinalPathNameByHandleW (h_file, NULL, 0, FILE_NAME_NORMALIZED | VOLUME_NAME_DOS);
+      if (path_size != 0)
+        {
+          path_w = g_malloc (path_size + 1);
+          path_size = GetFinalPathNameByHandleW (h_file, path_w,
+                                                 path_size + 1,
+                                                 FILE_NAME_NORMALIZED | VOLUME_NAME_DOS);
+        }
+
+      if (path_size != 0)
+        {
+          char *path_no_prefix;
+
+          path = g_utf16_to_utf8 (path_w, -1, NULL, NULL, NULL); /* path has a "\\?\" prefix */
+          path_no_prefix = g_utf8_substring (path, 4, -1);
+          file = g_file_new_for_path (path_no_prefix);
+          g_free (path_no_prefix);
+        }
+      else
+        {
+          g_set_error_literal (error,
+                               G_IO_ERROR, G_IO_ERROR_FAILED,
+                               "Failed to get the file name");
+        }
+
+      g_clear_pointer (&path, g_free);
+      g_clear_pointer (&path_w, g_free);
+      return file;
+    }
+
   return NULL;
 }
 #else
