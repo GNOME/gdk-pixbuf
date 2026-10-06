@@ -127,7 +127,7 @@ gdk_pixbuf__tiff_image_save_to_callback (GdkPixbufSaveFunc   save_func,
   int y_dpi = 0;
   gboolean ret;
 
-  if (!filter_keys (keys, values, &icc_data, &x_dpi, y_dpi, error))
+  if (!filter_keys (keys, values, &icc_data, &x_dpi, &y_dpi, error))
     return FALSE;
 
   ret = glycin_image_save ("image/tiff", NULL, save_func, user_data,
