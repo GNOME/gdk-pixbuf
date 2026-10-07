@@ -201,8 +201,9 @@ Closes: https://gitlab.gnome.org/GNOME/glib/issues/1234
 
 Once you're done with your work, you should commit it, push it to a remote
 repository, and open a Merge Request against the GdkPixbuf upstream
-repository. Follow the [GitLab workflow page](https://wiki.gnome.org/GitLab/)
-on the GNOME wiki for further instructions.
+repository. Follow the
+[Development guide](https://handbook.gnome.org/development.html)
+in the GNOME Handbook for further instructions.
 
 Once you opened a Merge Request, the GdkPixbuf maintainers will review your
 contribution.
