@@ -1525,7 +1525,7 @@ gdk_pixbuf_constructed (GObject *object)
 
         case STORAGE_BYTES: {
                 gsize bytes_size;
-                gint width, height;
+                gsize width, height;
                 gboolean has_alpha;
 
                 g_assert (pixbuf->s.bytes.bytes != NULL);
